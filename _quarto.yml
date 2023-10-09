@@ -1,0 +1,37 @@
+project:
+  type: book
+
+book:
+  title: "The {traits.build} standard, R package and workflow manual"
+  author: ["Elizabeth Wenk", "Daniel Falster", "Sophie Yang"]
+  page-footer: "How to get help: <https://traitecoevo.github.io/traits.build-book/help.html><br>Copyright 2023, Daniel Falster and Elizabeth Wenk" 
+
+  chapters:
+    - index.qmd
+    - part: "Why {traits.build}?"
+      chapters:
+        - motivation.qmd
+        - workflow.qmd
+        - austraits_experience.qmd
+    - part: The `traits.build` data structure 
+      chapters:
+        - data_structure.qmd
+        - dictionary.qmd
+    - part: Using `traits.build`
+      chapters:
+        - traits_build.qmd
+        - adding_data.qmd
+    - part: Tutorials
+      chapters:
+        - tutorial.qmd
+
+  appendices:
+    - motivation.qmd
+  
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+

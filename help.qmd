@@ -1,0 +1,79 @@
+# Help {#help}
+
+(Note: this )
+
+This chapter explains how to ask for help. Questions can range from [detailed troubleshooting](XXXX) to [general advice](XXX). To ensure a constructive dialogue, please read this entire page before reaching out. Thank you for respecting the time and effort it takes to provide one-on-one support.
+
+:::{.callout-note}
+
+## Summary
+
+Before you post a question, please work through the steps explained in this chapter.
+
+* Follow the code of conduct.
+* Search existing posts.
+* Update your R packages.
+* If troubleshooting:
+    * Attribute the error.
+    * Write a reprex.
+:::
+
+## Before you post
+
+### Code of conduct
+
+While this project is not part of ropensci, we will adopt their [code of conduct](https://ropensci.org/code-of-conduct/). Please read it before engaging in discussion.
+
+### Search existing issues
+
+Please check if your question already has an answer. You can search the [GitHub Repositories:
+
+- [traits.build-book](https://github.com/traitecoevo/traits.build-book/issues)
+- [traits.build](https://github.com/traitecoevo/traits.build/issues)
+- [austraits.build](https://github.com/traitecoevo/austraits.build/issues)
+
+### Try troubleshooting
+
+For specific errors or other issues, please read this chapter's section on troubleshooting. Please try to work through the steps yourself before posting a question.
+
+## Troubleshooting
+
+It is okay to reach out if you are struggling to solve a specific problem in a specific project: an error message, a part of the code you are not sure how to write, or any experience with `traits.build` that is incorrect, unwelcome, unexpected, or confusing. However, please follow the guidelines below and take an active role in the troubleshooting process.
+
+### Update your R packages
+
+If the error is a bug in `traits.build` or `austraits`, it is possible the bug has already been fixed in a newer version. Before posting, please try again with the latest CRAN release of `traits.build` (or `austraits`), then again with the GitHub development version if needed. Please see <http://traitecoevo.github.io/traits.build/#installation> for installation instructions.
+
+### Attribute the error
+
+The `traits.build` package itself is often not usually the cause of problems that arise in `traits.build` pipelines. Most issues come from the user-defined R code, or data files that the pipeline calls, as well as other R packages on your system.  So before you post a question, please attempt to troubleshoot and figure out if `traits.build` is actually the source of the trouble, or if the error comes from another package or your own code. The tips in the [debugging chapter](#debugging) may help. If the culprit turns out to be a non-`traits.build` issue, then please ask your question in a non-`traits.build` forum and write the question accordingly.
+
+### Write a reprex
+
+To set up the discussion for success, please provide the complete context of the problem, including a reprex. The purpose of a reprex, or reproducible example^[Also known as a minimal reproducible example or minimal working example.], is to eliminate the knowledge gaps, misunderstandings, and hidden assumptions where bugs hide. A reprex is a sample of complete, self-contained, runnable code that fully emulates and reproduces the problem. The code should [look clean and readable](https://style.tidyverse.org/), be as short and concise as possible, run in as few seconds as possible, and contain only the details most relevant to troubleshooting. You can embed the code inline in your question, or you can upload it to a public repository and post the link. Regardless, please expect that anyone trying to help will read all the code and run the enclosed `_targets.R` file on their own private computer. This process is hands-on and empirical, so please make it as quick and easy as possible for the people who volunteer their valuable time and energy to answer questions.
+
+The following posts explain how to write a good reprex.
+
+  * <https://stackoverflow.com/help/minimal-reproducible-example>
+  * <https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example>
+  * <https://reprex.tidyverse.org/>
+  * <https://www.tidyverse.org/blog/2017/12/workflow-vs-script/>
+
+
+## Contact {#sec-contact}
+
+There are many ways to reach out.
+
+### Maintainer
+
+To contact the maintainer directly, please post to the relevant public [GitHub Discussions](https://github.com/features/discussions) page of the package.^[You may need to create a free [GitHub](https://github.com/) account, but the process is straightforward.] Examples:
+
+* `traits.build`: <https://github.com/ropensci/targets/discussions>
+* `austraits`: <https://github.com/ropensci/tarchetypes/discussions>
+
+
+GitHub makes it easy to search for and link to public discussions. Not only does this help users solve their own problems, it also helps the maintainer avoid repetition. So please use discussions instead of private emails, instant messages, or mentions on social media.
+
+## Acknowledgements and copyright
+
+This page was adapted from a corresponding file for the targets package, with text by Will Landau. The original file is available at <https://github.com/ropensci-books/targets/blob/main/help.qmd>. Text adapted from that page is under copy right specified in that package <https://github.com/ropensci-books/targets/blob/main/LICENSE.md>.

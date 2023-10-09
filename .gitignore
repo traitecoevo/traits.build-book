@@ -1,0 +1,11 @@
+*.code-workspace
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+_book
+_targets.R
+_targets/
+_freeze
+
+/.quarto/

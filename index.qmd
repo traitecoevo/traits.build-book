@@ -1,0 +1,19 @@
+# Introduction {#intro}
+
+XXX
+
+## Motivation {#motivation}
+
+XXX 
+
+## The `traits.build` data structure {#traits-build-standard}
+
+XXXX 
+
+## The `traits.build` package {#traits-build-package}
+
+XXXX
+
+## About this manual
+
+This manual is a step-by-step user guide to [`traits.build`](http://traitecoevo.github.io/traits.build/). The most important chapters are the [walkthrough](#walkthrough), [help guide](#help), and [debugging guide](#debugging). Subsequent chapters explain how to XXXX, and more. See the [documentation website](http://traitecoevo.github.io/traits.build/index.html) for most other major resources, including [installation instructions](http://traitecoevo.github.io/traits.build/index.html#installation), links to [example projects](http://traitecoevo.github.io/traits.build/index.html#examples), and a [reference page with all user-side functions](http://traitecoevo.github.io/traits.build/reference/index.html). 

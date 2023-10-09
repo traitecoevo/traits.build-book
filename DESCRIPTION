@@ -1,0 +1,38 @@
+Package: traits.build.manual
+Title: Traits.build R Package User Manual
+Description: This repository is the traits.build R package user manual.
+  It contains in-depth discussion and walkthroughs
+  of the main features of 'targets' and advice about best practices.
+  The goal is to introduce new users to 'targets' and instill
+  a thorough understanding of what it does, how it works,
+  and when to use it. The manual is implemented as a typical
+  'bookdown' project with a single '_quarto.yml' file at the top level
+  and one R Markdown source file for each chapter. End users
+  are encouraged to read the rendered output at
+  <https://traitecoevo.github.io/traits.build-book>.
+Version: 0.1.0
+URL: https://traitecoevo.github.io/traits.build-book
+BugReports: https://github.com/traitecoevo/traits.build-book/issues
+Maintainer: Daniel Falster <daniel.falster@unsw.edu.au>
+Authors@R: c(
+    person(given = "Daniel", family = "Falster", role = c("cre", "aut"), email = "daniel.falster@unsw.edu.au", comment = c(ORCID = "0000-0002-9814-092X")),
+    person(given = "Elizabeth", family = "Wenk", role = c("cur", "aut"),  comment = c(ORCID = "0000-0001-5640-5910")),
+    person("ARDC", role = c("fnd")),
+    person("ARC", role = c("fnd"))
+    )
+License: MIT + file LICENSE
+Depends:
+    R (>= 4.2.0),
+    austraits
+Suggests:
+  knitr (>= 1.30),
+  rmarkdown (>= 2.4),
+  testthat (>= 2.3.2)
+Remotes:
+    traitecoevo/traits.build@develop,
+    traitecoevo/austraits@develop,
+Encoding: UTF-8
+Language: en-UK
+Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr
+RoxygenNote: 7.2.3
