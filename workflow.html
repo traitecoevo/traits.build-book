@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} standard, R package and workflow manual - 3&nbsp; Worklfow</title>
+<title>The {traits.build} standard, R package and workflow manual - 3&nbsp; traits.build workflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,7 +30,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./austraits_experience.html" rel="next">
+<link href="./usage_examples.html" rel="next">
 <link href="./motivation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -108,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./workflow.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Worklfow</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./workflow.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">traits.build workflow</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -145,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About this manual</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started with traits.build</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -157,13 +123,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Worklfow</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">traits.build workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./usage_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Usage examples</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_experience.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The AusTraits experience</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The AusTraits experience</span></span></a>
   </div>
 </li>
       </ul>
@@ -171,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">traits.build data standard</span></a>
+ <span class="menu-text">About the traits.build data standard</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -179,8 +151,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The traits.build data structure</span></span></a>
+  <a href="./database_structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The traits.build data structure</span></span></a>
   </div>
 </li>
       </ul>
@@ -197,26 +169,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">traits.build</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">traits.build</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./compilation_file_structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Compilation file structure</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./adding_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Adding data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Adding new datasets into AusTraits</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dictionary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dictionary</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Using the outputs from `traits.build` - using_data.qmd</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Using the outputs from <code>traits.build</code></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./using_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Using data from a traits.build compilation</span></span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -229,8 +220,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Tutorial</span></span></a>
+  <a href="./tutorials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_compilation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tutorial: Using the template example</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_4</span></span></a>
   </div>
 </li>
       </ul>
@@ -246,14 +267,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+  <a href="./help.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Help</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Help</span></span></a>
+  <a href="./troubleshooting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Troubleshooting traits.build</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
       </ul>
@@ -270,7 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./yaml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Yaml</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Yaml files</span></span></a>
   </div>
 </li>
       </ul>
@@ -281,14 +308,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#our-database-structure-and-workflow" id="toc-our-database-structure-and-workflow" class="nav-link active" data-scroll-target="#our-database-structure-and-workflow"><span class="header-section-number">3.1</span> Our database structure and workflow</a>
+  <ul class="collapse">
+  <li><a href="#output-structure" id="toc-output-structure" class="nav-link" data-scroll-target="#output-structure"><span class="header-section-number">3.1.1</span> Output structure</a></li>
+  <li><a href="#conceptual-framework" id="toc-conceptual-framework" class="nav-link" data-scroll-target="#conceptual-framework"><span class="header-section-number">3.1.2</span> Conceptual framework</a></li>
+  </ul></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources"><span class="header-section-number">3.2</span> Data sources</a></li>
+  <li><a href="#standardising-and-harmonising-data" id="toc-standardising-and-harmonising-data" class="nav-link" data-scroll-target="#standardising-and-harmonising-data"><span class="header-section-number">3.3</span> Standardising and harmonising data</a></li>
+  <li><a href="#referencing-sources-and-recording-methods" id="toc-referencing-sources-and-recording-methods" class="nav-link" data-scroll-target="#referencing-sources-and-recording-methods"><span class="header-section-number">3.4</span> Referencing sources and recording methods</a></li>
+  <li><a href="#error-checking" id="toc-error-checking" class="nav-link" data-scroll-target="#error-checking"><span class="header-section-number">3.5</span> Error checking</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Worklfow</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">traits.build workflow</span></h1>
 </div>
 
 
@@ -303,15 +344,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>In summary, this book has no content whatsoever.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
+<p>This chapter provides an overview of our workflow, to demonstrate our commitment to creating a reliable, reproducible resource for anyone interested in plant traits.</p>
+<section id="our-database-structure-and-workflow" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="our-database-structure-and-workflow"><span class="header-section-number">3.1</span> Our database structure and workflow</h2>
+<p>traits.build can be viewed through two lenses, its output structure and its underlying conceptual framework.</p>
+<section id="output-structure" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="output-structure"><span class="header-section-number">3.1.1</span> Output structure</h3>
+<p>traits.build is a relational database. There is a core traits table, supported by ancillary tables that document location properties (include latitude &amp; longitude), context properties, dataset and measurement methods, taxon concepts, contributor details, and sources. All tables are stored in long format, such that there is a single column that includes all trait names (or location properties, or context properties) and column for trait values.</p>
+<p>A series of identifiers, including both textual fields (i.e.&nbsp;taxon_name, trait_name, dataset_id) and numeric identifiers link the ancillary tables to the traits table. The many numeric identifiers are overwhelming until you consider the conceptual framework, or mindmap, that underpins traits.build. They include: observation_id, population_id, individual_id, temporal_id, location_id, entity_context_id, plot_id, and source_id.</p>
+<p>Storing the resource as a relational table greatly reduces file sizes and facilitates searching for a particular metadata field</p>
+</section>
+<section id="conceptual-framework" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="conceptual-framework"><span class="header-section-number">3.1.2</span> Conceptual framework</h3>
+<p>traits.build’s database structure effectively captures the complexities inherent to ecological data. Each dataset is unique, with measurements recorded on different entities (individuals, populations, species), in specific locations, and under countless environmental and experimental conditions, the so-called context of a measurement. The context offers essential meaning to each trait value. An ecological database must effectively capture all relevant contexts or the accompanying trait measurements lose much of their value.</p>
+<p>traits.build is designed around the concept of an <strong>observation</strong>, a collection of measurements of different traits made at a specific point in time on a specific <strong>entity</strong>. OBOE, the Extensible Observation Ontology, first developed this conceptual framework, explicitly for complex ecological datasets. An <strong>observation_id</strong> links the measurements made on different traits that comprise a single observation. Measurements made at different points in time, on different entities, at different locations, or under different contextual conditions require unique <strong>observation_id</strong> values. The additional identifiers in the traits table (and the ancillary tables) were developed to ensure that unique observation_ids were generated for distinct observations, per this framework.</p>
+<p>Within a dataset, observation_id’s are generated for unique combinations of the fields: <strong>taxon_name</strong>, <strong>population_id</strong>, <strong>individual_id</strong>, <strong>temporal_id</strong>, <strong>entity_type</strong>, and <strong>source_id</strong>. For instance, if measurements are made on the same individual during the wet versus dry season, the two observations will share an <strong>individual_id</strong> but have distinct <strong>temporal_id</strong> values, and therefore have distinct <strong>observation_id</strong>’s. See <a href="https://github.com/traitecoevo/traits.build/blob/develop/inst/support/traits.build_schema.yml">traits.build schema</a> for definitions of identifiers</p>
+</section>
+</section>
+<section id="data-sources" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="data-sources"><span class="header-section-number">3.2</span> Data sources</h2>
+<p>The data in a <code>traits.build</code> compilation is derived from distinct sources, each contributed by an individual researcher, government entity (e.g.&nbsp;herbaria), or NGO. Each reflects the research agenda of the individual/organisation who contributed the data - the species selected, traits measured, manipulative treatments performed, and locations sampled encompass the diversity of research interests present in Australia throughout past decades. These datasets use different variable trait names, units and methods and have different data structures.</p>
+</section>
+<section id="standardising-and-harmonising-data" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="standardising-and-harmonising-data"><span class="header-section-number">3.3</span> Standardising and harmonising data</h2>
+<p>To create a single database for distribution to the research community, we developed a reproducible and transparent workflow in R for merging each dataset into AusTraits. The pipeline ensures the following information is standardised across all datasets in AusTraits. A <code>metadata</code> file for each study documents how the <code>data tables</code> submitted by an individual contributor are translated into the standardised terms used in the AusTraits database.</p>
+<ul>
+<li><strong>taxonomic nomenclature</strong> follows the Australian Plant Census (APC), with a pipeline to update outdated taxonomy, correct minor spelling mistakes, and align with a known genus when a full species names isn’t provided.<br>
+</li>
+<li><strong>trait names</strong> are defined in our <code>traits.yml</code> file and only data for traits included in this file can be merged into AusTraits. The trait names used in the incoming dataset are mapped onto the appropriate AusTraits trait name.</li>
+<li>For <strong>numeric traits</strong> the <code>traits.yml</code> file includes <code>units</code> and the allowable <code>range</code> of values. All incoming data are converted to the appropriate units and data outside the range of allowable values are removed from the main AusTraits data table.</li>
+<li>For <strong>categorical traits</strong> the <code>traits.yml</code> file includes a list of allowable <code>values</code>, allowed terms for the trait. Each categorical trait value is defined in the <code>traits.yml</code> file. Lists of substitutions translate the exact syntax and terms in a submitted dataset into the values allowed by AusTraits. This ensures that for a certain trait the same <code>value</code> has an identical meaning throughout the AusTraits database.</li>
+<li>Site locations are recorded in decimal degrees.</li>
+</ul>
+</section>
+<section id="referencing-sources-and-recording-methods" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="referencing-sources-and-recording-methods"><span class="header-section-number">3.4</span> Referencing sources and recording methods</h2>
+<p>The <code>metadata</code> file also includes all metadata associated with the study:</p>
+<ul>
+<li>The source information for each dataset is recorded. Most frequently, these are the primary publications derived from the dataset.</li>
+<li>People associated with the collection of the data are listed, including their role in the project.</li>
+<li>Collection methods are included.</li>
+<li>Fields capture value type (mean, min, max, mode, range, bin) and associated replicate numbers, basis of value (measurement, expert_score, model_derived), entity type (species, population, individual), life stage (adult, juvenile,sapling, seedling), basis of record (field, field_experiment, preserved_specimen, captive_cultivated, lab, literature), and any additional measurement remarks.</li>
+<li>Available data on location properties are recorded.</li>
+<li>Available data on plot and treatment contextual properties are recorded.</li>
+<li>A context field, temporal_context_id, indicates if repeat measures were made on the same individual over time.</li>
+<li>A context field, method_context_id, indicates if the same trait was measured using multiple methods.</li>
+<li>Collection date is recorded.</li>
+</ul>
+</section>
+<section id="error-checking" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="error-checking"><span class="header-section-number">3.5</span> Error checking</h2>
+<ul>
+<li>The AusTraits data curator runs a series of <strong>tests</strong> on each data set, detailed in the <a href="http://traitecoevo.github.io/traits.build/articles/adding_data.html">adding data vignette</a></li>
+<li>These tests identify <strong>misaligned units</strong>, <strong>unrecognised taxon names</strong>, and <strong>unsupported categorical trait values</strong></li>
+<li>These tests also identify and eliminate <em>most</em> <strong>duplicate data</strong> - instances where the same numeric trait data is submitted by multiple people</li>
+<li>Each dataset is then compiled into a <strong>report</strong> which summarises metadata and plots/charts trait values in comparison to other measurements of that trait in AusTraits. The report is reviewed by the data contributor to ensure metadata is complete and data values are as expected.</li>
+<li>A second member of the AusTraits team double checks each dataset before it is merged into the main repository.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -554,8 +646,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./austraits_experience.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The AusTraits experience</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./usage_examples.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Usage examples</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

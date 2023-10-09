@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>The {traits.build} standard, R package and workflow manual - 15&nbsp; Tutorial for adding dataset: tutorial_dataset_2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./tutorial_dataset_3.html" rel="next">
+<link href="./tutorial_dataset_1.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorials.html">Tutorials</a></li><li class="breadcrumb-item"><a href="./tutorial_dataset_2.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_2</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">The {traits.build} standard, R package and workflow manual</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started with traits.build</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./motivation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Motivation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">traits.build workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./usage_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Usage examples</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./austraits_experience.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The AusTraits experience</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">About the traits.build data standard</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./database_structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The traits.build data structure</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Using <code>traits.build</code> to build a compliation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./traits_build.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">traits.build</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./compilation_file_structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Compilation file structure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./adding_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Adding new datasets into AusTraits</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dictionary</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Using the outputs from <code>traits.build</code></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./using_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Using data from a traits.build compilation</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_compilation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tutorial: Using the template example</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_4</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">Troubleshooting</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./help.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Help</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./troubleshooting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Troubleshooting traits.build</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./yaml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Yaml files</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">15.1</span> Overview</a>
+  <ul class="collapse">
+  <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals"><span class="header-section-number">15.1.1</span> Goals</a></li>
+  <li><a href="#new-functions-introduced" id="toc-new-functions-introduced" class="nav-link" data-scroll-target="#new-functions-introduced"><span class="header-section-number">15.1.2</span> New Functions Introduced</a></li>
+  </ul></li>
+  <li><a href="#adding-tutorial_dataset_2" id="toc-adding-tutorial_dataset_2" class="nav-link" data-scroll-target="#adding-tutorial_dataset_2"><span class="header-section-number">15.2</span> Adding tutorial_dataset_2</a>
+  <ul class="collapse">
+  <li><a href="#ensure-the-dataset-folder-contains-the-correct-data-files" id="toc-ensure-the-dataset-folder-contains-the-correct-data-files" class="nav-link" data-scroll-target="#ensure-the-dataset-folder-contains-the-correct-data-files"><span class="header-section-number">15.2.1</span> Ensure the dataset folder contains the correct data files</a></li>
+  <li><a href="#source-necessary-functions" id="toc-source-necessary-functions" class="nav-link" data-scroll-target="#source-necessary-functions"><span class="header-section-number">15.2.2</span> source necessary functions</a></li>
+  <li><a href="#use-functions-to-create-a-metadata.yml-file" id="toc-use-functions-to-create-a-metadata.yml-file" class="nav-link" data-scroll-target="#use-functions-to-create-a-metadata.yml-file"><span class="header-section-number">15.2.3</span> Use functions to create a metadata.yml file</a></li>
+  <li><a href="#manual-filling-in-of-metadata" id="toc-manual-filling-in-of-metadata" class="nav-link" data-scroll-target="#manual-filling-in-of-metadata"><span class="header-section-number">15.2.4</span> Manual filling in of metadata</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_2</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="overview" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">15.1</span> Overview</h2>
+<p>This is the second of five tutorials on adding datasets to your traits.build database.</p>
+<p>Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in <code>traits.build-template</code>. Instructions are available at [XX]https://xx}</p>
+<section id="goals" class="level3" data-number="15.1.1">
+<h3 data-number="15.1.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">15.1.1</span> Goals</h3>
+<ul>
+<li><p>Learn how to <a href="#locations">merge in location data from a standalone spreadsheet</a>.</p></li>
+<li><p>Learn how to <a href="#categorical_substitutions">add substitutions for categorical trait values</a>.</p></li>
+<li><p>Learn how to <a href="#custom_R_code">add custom R code</a> to the metadata file.</p></li>
+<li><p>Understand the importance of <a href="#correct_entity_type">attributing traits to the correct entity_type</a>.</p></li>
+<li><p>Understand the importance of having the <a href="#dataset_pivot">dataset pivot</a>.</p></li>
+</ul>
+</section>
+<section id="new-functions-introduced" class="level3" data-number="15.1.2">
+<h3 data-number="15.1.2" class="anchored" data-anchor-id="new-functions-introduced"><span class="header-section-number">15.1.2</span> New Functions Introduced</h3>
+<ul>
+<li><p>metadata_add_substitution</p></li>
+<li><p>metadata_add_substitutions_list</p></li>
+<li><p>metadata_check_custom_R_code</p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="adding-tutorial_dataset_2" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="adding-tutorial_dataset_2"><span class="header-section-number">15.2</span> Adding tutorial_dataset_2</h2>
+<section id="ensure-the-dataset-folder-contains-the-correct-data-files" class="level3" data-number="15.2.1">
+<h3 data-number="15.2.1" class="anchored" data-anchor-id="ensure-the-dataset-folder-contains-the-correct-data-files"><span class="header-section-number">15.2.1</span> Ensure the dataset folder contains the correct data files</h3>
+<p>In the traits.build-template repository, there is a folder titled <code>tutorial_dataset_2</code> within the data folder.&nbsp;</p>
+<ul>
+<li><p>Ensure that this folder exists on your computer.&nbsp;</p></li>
+<li><p>The file <code>data.csv</code> exists within the <code>tutorial_dataset_2</code> folder.&nbsp;</p></li>
+<li><p>There is a folder <code>raw</code> nested within the <code>tutorial_dataset_2</code> folder, that contains two files, <code>locations.csv</code> and <code>notes.txt</code>.&nbsp;</p></li>
+</ul>
+</section>
+<section id="source-necessary-functions" class="level3" data-number="15.2.2">
+<h3 data-number="15.2.2" class="anchored" data-anchor-id="source-necessary-functions"><span class="header-section-number">15.2.2</span> source necessary functions</h3>
+<ul>
+<li>You’ll need to both source the traits.build functions and some ancillary functions that are in a file in the scripts folder:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(traits.build)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/custom_R_code.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="use-functions-to-create-a-metadata.yml-file" class="level3" data-number="15.2.3">
+<h3 data-number="15.2.3" class="anchored" data-anchor-id="use-functions-to-create-a-metadata.yml-file"><span class="header-section-number">15.2.3</span> Use functions to create a metadata.yml file</h3>
+<section id="create-a-metadata-template" class="level4" data-number="15.2.3.1">
+<h4 data-number="15.2.3.1" class="anchored" data-anchor-id="create-a-metadata-template"><span class="header-section-number">15.2.3.1</span> <strong>Create a metadata template</strong></h4>
+<p>To create the metadata template, run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_create_template</span>(<span class="st">"tutorial_dataset_2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As with <code>tutorial_dataset_1</code> this function leads you through a series of menus requiring user input. Ensure you select:</p>
+<p><span style="color:blue;">data format:</span> <span style="color:red;"><strong>wide</strong></span><br>
+<span style="color:blue;">taxon_name column:</span> <span style="color:red;"><strong>name_original</strong></span><br>
+<span style="color:blue;">location_name column:</span> <span style="color:red;"><strong>site_TEXT</strong></span><br>
+<span style="color:blue;">individual_id column:</span> <span style="color:red;"><strong>NA</strong></span><br>
+<span style="color:blue;">collection_date column:</span> <span style="color:red;"><strong>NA</strong></span><br>
+<span style="color:blue;">Enter collection_date range in format ‘2007/2009’:</span> <span style="color:red;">1996/1997</span>&nbsp;</p>
+<p><em>Navigate to the dataset’s folder and open the metadata.yml file in Visual Studio Code, to ensure information is added to the expected sections as you work through the tutorial.</em></p>
+<hr>
+</section>
+<section id="propagate-source-information-into-the-metadata.yml-file" class="level4" data-number="15.2.3.2">
+<h4 data-number="15.2.3.2" class="anchored" data-anchor-id="propagate-source-information-into-the-metadata.yml-file"><span class="header-section-number">15.2.3.2</span> <strong>Propagate source information into the metadata.yml file</strong></h4>
+<p>This dataset is from a published source and therefore the source information can be added with the function <code>metadata_add_source_doi</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_2"</span>, <span class="at">doi =</span> <span class="st">"10.1046/j.1365-2745.2000.00506.x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>confirm:</p>
+<ol type="1">
+<li>the authors’ names are formatted as <code>first name last name</code> or <code>first initial last name</code><br>
+</li>
+<li>the article title is in sentence case<br>
+</li>
+<li>the page numbers are filled in as a range, separated by a double dash<br>
+</li>
+</ol>
+<hr>
+</section>
+<section id="locations" class="level4" data-number="15.2.3.3">
+<h4 data-number="15.2.3.3" class="anchored" data-anchor-id="locations"><span class="header-section-number">15.2.3.3</span> <strong>Add location details</strong></h4>
+<p>For this dataset, location data is provided as a standalone spreadsheet, located in the raw data folder: <code>tutorial_dataset_2\raw\locations.csv</code></p>
+<p>First read the location data provided into R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>locations <span class="ot">&lt;-</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"data/tutorial_dataset_2/raw/location_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>traits.build requires three fields to use a specific syntax:</p>
+<ul>
+<li><p><code>latitude</code> must be in decimal degrees and the field name (column header) must be <code>latitude (deg)</code></p></li>
+<li><p><code>longitude</code> must be in decimal degrees and the field name (column header) must be <code>longitude (deg)</code></p></li>
+<li><p>A general site description is document in the field <code>description</code></p></li>
+</ul>
+<p>traits.build does not require that the labels for other location properties align across datasets, but it is best practice to use a controlled vocabulary, so database users can easily search across all datasets for information on a specific climate variable or soil nutrient content. For new databases or new location properties, any naming/labeling convention can be established.</p>
+<p>To confirm you are using the correct syntax, check the terms already in use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>locations_properties <span class="ot">&lt;-</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  traits.build_database<span class="sc">$</span>sites <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(location_property) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">View</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then rename your columns to match those in use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>locations <span class="ot">&lt;-</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  locations <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">longitude (deg)</span><span class="st">`</span> <span class="ot">=</span> long,  </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">latitude (deg)</span><span class="st">`</span> <span class="ot">=</span> lat,  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">description</span><span class="st">`</span> <span class="ot">=</span> vegetation,  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">elevation (m)</span><span class="st">`</span> <span class="ot">=</span> elevation,  </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">precipitation, MAP (mm)</span><span class="st">`</span> <span class="ot">=</span> MAP,  </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">soil P, total (mg/kg)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">soil P</span><span class="st">`</span>,  </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">soil N, total (ppm)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">soil N</span><span class="st">`</span>,  </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">geology (parent material)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">parent material</span><span class="st">`</span>  </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now add the location information into the metadata file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_locations</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_2"</span>, <span class="at">location_data =</span> locations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ensure you select:</p>
+<p><span style="color:blue;">location_name:</span> <span style="color:red;"><strong>location</strong></span><br>
+<span style="color:blue;">location_property columns:</span> <span style="color:red;"><strong>1 2 3 4 5 6 7 8</strong></span><br>
+</p>
+<p>Check the metadata.yml file to ensure the location information has been added as expected. If there is a problem, rerun the necessary code; this will overwrite what is present. You can also manually add additional properties if something is forgotten.</p>
+<hr>
+</section>
+<section id="add-traits" class="level4" data-number="15.2.3.4">
+<h4 data-number="15.2.3.4" class="anchored" data-anchor-id="add-traits"><span class="header-section-number">15.2.3.4</span> <strong>Add traits</strong></h4>
+<p>To select columns in the <code>data.csv</code> file that include trait data, run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_traits</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Select columns <span style="color:red;"><strong>3 4 5 6</strong></span>, as these contain trait data.</p>
+<hr>
+</section>
+</section>
+<section id="manual-filling-in-of-metadata" class="level3" data-number="15.2.4">
+<h3 data-number="15.2.4" class="anchored" data-anchor-id="manual-filling-in-of-metadata"><span class="header-section-number">15.2.4</span> Manual filling in of metadata</h3>
+<p>After confirming that the skeletal traits section has been added to <code>metadata.yml</code> file, you must fill in all the <code>unknown</code> fields.</p>
+<p>For this dataset, you will later use functions to add substitutions and exclude unwanted observations, but it is best to first fill in the information for contributors, the dataset, and the traits.</p>
+<p>These are all fields that contain the word <code>unknown</code> and must be filled in manually:&nbsp;</p>
+<ul>
+<li><p>the <code>contributors</code> section<br>
+</p></li>
+<li><p><code>description</code>, <code>basis_of_record</code>, <code>life_stage</code>, <code>sampling_strategy</code>, <code>original_file</code>, and <code>notes</code> under the <code>dataset</code> section<br>
+</p></li>
+<li><p>details for each trait, including <code>unit_in</code>, <code>trait_name</code>, <code>entity_type</code>, <code>value_type</code>, <code>basis_of_record</code>, <code>replicates</code> and <code>methods</code><br>
+</p></li>
+</ul>
+<section id="adding-contributors" class="level4" data-number="15.2.4.1">
+<h4 data-number="15.2.4.1" class="anchored" data-anchor-id="adding-contributors"><span class="header-section-number">15.2.4.1</span> <strong>Adding contributors</strong></h4>
+<p>The file <code>data/tutorial_dataset_2/raw/tutorial_dataset_2_notes.txt</code> indicates the main data_contributor for this study.<br>
+</p>
+<p>Fill in the remaining contributor information as described in the <a href="https://github.com/traitecoevo/traits.build/tree/develop/vignettes"><code>tutorial_dataset_1</code>tutorial</a>.<br>
+</p>
+</section>
+<section id="dataset-fields" class="level4" data-number="15.2.4.2">
+<h4 data-number="15.2.4.2" class="anchored" data-anchor-id="dataset-fields"><span class="header-section-number">15.2.4.2</span> <strong>Dataset fields</strong></h4>
+<p>The file <code>data/tutorial_dataset_2/raw/tutorial_dataset_2_notes.txt</code> indicates how to fill in the <code>unknown</code> dataset fields for this study.</p>
+</section>
+<section id="trait-details" class="level4" data-number="15.2.4.3">
+<h4 data-number="15.2.4.3" class="anchored" data-anchor-id="trait-details"><span class="header-section-number">15.2.4.3</span> <strong>Trait details</strong></h4>
+<p>The file <code>data/tutorial_dataset_2/raw/tutorial_dataset_2_notes.txt</code> indicates how to fill in the <code>unknown</code> trait fields for this study, but see below as well.</p>
+<table class="table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>column in dataset</th>
+<th>trait concept</th>
+<th>units_in</th>
+<th>entity_type</th>
+<th>value_type</th>
+<th>basis_of_value</th>
+<th>replicates</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TRAIT Growth Form CATEGORICAL EP epiphyte (mistletoe) F fern G grass H herb S shrub T tree V vine</td>
+<td>plant_growth_form</td>
+<td>.na</td>
+<td>species</td>
+<td>mode</td>
+<td>expert_score</td>
+<td>.na</td>
+</tr>
+<tr class="even">
+<td>TRAIT SLA UNITS mm2/g</td>
+<td>leaf_mass_per_area</td>
+<td>mm2/g</td>
+<td>population</td>
+<td>mean</td>
+<td>measurement</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>TRAIT Leaf Size UNITS mm2</td>
+<td>leaf_area</td>
+<td>mm2</td>
+<td>population</td>
+<td>mean</td>
+<td>measurement</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>TRAIT Leaf Dry Mass UNITS g</td>
+<td>leaf_dry_mass</td>
+<td>g</td>
+<td>population</td>
+<td>mean</td>
+<td>measurement</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>Some notes:</p>
+<ul>
+<li><p>The <code>trait_name</code> must match a trait concept within the <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/traits.yml">traits dictionary</a>.</p></li>
+<li><p>The second trait in this dataset is documented as <code>specific leaf area</code>, the inverse of the trait concept <code>leaf mass per area</code>. The unit conversions algorithm inverts data read in as specific leaf area, converting it to leaf mass per area.</p></li>
+<li><p>Categorical traits do not have units or replicates, so these fields become <code>.na</code>.</p></li>
+<li><p>The traits.build convention for a categorical trait is <code>value_type: mode</code>, indicating the recorded value is the most commonly observed trait value. In some datasets there may be multiple space-delimited values within a single cell in the data.csv file, indicating there are multiple commonly observed categorical trait values.</p></li>
+<li><p>For most observations of categorical traits, the traits.build convention is that the <code>basis_of_value</code> is determined by an expert examining an individual, population or species, and is therefore an <code>expert_score</code>.</p></li>
+</ul>
+</section>
+<section id="additional-steps" class="level4" data-number="15.2.4.4">
+<h4 data-number="15.2.4.4" class="anchored" data-anchor-id="additional-steps"><span class="header-section-number">15.2.4.4</span> <strong>Additional steps</strong></h4>
+<p>Once you are well-versed in adding datasets to a traits.build database you will know that there is additional information required in <code>metadata.yml</code>.</p>
+<p>However, for this tutorial, let’s begin by assuming we’re finished adding dataset metadata and check for errors:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_test</span>(<span class="st">"tutorial_dataset_2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><span style="color:red;">*Users, please note, not all of these test failures or messages are currently in place. Adding test to document all failures is still a work in progress.</span>&nbsp;</p>
+<p>Three items will fail:&nbsp;</p>
+<ol type="1">
+<li>There are unknown trait values for <code>plant_growth_form</code> <span style="color:red;">(error doesn’t yet exist)</span>&nbsp;</li>
+<li>There are values out of range for <code>leaf_dry_mass</code> <span style="color:red;">(error doesn’t yet exist)</span>&nbsp;</li>
+<li>The dataset cannot pivot between <code>long</code> and <code>wide</code> formats. <span style="color:red;">(error doesn’t yet exist)</span>&nbsp;</li>
+</ol>
+<p>As indicated in the output messages, there is a [troubleshooting vignette](https://github…/vignettes/) to help solve these errors.&nbsp;</p>
+<p>For this tutorial however, keep reading…</p>
+<p>There are several ways to proceed, but for these errors, it is useful to next build the dataset:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">build_setup_pipeline</span>()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>traits.build_database <span class="ot">&lt;-</span> remake<span class="sc">::</span><span class="fu">make</span>(<span class="st">"austraits"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you look at the excluded_data table, you’ll find any data for this dataset that could not be mapped to known traits, known trait values, or fell within allowable ranges.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset_id <span class="sc">==</span> <span class="st">"tutorial_dataset_2"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">View</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This code displays a table with 190 rows of excluded data.&nbsp;</p>
+<ul>
+<li>187 instances of <code>Unsupported trait value</code> for the trait <code>plant_growth_form</code>&nbsp;</li>
+<li>3 instance of <code>Value out of allowable range</code> for the trait <code>leaf_dry_mass</code>&nbsp;</li>
+</ul>
+<p>Looking through the output you’ll notice that the <code>Unsupported trait value</code> error exists because the data.csv file used plant growth form values that are different to those in the trait dictionary.</p>
+<p>The values that triggered the <code>Value out of allowable range</code> error are all 0’s, a disallowed <code>leaf_dry_mass</code> value; the trait dictionary specifies that <code>leaf_dry_mass</code> can range from <code>0.01 - 15000.0 mg</code>.</p>
+<section id="categorical_substitutions" class="level5" data-number="15.2.4.4.1">
+<h5 data-number="15.2.4.4.1" class="anchored" data-anchor-id="categorical_substitutions"><span class="header-section-number">15.2.4.4.1</span> <strong>Adding trait value substitutions</strong></h5>
+<p>For categorical traits, only trait values that are indicated in the trait dictionary are recognised. This is an important harmonisation step, as it ensures the same trait concept value is mapped to the same trait value throughout the database.</p>
+<p>However, researchers use countless synonyms, abbreviations and syntax to express an identical trait value. traits.build converts all input to lowercase, but all other substitutions must be specified in the dataset’s <code>metadata.yml</code> file.</p>
+<p>For this example individual letters were used to express 7 plant growth forms: EP, F, G, H, S, T, V</p>
+<p>Looking at the definition for <code>plant_growth_form</code> in the trait dictionary and the helpful column header provided by the contributor, you can deduce that <code>t</code> is for <code>tree</code>; <code>s</code> is for <code>shrub</code>, etc.</p>
+<p>There are two ways to add substitutions into the <code>metadata.yml</code> file.</p>
+<ol type="1">
+<li>Map in individual trait value substitutions using <code>metadata_add_substitution</code>:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_substitution</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_2"</span>, <span class="at">trait_name =</span> <span class="st">"plant_growth_form"</span>, <span class="at">find =</span> <span class="st">"t"</span>, <span class="at">replace =</span> <span class="st">"tree"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Look at the <code>metadata.yml</code> file and you’ll note that a substitution has been added, to indicate the <code>t</code>’s are <code>tree</code>’s</p>
+<p>You would repeat this step for the remaining unknown trait values.</p>
+<ol start="2" type="1">
+<li>Map in a table of substitutions using <code>metadata_add_substitutions_list</code>:</li>
+</ol>
+<ul>
+<li>If there are quite a few trait values that require replacements, it is easier to first create a table of the required substitutions, then add a column of substitutions in either R or Excel.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  traits.build_database<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    dataset_id <span class="sc">==</span> <span class="st">"tutorial_dataset_2"</span> <span class="sc">&amp;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>      error <span class="sc">==</span> <span class="st">"Unsupported trait value"</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(trait_name, value) <span class="sc">%&gt;%</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">find =</span> value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next view your table to check the order of trait values and check the allowed values and definitions in the trait dictionary to ensure you replace each abbreviation with an accepted value. Note that <code>epiphyte</code> is not an allowed value for <code>plant_growth_form</code> in the trait dictionary, as, AusTraits uses a narrow definition of <code>plant_growth_form</code>, and separately has a trait <code>plant_growth_substrate</code> which includes the trait value <code>epiphyte</code>. For now, we’ll simply ignore this data.</p>
+<p>To add a column with substitutions, then add the substitutions to the metadata file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> table <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">replace =</span> <span class="fu">c</span>(<span class="st">"shrub"</span>, <span class="st">"tree"</span>, <span class="st">"herb"</span>, <span class="cn">NA</span>, <span class="st">"graminoid"</span>, <span class="st">"fern"</span>, <span class="st">"vine"</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="do">## an alternative is `mutate(replace = c("shrub", "tree", "herb", "epiphyte", "graminoid", "fern", "climber_herbaceous"))` which will result in the epiphyte observations remaining in the excluded data table</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_substitutions_list</span>(<span class="st">"tutorial_dataset_2"</span>, table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>All required substitutions have been added to the <code>metadata.yml</code> file.</p>
+<p>If you were to rerun <code>dataset_test("tutorial_dataset_2")</code> the error referring to <code>Unsupported trait values</code> would now have vanished.</p>
+</section>
+<section id="replacing-placeholder-characters-with-nas" class="level5" data-number="15.2.4.4.2">
+<h5 data-number="15.2.4.4.2" class="anchored" data-anchor-id="replacing-placeholder-characters-with-nas"><span class="header-section-number">15.2.4.4.2</span> <strong>Replacing “placeholder characters” with NA’s</strong></h5>
+<p>The <code>Values out of range</code> error is triggered for numeric traits when the traits.build pipeline detects values that fall outside the range specified for the trait in the traits dictionary.</p>
+<p>There are three common situations that lead to this error warning:&nbsp;</p>
+<ol type="1">
+<li>Values are truly out of range, possibly due to human error or because a plant really was not performing as expected (i.e.&nbsp;not photosynthesising).&nbsp;</li>
+<li>Values appear to be out of range because of a “unit conversion issue” - that is, the dataset curator or the dataset contributor got the units wrong.&nbsp; This is fixed by working out the correct units and adjusting this in the traits section of the <code>metadata.yml</code> file.&nbsp;</li>
+<li>A dataset contributor has used a “dummy symbol” to indicate missing data, such as <code>0</code>, <code>x</code>, <code>missing</code>, etc. Truly missing data should be a blank cell - i.e.&nbsp;<code>NA</code>&nbsp;</li>
+</ol>
+<p>This study is likely an example of (3), where <code>0</code> is a placeholder symbol. While the 0’s can be left in the <code>excluded_data</code> table, cluttering the <code>excluded_data</code> table with extraneous measurements makes it difficult to scan for true examples of <code>Value out of allowable range</code> errors in the future. <em>(Values that are <code>NA</code> are, by default, omitted from the excluded_data table.)</em></p>
+<section id="custom_R_code" class="level6" data-number="15.2.4.4.2.1">
+<h6 data-number="15.2.4.4.2.1" class="anchored" data-anchor-id="custom_R_code"><span class="header-section-number">15.2.4.4.2.1</span> <strong>adding custom R code</strong></h6>
+<p>Instead, you can add R code within the metadata file to replace the placeholder symbol with <code>NA</code>.</p>
+<ul>
+<li>Look at <code>metadata.yml</code> in Visual Studio Code.&nbsp;</li>
+<li>The second field under the <code>dataset</code> section is <code>custom_R_code: .na</code>.&nbsp;</li>
+<li>You can write any code you’d like within this section.&nbsp;</li>
+<li>The file <code>R/custom_R_code.R</code> that you sourced at the beginning of this tutorial contains customised functions commonly used in custom_R_code.&nbsp;</li>
+</ul>
+<p>For this example, replace:&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>custom_R_code<span class="sc">:</span> na</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>with:&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>custom_R_code<span class="sc">:</span> <span class="st">'</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="st">  data %&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="st">    mutate(</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="st">      across(c("TRAIT Leaf Dry Mass UNITS g"), ~na_if(.x,0))</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="st">    )</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This code replaces all 0’s in the column with NA’s.</p>
+<p>You can confirm that the custom R code has made the anticipated change with the function <code>metadata_check_custom_R_code</code>. This function reads in the data.csv file, then applies any manipulations from the custom_R_code:&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_check_custom_R_code</span>(<span class="st">"tutorial_dataset_2"</span>) <span class="sc">%&gt;%</span> <span class="fu">View</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note:&nbsp;</p>
+<ul>
+<li>use the format with the single quotes; this allows you to manually add line breaks, not otherwise permitted in the metadata.yml format.&nbsp;</li>
+<li>you pipe in <code>data</code> to begin with, but do not need to assign your code back to data; that occurs automatically.&nbsp;</li>
+</ul>
+<p>Build the database again, then check the <code>excluded_data</code> table to confirm there are no longer any excluded measurements:&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>traits.build_database <span class="ot">&lt;-</span> remake<span class="sc">::</span><span class="fu">make</span>(<span class="st">"austraits"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset_id <span class="sc">==</span> <span class="st">"tutorial_dataset_2"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">View</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="correct_entity_type" class="level5" data-number="15.2.4.4.3">
+<h5 data-number="15.2.4.4.3" class="anchored" data-anchor-id="correct_entity_type"><span class="header-section-number">15.2.4.4.3</span> <strong>Replacing duplicate values with NA’s</strong></h5>
+<p>Run the tests again to confirm the errors related to disallowed trait values and values out of range have vanished:&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_test</span>(<span class="st">"tutorial_dataset_2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>However, there should still be an error indicating that the dataset cannot pivot between <code>long</code> and <code>wide</code> formats.&nbsp;</p>
+<p>The ability to pivot is important for 2 reasons:{#dataset_pivot}&nbsp;</p>
+<ol type="1">
+<li>Database users may prefer to display data in wide format to readily compare the values of multiple traits collected on the same individual (or population or species).&nbsp;</li>
+<li>The <code>pivot test</code> groups together 13 variables that are meant to uniquely identify each row of data (dataset_id, trait_name, observation_id, source_id, taxon_name, entity_type, life_stage, basis_of_record, value_type, population_id, individual_id, temporal_id, method_id, entity_context_id, original_name). An inability to pivot indicates either:&nbsp;
+<ul>
+<li>A variable present in the <code>data.csv</code> file to distinguish between unique observations has not been mapped into the metadata file. (Most likely a context property, column with locations, individual_id or source_id)&nbsp;</li>
+<li>Duplicate values exist within the data.csv file and have been read in multiple times.&nbsp;</li>
+</ul></li>
+</ol>
+<p>The error in this dataset is a common one:<br>
+</p>
+<ul>
+<li><p>The three numeric traits (<code>leaf_mass_per_area</code>, <code>leaf_mass_per_area</code> and <code>leaf_dry_mass</code>) are all population-level measurements, while <code>plant_growth_form</code> is mapped in as having <code>entity_type: species</code>, meaning it is considered a species-level measurement. This means if the same species occurs at multiple sites, its growth form value is read in twice. However, because it is designated as <code>entity_type: species</code> that traits.build workflow does not connect the value to a location, since the species has the same growth form regardless of location.&nbsp;</p></li>
+<li><p>Two options are to:</p>
+<ol type="1">
+<li>Recategorise <code>plant_growth_form</code> as having <code>entity_type: population</code>.</li>
+<li>Only read in a single instance of <code>plant_growth_form</code> per species.</li>
+</ol></li>
+</ul>
+<p>Either allows the dataset to pivot, but if the taxon truly displays only a single growth form across all populations it is much better to read in plant growth form once per species. Otherwise the database becomes longer without capturing additional information. This dataset has only a few instance of duplication, but imagine the dataset that has 500 rows of data for the same tree species - suddenly 500 instances of that species being a tree are read into the database.</p>
+<p>The solution is to modify the existing custom_R_code, adding one of the customised functions from the file <code>R/custom_R_code.R</code>, <code>replace_duplicates_with_NA</code>:&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>custom_R_code<span class="sc">:</span> <span class="st">'</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="st">  data %&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="st">    mutate(</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="st">      across(c("TRAIT Leaf Dry Mass UNITS g"), ~na_if(.x,0))</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="st">    ) %&gt;%</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="st">    group_by(name_original) %&gt;% #column with taxon name</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="st">      across(c("TRAIT Growth Form CATEGORICAL EP epiphyte (mistletoe) F fern G grass H herb S shrub T tree V vine"), replace_duplicates_with_NA) %&gt;%</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="st">    ungroup()</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Rerun the tests and everything should now pass:&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_test</span>(<span class="st">"tutorial_dataset_2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then rebuild the database and look at the output in the traits table for one of the taxa that previously had duplicate <code>plant_growth_form</code> entries:&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>traits.build_database <span class="ot">&lt;-</span> remake<span class="sc">::</span><span class="fu">make</span>(<span class="st">"austraits"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset_id <span class="sc">==</span> <span class="st">"tutorial_dataset_2"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(taxon_name <span class="sc">==</span> <span class="st">"Actinotus minor"</span>) <span class="sc">%&gt;%</span> <span class="fu">View</span>()</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  dataset_id     taxon_name      observation_id trait_name         value            unit  entity_type location_id</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>          <span class="er">&lt;</span>chr<span class="sc">&gt;</span>           <span class="er">&lt;</span>chr<span class="sc">&gt;</span>          <span class="er">&lt;</span>chr<span class="sc">&gt;</span>              <span class="er">&lt;</span>chr<span class="sc">&gt;</span>            <span class="er">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>       <span class="er">&lt;</span>chr<span class="sc">&gt;</span>      </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> tutorial_dataset_2 Actinotus minor <span class="dv">010</span>            leaf_area          <span class="fl">18.8</span>             mm2   population  <span class="dv">02</span>         </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> tutorial_dataset_2 Actinotus minor <span class="dv">010</span>            leaf_dry_mass      <span class="dv">7</span>                mg    population  <span class="dv">02</span>         </span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> tutorial_dataset_2 Actinotus minor <span class="dv">010</span>            leaf_mass_per_area <span class="fl">344.827586206897</span> g<span class="sc">/</span>m2  population  <span class="dv">02</span>         </span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> tutorial_dataset_2 Actinotus minor <span class="dv">011</span>            leaf_area          <span class="fl">75.9</span>             mm2   population  <span class="dv">03</span>         </span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> tutorial_dataset_2 Actinotus minor <span class="dv">011</span>            leaf_dry_mass      <span class="dv">7</span>                mg    population  <span class="dv">03</span>         </span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> tutorial_dataset_2 Actinotus minor <span class="dv">011</span>            leaf_mass_per_area <span class="fl">89.2857142857143</span> g<span class="sc">/</span>m2  population  <span class="dv">03</span>         </span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> tutorial_dataset_2 Actinotus minor <span class="dv">012</span>            plant_growth_form  herb             <span class="cn">NA</span>    species     <span class="cn">NA</span>      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The measurements for the three numeric traits from a single location share a common <code>observation_id</code>, as they are all part of an observation of a common entity (a specific population of <em>Actinotus minor</em>), at a single location, at a single point in time. However the row with the plant growth form measurement has a separate <code>observation_id</code> reflecting that this is an observation of a different entity (the taxon <em>Actinotus minor</em>).</p>
+</section>
+<section id="build-dataset-report" class="level5" data-number="15.2.4.4.4">
+<h5 data-number="15.2.4.4.4" class="anchored" data-anchor-id="build-dataset-report"><span class="header-section-number">15.2.4.4.4</span> <strong>build dataset report</strong></h5>
+<p>As a final step, build a report for the study</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>build_info<span class="sc">$</span>version <span class="ot">&lt;-</span> <span class="st">"4.0.0"</span>  <span class="co"># a fix because the function was built around specific AusTraits versions</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_report</span>(<span class="st">"tutorial_dataset_2"</span>, traits.build_database, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./tutorial_dataset_1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_1</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./tutorial_dataset_3.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_3</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
