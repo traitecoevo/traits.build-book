@@ -1,0 +1,28 @@
+# Adding datasets (brief)
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  results = "asis",
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
+library(traits.build)
+
+my_kable_styling <- util_kable_styling_html
+```
+
+```{r, echo=FALSE, results='hide', message=FALSE}
+## Loads austraits into global name space
+austraits <- austraits:::austraits_lite
+
+schema <- get_schema()
+definitions <- austraits$definitions
+```
+
+This chapter gives a brief overview of how to add datasets to the database. For a more detailed guide, see [adding_datasets](adding_data_long.html).
+
+XXX add details

@@ -22,9 +22,10 @@ book:
     - part: Using `traits.build`
       chapters:
         - traits_build.qmd
+        - tutorial_compilation.qmd
         - file_organisation.qmd
         - create_dictionary.qmd
-        - adding_data.qmd
+        - adding_data_brief.qmd
         - custom_R_code.qmd
         - publishing.qmd
     - part: Using outputs
@@ -32,9 +33,9 @@ book:
         - using_data.qmd
     - part: "Guide to adding data"
       chapters:
-        - adding_data.qmd
+        - adding_data_long.qmd
         - data_common_issues.qmd
-        - tutorial_compilation.qmd
+        - tutorial_datasets.qmd
         - tutorial_dataset_1.qmd
         - tutorial_dataset_2.qmd
         - tutorial_dataset_3.qmd

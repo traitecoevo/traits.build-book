@@ -1,4 +1,4 @@
-# Tutorial: Using the template example
+# Tutorial: Example compilation
 
 This tutorial walks you through an example of creating a traits.build database from scratch using the traits.build template. We then look at examples of how to add datasets to the database using the traits.build workflow.
 
