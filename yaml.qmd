@@ -1,3 +1,3 @@
-# Yaml
+# Yaml files
 
-About yaml files
+The `yml` file extension (pronounced "YAML") [is a type structured data file](https://en.wikipedia.org/wiki/YAML), that is both human and machine readable. You can edit it in any text editor, or also in Rstudio. Generally, yml is used in situations where a table is not suitable because of variable lengths and or nested structures. It has the advantage over a spreadsheet in that the nested “headers” can have variable numbers of categories. The data under each of the hierarchical headings are easily extracted by R.

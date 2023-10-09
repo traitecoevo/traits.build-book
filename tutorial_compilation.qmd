@@ -1,0 +1,41 @@
+# Tutorial: Using the template example
+
+## Clone traits.build-template
+
+traits.build-template is a GitHub repository that contains:
+
+1.  Core files required to build your own database:
+    -   a sample [trait dictionary](https://github.com/traitecoevo/traits.build-template/blob/master/config/traits.yml)
+
+    -   a [unit conversions file](https://github.com/traitecoevo/traits.build-template/blob/master/config/unit_conversions.csv)
+
+    -   a generic [database metadata file](https://github.com/traitecoevo/traits.build-template/blob/master/config/metadata.yml)
+
+    -   a placeholder [taxon list](https://github.com/traitecoevo/traits.build-template/blob/master/config/taxon_list.csv)
+
+    -   a script of useful [R functions](https://github.com/traitecoevo/traits.build-template/blob/master/R/custom_R_code.R)
+2.  Two pre-added datasets.
+    -   See how metadata is documented in fully propagated metadata files.
+
+    -   Build a skeletal database before adding your own datasets.
+3.  Datasets with explicit tutorials for filling in the dataset metadata files.
+    -   The tutorials for these datasets introduce you to the traits.build functions.
+
+    -   By working through the dataset tutorials, you are progressively introduced to how the complexities of ecological datasets can be documented within the traits.build structure
+
+    -   The datasets offer explicit examples of the types of complexities summarised in the [Adding Data](https://github…) vignette.
+
+    -   As of September 2023 there are 3 tutorials, but this will expand to 6 tutorials by October 2023.
+
+## Build the example
+
+Once you have cloned the repository and installed the package, the next step is to build the simplistic sample database:
+```{r, eval=FALSE}
+build_setup_pipeline()
+traits.build_database <- remake::make("austraits")
+```
+
+As described in the chapter on [data structure](database_structure.html) the database is comprised of a series of relational tables and additional lists with metadata.
+
+Once you've explored and feel familiar with the basic structure of a traits.build database, continue onto the tutorials to learn how to add datasets using the traits.build workflow.
+

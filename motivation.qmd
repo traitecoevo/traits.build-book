@@ -1,5 +1,13 @@
 # Motivation
 
-The need for traits.build
+traits.build is an R package that was first developed to build AusTraits, a harmonised, open-source database of Australian plant traits. The code has been transformed into a standalone package allowing anyone to build a relational, tabular database for any taxonomic group and any collection of traits.
 
+The project's guiding principles are to:
+
+1.  Create open-source, harmonised, reproducible databases from disparate datasets.
+2.  Provide a fully transparent workflow.
+3.  Offer a relational database structure that fully documents the contextual data essential to interpreting ecological data.
+4.  Offer a straightforward, robust template for building a trait dictionary.
+5.  Offer a database structure that is flexible enough to accommodate the complexities inherent to ecological data.
+6.  Offer a database structure that is underlain by a documented ontology, ensuring each database field is interpretable and interoperable with other databases and data structures.
 

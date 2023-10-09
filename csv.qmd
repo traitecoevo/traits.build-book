@@ -1,0 +1,4 @@
+# CSV files
+
+A comma-separated values (CSV) file is a delimited text file that uses a comma to separate values. Each line of the file is a data record. Each record consists of one or more fields, separated by commas. This is a comma format for storing tables of data in a simple text file. You can edit it in Excel or in a text editor. For more, see [here](https://en.wikipedia.org/wiki/Comma-separated_values).
+

@@ -12,24 +12,33 @@ book:
         - index.qmd
         - motivation.qmd
         - workflow.qmd
+        - usage_examples.qmd
         - austraits_experience.qmd
-    - part: traits.build data standard 
+    - part: About the traits.build data standard 
       chapters:
-        - data_structure.qmd
+        - database_structure.qmd
     - part: Using `traits.build` to build a compliation
       chapters:
         - traits_build.qmd
+        - compilation_file_structure.qmd
         - adding_data.qmd
         - dictionary.qmd
     - part: Using the outputs from `traits.build`
+      chapters:
         - using_data.qmd
     - part: Tutorials
       chapters:
-        - tutorial.qmd
+        - tutorials.qmd
+        - tutorial_compilation.qmd
+        - tutorial_dataset_1.qmd
+        - tutorial_dataset_2.qmd
+        - tutorial_dataset_3.qmd
+        - tutorial_dataset_4.qmd
     - part: Troubleshooting
       chapters:
-        - debugging.qmd
         - help.qmd
+        - troubleshooting.qmd
+        - debugging.qmd
 
   appendices:
     - yaml.qmd
@@ -37,4 +46,3 @@ book:
 format:
   html:
     theme: cosmo
-

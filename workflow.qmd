@@ -1,7 +1,76 @@
-# Worklfow
+# traits.build workflow 
 
-In summary, this book has no content whatsoever.
 
-```{r}
-1 + 1
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  results = "asis",
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
+library(traits.build)
+
+my_kable_styling <- util_kable_styling_html
 ```
+
+This chapter provides an overview of our workflow, to demonstrate our commitment to creating a reliable, reproducible resource for anyone interested in plant traits. 
+
+## Our database structure and workflow
+
+traits.build can be viewed through two lenses, its output structure and its underlying conceptual framework.
+
+### Output structure
+
+traits.build is a relational database. There is a core traits table, supported by ancillary tables that document location properties (include latitude & longitude), context properties, dataset and measurement methods, taxon concepts, contributor details, and sources. All tables are stored in long format, such that there is a single column that includes all trait names (or location properties, or context properties) and column for trait values.
+
+A series of identifiers, including both textual fields (i.e. taxon_name, trait_name, dataset_id) and numeric identifiers link the ancillary tables to the traits table. The many numeric identifiers are overwhelming until you consider the conceptual framework, or mindmap, that underpins traits.build. They include: observation_id, population_id, individual_id, temporal_id, location_id, entity_context_id, plot_id, and source_id.
+
+Storing the resource as a relational table greatly reduces file sizes and facilitates searching for a particular metadata field
+
+### Conceptual framework
+
+traits.build's database structure effectively captures the complexities inherent to ecological data. Each dataset is unique, with measurements recorded on different entities (individuals, populations, species), in specific locations, and under countless environmental and experimental conditions, the so-called context of a measurement. The context offers essential meaning to each trait value. An ecological database must effectively capture all relevant contexts or the accompanying trait measurements lose much of their value.
+
+traits.build is designed around the concept of an **observation**, a collection of measurements of different traits made at a specific point in time on a specific **entity**. OBOE, the Extensible Observation Ontology, first developed this conceptual framework, explicitly for complex ecological datasets. An **observation_id** links the measurements made on different traits that comprise a single observation. Measurements made at different points in time, on different entities, at different locations, or under different contextual conditions require unique **observation_id** values. The additional identifiers in the traits table (and the ancillary tables) were developed to ensure that unique observation_ids were generated for distinct observations, per this framework.
+
+Within a dataset, observation_id's are generated for unique combinations of the fields: **taxon_name**, **population_id**, **individual_id**, **temporal_id**, **entity_type**, and **source_id**. For instance, if measurements are made on the same individual during the wet versus dry season, the two observations will share an **individual_id** but have distinct **temporal_id** values, and therefore have distinct **observation_id**'s. See [traits.build schema](https://github.com/traitecoevo/traits.build/blob/develop/inst/support/traits.build_schema.yml) for definitions of identifiers
+
+## Data sources
+
+The data in a `traits.build` compilation is derived from distinct sources, each contributed by an individual researcher, government entity (e.g. herbaria), or NGO. Each reflects the research agenda of the individual/organisation who contributed the data - the species selected, traits measured, manipulative treatments performed, and locations sampled encompass the diversity of research interests present in Australia throughout past decades. These datasets use different variable trait names, units and methods and have different data structures. 
+
+## Standardising and harmonising data
+
+To create a single database for distribution to the research community, we developed a reproducible and transparent workflow in R for merging each dataset into AusTraits. The pipeline ensures the following information is standardised across all datasets in AusTraits. A `metadata` file for each study documents how the `data tables` submitted by an individual contributor are translated into the standardised terms used in the AusTraits database. 
+
+* **taxonomic nomenclature** follows the Australian Plant Census (APC), with a pipeline to update outdated taxonomy, correct minor spelling mistakes, and align with a known genus when a full species names isn't provided.  
+* **trait names** are defined in our `traits.yml` file and only data for traits included in this file can be merged into AusTraits. The trait names used in the incoming dataset are mapped onto the appropriate AusTraits trait name. 
+* For **numeric traits** the `traits.yml` file includes `units` and the allowable `range` of values. All incoming data are converted to the appropriate units and data outside the range of allowable values are removed from the main AusTraits data table.
+* For **categorical traits** the `traits.yml` file includes a list of allowable `values`, allowed terms for the trait. Each categorical trait value is defined in the `traits.yml` file. Lists of substitutions translate the exact syntax and terms in a submitted dataset into the values allowed by AusTraits. This ensures that for a certain trait the same `value` has an identical meaning throughout the AusTraits database.
+* Site locations are recorded in decimal degrees.
+
+## Referencing sources and recording methods
+
+The `metadata` file also includes all metadata associated with the study:
+
+* The source information for each dataset is recorded. Most frequently, these are the primary publications derived from the dataset. 
+* People associated with the collection of the data are listed, including their role in the project.
+* Collection methods are included.
+* Fields capture value type (mean, min, max, mode, range, bin) and associated replicate numbers, basis of value (measurement, expert_score, model_derived), entity type (species, population, individual), life stage (adult, juvenile,sapling, seedling), basis of record (field, field_experiment, preserved_specimen, captive_cultivated, lab, literature), and any additional measurement remarks. 
+* Available data on location properties are recorded. 
+* Available data on plot and treatment contextual properties are recorded.
+* A context field, temporal_context_id, indicates if repeat measures were made on the same individual over time.
+* A context field, method_context_id, indicates if the same trait was measured using multiple methods.
+* Collection date is recorded.
+
+## Error checking
+
+* The AusTraits data curator runs a series of **tests** on each data set, detailed in the [adding data vignette](http://traitecoevo.github.io/traits.build/articles/adding_data.html)
+* These tests identify **misaligned units**, **unrecognised taxon names**, and **unsupported categorical trait values**
+* These tests also identify and eliminate *most* **duplicate data** - instances where the same numeric trait data is submitted by multiple people
+* Each dataset is then compiled into a **report** which summarises metadata and plots/charts trait values in comparison to other measurements of that trait in AusTraits. The report is reviewed by the data contributor to ensure metadata is complete and data values are as expected.
+* A second member of the AusTraits team double checks each dataset before it is merged into the main repository.
+

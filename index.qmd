@@ -1,14 +1,17 @@
+# Getting started with traits.build
+
 ## About this manual
 
-This manual is a step-by-step user guide to the `traits.build` standard, R package and workflow manual.
+This manual is a step-by-step user guide to the `traits.build` standard, R package and workflow manual. Alongside [traits.build manual (this website)](http://traitecoevo.github.io/traits.build/index.html), you may find the following resources useful:
 
-The material was developed to ease ...XXX
-
-
-When workng with `traits.build`, you may find the following resources useful
-
-- [the traits.build manual (this website)](http://traitecoevo.github.io/traits.build/index.html)
 - [package installation instructions](http://traitecoevo.github.io/traits.build/index.html#installation)
-- links to [example projects](http://traitecoevo.github.io/traits.build-book/usage_examples.html)
 - a [reference page with all user-side functions](http://traitecoevo.github.io/traits.build/reference/index.html). 
+- links to [example projects](usage_examples.html)
+
+## Brief overview
+
+
+## A simple example
+
+To get you started, we've porvided an exmaple dataset. Follow the instructions in [Tutorials](http://traitecoevo.github.io/traits.build-book/tutorials.html) chapter for a step-by-step guide to building a database from scratch.
 

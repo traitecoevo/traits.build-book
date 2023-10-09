@@ -1,0 +1,5 @@
+# Tutorials
+
+Foolowing tutorials
+
+- [creating a repository with template example](tutorial_compilation.html)
