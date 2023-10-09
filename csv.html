@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} standard, R package and workflow manual - 4&nbsp; Usage examples</title>
+<title>The {traits.build} standard, R package and workflow manual - Appendix A — CSV files</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./database_structure.html" rel="next">
-<link href="./workflow.html" rel="prev">
+<link href="./yaml.html" rel="next">
+<link href="./debugging.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./usage_examples.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Usage examples</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./csv.html">Appendices</a></li><li class="breadcrumb-item"><a href="./csv.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">CSV files</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./usage_examples.html" class="sidebar-item-text sidebar-link active">
+  <a href="./usage_examples.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Usage examples</span></span></a>
   </div>
 </li>
@@ -296,7 +296,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./csv.html" class="sidebar-item-text sidebar-link">
+  <a href="./csv.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">CSV files</span></span></a>
   </div>
 </li>
@@ -314,21 +314,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#austraits" id="toc-austraits" class="nav-link active" data-scroll-target="#austraits"><span class="header-section-number">4.1</span> AusTraits</a></li>
-  <li><a href="#other-examples" id="toc-other-examples" class="nav-link" data-scroll-target="#other-examples"><span class="header-section-number">4.2</span> Other examples</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Usage examples</span></h1>
+<h1 class="title">Appendix A — CSV files</h1>
 </div>
 
 
@@ -343,22 +336,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="austraits" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="austraits"><span class="header-section-number">4.1</span> AusTraits</h2>
-<p>The workflow described here evolved out of the AusTraits project. AusTraits is an open-source, harmonized database of Australian plant trait data. It synthesises data on nearly 500 traits across more than 30,000 taxa from over 300 sources. Begun in 2016 as an initiative between three lab groups, it has grown to be the largest collation of plant trait data for Australian plants.</p>
-<p>The <code>traits.build</code> workflow is used to build the AusTraits database. The workflow XXXX</p>
-</section>
-<section id="other-examples" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="other-examples"><span class="header-section-number">4.2</span> Other examples</h2>
-<p>There are now multiple new porjects using the <code>traits.build</code> workflow and package. At this stage, most are in private repositories, but we envisage that they will be made public in the near future.</p>
-<ul>
-<li><a href="https://github.com/traitecoevo/austraits.build/">AusTraits</a>: A compilation of traits data for Australian plants</li>
-<li>AusInverTraits: A compilation of traits data for invertebrates, led by Inverterbates Australia</li>
-<li>AusFizz: A compilation of physiological response curves for plants</li>
-</ul>
+<p>A comma-separated values (CSV) file is a delimited text file that uses a comma to separate values. Each line of the file is a data record. Each record consists of one or more fields, separated by commas. This is a comma format for storing tables of data in a simple text file. You can edit it in Excel or in a text editor. For more, see <a href="https://en.wikipedia.org/wiki/Comma-separated_values">here</a>.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -596,13 +576,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./workflow.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Workflow</span></span>
+      <a href="./debugging.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Debugging</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./database_structure.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data structure</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./yaml.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Yaml files</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} standard, R package and workflow manual - 3&nbsp; traits.build workflow</title>
+<title>The {traits.build} standard, R package and workflow manual - 3&nbsp; Workflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./workflow.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">traits.build workflow</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./workflow.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Workflow</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -111,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started with traits.build</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -123,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">traits.build workflow</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Workflow</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -132,18 +132,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Usage examples</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./austraits_experience.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The AusTraits experience</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">About the traits.build data standard</span></a>
+ <span class="menu-text">Data structure and standard</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -152,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./database_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The traits.build data structure</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data structure</span></span></a>
   </div>
 </li>
       </ul>
@@ -160,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Using <code>traits.build</code> to build a compliation</span></a>
+ <span class="menu-text">Using <code>traits.build</code></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -169,13 +163,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">traits.build</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Package</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./compilation_file_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Compilation file structure</span></span></a>
+  <a href="./file_structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">File structure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dictionary</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -186,8 +186,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dictionary</span></span></a>
+  <a href="./custom_R_code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Adding custom_R_code</span></span></a>
   </div>
 </li>
       </ul>
@@ -195,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Using the outputs from <code>traits.build</code></span></a>
+ <span class="menu-text">Using the outputs</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -296,8 +296,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">CSV files</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./yaml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Yaml files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Yaml files</span></span></a>
   </div>
 </li>
       </ul>
@@ -312,15 +318,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#our-database-structure-and-workflow" id="toc-our-database-structure-and-workflow" class="nav-link active" data-scroll-target="#our-database-structure-and-workflow"><span class="header-section-number">3.1</span> Our database structure and workflow</a>
+  <li><a href="#output-structure" id="toc-output-structure" class="nav-link active" data-scroll-target="#output-structure"><span class="header-section-number">3.1</span> Output structure</a></li>
+  <li><a href="#conceptual-framework" id="toc-conceptual-framework" class="nav-link" data-scroll-target="#conceptual-framework"><span class="header-section-number">3.2</span> Conceptual framework</a></li>
+  <li><a href="#principles" id="toc-principles" class="nav-link" data-scroll-target="#principles"><span class="header-section-number">3.3</span> Principles</a>
   <ul class="collapse">
-  <li><a href="#output-structure" id="toc-output-structure" class="nav-link" data-scroll-target="#output-structure"><span class="header-section-number">3.1.1</span> Output structure</a></li>
-  <li><a href="#conceptual-framework" id="toc-conceptual-framework" class="nav-link" data-scroll-target="#conceptual-framework"><span class="header-section-number">3.1.2</span> Conceptual framework</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data sources</a></li>
+  <li><a href="#standardising-and-harmonising-data" id="toc-standardising-and-harmonising-data" class="nav-link" data-scroll-target="#standardising-and-harmonising-data">Standardising and harmonising data</a></li>
+  <li><a href="#referencing-sources-and-recording-methods" id="toc-referencing-sources-and-recording-methods" class="nav-link" data-scroll-target="#referencing-sources-and-recording-methods">Referencing sources and recording methods</a></li>
+  <li><a href="#error-checking" id="toc-error-checking" class="nav-link" data-scroll-target="#error-checking">Error checking</a></li>
   </ul></li>
-  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources"><span class="header-section-number">3.2</span> Data sources</a></li>
-  <li><a href="#standardising-and-harmonising-data" id="toc-standardising-and-harmonising-data" class="nav-link" data-scroll-target="#standardising-and-harmonising-data"><span class="header-section-number">3.3</span> Standardising and harmonising data</a></li>
-  <li><a href="#referencing-sources-and-recording-methods" id="toc-referencing-sources-and-recording-methods" class="nav-link" data-scroll-target="#referencing-sources-and-recording-methods"><span class="header-section-number">3.4</span> Referencing sources and recording methods</a></li>
-  <li><a href="#error-checking" id="toc-error-checking" class="nav-link" data-scroll-target="#error-checking"><span class="header-section-number">3.5</span> Error checking</a></li>
   </ul>
 </nav>
     </div>
@@ -329,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">traits.build workflow</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Workflow</span></h1>
 </div>
 
 
@@ -345,28 +351,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>This chapter provides an overview of our workflow, to demonstrate our commitment to creating a reliable, reproducible resource for anyone interested in plant traits.</p>
-<section id="our-database-structure-and-workflow" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="our-database-structure-and-workflow"><span class="header-section-number">3.1</span> Our database structure and workflow</h2>
 <p>traits.build can be viewed through two lenses, its output structure and its underlying conceptual framework.</p>
-<section id="output-structure" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="output-structure"><span class="header-section-number">3.1.1</span> Output structure</h3>
+<section id="output-structure" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="output-structure"><span class="header-section-number">3.1</span> Output structure</h2>
 <p>traits.build is a relational database. There is a core traits table, supported by ancillary tables that document location properties (include latitude &amp; longitude), context properties, dataset and measurement methods, taxon concepts, contributor details, and sources. All tables are stored in long format, such that there is a single column that includes all trait names (or location properties, or context properties) and column for trait values.</p>
 <p>A series of identifiers, including both textual fields (i.e.&nbsp;taxon_name, trait_name, dataset_id) and numeric identifiers link the ancillary tables to the traits table. The many numeric identifiers are overwhelming until you consider the conceptual framework, or mindmap, that underpins traits.build. They include: observation_id, population_id, individual_id, temporal_id, location_id, entity_context_id, plot_id, and source_id.</p>
 <p>Storing the resource as a relational table greatly reduces file sizes and facilitates searching for a particular metadata field</p>
 </section>
-<section id="conceptual-framework" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="conceptual-framework"><span class="header-section-number">3.1.2</span> Conceptual framework</h3>
+<section id="conceptual-framework" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="conceptual-framework"><span class="header-section-number">3.2</span> Conceptual framework</h2>
 <p>traits.build’s database structure effectively captures the complexities inherent to ecological data. Each dataset is unique, with measurements recorded on different entities (individuals, populations, species), in specific locations, and under countless environmental and experimental conditions, the so-called context of a measurement. The context offers essential meaning to each trait value. An ecological database must effectively capture all relevant contexts or the accompanying trait measurements lose much of their value.</p>
 <p>traits.build is designed around the concept of an <strong>observation</strong>, a collection of measurements of different traits made at a specific point in time on a specific <strong>entity</strong>. OBOE, the Extensible Observation Ontology, first developed this conceptual framework, explicitly for complex ecological datasets. An <strong>observation_id</strong> links the measurements made on different traits that comprise a single observation. Measurements made at different points in time, on different entities, at different locations, or under different contextual conditions require unique <strong>observation_id</strong> values. The additional identifiers in the traits table (and the ancillary tables) were developed to ensure that unique observation_ids were generated for distinct observations, per this framework.</p>
 <p>Within a dataset, observation_id’s are generated for unique combinations of the fields: <strong>taxon_name</strong>, <strong>population_id</strong>, <strong>individual_id</strong>, <strong>temporal_id</strong>, <strong>entity_type</strong>, and <strong>source_id</strong>. For instance, if measurements are made on the same individual during the wet versus dry season, the two observations will share an <strong>individual_id</strong> but have distinct <strong>temporal_id</strong> values, and therefore have distinct <strong>observation_id</strong>’s. See <a href="https://github.com/traitecoevo/traits.build/blob/develop/inst/support/traits.build_schema.yml">traits.build schema</a> for definitions of identifiers</p>
 </section>
-</section>
-<section id="data-sources" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="data-sources"><span class="header-section-number">3.2</span> Data sources</h2>
+<section id="principles" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="principles"><span class="header-section-number">3.3</span> Principles</h2>
+<p>Our workflow is structured with the following principles in mind.</p>
+<section id="data-sources" class="level3">
+<h3 class="anchored" data-anchor-id="data-sources">Data sources</h3>
 <p>The data in a <code>traits.build</code> compilation is derived from distinct sources, each contributed by an individual researcher, government entity (e.g.&nbsp;herbaria), or NGO. Each reflects the research agenda of the individual/organisation who contributed the data - the species selected, traits measured, manipulative treatments performed, and locations sampled encompass the diversity of research interests present in Australia throughout past decades. These datasets use different variable trait names, units and methods and have different data structures.</p>
 </section>
-<section id="standardising-and-harmonising-data" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="standardising-and-harmonising-data"><span class="header-section-number">3.3</span> Standardising and harmonising data</h2>
+<section id="standardising-and-harmonising-data" class="level3">
+<h3 class="anchored" data-anchor-id="standardising-and-harmonising-data">Standardising and harmonising data</h3>
 <p>To create a single database for distribution to the research community, we developed a reproducible and transparent workflow in R for merging each dataset into AusTraits. The pipeline ensures the following information is standardised across all datasets in AusTraits. A <code>metadata</code> file for each study documents how the <code>data tables</code> submitted by an individual contributor are translated into the standardised terms used in the AusTraits database.</p>
 <ul>
 <li><strong>taxonomic nomenclature</strong> follows the Australian Plant Census (APC), with a pipeline to update outdated taxonomy, correct minor spelling mistakes, and align with a known genus when a full species names isn’t provided.<br>
@@ -377,8 +383,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Site locations are recorded in decimal degrees.</li>
 </ul>
 </section>
-<section id="referencing-sources-and-recording-methods" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="referencing-sources-and-recording-methods"><span class="header-section-number">3.4</span> Referencing sources and recording methods</h2>
+<section id="referencing-sources-and-recording-methods" class="level3">
+<h3 class="anchored" data-anchor-id="referencing-sources-and-recording-methods">Referencing sources and recording methods</h3>
 <p>The <code>metadata</code> file also includes all metadata associated with the study:</p>
 <ul>
 <li>The source information for each dataset is recorded. Most frequently, these are the primary publications derived from the dataset.</li>
@@ -392,10 +398,11 @@ ul.task-list li input[type="checkbox"] {
 <li>Collection date is recorded.</li>
 </ul>
 </section>
-<section id="error-checking" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="error-checking"><span class="header-section-number">3.5</span> Error checking</h2>
+<section id="error-checking" class="level3">
+<h3 class="anchored" data-anchor-id="error-checking">Error checking</h3>
+<p>We consider deatiled error checking to be an inmporant and ongoing part of our workflow. The following steps are taken to ensure data quality.</p>
 <ul>
-<li>The AusTraits data curator runs a series of <strong>tests</strong> on each data set, detailed in the <a href="http://traitecoevo.github.io/traits.build/articles/adding_data.html">adding data vignette</a></li>
+<li>The data curator can rus a series of <strong>tests</strong> on each data set, detailed in the <a href="adding_data.html">adding data vignette</a></li>
 <li>These tests identify <strong>misaligned units</strong>, <strong>unrecognised taxon names</strong>, and <strong>unsupported categorical trait values</strong></li>
 <li>These tests also identify and eliminate <em>most</em> <strong>duplicate data</strong> - instances where the same numeric trait data is submitted by multiple people</li>
 <li>Each dataset is then compiled into a <strong>report</strong> which summarises metadata and plots/charts trait values in comparison to other measurements of that trait in AusTraits. The report is reviewed by the data contributor to ensure metadata is complete and data values are as expected.</li>
@@ -403,6 +410,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

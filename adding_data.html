@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./dictionary.html" rel="next">
-<link href="./compilation_file_structure.html" rel="prev">
+<link href="./custom_R_code.html" rel="next">
+<link href="./dictionary.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Using <code>traits.build</code> to build a compliation</a></li><li class="breadcrumb-item"><a href="./adding_data.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Adding new datasets into AusTraits</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Using <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./adding_data.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Adding new datasets into AusTraits</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -145,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started with traits.build</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -157,7 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">traits.build workflow</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Workflow</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -166,18 +166,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Usage examples</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./austraits_experience.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">The AusTraits experience</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">About the traits.build data standard</span></a>
+ <span class="menu-text">Data structure and standard</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -186,7 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./database_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">The traits.build data structure</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data structure</span></span></a>
   </div>
 </li>
       </ul>
@@ -194,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Using <code>traits.build</code> to build a compliation</span></a>
+ <span class="menu-text">Using <code>traits.build</code></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -203,13 +197,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">traits.build</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Package</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./compilation_file_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Compilation file structure</span></span></a>
+  <a href="./file_structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">File structure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dictionary</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -220,8 +220,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dictionary</span></span></a>
+  <a href="./custom_R_code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Adding custom_R_code</span></span></a>
   </div>
 </li>
       </ul>
@@ -229,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Using the outputs from <code>traits.build</code></span></a>
+ <span class="menu-text">Using the outputs</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -330,8 +330,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">CSV files</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./yaml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Yaml files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Yaml files</span></span></a>
   </div>
 </li>
       </ul>
@@ -353,19 +359,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#add-a-new-folder" id="toc-add-a-new-folder" class="nav-link" data-scroll-target="#add-a-new-folder"><span class="header-section-number">11.1</span> Add a new folder</a></li>
   <li><a href="#csv_file" id="toc-csv_file" class="nav-link" data-scroll-target="#csv_file"><span class="header-section-number">11.2</span> Constructing the <code>data.csv</code> file</a>
   <ul class="collapse">
-  <li><a href="#unexpected-hangups" id="toc-unexpected-hangups" class="nav-link" data-scroll-target="#unexpected-hangups"><span class="header-section-number">11.2.1</span> Unexpected hangups</a></li>
+  <li><a href="#unexpected-hangups" id="toc-unexpected-hangups" class="nav-link" data-scroll-target="#unexpected-hangups">Unexpected hangups</a></li>
   </ul></li>
   <li><a href="#metadata_file" id="toc-metadata_file" class="nav-link" data-scroll-target="#metadata_file"><span class="header-section-number">11.3</span> Constructing the <code>metadata.yml</code> file</a>
   <ul class="collapse">
-  <li><a href="#creating-a-template" id="toc-creating-a-template" class="nav-link" data-scroll-target="#creating-a-template"><span class="header-section-number">11.3.1</span> Creating a template</a></li>
-  <li><a href="#adding-a-source" id="toc-adding-a-source" class="nav-link" data-scroll-target="#adding-a-source"><span class="header-section-number">11.3.2</span> Adding a source</a></li>
-  <li><a href="#adding-contributors" id="toc-adding-contributors" class="nav-link" data-scroll-target="#adding-contributors"><span class="header-section-number">11.3.3</span> Adding contributors</a></li>
-  <li><a href="#custom_R" id="toc-custom_R" class="nav-link" data-scroll-target="#custom_R"><span class="header-section-number">11.3.4</span> Custom R code</a></li>
-  <li><a href="#metadata_dataset" id="toc-metadata_dataset" class="nav-link" data-scroll-target="#metadata_dataset"><span class="header-section-number">11.3.5</span> Fill in metadata$dataset</a></li>
-  <li><a href="#add_traits" id="toc-add_traits" class="nav-link" data-scroll-target="#add_traits"><span class="header-section-number">11.3.6</span> Add traits</a></li>
-  <li><a href="#adding_locations" id="toc-adding_locations" class="nav-link" data-scroll-target="#adding_locations"><span class="header-section-number">11.3.7</span> Adding location details</a></li>
-  <li><a href="#adding_contexts" id="toc-adding_contexts" class="nav-link" data-scroll-target="#adding_contexts"><span class="header-section-number">11.3.8</span> Context details</a></li>
-  <li><a href="#using-substitutions" id="toc-using-substitutions" class="nav-link" data-scroll-target="#using-substitutions"><span class="header-section-number">11.3.9</span> Using substitutions</a></li>
+  <li><a href="#creating-a-template" id="toc-creating-a-template" class="nav-link" data-scroll-target="#creating-a-template">Creating a template</a></li>
+  <li><a href="#adding-a-source" id="toc-adding-a-source" class="nav-link" data-scroll-target="#adding-a-source">Adding a source</a></li>
+  <li><a href="#adding-contributors" id="toc-adding-contributors" class="nav-link" data-scroll-target="#adding-contributors">Adding contributors</a></li>
+  <li><a href="#custom_R" id="toc-custom_R" class="nav-link" data-scroll-target="#custom_R">Custom R code</a></li>
+  <li><a href="#metadata_dataset" id="toc-metadata_dataset" class="nav-link" data-scroll-target="#metadata_dataset">Fill in metadata$dataset</a></li>
+  <li><a href="#add_traits" id="toc-add_traits" class="nav-link" data-scroll-target="#add_traits">Add traits</a></li>
+  <li><a href="#adding_locations" id="toc-adding_locations" class="nav-link" data-scroll-target="#adding_locations">Adding location details</a></li>
+  <li><a href="#adding_contexts" id="toc-adding_contexts" class="nav-link" data-scroll-target="#adding_contexts">Context details</a></li>
+  <li><a href="#using-substitutions" id="toc-using-substitutions" class="nav-link" data-scroll-target="#using-substitutions">Using substitutions</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#quality_checks" id="toc-quality_checks" class="nav-link" data-scroll-target="#quality_checks"><span class="header-section-number">12</span> Quality checks</a>
@@ -375,15 +381,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#rebuild-austraits" id="toc-rebuild-austraits" class="nav-link" data-scroll-target="#rebuild-austraits"><span class="header-section-number">12.3</span> Rebuild AusTraits</a></li>
   <li><a href="#check-excluded-data" id="toc-check-excluded-data" class="nav-link" data-scroll-target="#check-excluded-data"><span class="header-section-number">12.4</span> Check excluded data</a>
   <ul class="collapse">
-  <li><a href="#reasons-for-data-to-be-excluded" id="toc-reasons-for-data-to-be-excluded" class="nav-link" data-scroll-target="#reasons-for-data-to-be-excluded"><span class="header-section-number">12.4.1</span> Reasons for data to be excluded</a></li>
+  <li><a href="#reasons-for-data-to-be-excluded" id="toc-reasons-for-data-to-be-excluded" class="nav-link" data-scroll-target="#reasons-for-data-to-be-excluded">Reasons for data to be excluded</a></li>
   </ul></li>
   <li><a href="#adding_many_substitutions" id="toc-adding_many_substitutions" class="nav-link" data-scroll-target="#adding_many_substitutions"><span class="header-section-number">12.5</span> Adding many substitutions</a></li>
   <li><a href="#add-taxonomic-updates" id="toc-add-taxonomic-updates" class="nav-link" data-scroll-target="#add-taxonomic-updates"><span class="header-section-number">12.6</span> Add taxonomic updates</a></li>
   <li><a href="#check-if-austraits-pivots-wider" id="toc-check-if-austraits-pivots-wider" class="nav-link" data-scroll-target="#check-if-austraits-pivots-wider"><span class="header-section-number">12.7</span> Check if AusTraits pivots wider</a></li>
   <li><a href="#check-for-duplicates" id="toc-check-for-duplicates" class="nav-link" data-scroll-target="#check-for-duplicates"><span class="header-section-number">12.8</span> Check for duplicates</a>
   <ul class="collapse">
-  <li><a href="#duplicates_within_study" id="toc-duplicates_within_study" class="nav-link" data-scroll-target="#duplicates_within_study"><span class="header-section-number">12.8.1</span> Duplicates within the study</a></li>
-  <li><a href="#duplicates_between_studies" id="toc-duplicates_between_studies" class="nav-link" data-scroll-target="#duplicates_between_studies"><span class="header-section-number">12.8.2</span> Duplicates between studies</a></li>
+  <li><a href="#duplicates_within_study" id="toc-duplicates_within_study" class="nav-link" data-scroll-target="#duplicates_within_study">Duplicates within the study</a></li>
+  <li><a href="#duplicates_between_studies" id="toc-duplicates_between_studies" class="nav-link" data-scroll-target="#duplicates_between_studies">Duplicates between studies</a></li>
   </ul></li>
   <li><a href="#build-study-report" id="toc-build-study-report" class="nav-link" data-scroll-target="#build-study-report"><span class="header-section-number">12.9</span> Build study report</a></li>
   </ul></li>
@@ -391,8 +397,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#merging-a-pull-request" id="toc-merging-a-pull-request" class="nav-link" data-scroll-target="#merging-a-pull-request"><span class="header-section-number">13.1</span> Merging a pull request</a>
   <ul class="collapse">
-  <li><a href="#merging-in-your-own-pr" id="toc-merging-in-your-own-pr" class="nav-link" data-scroll-target="#merging-in-your-own-pr"><span class="header-section-number">13.1.1</span> Merging in your own PR</a></li>
-  <li><a href="#merging-someone-elses-pr" id="toc-merging-someone-elses-pr" class="nav-link" data-scroll-target="#merging-someone-elses-pr"><span class="header-section-number">13.1.2</span> Merging someone else’s PR</a></li>
+  <li><a href="#merging-in-your-own-pr" id="toc-merging-in-your-own-pr" class="nav-link" data-scroll-target="#merging-in-your-own-pr">Merging in your own PR</a></li>
+  <li><a href="#merging-someone-elses-pr" id="toc-merging-someone-elses-pr" class="nav-link" data-scroll-target="#merging-someone-elses-pr">Merging someone else’s PR</a></li>
   </ul></li>
   <li><a href="#commit-messages" id="toc-commit-messages" class="nav-link" data-scroll-target="#commit-messages"><span class="header-section-number">13.2</span> Commit messages</a></li>
   <li><a href="#version-updating-making-a-new-release" id="toc-version-updating-making-a-new-release" class="nav-link" data-scroll-target="#version-updating-making-a-new-release"><span class="header-section-number">13.3</span> Version updating &amp; Making a new release</a></li>
@@ -423,11 +429,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>This vignette explains the protocol for adding a new study to AusTraits. Before starting this, you should read more about</p>
 <ul>
-<li>an <a href="http://traitecoevo.github.io/traits.build/articles/overview.html">overview of AusTraits</a>,</li>
-<li>the instructions provided to <a href="http://traitecoevo.github.io/traits.build/articles/contributing_data.html">data contributors</a>,</li>
-<li>the <a href="http://traitecoevo.github.io/traits.build/articles/database_structure.html">structure of the compiled AusTraits database</a>,</li>
-<li>the <a href="http://traitecoevo.github.io/traits.build/articles/file_structure.html">structure of the raw data files</a>, and</li>
-<li><a href="http://traitecoevo.github.io/traits.build/articles/traits.build.html">how to build AusTraits</a>.</li>
+<li>an <a href="overview.html">overview of AusTraits</a>,</li>
+<li>the instructions provided to <a href="contributing_data.html">data contributors</a>,</li>
+<li>the <a href="database_structure.html">structure of the compiled AusTraits database</a>,</li>
+<li>the <a href="file_structure.html">structure of the raw data files</a>, and</li>
+<li><a href="traits.build.html">how to build AusTraits</a>.</li>
 </ul>
 <p>It is important that all steps are followed so that our automated workflow proceeds without problems.</p>
 <section id="an-overview-of-the-main-steps" class="level2" data-number="9.1">
@@ -448,7 +454,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Return to step 6 if changes are made to the <code>data.csv</code> or <code>metadata.yml</code> files.</li>
 <li>Push the GitHub branch.</li>
 </ol>
-<p>It may help to download one of the <a href="https://github.com/traitecoevo/traits.build/tree/master/data">existing datasets</a> to use as a template for your own files and a guide on required content. You should look at the files in the <a href="https://github.com/traitecoevo/traits.build/tree/master/config">config folder</a>, particularly the <code>definitions</code> file for the list of traits we cover and the supported trait values for each trait. The GitHub repository also hosts a compiled <a href="http://traitecoevo.github.io/traits.build/articles/trait_definitions.html">trait definitions table</a>.</p>
+<p>It may help to download one of the <a href="https://github.com/traitecoevo/traits.build/tree/master/data">existing datasets</a> to use as a template for your own files and a guide on required content. You should look at the files in the <a href="https://github.com/traitecoevo/traits.build/tree/master/config">config folder</a>, particularly the <code>definitions</code> file for the list of traits we cover and the supported trait values for each trait. The GitHub repository also hosts a compiled <a href="trait_definitions.html">trait definitions table</a>.</p>
 <p>The remainder of this vignette provides incredibly detailed instructions for steps 4-8 above. It is intended for anyone wishing to add datasets to either AusTraits itself or to use the traits.build workflow to create a separate database.</p>
 </section>
 <section id="getting-started" class="level1" data-number="10">
@@ -527,8 +533,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"data/dataset_id/raw/species_key.csv"</span>) <span class="ot">-&gt;</span> species_key</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"data/dataset_id/raw/data_file.csv"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(species_key, <span class="at">by =</span> <span class="st">"code"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="unexpected-hangups" class="level3" data-number="11.2.1">
-<h3 data-number="11.2.1" class="anchored" data-anchor-id="unexpected-hangups"><span class="header-section-number">11.2.1</span> Unexpected hangups</h3>
+<section id="unexpected-hangups" class="level3">
+<h3 class="anchored" data-anchor-id="unexpected-hangups">Unexpected hangups</h3>
 <ul>
 <li>When Excel saves an <code>.xls</code> file as a <code>.csv</code> file it only preserves the number of significant figures that are displayed on the screen. This means that if, for some reason, a column has been set to display a very low number of significant figures or a column is very narrow, data quality is lost.</li>
 <li>If you’re reading a file into R where there are lots of blanks at the beginning of a column of numeric data, the defaults for <code>read_csv</code> fail to register the column as numeric. It is fixed by adding the argument <code>guess_max</code>:</li>
@@ -545,8 +551,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>First run the following to make the functions available</p>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(traits.build)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The functions for populating the metadata file all begin with <code>metadata_</code>. A list of the available functions is automatically generated within the <code>man/</code> folder within the <code>traits.build</code> directory.</p>
-<section id="creating-a-template" class="level3" data-number="11.3.1">
-<h3 data-number="11.3.1" class="anchored" data-anchor-id="creating-a-template"><span class="header-section-number">11.3.1</span> Creating a template</h3>
+<section id="creating-a-template" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-template">Creating a template</h3>
 <p>Create a basic template for the <code>metadata.yml</code> file for your study. Note, it requires you to have already created a file <code>data.csv</code> in the folder <code>data/your_dataset_id</code>.</p>
 <p>Let’s imagine you’re entering a study called <code>Yang_2028</code></p>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>current_study <span class="ot">&lt;-</span> <span class="st">"Yang_2028"</span></span>
@@ -568,8 +574,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>If your <code>data.csv</code> file does not yet have a <code>location_name</code> column, this information can later be added manually.</p>
 </section>
-<section id="adding-a-source" class="level3" data-number="11.3.2">
-<h3 data-number="11.3.2" class="anchored" data-anchor-id="adding-a-source"><span class="header-section-number">11.3.2</span> Adding a source</h3>
+<section id="adding-a-source" class="level3">
+<h3 class="anchored" data-anchor-id="adding-a-source">Adding a source</h3>
 <p>Three functions are available to help with entering citation details for the source data.</p>
 <p>The function <code>metadata_create_template</code> creates a template for the primary source with default fields for a journal article, which you can then edit manually.</p>
 <p>If you have a <code>doi</code> for your study, use the function:</p>
@@ -627,8 +633,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       of New South Wales"</code></pre>
 <p>If you manually add information, note that if there is a colon (:) or apostrophe (’) in a reference, the text for that line must be in quotes (“).</p>
 </section>
-<section id="adding-contributors" class="level3" data-number="11.3.3">
-<h3 data-number="11.3.3" class="anchored" data-anchor-id="adding-contributors"><span class="header-section-number">11.3.3</span> Adding contributors</h3>
+<section id="adding-contributors" class="level3">
+<h3 class="anchored" data-anchor-id="adding-contributors">Adding contributors</h3>
 <p>The skeletal <code>metadata.yml</code> file created by the function <code>metadata_create_template</code> includes a template for entering details about data contributors. Edit this manually, duplicating if details for multiple people are required.</p>
 <ul>
 <li>Authorship is extended to anyone who played a key intellectual role in the experimental design and data collection. Most studies have 1-3 authors. For each author, please provide a <strong>last_name</strong>, <strong>given_name</strong>, <strong>institutional affiliation</strong>, <strong>email address</strong>, and their <strong>ORCID</strong> (if available). Nominate a single contributor to be the dataset’s point of contact; this person’s email will not be listed in the metadata file, but is the person future AusTraits users are likely to seek out if they have questions.</li>
@@ -646,11 +652,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   assistants: Michelle Cochrane
   dataset_curators: Elizabeth Wenk</code></pre>
 </section>
-<section id="custom_R" class="level3" data-number="11.3.4">
-<h3 data-number="11.3.4" class="anchored" data-anchor-id="custom_R"><span class="header-section-number">11.3.4</span> Custom R code</h3>
+<section id="custom_R" class="level3">
+<h3 class="anchored" data-anchor-id="custom_R">Custom R code</h3>
 <p>For many studies there are changes we want to make to a dataset before the data.csv file is read into AusTraits. These most often include applying a function to transform data, a function to filter data, or a function to replace a contributor’s “measurement missing” placeholder symbol with <code>NA</code>. In each case it is appropriate to leave the rawer data in <code>data.csv</code>.</p>
-<section id="background" class="level4" data-number="11.3.4.1">
-<h4 data-number="11.3.4.1" class="anchored" data-anchor-id="background"><span class="header-section-number">11.3.4.1</span> Background</h4>
+<section id="background" class="level4">
+<h4 class="anchored" data-anchor-id="background">Background</h4>
 <p>In each case we want to make some custom modifications to a particular dataset before the common pipeline of operations gets applied. To make this possible, the workflow allows for some custom R code to be run as a first step in the processing pipeline. That pipeline (the function <code>process_custom_code</code> called within <a href="https://github.com/traitecoevo/traits.build/blob/master/R/process.R"><code>dataset_process</code></a>) looks like this:</p>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(filename_data_raw, <span class="at">col_types =</span> <span class="fu">cols</span>(), <span class="at">guess_max =</span> <span class="fl">1e5</span>) <span class="sc">%&gt;%</span></span>
@@ -658,8 +664,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">process_parse_data</span>(dataset_id, metadata, contexts, schema)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note the second line. This is where the custom code gets applied, right after the file is loaded.</p>
 </section>
-<section id="summary" class="level4" data-number="11.3.4.2">
-<h4 data-number="11.3.4.2" class="anchored" data-anchor-id="summary"><span class="header-section-number">11.3.4.2</span> Summary</h4>
+<section id="summary" class="level4">
+<h4 class="anchored" data-anchor-id="summary">Summary</h4>
 <ul>
 <li>source the file containing functions the AusTraits team have explicitly developed to use within the custom_R_code field: <code>source("R/custom_R_code.R")</code></li>
 <li>assume a single object called <code>data</code>, and apply whatever fixes are needed<br>
@@ -672,8 +678,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>place a single apostrophe (’) at the start and end of your custom R code; this allows you to add line breaks between pipes.</li>
 </ul>
 </section>
-<section id="examples-of-appropriate-use-of-custom-r-code" class="level4" data-number="11.3.4.3">
-<h4 data-number="11.3.4.3" class="anchored" data-anchor-id="examples-of-appropriate-use-of-custom-r-code"><span class="header-section-number">11.3.4.3</span> Examples of appropriate use of custom R code</h4>
+<section id="examples-of-appropriate-use-of-custom-r-code" class="level4">
+<h4 class="anchored" data-anchor-id="examples-of-appropriate-use-of-custom-r-code">Examples of appropriate use of custom R code</h4>
 <ol type="1">
 <li><p>Most sources from herbaria record <code>flowering_time</code> and <code>fruiting_time</code> as a span of months, while AusTraits codes these variables as a sequence of 12 N’s and Y’s for the 12 months. A series of functions make this conversion in custom_R_code. These include:</p>
 <ul>
@@ -773,15 +779,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
 <span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>weird_date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="testing-your-custom-r-code" class="level4" data-number="11.3.4.4">
-<h4 data-number="11.3.4.4" class="anchored" data-anchor-id="testing-your-custom-r-code"><span class="header-section-number">11.3.4.4</span> Testing your custom R code</h4>
+<section id="testing-your-custom-r-code" class="level4">
+<h4 class="anchored" data-anchor-id="testing-your-custom-r-code">Testing your custom R code</h4>
 <p>After you’ve added the custom R code to a file, check that it has completed the intended data frame manipulation:</p>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_check_custom_R_code</span>(<span class="st">"Blackman_2010"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You could alternatively read the data.csv file into R and run the code line by line.</p>
 </section>
 </section>
-<section id="metadata_dataset" class="level3" data-number="11.3.5">
-<h3 data-number="11.3.5" class="anchored" data-anchor-id="metadata_dataset"><span class="header-section-number">11.3.5</span> Fill in metadata$dataset</h3>
+<section id="metadata_dataset" class="level3">
+<h3 class="anchored" data-anchor-id="metadata_dataset">Fill in metadata$dataset</h3>
 <p>The <code>dataset</code> section is a mix of fields that are filled in automatically during <code>metadata_create_template()</code> and fields that need to be manually filled in.</p>
 <ul>
 <li><strong>individual_id</strong> Individual_id is one of the fields that can be read in during <code>metadata_create_template</code>. However, you may instead mutate your own <code>individual_id</code> using <code>custom_R_code</code> and add it in manually. For a wide dataset individual_id is required anytime there are multiple rows of data for the same individual and you want to keep these linked. This field should only be included if it is required.</li>
@@ -790,7 +796,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p><strong>collection_date</strong> If this is not read in as a specified column, it needs to be filled in manually as <code>start date/end date</code> in yyyy-mm-dd, yyyy-mm, or yyyy format, depending on the relevant resolution. If the collection dates are unknown, write <code>unknown/publication year</code></p></li>
 <li><p><strong>description:</strong> 1-2 sentence description of the study’s goals. The abstract of a manuscript usually includes some good sentences/phrases to borrow.</p></li>
-<li><p><strong>basis_of_record:</strong> Allowable values include: field, field_experiment, captive_cultivated, lab, preserved_specimen, and literature. See the top of <code>system.file("support", "traits.build_schema.yml", package = "traits.build"</code> or <a href="http://traitecoevo.github.io/traits.build/articles/database_structure.html">database structure vignette</a> for definitions of these accepted basis_of_record values. This field can also be read in from a column or can be specified at the location or trait level, as described below. Entries under <code>metadata$locations</code> or <code>metadata$traits</code> (which apply to only that specific location or trait) override the global value entered under <code>metadata$dataset</code>.</p></li>
+<li><p><strong>basis_of_record:</strong> Allowable values include: field, field_experiment, captive_cultivated, lab, preserved_specimen, and literature. See the top of <code>system.file("support", "traits.build_schema.yml", package = "traits.build"</code> or <a href="database_structure.html">database structure vignette</a> for definitions of these accepted basis_of_record values. This field can also be read in from a column or can be specified at the location or trait level, as described below. Entries under <code>metadata$locations</code> or <code>metadata$traits</code> (which apply to only that specific location or trait) override the global value entered under <code>metadata$dataset</code>.</p></li>
 <li><p><strong>life_stage:</strong> Allowable values include: adult, sapling, seedling, juvenile. This field can also be read in from a column or can be specified at the location or trait level, as described below. Entries under <code>metadata$locations</code> or <code>metadata$traits</code> (which apply to only that specific location or trait) override the global value entered under <code>metadata$dataset</code>.</p></li>
 <li><p><strong>sampling_strategy:</strong> Often a quite long description of the sampling strategy, extracted verbatim from a manuscript.</p></li>
 <li><p><strong>original_file:</strong> The name of the file initially submitted to AusTraits and archived in a Google Drive folder and usually in the dataset folder, in a subfolder named <code>raw</code>.</p></li>
@@ -802,8 +808,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>entity_type</strong>, <strong>value_type</strong>, <strong>replicates</strong>, and <strong>basis_of_value</strong> are standardly added to each trait, but a fixed value or column could be read in under <code>metadata$dataset</code></p></li>
 </ul>
 </section>
-<section id="add_traits" class="level3" data-number="11.3.6">
-<h3 data-number="11.3.6" class="anchored" data-anchor-id="add_traits"><span class="header-section-number">11.3.6</span> Add traits</h3>
+<section id="add_traits" class="level3">
+<h3 class="anchored" data-anchor-id="add_traits">Add traits</h3>
 <p>Begin by automatically adding all traits to your skeletal <code>metadata.yml</code> file:</p>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_traits</span>(current_study)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You will be asked to indicate the columns you wish to keep as distinct traits. Include all columns with trait data.</p>
@@ -841,8 +847,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>temporal_context</strong> If different columns in a wide data.csv file indicate measurements on the same trait, on the same individuals at different points in time, this needs to be designated. At the bottom of the trait’s metadata, add a <code>temporal_context_name</code> field (e.g.&nbsp;<code>temporal_context</code> words well). Write a word or short phrase that indicates which temporal context applies to that trait (data column). For instance, one trait might have <code>temporal_context: dry season</code> and a second entry with the same trait name and method might have <code>temporal_context: after rain</code>. The temporal context details must also be added to the <a href="#adding_contexts">contexts</a> section.</p></li>
 </ul>
 </section>
-<section id="adding_locations" class="level3" data-number="11.3.7">
-<h3 data-number="11.3.7" class="anchored" data-anchor-id="adding_locations"><span class="header-section-number">11.3.7</span> Adding location details</h3>
+<section id="adding_locations" class="level3">
+<h3 class="anchored" data-anchor-id="adding_locations">Adding location details</h3>
 <p>Location data includes location names, latitude/longitude coordinates, verbal location descriptions, and any additional abiotic/biotic location variables provided by the contributor (or in the accompanying manuscript). For studies with more than a few locations, it is most efficient to create a table of this data that is automatically read into the <code>metadata.yml</code> file.</p>
 <ol type="1">
 <li><p>Location names must be identical (including syntax, case) to those in <code>data.csv</code></p></li>
@@ -875,8 +881,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>It is possible that you will want to specify <code>life_stage</code> or <code>basis_of_record</code> at the location_level. You can later manually add these fields to some or all locations.</p>
 <p>(During processing location_id’s are automatically generated and paired with each location_name.)</p>
 </section>
-<section id="adding_contexts" class="level3" data-number="11.3.8">
-<h3 data-number="11.3.8" class="anchored" data-anchor-id="adding_contexts"><span class="header-section-number">11.3.8</span> Context details</h3>
+<section id="adding_contexts" class="level3">
+<h3 class="anchored" data-anchor-id="adding_contexts">Context details</h3>
 <p>The dictionary definition of a context is <em>the situation within which something exists or happens, and that can help explain it</em>. This is exactly what <code>context_properties</code> are in AusTraits, ancillary information that is important to explaining and understanding a trait value.</p>
 <p>AusTraits recognises 5 categories of contexts: - <strong>treatment</strong> contexts are experimental treatments applied to individuals, such as soil nutrient manipulations, growing temperatures, or CO2 enchancement. - <strong>plot</strong> contexts are either blocks/plots within an experimental design or a variable that has been measured <em>within</em> a location and measurements have been stratified across this variable. Topographic position within a location is an example of this. - <strong>temporal</strong> contexts relate to repeat measurements on the same entity (individual, population, or species) across time. They may simply be number observations or might be explicitly linked to growing season or time of day. - <strong>method</strong> contexts indicate that the same trait has been measured on the same entity (individual, population or species) using multiple methods. These might be samples from different canopy light environments, different leaf ages, or sapwood samples from different branch diameters. - <strong>entity_contexts</strong> capture ancillary information about the entity (individual, population or species) that helps explain the measured trait values. This might be the entity’s sex, caste (for social insects), or host plant (for insects).</p>
 <p>Context properties are not restricted to a controlled vocabulary. However, newly added studies should use the same context property syntax as others whenever possible, to allow future discoverability. To generate a list of terms already used under <code>context_property</code>, use:</p>
@@ -958,8 +964,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   - value: 25°C
     description: Measurement made at 25°C</code></pre>
 </section>
-<section id="using-substitutions" class="level3" data-number="11.3.9">
-<h3 data-number="11.3.9" class="anchored" data-anchor-id="using-substitutions"><span class="header-section-number">11.3.9</span> Using substitutions</h3>
+<section id="using-substitutions" class="level3">
+<h3 class="anchored" data-anchor-id="using-substitutions">Using substitutions</h3>
 <p>It is very unlikely that a contributor will use categorical trait values that are entirely identical to those in the <code>traits.yml</code> file. You need to add substitutions for those that do not exactly align to match the wording and syntax supported by AusTraits. Combinations of multiple trait values are allowed - simply list them, space delimited (e.g.&nbsp;<code>shrub tree</code> for a species whose growth form includes both)</p>
 <p>Single substitutions can be added by running:</p>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_substitution</span>(current_study, <span class="st">"trait_name"</span>, <span class="st">"find"</span>, <span class="st">"replace"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -969,8 +975,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Add a single substitution via the function and then copy and paste the lines many times in the metadata.yml file, changing the relevant fields</p></li>
 <li><p>Create a spreadsheet with a list of all <code>trait_name</code> by <code>trait_value</code> combinations requiring substitutions. The spreadsheet would have four columns with headers <code>dataset_id</code>, <code>trait_name</code>, <code>find</code> and <code>replace</code>. This table can be read directly into the <code>metadata.yml</code> file using the function <code>metadata_add_substitutions_table</code>. This is described below under <a href="#adding_many_substitutions">Adding many substitutions</a>.</p></li>
 </ul>
-<section id="excluded-data" class="level4" data-number="11.3.9.1">
-<h4 data-number="11.3.9.1" class="anchored" data-anchor-id="excluded-data"><span class="header-section-number">11.3.9.1</span> Excluded data</h4>
+<section id="excluded-data" class="level4">
+<h4 class="anchored" data-anchor-id="excluded-data">Excluded data</h4>
 <p>This section of the <code>metadata.yml</code> file provides the capacity to explicitly exclude specific trait values or taxon names. These are values that are in the <code>data.csv</code> file but should be excluded from AusTraits.</p>
 <p>It includes three elements: - <strong>variable</strong>: A variable from the traits table, typically <code>taxon_name</code>, <code>location_name</code> or <code>context_name</code> - <strong>find</strong>: Value of variable to remove - <strong>reason</strong>: Records why the data was removed, e.g.&nbsp;<code>exotic</code></p>
 <p>Multiple, comma-delimited values can be added under <code>find</code>.</p>
@@ -984,8 +990,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>  find<span class="sc">:</span> Xanthoparmelia semiviridis</span>
 <span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>  reason<span class="sc">:</span> <span class="fu">lichen</span> (E Wenk, <span class="dv">2020</span>.<span class="fl">06.18</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="questions" class="level4" data-number="11.3.9.2">
-<h4 data-number="11.3.9.2" class="anchored" data-anchor-id="questions"><span class="header-section-number">11.3.9.2</span> Questions</h4>
+<section id="questions" class="level4">
+<h4 class="anchored" data-anchor-id="questions">Questions</h4>
 <p>The final section of the <code>metadata.yml</code> file is titled <code>questions</code>. This is a location to:</p>
 <ol type="1">
 <li>Ask the data contributor targeted questions about their study. When you generate a report (described below) these questions will appear at the top of the report.
@@ -999,8 +1005,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>This is a place to list any trait data that are not yet <code>traits</code> supported by AusTraits. Use the following syntax, indented once: <code>additional_traits:</code>, followed by a list of traits.</li>
 </ol>
 </section>
-<section id="hooray-you-now-have-a-fully-propagated-metadata.yml-file" class="level4" data-number="11.3.9.3">
-<h4 data-number="11.3.9.3" class="anchored" data-anchor-id="hooray-you-now-have-a-fully-propagated-metadata.yml-file"><span class="header-section-number">11.3.9.3</span> Hooray! You now have a fully propagated metadata.yml file!</h4>
+<section id="hooray-you-now-have-a-fully-propagated-metadata.yml-file" class="level4">
+<h4 class="anchored" data-anchor-id="hooray-you-now-have-a-fully-propagated-metadata.yml-file">Hooray! You now have a fully propagated metadata.yml file!</h4>
 <p>Next is making sure it has captured all the data exactly as you’ve intended.</p>
 </section>
 </section>
@@ -1067,8 +1073,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>                  schema,</span>
 <span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">filter_missing_values =</span> <span class="cn">FALSE</span></span>
 <span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>                 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="reasons-for-data-to-be-excluded" class="level3" data-number="12.4.1">
-<h3 data-number="12.4.1" class="anchored" data-anchor-id="reasons-for-data-to-be-excluded"><span class="header-section-number">12.4.1</span> Reasons for data to be excluded</h3>
+<section id="reasons-for-data-to-be-excluded" class="level3">
+<h3 class="anchored" data-anchor-id="reasons-for-data-to-be-excluded">Reasons for data to be excluded</h3>
 <p>Possible reasons for excluding a trait value includes:</p>
 <ul>
 <li><p><strong>Missing species name</strong>: Species name is missing from data.csv file for a given row of data. This usually occurs when there are stray characters in the data.csv file below the data – delete these rows.</p></li>
@@ -1177,8 +1183,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
 <span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>    dataset_id <span class="sc">==</span> current_study</span>
 <span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="duplicates_within_study" class="level3" data-number="12.8.1">
-<h3 data-number="12.8.1" class="anchored" data-anchor-id="duplicates_within_study"><span class="header-section-number">12.8.1</span> Duplicates within the study</h3>
+<section id="duplicates_within_study" class="level3">
+<h3 class="anchored" data-anchor-id="duplicates_within_study">Duplicates within the study</h3>
 <ol type="1">
 <li><p>First sort <code>duplicates_for_dataset_id</code> by the column <code>error</code> and scan for duplicates within the study (these will be entries under error that begin with the same <code>dataset_id</code> as the dataset being processed)</p></li>
 <li><p>For legitimately identical measurements, do nothing. For instance, if %N has been measured on 50 replicates of a species and is reported to the nearest 0.01% it is quite likely there will be a few identical values within the study.</p></li>
@@ -1194,8 +1200,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note: Using custom R code instead of filtering the values in the data.csv file itself ensures the relevant trait values are still associated with each line of data in the data.csv file, but only read into AusTraits a single time. Note: You would use <code>group_by(Species, Location)</code> if there are unique values at the species x location level.</p>
 </section>
-<section id="duplicates_between_studies" class="level3" data-number="12.8.2">
-<h3 data-number="12.8.2" class="anchored" data-anchor-id="duplicates_between_studies"><span class="header-section-number">12.8.2</span> Duplicates between studies</h3>
+<section id="duplicates_between_studies" class="level3">
+<h3 class="anchored" data-anchor-id="duplicates_between_studies">Duplicates between studies</h3>
 <p>AusTraits does not attempt to filter out duplicates in categorical traits between studies. The commonly duplicated traits like <code>life_form</code>, <code>plant_growth_form</code>, <code>photosynthetic_pathway</code>, <code>fire_response</code>, etc. are legitimately duplicated and if the occasional study reported a different <code>plant_growth_form</code> or <code>fire_response</code> it would be important to have documented that one trait value was much more common than another. Such categorical trait values may have been sourced from reference material or measured/identified by this research team.</p>
 <p>Identifying duplicates in numeric traits between studies can be difficult, but it is essential that we attempt to filter out all duplicate occurrences of the same measurement. Some common patterns of duplication include:</p>
 <ol type="1">
@@ -1215,8 +1221,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Add additional columns to <code>data.csv</code>, identifying certain <code>trait_values</code> as duplicates.</li>
 <li>Add <code>custom R code</code> that filters out identified duplicates when the study is merged into AusTraits.</li>
 </ol>
-<section id="identify-traits-and-studies" class="level4" data-number="12.8.2.1">
-<h4 data-number="12.8.2.1" class="anchored" data-anchor-id="identify-traits-and-studies"><span class="header-section-number">12.8.2.1</span> Identify traits and studies</h4>
+<section id="identify-traits-and-studies" class="level4">
+<h4 class="anchored" data-anchor-id="identify-traits-and-studies">Identify traits and studies</h4>
 <ol type="1">
 <li>Either in R or Excel, manipulate <a href="#dataframe_of_duplicates"><code>duplicates_for_dataset_id</code></a> to remove rows that you believe are legitimate duplicates, including duplicates values due to replicate measurements within a single study and stray duplicates across studies that likely true, incidental duplicate values. Carefully consider which datasets and traits to include/exclude from the filter.</li>
 </ol>
@@ -1355,8 +1361,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>to run various checks along the way</li>
 </ul>
 <p>There are two ways to do this. For both, you need to be an approved maintainer.</p>
-<section id="merging-in-your-own-pr" class="level3" data-number="13.1.1">
-<h3 data-number="13.1.1" class="anchored" data-anchor-id="merging-in-your-own-pr"><span class="header-section-number">13.1.1</span> Merging in your own PR</h3>
+<section id="merging-in-your-own-pr" class="level3">
+<h3 class="anchored" data-anchor-id="merging-in-your-own-pr">Merging in your own PR</h3>
 <p>You can merge in your own PR after you’ve had someone else review it.</p>
 <ol type="1">
 <li>Send the PR</li>
@@ -1364,8 +1370,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Once ready, merge into main choosing “Squash &amp; Merge”, using an informative commit message.</li>
 </ol>
 </section>
-<section id="merging-someone-elses-pr" class="level3" data-number="13.1.2">
-<h3 data-number="13.1.2" class="anchored" data-anchor-id="merging-someone-elses-pr"><span class="header-section-number">13.1.2</span> Merging someone else’s PR</h3>
+<section id="merging-someone-elses-pr" class="level3">
+<h3 class="anchored" data-anchor-id="merging-someone-elses-pr">Merging someone else’s PR</h3>
 <p>When merging in someone else’s PR, the built-in options aren’t ideal, as they either take all of the commits on a branch (ugh, messy), OR make the commit under the name of the person merging the request.</p>
 <p>The workflow below describes how to merge a pull request from the command line, with a single commit &amp; attributing the work to the original author. Lets assume a branch of name <code>Smith_1995</code>.</p>
 <p>First, from the master branch in the repo, run the following:</p>
@@ -1662,13 +1668,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./compilation_file_structure.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Compilation file structure</span></span>
+      <a href="./dictionary.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dictionary</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./dictionary.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dictionary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./custom_R_code.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Adding custom_R_code</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

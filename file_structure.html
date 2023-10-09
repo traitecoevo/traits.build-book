@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>The {traits.build} standard, R package and workflow manual - 7&nbsp; File structure</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./dictionary.html" rel="next">
+<link href="./traits_build.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Using <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./file_structure.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">File structure</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">The {traits.build} standard, R package and workflow manual</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./motivation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Motivation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./usage_examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Usage examples</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Data structure and standard</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./database_structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data structure</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Using <code>traits.build</code></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./traits_build.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Package</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./file_structure.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">File structure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dictionary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./adding_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Adding new datasets into AusTraits</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./custom_R_code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Adding custom_R_code</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Using the outputs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./using_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Using data from a traits.build compilation</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorials</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_compilation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tutorial: Using the template example</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_4</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">Troubleshooting</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./help.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Help</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./troubleshooting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Troubleshooting traits.build</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">CSV files</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./yaml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Yaml files</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#repository-structure" id="toc-repository-structure" class="nav-link active" data-scroll-target="#repository-structure"><span class="header-section-number">7.1</span> Repository structure</a></li>
+  <li><a href="#config-folder" id="toc-config-folder" class="nav-link" data-scroll-target="#config-folder"><span class="header-section-number">7.2</span> <code>/config</code> folder</a>
+  <ul class="collapse">
+  <li><a href="#metadata.yml" id="toc-metadata.yml" class="nav-link" data-scroll-target="#metadata.yml">metadata.yml</a></li>
+  <li><a href="#traits.yml" id="toc-traits.yml" class="nav-link" data-scroll-target="#traits.yml">traits.yml</a></li>
+  <li><a href="#taxon_list.csv" id="toc-taxon_list.csv" class="nav-link" data-scroll-target="#taxon_list.csv">taxon_list.csv</a></li>
+  <li><a href="#unit_conversions.csv" id="toc-unit_conversions.csv" class="nav-link" data-scroll-target="#unit_conversions.csv">unit_conversions.csv</a></li>
+  </ul></li>
+  <li><a href="#data-folder" id="toc-data-folder" class="nav-link" data-scroll-target="#data-folder"><span class="header-section-number">7.3</span> <code>/data</code> folder</a></li>
+  <li><a href="#dataset_iddata.csv" id="toc-dataset_iddata.csv" class="nav-link" data-scroll-target="#dataset_iddata.csv"><span class="header-section-number">7.4</span> dataset_id/data.csv</a></li>
+  <li><a href="#dataset_idmetadata.yml" id="toc-dataset_idmetadata.yml" class="nav-link" data-scroll-target="#dataset_idmetadata.yml"><span class="header-section-number">7.5</span> dataset_id/metadata.yml</a>
+  <ul class="collapse">
+  <li><a href="#source" id="toc-source" class="nav-link" data-scroll-target="#source">source</a></li>
+  <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors">contributors</a></li>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">dataset</a></li>
+  <li><a href="#locations" id="toc-locations" class="nav-link" data-scroll-target="#locations">locations</a></li>
+  <li><a href="#contexts" id="toc-contexts" class="nav-link" data-scroll-target="#contexts">contexts</a></li>
+  <li><a href="#traits" id="toc-traits" class="nav-link" data-scroll-target="#traits">traits</a></li>
+  <li><a href="#substitutions" id="toc-substitutions" class="nav-link" data-scroll-target="#substitutions">substitutions</a></li>
+  <li><a href="#taxonomic_updates" id="toc-taxonomic_updates" class="nav-link" data-scroll-target="#taxonomic_updates">taxonomic_updates</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">questions</a></li>
+  </ul></li>
+  <li><a href="#rcustom_r_code.r" id="toc-rcustom_r_code.r" class="nav-link" data-scroll-target="#rcustom_r_code.r"><span class="header-section-number">7.6</span> <code>R/custom_R_code.R</code></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">File structure</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This chapter desribes the typical files you may encounter in a <code>traits.build</code> compilation. The description is based on the <a href="https://github.com/traitecoevo/austraits.build/"><code>austraits.build</code></a> compilation.</p>
+<p>We strongly suggest you create a standalone folder for your repository, e.g.&nbsp;<code>austraits.build</code>. This folder should contain all files needed to build your compilation. We’re big fans of github as a platform for collaboration. If you’re not familiar with git or github, we suggest you check out the <a href="https://happygitwithr.com/">happy git with R</a> book.</p>
+<section id="repository-structure" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="repository-structure"><span class="header-section-number">7.1</span> Repository structure</h2>
+<p>The main directory for the <a href="https://github.com/traitecoevo/austraits.build/"><code>austraits.build</code></a> repository contains the following files and folders, with purpose as indicated. Not all of these files are required for a compilation, some are used for extra features such as website. They are included here for completeness.</p>
+<p><strong>Files used for data compilation</strong></p>
+<pre><code>├── remake.yml/build.R    # instructions for build
+├── config                # configuration files
+├── data                  # raw data files
+├── R                     # folder with custom functions
+├── export                # folder for output
+└── scripts               # scripts for processing files before/after build</code></pre>
+<p><strong>R project file</strong></p>
+<pre><code>├── traits.build.Rproj     # Rstudio project</code></pre>
+<p><strong>Files for maintaining a repo on github</strong></p>
+<pre><code>├── README.md         # landing page
+├── .github           # folder containing github actions, issue templates, code of conduct
+├── LICENCE
+├── NEWS.md
+├── _pkgdown.yml      # used to create packagedown website
+├── docs              # contains website
+├── Dockerfile        # creates an image of R environment used in build</code></pre>
+<p><strong>Files used for creation of R package for this compilation</strong></p>
+<p>XXX Explan this more</p>
+<pre><code>├── NAMESPACE             # functions being exported
+├── DESCRIPTION           # R package description
+├── tests                 # defines tests applied to datasets
+├── vignettes             # documentation of repo file structure, AusTraits database structure, definitions, data input processes</code></pre>
+</section>
+<section id="config-folder" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="config-folder"><span class="header-section-number">7.2</span> <code>/config</code> folder</h2>
+<p>The folder <code>config</code> contains four files which govern the building of the dataset.</p>
+<pre><code>config
+├── metadata.yml
+├── traits.yml
+├── taxon_list.csv
+└── unit_conversions.csv</code></pre>
+<section id="metadata.yml" class="level3">
+<h3 class="anchored" data-anchor-id="metadata.yml">metadata.yml</h3>
+<p>XXX</p>
+</section>
+<section id="traits.yml" class="level3">
+<h3 class="anchored" data-anchor-id="traits.yml">traits.yml</h3>
+<p>The file <code>traits.yml</code> provides the trait definitions used to compile AusTraits, including allowable trait values. The <a href="trait_definitions.html">trait definitions</a> are fully described in an additional vignette. A <code>.yml</code> file is a structured data file where information is presented in a hierarchical format (see <a href="yaml.html">appendix for details</a>).</p>
+</section>
+<section id="taxon_list.csv" class="level3">
+<h3 class="anchored" data-anchor-id="taxon_list.csv">taxon_list.csv</h3>
+<p>The file <code>taxon_list.csv</code> is our master list of known taxa.</p>
+<p>XXX Explan this more. Only show essential variables in table below.</p>
+<!-- Each species is listed once, with links to species' identifiers provided by the Australian Plant Name Index (APNI). The file `taxon_list.csv` is added to if a study includes taxa not previously represented in AusTraits. These can be names included in either the APC/APNI, compilations of taxonomic concepts (APC) or names (APNI) for plants that are either native to or naturalised in Australia, or taxa without recognised names. -->
+<div class="cell">
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">taxon_name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">family</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">scientific_name_authorship</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">taxonomic_reference</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">cleaned_name_taxonomic_status</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">cleaned_scientific_name_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Abelia x grandiflora</td>
+<td style="text-align: left;">Caprifoliaceae</td>
+<td style="text-align: left;">(Rovelli ex AndrÃ©) Rehder</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/190758</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Abelmoschus ficulneus</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">(L.) Wight</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/55929</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Abelmoschus manihot</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">(L.) Medik.</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/55937</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Abelmoschus manihot subsp. manihot</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/116920</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Abelmoschus manihot subsp. tetraphyllus</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">(Roxb. ex Hornem.) Borss.Waalk.</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/55945</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Abelmoschus moschatus</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">Medik.</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/55953</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Abelmoschus moschatus subsp. biakensis</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">(Hochr.) Borss.Waalk.</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/116595</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Abelmoschus moschatus subsp. moschatus</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/243806</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Abelmoschus moschatus subsp. tuberosus</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">(Span.) Borss.Waalk.</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/55961</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Abildgaardia ovata</td>
+<td style="text-align: left;">Cyperaceae</td>
+<td style="text-align: left;">(Burm.f.) Kral</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/150737</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
+</div>
+</section>
+<section id="unit_conversions.csv" class="level3">
+<h3 class="anchored" data-anchor-id="unit_conversions.csv">unit_conversions.csv</h3>
+<p>The file <code>unit_conversions.csv</code> defines the unit conversions that are used when converting contributed trait data to common units, e.g.</p>
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">unit_from</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">unit_to</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">mg/g</td>
+<td style="text-align: left;">x*10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">g/g</td>
+<td style="text-align: left;">x*0.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">mg/mg</td>
+<td style="text-align: left;">x*0.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">mg/kg</td>
+<td style="text-align: left;">x*10000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">{dimensionless}</td>
+<td style="text-align: left;">x*.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">{count}/{count}</td>
+<td style="text-align: left;">x*.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{dimensionless}</td>
+<td style="text-align: left;">{count}/{count}</td>
+<td style="text-align: left;">x*1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">mo</td>
+<td style="text-align: left;">x*12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{count}/m2</td>
+<td style="text-align: left;">{count}/mm2</td>
+<td style="text-align: left;">x*1/1000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cm</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">x*0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
+</section>
+</section>
+<section id="data-folder" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="data-folder"><span class="header-section-number">7.3</span> <code>/data</code> folder</h2>
+<p>The folder <code>data</code> contains the raw data from individual studies included in AusTraits.</p>
+<p>Records within the <code>data</code> folder are organised as coming from a particular study, defined by the <code>dataset_id</code>. Data from each study are organised into a separate folder, with two files:</p>
+<ul>
+<li><code>data.csv</code>: a table containing the actual trait data.</li>
+<li><code>metadata.yml</code>: a file that contains study metadata (source, methods, locations, and context), maps trait names and units onto standard types, and lists any substitutions applied to the data in processing.</li>
+</ul>
+<p>The folder <code>data</code> thus contains a long list of folders, one for each study and each containing two files:</p>
+<pre><code>data
+├── Angevin_2010
+│   ├── data.csv
+│   └── metadata.yml
+├── Barlow_1981
+│   ├── data.csv
+│   └── metadata.yml
+├── Bean_1997
+│   ├── data.csv
+│   └── metadata.yml
+├── ....
+</code></pre>
+<p>where <code>Angevin_2010</code>, <code>Barlow_1981</code>, &amp; <code>Bean_1997</code> are each a unique <code>dataset_id</code> in the final dataset.</p>
+</section>
+<section id="dataset_iddata.csv" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="dataset_iddata.csv"><span class="header-section-number">7.4</span> dataset_id/data.csv</h2>
+<p>The file <code>data.csv</code> contains raw measurements and can be in either long or wide format.</p>
+<p>Required columns include the taxon name, the trait name (column in long format, header in wide format), units (column in long format, part of header in wide format), location (if applicable), context (if applicable), date (if available), and trait values.</p>
+<p>It is important that all trait measurements made on the same individual or that are the mean of a species’ measurements from the same location are kept linked.</p>
+<ul>
+<li><p>If the data is in wide format, each row should include measurements made on a single individual at a single point in time or a single species-by-location mean, with different trait values as consecutive columns.</p></li>
+<li><p>If the data is in long format, an additional column, <code>individual_id</code>, is required to ensure multiple trait measurements made on the same individual, or the mean of a species’ measurements from the same location, are linked. If the data is in wide format and there are multiple rows of data for the same individual, an <code>individual_id</code> column should be included. These <code>individual_id</code> columns ensure that related data values remain linked.</p></li>
+</ul>
+<p>We aim to keep the data file in the rawest form possible (i.e.&nbsp;with as few changes as possible) but it must be a single csv file. Additional custom R code may be required to make the file exactly compatible with the AusTraits format, but these changes should be executed as AusTraits is compiled and should be in the <code>metadata.yml</code> file under <code>dataset/custom_R_code</code> (see below). Any files used to create the submitted <code>data.csv</code> file (e.g.&nbsp;Excel …) should be archived in a sub-folder within the study folder named <code>raw</code>.</p>
+</section>
+<section id="dataset_idmetadata.yml" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="dataset_idmetadata.yml"><span class="header-section-number">7.5</span> dataset_id/metadata.yml</h2>
+<p>The metadata is compiled in a <code>.yml</code> file, a structured data file where information is presented in a hierarchical format (see <a href="yaml.html">Appendix for details</a>). There are 10 values at the top hierarchical level: source, contributors, dataset, locations, contexts, traits, substitutions, taxonomic_updates, exclude_observations, questions. These are each described below.</p>
+<p>As a start, you may want to check out some examples from <a href="https://github.com/traitecoevo/traits.build/tree/master/data">existing studies in Austraits</a>, e.g.&nbsp;<a href="https://github.com/traitecoevo/traits.build/blob/master/data/Angevin_2011/metadata.yml">Angevin_2010</a> or <a href="https://github.com/traitecoevo/traits.build/blob/master/data/Wright_2009/metadata.yml">Wright_2009</a>.</p>
+<section id="source" class="level3">
+<h3 class="anchored" data-anchor-id="source">source</h3>
+<p>This section provides citation details for the original source(s) for the data, whether it is a published journal article, book, website, or thesis. In general we aim to reference the primary source. References are written in structured yml format, under the category <code>source</code> and then under sub-groupings <code>primary</code>, <code>secondary</code>, and <code>original</code>. A reference is designated as <code>secondary</code> if it is a second publication by the data collector that analyses the data. When the <code>primary</code> reference is a compilation of multiple sources for a meta-analysis, the original references are designated as <code>original</code>.</p>
+<p>General guidelines for describing a source include:</p>
+<ul>
+<li>A maximum of one primary source allowed.</li>
+<li>Elements are names as in <a href="https://en.wikipedia.org/wiki/BibTeX">bibtex format</a>.</li>
+<li>Keys should be named in the format <code>Surname_year</code> and the primary source is almost always identical to the name given to the dataset folder. A second instance of the identical Surname_year should have the key Surname_year_2.</li>
+<li>One or more secondary source may be included if traits from a single dataset were presented in two different manuscripts. Multiple sources are also appropriate if an author has compiled data from a number of sources, which are not individually in AusTraits, for a published or unpublished compilation.</li>
+<li>If your data is from an unpublished study, only include the elements that are applicable.</li>
+<li>If someone has transcribed a published source, the primary source will be the published work and the person who has completed the transcription will be acknowledged as the <code>contributor</code> of the dataset.</li>
+</ul>
+<p>An example of a primary source that is a journal article is:</p>
+<pre><code>source:
+  primary:
+    key: Falster_2005_1
+    bibtype: Article
+    author: Daniel S. Falster, Mark Westoby
+    year: 2005
+    title: Alternative height strategies among 45 dicot rain forest species from tropical Queensland, Australia
+    journal: Journal of Ecology
+    volume: 93
+    pages: 521--535
+    publisher: Wiley-Blackwell
+    doi: 10.1111/j.0022-0477.2005.00992.x</code></pre>
+<p>If a secondary source is included it may look like:</p>
+<pre><code>  primary:
+    key: Choat_2006
+    bibtype: Article
+    year: '2006'
+    author: B. Choat and M. C. Ball and J. G. Luly and C. F. Donnelly and J. A. M.
+      Holtum
+    journal: Tree Physiology
+    title: Seasonal patterns of leaf gas exchange and water relations in dry rain
+      forest trees of contrasting leaf phenology
+    volume: '26'
+    number: '5'
+    pages: 657--664
+    doi: 10.1093/treephys/26.5.657
+  secondary:
+    key: Choat_2005
+    bibtype: Article
+    year: '2005'
+    author: Brendan Choat and Marilyn C. Ball and Jon G. Luly and Joseph A. M. Holtum
+    journal: Trees
+    title: Hydraulic architecture of deciduous and evergreen dry rainforest tree species
+      from north-eastern Australia
+    volume: '19'
+    number: '3'
+    pages: 305--311
+    doi: 10.1007/s00468-004-0392-1</code></pre>
+</section>
+<section id="contributors" class="level3">
+<h3 class="anchored" data-anchor-id="contributors">contributors</h3>
+<p>This section provides a list of contributors to the study, their respective affiliations, roles in the study, and orcids. The following information is recorded for each data contributor:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">key</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">last_name</td>
+<td style="text-align: left;">Last name of data collector.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">given_name</td>
+<td style="text-align: left;">Given name of data collector.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">affiliation</td>
+<td style="text-align: left;">Affiliation of data collector.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ORCID</td>
+<td style="text-align: left;">ORCID ID (Open Researcher and Contributor ID) for the data collector, if available.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">notes</td>
+<td style="text-align: left;">optional notes for the data collector.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">additional_role</td>
+<td style="text-align: left;">Any additional roles the data collector had in the study, a field most frequently used to identify which data contributor is the contact person for the dataset.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
+</div>
+<p>An example is as follows:</p>
+<pre><code> data_collectors:
+  - last_name: Falster
+    given_name: Daniel
+    ORCID: 0000-0002-9814-092X
+    affiliation: Evolution &amp; Ecology Research Centre, School of Biological, Earth,
+      and Environmental Sciences, UNSW Sydney, Australia
+    additional_role: contact
+  - last_name: Westoby
+    given_name: Mark
+    ORCID: 0000-0001-7690-4530
+    affiliation: Department of Biological Sciences, Macquarie University, Australia</code></pre>
+<p>Note that only the AusTraits custodians have the contributors’ e-mail addresses on file. This information will not be directly available to AusTraits users or new contributors via Github.</p>
+<p>Additional fields within contributors are:</p>
+<ul>
+<li><code>Assistants</code>, names of additional people who played a more minor role in data collection for the study.</li>
+<li><code>dataset_curators</code>, names of austraits team member(s) who contacted the data collectors and added the study to the austraits repository.</li>
+</ul>
+</section>
+<section id="dataset" class="level3">
+<h3 class="anchored" data-anchor-id="dataset">dataset</h3>
+<p>This section includes study details, including format of the data, custom r code applied to data, and various descriptors. the value entered for each element can be either a header for a column within the data.csv file or the actual value to be used.</p>
+<p>The following elements are included under the element <code>dataset</code>:</p>
+<ul>
+<li><strong>data_is_long_format</strong>: Indicates if the data spreadsheet has a vertical (long) or horizontal (wide) configuration with <code>yes</code> or <code>no</code> terminology.</li>
+<li><strong>custom_R_code</strong>: A field where additional R code can be included. This allows for custom manipulation of the data in the submitted spreadsheet into a different format for easy integration with AusTraits. <code>.na</code> indicates no custom R code was used.</li>
+<li><strong>collection_date</strong>: Date sample was taken, in the format <code>yyyy-mm-dd</code>, <code>yyyy-mm</code> or <code>yyyy</code>, depending on the resoluton specified. Alternatively an overall range for the study can be indicating, with the starting and ending sample date sepatated by a <code>/</code>, as in 2010-10/2011-03</li>
+<li><strong>taxon_name</strong>: Scientific name of the taxon on which traits were sampled, without authorship. When possible, this is the currently accepted (botanical) or valid (zoological) scientific name, but might also be a higher taxonomic level.</li>
+<li><strong>location_name</strong>: location name</li>
+<li><strong>source_id</strong>: For datasets that are compilations, an identifier for the original data source.</li>
+<li><strong>individual_id</strong>: A unique integer identifier for an individual, with individuals numbered sequentially within each dataset by taxon by population grouping. Most often each row of data represents an individual, but in some datasets trait data collected on a single individual is presented across multiple rows of data, such as if the same trait is measured using different methods or the same individual is measured repeatedly across time.</li>
+<li><strong>repeat_measurements_id</strong>: A unique integer identifier for repeat measurements of a trait that comprise a single observation, such as a response curve.</li>
+<li><strong>trait_name</strong>: Element required for long datasets to specify the column indicating the trait name associated with each row of data.</li>
+<li><strong>value</strong>: The measured value of a trait.</li>
+<li><strong>description</strong>: A 1-2 sentence description of the purpose of the study.</li>
+<li><strong>basis_of_record</strong>: A categorical variable specifying from which kind of specimen traits were recorded.</li>
+<li><strong>life_stage</strong>: A field to indicate the life stage or age class of the entity measured. Standard values are <code>adult</code>, <code>sapling</code>, <code>seedling</code> and <code>juvenile</code>.</li>
+<li><strong>sampling_strategy</strong>: A written description of how study locations were selected and how study individuals were selected. When available, this information is lifted verbatim from a published manuscript. For preserved specimens, this field ideally indicates which records were ‘sampled’ to measure a specific trait.</li>
+<li><strong>measurement_remarks</strong>: Brief comments or notes accompanying the trait measurement.</li>
+<li><strong>original_file</strong>: The name of the file initially submitted to AusTraits.</li>
+<li><strong>notes</strong>: Generic notes about the study and processing of data.</li>
+</ul>
+<p>Of these, the fields <code>collection_date</code>, <code>life_stage</code>, <code>basis_of_record</code>, and <code>measurement_remarks</code> can all be specified at the dataset level or the traits level (which overrides a dataset-level entry) or location level (which also overrides a dataset-level entry). In each case, they can be a fixed text value or indicate a column within the data.csv file (or generated through <code>custom_R_code</code>) that includes the relevant information.</p>
+<ul>
+<li><p><code>life_stage</code>, <code>basis_of_record</code>, and <code>collection_date</code> are usually included under <code>metadata$dataset</code> unless they vary by trait.</p></li>
+<li><p><code>entity_type</code>, <code>replicates</code>, <code>basis_of_value</code>, and <code>value_type</code> are usually different across traits and are usually mapped under the <code>metadata$traits</code> section (see below), but are allowed to be specified for the entire dataset in this section.</p></li>
+<li><p><code>traits</code> and <code>value</code> are only specified in metadata$dataset for <strong>long-format</strong> datasets.</p></li>
+<li><p><code>measurement_remarks</code> and <code>individual_id</code> are only included if required. They are absent from the majority of datasets.</p></li>
+</ul>
+<p>An example is as follows:</p>
+<pre><code>  data_is_long_format: no
+  custom_R_code: '
+    data %&gt;%
+      mutate(
+        location_name = "Howard River catchment",
+        date = date %&gt;% mdy()
+      ) %&gt;%
+      arrange(date) %&gt;%
+      group_by(Tree) %&gt;%
+        mutate(observation_number = dplyr::row_number()) %&gt;%
+      ungroup() %&gt;%
+      group_by(species) %&gt;%
+        mutate(across(c("specific leaf area (m2 kg-1)"), replace_duplicates_with_NA)) %&gt;%
+      ungroup()
+  '
+  collection_date: date
+  taxon_name: species
+  context_name: context
+  location_name: location_name
+  individual_id: Tree
+  description: Measurements of stem CO2 efflux and leaf gas exchange in a tropical
+    savanna ecosystem in northern Australia, and assessed the impact of fire on these
+    processes.
+  basis_of_record: field
+  life_stage: adult
+  sampling_strategy: The stem CO2 efflux was initially measured at two locations,
+    each of which was nested within a 3 km 2 plot...
+  original_file: leaf_summary.xls, Rbranch summary2.xls, and Rstem summary6.xls submitted
+    by Lucas Cernusak and archived in the raw data folder and GoogleDrive folder.
+  notes: none</code></pre>
+<p>A common use of the <code>custom_R_code</code> is to automate the conversion of a verbal description of flowering or fruiting periods into the supported trait values. It might also be used if values for a single trait are expressed across multiple columns and need to be merged. See <code>Catford_2014</code> as an example of this. The <a href="adding_data.html">adding data</a> vignette provides additional examples of code regularly implemented in <code>custom_R_code</code>, including functions specifically that were developed for AusTraits data manipulations and are in the file <code>scripts\custom.R</code>.</p>
+</section>
+<section id="locations" class="level3">
+<h3 class="anchored" data-anchor-id="locations">locations</h3>
+<p>This section provides a list of study locations (sites) and information about each of the study locations where data were collected. Each should include at least three variables - <code>latitude (deg)</code>, <code>longitude (deg)</code> and <code>description</code>. Additional variables can be included where available. Set to <code>.na</code> for botanical collections and field studies where data values are a mean across many locations.</p>
+<p>Although the properties listed under each location are not part of a controlled vocabulary, it is best practice to align with in-use properties whenever possible. These can be identified by running <code>austraits$locations %&gt;% distinct(location_property)</code>.</p>
+<p>An example of how a location and its properties, and the value of each property are listed (modified from Vesk_2019), is:</p>
+<pre><code>  Round Hill-Nombinnie Nature Reserve:
+    latitude (deg): -32.965
+    longitude (deg): 146.161
+    precipitation, MAP (mm): 370
+    temperature, summer mean (C): 32.5
+    temperature, winter mean (C): 14.2
+    soil type: loamy red sands light red clays and light red browns earths
+    description: predominantly open Callitris glaucophylla - Eucalyptus populnea woodland
+      and Eucalyptus dumosa - E. socialis shrub mallee woodland
+    fire frequency (years): 5-20 years</code></pre>
+</section>
+<section id="contexts" class="level3">
+<h3 class="anchored" data-anchor-id="contexts">contexts</h3>
+<p>This section provides contextual characteristics associated with information in <code>traits</code>.</p>
+<p>Within the context section is a list of contextual properties, each encapsulating information read in through a different column or created through <code>custom_R_code</code> or as elements within specific <code>traits</code> (see below).</p>
+<ul>
+<li><strong>context_property</strong>: The context property represented by the data in the column specified by <code>var_in</code>.</li>
+<li><strong>category</strong>: The category of contextual data. Options are <code>plot</code> (a distinct collection of organisms within a single geographic location, such as plants growing on different aspects or blocks in an experiment), <code>treatment</code> (an experimental treatment), <code>entity_context</code> (contextual information to record about the entity the isn’t documented elsewhere, including the entity’s sex, caste), <code>temporal</code> (indicating when repeat observations are made on the same individual (or population, or taxon) across time) and <code>method</code> (indicating the same trait was measured on the same individual (or population, or taxon) using multiple methods).</li>
+<li><strong>var_in</strong>: Name of column with contextual data in the original data submitted.</li>
+<li><strong>find</strong>: The contextual values in the original data submitted (optional)</li>
+<li><strong>value</strong>: The standardised contextual values, aligning syntax and wording with other studies.</li>
+<li><strong>description</strong>: A description of the contextual values.</li>
+</ul>
+<p>If the contextual values read in are appropriate and no substitutions are required, the field <code>find</code> can be omitted, with the values from the data.csv column entered under the field <code>value</code>. The field <code>description</code> can likewise be omitted if it is redundant; for instance, if the values are simply sequential observation numbers, times of day, or taxon names (e.g.&nbsp;insect host plants).</p>
+<p>As with location, the context properties are not part of a controlled vocabulary, but it is best practice to align syntax with in-use properties whenever possible. These can be identified by running <code>austraits$contexts %&gt;% distinct(context_property)</code>.</p>
+<p>An example of how the contexts for a study are formatted (modified from Crous_2013), is:</p>
+<pre><code>contexts:
+- context_property: sampling season
+  category: temporal_context
+  var_in: month
+  values:
+  - find: AUG
+    value: August
+    description: August (late winter)
+  - find: DEC
+    value: December
+    description: December (early summer)
+  - find: FEB
+    value: February
+    description: February (late summer)
+- context_property: temperature treatment
+  category: treatment_context
+  var_in: Temp-trt
+  values:
+  - value: ambient
+    description: Plants grown at ambient temperatures; Jan average max = 29.4 dec
+      C / July average min = 3.2 dec C.
+  - value: elevated
+    description: Plants grown 3 deg C above ambient temperatures.
+- context_property: CO2 treatment
+  category: treatment_context
+  var_in: CO2_Treat
+  values:
+  - find: ambient CO2
+    value: 400 ppm
+    description: Plants grown at ambient CO2 (400 ppm).
+  - find: added CO2
+    value: 640 ppm
+    description: Plants grown at elevated CO2 (640 ppm); 240 ppm above ambient.
+- context_property: measurement temperature
+  category: method_context
+  var_in: method_context
+  values:
+  - find: Measurement made at 20°C
+    value: 20°C
+    description: Measurement made at 20°C
+  - find: Measurement made at 25°C
+    value: 25°C
+    description: Measurement made at 25°C</code></pre>
+</section>
+<section id="traits" class="level3">
+<h3 class="anchored" data-anchor-id="traits">traits</h3>
+<p>This section provides a translation table, mapping traits and units from a contributed study onto corresponding variables in AusTraits. The methods used to collect the data are also specified here.</p>
+<p>For each trait submitted to AusTraits, there is the following information:</p>
+<ul>
+<li><strong>var_in</strong>: Name of trait in the original data submitted.</li>
+<li><strong>unit_in</strong>: Units of trait in the original data submitted.</li>
+<li><strong>trait_name</strong>: Name of the trait sampled. Allowable values specified in the table <code>definitions</code>.</li>
+<li><strong>entity_type</strong>: A categorical variable specifying the entity corresponding to the trait values recorded.</li>
+<li><strong>value_type</strong>: A categorical variable describing the statistical nature of the trait value recorded.</li>
+<li><strong>basis_of_record</strong>: A categorical variable specifying from which kind of specimen traits were recorded.</li>
+<li><strong>basis_of_value</strong>: A categorical variable describing how the trait value was obtained.</li>
+<li><strong>replicates</strong>: Number of replicate measurements that comprise a recorded trait measurement. A numeric value (or range) is ideal and appropriate if the value type is a <code>mean</code>, <code>median</code>, <code>min</code> or <code>max</code>. For these value types, if replication is unknown the entry should be <code>unknown</code>. If the value type is <code>raw_value</code> the replicate value should be 1. If the trait is categorical or the value indicates a measurement for an entire species (or other taxon) replicate value should be <code>.na</code>.</li>
+<li><strong>collection_date</strong>: Date sample was taken, in the format <code>yyyy-mm-dd</code>, <code>yyyy-mm</code> or <code>yyyy</code>, depending on the resoluton specified. Alternatively an overall range for the study can be indicating, with the starting and ending sample date sepatated by a <code>/</code>, as in 2010-10/2011-03</li>
+<li><strong>measurement_remarks</strong>: Brief comments or notes accompanying the trait measurement.</li>
+<li><strong>methods</strong>: A textual description of the methods used to collect the trait data. Whenever available, methods are taken near-verbatim from the referenced source. Methods can include descriptions such as ‘measured on botanical collections’, ‘data from the literature’, or a detailed description of the field or lab methods used to collect the data.</li>
+<li><strong>life_stage</strong>: A field to indicate the life stage or age class of the entity measured. Standard values are <code>adult</code>, <code>sapling</code>, <code>seedling</code> and <code>juvenile</code>.</li>
+<li><strong>repeat_measurements_id</strong>: A unique integer identifier for repeat measurements of a trait that comprise a single observation, such as a response curve.</li>
+</ul>
+<p>The elements <code>trait_name</code>, <code>entity_type</code>, <code>value_type</code>, <code>basis_of_record</code>, and <code>basis of value</code> are controlled vocabularies; the values for these elements must be from the list of allowable values. Those for traits are listed in the <code>traits.yml</code> <a href="https://github.com/traitecoevo/traits.build/blob/master/config/traits.yml">file</a> or <a href="trait_definitions.html">vignette</a>. For the other elements, see the <a href="database_structure.html">database structure</a> vignette.</p>
+<p>The fields <code>replicates</code>, <code>basis_of_value</code>, <code>value_type</code>, <code>life_stage</code>, <code>basis_of_record</code>, and <code>measurement_remarks</code> can all be specified at the dataset level or the traits level (which overrides a dataset-level entry). In each case, they can be a fixed text value or indicate a column (within the <code>data.csv</code> file or generated through <code>custom_R_code</code>) that includes the relevant information. In addition, fields can be added to specify a specific context (most commonly a <code>method context</code>, but occasionally a <code>temporal context</code>). If such a field is added, the same name must appear in both the contexts section and for some (or all) of the traits.</p>
+<p>Two examples are as follows:</p>
+<pre><code>- var_in: LeafP.m
+  unit_in: mg/g
+  trait_name: leaf_P_per_dry_mass
+  entity_type: individual                   # fixed value
+  value_type: value_type_column             # referencing a column
+  basis_of_value: measurement               # fixed value
+  replicates: count                         # referencing a column
+  methods: Oven-dried leaf material was used for determination of total leaf nitrogen
+    and phosphorus. Dried ground leaf material was hot-digested in acid-peroxide before
+    colorimetric analysis using a flow injection system (QuikChem 8500, Lachat Instruments,
+    Loveland, Colorado, USA).
+</code></pre>
+<p>and</p>
+<pre><code>- var_in: Jmax25
+  unit_in: umol/m2/s
+  trait_name: Jmax_per_area
+  entity_type: individual                    # fixed value
+  value_type: raw                            # fixed value
+  basis_of_value: measurement                # fixed value
+  replicates: 1                              # fixed value
+  method_context: 25C                        # optional field
+  methods: Controlled photosynthetic CO2 response curve measurements were made using
+    Li-Cor 6400 portable infrared gas analysers (LiCor Inc., Lincoln, NE, USA). CO2
+    response curves of net CO2 assimilation (Anet) were developed at a constant temperature
+    (termed 'Anet-Ci curves') for intact leaves within each tree chamber. These Anet-Ci
+    curve measurements progressed at four to five specified leaf temperatures for
+    the same leaf (i.e. one leaf per chamber) in each of three seasons (early summer,
+    December 2010; late summer, February 2011...
+</code></pre>
+</section>
+<section id="substitutions" class="level3">
+<h3 class="anchored" data-anchor-id="substitutions">substitutions</h3>
+<p>This section provides a list of any “find and replace” substitutions needed to get the data into the right format.</p>
+<p>Substitutions are required whenever the exact word(s) used to describe a categorical trait value in AusTraits is different from the vocabulary used by the author in the <code>data.csv</code> file. It is preferable to align vocabulary using <code>substitutions</code> rather than changing the <code>data.csv</code> file. The <a href="https://github.com/traitecoevo/traits.build/blob/master/config/traits.yml">trait definitions file</a> provides a list of supported values for each trait.</p>
+<p>Each substitution is documented using the following elements:</p>
+<ul>
+<li><strong>trait_name</strong>: Trait where substitutions are required.</li>
+<li><strong>find</strong>: Contributor’s trait value that needs to be changed.</li>
+<li><strong>replace</strong>: AusTraits supported replacement value.</li>
+</ul>
+<p>An example is as follows:</p>
+<pre><code>substitutions:
+- trait_name: life_history
+  find: p
+  replace: perennial
+- trait_name: plant_growth_form
+  find: s
+  replace: shrub
+- ...</code></pre>
+</section>
+<section id="taxonomic_updates" class="level3">
+<h3 class="anchored" data-anchor-id="taxonomic_updates">taxonomic_updates</h3>
+<p>This section provides a table of taxonomic name changes needed to align original names in the dataset with taxon names in the chosen taxonomic reference(s).</p>
+<p>Each substitution is documented using the following elements:</p>
+<ul>
+<li><strong>find</strong>: Name given to taxon in the original data supplied by the authors.</li>
+<li><strong>replace</strong>: Scientific name of the taxon on which traits were sampled, without authorship. When possible, this is the currently accepted (botanical) or valid (zoological) scientific name, but might also be a higher taxonomic level.</li>
+<li><strong>reason</strong>: Records why the change was implemented, e.g.&nbsp;<code>typos</code>, <code>taxonomic synonyms</code>, and <code>standardising spellings</code></li>
+</ul>
+<p>Algorithms within AusTraits automatically align outdated taxonomy and taxonomic synonyms to their currently accepted scientific name, so such adjustments are not documented as substitutions.</p>
+<p>Some examples of taxonomic updates are as follows:</p>
+<pre><code>taxonomic_updates:
+- find: Drummondita rubroviridis
+  replace: Drummondita rubriviridis
+  reason: match_07_fuzzy. Fuzzy alignment with accepted canonical name in APC (2022-11-21)
+  taxonomic_resolution: Species
+- find: Acacia ancistrophylla/sclerophylla
+  replace: Acacia sp. [Acacia ancistrophylla/sclerophylla; White_2020]
+  reason: match_04. Rewording taxon where `/` indicates uncertain species identification
+    to align with `APC accepted` genus (2022-11-10)
+  taxonomic_resolution: genus
+- find: Polyalthia (Wyvur)
+  replace: Polyalthia sp. (Wyvuri B.P.Hyland RFK2632)
+  reason: match_15_fuzzy. Fuzzy match alignment with species-level canonical name
+    in `APC known` when everything except first 2 words ignored (2022-11-10)
+  taxonomic_resolution: Species</code></pre>
+</section>
+<section id="questions" class="level3">
+<h3 class="anchored" data-anchor-id="questions">questions</h3>
+<p>This section provides a place to record any queries we have about the dataset (recorded as a named array), including notes on any additional traits that may have been collected in the study but have not been incorporated into austraits.</p>
+<p>An example is as follows:</p>
+<pre><code>questions:
+  questions for author: Triglochin procera has very different seed masses in the main traits spreadsheet and the field seeds worksheet. Which is correct? There are a number of species with values in the field leaves worksheet that are absent in the main traits worksheet - we have included this data into Austraits; please advise if this was inappropriate.
+  austraits: need to map aquatic_terrestrial onto an actual trait once one is created.</code></pre>
+</section>
+</section>
+<section id="rcustom_r_code.r" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="rcustom_r_code.r"><span class="header-section-number">7.6</span> <code>R/custom_R_code.R</code></h2>
+<p>The <a href="https://github.com/traitecoevo/austraits.build/"><code>austraits.build</code></a> compilation contains an extra folder, <code>R</code> containning a file <code>custom_R_code.R</code>. This file documents any custom functions used in the compilation, called as part of the <a href="#dataset"><code>custom_R_code</code> section</a> of metadata files.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./traits_build.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Package</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./dictionary.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dictionary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
