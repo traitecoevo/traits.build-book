@@ -1,1 +1,5 @@
-# traits.build
+# Package
+
+The `traits.build` package provides functions needed to build a compilation from sources to the standards specified 
+
+XXXX

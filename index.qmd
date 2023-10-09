@@ -1,4 +1,4 @@
-# Getting started with traits.build
+# Getting started
 
 ## About this manual
 

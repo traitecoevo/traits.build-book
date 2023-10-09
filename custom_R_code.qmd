@@ -1,0 +1,54 @@
+# Adding custom_R_code
+
+Occasionally all the changes we want to make to dataset may not fit into the prescribed workflow used in AusTraits. For example, we assume that each trait has a single unit. But there are a few datasets where data on different rows have different units. So we want to make to make some custom modifications to this particular dataset before the common pipeline of operations gets applied. To make this possible, the workflow allows for some custom R code to be run as a first step in the processing pipeline. That pipeline (in the function [`read_data_study`](https://github.com/traitecoevo/austraits/blob/master/R/steps.R#L59)) looks like:
+
+```{r, eval=FALSE, echo=TRUE}
+data <-
+  read_csv(filename_data_raw, col_types = cols()) %>%
+  process_custom_code(metadata[["dataset"]][["custom_R_code"]])() %>%
+  process_parse_data(dataset_id, metadata, contexts, schema) %>%
+  ...()
+```
+
+Note the second line.
+
+### Example problem
+
+As an example, for `Blackman_2010` we want to combine two columns to create an appropriate location variable. Here is the code that was included in [data/Blackman_2010/metadata.yml](https://github.com/traitecoevo/traits.build/blob/master/data/Blackman_2010/metadata.yml) under `custom_R_code`.
+
+```{r, eval=FALSE, echo=TRUE}
+data %>% mutate(
+  location = ifelse(location == "Mt Field" & habitat == "Montane rainforest", "Mt Field_wet", location),
+  location = ifelse(location == "Mt Field" & habitat == "Dry sclerophyll", "Mt Field_dry", location)
+)
+```
+
+This is the finished solution, but to get there we did as follows:
+
+Generally, this code should
+
+- assume a single object called `data`, and apply whatever fixes are needed
+- use [dplyr](https://dplyr.tidyverse.org) functions like `mutate`, `rename`, etc
+- use pipes to weave together a single statement, if possible. (Otherwise you'll need a semi colon `;` at the end of each statement).
+- be fully self-contained (we're not going to use any of the other remake machinery here)
+
+First, load an object called `data`:
+
+```{r, eval=FALSE, echo=TRUE}
+library(readr)
+library(yaml)
+
+data <- read_csv(file.path("data", "Blackman_2010", "data.csv"), col_types = cols())
+data
+```
+
+Second, write your code to manipulate data, like the example above
+
+
+Third, once you have some working code, you then want to add it into your yml file under `dataset` -> `custom_R_code`.
+
+Finally, check it works. Let's assume you added it in. The function `metadata_check_custom_R_code` loads the data and applies the custom R code:
+
+```{r, eval=FALSE, echo=TRUE}
+metadata_check_custom_R_code("Blackman_2010")
+```

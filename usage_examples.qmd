@@ -1,6 +1,16 @@
 # Usage examples
 
-Examples using traits.build
+## AusTraits
 
-- AusFizz
-- Copilation of traits data by Inverterbates Australia
+The workflow described here evolved out of the AusTraits project. AusTraits is an open-source, harmonized database of Australian plant trait data. It synthesises data on nearly 500 traits across more than 30,000 taxa from over 300 sources. Begun in 2016 as an initiative between three lab groups, it has grown to be the largest collation of plant trait data for Australian plants.
+
+The `traits.build` workflow is used to build the AusTraits database. The workflow XXXX
+
+## Other examples 
+
+There are now multiple new porjects using the `traits.build` workflow and package. At this stage, most are in private repositories, but we envisage that they will be made public in the near future.
+
+- [AusTraits](https://github.com/traitecoevo/austraits.build/): A compilation of traits data for Australian plants
+- AusInverTraits: A compilation of traits data for invertebrates, led by Inverterbates Australia
+- AusFizz: A compilation of physiological response curves for plants
+

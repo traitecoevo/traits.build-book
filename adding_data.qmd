@@ -25,11 +25,11 @@ definitions <- austraits$definitions
 
 This vignette explains the protocol for adding a new study to AusTraits. Before starting this, you should read more about
 
-- an [overview of AusTraits](http://traitecoevo.github.io/traits.build/articles/overview.html),
-- the instructions provided to [data contributors](http://traitecoevo.github.io/traits.build/articles/contributing_data.html),
-- the [structure of the compiled AusTraits database](http://traitecoevo.github.io/traits.build/articles/database_structure.html),
-- the [structure of the raw data files](http://traitecoevo.github.io/traits.build/articles/file_structure.html), and
-- [how to build AusTraits](http://traitecoevo.github.io/traits.build/articles/traits.build.html).
+- an [overview of AusTraits](overview.html),
+- the instructions provided to [data contributors](contributing_data.html),
+- the [structure of the compiled AusTraits database](database_structure.html),
+- the [structure of the raw data files](file_structure.html), and
+- [how to build AusTraits](traits.build.html).
 
 
 It is important that all steps are followed so that our automated workflow proceeds without problems.
@@ -52,7 +52,7 @@ You can then rebuild AusTraits, including your dataset.
 9. Return to step 6 if changes are made to the `data.csv` or `metadata.yml` files.
 10. Push the GitHub branch.
 
-It may help to download one of the [existing datasets](https://github.com/traitecoevo/traits.build/tree/master/data) to use as a template for your own files and a guide on required content. You should look at the files in the [config folder](https://github.com/traitecoevo/traits.build/tree/master/config), particularly the `definitions` file for the list of traits we cover and the supported trait values for each trait. The GitHub repository also hosts a compiled [trait definitions table](http://traitecoevo.github.io/traits.build/articles/trait_definitions.html).
+It may help to download one of the [existing datasets](https://github.com/traitecoevo/traits.build/tree/master/data) to use as a template for your own files and a guide on required content. You should look at the files in the [config folder](https://github.com/traitecoevo/traits.build/tree/master/config), particularly the `definitions` file for the list of traits we cover and the supported trait values for each trait. The GitHub repository also hosts a compiled [trait definitions table](trait_definitions.html).
 
 
 The remainder of this vignette provides incredibly detailed instructions for steps 4-8 above. It is intended for anyone wishing to add datasets to either AusTraits itself or to use the traits.build workflow to create a separate database.
@@ -503,7 +503,7 @@ The `dataset` section is a mix of fields that are filled in automatically during
 
 - **description:** 1-2 sentence description of the study's goals. The abstract of a manuscript usually includes some good sentences/phrases to borrow.
 
-- **basis_of_record:**  Allowable values include: field, field_experiment, captive_cultivated, lab, preserved_specimen, and literature. See the top of `system.file("support", "traits.build_schema.yml", package = "traits.build"` or [database structure vignette](http://traitecoevo.github.io/traits.build/articles/database_structure.html) for definitions of these accepted basis_of_record values. This field can also be read in from a column or can be specified at the location or trait level, as described below. Entries under `metadata$locations` or `metadata$traits` (which apply to only that specific location or trait) override the global value entered under `metadata$dataset`.
+- **basis_of_record:**  Allowable values include: field, field_experiment, captive_cultivated, lab, preserved_specimen, and literature. See the top of `system.file("support", "traits.build_schema.yml", package = "traits.build"` or [database structure vignette](database_structure.html) for definitions of these accepted basis_of_record values. This field can also be read in from a column or can be specified at the location or trait level, as described below. Entries under `metadata$locations` or `metadata$traits` (which apply to only that specific location or trait) override the global value entered under `metadata$dataset`.
 
 - **life_stage:**   Allowable values include: adult, sapling, seedling, juvenile. This field can also be read in from a column or can be specified at the location or trait level, as described below. Entries under `metadata$locations` or `metadata$traits` (which apply to only that specific location or trait) override the global value entered under `metadata$dataset`.
 
