@@ -21,7 +21,7 @@ At <https://github.com/traitecoevo/traits.build-book/discussions>, you can post 
     * A [reproducible example](https://github.com/tidyverse/reprex).
     * Session info, available through `sessionInfo()` or [`reprex(si = TRUE)`](https://github.com/tidyverse/reprex).
     * A stack trace from `traceback()` or `rlang::trace_back()`.
-    * The [SHA-1 hash](https://git-scm.com/book/en/v1/Getting-Started-Git-Basics#Git-Has-Integrity) of the GitHub commit of `traits.build` currently installed. `packageDescription("targets")$GithubSHA1` shows you this.
+    * The [SHA-1 hash](https://git-scm.com/book/en/v1/Getting-Started-Git-Basics#Git-Has-Integrity) of the GitHub commit of `traits.build` currently installed. `packageDescription("traits.build")$GithubSHA1` shows you this.
     
 ## Development
 
@@ -45,5 +45,5 @@ Please also follow these additional guidelines.
 
 ## Acknowledgements and copyright
 
-This page was adapted from a corresponding file for the targets package, with text by Will Landau. The original file is available at <https://github.com/ropensci-books/targets/>. Text adapted from that page is under copy right specified in that package <https://github.com/ropensci-books/targets/blob/main/LICENSE.md>.
+This page was adapted from a corresponding file for the `targets`` package, with text by Will Landau. The original file is available at <https://github.com/ropensci-books/targets/>. Text adapted from that page is under copy right specified in that package <https://github.com/ropensci-books/targets/blob/main/LICENSE.md>.
 

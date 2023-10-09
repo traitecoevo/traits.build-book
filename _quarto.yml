@@ -7,26 +7,32 @@ book:
   page-footer: "How to get help: <https://traitecoevo.github.io/traits.build-book/help.html><br>Copyright 2023, Daniel Falster and Elizabeth Wenk" 
 
   chapters:
-    - index.qmd
-    - part: "Why {traits.build}?"
+    - part: "Introduction"
       chapters:
+        - index.qmd
         - motivation.qmd
         - workflow.qmd
         - austraits_experience.qmd
-    - part: The `traits.build` data structure 
+    - part: traits.build data standard 
       chapters:
         - data_structure.qmd
-        - dictionary.qmd
-    - part: Using `traits.build`
+    - part: Using `traits.build` to build a compliation
       chapters:
         - traits_build.qmd
         - adding_data.qmd
+        - dictionary.qmd
+    - part: Using the outputs from `traits.build`
+        - using_data.qmd
     - part: Tutorials
       chapters:
         - tutorial.qmd
+    - part: Troubleshooting
+      chapters:
+        - debugging.qmd
+        - help.qmd
 
   appendices:
-    - motivation.qmd
+    - yaml.qmd
   
 format:
   html:
