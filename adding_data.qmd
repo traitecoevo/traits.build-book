@@ -1,4 +1,4 @@
-# Adding new datasets into AusTraits
+# Adding datasets
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(

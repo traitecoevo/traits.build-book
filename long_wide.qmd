@@ -1,0 +1,21 @@
+# Long vs Wide data
+
+## Background
+
+- Ease of use (manipulation & analysis)
+- Size of data product: storage costs, speed of loading, transfer
+
+Concepts
+
+- Long data
+- Wide data
+- Tidy data
+
+## Our approach
+
+### Multiple products available
+
+
+### Pivotting between long and wide
+
+

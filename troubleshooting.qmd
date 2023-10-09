@@ -1,4 +1,4 @@
-# Troubleshooting traits.build
+# Common issues
 
 Note, this chapter is a work in progress. It will be expanded over time.
 

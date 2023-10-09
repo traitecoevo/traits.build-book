@@ -18,9 +18,25 @@ my_kable_styling <- util_kable_styling_html
 
 This chapter provides an overview of our workflow, to demonstrate our commitment to creating a reliable, reproducible resource for anyone interested in plant traits. 
 
+
+## Core principles
+
+The project's guiding principles are to:
+
+1. Wherever possible solve problems in a general way, that enables others to leverage our efforts to solve their own problems.
+2.  Enable users to create open-source, harmonised, reproducible databases from disparate datasets.
+3.  Provide a fully transparent workflow, where all decisions on how to handle the data are exposed and can be.
+4.  Offer a relational database structure that fully documents the contextual data essential to interpreting ecological data.
+5.  Offer a straightforward, robust template for building a trait dictionary.
+6.  Offer a database structure that is flexible enough to accommodate the complexities inherent to ecological data.
+7.  Offer a database structure that is underlain by a documented ontology, ensuring each database field is interpretable and interoperable with other databases and data structures.
+8. Have no dependencies on proprietary software or costs to setup and maintain (beyoind person time).
+
+## Approach
+
 traits.build can be viewed through two lenses, its output structure and its underlying conceptual framework.
 
-## Output structure
+### Output structure
 
 traits.build is a relational database. There is a core traits table, supported by ancillary tables that document location properties (include latitude & longitude), context properties, dataset and measurement methods, taxon concepts, contributor details, and sources. All tables are stored in long format, such that there is a single column that includes all trait names (or location properties, or context properties) and column for trait values.
 
@@ -28,7 +44,7 @@ A series of identifiers, including both textual fields (i.e. taxon_name, trait_n
 
 Storing the resource as a relational table greatly reduces file sizes and facilitates searching for a particular metadata field
 
-## Conceptual framework
+### Conceptual framework
 
 traits.build's database structure effectively captures the complexities inherent to ecological data. Each dataset is unique, with measurements recorded on different entities (individuals, populations, species), in specific locations, and under countless environmental and experimental conditions, the so-called context of a measurement. The context offers essential meaning to each trait value. An ecological database must effectively capture all relevant contexts or the accompanying trait measurements lose much of their value.
 
@@ -36,9 +52,9 @@ traits.build is designed around the concept of an **observation**, a collection 
 
 Within a dataset, observation_id's are generated for unique combinations of the fields: **taxon_name**, **population_id**, **individual_id**, **temporal_id**, **entity_type**, and **source_id**. For instance, if measurements are made on the same individual during the wet versus dry season, the two observations will share an **individual_id** but have distinct **temporal_id** values, and therefore have distinct **observation_id**'s. See [traits.build schema](https://github.com/traitecoevo/traits.build/blob/develop/inst/support/traits.build_schema.yml) for definitions of identifiers
 
-## Principles
+## Concepts
 
-Our workflow is structured with the following principles in mind.
+Our workflow is structured with the following concepts.
 
 ### Data sources
 

@@ -1,17 +1,34 @@
-# Getting started
-
-## About this manual
-
-This manual is a step-by-step user guide to the `traits.build` standard, R package and workflow manual. Alongside [traits.build manual (this website)](http://traitecoevo.github.io/traits.build/index.html), you may find the following resources useful:
-
-- [package installation instructions](http://traitecoevo.github.io/traits.build/index.html#installation)
-- a [reference page with all user-side functions](http://traitecoevo.github.io/traits.build/reference/index.html). 
-- links to [example projects](usage_examples.html)
+# About
 
 ## Brief overview
 
+Imagine you wanted to build a database of plant traits. You might start by searching for existing datasets, but you'd quickly find that there are many different ways to names and ways to measure the same trait. You might also find that some datasets measure the same trait in different units, or use an outdated name for a species or taxon.
+
+`traits.build` is a data standard, R package, and workflow that is desgined to help you build a harmonised, relational database from disparate datasets. The package was first developed to create  [`austraits.build`](https://github.com/traitecoevo/austraits.build/), an, open-source database of Australian plant traits. The code has been transformed into a standalone package allowing anyone to build a relational, tabular database for any taxonomic group and any collection of traits.
+
+## About this manual
+
+This manual is a step-by-step user guide to the `traits.build` standard, R package and workflow manual. Alongside this manual, you may find the following resources useful:
+
+- [installation instructions](http://traitecoevo.github.io/traits.build/index.html#installation) for the `traits.build` package
+- a [reference page with all user-side functions](http://traitecoevo.github.io/traits.build/reference/index.html) for the `traits.build` package. 
+- links to [example projects](usage_examples.html)
 
 ## A simple example
 
-To get you started, we've porvided an exmaple dataset. Follow the instructions in [Tutorials](http://traitecoevo.github.io/traits.build-book/tutorials.html) chapter for a step-by-step guide to building a database from scratch.
+To get you started, we've provided a template example compilation which you can clone and modify. This provides the basic steps for building a `traits.build` compilation. Follow the instructions in [Tutorials](tutorials.html) chapter for a step-by-step guide to building a database from scratch.
+
+<!-- XXX Video? -->
+
+## Getting help
+
+Along the way, users may encounter a number of errors and warnings. Some of these are designed to help you build a robust database, others may constitue an error in your data, file structure, or the package. If you encounter an error or warning, please read the message carefully and [follow the instructions for getting help](help.html). 
+
+## Contributing
+
+XXX
+
+## Acknowledgements
+
+This manual arose from code within the AusTraits project at <https://github.com/traitecoevo/austraits.build>. The AusTraits project received investment (<https://doi.org/10.47486/DP720>) from the Australian Research Data Commons (ARDC). The ARDC is funded by the National Collaborative Research Infrastructure Strategy (NCRIS).
 

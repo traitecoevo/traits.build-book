@@ -1,4 +1,4 @@
-# File structure
+# File organisation
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -88,15 +88,15 @@ config
 └── unit_conversions.csv
 ```
 
-### metadata.yml
+### `metadata.yml`
 
 XXX
 
-### traits.yml
+### `traits.yml`
 
 The file `traits.yml` provides the trait definitions used to compile AusTraits, including allowable trait values. The [trait definitions](trait_definitions.html) are fully described in an additional vignette. A `.yml` file is a structured data file where information is presented in a hierarchical format (see [appendix for details](yaml.html)).
 
-### taxon_list.csv
+### `taxon_list.csv`
 
 The file `taxon_list.csv` is our master list of known taxa. 
 
@@ -112,7 +112,7 @@ read_csv("data/taxon_list.csv", show_col_types = FALSE) %>%
   my_kable_styling()
 ```
 
-### unit_conversions.csv
+### `unit_conversions.csv`
 
 The file `unit_conversions.csv` defines the unit conversions that are used when converting contributed trait data to common units, e.g.
 
@@ -150,7 +150,7 @@ data
 
 where `Angevin_2010`, `Barlow_1981`, & `Bean_1997` are each a unique `dataset_id` in the final dataset.
 
-## dataset_id/data.csv
+## `dataset_id/data.csv`
 
 The file `data.csv` contains raw measurements and can be in either long or wide format.
 
@@ -164,7 +164,7 @@ It is important that all trait measurements made on the same individual or that 
 
 We aim to keep the data file in the rawest form possible (i.e. with as few changes as possible) but it must be a single csv file. Additional custom R code may be required to make the file exactly compatible with the AusTraits format, but these changes should be executed as AusTraits is compiled and should be in the `metadata.yml` file under `dataset/custom_R_code` (see below). Any files used to create the submitted `data.csv` file (e.g. Excel ...) should be archived in a sub-folder within the study folder named `raw`.
 
-## dataset_id/metadata.yml
+## `dataset_id/metadata.yml`
 
 The metadata is compiled in a `.yml` file, a structured data file where information is presented in a hierarchical format (see [Appendix for details](yaml.html)).  There are `r length(schema$metadata$elements)` values at the top hierarchical level: `r sprintf("%s", schema$metadata$elements %>% names()) %>% paste(collapse = ", ")`. These are each described below.
 
@@ -544,5 +544,7 @@ questions:
   austraits: need to map aquatic_terrestrial onto an actual trait once one is created.
 ```
 ## `R/custom_R_code.R`
+
+XXX 
 
 The  [`austraits.build`](https://github.com/traitecoevo/austraits.build/) compilation contains an extra folder, `R` containning a file `custom_R_code.R`. This file documents any custom functions used in the compilation, called as part of the [`custom_R_code` section](#dataset) of metadata files. 

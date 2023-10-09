@@ -1,0 +1,20 @@
+# Data standard
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  results = "asis",
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
+library(traits.build)
+
+my_kable_styling <- util_kable_styling_html
+```
+
+XXX Describe the emerhign traits.build data standard
+

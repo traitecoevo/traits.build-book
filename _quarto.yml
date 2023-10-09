@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "The {traits.build} standard, R package and workflow manual"
+  title: "The {traits.build} data standard, R package, and workflow"
   author: ["Elizabeth Wenk", "Daniel Falster", "Sophie Yang"]
   page-footer: "How to get help: <https://traitecoevo.github.io/traits.build-book/help.html><br>Copyright 2023, Daniel Falster and Elizabeth Wenk" 
   page-navigation: true
@@ -15,25 +15,24 @@ book:
         - usage_examples.qmd
     - part: Data structure and standard 
       chapters:
+        - long_wide.qmd
+        - database_standard.qmd
         - database_structure.qmd
+        - dictionary.qmd
     - part: Using `traits.build`
       chapters:
         - traits_build.qmd
-        - file_structure.qmd
-        - dictionary.qmd
+        - file_organisation.qmd
+        - create_dictionary.qmd
         - adding_data.qmd
         - custom_R_code.qmd
-    - part: Using the outputs
+        - publishing.qmd
+    - part: Using outputs
       chapters:
         - using_data.qmd
     - part: Tutorials
       chapters:
         - tutorials.qmd
-        - tutorial_compilation.qmd
-        - tutorial_dataset_1.qmd
-        - tutorial_dataset_2.qmd
-        - tutorial_dataset_3.qmd
-        - tutorial_dataset_4.qmd
     - part: Troubleshooting
       chapters:
         - help.qmd

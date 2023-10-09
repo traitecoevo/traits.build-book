@@ -1,8 +1,13 @@
-# Help {#help}
+# Help
 
 (Note: this )
 
 This chapter explains how to ask for help. Questions can range from [detailed troubleshooting](XXXX) to [general advice](XXX). To ensure a constructive dialogue, please read this entire page before reaching out. Thank you for respecting the time and effort it takes to provide one-on-one support.
+
+Links to 
+
+- [troubleshooting](troubleshooting.html)
+- [debugging](debugging.html)
 
 :::{.callout-note}
 

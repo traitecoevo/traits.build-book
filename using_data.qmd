@@ -1,4 +1,4 @@
-# Using data from a traits.build compilation
+# Using a compilation
 
 ## Output formats
 

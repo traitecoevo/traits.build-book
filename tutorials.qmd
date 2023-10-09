@@ -1,5 +1,5 @@
 # Tutorials
 
-Foolowing tutorials
+Following tutorials
 
 - [creating a repository with template example](tutorial_compilation.html)
