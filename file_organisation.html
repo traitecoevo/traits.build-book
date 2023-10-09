@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - 10&nbsp; File organisation</title>
+<title>The {traits.build} data standard, R package, and workflow - 11&nbsp; File organisation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./create_dictionary.html" rel="next">
-<link href="./traits_build.html" rel="prev">
+<link href="./tutorial_compilation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -77,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Using <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./file_organisation.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File organisation</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Using <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./file_organisation.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">File organisation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -189,32 +189,38 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./tutorial_compilation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./file_organisation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File organisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">File organisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./create_dictionary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Creating a dictionary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Creating a dictionary</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./adding_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adding datasets</span></span></a>
+  <a href="./adding_data_brief.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Adding datasets (brief)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./custom_R_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Adding custom_R_code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Adding custom_R_code</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./publishing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Publishing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Publishing</span></span></a>
   </div>
 </li>
       </ul>
@@ -231,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Using a compilation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Using a compilation</span></span></a>
   </div>
 </li>
       </ul>
@@ -247,44 +253,44 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./adding_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adding datasets</span></span></a>
+  <a href="./adding_data_long.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Adding datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_common_issues.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorial_compilation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Tutorial: Using the template example</span></span></a>
+  <a href="./tutorial_datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Tutorial: Adding datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_dataset_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_dataset_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_dataset_3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_dataset_4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 4</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 4</span></span></a>
   </div>
 </li>
       </ul>
@@ -301,13 +307,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
       </ul>
@@ -345,17 +351,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#repository-structure" id="toc-repository-structure" class="nav-link active" data-scroll-target="#repository-structure"><span class="header-section-number">10.1</span> Repository structure</a></li>
-  <li><a href="#config-folder" id="toc-config-folder" class="nav-link" data-scroll-target="#config-folder"><span class="header-section-number">10.2</span> <code>/config</code> folder</a>
+  <li><a href="#repository-structure" id="toc-repository-structure" class="nav-link active" data-scroll-target="#repository-structure"><span class="header-section-number">11.1</span> Repository structure</a></li>
+  <li><a href="#config-folder" id="toc-config-folder" class="nav-link" data-scroll-target="#config-folder"><span class="header-section-number">11.2</span> <code>/config</code> folder</a>
   <ul class="collapse">
   <li><a href="#metadata.yml" id="toc-metadata.yml" class="nav-link" data-scroll-target="#metadata.yml"><code>metadata.yml</code></a></li>
   <li><a href="#traits.yml" id="toc-traits.yml" class="nav-link" data-scroll-target="#traits.yml"><code>traits.yml</code></a></li>
   <li><a href="#taxon_list.csv" id="toc-taxon_list.csv" class="nav-link" data-scroll-target="#taxon_list.csv"><code>taxon_list.csv</code></a></li>
   <li><a href="#unit_conversions.csv" id="toc-unit_conversions.csv" class="nav-link" data-scroll-target="#unit_conversions.csv"><code>unit_conversions.csv</code></a></li>
   </ul></li>
-  <li><a href="#data-folder" id="toc-data-folder" class="nav-link" data-scroll-target="#data-folder"><span class="header-section-number">10.3</span> <code>/data</code> folder</a></li>
-  <li><a href="#dataset_iddata.csv" id="toc-dataset_iddata.csv" class="nav-link" data-scroll-target="#dataset_iddata.csv"><span class="header-section-number">10.4</span> <code>dataset_id/data.csv</code></a></li>
-  <li><a href="#dataset_idmetadata.yml" id="toc-dataset_idmetadata.yml" class="nav-link" data-scroll-target="#dataset_idmetadata.yml"><span class="header-section-number">10.5</span> <code>dataset_id/metadata.yml</code></a>
+  <li><a href="#data-folder" id="toc-data-folder" class="nav-link" data-scroll-target="#data-folder"><span class="header-section-number">11.3</span> <code>/data</code> folder</a></li>
+  <li><a href="#dataset_iddata.csv" id="toc-dataset_iddata.csv" class="nav-link" data-scroll-target="#dataset_iddata.csv"><span class="header-section-number">11.4</span> <code>dataset_id/data.csv</code></a></li>
+  <li><a href="#dataset_idmetadata.yml" id="toc-dataset_idmetadata.yml" class="nav-link" data-scroll-target="#dataset_idmetadata.yml"><span class="header-section-number">11.5</span> <code>dataset_id/metadata.yml</code></a>
   <ul class="collapse">
   <li><a href="#source" id="toc-source" class="nav-link" data-scroll-target="#source">source</a></li>
   <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors">contributors</a></li>
@@ -367,7 +373,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#taxonomic_updates" id="toc-taxonomic_updates" class="nav-link" data-scroll-target="#taxonomic_updates">taxonomic_updates</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">questions</a></li>
   </ul></li>
-  <li><a href="#rcustom_r_code.r" id="toc-rcustom_r_code.r" class="nav-link" data-scroll-target="#rcustom_r_code.r"><span class="header-section-number">10.6</span> <code>R/custom_R_code.R</code></a></li>
+  <li><a href="#rcustom_r_code.r" id="toc-rcustom_r_code.r" class="nav-link" data-scroll-target="#rcustom_r_code.r"><span class="header-section-number">11.6</span> <code>R/custom_R_code.R</code></a></li>
   </ul>
 </nav>
     </div>
@@ -376,7 +382,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File organisation</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">File organisation</span></h1>
 </div>
 
 
@@ -393,8 +399,8 @@ ul.task-list li input[type="checkbox"] {
 
 <p>This chapter desribes the typical files you may encounter in a <code>traits.build</code> compilation. The description is based on the <a href="https://github.com/traitecoevo/austraits.build/"><code>austraits.build</code></a> compilation.</p>
 <p>We strongly suggest you create a standalone folder for your repository, e.g.&nbsp;<code>austraits.build</code>. This folder should contain all files needed to build your compilation. We’re big fans of github as a platform for collaboration. If you’re not familiar with git or github, we suggest you check out the <a href="https://happygitwithr.com/">happy git with R</a> book.</p>
-<section id="repository-structure" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="repository-structure"><span class="header-section-number">10.1</span> Repository structure</h2>
+<section id="repository-structure" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="repository-structure"><span class="header-section-number">11.1</span> Repository structure</h2>
 <p>The main directory for the <a href="https://github.com/traitecoevo/austraits.build/"><code>austraits.build</code></a> repository contains the following files and folders, with purpose as indicated. Not all of these files are required for a compilation, some are used for extra features such as website. They are included here for completeness.</p>
 <p><strong>Files used for data compilation</strong></p>
 <pre><code>├── remake.yml/build.R    # instructions for build
@@ -420,8 +426,8 @@ ul.task-list li input[type="checkbox"] {
 ├── tests                 # defines tests applied to datasets
 ├── vignettes             # documentation of repo file structure, AusTraits database structure, definitions, data input processes</code></pre>
 </section>
-<section id="config-folder" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="config-folder"><span class="header-section-number">10.2</span> <code>/config</code> folder</h2>
+<section id="config-folder" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="config-folder"><span class="header-section-number">11.2</span> <code>/config</code> folder</h2>
 <p>The folder <code>config</code> contains four files which govern the building of the dataset.</p>
 <pre><code>config
 ├── metadata.yml
@@ -616,8 +622,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 </section>
-<section id="data-folder" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="data-folder"><span class="header-section-number">10.3</span> <code>/data</code> folder</h2>
+<section id="data-folder" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="data-folder"><span class="header-section-number">11.3</span> <code>/data</code> folder</h2>
 <p>The folder <code>data</code> contains the raw data from individual studies included in AusTraits.</p>
 <p>Records within the <code>data</code> folder are organised as coming from a particular study, defined by the <code>dataset_id</code>. Data from each study are organised into a separate folder, with two files:</p>
 <ul>
@@ -639,8 +645,8 @@ ul.task-list li input[type="checkbox"] {
 </code></pre>
 <p>where <code>Angevin_2010</code>, <code>Barlow_1981</code>, &amp; <code>Bean_1997</code> are each a unique <code>dataset_id</code> in the final dataset.</p>
 </section>
-<section id="dataset_iddata.csv" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="dataset_iddata.csv"><span class="header-section-number">10.4</span> <code>dataset_id/data.csv</code></h2>
+<section id="dataset_iddata.csv" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="dataset_iddata.csv"><span class="header-section-number">11.4</span> <code>dataset_id/data.csv</code></h2>
 <p>The file <code>data.csv</code> contains raw measurements and can be in either long or wide format.</p>
 <p>Required columns include the taxon name, the trait name (column in long format, header in wide format), units (column in long format, part of header in wide format), location (if applicable), context (if applicable), date (if available), and trait values.</p>
 <p>It is important that all trait measurements made on the same individual or that are the mean of a species’ measurements from the same location are kept linked.</p>
@@ -650,8 +656,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>We aim to keep the data file in the rawest form possible (i.e.&nbsp;with as few changes as possible) but it must be a single csv file. Additional custom R code may be required to make the file exactly compatible with the AusTraits format, but these changes should be executed as AusTraits is compiled and should be in the <code>metadata.yml</code> file under <code>dataset/custom_R_code</code> (see below). Any files used to create the submitted <code>data.csv</code> file (e.g.&nbsp;Excel …) should be archived in a sub-folder within the study folder named <code>raw</code>.</p>
 </section>
-<section id="dataset_idmetadata.yml" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="dataset_idmetadata.yml"><span class="header-section-number">10.5</span> <code>dataset_id/metadata.yml</code></h2>
+<section id="dataset_idmetadata.yml" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="dataset_idmetadata.yml"><span class="header-section-number">11.5</span> <code>dataset_id/metadata.yml</code></h2>
 <p>The metadata is compiled in a <code>.yml</code> file, a structured data file where information is presented in a hierarchical format (see <a href="yaml.html">Appendix for details</a>). There are 10 values at the top hierarchical level: source, contributors, dataset, locations, contexts, traits, substitutions, taxonomic_updates, exclude_observations, questions. These are each described below.</p>
 <p>As a start, you may want to check out some examples from <a href="https://github.com/traitecoevo/traits.build/tree/master/data">existing studies in Austraits</a>, e.g.&nbsp;<a href="https://github.com/traitecoevo/traits.build/blob/master/data/Angevin_2011/metadata.yml">Angevin_2010</a> or <a href="https://github.com/traitecoevo/traits.build/blob/master/data/Wright_2009/metadata.yml">Wright_2009</a>.</p>
 <section id="source" class="level3">
@@ -1016,8 +1022,8 @@ ul.task-list li input[type="checkbox"] {
   austraits: need to map aquatic_terrestrial onto an actual trait once one is created.</code></pre>
 </section>
 </section>
-<section id="rcustom_r_code.r" class="level2" data-number="10.6">
-<h2 data-number="10.6" class="anchored" data-anchor-id="rcustom_r_code.r"><span class="header-section-number">10.6</span> <code>R/custom_R_code.R</code></h2>
+<section id="rcustom_r_code.r" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="rcustom_r_code.r"><span class="header-section-number">11.6</span> <code>R/custom_R_code.R</code></h2>
 <p>XXX</p>
 <p>The <a href="https://github.com/traitecoevo/austraits.build/"><code>austraits.build</code></a> compilation contains an extra folder, <code>R</code> containning a file <code>custom_R_code.R</code>. This file documents any custom functions used in the compilation, called as part of the <a href="#dataset"><code>custom_R_code</code> section</a> of metadata files.</p>
 
@@ -1260,13 +1266,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./traits_build.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The package</span></span>
+      <a href="./tutorial_compilation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./create_dictionary.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Creating a dictionary</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Creating a dictionary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
