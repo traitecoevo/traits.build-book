@@ -16,7 +16,7 @@ This manual is a step-by-step user guide to the `traits.build` standard, R packa
 
 ## A simple example
 
-To get you started, we've provided a template example compilation which you can clone and modify. This provides the basic steps for building a `traits.build` compilation. Follow the instructions in [Tutorials](tutorials.html) chapter for a step-by-step guide to building a database from scratch.
+To get you started, we've provided a template example compilation which you can clone and modify. This provides the basic steps for building a `traits.build` compilation. Follow the instructions in [Tutorials](tutorial_compilation.html) chapter for a step-by-step guide to building a database from scratch.
 
 <!-- XXX Video? -->
 

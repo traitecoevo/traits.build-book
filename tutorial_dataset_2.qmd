@@ -1,4 +1,4 @@
-# Tutorial for adding dataset: tutorial_dataset_2
+# Tutorial: Adding dataset 2
 
 ## Overview
 

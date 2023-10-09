@@ -30,13 +30,18 @@ book:
     - part: Using outputs
       chapters:
         - using_data.qmd
-    - part: Tutorials
+    - part: "Guide to adding data"
       chapters:
-        - tutorials.qmd
-    - part: Troubleshooting
+        - adding_data.qmd
+        - data_common_issues.qmd
+        - tutorial_compilation.qmd
+        - tutorial_dataset_1.qmd
+        - tutorial_dataset_2.qmd
+        - tutorial_dataset_3.qmd
+        - tutorial_dataset_4.qmd
+    - part: Getting help
       chapters:
         - help.qmd
-        - troubleshooting.qmd
         - debugging.qmd
 
   appendices:
