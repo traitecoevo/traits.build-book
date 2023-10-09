@@ -1,38 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "The {traits.build} standard, R package and workflow manual",
-    "section": "",
-    "text": "1 Introduction\nXXX"
-  },
-  {
-    "objectID": "index.html#motivation",
-    "href": "index.html#motivation",
-    "title": "The {traits.build} standard, R package and workflow manual",
-    "section": "1.1 Motivation",
-    "text": "1.1 Motivation\nXXX"
-  },
-  {
-    "objectID": "index.html#traits-build-standard",
-    "href": "index.html#traits-build-standard",
-    "title": "The {traits.build} standard, R package and workflow manual",
-    "section": "1.2 The traits.build data structure",
-    "text": "1.2 The traits.build data structure\nXXXX"
-  },
-  {
-    "objectID": "index.html#traits-build-package",
-    "href": "index.html#traits-build-package",
-    "title": "The {traits.build} standard, R package and workflow manual",
-    "section": "1.3 The traits.build package",
-    "text": "1.3 The traits.build package\nXXXX"
-  },
-  {
     "objectID": "index.html#about-this-manual",
     "href": "index.html#about-this-manual",
     "title": "The {traits.build} standard, R package and workflow manual",
-    "section": "1.4 About this manual",
-    "text": "1.4 About this manual\nThis manual is a step-by-step user guide to traits.build. The most important chapters are the walkthrough, help guide, and debugging guide. Subsequent chapters explain how to XXXX, and more. See the documentation website for most other major resources, including installation instructions, links to example projects, and a reference page with all user-side functions."
+    "section": "0.1 About this manual",
+    "text": "0.1 About this manual\nThis manual is a step-by-step user guide to the traits.build standard, R package and workflow manual.\nThe material was developed to ease …XXX\nWhen workng with traits.build, you may find the following resources useful\n\nthe traits.build manual (this website)\npackage installation instructions\nlinks to example projects\na reference page with all user-side functions."
   },
   {
     "objectID": "motivation.html",
@@ -56,18 +28,18 @@
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "dictionary.html",
-    "href": "dictionary.html",
-    "title": "6  Dictionary",
-    "section": "",
-    "text": "XXX"
-  },
-  {
     "objectID": "adding_data.html",
     "href": "adding_data.html",
-    "title": "8  Adding data",
+    "title": "7  Adding data",
     "section": "",
     "text": "Adding data"
+  },
+  {
+    "objectID": "dictionary.html",
+    "href": "dictionary.html",
+    "title": "8  Dictionary",
+    "section": "",
+    "text": "XXX"
   },
   {
     "objectID": "tutorial.html",
@@ -75,5 +47,54 @@
     "title": "9  Tutorial",
     "section": "",
     "text": "XXX"
+  },
+  {
+    "objectID": "debugging.html",
+    "href": "debugging.html",
+    "title": "10  Debugging",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee @knuth84 for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "help.html#before-you-post",
+    "href": "help.html#before-you-post",
+    "title": "11  Help",
+    "section": "11.1 Before you post",
+    "text": "11.1 Before you post\n\n11.1.1 Code of conduct\nWhile this project is not part of ropensci, we will adopt their code of conduct. Please read it before engaging in discussion.\n\n\n11.1.2 Search existing issues\nPlease check if your question already has an answer. You can search the [GitHub Repositories:\n\ntraits.build-book\ntraits.build\naustraits.build\n\n\n\n11.1.3 Try troubleshooting\nFor specific errors or other issues, please read this chapter’s section on troubleshooting. Please try to work through the steps yourself before posting a question."
+  },
+  {
+    "objectID": "help.html#troubleshooting",
+    "href": "help.html#troubleshooting",
+    "title": "11  Help",
+    "section": "11.2 Troubleshooting",
+    "text": "11.2 Troubleshooting\nIt is okay to reach out if you are struggling to solve a specific problem in a specific project: an error message, a part of the code you are not sure how to write, or any experience with traits.build that is incorrect, unwelcome, unexpected, or confusing. However, please follow the guidelines below and take an active role in the troubleshooting process.\n\n11.2.1 Update your R packages\nIf the error is a bug in traits.build or austraits, it is possible the bug has already been fixed in a newer version. Before posting, please try again with the latest CRAN release of traits.build (or austraits), then again with the GitHub development version if needed. Please see http://traitecoevo.github.io/traits.build/#installation for installation instructions.\n\n\n11.2.2 Attribute the error\nThe traits.build package itself is often not usually the cause of problems that arise in traits.build pipelines. Most issues come from the user-defined R code, or data files that the pipeline calls, as well as other R packages on your system. So before you post a question, please attempt to troubleshoot and figure out if traits.build is actually the source of the trouble, or if the error comes from another package or your own code. The tips in the debugging chapter may help. If the culprit turns out to be a non-traits.build issue, then please ask your question in a non-traits.build forum and write the question accordingly.\n\n\n11.2.3 Write a reprex\nTo set up the discussion for success, please provide the complete context of the problem, including a reprex. The purpose of a reprex, or reproducible example1, is to eliminate the knowledge gaps, misunderstandings, and hidden assumptions where bugs hide. A reprex is a sample of complete, self-contained, runnable code that fully emulates and reproduces the problem. The code should look clean and readable, be as short and concise as possible, run in as few seconds as possible, and contain only the details most relevant to troubleshooting. You can embed the code inline in your question, or you can upload it to a public repository and post the link. Regardless, please expect that anyone trying to help will read all the code and run the enclosed _targets.R file on their own private computer. This process is hands-on and empirical, so please make it as quick and easy as possible for the people who volunteer their valuable time and energy to answer questions.\nThe following posts explain how to write a good reprex.\n\nhttps://stackoverflow.com/help/minimal-reproducible-example\nhttps://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example\nhttps://reprex.tidyverse.org/\nhttps://www.tidyverse.org/blog/2017/12/workflow-vs-script/"
+  },
+  {
+    "objectID": "help.html#sec-contact",
+    "href": "help.html#sec-contact",
+    "title": "11  Help",
+    "section": "11.3 Contact",
+    "text": "11.3 Contact\nThere are many ways to reach out.\n\n11.3.1 Maintainer\nTo contact the maintainer directly, please post to the relevant public GitHub Discussions page of the package.2 Examples:\n\ntraits.build: https://github.com/ropensci/targets/discussions\naustraits: https://github.com/ropensci/tarchetypes/discussions\n\nGitHub makes it easy to search for and link to public discussions. Not only does this help users solve their own problems, it also helps the maintainer avoid repetition. So please use discussions instead of private emails, instant messages, or mentions on social media."
+  },
+  {
+    "objectID": "help.html#acknowledgements-and-copyright",
+    "href": "help.html#acknowledgements-and-copyright",
+    "title": "11  Help",
+    "section": "11.4 Acknowledgements and copyright",
+    "text": "11.4 Acknowledgements and copyright\nThis page was adapted from a corresponding file for the targets package, with text by Will Landau. The original file is available at https://github.com/ropensci-books/targets/blob/main/help.qmd. Text adapted from that page is under copy right specified in that package https://github.com/ropensci-books/targets/blob/main/LICENSE.md."
+  },
+  {
+    "objectID": "help.html#footnotes",
+    "href": "help.html#footnotes",
+    "title": "11  Help",
+    "section": "",
+    "text": "Also known as a minimal reproducible example or minimal working example.↩︎\nYou may need to create a free GitHub account, but the process is straightforward.↩︎"
+  },
+  {
+    "objectID": "yaml.html",
+    "href": "yaml.html",
+    "title": "Appendix A — Yaml",
+    "section": "",
+    "text": "About yaml files"
   }
 ]
