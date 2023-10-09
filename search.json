@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The {traits.build} standard, R package and workflow manual",
+    "section": "",
+    "text": "1 Introduction\nXXX"
+  },
+  {
+    "objectID": "index.html#motivation",
+    "href": "index.html#motivation",
+    "title": "The {traits.build} standard, R package and workflow manual",
+    "section": "1.1 Motivation",
+    "text": "1.1 Motivation\nXXX"
+  },
+  {
+    "objectID": "index.html#traits-build-standard",
+    "href": "index.html#traits-build-standard",
+    "title": "The {traits.build} standard, R package and workflow manual",
+    "section": "1.2 The traits.build data structure",
+    "text": "1.2 The traits.build data structure\nXXXX"
+  },
+  {
+    "objectID": "index.html#traits-build-package",
+    "href": "index.html#traits-build-package",
+    "title": "The {traits.build} standard, R package and workflow manual",
+    "section": "1.3 The traits.build package",
+    "text": "1.3 The traits.build package\nXXXX"
+  },
+  {
+    "objectID": "index.html#about-this-manual",
+    "href": "index.html#about-this-manual",
+    "title": "The {traits.build} standard, R package and workflow manual",
+    "section": "1.4 About this manual",
+    "text": "1.4 About this manual\nThis manual is a step-by-step user guide to traits.build. The most important chapters are the walkthrough, help guide, and debugging guide. Subsequent chapters explain how to XXXX, and more. See the documentation website for most other major resources, including installation instructions, links to example projects, and a reference page with all user-side functions."
+  },
+  {
+    "objectID": "motivation.html",
+    "href": "motivation.html",
+    "title": "2  Motivation",
+    "section": "",
+    "text": "The need for traits.build"
+  },
+  {
+    "objectID": "workflow.html",
+    "href": "workflow.html",
+    "title": "3  Worklfow",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "austraits_experience.html",
+    "href": "austraits_experience.html",
+    "title": "4  The AusTraits experience",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "dictionary.html",
+    "href": "dictionary.html",
+    "title": "6  Dictionary",
+    "section": "",
+    "text": "XXX"
+  },
+  {
+    "objectID": "adding_data.html",
+    "href": "adding_data.html",
+    "title": "8  Adding data",
+    "section": "",
+    "text": "Adding data"
+  },
+  {
+    "objectID": "tutorial.html",
+    "href": "tutorial.html",
+    "title": "9  Tutorial",
+    "section": "",
+    "text": "XXX"
+  }
+]
