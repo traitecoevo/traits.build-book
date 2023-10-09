@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - 8&nbsp; Trait dictionary</title>
+<title>The {traits.build} data standard, R package, and workflow - 17&nbsp; Common issues</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./traits_build.html" rel="next">
-<link href="./database_structure.html" rel="prev">
+<link href="./tutorial_compilation.html" rel="next">
+<link href="./using_data.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./long_wide.html">Data structure and standard</a></li><li class="breadcrumb-item"><a href="./dictionary.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Trait dictionary</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./adding_data.html">Guide to adding data</a></li><li class="breadcrumb-item"><a href="./data_common_issues.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Common issues</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -163,7 +197,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dictionary.html" class="sidebar-item-text sidebar-link active">
+  <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Trait dictionary</span></span></a>
   </div>
 </li>
@@ -250,7 +284,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_common_issues.html" class="sidebar-item-text sidebar-link">
+  <a href="./data_common_issues.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
   </div>
 </li>
@@ -338,14 +372,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#unsupported-trait-values" id="toc-unsupported-trait-values" class="nav-link active" data-scroll-target="#unsupported-trait-values"><span class="header-section-number">17.1</span> Unsupported trait values</a></li>
+  <li><a href="#dataset-cant-pivot-wider" id="toc-dataset-cant-pivot-wider" class="nav-link" data-scroll-target="#dataset-cant-pivot-wider"><span class="header-section-number">17.2</span> Dataset can’t pivot wider</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Trait dictionary</span></h1>
+<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Common issues</span></h1>
 </div>
 
 
@@ -360,9 +401,74 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>XXX</p>
+<p>Note, this chapter is a work in progress. It will be expanded over time.</p>
+<section id="unsupported-trait-values" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="unsupported-trait-values"><span class="header-section-number">17.1</span> Unsupported trait values</h2>
+<p>This error occurs when, for a categorical trait, the value in <span style="color:blue;">data.csv</span> is different to the value in the traits dictionary (<span style="color:blue;">config/traits.yml</span>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> my_database<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset_id <span class="sc">==</span> current_study) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(error <span class="sc">==</span> <span class="st">"Unsupported trait value"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dataset_id, trait_name, value) <span class="sc">%&gt;%</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can individually add substitutions to <span style="color:blue;">metadata.yml</span> using the function <span style="color:blue;">metadata_add_substitution</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_substitution</span>(<span class="at">dataset_id =</span> current_study, <span class="at">trait_name =</span> <span class="st">"plant_growth_form"</span>, <span class="at">find =</span> <span class="st">"T"</span>, <span class="at">replace =</span> <span class="st">"tree"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Or, you can add an additional column to the table output (code above) and read it into <span style="color:blue;">metadata.yml</span> using the function <span style="color:blue;">metadata_add_substitutions_table</span></p>
+<p>The table read in must have the columns <span style="color:blue;">dataset_id</span>, <span style="color:blue;">trait_name</span>, <span style="color:blue;">find</span>, and <span style="color:blue;">replace</span>.</p>
+<p>This is a hypothetical example for a table that contains 5 rows with plant_growth_form value that need updating.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> table <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">find =</span> value) <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">replace =</span> <span class="fu">c</span>(<span class="st">"tree"</span>, <span class="st">"mallee"</span>, <span class="st">"shrub"</span>, <span class="st">"graminoid"</span>, <span class="st">"herb"</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_substitutions_table</span>(table, <span class="at">dataset_id =</span> dataset_id, <span class="at">trait_name =</span> trait_name, <span class="at">find =</span> find, <span class="at">replace =</span> replace)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can of course also write the table to a csv file, edit it in Excel or a text editor, then read it back into R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(table, <span class="st">"data/dataset_id/raw/substitutions_required.csv"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>...edit outside of R</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dataset_id/raw/substitutions_required.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dataset-cant-pivot-wider" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="dataset-cant-pivot-wider"><span class="header-section-number">17.2</span> Dataset can’t pivot wider</h2>
+<p>In order to convert a traits.build database into a wide format, the traits.build$traits table must be able to pivot wider. This dataset was unable to pivot, due to duplication in the following rows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_database<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset_id <span class="sc">==</span> dataset_ids) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">"dataset_id"</span>, <span class="st">"trait_name"</span>, <span class="st">"value"</span>, <span class="st">"observation_id"</span>, <span class="st">"source_id"</span>, <span class="st">"taxon_name"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">"entity_type"</span>, <span class="st">"life_stage"</span>, <span class="st">"basis_of_record"</span>, <span class="st">"value_type"</span>, <span class="st">"population_id"</span>, <span class="st">"individual_id"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">"temporal_id"</span>, <span class="st">"method_id"</span>, <span class="st">"method_context_id"</span>, <span class="st">"entity_context_id"</span>, <span class="st">"original_name"</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> trait_name, <span class="at">values_from =</span> value, <span class="at">values_fn =</span> length) <span class="sc">%&gt;%</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="dv">16</span><span class="sc">:</span><span class="fu">ncol</span>(.)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">trait_name =</span> name, <span class="at">number_of_duplicates =</span> value) <span class="sc">%&gt;%</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dataset_id, taxon_name, trait_name, number_of_duplicates, observation_id, entity_type, value_type, population_id, <span class="fu">everything</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(number_of_duplicates <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There are two likely explanations – and solutions – to this error:</p>
+<ol type="1">
+<li>If your dataset combines individual (or population) level measurements with species-level measurements, the same species-level measurement may be read in many times. To solve this problem, you need to retain only the first instance of each species-level measurement, by including the following <code>custom_R_code</code>, where <code>taxon_name</code> is the column that contains taxon names and <code>column 1</code>, <code>column 2</code>, etc is a vector of the columns with categorical traits that require <code>de-duplicating</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(taxon_name) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(<span class="st">"column 1"</span>, <span class="st">"column 2"</span>, <span class="st">"column 3"</span>), replace_duplicates_with_NA))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Rows of data that represent measurements made at different times,</li>
+</ol>
+<p>… TBC</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -600,13 +706,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./database_structure.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data structure</span></span>
+      <a href="./using_data.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Using a compilation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./traits_build.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The package</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./tutorial_compilation.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Tutorial: Using the template example</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
