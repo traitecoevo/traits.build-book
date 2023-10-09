@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} standard, R package and workflow manual - 5&nbsp; Data structure</title>
+<title>The {traits.build} data standard, R package, and workflow - 7&nbsp; Data structure</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./traits_build.html" rel="next">
-<link href="./usage_examples.html" rel="prev">
+<link href="./dictionary.html" rel="next">
+<link href="./database_standard.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./database_structure.html">Data structure and standard</a></li><li class="breadcrumb-item"><a href="./database_structure.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data structure</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./long_wide.html">Data structure and standard</a></li><li class="breadcrumb-item"><a href="./database_structure.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data structure</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">The {traits.build} standard, R package and workflow manual</a> 
+      <a href="./">The {traits.build} data standard, R package, and workflow</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -111,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -145,8 +145,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./long_wide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Long vs Wide data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./database_standard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data standard</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./database_structure.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data structure</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data structure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Trait dictionary</span></span></a>
   </div>
 </li>
       </ul>
@@ -163,31 +181,37 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The package</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./file_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">File structure</span></span></a>
+  <a href="./file_organisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File organisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dictionary</span></span></a>
+  <a href="./create_dictionary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Creating a dictionary</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./adding_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Adding new datasets into AusTraits</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adding datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./custom_R_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Adding custom_R_code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Adding custom_R_code</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./publishing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Publishing</span></span></a>
   </div>
 </li>
       </ul>
@@ -195,7 +219,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Using the outputs</span></a>
+ <span class="menu-text">Using outputs</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -204,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Using data from a traits.build compilation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Using a compilation</span></span></a>
   </div>
 </li>
       </ul>
@@ -221,37 +245,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorials</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tutorial_compilation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tutorial: Using the template example</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tutorial_dataset_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_1</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tutorial_dataset_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_2</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tutorial_dataset_3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_3</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tutorial_dataset_4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_4</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Tutorials</span></span></a>
   </div>
 </li>
       </ul>
@@ -268,19 +262,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Help</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Help</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./troubleshooting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Troubleshooting traits.build</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
       </ul>
@@ -318,26 +312,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#components" id="toc-components" class="nav-link active" data-scroll-target="#components"><span class="header-section-number">6</span> Components</a>
+  <li><a href="#components" id="toc-components" class="nav-link active" data-scroll-target="#components"><span class="header-section-number">8</span> Components</a>
   <ul class="collapse">
-  <li><a href="#traits" id="toc-traits" class="nav-link" data-scroll-target="#traits"><span class="header-section-number">6.1</span> traits</a>
+  <li><a href="#traits" id="toc-traits" class="nav-link" data-scroll-target="#traits"><span class="header-section-number">8.1</span> traits</a>
   <ul class="collapse">
   <li><a href="#entity-type" id="toc-entity-type" class="nav-link" data-scroll-target="#entity-type">Entity type</a></li>
   <li><a href="#identifiers" id="toc-identifiers" class="nav-link" data-scroll-target="#identifiers">Identifiers</a></li>
   <li><a href="#life-stage-basis-of-record" id="toc-life-stage-basis-of-record" class="nav-link" data-scroll-target="#life-stage-basis-of-record">Life stage, basis of record</a></li>
   <li><a href="#value_types" id="toc-value_types" class="nav-link" data-scroll-target="#value_types">Values, Value types, basis of value</a></li>
   </ul></li>
-  <li><a href="#locations" id="toc-locations" class="nav-link" data-scroll-target="#locations"><span class="header-section-number">6.2</span> locations</a></li>
-  <li><a href="#contexts" id="toc-contexts" class="nav-link" data-scroll-target="#contexts"><span class="header-section-number">6.3</span> contexts</a></li>
-  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">6.4</span> methods</a></li>
-  <li><a href="#excluded_data" id="toc-excluded_data" class="nav-link" data-scroll-target="#excluded_data"><span class="header-section-number">6.5</span> Excluded_data</a></li>
-  <li><a href="#taxa" id="toc-taxa" class="nav-link" data-scroll-target="#taxa"><span class="header-section-number">6.6</span> taxa</a></li>
-  <li><a href="#taxonomic_updates" id="toc-taxonomic_updates" class="nav-link" data-scroll-target="#taxonomic_updates"><span class="header-section-number">6.7</span> taxonomic_updates</a></li>
-  <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions"><span class="header-section-number">6.8</span> definitions</a></li>
-  <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors"><span class="header-section-number">6.9</span> contributors</a></li>
-  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources"><span class="header-section-number">6.10</span> sources</a></li>
-  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata"><span class="header-section-number">6.11</span> metadata</a></li>
-  <li><a href="#build_info" id="toc-build_info" class="nav-link" data-scroll-target="#build_info"><span class="header-section-number">6.12</span> build_info</a></li>
+  <li><a href="#locations" id="toc-locations" class="nav-link" data-scroll-target="#locations"><span class="header-section-number">8.2</span> locations</a></li>
+  <li><a href="#contexts" id="toc-contexts" class="nav-link" data-scroll-target="#contexts"><span class="header-section-number">8.3</span> contexts</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">8.4</span> methods</a></li>
+  <li><a href="#excluded_data" id="toc-excluded_data" class="nav-link" data-scroll-target="#excluded_data"><span class="header-section-number">8.5</span> Excluded_data</a></li>
+  <li><a href="#taxa" id="toc-taxa" class="nav-link" data-scroll-target="#taxa"><span class="header-section-number">8.6</span> taxa</a></li>
+  <li><a href="#taxonomic_updates" id="toc-taxonomic_updates" class="nav-link" data-scroll-target="#taxonomic_updates"><span class="header-section-number">8.7</span> taxonomic_updates</a></li>
+  <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions"><span class="header-section-number">8.8</span> definitions</a></li>
+  <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors"><span class="header-section-number">8.9</span> contributors</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources"><span class="header-section-number">8.10</span> sources</a></li>
+  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata"><span class="header-section-number">8.11</span> metadata</a></li>
+  <li><a href="#build_info" id="toc-build_info" class="nav-link" data-scroll-target="#build_info"><span class="header-section-number">8.12</span> build_info</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -347,7 +341,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data structure</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data structure</span></h1>
 </div>
 
 
@@ -380,11 +374,11 @@ ul.task-list li input[type="checkbox"] {
 ├── metadata
 └── build_info</code></pre>
 <p>These include all the data and contextual information submitted with each contributed dataset.</p>
-<section id="components" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Components</h1>
+<section id="components" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Components</h1>
 <p>The core components are defined as follows.</p>
-<section id="traits" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="traits"><span class="header-section-number">6.1</span> traits</h2>
+<section id="traits" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="traits"><span class="header-section-number">8.1</span> traits</h2>
 <p><strong>Description:</strong> A table containing measurements of traits.</p>
 <p><strong>Content:</strong></p>
 
@@ -927,8 +921,8 @@ Not currently known.
 <p>AusTraits does not include intra-individual observations made at a single point in time. When multiple measurements per individual are submitted to AusTraits, we take the mean of the values and record the value_type as <code>mean</code> and indicate under replicates the number of measurements made.</p>
 </section>
 </section>
-<section id="locations" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="locations"><span class="header-section-number">6.2</span> locations</h2>
+<section id="locations" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="locations"><span class="header-section-number">8.2</span> locations</h2>
 <p><strong>Description:</strong> A table containing observations of location/site characteristics associated with information in <code>traits</code>. Cross referencing between the two dataframes is possible using combinations of the variables <code>dataset_id</code>, <code>location_name</code>.</p>
 <p><strong>Content:</strong></p>
 
@@ -988,8 +982,8 @@ The measured value of a location property.
 
 </table>
 </section>
-<section id="contexts" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="contexts"><span class="header-section-number">6.3</span> contexts</h2>
+<section id="contexts" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="contexts"><span class="header-section-number">8.3</span> contexts</h2>
 <p><strong>Description:</strong> A table containing observations of contextual characteristics associated with information in <code>traits</code>. Cross referencing between the two dataframes is possible using combinations of the variables <code>dataset_id</code>, <code>link_id</code>, and <code>link_vals</code>.</p>
 <p><strong>Content:</strong></p>
 
@@ -1065,8 +1059,8 @@ Unique integer identifiers that link between identifier columns in the <code>tra
 
 </table>
 </section>
-<section id="methods" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="methods"><span class="header-section-number">6.4</span> methods</h2>
+<section id="methods" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="methods"><span class="header-section-number">8.4</span> methods</h2>
 <p><strong>Description:</strong> A table containing details on methods with which data were collected, including time frame and source. Cross referencing with the <code>traits</code> table is possible using combinations of the variables <code>dataset_id</code>, <code>trait_name</code>.</p>
 <p><strong>Content:</strong></p>
 
@@ -1206,8 +1200,8 @@ Names of AusTraits team member(s) who contacted the data collectors and added th
 
 </table>
 </section>
-<section id="excluded_data" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="excluded_data"><span class="header-section-number">6.5</span> Excluded_data</h2>
+<section id="excluded_data" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="excluded_data"><span class="header-section-number">8.5</span> Excluded_data</h2>
 <p><strong>Description:</strong> A table of data that did not pass quality tests and so were excluded from the master dataset. The structure is identical to that presented in the <code>traits</code> table, only with an extra column called <code>error</code> indicating why the record was excluded. Common reasons are missing_unit_conversions, missing_value, and unsupported_trait_value.</p>
 <p><strong>Content:</strong></p>
 
@@ -1443,8 +1437,8 @@ Name given to taxon in the original data supplied by the authors.
 
 </table>
 </section>
-<section id="taxa" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="taxa"><span class="header-section-number">6.6</span> taxa</h2>
+<section id="taxa" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="taxa"><span class="header-section-number">8.6</span> taxa</h2>
 <p><strong>Description:</strong> A table containing details on taxa that are included in the table <a href="#traits"><code>traits</code></a>. We have attempted to align species names with known taxonomic units in the <a href="https://biodiversity.org.au/nsl/services/apc"><code>Australian Plant Census</code> (APC)</a> and/or the <a href="https://biodiversity.org.au/nsl/services/APNI"><code>Australian Plant Names Index</code> (APNI)</a>; the sourced information is released under a CC-BY3 license.</p>
 <p>Version 0.1.0 of AusTraits contains records for 1255 different taxa.</p>
 <p><strong>Content:</strong></p>
@@ -1577,8 +1571,8 @@ An identifier for the set of taxon information (data associated with the taxon c
 
 </table>
 </section>
-<section id="taxonomic_updates" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="taxonomic_updates"><span class="header-section-number">6.7</span> taxonomic_updates</h2>
+<section id="taxonomic_updates" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="taxonomic_updates"><span class="header-section-number">8.7</span> taxonomic_updates</h2>
 <p><strong>Description:</strong> A table of all taxonomic changes implemented in the construction of AusTraits. Changes are determined by comparing the originally submitted taxon name against the taxonomic names listed in the taxonomic reference files, best placed in a subfolder in the <code>config</code> folder . Cross referencing with the <code>traits</code> table is possible using combinations of the variables <code>dataset_id</code> and <code>taxon_name</code>.</p>
 <p><strong>Content:</strong></p>
 
@@ -1671,8 +1665,8 @@ Scientific name of the taxon on which traits were sampled, without authorship. W
 </table>
 <p>Both the original and the updated taxon names are included in the <a href="#traits"><code>traits</code></a> table.</p>
 </section>
-<section id="definitions" class="level2" data-number="6.8">
-<h2 data-number="6.8" class="anchored" data-anchor-id="definitions"><span class="header-section-number">6.8</span> definitions</h2>
+<section id="definitions" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="definitions"><span class="header-section-number">8.8</span> definitions</h2>
 <p><strong>Description:</strong> A copy of the definitions for all tables and terms. Information included here was used to process data and generate any documentation for the study.</p>
 <p><strong>Details on trait definitions:</strong> The allowable trait names and trait values are defined in the definitions file. Each trait is labelled as either <code>numeric</code> or <code>categorical</code>. An example of each type is as follows. For an example, see the the <a href="http://traitecoevo.github.io/austraits.build/articles/trait_definitions.html">Trait definitions for AusTraits</a>.</p>
 <p><strong>leaf_mass_per_area</strong></p>
@@ -1686,8 +1680,8 @@ Scientific name of the taxon on which traits were sampled, without authorship. W
 <li>number of studies: 0</li>
 </ul>
 </section>
-<section id="contributors" class="level2" data-number="6.9">
-<h2 data-number="6.9" class="anchored" data-anchor-id="contributors"><span class="header-section-number">6.9</span> contributors</h2>
+<section id="contributors" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="contributors"><span class="header-section-number">8.9</span> contributors</h2>
 <p><strong>Description:</strong> A table of people contributing to each study.</p>
 <p><strong>Content:</strong></p>
 
@@ -1755,8 +1749,8 @@ Additional roles of data collector, mostly contact person.
 
 </table>
 </section>
-<section id="sources" class="level2" data-number="6.10">
-<h2 data-number="6.10" class="anchored" data-anchor-id="sources"><span class="header-section-number">6.10</span> sources</h2>
+<section id="sources" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="sources"><span class="header-section-number">8.10</span> sources</h2>
 <p>For each dataset in the compilation there is the option to list primary and secondary citations. The primary citation is defined as, <code>The secondary citation is defined as,</code></p>
 <p>The element <code>sources</code> includes bibtex versions of all sources which can be imported into your reference library:</p>
 <pre><code>RefManageR::WriteBib(austraits$sources, "refs.bib") # write all sources to file
@@ -1765,12 +1759,12 @@ RefManageR::WriteBib(austraits$sources["Falster_2005_1"], "refs.bib") # write a 
 <pre><code>austraits$sources["Falster_2005_1"]</code></pre>
 <p>A formatted version of the sources also exists within the table <a href="#methods">methods</a>.</p>
 </section>
-<section id="metadata" class="level2" data-number="6.11">
-<h2 data-number="6.11" class="anchored" data-anchor-id="metadata"><span class="header-section-number">6.11</span> metadata</h2>
+<section id="metadata" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="metadata"><span class="header-section-number">8.11</span> metadata</h2>
 <p><strong>Description:</strong> Metadata associated with the dataset, including title, creators, license, subject, funding sources.</p>
 </section>
-<section id="build_info" class="level2" data-number="6.12">
-<h2 data-number="6.12" class="anchored" data-anchor-id="build_info"><span class="header-section-number">6.12</span> build_info</h2>
+<section id="build_info" class="level2" data-number="8.12">
+<h2 data-number="8.12" class="anchored" data-anchor-id="build_info"><span class="header-section-number">8.12</span> build_info</h2>
 <p><strong>Description:</strong> A description of the computing environment used to create this version of the dataset, including version number, git commit and R session_info.</p>
 
 
@@ -2013,13 +2007,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./usage_examples.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Usage examples</span></span>
+      <a href="./database_standard.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data standard</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./traits_build.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Package</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./dictionary.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Trait dictionary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

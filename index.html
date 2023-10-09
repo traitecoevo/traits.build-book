@@ -10,7 +10,7 @@
 <meta name="author" content="Daniel Falster">
 <meta name="author" content="Sophie Yang">
 
-<title>The {traits.build} standard, R package and workflow manual</title>
+<title>The {traits.build} data standard, R package, and workflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -91,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">The {traits.build} standard, R package and workflow manual</a> 
+      <a href="./">The {traits.build} data standard, R package, and workflow</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -113,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -147,8 +147,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./long_wide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Long vs Wide data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./database_standard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data standard</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./database_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data structure</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data structure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Trait dictionary</span></span></a>
   </div>
 </li>
       </ul>
@@ -165,31 +183,37 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The package</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./file_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">File structure</span></span></a>
+  <a href="./file_organisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File organisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dictionary</span></span></a>
+  <a href="./create_dictionary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Creating a dictionary</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./adding_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Adding new datasets into AusTraits</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Adding datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./custom_R_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Adding custom_R_code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Adding custom_R_code</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./publishing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Publishing</span></span></a>
   </div>
 </li>
       </ul>
@@ -197,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Using the outputs</span></a>
+ <span class="menu-text">Using outputs</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -206,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Using data from a traits.build compilation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Using a compilation</span></span></a>
   </div>
 </li>
       </ul>
@@ -223,37 +247,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorials</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tutorial_compilation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tutorial: Using the template example</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tutorial_dataset_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_1</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tutorial_dataset_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_2</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tutorial_dataset_3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_3</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tutorial_dataset_4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tutorial for adding dataset: tutorial_dataset_4</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Tutorials</span></span></a>
   </div>
 </li>
       </ul>
@@ -270,19 +264,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Help</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Help</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./troubleshooting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Troubleshooting traits.build</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
       </ul>
@@ -320,11 +314,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started"><span class="header-section-number">1</span> Getting started</a>
+  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about"><span class="header-section-number">1</span> About</a>
   <ul class="collapse">
-  <li><a href="#about-this-manual" id="toc-about-this-manual" class="nav-link" data-scroll-target="#about-this-manual"><span class="header-section-number">1.1</span> About this manual</a></li>
-  <li><a href="#brief-overview" id="toc-brief-overview" class="nav-link" data-scroll-target="#brief-overview"><span class="header-section-number">1.2</span> Brief overview</a></li>
+  <li><a href="#brief-overview" id="toc-brief-overview" class="nav-link" data-scroll-target="#brief-overview"><span class="header-section-number">1.1</span> Brief overview</a></li>
+  <li><a href="#about-this-manual" id="toc-about-this-manual" class="nav-link" data-scroll-target="#about-this-manual"><span class="header-section-number">1.2</span> About this manual</a></li>
   <li><a href="#a-simple-example" id="toc-a-simple-example" class="nav-link" data-scroll-target="#a-simple-example"><span class="header-section-number">1.3</span> A simple example</a></li>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="header-section-number">1.4</span> Getting help</a></li>
+  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing"><span class="header-section-number">1.5</span> Contributing</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements"><span class="header-section-number">1.6</span> Acknowledgements</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -334,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The {traits.build} standard, R package and workflow manual</h1>
+<h1 class="title">The {traits.build} data standard, R package, and workflow</h1>
 </div>
 
 
@@ -357,23 +354,38 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="getting-started" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Getting started</h1>
-<section id="about-this-manual" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="about-this-manual"><span class="header-section-number">1.1</span> About this manual</h2>
-<p>This manual is a step-by-step user guide to the <code>traits.build</code> standard, R package and workflow manual. Alongside <a href="http://traitecoevo.github.io/traits.build/index.html">traits.build manual (this website)</a>, you may find the following resources useful:</p>
+<section id="about" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> About</h1>
+<section id="brief-overview" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="brief-overview"><span class="header-section-number">1.1</span> Brief overview</h2>
+<p>Imagine you wanted to build a database of plant traits. You might start by searching for existing datasets, but you’d quickly find that there are many different ways to names and ways to measure the same trait. You might also find that some datasets measure the same trait in different units, or use an outdated name for a species or taxon.</p>
+<p><code>traits.build</code> is a data standard, R package, and workflow that is desgined to help you build a harmonised, relational database from disparate datasets. The package was first developed to create <a href="https://github.com/traitecoevo/austraits.build/"><code>austraits.build</code></a>, an, open-source database of Australian plant traits. The code has been transformed into a standalone package allowing anyone to build a relational, tabular database for any taxonomic group and any collection of traits.</p>
+</section>
+<section id="about-this-manual" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="about-this-manual"><span class="header-section-number">1.2</span> About this manual</h2>
+<p>This manual is a step-by-step user guide to the <code>traits.build</code> standard, R package and workflow manual. Alongside this manual, you may find the following resources useful:</p>
 <ul>
-<li><a href="http://traitecoevo.github.io/traits.build/index.html#installation">package installation instructions</a></li>
-<li>a <a href="http://traitecoevo.github.io/traits.build/reference/index.html">reference page with all user-side functions</a>.</li>
+<li><a href="http://traitecoevo.github.io/traits.build/index.html#installation">installation instructions</a> for the <code>traits.build</code> package</li>
+<li>a <a href="http://traitecoevo.github.io/traits.build/reference/index.html">reference page with all user-side functions</a> for the <code>traits.build</code> package.</li>
 <li>links to <a href="usage_examples.html">example projects</a></li>
 </ul>
 </section>
-<section id="brief-overview" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="brief-overview"><span class="header-section-number">1.2</span> Brief overview</h2>
-</section>
 <section id="a-simple-example" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="a-simple-example"><span class="header-section-number">1.3</span> A simple example</h2>
-<p>To get you started, we’ve porvided an exmaple dataset. Follow the instructions in <a href="http://traitecoevo.github.io/traits.build-book/tutorials.html">Tutorials</a> chapter for a step-by-step guide to building a database from scratch.</p>
+<p>To get you started, we’ve provided a template example compilation which you can clone and modify. This provides the basic steps for building a <code>traits.build</code> compilation. Follow the instructions in <a href="tutorials.html">Tutorials</a> chapter for a step-by-step guide to building a database from scratch.</p>
+<!-- XXX Video? -->
+</section>
+<section id="getting-help" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">1.4</span> Getting help</h2>
+<p>Along the way, users may encounter a number of errors and warnings. Some of these are designed to help you build a robust database, others may constitue an error in your data, file structure, or the package. If you encounter an error or warning, please read the message carefully and <a href="help.html">follow the instructions for getting help</a>.</p>
+</section>
+<section id="contributing" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="contributing"><span class="header-section-number">1.5</span> Contributing</h2>
+<p>XXX</p>
+</section>
+<section id="acknowledgements" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="acknowledgements"><span class="header-section-number">1.6</span> Acknowledgements</h2>
+<p>This manual arose from code within the AusTraits project at <a href="https://github.com/traitecoevo/austraits.build" class="uri">https://github.com/traitecoevo/austraits.build</a>. The AusTraits project received investment (<a href="https://doi.org/10.47486/DP720" class="uri">https://doi.org/10.47486/DP720</a>) from the Australian Research Data Commons (ARDC). The ARDC is funded by the National Collaborative Research Infrastructure Strategy (NCRIS).</p>
 
 
 </section>

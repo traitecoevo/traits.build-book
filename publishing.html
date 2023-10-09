@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - 9&nbsp; The package</title>
+<title>The {traits.build} data standard, R package, and workflow - 14&nbsp; Publishing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./file_organisation.html" rel="next">
-<link href="./dictionary.html" rel="prev">
+<link href="./using_data.html" rel="next">
+<link href="./custom_R_code.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Using <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./traits_build.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The package</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Using <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./publishing.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Publishing</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -180,7 +180,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./traits_build.html" class="sidebar-item-text sidebar-link active">
+  <a href="./traits_build.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The package</span></span></a>
   </div>
 </li>
@@ -210,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./publishing.html" class="sidebar-item-text sidebar-link">
+  <a href="./publishing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Publishing</span></span></a>
   </div>
 </li>
@@ -315,7 +315,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The package</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Publishing</span></h1>
 </div>
 
 
@@ -330,8 +330,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>The <code>traits.build</code> package provides functions needed to build a compilation from sources to the standards specified</p>
-<p>XXXX</p>
+<p>traits.build is an R package that was first developed to build AusTraits, a harmonised, open-source database of Australian plant traits. The code has been transformed into a standalone package allowing anyone to build a relational, tabular database for any taxonomic group and any collection of traits.</p>
+<p>The project’s guiding principles are to:</p>
+<ol type="1">
+<li>Create open-source, harmonised, reproducible databases from disparate datasets.</li>
+<li>Provide a fully transparent workflow.</li>
+<li>Offer a relational database structure that fully documents the contextual data essential to interpreting ecological data.</li>
+<li>Offer a straightforward, robust template for building a trait dictionary.</li>
+<li>Offer a database structure that is flexible enough to accommodate the complexities inherent to ecological data.</li>
+<li>Offer a database structure that is underlain by a documented ontology, ensuring each database field is interpretable and interoperable with other databases and data structures.</li>
+</ol>
 
 
 
@@ -571,13 +579,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./dictionary.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Trait dictionary</span></span>
+      <a href="./custom_R_code.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Adding custom_R_code</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./file_organisation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File organisation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./using_data.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Using a compilation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
