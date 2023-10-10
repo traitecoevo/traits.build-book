@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - 22&nbsp; Tutorial: Adding dataset 3</title>
+<title>The {traits.build} data standard, R package, and workflow - 24&nbsp; Tutorial: Adding dataset 5</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./tutorial_dataset_4.html" rel="next">
-<link href="./tutorial_dataset_2.html" rel="prev">
+<link href="./tutorial_dataset_6.html" rel="next">
+<link href="./tutorial_dataset_4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./adding_data_long.html">Guide to adding data</a></li><li class="breadcrumb-item"><a href="./tutorial_dataset_3.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 3</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./adding_data_long.html">Guide to adding data</a></li><li class="breadcrumb-item"><a href="./tutorial_dataset_5.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 5</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -314,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorial_dataset_3.html" class="sidebar-item-text sidebar-link active">
+  <a href="./tutorial_dataset_3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 3</span></span></a>
   </div>
 </li>
@@ -326,7 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorial_dataset_5.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial_dataset_5.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 5</span></span></a>
   </div>
 </li>
@@ -400,18 +400,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">22.1</span> Overview</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">24.1</span> Overview</a>
   <ul class="collapse">
   <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
   <li><a href="#new-functions-introduced" id="toc-new-functions-introduced" class="nav-link" data-scroll-target="#new-functions-introduced">New Functions Introduced</a></li>
   </ul></li>
-  <li><a href="#adding-tutorial_dataset_3" id="toc-adding-tutorial_dataset_3" class="nav-link" data-scroll-target="#adding-tutorial_dataset_3"><span class="header-section-number">22.2</span> Adding tutorial_dataset_3</a>
+  <li><a href="#adding-tutorial_dataset_5" id="toc-adding-tutorial_dataset_5" class="nav-link" data-scroll-target="#adding-tutorial_dataset_5"><span class="header-section-number">24.2</span> Adding tutorial_dataset_5</a>
   <ul class="collapse">
   <li><a href="#ensure-the-dataset-folder-contains-the-correct-data-files" id="toc-ensure-the-dataset-folder-contains-the-correct-data-files" class="nav-link" data-scroll-target="#ensure-the-dataset-folder-contains-the-correct-data-files">Ensure the dataset folder contains the correct data files</a></li>
   <li><a href="#source-necessary-functions" id="toc-source-necessary-functions" class="nav-link" data-scroll-target="#source-necessary-functions">source necessary functions</a></li>
-  <li><a href="#use-functions-to-create-a-metadata.yml-file" id="toc-use-functions-to-create-a-metadata.yml-file" class="nav-link" data-scroll-target="#use-functions-to-create-a-metadata.yml-file">Use functions to create a metadata.yml file</a></li>
-  <li><a href="#manual-filling-in-of-metadata" id="toc-manual-filling-in-of-metadata" class="nav-link" data-scroll-target="#manual-filling-in-of-metadata">Manual filling in of metadata</a></li>
-  <li><a href="#custom_R_code" id="toc-custom_R_code" class="nav-link" data-scroll-target="#custom_R_code">Testing, error fixes, and report building</a></li>
+  <li><a href="#create-a-metadata.yml-file" id="toc-create-a-metadata.yml-file" class="nav-link" data-scroll-target="#create-a-metadata.yml-file">Create a metadata.yml file</a></li>
+  <li><a href="#exclude_data" id="toc-exclude_data" class="nav-link" data-scroll-target="#exclude_data">Testing, error fixes, and report building</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -421,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 3</span></h1>
+<h1 class="title"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 5</span></h1>
 </div>
 
 
@@ -436,36 +435,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="overview" class="level2" data-number="22.1">
-<h2 data-number="22.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">22.1</span> Overview</h2>
-<p>This is the third of five tutorials on adding datasets to your traits.build database.</p>
-<p>Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in <code>traits.build-template</code>. Instructions are available at <a href="tutorial_compilation.html">Tutorial: Example compilation</a>.<br>
+<section id="overview" class="level2" data-number="24.1">
+<h2 data-number="24.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">24.1</span> Overview</h2>
+<p>This is the fifth tutorial on adding datasets to your traits.build database.</p>
+<p>Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in <code>traits.build-template</code>. Instructions are available at <a href="tutorial_compilation.html">Tutorial: Example compilation</a>.<br>
 </p>
+<p>It is also recommended that you first work through some of the earlier tutorials, as many steps for adding datasets to a traits.build database are only thoroughly described in the early tutorials.</p>
 <section id="goals" class="level3">
 <h3 class="anchored" data-anchor-id="goals">Goals</h3>
 <ul>
-<li><p>Learn how to <a href="#contexts">add contexts</a>.&nbsp;</p></li>
-<li><p>Learn some complexities with respect to <a href="#complex_units">units</a>.&nbsp;</p></li>
-<li><p>Learn additional <a href="#custom_R_code">custom_R_code tricks</a>.&nbsp;</p></li>
+<li><p>Learn how to map <a href="#trait_contexts">context properties into the metadata traits section</a>&nbsp;</p></li>
+<li><p>Learn how to add <a href="#measurement_remarks">measurement remarks</a>&nbsp;</p></li>
 </ul>
 </section>
 <section id="new-functions-introduced" class="level3">
 <h3 class="anchored" data-anchor-id="new-functions-introduced">New Functions Introduced</h3>
 <ul>
-<li>metadata_add_contexts</li>
+<li>none.</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="adding-tutorial_dataset_3" class="level2" data-number="22.2">
-<h2 data-number="22.2" class="anchored" data-anchor-id="adding-tutorial_dataset_3"><span class="header-section-number">22.2</span> Adding tutorial_dataset_3</h2>
+<section id="adding-tutorial_dataset_5" class="level2" data-number="24.2">
+<h2 data-number="24.2" class="anchored" data-anchor-id="adding-tutorial_dataset_5"><span class="header-section-number">24.2</span> Adding tutorial_dataset_5</h2>
+<p>This dataset is a subset of data from Geange_2017 in AusTraits.</p>
+<p>This tutorial focuses on how to input a dataset where there are multiple columns for the same trait, with each column indicating measurements made under different context conditions.&nbsp;</p>
+<p>Before you begin creating the metadata file, take a look at the data.csv file. Note that there are two columns for each photosynthesis and conductance. For this dataset these represent repeat measurements made on the same individuals under different experimental treatments. For other studies, these may be multiple columns if the same trait was measured using separate methods.&nbsp;</p>
 <section id="ensure-the-dataset-folder-contains-the-correct-data-files" class="level3">
 <h3 class="anchored" data-anchor-id="ensure-the-dataset-folder-contains-the-correct-data-files">Ensure the dataset folder contains the correct data files</h3>
-<p>In the traits.build-template repository, there is a folder titled <code>tutorial_dataset_3</code> within the data folder.&nbsp;</p>
+<p>In the traits.build-template repository, there is a folder titled <code>tutorial_dataset_5</code> within the data folder.&nbsp;</p>
 <ul>
 <li><p>Ensure that this folder exists on your computer.&nbsp;</p></li>
-<li><p>The file <code>data.csv</code> exists within the <code>tutorial_dataset_3</code> folder.&nbsp;</p></li>
-<li><p>There is a folder <code>raw</code> nested within the <code>tutorial_dataset_3</code> folder, that contains one file, <code>notes.txt</code>.&nbsp;</p></li>
+<li><p>The file <code>data.csv</code> exists within the <code>tutorial_dataset_5</code> folder.&nbsp;</p></li>
+<li><p>There is a folder <code>raw</code> nested within the <code>tutorial_dataset_5</code> folder, that contains one file, <code>tutorial_dataset_5_notes.txt</code>.&nbsp;</p></li>
 </ul>
 </section>
 <section id="source-necessary-functions" class="level3">
@@ -477,213 +479,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(traits.build)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/custom_R_code.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<hr>
 </section>
-<section id="use-functions-to-create-a-metadata.yml-file" class="level3">
-<h3 class="anchored" data-anchor-id="use-functions-to-create-a-metadata.yml-file">Use functions to create a metadata.yml file</h3>
+<section id="create-a-metadata.yml-file" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-metadata.yml-file">Create a metadata.yml file</h3>
 <section id="create-a-metadata-template" class="level4">
 <h4 class="anchored" data-anchor-id="create-a-metadata-template"><strong>Create a metadata template</strong></h4>
 <p>To create the metadata template, run:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_create_template</span>(<span class="st">"tutorial_dataset_3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_create_template</span>(<span class="st">"tutorial_dataset_5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As with in the previous tutorials, this function leads you through a series of menus requiring user input. Ensure you select:</p>
 <p><span style="color:blue;">data format:</span> <span style="color:red;"><strong>wide</strong></span><br>
-<span style="color:blue;">taxon_name column:</span> <span style="color:red;"><strong>1: Species</strong></span><br>
-<span style="color:blue;">location_name column:</span> <span style="color:red;"><strong>5: site</strong></span><br>
+<span style="color:blue;">taxon_name column:</span> <span style="color:red;"><strong>1: species_name</strong></span><br>
+<span style="color:blue;">location_name column:</span> <span style="color:red;"><strong>1: NA</strong></span><br>
 <span style="color:blue;">individual_id column:</span> <span style="color:red;"><strong>1: NA</strong></span><br>
-<span style="color:blue;">collection_date column:</span> <span style="color:red;"><strong>1: NA</strong></span><br>
-<span style="color:blue;">Enter collection_date range in format ‘2007/2009’:</span> <span style="color:red;"><strong>2011-02/2011-03</strong></span><br>
+<span style="color:blue;">collection_date column:</span> <span style="color:red;"><strong>21: date</strong></span><br>
 <span style="color:blue;">Do all traits need <code>repeat_measurements_id</code>’s?</span> <span style="color:red;"><strong>2: No</strong></span><br>
 </p>
-<p>In this dataset, unlike the first two, the data being input is at the individual-level. Since there is only a single data row for each individual, it is not required to map in an individual_id. A column with an <code>individual_id</code> is required if you want to keep track of multiple rows of data for the same individual.</p>
+<p>Notes:<br>
+</p>
+<ul>
+<li><p>There is no location column to map in automatically, so that must be added later. You enter <code>NA</code> for now.<br>
+</p></li>
+<li><p>The column <code>Abbrev!</code> appears to be a unique identifier for each individual that can be mapped in to identify individual plants. Mapping in an <code>individual_id</code> column is essential if multiple rows include measurements for the same individual, as might happen if individuals are measured repeatedly across time. For this dataset, each row includes measurements on a separate individual, so it isn’t required to map individual_id. Moreover, if you were to look closely at the values in the column <code>Abbrev!</code> you would notice there are 3 instances of duplication. Were you to map in <code>individual_id: Abbrev!</code> you would end up with an error - as occurred initially when this dataset was added to AusTraits.<br>
+</p></li>
+</ul>
 <p><em>Navigate to the dataset’s folder and open the metadata.yml file in Visual Studio Code, to ensure information is added to the expected sections as you work through the tutorial.</em></p>
 <hr>
 </section>
 <section id="propagate-source-information-into-the-metadata.yml-file" class="level4">
 <h4 class="anchored" data-anchor-id="propagate-source-information-into-the-metadata.yml-file"><strong>Propagate source information into the metadata.yml file</strong></h4>
-<p>This dataset is from a published source and therefore the source information can be added with the function <code>metadata_add_source_doi</code>:</p>
+<p>Use the function <code>metadata_add_source_doi</code> to add the source.<br>
+</p>
+<p>The reference doi is <code>10.1186/s40665-017-0033-8</code>.<br>
+</p>
+</section>
+<section id="measurement_remarks" class="level4">
+<h4 class="anchored" data-anchor-id="measurement_remarks"><strong>Add measurement remarks</strong></h4>
+<p>There is a free-form comments column called <code>measurement_remarks</code> that can be mapped in at the dataset level (i.e.&nbsp;for all measurements) or under specific traits.&nbsp;</p>
+<p>This column is <strong>not</strong> used to generate any of the identifiers and therefore cannot be used as a location to document information that is a context property, source, location, method, etc. However, there can be minor notes that have been documented about specific observations or trait measurements that should be retained in the traits.build output and if this information if available in a column it can be mapped into measurement remarks.<br>
+</p>
+<p>For instance, in this dataset, the column <code>Mother</code> documents the maternal lineage of each individual. This could be recorded as an official context property, or, alternatively could simply be added as a measurement remark, first mutating a column:<br>
+</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_3"</span>, <span class="at">doi =</span> <span class="st">"10.1007/s11104-013-1725-x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  custom_R_code<span class="sc">:</span> <span class="st">'</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">    data %&gt;% </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">      mutate(</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">        measurement_remarks = paste0("maternal lineage ", Mother)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">      )</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>confirm:</p>
-<ol type="1">
-<li>the authors’ names are formatted as <code>first name last name</code> or <code>first initial last name</code><br>
-</li>
-<li>the article title is in sentence case<br>
-</li>
-<li>the page numbers are filled in as a range, separated by a double dash<br>
-</li>
-</ol>
-<p>You have just added 3 doi’s that all yield perfect reference information - and indeed most references are added correctly, but some journals and doi’s for many older references are in ALL CAPS or missing page numbers, so it is worth checking.</p>
-<hr>
+<p>and then adding <code>measurement_remarks: measurement_remarks</code> to the dataset section of the metadata file, below <code>life_stage</code><br>
+</p>
 </section>
 <section id="add-location-details" class="level4">
 <h4 class="anchored" data-anchor-id="add-location-details"><strong>Add location details</strong></h4>
-<p>All data for this dataset was collected at a single location, specified in the <code>data.csv</code> file as <code>The University of Melbourne Burnley campus</code>. No additional details are provided. For such studies, it is best to look up the campus location and input approximate latitude/longitude coordinates.</p>
-<p>As well as adding locations and location properties from a table, the function <code>metadata_add_locations</code> lets you add a basic location data scaffold in metadata.yml.</p>
-<p>For instance, for this study:<br>
+<p>There isn’t a location name specified in the data.csv file, so use <code>custom_R_code</code> to mutate a new column, location_name.<br>
 </p>
-<ol type="1">
-<li>you add the location names from the data.csv file<br>
-</li>
-<li>the function automatically adds blank fields for latitude, longitude, and description<br>
-</li>
-<li>values for these fields must then be filled in manually<br>
-</li>
-</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/tutorial_dataset_3.csv"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_locations</span>(<span class="st">"tutorial_dataset_3"</span>, data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  custom_R_code<span class="sc">:</span> <span class="st">'</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="st">    data %&gt;% </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">      mutate(</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">        measurement_remarks = paste0("maternal lineage ", Mother),</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">        location = "Australian National University glasshouse"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">      )</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You select the location name, but not any location properties, as none are provided in the data.csv file or another tabular format.</p>
-<p><span style="color:blue;">location_name:</span> <span style="color:red;"><strong>4: site</strong></span><br>
-<span style="color:blue;">location_property columns:</span> <span style="color:red;"><em>just press enter</em></span><br>
+<p>And then specify this column as the source of <code>location_name</code> in the dataset section of the metadata file.<br>
 </p>
-<p>This creates the following scaffold in <code>methdata.yml</code>:&nbsp;</p>
+<p>And manually add the location details to the location section of the metadata file<br>
+</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  The University of Melbourne Burnley campus<span class="sc">:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">latitude</span> (deg)<span class="sc">:</span> na_character</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">longitude</span> (deg)<span class="sc">:</span> na_character</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> na_character</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  Australian National University glasshouse<span class="sc">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">latitude</span> (deg)<span class="sc">:</span> <span class="sc">-</span><span class="fl">35.283</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">longitude</span> (deg)<span class="sc">:</span> <span class="fl">149.1167</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    precipitation, <span class="fu">MAP</span> (mm)<span class="sc">:</span> <span class="dv">622</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> Australian National University glasshouses</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ul>
-<li><code>metadata_add_locations</code> automatically selects the unique values in the location name column.&nbsp;</li>
-<li>if no columns with location properties are specified, the function just adds the three core location properties.&nbsp;</li>
-<li>the values for these location properties are available in the notes file.&nbsp;</li>
-</ul>
-<hr>
 </section>
 <section id="add-traits" class="level4">
 <h4 class="anchored" data-anchor-id="add-traits"><strong>Add traits</strong></h4>
 <p>To select columns in the <code>data.csv</code> file that include trait data, run:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_traits</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_traits</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Select columns <span style="color:red;"><strong>5 6 7 8 9 10</strong></span>, as these contain trait data.</p>
-<hr>
-</section>
-<section id="contexts" class="level4">
-<h4 class="anchored" data-anchor-id="contexts"><strong>Add contexts</strong></h4>
-<p>A context is any piece of ancillary information that helps explain why a certain trait value was measured.&nbsp;</p>
-<p>In traits.build, some contexts are mapped in as part of the default metadata structure, including the location (&amp; location properties), a general sense of organism age (<code>life_stage</code>), <code>basis_of_record</code>, and the general methods for each trait.<br>
+<p>Select columns <span style="color:red;"><strong>13 14 15 16 17 18 19</strong></span>, as these contain trait data.<br>
 </p>
-<p>However most contexts are pieces of information that are essential to record for a specific dataset, but not recorded for most other datasets. The context field therefore allows any context property to be added manually.<br>
+<p>Then fill in the details for each trait column in the traits section of the metadata file.<br>
 </p>
-<p>Context properties are divided into 5 categories:<br>
-</p>
-<ol type="1">
-<li><p><strong>method contexts</strong>: Context properties that capture <em>differences</em> in method between measurements of the same trait. For plants, canopy position and leaf age are two common method contexts.<br>
-</p></li>
-<li><p><strong>temporal contexts</strong>: Context properties that capture explicit time-related differences between groups of measurements. This is separate from <code>collection_date</code>, as an explicit meaning should accompany each temporal context property and the distinct values may span a range of collection dates. For plants <code>sampling season</code> (dry versus wet) is a commonly mapped in temporal context.<br>
-</p></li>
-<li><p><strong>entity contexts</strong>: This context property category pertains to individual-level measurements, and documents features of the individual that explicitly distinguish it from other individuals that are measured. In addition to features like the sex of an individual, it is the location to document individual-level co-variates that are not themselves traits, but are information required to interpret other trait values.<br>
-</p></li>
-<li><p><strong>treatment contexts</strong>: Any experimental treatment that has been applied to groups of individuals.<br>
-</p></li>
-<li><p><strong>plot contexts</strong>: Any variation within a documented location, where different individuals experience know differences in growing/living conditions or growing/living history. For plants, this context category is frequently used to map in slope position or fire history.<br>
-</p></li>
-</ol>
-<p>Context properties are most frequently included in the <code>data.csv</code> file as columns of values. Occasionally, separate columns of trait values might represent measurements with different context property values, a topic for a later tutorial.</p>
-<p>Context properties that are columns in the data file, can be added with the function <code>metadata_add_contexts</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_contexts</span>(<span class="st">"tutorial_dataset_3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>This leads to a user-prompt to select the relevent columns:</p>
-<p><span style="color:blue;">Indicate all columns that contain additional contextual data for tutorial_dataset_3 (by number separated by space; e.g.&nbsp;‘1 2 4’):</span><br>
-</p>
-<p><span style="color:blue;">1: Species</span><br>
-<span style="color:blue;">2: Treatment</span><br>
-<span style="color:blue;">3: Replicate</span><br>
-<span style="color:blue;">4: site</span><br>
-<span style="color:blue;">5: life_form</span><br>
-<span style="color:blue;">6: WP leaf (Mpa) predawn</span><br>
-<span style="color:blue;">7: WP leaf (Mpa) midday</span><br>
-<span style="color:blue;">8: LMA kg/m2</span><br>
-<span style="color:blue;">9: Stomatal density Upper surface</span><br>
-<span style="color:blue;">10: Stomatal density Lower surface</span><br>
-</p>
-<p>Select column 2 which is the only column with a context property:</p>
-<p><span style="color:blue;">Selection:</span> <span style="color:red;"><strong>2</strong></span><br>
-</p>
-<p>Additional user prompts ask for details about the context property category and values:</p>
-<p><span style="color:blue;">What category does context Treatment fit in? (by number separated by space; e.g.&nbsp;‘1 2 4’):</span><br>
-</p>
-<p><span style="color:blue;">1: treatment_context</span><br>
-<span style="color:blue;">2: plot_context</span><br>
-<span style="color:blue;">3: temporal_context</span><br>
-<span style="color:blue;">4: method_context</span><br>
-<span style="color:blue;">5: entity_context</span><br>
-</p>
-<p>This is a treatment context, so select 1:</p>
-<p><span style="color:blue;">Selection:</span> <span style="color:red;"><strong>1</strong></span><br>
-</p>
-<p><span style="color:blue;">The following values exist for this context: Drought, Watered.</span><br>
-</p>
-<p><span style="color:blue;">Are replacement values required? (y/n)</span> <span style="color:red;"><strong>y</strong></span><br>
-</p>
-<p>Although the trait values <code>Drought</code> and <code>Watered</code> are probably sufficiently descriptive, for other drought-treatment studies we’ve used <code>drought</code> and <code>well-watered</code>, so prefer to align the context property values with these.</p>
-<p><span style="color:blue;">Are descriptions required? (y/n)</span> <span style="color:red;"><strong>y</strong></span><br>
-</p>
-<p>The free-form description field let’s you add details about the exact meaning of <code>drought</code> vs <code>well-watered</code> for this study.</p>
-<p>In the <code>metadata.yml</code> file, there will now be a scaffold for the contexts:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>contexts<span class="sc">:</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> context_property<span class="sc">:</span> unknown</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  category<span class="sc">:</span> treatment</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  var_in<span class="sc">:</span> Treatment</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  values<span class="sc">:</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> find<span class="sc">:</span> Drought</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    value<span class="sc">:</span> unknown</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> unknown</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> find<span class="sc">:</span> Watered</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    value<span class="sc">:</span> unknown</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> unknown</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>In addition to filling in the preferred context property values and descriptions, you must also assign a name to the <code>context_property</code>. This is a free-form field, but as with <code>location_property</code> it is best to ensure you align <code>context_propery</code> names throughout the database. In the AusTraits plant trait database, this <code>context_property</code> is always called <code>drought treatment</code>.</p>
-<p>The finished context section will be:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>contexts<span class="sc">:</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> context_property<span class="sc">:</span> drought treatment</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  category<span class="sc">:</span> treatment</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  var_in<span class="sc">:</span> Treatment</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  values<span class="sc">:</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> find<span class="sc">:</span> Drought</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    value<span class="sc">:</span> drought</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> The plants were watered with <span class="dv">20</span>% of the water used by well<span class="sc">-</span>watered</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plants</span> (determined gravimetrically) <span class="cf">in</span> the <span class="dv">3-4</span> days preceding each watering</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>      event<span class="er">)</span>.</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> find<span class="sc">:</span> Watered</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    value<span class="sc">:</span> well<span class="sc">-</span>watered</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> The plants were watered to pot capacity <span class="fu">at</span> (<span class="dv">2</span> L per pot).</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<hr>
-</section>
-</section>
-<section id="manual-filling-in-of-metadata" class="level3">
-<h3 class="anchored" data-anchor-id="manual-filling-in-of-metadata">Manual filling in of metadata</h3>
-<p>The components of this dataset that can be propagated with functions are not complete, and the remaining <code>unknown</code> fields must now be filled in manually.<br>
-</p>
-<ul>
-<li><p>the <code>contributors</code> section<br>
-</p></li>
-<li><p><code>description</code>, <code>basis_of_record</code>, <code>life_stage</code>, <code>sampling_strategy</code>, <code>original_file</code>, and <code>notes</code> under the <code>dataset</code> section<br>
-</p></li>
-<li><p>details for each trait, including <code>unit_in</code>, <code>trait_name</code>, <code>entity_type</code>, <code>value_type</code>, <code>basis_of_record</code>, <code>replicates</code> and <code>methods</code><br>
-</p></li>
-</ul>
-<section id="adding-contributors" class="level4">
-<h4 class="anchored" data-anchor-id="adding-contributors"><strong>Adding contributors</strong></h4>
-<p>The file <code>data/tutorial_dataset_3/raw/tutorial_dataset_3_notes.txt</code> indicates the main data_contributor for this study.<br>
-</p>
-</section>
-<section id="dataset-fields" class="level4">
-<h4 class="anchored" data-anchor-id="dataset-fields"><strong>Dataset fields</strong></h4>
-<p>The file <code>data/tutorial_dataset_3/raw/tutorial_dataset_3_notes.txt</code> indicates how to fill in the <code>unknown</code> dataset fields for this study.</p>
-</section>
-<section id="complex_units" class="level4">
-<h4 class="anchored" data-anchor-id="complex_units"><strong>Trait details</strong></h4>
-<p>The file <code>data/tutorial_dataset_3/raw/tutorial_dataset_3_notes.txt</code> indicates how to fill in the <code>unknown</code> trait fields for this study, but see below as well.</p>
 <p>Remember, the <code>trait_name</code> must match a trait concept within the <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/traits.yml">traits dictionary</a>. For this example:</p>
 <table class="table">
 <colgroup>
@@ -708,54 +592,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>life_form</td>
-<td>life_form</td>
-<td>.na</td>
-<td>species</td>
-<td>mode</td>
-<td>expert_score</td>
-<td>.na</td>
+<td>Photo</td>
+<td>leaf_photosynthetic_rate_per_area_saturated</td>
+<td>umol{CO2}/m2/s</td>
+<td>individual</td>
+<td>raw</td>
+<td>measurement</td>
+<td>1</td>
 </tr>
 <tr class="even">
-<td>WP leaf (Mpa) predawn</td>
-<td>water_potential_predawn</td>
-<td>neg_MPa</td>
+<td>Cond</td>
+<td>leaf_stomatal_conductance_per_area_at_Asat</td>
+<td>mol{H2O}/m2/s</td>
 <td>individual</td>
 <td>raw</td>
 <td>measurement</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td>WP leaf (Mpa) midday</td>
-<td>water_potential_midday</td>
-<td>neg_MPa</td>
+<td>Photo_D</td>
+<td>leaf_photosynthetic_rate_per_area_saturated</td>
+<td>umol{CO2}/m2/s</td>
 <td>individual</td>
 <td>raw</td>
 <td>measurement</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td>LMA kg/m2</td>
+<td>Cond_D</td>
+<td>leaf_stomatal_conductance_per_area_at_Asat</td>
+<td>mol{H2O}/m2/s</td>
+<td>individual</td>
+<td>raw</td>
+<td>measurement</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>area_mm2</td>
+<td>leaf_area</td>
+<td>mm2</td>
+<td>individual</td>
+<td>raw</td>
+<td>measurement</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>SLA_cm_g:4</td>
 <td>leaf_mass_per_area</td>
-<td>kg/m2</td>
+<td>cm2/g</td>
 <td>individual</td>
 <td>raw</td>
 <td>measurement</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td>Stomatal density Upper surface</td>
-<td>leaf_stomatal_density_adaxial</td>
-<td>‘{count}/mm2’</td>
-<td>individual</td>
-<td>raw</td>
-<td>measurement</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>Stomatal density Lower surface</td>
-<td>leaf_stomatal_density_abaxial</td>
-<td>‘{count}/mm2’</td>
+<td>%N:1</td>
+<td>leaf_N_per_dry_mass</td>
+<td>‘%’</td>
 <td>individual</td>
 <td>raw</td>
 <td>measurement</td>
@@ -763,50 +656,125 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p>With the units, note:</p>
-<ul>
-<li><p>In the data.csv file, all water potential values are positive, indicating the data contributor mapped in the “negative” of the true water potential values (which are always below zero). A negative sign at the beginning of the units field is not recognised and therefore the convention is to use the prefix <code>neg_</code> to indicate the values input are the negative of the true values.</p></li>
-<li><p>stomatal density is a “count density”, a number of stomata per unit area. The actual UCUM standard for this is simply <code>1/mm2</code> , but for clarity we use <code>{count}/mm2</code> . The word <code>count</code> is in curly brackets, since it is a “note” rather than a true unit.</p></li>
-<li><p>If the unit begin with a curly bracket, the unit needs to be placed in single quotes</p></li>
-</ul>
+</section>
+<section id="add-contexts" class="level4">
+<h4 class="anchored" data-anchor-id="add-contexts"><strong>Add contexts</strong></h4>
+<section id="contexts-from-columns" class="level5">
+<h5 class="anchored" data-anchor-id="contexts-from-columns"><strong>Contexts from columns</strong></h5>
+<p>There are two columns in the <code>data.csv</code> file that specify contexts, <code>Elevation</code> (seed provenance) and <code>Treatment</code> (drought treatment).</p>
+<p>To add these contexts to the metadata file, run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_contexts</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Select columns <span style="color:red;"><strong>6 7</strong></span> as these contain context properties</p>
+<p>The category for both of these is <code>treatment_context</code>.</p>
+<p>And as the values for both are abbreviations, it is recommended to replace the values for both context properties with proper terms and descriptions.</p>
+<p>Therefore, the metadata template will now have the following section:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>contexts<span class="sc">:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> context_property<span class="sc">:</span> unknown</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  category<span class="sc">:</span> treatment</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  var_in<span class="sc">:</span> Elevation</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  values<span class="sc">:</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> find<span class="sc">:</span> LoElev</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    value<span class="sc">:</span> unknown</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> unknown</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> find<span class="sc">:</span> HiElev</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    value<span class="sc">:</span> unknown</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> unknown</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> context_property<span class="sc">:</span> unknown</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  category<span class="sc">:</span> treatment</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  var_in<span class="sc">:</span> Treatment</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  values<span class="sc">:</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> find<span class="sc">:</span> LoWat</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    value<span class="sc">:</span> unknown</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> unknown</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> find<span class="sc">:</span> HiWat</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    value<span class="sc">:</span> unknown</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> unknown</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Which will be filled in as:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> context_property<span class="sc">:</span> seed provenance</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  category<span class="sc">:</span> treatment</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  var_in<span class="sc">:</span> Elevation</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  values<span class="sc">:</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> find<span class="sc">:</span> LoElev</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    value<span class="sc">:</span> low elevation</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> Seeds sourced from low elevation populations.</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> find<span class="sc">:</span> HiElev</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    value<span class="sc">:</span> high elevation</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> Seeds sourced from hight elevation populations.</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> context_property<span class="sc">:</span> drought treatment</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  category<span class="sc">:</span> treatment</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  var_in<span class="sc">:</span> Treatment</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  values<span class="sc">:</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> find<span class="sc">:</span> LoWat</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    value<span class="sc">:</span> low water</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> Plants assigned to low water treatment.</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> find<span class="sc">:</span> HiWat</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    value<span class="sc">:</span> high water</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> Plants assigned to high water treatment.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="trait_contexts" class="level5">
+<h5 class="anchored" data-anchor-id="trait_contexts"><strong>Contexts manually added</strong></h5>
+<p>As background, at the point in the traits.build workflow where the trait metadata is read in, the trait data has been converted to <code>long</code> format, with each trait measurement is its own row. This allows columns such as methods, entity_type, and units to be added, which are inherently unique to a specific trait. It also means that context properties can now be added, with different values assigned to different traits.&nbsp;</p>
+<p>For this study, in addition to the two contexts that are documented as columns, there is a context property that is documented across columns, the time from last watering to gas exchange measurements. For photosynthesis and conductance, the columns <code>Photo</code> and <code>Cond</code> document measurements made just after a watering cycle, while the columns <code>Photo_D</code> and <code>Cond_D</code> document measurements made at the very end of a watering cycle.&nbsp;</p>
+<p>For such situations, you add a line to the traits section of the metadata for each of these traits.</p>
+<p>For instance, for the column <code>Photo</code>, you would add:&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  replicates<span class="sc">:</span> <span class="dv">1</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  time_since_watering<span class="sc">:</span> start of watering cycle</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  methods<span class="sc">:</span> Gas exchange was measured using...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This creates a new column, <code>time_since_watering</code> and for the trait column <code>Photo</code>, the value is <code>start of watering cycle</code>.&nbsp;</p>
+<p>You add an identical line to the trait column <code>Cond</code>, while for the trait columns <code>Photo_D</code> and <code>Cond_D</code> instead insert a line <code>time_since_watering: end of watering cycle</code>.&nbsp;</p>
+<p>For the other traits, no lines are added, as these the context property <code>time_since_watering</code> doesn’t apply to them.&nbsp;</p>
+<p>Since the trait metadata is read in long after the <code>custom_R_code</code> code is executed, this context property cannot be read in using a function. Instead it must be manually added as a context_property.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> context_property<span class="sc">:</span> time since watering</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  category<span class="sc">:</span> temporal</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  var_in<span class="sc">:</span> time_since_watering</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  values<span class="sc">:</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> value<span class="sc">:</span> start of watering cycle</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> Measurements made on the morning following a watering event when the plants were at their least water<span class="sc">-</span>limited.</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> value<span class="sc">:</span> end of watering cycle</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    description<span class="sc">:</span> Measurements made on the final day of a watering cycle when the plants were at the driest point <span class="cf">in</span> the cycle.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
-<section id="custom_R_code" class="level3">
-<h3 class="anchored" data-anchor-id="custom_R_code">Testing, error fixes, and report building</h3>
-<p>At this point, run the dataset tests and rebuild the dataset:</p>
+<section id="adding-contributors" class="level4">
+<h4 class="anchored" data-anchor-id="adding-contributors"><strong>Adding contributors</strong></h4>
+<p>The file <code>data/tutorial_dataset_5/raw/tutorial_dataset_5_notes.txt</code> indicates the main data_contributor for this study.&nbsp;</p>
+</section>
+<section id="dataset-fields" class="level4">
+<h4 class="anchored" data-anchor-id="dataset-fields"><strong>Dataset fields</strong></h4>
+<p>The file <code>data/tutorial_dataset_5/raw/tutorial_dataset_5_notes.txt</code> indicates how to fill in the <code>unknown</code> dataset fields for this study.</p>
+</section>
+</section>
+<section id="exclude_data" class="level3">
+<h3 class="anchored" data-anchor-id="exclude_data">Testing, error fixes, and report building</h3>
+<p>At this point, run the dataset tests, rebuild the dataset, and check for excluded data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_test</span>(<span class="st">"tutorial_dataset_3"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">build_setup_pipeline</span>()</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>traits.build_database <span class="ot">&lt;-</span> remake<span class="sc">::</span><span class="fu">make</span>(<span class="st">"austraits"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_test</span>(<span class="st">"tutorial_dataset_5"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">build_setup_pipeline</span>(<span class="at">method=</span><span class="st">"remake"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>traits.build_database <span class="ot">&lt;-</span> remake<span class="sc">::</span><span class="fu">make</span>(<span class="st">"austraits"</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(dataset_id <span class="sc">==</span> <span class="st">"tutorial_dataset_5"</span>) <span class="sc">%&gt;%</span>  <span class="fu">View</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The dataset test should yield an error that one <code>water_potential_predawn</code> value does not convert to numeric, indicating a placeholder-character is being used in place of an NA <span style="color:red;">{note: this error wasn’t triggering as this vignette was being written)</span></p>
-<p>Looking at the excluded_data table indicates there is a “*” in one column, so one adds:</p>
+<p>There should be no errors.&nbsp;</p>
+<p>There are a handful of excluded values, including both negative photosynthetic rates and negative conductance rates and two instances where <code>leaf_area = 0</code>. The <code>leaf_area = 0</code> values need to be removed using <code>custom_R_code</code>.&nbsp;</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  custom_R_code<span class="sc">:</span> <span class="st">'</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">    data %&gt;%</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="st">      mutate(      </span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="st">        across(c("WP leaf (Mpa) predawn"), ~na_if(.x,"*"))</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="st">      )</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="st">  '</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(<span class="st">"area_mm2"</span>), <span class="sc">~</span><span class="fu">na_if</span>(.x,<span class="dv">0</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>However, now you’ll get the error: <span style="color:blue;">Caused by error in na_if(): ! Can’t convert y <character> to match type of x <double>.</double></character></span></p>
-<p>This indicates a mismatch between column types, necessitating that you change the column to character:</p>
+<p>Then remake the database and again check the excluded data table.</p>
+<p>If the only excluded values remaining are the negative gas exchange rates, build a report for the study:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  custom_R_code<span class="sc">:</span> <span class="st">'</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="st">    data %&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="st">      mutate(</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="st">        across(c("WP leaf (Mpa) predawn"), ~as.character(.x)), </span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="st">        across(c("WP leaf (Mpa) predawn"), ~na_if(.x,"*"))</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="st">      )</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="st">  '</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>At this point, rerunning the tests and rebuilding the database should not generate any errors or excluded values, so you can build and review the report.</p>
-<p>As a final step, build a report for the study</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>build_info<span class="sc">$</span>version <span class="ot">&lt;-</span> <span class="st">"4.0.0"</span>  <span class="co"># a fix because the function was built around specific AusTraits versions</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_report</span>(<span class="st">"tutorial_dataset_3"</span>, traits.build_database, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>build_info<span class="sc">$</span>version <span class="ot">&lt;-</span> <span class="st">"4.0.0"</span>  <span class="co"># a fix because the function was built around specific AusTraits versions</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_report</span>(<span class="st">"tutorial_dataset_5"</span>, traits.build_database, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -1049,13 +1017,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./tutorial_dataset_2.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 2</span></span>
+      <a href="./tutorial_dataset_4.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 4</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./tutorial_dataset_4.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 4</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./tutorial_dataset_6.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 6</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

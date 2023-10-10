@@ -324,6 +324,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 4</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 6</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 7</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -338,13 +356,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
       </ul>
@@ -420,7 +438,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overview" class="level2" data-number="20.1">
 <h2 data-number="20.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">20.1</span> Overview</h2>
 <p>This is the first of five tutorials on adding datasets to your traits.build database. This introduces you to the basic functions, the user input required, and the manual manipulations required to complete the dataset’s metadata file. The next four tutorials introduce you to progressively more complex datasets, functions, and decisions.</p>
-<p>Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in <code>traits.build-template</code> . Instructions are available at [XX]{xx}</p>
+<p>Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in <code>traits.build-template</code> . Instructions are available at <a href="tutorial_compilation.html">Tutorial: Example compilation</a>.</p>
 <section id="goals" class="level3">
 <h3 class="anchored" data-anchor-id="goals">Goals</h3>
 <ul>
@@ -530,6 +548,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This dataset does not include a column for <code>collection_date</code>, so <code>1: NA</code> is the appropriate input.</p>
 <p>A follow-up question then allows you to add a fixed <code>collection_date</code> as a range. The information can be manually updated later.</p>
 <p><span style="color:blue;">Enter collection_date range in format ‘2007/2009’:</span> <span style="color:red;"><strong>2002-11/2002-11</strong></span><br>
+</p>
+<p>A final user prompt asks if, for any traits, a sequence of rows represents repeat observations.&nbsp;</p>
+<p><span style="color:blue;">Do all traits need <code>repeat_measurements_id</code>’s?</span></p>
+<p><span style="color:blue;">1: Yes</span> <span style="color:blue;">2: No</span></p>
+<p>This only occurs if the dataset documents response curve data (e.g.&nbsp;an A-ci or light response curve for plants; or a temperature response curve for animal or plant behaviour) and the answer is almost always <code>no</code>.<br>
+</p>
+<p><span style="color:red;"><strong>2</strong></span><br>
 </p>
 <p><em>Navigate to the dataset’s folder to find the metadata.yml file.</em><br>
 </p>

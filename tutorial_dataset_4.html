@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./help.html" rel="next">
+<link href="./tutorial_dataset_5.html" rel="next">
 <link href="./tutorial_dataset_3.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -324,6 +324,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 4</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 6</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial_dataset_7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 7</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -338,13 +356,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
       </ul>
@@ -420,7 +438,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overview" class="level2" data-number="23.1">
 <h2 data-number="23.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">23.1</span> Overview</h2>
 <p>This is the fourth tutorial on adding datasets to your traits.build database.</p>
-<p>Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in <code>traits.build-template</code>. Instructions are available at <a href="https://xx">XX</a></p>
+<p>Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in <code>traits.build-template</code>. Instructions are available at <a href="tutorial_compilation.html">Tutorial: Example compilation</a>.<br>
+</p>
 <section id="goals" class="level3">
 <h3 class="anchored" data-anchor-id="goals">Goals</h3>
 <ul>
@@ -485,10 +504,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>As with in the previous tutorials, this function leads you through a series of menus requiring user input. Ensure you select:</p>
 <p><span style="color:blue;">data format:</span> <span style="color:red;"><strong>wide</strong></span><br>
 <span style="color:blue;">taxon_name column:</span> <span style="color:red;"><strong>1: Species</strong></span><br>
-<span style="color:blue;">location_name column:</span> <span style="color:red;"><strong>NA</strong></span><br>
-<span style="color:blue;">individual_id column:</span> <span style="color:red;"><strong>NA</strong></span><br>
-<span style="color:blue;">collection_date column:</span> <span style="color:red;"><strong>NA</strong></span><br>
+<span style="color:blue;">location_name column:</span> <span style="color:red;"><strong>1: NA</strong></span><br>
+<span style="color:blue;">individual_id column:</span> <span style="color:red;"><strong>1: NA</strong></span><br>
+<span style="color:blue;">collection_date column:</span> <span style="color:red;"><strong>1: NA</strong></span><br>
 <span style="color:blue;">Enter collection_date range in format ‘2007/2009’:</span> <span style="color:red;"><strong>1996/2015</strong></span><br>
+<span style="color:blue;">Do all traits need <code>repeat_measurements_id</code>’s?</span> <span style="color:red;"><strong>2: No</strong></span><br>
 </p>
 <p>Notes:<br>
 </p>
@@ -729,7 +749,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Overall, this report isn’t very informative since it is the first Huber value dataset in the new database.<br>
 </p>
-<p>But let me draw your attention to the list of taxa at the bottom. Because the tutorials are, for now, ignoring taxon alignments (traits.build in a state of flux with regard to this), the tutorials have ignored this section.&nbsp;</p>
+<p>But let me draw your attention to the list of taxa at the bottom. Because the tutorials are, for now, ignoring taxon alignments (traits.build in a state of flux with regard to this), the tutorials have ignored this section.&nbsp; But let me draw your attention to the list of taxa at the bottom. Because the tutorials are, for now, ignoring taxon alignments (traits.build in a state of flux with regard to this), the tutorials have ignored this section.&nbsp;</p>
 <p>However, note the unknown taxa names <code>unk sp. 1</code> and <code>unk sp. 2</code>. Although the AusTraits database accepts names resolved to genus and family, data collected on a truly unknown taxon is useless and should be excluded. Being a terrestrial vascular plant database, we also exclude mosses and lichens that are sometimes in datasets. The curators for other databases aligned to the traits.build workflow will have their own standards for values to explicitly disallow, based on taxonomy (or some other variable).</p>
 <p>Near the bottom of the metadata file is a section for excluding data.<br>
 </p>
@@ -996,8 +1016,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./help.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Getting help</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./tutorial_dataset_5.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Tutorial: Adding dataset 5</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
