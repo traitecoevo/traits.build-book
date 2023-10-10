@@ -4,7 +4,7 @@
 
 This is the first of five tutorials on adding datasets to your traits.build database. This introduces you to the basic functions, the user input required, and the manual manipulations required to complete the dataset's metadata file. The next four tutorials introduce you to progressively more complex datasets, functions, and decisions.
 
-Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in `traits.build-template` . Instructions are available at \[XX\]{xx}
+Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in `traits.build-template` . Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).
 
 ### Goals
 
@@ -139,6 +139,17 @@ This dataset does not include a column for `collection_date`, so `1: NA` is the 
 A follow-up question then allows you to add a fixed `collection_date` as a range. The information can be manually updated later.
 
 [Enter collection_date range in format '2007/2009':]{style="color:blue;"} [**2002-11/2002-11**]{style="color:red;"}\
+
+A final user prompt asks if, for any traits, a sequence of rows represents repeat observations.\ 
+
+[Do all traits need `repeat_measurements_id`'s?]{style="color:blue;"}
+
+[1: Yes]{style="color:blue;"}
+[2: No]{style="color:blue;"}
+
+This only occurs if the dataset documents response curve data (e.g. an A-ci or light response curve for plants; or a temperature response curve for animal or plant behaviour) and the answer is almost always `no`.\
+
+[**2**]{style="color:red;"}\
 
 *Navigate to the dataset's folder to find the metadata.yml file.*\
 

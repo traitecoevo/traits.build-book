@@ -4,7 +4,7 @@
 
 This is the second of five tutorials on adding datasets to your traits.build database.
 
-Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in `traits.build-template`. Instructions are available at \[XX\]https://xx}
+Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).\
 
 ### Goals
 
@@ -64,9 +64,10 @@ As with `tutorial_dataset_1` this function leads you through a series of menus r
 [data format:]{style="color:blue;"} [**wide**]{style="color:red;"}\
 [taxon_name column:]{style="color:blue;"} [**name_original**]{style="color:red;"}\
 [location_name column:]{style="color:blue;"} [**site_TEXT**]{style="color:red;"}\
-[individual_id column:]{style="color:blue;"} [**NA**]{style="color:red;"}\
-[collection_date column:]{style="color:blue;"} [**NA**]{style="color:red;"}\
+[individual_id column:]{style="color:blue;"} [**1: NA**]{style="color:red;"}\
+[collection_date column:]{style="color:blue;"} [**1: NA**]{style="color:red;"}\
 [Enter collection_date range in format '2007/2009':]{style="color:blue;"} [1996/1997]{style="color:red;"} 
+[Do all traits need `repeat_measurements_id`'s?]{style="color:blue;"} [**2: No**]{style="color:red;"}\
 
 *Navigate to the dataset's folder and open the metadata.yml file in Visual Studio Code, to ensure information is added to the expected sections as you work through the tutorial.*
 

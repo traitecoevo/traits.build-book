@@ -5,7 +5,7 @@
 
 This is the fourth tutorial on adding datasets to your traits.build database.
 
-Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in `traits.build-template`. Instructions are available at [XX](https://xx)
+Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).\
 
 ### Goals
 
@@ -76,10 +76,11 @@ As with in the previous tutorials, this function leads you through a series of m
 
 [data format:]{style="color:blue;"} [**wide**]{style="color:red;"}\
 [taxon_name column:]{style="color:blue;"} [**1: Species**]{style="color:red;"}\
-[location_name column:]{style="color:blue;"} [**NA**]{style="color:red;"}\
-[individual_id column:]{style="color:blue;"} [**NA**]{style="color:red;"}\
-[collection_date column:]{style="color:blue;"} [**NA**]{style="color:red;"}\
+[location_name column:]{style="color:blue;"} [**1: NA**]{style="color:red;"}\
+[individual_id column:]{style="color:blue;"} [**1: NA**]{style="color:red;"}\
+[collection_date column:]{style="color:blue;"} [**1: NA**]{style="color:red;"}\
 [Enter collection_date range in format '2007/2009':]{style="color:blue;"} [**1996/2015**]{style="color:red;"}\
+[Do all traits need `repeat_measurements_id`'s?]{style="color:blue;"} [**2: No**]{style="color:red;"}\
 
 Notes:\
 
@@ -163,7 +164,7 @@ Although you could edit the data.csv file directly (and sometimes we do), you co
 '
 ```
 
-In this case you're using `custom_R_code` to generate many unique location names as a column in the data table as it is first read into the R workflow.\ 
+In this case you're using `custom_R_code` to generate many unique location names as a column in the data table as it is first read into the R workflow. 
 
 *Note: While, for this example you are generating many unique location names, there are many datasets where all data have been collected at a single location, and therefore the submitted dataset doesn't include a `location_name` column. For all of those you simply add code like `mutate(location_name = "Broken Hill")` into `custom_R_code`.*\ 
 
@@ -355,6 +356,7 @@ dataset_report("tutorial_dataset_4", traits.build_database, overwrite = TRUE)
 Overall, this report isn't very informative since it is the first Huber value dataset in the new database.\
 
 But let me draw your attention to the list of taxa at the bottom. Because the tutorials are, for now, ignoring taxon alignments (traits.build in a state of flux with regard to this), the tutorials have ignored this section.\ 
+But let me draw your attention to the list of taxa at the bottom. Because the tutorials are, for now, ignoring taxon alignments (traits.build in a state of flux with regard to this), the tutorials have ignored this section. 
 
 However, note the unknown taxa names `unk sp. 1` and `unk sp. 2`. Although the AusTraits database accepts names resolved to genus and family, data collected on a truly unknown taxon is useless and should be excluded. Being a terrestrial vascular plant database, we also exclude mosses and lichens that are sometimes in datasets. The curators for other databases aligned to the traits.build workflow will have their own standards for values to explicitly disallow, based on taxonomy (or some other variable).
 

@@ -1,0 +1,170 @@
+# Tutorial: Adding dataset 6
+
+## Overview
+
+This is the sixth tutorial on adding datasets to your traits.build database.
+
+Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).\
+
+It is also recommended that you first work through some of the earlier tutorials, as many steps for adding datasets to a traits.build database are only thoroughly described in the early tutorials.
+
+### Goals
+
+-   Learn how to add [repeat measurement id's](#repeat_measurements_ids) 
+
+-   Learn how to add [individual_id's](#individual_id) 
+
+### New Functions Introduced
+
+-   none.
+
+------------------------------------------------------------------------
+
+## Adding tutorial_dataset_6
+
+This dataset is data submitted as part of Cernusak_2011 in AusTraits. AusTraits itself does not include the raw A-ci curve data that is being added for this tutorial.
+
+This tutorial focuses on how to input a dataset where a single trait measurement consists of a series of time-ordered measurements and the repeat measurements must clearly be identified as being part of the same the same observation. 
+
+Before you begin creating the metadata file, take a look at the data.csv file. If you are familiar with the output of an IRGA (instrument to measure gas exchange) you will note that many columns of essential metadata have been removed - for simplicity of this tutorial 
+
+### Ensure the dataset folder contains the correct data files
+
+In the traits.build-template repository, there is a folder titled `tutorial_dataset_6` within the data folder. 
+
+-   Ensure that this folder exists on your computer. 
+
+-   The file `data.csv` exists within the `tutorial_dataset_6` folder. 
+
+-   There is a folder `raw` nested within the `tutorial_dataset_6` folder, that contains two files, `locations.csv` and `tutorial_dataset_6_notes.txt`. 
+
+### source necessary functions
+
+-   If you have restarted R Studio since last adding a dataset, ensure all functions are loaded from both the traits.build package and the custom functions file:
+
+```{r, eval=FALSE}
+library(traits.build)
+source("R/custom_R_code.R")
+```
+
+------------------------------------------------------------------------
+
+### Create a metadata.yml file
+
+#### **Create a metadata template**
+
+To create the metadata template, run:
+
+```{r, eval=FALSE}
+metadata_create_template("tutorial_dataset_6")
+```
+
+As with in the previous tutorials, this function leads you through a series of menus requiring user input. Ensure you select:
+
+[data format:]{style="color:blue;"} [**wide**]{style="color:red;"}\
+[taxon_name column:]{style="color:blue;"} [**2: Species**]{style="color:red;"}\
+[location_name column:]{style="color:blue;"} [**2: Site**]{style="color:red;"}\
+[individual_id column:]{style="color:blue;"} [**1: NA**]{style="color:red;"}\
+[collection_date column:]{style="color:blue;"} [**6: Date**]{style="color:red;"}\
+[Do all traits need repeat_measurements_id's?]{style="color:blue;"} [**1: Yes**]{style="color:red;"}\
+
+Notes:\
+
+-   There currently isn't an `individual_id` column, but this is required for `repeat_measurements_id`'s to properly generate. An `individual_id` column will need to be added via `custom_R_code`.\
+
+-   This is the first tutorial that includes `repeat_measurement_id`'s. `repeat_measurement_id`'s are sequential integer identifiers assigned to a sequence of measurements on a single trait that together represent a single observation (and are assigned a single `observation_id` by the traits.build pipeline. The assumption is that these are measurements that document points on a response curve. Although the exact `time` of each measurement will of course be different for point on the curve, `time` is not a temporal context and must be identical for all measurements within a single curve.
+
+For this dataset - and probably for most datasets that document response curve data - all traits being added will be repeat measurements. However, if some columns of trait data are not part of the response curve data, one can alternatively map `repeat_measurments_id: TRUE` for individual traits in the traits section of `metadata.yml`.
+
+A word of warning for datasets where the output data includes a `time stamp`. Ensure that there is a separate `collection_date` column that is a `date` not a `time`, as all measurements that comprise a single response curve must have the same `collection_date`. Otherwise, the traits.build pipeline will assign them each separate `observation_id`'s.
+
+*Navigate to the dataset's folder and open the metadata.yml file in Visual Studio Code, to ensure information is added to the expected sections as you work through the tutorial.*
+
+#### **Propagate source information into the metadata.yml file**
+
+Use the function `metadata_add_source_doi` to add the source.\
+
+The reference doi is `10.1016/j.agrformet.2011.01.006`.\
+
+#### **Add individual_id** {#individual_id}
+
+In order for `repeat_measurements_id`'s to properly generate, it is essential to identify which sequence of rows represent a single individual. For this dataset, the columns `Site`, `Species`, and `Leaf number` jointly identify individuals and therefore a new column must be mutated in `custom_R_code`, then specified as the source of `individual_id` in the `dataset` section of `metadata.yml`: 
+
+```{r, eval=FALSE}
+  custom_R_code: '
+    data %>% 
+      mutate(
+        individual_id = paste(Site, Species, `Leaf number`, sep = "_")
+      )
+  '
+```
+
+and then add `individual_id: individual_id` to the dataset section of the metadata file, below `location_name`.\
+
+#### **Add location details**
+
+There is a file in the `raw` folder with location details: 
+
+```{r, eval=FALSE}
+locations <- read_csv("data/tutorial_dataset_6/raw/locations.csv")
+
+metadata_add_locations("tutorial_dataset_6", locations)
+```
+
+At the user prompts: 
+
+location name: [**1**]{style="color:red;"}\
+columns with location properties: [**1 2 3 4 5 6**]{style="color:red;"}\
+
+#### **Add traits**
+
+To select columns in the `data.csv` file that include trait data, run:
+
+```{r, eval=FALSE}
+metadata_add_traits(dataset_id = "tutorial_dataset_6")
+```
+
+Select columns [**13 14 15**]{style="color:red;"}, as these contain trait data.\
+
+Then fill in the details for each trait column in the traits section of the metadata file.\
+
+Remember, the `trait_name` must match a trait concept within the [traits dictionary](https://github.com/traitecoevo/traits.build-template/blob/master/config/traits.yml). For this example:
+
+| column in dataset                | trait concept                                | units_in       | entity_type | value_type | basis_of_value | replicates |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| Photosynthesis (umol m-2 s-1)    | leaf_photosynthetic_rate_per_area_saturated  | umol{CO2}/m2/s | individual  | raw        | measurement    | 1          |
+| Conductance to H2O (mol m-2 s-1) | leaf_stomatal_conductance_per_area_at_Asat   | mol{H2O}/m2/s  | individual  | raw        | measurement    | 1          |
+| Ci (umol mol-1)                  | leaf_intercellular_CO2_concentration_at_Asat | umol{CO2}/mol  | individual  | raw        | measurement    | 1          |
+
+#### **Add contexts**
+
+There are no required contexts for this dataset. One could add the column `Canopy of understory` as a `method_context`, but as there is only a single value reported ("canopy") this isn't essential.
+
+#### **Adding contributors**
+
+The file `data/tutorial_dataset_6/raw/tutorial_dataset_6_notes.txt` indicates the main data_contributor for this study.\
+
+#### **Dataset fields**
+
+The file `data/tutorial_dataset_6/raw/tutorial_dataset_6_notes.txt` indicates how to fill in the `unknown` dataset fields for this study.
+
+### Testing, error fixes, and report building {#exclude_data}
+
+At this point, run the dataset tests, rebuild the dataset, and check for excluded data:
+
+```{r, eval=FALSE}
+dataset_test("tutorial_dataset_6")
+
+build_setup_pipeline(method="remake")
+
+traits.build_database <- remake::make("austraits")
+
+traits.build_database$excluded_data %>% filter(dataset_id == "tutorial_dataset_6") %>%  View()
+```
+
+There should be no errors. However there are many excluded data values - entirely negative photosynthetic rates. The definition of `leaf_photosynthetic_rate_per_area_saturated` requires photosynthetic rates to be positive, so these are valid excluded values and simply remain in the excluded data table. So go ahead and build a report for the study:
+
+```{r, eval=FALSE}
+traits.build_database$build_info$version <- "4.0.0"  # a fix because the function was built around specific AusTraits versions
+dataset_report("tutorial_dataset_6", traits.build_database, overwrite = TRUE)
+```
