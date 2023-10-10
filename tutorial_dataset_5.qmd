@@ -259,7 +259,7 @@ Since the trait metadata is read in long after the `custom_R_code` code is execu
 
 #### **Adding contributors**
 
-The file `data/tutorial_dataset_5/raw/tutorial_dataset_5_notes.txt` indicates the main data_contributor for this study.\
+The file `data/tutorial_dataset_5/raw/tutorial_dataset_5_notes.txt` indicates the main data_contributor for this study.\ 
 
 #### **Dataset fields**
 
@@ -279,7 +279,17 @@ traits.build_database <- remake::make("austraits")
 traits.build_database$excluded_data %>% filter(dataset_id == "tutorial_dataset_5") %>%  View()
 ```
 
-There should be no errors and no excluded data, so go ahead and build a report for the study:
+There should be no errors.\ 
+
+There are a handful of excluded values, including both negative photosynthetic rates and negative conductance rates and two instances where `leaf_area = 0`.  The `leaf_area = 0` values need to be removed using `custom_R_code`.\ 
+
+```{r, eval=FALSE}
+mutate(across(c("area_mm2"), ~na_if(.x,0)))
+```
+
+Then remake the database and again check the excluded data table.
+
+If the only excluded values remaining are the negative gas exchange rates, build a report for the study:
 
 ```{r, eval=FALSE}
 traits.build_database$build_info$version <- "4.0.0"  # a fix because the function was built around specific AusTraits versions
