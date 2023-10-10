@@ -11,7 +11,7 @@
     "href": "index.html#brief-overview",
     "title": "The {traits.build} data standard, R package, and workflow",
     "section": "1.1 Brief overview",
-    "text": "1.1 Brief overview\nImagine you wanted to build a database of plant traits. You might start by searching for existing datasets, but you’d quickly find that there are many different ways to names and ways to measure the same trait. You might also find that some datasets measure the same trait in different units, or use an outdated name for a species or taxon.\ntraits.build is a data standard, R package, and workflow that is desgined to help you build a harmonised, relational database from disparate datasets. The package was first developed to create austraits.build, an, open-source database of Australian plant traits. The code has been transformed into a standalone package allowing anyone to build a relational, tabular database for any taxonomic group and any collection of traits."
+    "text": "1.1 Brief overview\nImagine you wanted to build a database of traits. You might start by compiling data from existing datasets, but you’d quickly find that there are many different ways to name and measure the same trait, that different studies use different units, or use an outdated name for a species or taxon.\ntraits.build is a data standard, R package, and workflow that is desgined to help you build a harmonised, relational database from disparate datasets. The package was first developed to create austraits.build an, open-source database of Australian plant traits. The code has been transformed into a standalone package allowing anyone to build a relational, tabular database for any taxonomic group and any collection of traits."
   },
   {
     "objectID": "index.html#about-this-manual",
@@ -67,7 +67,7 @@
     "href": "workflow.html#core-principles",
     "title": "3  Workflow",
     "section": "3.1 Core principles",
-    "text": "3.1 Core principles\nThe project’s guiding principles are to:\n\nWherever possible solve problems in a general way, that enables others to leverage our efforts to solve their own problems.\nEnable users to create open-source, harmonised, reproducible databases from disparate datasets.\nProvide a fully transparent workflow, where all decisions on how to handle the data are exposed and can be.\nOffer a relational database structure that fully documents the contextual data essential to interpreting ecological data.\nOffer a straightforward, robust template for building a trait dictionary.\nOffer a database structure that is flexible enough to accommodate the complexities inherent to ecological data.\nOffer a database structure that is underlain by a documented ontology, ensuring each database field is interpretable and interoperable with other databases and data structures.\nHave no dependencies on proprietary software or costs to setup and maintain (beyoind person time)."
+    "text": "3.1 Core principles\nThe project’s guiding principles are to:\n\nWherever possible solve problems in a general way, that enables others to leverage our efforts to solve their own problems.\nEnable users to create open-source, harmonised, reproducible databases from disparate datasets.\nProvide a fully transparent workflow, where all decisions on how to handle the data are exposed and can be.\nOffer a relational database structure that fully documents the contextual data essential to interpreting ecological data.\nOffer a straightforward, robust template for building a trait dictionary.\nOffer a database structure that is flexible enough to accommodate the complexities inherent to ecological data.\nOffer a database structure that is underlain by a documented ontology, ensuring each database field is interpretable and interoperable with other databases and data structures.\nHave no dependencies on proprietary software or costs to setup and maintain (beyond person time)."
   },
   {
     "objectID": "workflow.html#approach",
@@ -571,7 +571,7 @@
     "href": "help.html#before-you-post",
     "title": "27  Getting help",
     "section": "27.1 Before you post",
-    "text": "27.1 Before you post\n\nCode of conduct\nWhile this project is not part of ropensci, we will adopt their code of conduct. Please read it before engaging in discussion.\n\n\nSearch existing issues\nPlease check if your question already has an answer. You can search the [GitHub Repositories:\n\ntraits.build-book\ntraits.build\naustraits.build\n\n\n\nTry troubleshooting\nFor specific errors or other issues, please read this chapter’s section on troubleshooting. Please try to work through the steps yourself before posting a question."
+    "text": "27.1 Before you post\n\nCode of conduct\nPlease note that the traits.build project adheres to a Contributor Code of Conduct, as specified in austraits.build. By contributing to this project you agree to abide by its terms.\n\n\nSearch existing issues\nPlease check if your question already has an answer. You can search the [GitHub Repositories:\n\ntraits.build-book\ntraits.build\naustraits.build\n\n\n\nTry troubleshooting\nFor specific errors or other issues, please read this chapter’s section on troubleshooting. Please try to work through the steps yourself before posting a question."
   },
   {
     "objectID": "help.html#troubleshooting",
