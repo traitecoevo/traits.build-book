@@ -1,0 +1,163 @@
+# Tutorial: Adding dataset 7
+
+## Overview
+
+This is the seventh tutorial on adding datasets to your traits.build database.
+
+Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).\
+
+It is also recommended that you first work through some of the earlier tutorials, as many steps for adding datasets to a traits.build database are only thoroughly described in the early tutorials.
+
+### Goals
+
+-   Learn how to add [a long dataset](#long_dataset) 
+
+-   Learn how to add [units from a column](#units_column) 
+
+### New Functions Introduced
+
+-   none.
+
+------------------------------------------------------------------------
+
+## Adding tutorial_dataset_7
+
+This dataset is a subset of data from ABRS_1981 in AusTraits. These are data from the original Flora of Australia volumes (Australian Biological Resources Study) and are therefore all species-level trait values.
+
+This tutorial focuses on how to input a dataset in long format, where there is a single column with all trait values and a column specifying the trait documented in each row of the data file. 
+
+### Ensure the dataset folder contains the correct data files
+
+In the traits.build-template repository, there is a folder titled `tutorial_dataset_7` within the data folder. 
+
+-   Ensure that this folder exists on your computer. 
+
+-   The file `data.csv` exists within the `tutorial_dataset_7` folder. 
+
+-   There is a folder `raw` nested within the `tutorial_dataset_7` folder, that contains two files, `locations.csv` and `tutorial_dataset_7_notes.txt`. 
+
+### source necessary functions
+
+-   If you have restarted R Studio since last adding a dataset, ensure all functions are loaded from both the traits.build package and the custom functions file:
+
+```{r, eval=FALSE}
+library(traits.build)
+source("R/custom_R_code.R")
+```
+
+------------------------------------------------------------------------
+
+### Create a metadata.yml file
+
+#### **Create a metadata template** {#long_dataset}
+
+To create the metadata template, run:
+
+```{r, eval=FALSE}
+metadata_create_template("tutorial_dataset_7")
+```
+
+As with previous datasets, the first question asks whether this is a `long` or `wide` dataset. You now select `long`:
+
+As with in the previous tutorials, this function leads you through a series of menus requiring user input. Ensure you select:
+
+[data format:]{style="color:blue;"} [**long**]{style="color:red;"}\
+
+The remaining prompts are now slightly different, since you have to identify columns for `trait_name` and `value`:
+
+[Select column for taxon_name]{style="color:blue;"} [**1: species_name**]{style="color:red;"}\
+[Select column for trait_name]{style="color:blue;"} [**2: trait**]{style="color:red;"}\
+[Select column for value]{style="color:blue;"} [**4: value**]{style="color:red;"}\
+[location_name column:]{style="color:blue;"} [**1: NA**]{style="color:red;"}\
+[individual_id column:]{style="color:blue;"} [**1: NA**]{style="color:red;"}\
+[collection_date column:]{style="color:blue;"} [**1: NA**]{style="color:red;"}\
+[Enter collection_date range in format '2007/2009':]{style="color:blue;"} [**unknown/1981**]{style="color:red;"}\
+[Do all traits need repeat_measurements_id's?]{style="color:blue;"} [**2: No**]{style="color:red;"}\
+
+Notes: 
+
+-   All long-format datasets require an identifier to group rows of data referring to the same entity. If neither a `location_name` nor an `individual_id` is provided (as is the case for all flora-derived datasets), the `taxon_name` becomes the identifier that is used to unite measurements into a single observation.
+
+*Navigate to the dataset's folder and open the metadata.yml file in Visual Studio Code, to ensure information is added to the expected sections as you work through the tutorial.*
+
+#### **Propagate source information into the metadata.yml file**
+
+Since this dataset is not from a published study with a doi, the source information needs to be manually added:\
+
+```{r, eval=FALSE}
+  bibtype: Online
+  year: 1981
+  author: '{Australian Biological Resources Study}'
+  title: Flora of Australia, Australian Biological Resources Study, Canberra.
+  publisher: Department of Climate Change, Energy, the Environment and Water, Canberra.
+  url: http://www.ausflora.org.au
+```
+
+There are other `bibtype`'s you will encounter as well, including `Unpublished`, `Book`, `Misc`, `Thesis`, `InBook` (for chapters), `Report` and `TechReport`. For each there are different required and optional fields (per BibTex's rules). See the [complete guide to adding datasets](adding_data.html) for examples of each.
+
+#### **Add traits** {#units_column}
+
+To select columns in the `data.csv` file that include trait data, run:
+
+```{r, eval=FALSE}
+metadata_add_traits(dataset_id = "tutorial_dataset_7")
+```
+
+For long datasets, this function outputs a list of unique values within the trait names column:
+
+[Indicate all columns you wish to keep as distinct traits in tutorial_dataset_7 (by number separated by space; e.g. '1 2 4'):]{style="color:blue;"} [1: leaf length maximum]{style="color:blue;"} [2: leaf type]{style="color:blue;"} [3: seed length maximum]{style="color:blue;"} [4: seed length minimum]{style="color:blue;"}
+
+Select columns [**1 2 3 4**]{style="color:red;"}, you want to include all four traits.\
+
+Then fill in the details for each trait column in the traits section of the metadata file.\
+
+| trait   | trait concept    | units_in | entity_type | value_type | basis_of_value | replicates |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| leaf length maximum | leaf_length      | units    | species     | maximum    | measurement    | .na        |
+| leaf type           | leaf_compoundness | .na      | species     | mode       | expert_score   | .na        |
+| seed length maximum | seed_length      | units    | species     | maximum    | measurement    | .na        |
+| seed length minimum | seed_length      | units    | species     | minimum    | measurement    | .na        |
+
+
+Notes: 
+
+-   You may have noticed in the data.csv file that there is also a column `units`. For many long datasets there is a fixed unit for each trait, just as is standardly the case for wide datasets. In such cases fixed units values are mapped into the traits section of the metadata file, just as occurs with most wide datasets. In this dataset there is a column documenting the units, as different tax have leaf length and seed length reported in different units. The column for units can be mapped in at the trait level, as indicated here, or, for a long dataset, it could be mapped in a single time in the dataset section of the metadata, `units_in: units` and then you'd delete the line referring to `units_in` from each of the traits.
+
+- There are two different trait names that refer to seed length, `seed length maximum` and `seed length minimum`. It is not a problem that these both map to the trait concept `seed_length` as they are different value types.\ 
+
+- Because these are species-level trait values, even the numeric traits do not have a replicate count. The range of values should represent all individuals of the species.\ 
+
+#### **Adding contributors**
+
+The file `data/tutorial_dataset_7/raw/tutorial_dataset_7_notes.txt` indicates the main data_contributor for this study.\
+
+#### **Dataset fields**
+
+The file `data/tutorial_dataset_7/raw/tutorial_dataset_7_notes.txt` indicates how to fill in the `unknown` dataset fields for this study.\ 
+
+### Testing, error fixes, and report building {#exclude_data}
+
+At this point, run the dataset tests, rebuild the dataset, and check for excluded data:
+
+```{r, eval=FALSE}
+dataset_test("tutorial_dataset_7")
+
+build_setup_pipeline(method="remake")
+
+traits.build_database <- remake::make("austraits")
+
+traits.build_database$excluded_data %>% filter(dataset_id == "tutorial_dataset_7") %>%  View()
+```
+
+The excluded data includes four rows of data with the error `Unsupported trait value` for the trait `leaf_compoundness`. The term `article` does not describe a leaf's compoundness. As articles are always `simple` leaves you can add a substitution:\ 
+
+```{r, eval=FALSE}
+metadata_add_substitution(dataset_id = "tutorial_dataset_7", trait_name = "leaf_compoundness", find = "articles", replace = "simple")
+```
+
+Then remake the database and again check excluded data to ensure the substitution has worked as intended.\ 
+
+```{r, eval=FALSE}
+traits.build_database$build_info$version <- "4.0.0"  # a fix because the function was built around specific AusTraits versions
+dataset_report("tutorial_dataset_7", traits.build_database, overwrite = TRUE)
+```

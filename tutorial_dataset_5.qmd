@@ -272,7 +272,7 @@ At this point, run the dataset tests, rebuild the dataset, and check for exclude
 ```{r, eval=FALSE}
 dataset_test("tutorial_dataset_5")
 
-build_setup_pipeline()
+build_setup_pipeline(method="remake")
 
 traits.build_database <- remake::make("austraits")
 
