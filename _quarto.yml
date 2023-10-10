@@ -3,7 +3,7 @@ project:
 
 book:
   title: "The {traits.build} data standard, R package, and workflow"
-  author: ["Elizabeth Wenk", "Daniel Falster", "Sophie Yang"]
+  author: ["Elizabeth Wenk", "Daniel Falster", "Sophie Yang", "Fonti Kar"]
   page-footer: "How to get help: <https://traitecoevo.github.io/traits.build-book/help.html><br>Copyright 2023, Daniel Falster and Elizabeth Wenk" 
   page-navigation: true
   chapters:
@@ -19,7 +19,7 @@ book:
         - database_standard.qmd
         - database_structure.qmd
         - dictionary.qmd
-    - part: Using `traits.build`
+    - part: Creating with `traits.build`
       chapters:
         - traits_build.qmd
         - tutorial_compilation.qmd
@@ -28,9 +28,6 @@ book:
         - adding_data_brief.qmd
         - custom_R_code.qmd
         - publishing.qmd
-    - part: Using outputs
-      chapters:
-        - using_data.qmd
     - part: "Guide to adding data"
       chapters:
         - adding_data_long.qmd
@@ -43,6 +40,10 @@ book:
         - tutorial_dataset_5.qmd
         - tutorial_dataset_6.qmd
         - tutorial_dataset_7.qmd
+    - part: Using outputs of `traits.build`
+      chapters:
+        - using_data.qmd
+        - austraits_package.qmd
     - part: Getting help
       chapters:
         - help.qmd
