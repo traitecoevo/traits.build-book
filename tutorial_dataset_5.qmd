@@ -1,0 +1,287 @@
+# Tutorial: Adding dataset 5
+
+## Overview
+
+This is the fifth tutorial on adding datasets to your traits.build database.
+
+Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).\
+
+It is also recommended that you first work through some of the earlier tutorials, as many steps for adding datasets to a traits.build database are only thoroughly described in the early tutorials.
+
+### Goals
+
+-   Learn how to map [context properties into the metadata traits section](#trait_contexts) 
+
+-   Learn how to add [measurement remarks](#measurement_remarks) 
+
+### New Functions Introduced
+
+-   none.
+
+------------------------------------------------------------------------
+
+## Adding tutorial_dataset_5
+
+This dataset is a subset of data from Geange_2017 in AusTraits.
+
+This tutorial focuses on how to input a dataset where there are multiple columns for the same trait, with each column indicating measurements made under different context conditions. 
+
+Before you begin creating the metadata file, take a look at the data.csv file. Note that there are two columns for each photosynthesis and conductance. For this dataset these represent repeat measurements made on the same individuals under different experimental treatments. For other studies, these may be multiple columns if the same trait was measured using separate methods. 
+
+### Ensure the dataset folder contains the correct data files
+
+In the traits.build-template repository, there is a folder titled `tutorial_dataset_5` within the data folder. 
+
+-   Ensure that this folder exists on your computer. 
+
+-   The file `data.csv` exists within the `tutorial_dataset_5` folder. 
+
+-   There is a folder `raw` nested within the `tutorial_dataset_5` folder, that contains one file, `tutorial_dataset_5_notes.txt`. 
+
+### source necessary functions
+
+-   If you have restarted R Studio since last adding a dataset, ensure all functions are loaded from both the traits.build package and the custom functions file:
+
+```{r, eval=FALSE}
+library(traits.build)
+source("R/custom_R_code.R")
+```
+
+------------------------------------------------------------------------
+
+### Create a metadata.yml file
+
+#### **Create a metadata template**
+
+To create the metadata template, run:
+
+```{r, eval=FALSE}
+metadata_create_template("tutorial_dataset_5")
+```
+
+As with in the previous tutorials, this function leads you through a series of menus requiring user input. Ensure you select:
+
+[data format:]{style="color:blue;"} [**wide**]{style="color:red;"}\
+[taxon_name column:]{style="color:blue;"} [**1: species_name**]{style="color:red;"}\
+[location_name column:]{style="color:blue;"} [**1: NA**]{style="color:red;"}\
+[individual_id column:]{style="color:blue;"} [**1: NA**]{style="color:red;"}\
+[collection_date column:]{style="color:blue;"} [**21: date**]{style="color:red;"}\
+[Do all traits need `repeat_measurements_id`'s?]{style="color:blue;"} [**2: No**]{style="color:red;"}\
+
+Notes:\
+
+-   There is no location column to map in automatically, so that must be added later. You enter `NA` for now.\
+
+-   The column `Abbrev!` appears to be a unique identifier for each individual that can be mapped in to identify individual plants. Mapping in an `individual_id` column is essential if multiple rows include measurements for the same individual, as might happen if individuals are measured repeatedly across time. For this dataset, each row includes measurements on a separate individual, so it isn't required to map individual_id. Moreover, if you were to look closely at the values in the column `Abbrev!` you would notice there are 3 instances of duplication. Were you to map in `individual_id: Abbrev!` you would end up with an error - as occurred initially when this dataset was added to AusTraits.\
+
+*Navigate to the dataset's folder and open the metadata.yml file in Visual Studio Code, to ensure information is added to the expected sections as you work through the tutorial.*
+
+------------------------------------------------------------------------
+
+#### **Propagate source information into the metadata.yml file**
+
+Use the function `metadata_add_source_doi` to add the source.\
+
+The reference doi is `10.1186/s40665-017-0033-8`.\
+
+#### **Add measurement remarks** {#measurement_remarks}
+
+There is a free-form comments column called `measurement_remarks` that can be mapped in at the dataset level (i.e. for all measurements) or under specific traits. 
+
+This column is **not** used to generate any of the identifiers and therefore cannot be used as a location to document information that is a context property, source, location, method, etc. However, there can be minor notes that have been documented about specific observations or trait measurements that should be retained in the traits.build output and if this information if available in a column it can be mapped into measurement remarks.\
+
+For instance, in this dataset, the column `Mother` documents the maternal lineage of each individual. This could be recorded as an official context property, or, alternatively could simply be added as a measurement remark, first mutating a column:\
+
+```{r, eval=FALSE}
+  custom_R_code: '
+    data %>% 
+      mutate(
+        measurement_remarks = paste0("maternal lineage ", Mother)
+      )
+'
+```
+
+and then adding `measurement_remarks: measurement_remarks` to the dataset section of the metadata file, below `life_stage`\
+
+#### **Add location details**
+
+There isn't a location name specified in the data.csv file, so use `custom_R_code` to mutate a new column, location_name.\
+
+```{r, eval=FALSE}
+  custom_R_code: '
+    data %>% 
+      mutate(
+        measurement_remarks = paste0("maternal lineage ", Mother),
+        location = "Australian National University glasshouse"
+      )
+'
+```
+
+And then specify this column as the source of `location_name` in the dataset section of the metadata file.\
+
+And manually add the location details to the location section of the metadata file\
+
+```{r, eval=FALSE}
+  Australian National University glasshouse:
+    latitude (deg): -35.283
+    longitude (deg): 149.1167
+    precipitation, MAP (mm): 622
+    description: Australian National University glasshouses
+```
+
+#### **Add traits**
+
+To select columns in the `data.csv` file that include trait data, run:
+
+```{r, eval=FALSE}
+metadata_add_traits(dataset_id = "tutorial_dataset_5")
+```
+
+Select columns [**13 14 15 16 17 18 19**]{style="color:red;"}, as these contain trait data.\
+
+Then fill in the details for each trait column in the traits section of the metadata file.\
+
+Remember, the `trait_name` must match a trait concept within the [traits dictionary](https://github.com/traitecoevo/traits.build-template/blob/master/config/traits.yml). For this example:
+
+| column in dataset | trait concept                               | units_in       | entity_type | value_type | basis_of_value | replicates |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| Photo             | leaf_photosynthetic_rate_per_area_saturated | umol{CO2}/m2/s | individual  | raw        | measurement    | 1          |
+| Cond              | leaf_stomatal_conductance_per_area_at_Asat  | mol{H2O}/m2/s  | individual  | raw        | measurement    | 1          |
+| Photo_D           | leaf_photosynthetic_rate_per_area_saturated | umol{CO2}/m2/s | individual  | raw        | measurement    | 1          |
+| Cond_D            | leaf_stomatal_conductance_per_area_at_Asat  | mol{H2O}/m2/s  | individual  | raw        | measurement    | 1          |
+| area_mm2          | leaf_area                                   | mm2            | individual  | raw        | measurement    | 1          |
+| SLA_cm_g:4        | leaf_mass_per_area                          | cm2/g          | individual  | raw        | measurement    | 1          |
+| %N:1              | leaf_N_per_dry_mass                         | '%'            | individual  | raw        | measurement    | 1          |
+
+#### **Add contexts**
+
+##### **Contexts from columns**
+
+There are two columns in the `data.csv` file that specify contexts, `Elevation` (seed provenance) and `Treatment` (drought treatment).
+
+To add these contexts to the metadata file, run:
+
+```{r, eval=FALSE}
+metadata_add_contexts(dataset_id = "tutorial_dataset_5")
+```
+
+Select columns [**6 7**]{style="color:red;"} as these contain context properties
+
+The category for both of these is `treatment_context`.
+
+And as the values for both are abbreviations, it is recommended to replace the values for both context properties with proper terms and descriptions.
+
+Therefore, the metadata template will now have the following section:
+
+```{r, eval=FALSE}
+contexts:
+- context_property: unknown
+  category: treatment
+  var_in: Elevation
+  values:
+  - find: LoElev
+    value: unknown
+    description: unknown
+  - find: HiElev
+    value: unknown
+    description: unknown
+- context_property: unknown
+  category: treatment
+  var_in: Treatment
+  values:
+  - find: LoWat
+    value: unknown
+    description: unknown
+  - find: HiWat
+    value: unknown
+    description: unknown
+```
+
+Which will be filled in as:
+
+```{r, eval=FALSE}
+- context_property: seed provenance
+  category: treatment
+  var_in: Elevation
+  values:
+  - find: LoElev
+    value: low elevation
+    description: Seeds sourced from low elevation populations.
+  - find: HiElev
+    value: high elevation
+    description: Seeds sourced from hight elevation populations.
+- context_property: drought treatment
+  category: treatment
+  var_in: Treatment
+  values:
+  - find: LoWat
+    value: low water
+    description: Plants assigned to low water treatment.
+  - find: HiWat
+    value: high water
+    description: Plants assigned to high water treatment.
+```
+
+##### **Contexts manually added** {#trait_contexts}
+
+As background, at the point in the traits.build workflow where the trait metadata is read in, the trait data has been converted to `long` format, with each trait measurement is its own row. This allows columns such as methods, entity_type, and units to be added, which are inherently unique to a specific trait. It also means that context properties can now be added, with different values assigned to different traits. 
+
+For this study, in addition to the two contexts that are documented as columns, there is a context property that is documented across columns, the time from last watering to gas exchange measurements. For photosynthesis and conductance, the columns `Photo` and `Cond` document measurements made just after a watering cycle, while the columns `Photo_D` and `Cond_D` document measurements made at the very end of a watering cycle. 
+
+For such situations, you add a line to the traits section of the metadata for each of these traits.
+
+For instance, for the column `Photo`, you would add: 
+
+```{r, eval=FALSE}
+  replicates: 1
+  time_since_watering: start of watering cycle
+  methods: Gas exchange was measured using...
+```
+
+This creates a new column, `time_since_watering` and for the trait column `Photo`, the value is `start of watering cycle`. 
+
+You add an identical line to the trait column `Cond`, while for the trait columns `Photo_D` and `Cond_D` instead insert a line `time_since_watering: end of watering cycle`. 
+
+For the other traits, no lines are added, as these the context property `time_since_watering` doesn't apply to them. 
+
+Since the trait metadata is read in long after the `custom_R_code` code is executed, this context property cannot be read in using a function. Instead it must be manually added as a context_property.
+
+```{r, eval=FALSE}
+- context_property: time since watering
+  category: temporal
+  var_in: time_since_watering
+  values:
+  - value: start of watering cycle
+    description: Measurements made on the morning following a watering event when the plants were at their least water-limited.
+  - value: end of watering cycle
+    description: Measurements made on the final day of a watering cycle when the plants were at the driest point in the cycle.
+```
+
+#### **Adding contributors**
+
+The file `data/tutorial_dataset_5/raw/tutorial_dataset_5_notes.txt` indicates the main data_contributor for this study.\
+
+#### **Dataset fields**
+
+The file `data/tutorial_dataset_5/raw/tutorial_dataset_5_notes.txt` indicates how to fill in the `unknown` dataset fields for this study.
+
+### Testing, error fixes, and report building {#exclude_data}
+
+At this point, run the dataset tests, rebuild the dataset, and check for excluded data:
+
+```{r, eval=FALSE}
+dataset_test("tutorial_dataset_5")
+
+build_setup_pipeline()
+
+traits.build_database <- remake::make("austraits")
+
+traits.build_database$excluded_data %>% filter(dataset_id == "tutorial_dataset_5") %>%  View()
+```
+
+There should be no errors and no excluded data, so go ahead and build a report for the study:
+
+```{r, eval=FALSE}
+traits.build_database$build_info$version <- "4.0.0"  # a fix because the function was built around specific AusTraits versions
+dataset_report("tutorial_dataset_5", traits.build_database, overwrite = TRUE)
+```
