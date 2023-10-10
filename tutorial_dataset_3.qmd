@@ -56,9 +56,10 @@ As with in the previous tutorials, this function leads you through a series of m
 [data format:]{style="color:blue;"} [**wide**]{style="color:red;"}\
 [taxon_name column:]{style="color:blue;"} [**1: Species**]{style="color:red;"}\
 [location_name column:]{style="color:blue;"} [**5: site**]{style="color:red;"}\
-[individual_id column:]{style="color:blue;"} [**NA**]{style="color:red;"}\
-[collection_date column:]{style="color:blue;"} [**NA**]{style="color:red;"}\
+[individual_id column:]{style="color:blue;"} [**1: NA**]{style="color:red;"}\
+[collection_date column:]{style="color:blue;"} [**1: NA**]{style="color:red;"}\
 [Enter collection_date range in format '2007/2009':]{style="color:blue;"} [**2011-02/2011-03**]{style="color:red;"}\
+[Do all traits need `repeat_measurements_id`'s?]{style="color:blue;"} [**2: No**]{style="color:red;"}\
 
 In this dataset, unlike the first two, the data being input is at the individual-level. Since there is only a single data row for each individual, it is not required to map in an individual_id. A column with an `individual_id` is required if you want to keep track of multiple rows of data for the same individual.
 
@@ -243,18 +244,6 @@ contexts:
 
 ------------------------------------------------------------------------
 
-#### **Add traits**
-
-To select columns in the `data.csv` file that include trait data, run:
-
-```{r, eval=FALSE}
-metadata_add_traits(dataset_id = "tutorial_dataset_3")
-```
-
-Select columns [**5 6 7 8 9 10**]{style="color:red;"}, as these contain trait data.
-
-------------------------------------------------------------------------
-
 ### Manual filling in of metadata
 
 The components of this dataset that can be propagated with functions are not complete, and the remaining `unknown` fields must now be filled in manually.\
@@ -310,7 +299,8 @@ traits.build_database <- remake::make("austraits")
 
 The dataset test should yield an error that one `water_potential_predawn` value does not convert to numeric, indicating a placeholder-character is being used in place of an NA [{note: this error wasn't triggering as this vignette was being written)]{style="color:red;"}
 
-Looking at the excluded_data table indicates there is a "*" in one column, so one adds:
+Looking at the excluded_data table indicates there is a "\*" in one column, so one adds:
+
 ```{r, eval=FALSE}
   custom_R_code: '
     data %>%
@@ -320,8 +310,7 @@ Looking at the excluded_data table indicates there is a "*" in one column, so on
   '
 ```
 
-However, now you'll get the error:
-[Caused by error in na_if(): ! Can't convert y <character> to match type of x <double>.]{style="color:blue;"}
+However, now you'll get the error: [Caused by error in na_if(): ! Can't convert y <character> to match type of x <double>.]{style="color:blue;"}
 
 This indicates a mismatch between column types, necessitating that you change the column to character:
 
