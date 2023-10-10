@@ -30,7 +30,7 @@ The project's guiding principles are to:
 5.  Offer a straightforward, robust template for building a trait dictionary.
 6.  Offer a database structure that is flexible enough to accommodate the complexities inherent to ecological data.
 7.  Offer a database structure that is underlain by a documented ontology, ensuring each database field is interpretable and interoperable with other databases and data structures.
-8. Have no dependencies on proprietary software or costs to setup and maintain (beyoind person time).
+8. Have no dependencies on proprietary software or costs to setup and maintain (beyond person time).
 
 ## Approach
 

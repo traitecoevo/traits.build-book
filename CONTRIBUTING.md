@@ -4,8 +4,7 @@ Development is a community effort, and we welcome participation.
 
 ## Code of Conduct
 
-While this project is not part of ropensci, we will adopt their [code of conduct](https://ropensci.org/code-of-conduct/). Please read it before engaging in discussion.
-
+Please note that the `traits.build` project adheres to a [Contributor Code of Conduct, as specified in austraits.build](https://github.com/traitecoevo/austraits.build/blob/develop/.github/CODE_OF_CONDUCT.md). By contributing to this project you agree to abide by its terms.
 ## Discussions
 
 At <https://github.com/traitecoevo/traits.build-book/discussions>, you can post general questions, brainstorm ideas, and ask for help.

@@ -2,9 +2,9 @@
 
 ## Brief overview
 
-Imagine you wanted to build a database of plant traits. You might start by searching for existing datasets, but you'd quickly find that there are many different ways to names and ways to measure the same trait. You might also find that some datasets measure the same trait in different units, or use an outdated name for a species or taxon.
+Imagine you wanted to build a database of traits. You might start by compiling data from existing datasets, but you'd quickly find that there are many different ways to name and measure the same trait, that different studies use different units, or use an outdated name for a species or taxon.
 
-`traits.build` is a data standard, R package, and workflow that is desgined to help you build a harmonised, relational database from disparate datasets. The package was first developed to create  [`austraits.build`](https://github.com/traitecoevo/austraits.build/), an, open-source database of Australian plant traits. The code has been transformed into a standalone package allowing anyone to build a relational, tabular database for any taxonomic group and any collection of traits.
+`traits.build` is a data standard, R package, and workflow that is desgined to help you build a harmonised, relational database from disparate datasets. The package was first developed to create  [`austraits.build`](https://github.com/traitecoevo/austraits.build/) an, open-source database of Australian plant traits. The code has been transformed into a standalone package allowing anyone to build a relational, tabular database for any taxonomic group and any collection of traits.
 
 ## About this manual
 

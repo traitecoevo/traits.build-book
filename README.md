@@ -10,11 +10,11 @@ This repository is the [`traits.build`](https://github.com/traitecoevo/traits.bu
 * advice about best practices,
 * tutorials.
 
-The manual is implemented as a typical [`bookdown`](https://github.com/rstudio/bookdown) project with a single `_quarto.yml` file at the top level and one R Markdown source file for each chapter. End users are encouraged to read the rendered output at <https://traitecoevo.github.io/traits.build-book/>.
+The manual is implemented as a typical [`quarto book`](https://quarto.org/docs/books/) project with a single `_quarto.yml` file at the top level and one Quarto source file for each chapter. End users are encouraged to read the rendered output at <https://traitecoevo.github.io/traits.build-book/>.
 
 ## Code of conduct
 
-While this project is not part of ropensci, we will adopt their [code of conduct](https://ropensci.org/code-of-conduct/). Please read it before engaging in discussion.
+Please note that the `traits.build` project adheres to a [Contributor Code of Conduct, as specified in austraits.build](https://github.com/traitecoevo/austraits.build/blob/develop/.github/CODE_OF_CONDUCT.md). By contributing to this project you agree to abide by its terms.
 
 ## Acknowledgements
 
