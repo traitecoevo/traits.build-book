@@ -1,6 +1,5 @@
 # Data standard
 
-
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -16,5 +15,63 @@ library(traits.build)
 my_kable_styling <- util_kable_styling_html
 ```
 
-XXX Describe the emerhign traits.build data standard
+### Overview
 
+A single universally accepted trait database standard does not currently exist among plant ecologists, limiting our ability to merge together distinct databases.\ 
+
+A broadly accepted standard must achieve two goals:\ 
+
+1.  Be able to fully document the metadata and, in particular, the contextual information, essential to interpreting ecological data.\ 
+
+2.  Be fully described in an ontology (or through figures) that clearly capture the meaning of each database field (column) and the relationships between database fields.\ 
+
+The AusTraits Project aims to offer a trait database standard that achieves both these goals.
+
+Our database standard has not been invented from scratch. We have built upon ideas and standards described in previous publications and ontologies. In particular:
+
+- OBOE, the Extensible Observation Ontology (Madin, Joshua, et al.  (2007) "An ontology for describing and synthesizing ecological observation data." Ecological informatics) doi: [10.1016/j.ecoinf.2007.05.004](https://doi.org/10.1016/j.ecoinf.2007.05.004)\ 
+
+- ETS, the Ecological Trait-data Standard (Schneider, Florian D., et al. (2019) "Towards an ecological trait‐data standard." Methods in Ecology and Evolution.) doi: [10.1111/2041-210X.13288](https://doi.org/10.1111/2041-210X.13288)\ 
+
+- DarwinCore [dwc.tdwg.org](https://dwc.tdwg.org/)\ 
+
+### Database that fully documents ecological metadata
+
+To date, [AusTraits](https://github.com/traitecoevo/austraits.build), Australia's Plant Trait Database, has incorporated more than 370 unique datasets, spanning the breadth of plant trait data collected across Australia. It has been more than 6 months (and ~50 datasets) since we have identified a class of metadata or contextual information that could not be mapped into the traits.build structure.
+
+The database structure can capture:\
+
+- **location information**, including coordinates and location properties\ 
+
+- the **entity** associated with each trait measurement (e.g. species, population, individual)\ 
+
+- clusters of distinct trait measurements that are part of a single **observation** of the entity at a point in time\ 
+
+- **temporal contexts**, reflecting repeat measurements of an entity across time (documented through collection date or a specific context property like sampling season)\ 
+
+- **treatment contexts**, indicating distinct treatments applied to different entities\ 
+
+- **entity contexts**, documenting defining features of individual entities (e.g. sex or age of an individual)\ 
+
+- **method contexts**, documenting slight variations in sampling protocols or methods across or within observations (e.g. leaves sampled in understory versus canopy)\ 
+
+- **response curve measurements** are grouped into a single observation and assigned sequential identifiers\ 
+
+The database standard will continue to evolve as traits.build is used to build a greater diversity of trait databases, but, already offers a flexible, detailed structure for capturing and harmonising ecological data.\ 
+
+### Database standard described by an ontology
+
+A database standard is only useful if:\
+
+- Each database field has a clear and consistent meaning\ 
+
+- The relationships between database fields are explicit and meaningful\ 
+
+- This information can readily be interpreted by both trait database custodians and database users\ 
+
+
+Building both a formal ontology and visualisations of the ontology has been essential toward reaching these goals. To quote a seminal paper, "Ontological analysis clarifies the structure of knowledge" [(Chandrasekaran et al., 1999)](http://dx.doi.org/10.1109/5254.747902).\ 
+
+Indeed, the construction of `knowledge graphs` and ontological analysis has undercovered locations where a lack of semantic clarity in database structure reduced the interpretation of the output data. This iterative process leads to the continual refinement of the database structure and mapped links across database fields.\ 
+
+Our ontology remains a work-in-progress, but an outdated version is available at [traits.build ontology](https://github.com/traitecoevo/austraits.build/blob/develop/config/traits.build_v000.owl).\ 
