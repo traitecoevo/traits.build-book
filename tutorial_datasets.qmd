@@ -2,13 +2,16 @@
 
 This tutorial gives detailed exmaples of adding datasets to a traits.build database. 
 
-Prior to completing this tutorial, you should have completed the example of [runnign the template example](tutorial_compilationhtml).
+Prior to completing this tutorial, you should have completed the example of [running the template example](tutorial_compilation.html).
 
 The tutorial is divided into the following sections:
 
-- [dataset 1](tutorial_dataset_1.hml): XXX
-- [dataset 2](tutorial_dataset_3.hml): XXX
-- [dataset 3](tutorial_dataset_3.hml): XXX
-- [dataset 4](tutorial_dataset_4.hml): XXX
+- [dataset 1](tutorial_dataset_1.html): Learning how to add a simple dataset.
+- [dataset 2](tutorial_dataset_2.html): Learning additional functions for dataset input.
+- [dataset 3](tutorial_dataset_3.html): Learning about adding contexts and more complex custom_R_code functions.
+- [dataset 4](tutorial_dataset_4.html): Learning additional complexities for adding datasets.
+- [dataset 5](tutorial_dataset_5.html): Learning how to add datasets with multiple columns for a trait.
+- [dataset 6](tutorial_dataset_6.html): Learning how to add datasets with repeat measurements (response curves).
+- [dataset 7](XX): Learning how to add a dataset in long format.
 
 See also the guide to [common issues when adding data](data_common_issues.html).

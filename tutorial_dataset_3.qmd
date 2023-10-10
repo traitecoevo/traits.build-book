@@ -4,7 +4,7 @@
 
 This is the third of five tutorials on adding datasets to your traits.build database.
 
-Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in `traits.build-template`. Instructions are available at \[XX\]https://xx}
+Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).\
 
 ### Goals
 

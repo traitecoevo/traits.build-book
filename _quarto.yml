@@ -40,6 +40,8 @@ book:
         - tutorial_dataset_2.qmd
         - tutorial_dataset_3.qmd
         - tutorial_dataset_4.qmd
+        - tutorial_dataset_5.qmd
+        - tutorial_dataset_6.qmd
     - part: Getting help
       chapters:
         - help.qmd
