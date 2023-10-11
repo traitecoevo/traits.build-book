@@ -1,4 +1,11 @@
 # Creating a dictionary
 
-XXX
-a
+A core component of the traits.build database structure is a trait dictionary that clearly defines and describes each trait concept included within the trait database.
+
+Building upon the standard outlined by the ETS [Ecological Trait-data Standard](https://doi.org/10.1111/2041-210X.13288), all numeric traits must have standard units and an allowable range. Categorical traits must have a list of allowable trait values.
+
+Each trait concept must have a complete, explicit definition to eliminate confusion between trait concepts.
+
+The trait dictionary is compiled in a simple yml format, allowing trait definitions to be easily added and edited.
+
+For AusTraits, the trait dictionary has been formalised into a standalone output, the AusTraits Plant Dictionary (APD), available in both machine-readable and humman-friendly outputs through the [w3id.org/APD](https://w3id.org/APD) namespace. The traits included in the APD have undergone a rigorous internal and external review process to ensure the trait concepts and their definitions are complete and robust.
