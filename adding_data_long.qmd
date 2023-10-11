@@ -721,7 +721,7 @@ If there are additional context properties that were designated in the traits se
 
 ### Using substitutions
 
-It is very unlikely that a contributor will use categorical trait values that are entirely identical to those in the `traits.yml` file. You need to add substitutions for those that do not exactly align to match the wording and syntax supported by AusTraits. Combinations of multiple trait values are allowed - simply list them, space delimited (e.g. `shrub tree` for a species whose growth form includes both)
+It is very unlikely that a contributor will use categorical trait values that are entirely identical to those in the `traits.yml` file. You need to add substitutions for those that do not exactly align to match the wording and syntax supported by AusTraits. Combinations of multiple trait values are allowed - simply list them, space delimited (e.g. `shrub tree` for a species whose growth form includes both). Note that combinations of multiple trait values are reorganised into alphabetic order in order to collapse into fewer combinations (e.g. "fire_killed resprouts" and "resprouts fire_killed" are alphabetised and hence collapsed into one combination, "fire_killed resprouts").
 
 Single substitutions can be added by running:
 ```{r, eval=FALSE, echo=TRUE}
