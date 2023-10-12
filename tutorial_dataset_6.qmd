@@ -1,4 +1,4 @@
-# Tutorial: Adding dataset 6
+# Tutorial 6: Data with repeat measurements
 
 ## Overview
 

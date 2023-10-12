@@ -1,4 +1,4 @@
-# Tutorial: Adding dataset 7
+# Tutorial 7: Adding long format dataset
 
 ## Overview
 
