@@ -23,7 +23,7 @@ schema <- get_schema()
 ```
 
 
-This chapter describbes the structure of the output of a traits.build compilation.
+This chapter describbes the structure of the output of a `traits.build` compilation.
 
 Note that the information provided below is based on the information provided within the file `traits.build_schema.yml`, which can be accessed by running `get_schema` or `system.file("support", "traits.build_schema.yml", package = "traits.build")`. 
 

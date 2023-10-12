@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is the first of five tutorials on adding datasets to your traits.build database. This introduces you to the basic functions, the user input required, and the manual manipulations required to complete the dataset's metadata file. The next four tutorials introduce you to progressively more complex datasets, functions, and decisions.
+This is the first of five tutorials on adding datasets to your `traits.build` database. This introduces you to the basic functions, the user input required, and the manual manipulations required to complete the dataset's metadata file. The next four tutorials introduce you to progressively more complex datasets, functions, and decisions.
 
 Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in `traits.build-template` . Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).
 
@@ -10,7 +10,7 @@ Before you begin this tutorial, ensure you have installed traits.build, cloned t
 
 -   Learn how to [build a metadata.yml file](#build_metadata) for a dataset.
 
--   Learn how to [merge a new dataset](#build_pipline) into a traits.build database.
+-   Learn how to [merge a new dataset](#build_pipline) into a `traits.build` database.
 
 ### New Functions Introduced
 
@@ -42,7 +42,7 @@ In the traits.build-template repository, there is a folder titled `tutorial_data
 
 ### source necessary functions
 
--   Source the functions in the traits.build package:
+-   Source the functions in the `traits.build` package:
 
 ```{r, eval=FALSE}
 library(traits.build)

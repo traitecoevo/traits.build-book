@@ -570,5 +570,5 @@ custom_R_code: `
 `
 ```
 
-This file can be added to within specific traits.build projects, as required for different dataset styles.
+This file can be added to within specific `traits.build` projects, as required for different dataset styles.
 

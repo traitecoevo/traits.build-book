@@ -34,11 +34,11 @@ The project's guiding principles are to:
 
 ## Approach
 
-traits.build can be viewed through two lenses, its output structure and its underlying conceptual framework.
+`traits.build` can be viewed through two lenses, its output structure and its underlying conceptual framework.
 
 ### Output structure
 
-traits.build is a relational database. There is a core traits table, supported by ancillary tables that document location properties (include latitude & longitude), context properties, dataset and measurement methods, taxon concepts, contributor details, and sources. All tables are stored in long format, such that there is a single column that includes all trait names (or location properties, or context properties) and column for trait values.
+`traits.build` is a relational database. There is a core traits table, supported by ancillary tables that document location properties (include latitude & longitude), context properties, dataset and measurement methods, taxon concepts, contributor details, and sources. All tables are stored in long format, such that there is a single column that includes all trait names (or location properties, or context properties) and column for trait values.
 
 A series of identifiers, including both textual fields (i.e. taxon_name, trait_name, dataset_id) and numeric identifiers link the ancillary tables to the traits table. The many numeric identifiers are overwhelming until you consider the conceptual framework, or mindmap, that underpins traits.build. They include: observation_id, population_id, individual_id, temporal_id, location_id, entity_context_id, plot_id, and source_id.
 
@@ -48,9 +48,9 @@ Storing the resource as a relational table greatly reduces file sizes and facili
 
 traits.build's database structure effectively captures the complexities inherent to ecological data. Each dataset is unique, with measurements recorded on different entities (individuals, populations, species), in specific locations, and under countless environmental and experimental conditions, the so-called context of a measurement. The context offers essential meaning to each trait value. An ecological database must effectively capture all relevant contexts or the accompanying trait measurements lose much of their value.
 
-traits.build is designed around the concept of an **observation**, a collection of measurements of different traits made at a specific point in time on a specific **entity**. OBOE, the Extensible Observation Ontology, first developed this conceptual framework, explicitly for complex ecological datasets. An **observation_id** links the measurements made on different traits that comprise a single observation. Measurements made at different points in time, on different entities, at different locations, or under different contextual conditions require unique **observation_id** values. The additional identifiers in the traits table (and the ancillary tables) were developed to ensure that unique observation_ids were generated for distinct observations, per this framework.
+`traits.build` is designed around the concept of an **observation**, a collection of measurements of different traits made at a specific point in time on a specific **entity**. OBOE, the Extensible Observation Ontology, first developed this conceptual framework, explicitly for complex ecological datasets. An **observation_id** links the measurements made on different traits that comprise a single observation. Measurements made at different points in time, on different entities, at different locations, or under different contextual conditions require unique **observation_id** values. The additional identifiers in the traits table (and the ancillary tables) were developed to ensure that unique observation_ids were generated for distinct observations, per this framework.
 
-Within a dataset, observation_id's are generated for unique combinations of the fields: **taxon_name**, **population_id**, **individual_id**, **temporal_id**, **entity_type**, and **source_id**. For instance, if measurements are made on the same individual during the wet versus dry season, the two observations will share an **individual_id** but have distinct **temporal_id** values, and therefore have distinct **observation_id**'s. See [traits.build schema](https://github.com/traitecoevo/traits.build/blob/develop/inst/support/traits.build_schema.yml) for definitions of identifiers
+Within a dataset, observation_id's are generated for unique combinations of the fields: **taxon_name**, **population_id**, **individual_id**, **temporal_id**, **entity_type**, and **source_id**. For instance, if measurements are made on the same individual during the wet versus dry season, the two observations will share an **individual_id** but have distinct **temporal_id** values, and therefore have distinct **observation_id**'s. See [`traits.build` schema](https://github.com/traitecoevo/traits.build/blob/develop/inst/support/traits.build_schema.yml) for definitions of identifiers
 
 ## Concepts
 

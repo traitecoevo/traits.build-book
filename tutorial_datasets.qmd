@@ -1,6 +1,6 @@
 # Tutorial: Adding datasets
 
-This tutorial gives detailed exmaples of adding datasets to a traits.build database. 
+This tutorial gives detailed exmaples of adding datasets to a `traits.build` database. 
 
 Prior to completing this tutorial, you should have completed the example of [running the template example](tutorial_compilation.html).
 

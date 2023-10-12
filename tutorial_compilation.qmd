@@ -1,6 +1,6 @@
 # Tutorial: Example compilation
 
-This tutorial walks you through an example of creating a traits.build database from scratch using the traits.build template. We then look at examples of how to add datasets to the database using the traits.build workflow.
+This tutorial walks you through an example of creating a `traits.build` database from scratch using the `traits.build` template. We then look at examples of how to add datasets to the database using the `traits.build` workflow.
 
 ## Clone traits.build-template
 
@@ -21,9 +21,9 @@ traits.build-template is a GitHub repository that contains:
 
     -   Build a skeletal database before adding your own datasets.
 3.  Datasets with explicit tutorials for filling in the dataset metadata files.
-    -   The tutorials for these datasets introduce you to the traits.build functions.
+    -   The tutorials for these datasets introduce you to the `traits.build` functions.
 
-    -   By working through the dataset tutorials, you are progressively introduced to how the complexities of ecological datasets can be documented within the traits.build structure
+    -   By working through the dataset tutorials, you are progressively introduced to how the complexities of ecological datasets can be documented within the `traits.build` structure
 
     -   The datasets offer explicit examples of the types of complexities summarised in the [Adding Data](https://github…) vignette.
 
@@ -39,5 +39,5 @@ traits.build_database <- remake::make("austraits")
 
 As described in the chapter on [data structure](database_structure.html) the database is comprised of a series of relational tables and additional lists with metadata.
 
-Once you've explored and feel familiar with the basic structure of a traits.build database, continue onto the tutorials to learn how to add datasets using the traits.build workflow.
+Once you've explored and feel familiar with the basic structure of a `traits.build` database, continue onto the tutorials to learn how to add datasets using the traits.build workflow.
 
