@@ -2,11 +2,11 @@
 
 ## Overview
 
-This is the seventh tutorial on adding datasets to your traits.build database.
+This is the seventh tutorial on adding datasets to your `traits.build` database.
 
 Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).\
 
-It is also recommended that you first work through some of the earlier tutorials, as many steps for adding datasets to a traits.build database are only thoroughly described in the early tutorials.
+It is also recommended that you first work through some of the earlier tutorials, as many steps for adding datasets to a `traits.build` database are only thoroughly described in the early tutorials.
 
 ### Goals
 
@@ -38,7 +38,7 @@ In the traits.build-template repository, there is a folder titled `tutorial_data
 
 ### source necessary functions
 
--   If you have restarted R Studio since last adding a dataset, ensure all functions are loaded from both the traits.build package and the custom functions file:
+-   If you have restarted R Studio since last adding a dataset, ensure all functions are loaded from both the `traits.build` package and the custom functions file:
 
 ```{r, eval=FALSE}
 library(traits.build)

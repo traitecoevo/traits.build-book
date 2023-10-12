@@ -3,7 +3,7 @@
 
 ## Overview
 
-This is the fourth tutorial on adding datasets to your traits.build database.
+This is the fourth tutorial on adding datasets to your `traits.build` database.
 
 Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).\
 
@@ -49,7 +49,7 @@ In the traits.build-template repository, there is a folder titled `tutorial_data
 
 ### source necessary functions
 
--   If you have restarted R Studio since last adding a dataset, ensure all functions are loaded from both the traits.build package and the custom functions file:
+-   If you have restarted R Studio since last adding a dataset, ensure all functions are loaded from both the `traits.build` package and the custom functions file:
 
 ```{r, eval=FALSE}
 library(traits.build)
@@ -129,7 +129,7 @@ To add additional references, you need to add an argument to the `metadata_add_s
 metadata_add_source_doi(dataset_id = "tutorial_dataset_4", doi = "10.1071/bt9960249", type = "secondary")
 ```
 
-If you now look at the metadata file you'll see that a second reference has been added. However, you need to manually change the `key` field to be the `author_year` of this reference, `Barrett_1996`. In addition, you need to change the field `secondary_01` to `original_01`. Per the traits.build schema, a secondary reference is when there have been two related publications out of a single dataset, while the term `original` is used if the data were collected as part of a previous dataset (generally by different authors) and added to traits.build as part of a compilation.\
+If you now look at the metadata file you'll see that a second reference has been added. However, you need to manually change the `key` field to be the `author_year` of this reference, `Barrett_1996`. In addition, you need to change the field `secondary_01` to `original_01`. Per the `traits.build` schema, a secondary reference is when there have been two related publications out of a single dataset, while the term `original` is used if the data were collected as part of a previous dataset (generally by different authors) and added to `traits.build` as part of a compilation.\
 
 When you add `Benyon_1999` (doi - "10.1016/s0378-3774(98)00080-8"), you'll need to change the field `secondary_01` to `original_02`, etc.
 
@@ -237,7 +237,7 @@ This trait has several "non-standard" values:\
 
 -   **unit_in**: The units for the input column are leaf area/sapwood area, a dimensionless "area ratio". Meanwhile, Huber value is reported as sapwood area/leaf area, the inverse dimensionless "area ratio".\ 
 
-  The UCUM standard to which traits.build conforms specifies that "dimensionless" is only accepted for the very few traits that are truly dimensionless, not traits where units top and bottom simply cancel out. You need to specify that it is a ratio of area/area (or mass/mass, count/count, etc.)\ 
+  The UCUM standard to which `traits.build` conforms specifies that "dimensionless" is only accepted for the very few traits that are truly dimensionless, not traits where units top and bottom simply cancel out. You need to specify that it is a ratio of area/area (or mass/mass, count/count, etc.)\ 
 
   Looking in the trait dictionary, you'll see that the units are specified as: `mm2{sapwood}/mm2{leaf}`, specifically to be explicit about which area is the denominator vs numerator. You therefore specify that the `units_in` are `mm2{leaf}/mm2{sapwood}`.\ 
   
@@ -355,10 +355,10 @@ dataset_report("tutorial_dataset_4", traits.build_database, overwrite = TRUE)
 
 Overall, this report isn't very informative since it is the first Huber value dataset in the new database.\
 
-But let me draw your attention to the list of taxa at the bottom. Because the tutorials are, for now, ignoring taxon alignments (traits.build in a state of flux with regard to this), the tutorials have ignored this section.\ 
-But let me draw your attention to the list of taxa at the bottom. Because the tutorials are, for now, ignoring taxon alignments (traits.build in a state of flux with regard to this), the tutorials have ignored this section. 
+But let me draw your attention to the list of taxa at the bottom. Because the tutorials are, for now, ignoring taxon alignments (`traits.build` in a state of flux with regard to this), the tutorials have ignored this section.\ 
+But let me draw your attention to the list of taxa at the bottom. Because the tutorials are, for now, ignoring taxon alignments (`traits.build` in a state of flux with regard to this), the tutorials have ignored this section. 
 
-However, note the unknown taxa names `unk sp. 1` and `unk sp. 2`. Although the AusTraits database accepts names resolved to genus and family, data collected on a truly unknown taxon is useless and should be excluded. Being a terrestrial vascular plant database, we also exclude mosses and lichens that are sometimes in datasets. The curators for other databases aligned to the traits.build workflow will have their own standards for values to explicitly disallow, based on taxonomy (or some other variable).
+However, note the unknown taxa names `unk sp. 1` and `unk sp. 2`. Although the AusTraits database accepts names resolved to genus and family, data collected on a truly unknown taxon is useless and should be excluded. Being a terrestrial vascular plant database, we also exclude mosses and lichens that are sometimes in datasets. The curators for other databases aligned to the `traits.build` workflow will have their own standards for values to explicitly disallow, based on taxonomy (or some other variable).
 
 Near the bottom of the metadata file is a section for excluding data.\
 

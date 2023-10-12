@@ -1,6 +1,6 @@
 # Publishing
 
-traits.build is an R package that was first developed to build AusTraits, a harmonised, open-source database of Australian plant traits. The code has been transformed into a standalone package allowing anyone to build a relational, tabular database for any taxonomic group and any collection of traits.
+`traits.build` is an R package that was first developed to build AusTraits, a harmonised, open-source database of Australian plant traits. The code has been transformed into a standalone package allowing anyone to build a relational, tabular database for any taxonomic group and any collection of traits.
 
 The project's guiding principles are to:
 

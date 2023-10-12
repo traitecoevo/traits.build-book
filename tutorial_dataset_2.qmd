@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is the second of five tutorials on adding datasets to your traits.build database.
+This is the second of five tutorials on adding datasets to your `traits.build` database.
 
 Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).\
 
@@ -42,7 +42,7 @@ In the traits.build-template repository, there is a folder titled `tutorial_data
 
 ### source necessary functions
 
--   You'll need to both source the traits.build functions and some ancillary functions that are in a file in the scripts folder:
+-   You'll need to both source the `traits.build` functions and some ancillary functions that are in a file in the scripts folder:
 
 ```{r, eval=FALSE}
 library(traits.build)
@@ -100,7 +100,7 @@ locations <-
   read_csv("data/tutorial_dataset_2/raw/location_data.csv")
 ```
 
-traits.build requires three fields to use a specific syntax:
+`traits.build` requires three fields to use a specific syntax:
 
 -   `latitude` must be in decimal degrees and the field name (column header) must be `latitude (deg)`
 
@@ -108,7 +108,7 @@ traits.build requires three fields to use a specific syntax:
 
 -   A general site description is document in the field `description`
 
-traits.build does not require that the labels for other location properties align across datasets, but it is best practice to use a controlled vocabulary, so database users can easily search across all datasets for information on a specific climate variable or soil nutrient content. For new databases or new location properties, any naming/labeling convention can be established.
+`traits.build` does not require that the labels for other location properties align across datasets, but it is best practice to use a controlled vocabulary, so database users can easily search across all datasets for information on a specific climate variable or soil nutrient content. For new databases or new location properties, any naming/labeling convention can be established.
 
 To confirm you are using the correct syntax, check the terms already in use:
 
@@ -206,13 +206,13 @@ Some notes:
 
 -   Categorical traits do not have units or replicates, so these fields become `.na`.
 
--   The traits.build convention for a categorical trait is `value_type: mode`, indicating the recorded value is the most commonly observed trait value. In some datasets there may be multiple space-delimited values within a single cell in the data.csv file, indicating there are multiple commonly observed categorical trait values.
+-   The `traits.build` convention for a categorical trait is `value_type: mode`, indicating the recorded value is the most commonly observed trait value. In some datasets there may be multiple space-delimited values within a single cell in the data.csv file, indicating there are multiple commonly observed categorical trait values.
 
--   For most observations of categorical traits, the traits.build convention is that the `basis_of_value` is determined by an expert examining an individual, population or species, and is therefore an `expert_score`.
+-   For most observations of categorical traits, the `traits.build` convention is that the `basis_of_value` is determined by an expert examining an individual, population or species, and is therefore an `expert_score`.
 
 #### **Additional steps**
 
-Once you are well-versed in adding datasets to a traits.build database you will know that there is additional information required in `metadata.yml`.
+Once you are well-versed in adding datasets to a `traits.build` database you will know that there is additional information required in `metadata.yml`.
 
 However, for this tutorial, let's begin by assuming we're finished adding dataset metadata and check for errors:
 
@@ -260,7 +260,7 @@ The values that triggered the `Value out of allowable range` error are all 0's, 
 
 For categorical traits, only trait values that are indicated in the trait dictionary are recognised. This is an important harmonisation step, as it ensures the same trait concept value is mapped to the same trait value throughout the database.
 
-However, researchers use countless synonyms, abbreviations and syntax to express an identical trait value. traits.build converts all input to lowercase, but all other substitutions must be specified in the dataset's `metadata.yml` file.
+However, researchers use countless synonyms, abbreviations and syntax to express an identical trait value. `traits.build` converts all input to lowercase, but all other substitutions must be specified in the dataset's `metadata.yml` file.
 
 For this example individual letters were used to express 7 plant growth forms: EP, F, G, H, S, T, V
 
@@ -312,7 +312,7 @@ If you were to rerun `dataset_test("tutorial_dataset_2")` the error referring to
 
 ##### **Replacing "placeholder characters" with NA's**
 
-The `Values out of range` error is triggered for numeric traits when the traits.build pipeline detects values that fall outside the range specified for the trait in the traits dictionary.
+The `Values out of range` error is triggered for numeric traits when the `traits.build` pipeline detects values that fall outside the range specified for the trait in the traits dictionary.
 
 There are three common situations that lead to this error warning: 
 
@@ -390,7 +390,7 @@ The ability to pivot is important for 2 reasons:{#dataset_pivot} 
 
 The error in this dataset is a common one:\
 
--   The three numeric traits (`leaf_mass_per_area`, `leaf_mass_per_area` and `leaf_dry_mass`) are all population-level measurements, while `plant_growth_form` is mapped in as having `entity_type: species`, meaning it is considered a species-level measurement. This means if the same species occurs at multiple sites, its growth form value is read in twice. However, because it is designated as `entity_type: species` that traits.build workflow does not connect the value to a location, since the species has the same growth form regardless of location. 
+-   The three numeric traits (`leaf_mass_per_area`, `leaf_mass_per_area` and `leaf_dry_mass`) are all population-level measurements, while `plant_growth_form` is mapped in as having `entity_type: species`, meaning it is considered a species-level measurement. This means if the same species occurs at multiple sites, its growth form value is read in twice. However, because it is designated as `entity_type: species` that `traits.build` workflow does not connect the value to a location, since the species has the same growth form regardless of location. 
 
 -   Two options are to:
 
