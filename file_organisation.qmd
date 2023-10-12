@@ -102,14 +102,14 @@ The file `taxon_list.csv` is our master list of taxa in the trait database.
 
 It includes all unique taxon names after typos have been corrected (through taxonomic_updates). It includes both accepted/valid taxon concepts and outdated taxonomic names. It includes taxon names indicating a taxon that can be identified to species and names that indicate name-alignment to a lower taxon rank.
 
+The file `taxon_list.csv` is added to if a study includes taxa not previously represented in the trait database.
+
 For any species (& infraspecific taxon concepts) or genera that align with known taxon concepts, identifiers for these taxon concepts are included if available in a master taxon list. For instance for AusTraits, identifiers from the two vascular plants National Species Lists (NSL), the APC (Australian Plant Census) and the Australian Plant Name Index (APNI) are included.
 
 In the file, `cleaned_name` refers to the taxon name after any typos have been corrected, while `taxon_name` is the taxon name following updates to the currently accepted/valid taxon name (when available).
 
-<!-- Each species is listed once, with links to species' identifiers provided by the APNI. The file `taxon_list.csv` is added to if a study includes taxa not previously represented in AusTraits. These can be names included in either the APC/APNI, compilations of taxonomic concepts (APC) or names (APNI) for plants that are either native to or naturalised in Australia, or taxa without recognised names. -->
-
 ```{r, results='show'}
-read_csv("config/taxon_list.csv", show_col_types = FALSE) %>%
+read_csv("data/taxon_list.csv", show_col_types = FALSE) %>%
   select(taxon_name, cleaned_name, family, taxonomic_reference, taxon_rank, cleaned_name_taxonomic_status, taxon_id, scientific_name, scientific_name_id
 ) %>%
   slice(1:10) %>%
@@ -308,9 +308,6 @@ An example is as follows:
       arrange(date) %>%
       group_by(Tree) %>%
         mutate(observation_number = dplyr::row_number()) %>%
-      ungroup() %>%
-      group_by(species) %>%
-        mutate(across(c("specific leaf area (m2 kg-1)"), replace_duplicates_with_NA)) %>%
       ungroup()
   '
   collection_date: date
@@ -549,7 +546,7 @@ questions:
 ```
 ## `R/custom_R_code.R`
 
-The  [`austraits.build`](https://github.com/traitecoevo/austraits.build/) compilation contains an extra folder, `R` containing a file `custom_R_code.R`. This file documents any custom functions used in the compilation, called as part of the [`custom_R_code` section](#dataset) of metadata files. 
+The  [`austraits.build`](https://github.com/traitecoevo/austraits.build/) compilation contains an extra folder, `R` containing a file `custom_R_code.R`. This file documents any custom functions used in the compilation, called as part of the [`custom_R_code` section](#dataset) of metadata files. These functions are also avaiable in the [`traits.build-template` repo](https://github.com/traitecoevo/traits.build-template/R/)
 
 It includes functions to:
 
