@@ -16,13 +16,9 @@ OBOE has 4 core classes:
 
 ![](figures/traits_build_structure_Slide1.png)
 
-
 Within the OBOE structure, observations can be grouped into a series of nested **observation collections**, representing broader groupings of measurements. This flexibility within the OBOE structure, means that the database structure can uniquely indicate which traits are measured at the 
 
-
 ![](figures/traits_build_structure_Slide4.png)
-
-
 
 ## Metadata for each trait value
 
@@ -36,26 +32,19 @@ The following metadata/context fields are linked to each measurement in `traits.
 ### entity metadata 
 
     -   entity type (species, population, individual) 
-
     -   life stage (adult, seedling, sapling) 
-
-    -   basis of record (field, glasshouse, field experiment) 
-    
+    -   basis of record (field, glasshouse, field experiment)     
     -   sex, size, etc.
     
 
 ### value metadata 
 
     -   value type (mean, minimum, maximum, mode, raw) 
-
     -   basis of value (measurement, expert observation, literature) 
-
     -   replicate count 
-
     -   units 
 
 ![](figures/traits_build_structure_Slide2.png)
-
     
 ### measurement metadata 
 
@@ -65,33 +54,21 @@ The following metadata/context fields are linked to each measurement in `traits.
 ### location properties 
 
     -   latitude/longitude 
-
     -   vegetation description 
-
     -   location properties, such as 
-
-        -   soil nutrients (soil N)
-
-        -   climate variables (MAT, MAP, aridity index)
-
-        -   fire history (fire intensity, fire severity, years since fire)
-        
+        -   soil nutrients (soil N)  
+        -   climate variables (MAT, MAP, aridity index)  
+        -   fire history (fire intensity, fire severity, years since fire)          
 
 ### context properties 
 
   That is, anything else recorded about a specific row of data that explains differences between trait values across rows of data 
   
-
     -   entity contexts (*e.g. plant sex, plant age, leaf type measured, tree diameter*) 
-
     -   treatment contexts (*e.g. nutrient addition treatment, drought treatment*) 
-
-    -   plot contexts (*differences within a single "location"; e.g. slope position, fire history)* 
-
+    -   plot contexts (*differences within a single "location"; e.g. slope position, fire history*)  
     -   temporal contexts (*e.g. sampling season, sampling time of day*) 
-
-    -   method contexts (*e.g. canopy position, branch length sampled*) 
-    
+    -   method contexts (*e.g. canopy position, branch length sampled*)      
    
 ![](figures/traits_build_structure_Slide3.png)
 
@@ -99,24 +76,16 @@ The following metadata/context fields are linked to each measurement in `traits.
 ### taxonomic information 
 
     -   genus, family 
-
     -   full scientific name 
-
     -   taxon rank 
-
     -   taxon identifiers (from APC, APNI) 
-
 
 ### dataset metadata 
 
     -   collection date 
-
     -   dataset description 
-
     -   dataset sampling strategy 
-
     -   dataset citation 
-
     -   data collectors 
 
 
