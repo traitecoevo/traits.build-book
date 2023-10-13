@@ -1,0 +1,114 @@
+# AusTraits.build tutorial
+
+## Introduction
+
+With more than 1.8 million data records, AusTraits is Australia's [largest plant trait database](austraits_database.html#plant_database).
+
+The following tutorial introduces:
+
+-   the database structure, [`traits.build`](https://github.com/traitecoevo/traits.build)
+
+-   the database contents, [`austraits.build`](https://github.com/traitecoevo/austraits.build)
+
+-   an R package for exploring and wrangling the data, [`austraits`](https://github.com/traitecoevo/austraits)
+
+-   additional examples of analyses using the database
+
+## Download AusTraits data
+
+Before you begin, download (or build) the latest AusTraits data, by one of the methods described [here](austraits_database.html#access_data)
+
+## The database structure
+
+The {traits.build} R package is the workflow that builds AusTraits from its component datasets.
+
+The database is output as a collection of relational tables, as described [here](database_structure.html).
+
+### Traits table
+
+The core AusTraits table is the traits table. It is in "long" format, with each row documenting a single trait measurement.
+
+```{r, eval = FALSE}
+> austraits$traits
+# A tibble: 1,253,250 × 24
+   dataset_id taxon_name      observation_id trait_name value unit  entity_type value_type basis_of_value replicates basis_of_record life_stage population_id individual_id temporal_id source_id location_id entity_context_id
+   <chr>      <chr>           <chr>          <chr>      <chr> <chr> <chr>       <chr>      <chr>          <chr>      <chr>           <chr>      <chr>         <chr>         <chr>       <chr>     <chr>       <chr>            
+ 1 ABRS_1981  Acanthocarpus … 0001           leaf_comp… simp… NA    species     mode       expert_score   NA         preserved_spec… adult      NA            NA            NA          NA        NA          NA               
+ 2 ABRS_1981  Acanthocarpus … 0001           leaf_leng… 3     mm    species     minimum    measurement    NA         preserved_spec… adult      NA            NA            NA          NA        NA          NA               
+ 3 ABRS_1981  Acanthocarpus … 0001           leaf_leng… 15    mm    species     maximum    measurement    NA         preserved_spec… adult      NA            NA            NA          NA        NA          NA               
+ 4 ABRS_1981  Acanthocarpus … 0001           seed_heig… 3     mm    species     maximum    measurement    NA         preserved_spec… adult      NA            NA            NA          NA        NA          NA               
+ 5 ABRS_1981  Acanthocarpus … 0001           seed_leng… 3     mm    species     maximum    measurement    NA         preserved_spec… adult      NA            NA            NA          NA        NA          NA               
+ 6 ABRS_1981  Acanthocarpus … 0001           seed_width 3     mm    species     maximum    measurement    NA         preserved_spec… adult      NA            NA            NA          NA        NA          NA               
+ 7 ABRS_1981  Acanthocarpus … 0002           leaf_comp… simp… NA    species     mode       expert_score   NA         preserved_spec… adult      NA            NA            NA          NA        NA          NA               
+ 8 ABRS_1981  Acanthocarpus … 0002           leaf_leng… 4     mm    species     minimum    measurement    NA         preserved_spec… adult      NA            NA            NA          NA        NA          NA               
+ 9 ABRS_1981  Acanthocarpus … 0002           leaf_leng… 12    mm    species     maximum    measurement    NA         preserved_spec… adult      NA            NA            NA          NA        NA          NA               
+10 ABRS_1981  Acanthocarpus … 0002           seed_leng… 4     mm    species     maximum    measurement    NA         preserved_spec… adult      NA            NA            NA          NA        NA          NA               
+# ℹ 1,253,240 more rows
+# ℹ 6 more variables: plot_id <chr>, treatment_id <chr>, collection_date <chr>, measurement_remarks <chr>, method_id <chr>, original_name <chr>
+# ℹ Use `print(n = ...)` to see more rows
+
+```
+
+The columns include:
+
+-   core columns 
+    -   dataset_id 
+    -   taxon_name 
+    -   trait_name 
+    -   value (trait value) 
+-   entity & value metadata
+-   identifiers that provide links to ancillary tables with additional metadata
+
+### Ancillary data tables
+
+The remaining metadata accompanying each trait record is recorded across multiple relational tables.
+
+These include: 
+
+-   austraits\$locations 
+-   austraits\$contexts 
+-   austraits\$methods 
+-   austraits\$taxa 
+-   austraits\$taxonomic_updates 
+-   austraits\$contributors 
+
+Like the core `traits` table, each is in 'long' format.
+
+The tables `locations`, `contexts`, `methods` and `taxa` include metadata that links seamlessly to individual rows within `traits`.
+
+| table     | metadata in table                                                                                                                               | columns that link to austraits\$traits                                                                                                                         |
+|--------------|----------------------------|-------------------------------|
+| locations | location name, location properties, latitude, longitude                                                                                         | dataset_id, location_id                                                                                                                                        |
+| contexts  | context name, context category (method context, temporal, entity context, plot, treatment), context property                                    | dataset_id, link_id (identifier to link to: method_context_id, temporal_id, entity_context_id, plot_id, treatment_id), link_vals (identifier value to link to) |
+| methods   | dataset description, dataset sampling strategy, trait collection method, data collectors, data curators, dataset citation, source_id & citation | dataset_id, trait_name, method_id                                                                                                                              |
+| taxa      | genus, family, scientific name, APC/APNI taxon concept/taxon name identifiers                             
+
+## Exploring AusTraits
+
+With 1,800,000+ rows of trait values in the main traits table, knowing how to explore the contents is essential.
+
+### austraits.R function reference
+
+Functions developed to explore and wrangle AusTraits: [austraits functions](https://traitecoevo.github.io/austraits/reference/index.html)
+
+There is also a standalone [austraits introduction](austraits_package.html).
+
+### Breadth and depth of AusTraits data
+
+Use the function `summarise_austraits` to output summaries of total records, datasets with records, and taxa with records across `families`, `genera` or `traits`:
+
+```{r, eval = FALSE}
+
+summarise_austraits(austraits, "family")
+summarise_austraits(austraits, "genus")
+summarise_austraits(austraits, "trait_name")
+```
+
+If you are curious about traits that contain a specific search term:
+
+```{r, eval = FALSE}
+
+lookup_trait(austraits, "leaf")
+lookup_trait(austraits, "_N_") # elemental contents use their symbol and are always in the middle of a trait name
+lookup_trait(austraits, "photo")
+```

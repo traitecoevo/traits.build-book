@@ -43,9 +43,9 @@ book:
         - tutorial_dataset_7.qmd
     - part: Using outputs of `traits.build`
       chapters:
-        - using_data.qmd
         - austraits_database.qmd
         - austraits_package.qmd
+        - austraits_build_tutorial.qmd
     - part: Getting help
       chapters:
         - help.qmd
