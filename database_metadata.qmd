@@ -14,13 +14,14 @@ OBOE has 4 core classes:
 
 4.    the **trait** being measured, which must be documented within the accompanying trait dictionary.
 
-<img src="figures/traits_build_structure_Slide1.png">
+![](figures/traits_build_structure_Slide1.png)
 
 
 Within the OBOE structure, observations can be grouped into a series of nested **observation collections**, representing broader groupings of measurements. This flexibility within the OBOE structure, means that the database structure can uniquely indicate which traits are measured at the 
 
 
-<img src="figures/traits_build_structure_Slide4.png">
+![](figures/traits_build_structure_Slide4.png)
+
 
 
 ## Metadata for each trait value
@@ -53,7 +54,7 @@ The following metadata/context fields are linked to each measurement in `traits.
 
     -   units 
 
-<img src="figures/traits_build_structure_Slide2.png">
+![](figures/traits_build_structure_Slide2.png)
 
     
 ### measurement metadata 
@@ -90,8 +91,9 @@ The following metadata/context fields are linked to each measurement in `traits.
     -   temporal contexts (*e.g. sampling season, sampling time of day*) 
 
     -   method contexts (*e.g. canopy position, branch length sampled*) 
+    
    
-<img src="figures/traits_build_structure_Slide3.png">
+![](figures/traits_build_structure_Slide3.png)
 
    
 ### taxonomic information 
