@@ -1,54 +1,21 @@
 # Creating a dictionary
 
-A core component of the traits.build database structure is a trait dictionary that clearly defines and describes each trait concept included within the trait database.
+All with data within a trait database must be including in an accompanying trait dictionary.
 
-Building upon the standard outlined by the ETS [Ecological Trait-data Standard](https://doi.org/10.1111/2041-210X.13288), all numeric traits must have standard units and an allowable range. Categorical traits must have a list of allowable trait values.
+Following the ETS [Ecological Trait-data Standard](https://doi.org/10.1111/2041-210X.13288):
 
-Each trait concept must have a complete, explicit definition to eliminate confusion between trait concepts.
+-   all traits must have a label and definition
 
-The trait dictionary is compiled in a simple yml format, allowing trait definitions to be easily added and edited.
+-   all traits must be defined as being either `type: numeric` or `type: categorical`
 
-A sample numeric trait definition:
+-   numeric traits must have standard units and an allowable range
 
-``` {r, eval = FALSE}
-seed_dry_mass:
-    label: Seed dry mass
-    description: A seed morphology trait [TO:0000184] which is the dry [PATO:0001824]
-    mass [PATO:0000125] of a mature [PATO:0001701] seed [PO:0009010].;Dry mass
-    of a mature seed, including both oven dried and air-dried samples.
-    comments: Standard methods people will have used to dry seeds include, 'fresh'
-    (at dispersal, mature); 'air dried' (at local ambient conditions); 'seed bank
-    air dried' (to 15% relative humidity); and 'oven dried' (>100 deg C for a
-    set number of hours; e.g. seed bank standard is 103 deg C for 17 hours). It
-    is expected that some observations in AusTraits mapped onto â€˜seed_dry_mass'
-    will actually include both the seed and some dispersal tissue, if the two
-    cannot easily be separated; these should be mapped to 'diaspore_dry_mass'.
-    type: numeric
-    units: mg
-    allowed_values_min: 1.0e-05
-    allowed_values_max: 1000000.0
-    entity_URI: https://w3id.org/APD/traits/trait_0012610
-```
+-   categorical traits must have a list of allowable trait values.
 
-A sample categorical trait definition:
+Examples are available [here](dictionary.html), while the complete AusTraits dictionary is available [here](https://github.com/traitecoevo/austraits.build/tree/develop/config).
 
-``` {r, eval = FALSE}
-leaf_compoundness:
-    label: Leaf compoundness
-    description: A leaf shape trait [TO:0000492] which is whether a leaf [PO:0025034]
-    is a simple leaf [PO:0020042] or is divided into leaflets [PO:0020049] making
-    it a compound leaf [PO:0020043].;A binary trait that indicates whether a leaf
-    lamina is simple or divided into discontinuous leaflets (compound).
-    comments: See also the trait 'leaf_division' for more detailed leaf compoundness
-    trait values. Note that there might be some species that grade from deeply
-    lobed simple leaves (see trait `leaf_lobation`)  to compound leaves.
-    type: categorical
-    allowed_values_levels:
-    compound: A leaf that is divided into multiple leaflets. [PO:0020043]
-    simple: A leaf with a single undivided blade. [PO:0020042]
-    entity_URI: https://w3id.org/APD/traits/trait_0011316    
-```
+The trait dictionary is compiled in a simple yml format, allowing trait definitions to be easily added and edited.  
 
-The complete dictionary of AusTraits is available [here](https://github.com/traitecoevo/austraits.build/tree/develop/config).
+Creating a trait dictionary that allows a database to build is quick; it simply requires filling in a brief definition and the required units/range/trait value fields. However, drafting meaningful, reusable trait definitions and categorical trait values requires complete, explicit definitions to eliminate confusion between trait concepts. The definitions and trait values should be agreed upon by the broader research community to allow the database to be reused by other researchers and supported by the research community. 
 
-For AusTraits, the trait dictionary has been formalised into a standalone output, the AusTraits Plant Dictionary (APD), available in both machine-readable and humman-friendly outputs through the [w3id.org/APD](https://w3id.org/APD) namespace. The traits included in the APD have undergone a rigorous internal and external review process to ensure the trait concepts and their definitions are complete and robust.
+For instance, to achieve these broader goals, the trait dictionary used for the AusTraits database has been formalised into a standalone output, the AusTraits Plant Dictionary (APD), available in both machine-readable and humman-friendly outputs through the [w3id.org/APD](https://w3id.org/APD) namespace. The traits included in the APD have undergone a rigorous internal and external review process to ensure the trait concepts and their definitions are complete and robust.

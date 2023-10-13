@@ -46,19 +46,19 @@ The database structure can capture:
 
 - the **entity** associated with each trait measurement (e.g. species, population, individual)   
 
-- clusters of distinct trait measurements that are part of a single **observation** of the entity at a point in time   
-
-- **temporal contexts**, reflecting repeat measurements of an entity across time (documented through collection date or a specific context property like sampling season)  
+- **temporal contexts**, reflecting repeat measurements of an entity across time
 
 - **treatment contexts**, indicating distinct treatments applied to different entities   
 
 - **entity contexts**, documenting defining features of individual entities (e.g. sex or age of an individual)   
 
-- **method contexts**, documenting slight variations in sampling protocols or methods across or within observations (e.g. leaves sampled in understory versus canopy)   
+- **method contexts**, documenting slight variations in sampling protocols
 
 - **response curve measurements** are grouped into a single observation and assigned sequential identifiers 
 
-The database standard will continue to evolve as traits.build is used to build a greater diversity of trait databases, but, already offers a flexible, detailed structure for capturing and harmonising ecological data.  
+The database standard will continue to evolve as traits.build is used to build a greater diversity of trait databases, but, already offers a flexible, detailed structure for capturing and harmonising ecological data.
+
+See [relationships between database variables](database_metadata.html) for more details.
 
 ### Database standard described by an ontology
 
