@@ -1,12 +1,12 @@
-# Tutorial: Adding dataset 5
+# Tutorial 5: Multiple columns for a trait
 
 ## Overview
 
-This is the fifth tutorial on adding datasets to your traits.build database.
+This is the fifth tutorial on adding datasets to your `traits.build` database.
 
 Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).\
 
-It is also recommended that you first work through some of the earlier tutorials, as many steps for adding datasets to a traits.build database are only thoroughly described in the early tutorials.
+It is also recommended that you first work through some of the earlier tutorials, as many steps for adding datasets to a `traits.build` database are only thoroughly described in the early tutorials.
 
 ### Goals
 
@@ -40,7 +40,7 @@ In the traits.build-template repository, there is a folder titled `tutorial_data
 
 ### source necessary functions
 
--   If you have restarted R Studio since last adding a dataset, ensure all functions are loaded from both the traits.build package and the custom functions file:
+-   If you have restarted R Studio since last adding a dataset, ensure all functions are loaded from both the `traits.build` package and the custom functions file:
 
 ```{r, eval=FALSE}
 library(traits.build)
@@ -88,7 +88,7 @@ The reference doi is `10.1186/s40665-017-0033-8`.\
 
 There is a free-form comments column called `measurement_remarks` that can be mapped in at the dataset level (i.e. for all measurements) or under specific traits. 
 
-This column is **not** used to generate any of the identifiers and therefore cannot be used as a location to document information that is a context property, source, location, method, etc. However, there can be minor notes that have been documented about specific observations or trait measurements that should be retained in the traits.build output and if this information if available in a column it can be mapped into measurement remarks.\
+This column is **not** used to generate any of the identifiers and therefore cannot be used as a location to document information that is a context property, source, location, method, etc. However, there can be minor notes that have been documented about specific observations or trait measurements that should be retained in the `traits.build` output and if this information if available in a column it can be mapped into measurement remarks.\
 
 For instance, in this dataset, the column `Mother` documents the maternal lineage of each individual. This could be recorded as an official context property, or, alternatively could simply be added as a measurement remark, first mutating a column:\
 
@@ -224,7 +224,7 @@ Which will be filled in as:
 
 ##### **Contexts manually added** {#trait_contexts}
 
-As background, at the point in the traits.build workflow where the trait metadata is read in, the trait data has been converted to `long` format, with each trait measurement is its own row. This allows columns such as methods, entity_type, and units to be added, which are inherently unique to a specific trait. It also means that context properties can now be added, with different values assigned to different traits. 
+As background, at the point in the `traits.build` workflow where the trait metadata is read in, the trait data has been converted to `long` format, with each trait measurement is its own row. This allows columns such as methods, entity_type, and units to be added, which are inherently unique to a specific trait. It also means that context properties can now be added, with different values assigned to different traits. 
 
 For this study, in addition to the two contexts that are documented as columns, there is a context property that is documented across columns, the time from last watering to gas exchange measurements. For photosynthesis and conductance, the columns `Photo` and `Cond` document measurements made just after a watering cycle, while the columns `Photo_D` and `Cond_D` document measurements made at the very end of a watering cycle. 
 

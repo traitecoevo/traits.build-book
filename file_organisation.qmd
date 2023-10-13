@@ -20,7 +20,7 @@ austraits <- austraits:::austraits_lite
 schema <- get_schema()
 ```
 
-This chapter desribes the typical files you may encounter in a `traits.build` compilation. The description is based on the [`austraits.build`](https://github.com/traitecoevo/austraits.build/) compilation. 
+This chapter describes the typical files you may encounter in a `traits.build` compilation. The description is based on the [`austraits.build`](https://github.com/traitecoevo/austraits.build/) compilation. 
 
 We strongly suggest you create a standalone folder for your repository, e.g. `austraits.build`. This folder should contain all files needed to build your compilation. We're big fans of github as a platform for collaboration. If you're not familiar with git or github, we suggest you check out the [happy git with R](https://happygitwithr.com/) book.
 
@@ -66,7 +66,7 @@ dir() %>%
 
 **Files used for creation of R package for this compilation**
 
-XXX Explan this more
+XXX Explain this more
 
 ```
 ├── NAMESPACE             # functions being exported
@@ -90,7 +90,7 @@ config
 
 ### `metadata.yml`
 
-XXX
+The file `metadata.yml` documents dataset-level metadata, including a database description, authors, and funders.
 
 ### `traits.yml`
 
@@ -98,15 +98,19 @@ The file `traits.yml` provides the trait definitions used to compile AusTraits, 
 
 ### `taxon_list.csv`
 
-The file `taxon_list.csv` is our master list of known taxa. 
+The file `taxon_list.csv` is our master list of taxa in the trait database. 
 
-XXX Explan this more. Only show essential variables in table below.
+It includes all unique taxon names after typos have been corrected (through taxonomic_updates). It includes both accepted/valid taxon concepts and outdated taxonomic names. It includes taxon names indicating a taxon that can be identified to species and names that indicate name-alignment to a lower taxon rank.
 
-<!-- Each species is listed once, with links to species' identifiers provided by the Australian Plant Name Index (APNI). The file `taxon_list.csv` is added to if a study includes taxa not previously represented in AusTraits. These can be names included in either the APC/APNI, compilations of taxonomic concepts (APC) or names (APNI) for plants that are either native to or naturalised in Australia, or taxa without recognised names. -->
+The file `taxon_list.csv` is added to if a study includes taxa not previously represented in the trait database.
+
+For any species (& infraspecific taxon concepts) or genera that align with known taxon concepts, identifiers for these taxon concepts are included if available in a master taxon list. For instance for AusTraits, identifiers from the two vascular plants National Species Lists (NSL), the APC (Australian Plant Census) and the Australian Plant Name Index (APNI) are included.
+
+In the file, `cleaned_name` refers to the taxon name after any typos have been corrected, while `taxon_name` is the taxon name following updates to the currently accepted/valid taxon name (when available).
 
 ```{r, results='show'}
 read_csv("data/taxon_list.csv", show_col_types = FALSE) %>%
-  select(taxon_name, family, scientific_name_authorship, taxonomic_reference, cleaned_name_taxonomic_status, cleaned_scientific_name_id
+  select(taxon_name, cleaned_name, family, taxonomic_reference, taxon_rank, cleaned_name_taxonomic_status, taxon_id, scientific_name, scientific_name_id
 ) %>%
   slice(1:10) %>%
   my_kable_styling()
@@ -178,7 +182,7 @@ General guidelines for describing a source include:
 
 - A maximum of one primary source allowed.
 - Elements are names as in [bibtex format](https://en.wikipedia.org/wiki/BibTeX).
-- Keys should be named in the format `Surname_year` and the primary source is almost always identical to the name given to the dataset folder. A second instance of the identical Surname_year should have  the key Surname_year_2.
+- Keys should be named in the format `Surname_year` and the primary source is almost always identical to the name given to the dataset folder. A second instance of the identical Surname_year should have the key Surname_year_2.
 - One or more secondary source may be included if traits from a single dataset were presented in two different manuscripts. Multiple sources are also appropriate if an author has compiled data from a number of sources, which are not individually in AusTraits, for a published or unpublished compilation.
 - If your data is from an unpublished study, only include the elements that are applicable.
 - If someone has transcribed a published source, the primary source will be the published work and the person who has completed the transcription will be acknowledged as the `contributor` of the dataset.
@@ -304,9 +308,6 @@ An example is as follows:
       arrange(date) %>%
       group_by(Tree) %>%
         mutate(observation_number = dplyr::row_number()) %>%
-      ungroup() %>%
-      group_by(species) %>%
-        mutate(across(c("specific leaf area (m2 kg-1)"), replace_duplicates_with_NA)) %>%
       ungroup()
   '
   collection_date: date
@@ -545,6 +546,26 @@ questions:
 ```
 ## `R/custom_R_code.R`
 
-XXX 
+The  [`austraits.build`](https://github.com/traitecoevo/austraits.build/) compilation contains an extra folder, `R` containing a file `custom_R_code.R`. This file documents any custom functions used in the compilation, called as part of the [`custom_R_code` section](#dataset) of metadata files. These functions are also avaiable in the [`traits.build-template` repo](https://github.com/traitecoevo/traits.build-template/R/)
 
-The  [`austraits.build`](https://github.com/traitecoevo/austraits.build/) compilation contains an extra folder, `R` containning a file `custom_R_code.R`. This file documents any custom functions used in the compilation, called as part of the [`custom_R_code` section](#dataset) of metadata files. 
+It includes functions to:
+
+- Replace duplicate trait values with NA's
+
+- Convert various month formats into a string of 12 NY's (to document flowering, fruiting, recruitment times)
+
+- Move specific categorical trait values to a second trait
+
+For instance, there are many datasets where a species-level trait measurement is repeated across many rows of data but should only be incorporated into the dataset a single time:
+
+```
+custom_R_code: `
+  data %>%
+    mutate(
+      across(c(`plant_growth_form`, `leaf_shape`), replace_duplicates_with_NA)
+    )
+`
+```
+
+This file can be added to within specific `traits.build` projects, as required for different dataset styles.
+

@@ -1,4 +1,21 @@
 # Creating a dictionary
 
-XXX
-a
+All with data within a trait database must be including in an accompanying trait dictionary.
+
+Following the ETS [Ecological Trait-data Standard](https://doi.org/10.1111/2041-210X.13288):
+
+-   all traits must have a label and definition
+
+-   all traits must be defined as being either `type: numeric` or `type: categorical`
+
+-   numeric traits must have standard units and an allowable range
+
+-   categorical traits must have a list of allowable trait values.
+
+Examples are available [here](dictionary.html), while the complete AusTraits dictionary is available [here](https://github.com/traitecoevo/austraits.build/tree/develop/config).
+
+The trait dictionary is compiled in a simple yml format, allowing trait definitions to be easily added and edited.  
+
+Creating a trait dictionary that allows a database to build is quick; it simply requires filling in a brief definition and the required units/range/trait value fields. However, drafting meaningful, reusable trait definitions and categorical trait values requires complete, explicit definitions to eliminate confusion between trait concepts. The definitions and trait values should be agreed upon by the broader research community to allow the database to be reused by other researchers and supported by the research community. 
+
+For instance, to achieve these broader goals, the trait dictionary used for the AusTraits database has been formalised into a standalone output, the AusTraits Plant Dictionary (APD), available in both machine-readable and humman-friendly outputs through the [w3id.org/APD](https://w3id.org/APD) namespace. The traits included in the APD have undergone a rigorous internal and external review process to ensure the trait concepts and their definitions are complete and robust.

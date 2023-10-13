@@ -1,8 +1,6 @@
 # Getting help
 
-XXXX
-
-This chapter explains how to ask for help. Questions can range from [detailed troubleshooting](data_common_issues.html) to [general advice](XXX). To ensure a constructive dialogue, please read this entire page before reaching out. Thank you for respecting the time and effort it takes to provide one-on-one support.
+This chapter explains how to ask for help. Questions can range from [detailed troubleshooting](data_common_issues.html) to [general advice](#general_advice). To ensure a constructive dialogue, please read this entire page before reaching out. Thank you for respecting the time and effort it takes to provide one-on-one support.
 
 Links to 
 
@@ -11,7 +9,7 @@ Links to
 
 :::{.callout-note}
 
-## Summary
+## Summary {#general_advice}
 
 Before you post a question, please work through the steps explained in this chapter.
 
@@ -52,6 +50,9 @@ If the error is a bug in `traits.build` or `austraits`, it is possible the bug h
 ### Attribute the error
 
 The `traits.build` package itself is often not usually the cause of problems that arise in `traits.build` pipelines. Most issues come from the user-defined R code, or data files that the pipeline calls, as well as other R packages on your system.  So before you post a question, please attempt to troubleshoot and figure out if `traits.build` is actually the source of the trouble, or if the error comes from another package or your own code. The tips in the [debugging chapter](#debugging) may help. If the culprit turns out to be a non-`traits.build` issue, then please ask your question in a non-`traits.build` forum and write the question accordingly.
+
+### Attribute the error
+
 
 ### Write a reprex
 

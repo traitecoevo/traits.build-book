@@ -1,12 +1,12 @@
-# Tutorial: Adding dataset 6
+# Tutorial 6: Data with repeat measurements
 
 ## Overview
 
-This is the sixth tutorial on adding datasets to your traits.build database.
+This is the sixth tutorial on adding datasets to your `traits.build` database.
 
 Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).\
 
-It is also recommended that you first work through some of the earlier tutorials, as many steps for adding datasets to a traits.build database are only thoroughly described in the early tutorials.
+It is also recommended that you first work through some of the earlier tutorials, as many steps for adding datasets to a `traits.build` database are only thoroughly described in the early tutorials.
 
 ### Goals
 
@@ -40,7 +40,7 @@ In the traits.build-template repository, there is a folder titled `tutorial_data
 
 ### source necessary functions
 
--   If you have restarted R Studio since last adding a dataset, ensure all functions are loaded from both the traits.build package and the custom functions file:
+-   If you have restarted R Studio since last adding a dataset, ensure all functions are loaded from both the `traits.build` package and the custom functions file:
 
 ```{r, eval=FALSE}
 library(traits.build)
@@ -72,11 +72,11 @@ Notes:\
 
 -   There currently isn't an `individual_id` column, but this is required for `repeat_measurements_id`'s to properly generate. An `individual_id` column will need to be added via `custom_R_code`.\
 
--   This is the first tutorial that includes `repeat_measurement_id`'s. `repeat_measurement_id`'s are sequential integer identifiers assigned to a sequence of measurements on a single trait that together represent a single observation (and are assigned a single `observation_id` by the traits.build pipeline. The assumption is that these are measurements that document points on a response curve. Although the exact `time` of each measurement will of course be different for point on the curve, `time` is not a temporal context and must be identical for all measurements within a single curve.
+-   This is the first tutorial that includes `repeat_measurement_id`'s. `repeat_measurement_id`'s are sequential integer identifiers assigned to a sequence of measurements on a single trait that together represent a single observation (and are assigned a single `observation_id` by the `traits.build` pipeline. The assumption is that these are measurements that document points on a response curve. Although the exact `time` of each measurement will of course be different for point on the curve, `time` is not a temporal context and must be identical for all measurements within a single curve.
 
 For this dataset - and probably for most datasets that document response curve data - all traits being added will be repeat measurements. However, if some columns of trait data are not part of the response curve data, one can alternatively map `repeat_measurments_id: TRUE` for individual traits in the traits section of `metadata.yml`.
 
-A word of warning for datasets where the output data includes a `time stamp`. Ensure that there is a separate `collection_date` column that is a `date` not a `time`, as all measurements that comprise a single response curve must have the same `collection_date`. Otherwise, the traits.build pipeline will assign them each separate `observation_id`'s.
+A word of warning for datasets where the output data includes a `time stamp`. Ensure that there is a separate `collection_date` column that is a `date` not a `time`, as all measurements that comprise a single response curve must have the same `collection_date`. Otherwise, the `traits.build` pipeline will assign them each separate `observation_id`'s.
 
 *Navigate to the dataset's folder and open the metadata.yml file in Visual Studio Code, to ensure information is added to the expected sections as you work through the tutorial.*
 

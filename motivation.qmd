@@ -10,7 +10,7 @@ To create a large harmonised dataset, we need to combine these different dataset
 
 <!-- image: XXX data sources -->
 
-We are not the first group to tackle this problem. Our field (plant ecology) has many trait datasets, most compiled from diverse sources. Most start small, with a few soruces that can be handled within a spreadhseet. But as thery grow, they ecnouter issues. The largest is [TRY](https://try-db.org/TryWeb/Home.php), with > XXXX records from over. However, each group has had to tackle the compilation challenge anew, as there are no common pathways for creating a harmonised dataset.
+We are not the first group to tackle this problem. Our field (plant ecology) has many trait datasets, most compiled from diverse sources. Most start small, with a few soruces that can be handled within a spreadhseet. But as thery grow, they ecnouter issues. The largest is [TRY](https://try-db.org/TryWeb/Home.php), with > 15 million records from over 300,000 plant taxa. However, each group has had to tackle the compilation challenge anew, as there are no common pathways for creating a harmonised dataset.
 
 ## The solution
 

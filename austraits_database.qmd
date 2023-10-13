@@ -1,0 +1,18 @@
+# AusTraits, Australia's Plant Trait Database
+
+[AusTraits](https://github.com/traitecoevo/austraits.build), Australia's largest plant trait database was the first trait database to be build using the traits.build workflow.
+
+## AusTraits data records
+
+As of October, 2023, AusTraits has:
+
+-   370+ datasets 
+
+-   250+ contributors 
+
+-   1,800,000+ data records 
+
+-   500+ traits 
+
+-   30,000 Australian plant taxa 
+

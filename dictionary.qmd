@@ -1,4 +1,50 @@
 # Trait dictionary
 
-XXX
+A core component of the traits.build database structure is a trait dictionary that clearly defines and describes each trait concept included within the trait database.
 
+Building upon the standard outlined by the ETS [Ecological Trait-data Standard](https://doi.org/10.1111/2041-210X.13288), all numeric traits must have standard units and an allowable range. Categorical traits must have a list of allowable trait values.
+
+Each trait concept must have a complete, explicit definition to eliminate confusion between trait concepts.
+
+The trait dictionary is compiled in a simple yml format, allowing trait definitions to be easily added and edited.
+
+A sample numeric trait definition:
+
+``` {r, eval = FALSE}
+seed_dry_mass:
+    label: Seed dry mass
+    description: A seed morphology trait [TO:0000184] which is the dry [PATO:0001824]
+    mass [PATO:0000125] of a mature [PATO:0001701] seed [PO:0009010].;Dry mass
+    of a mature seed, including both oven dried and air-dried samples.
+    comments: Standard methods people will have used to dry seeds include, 'fresh'
+    (at dispersal, mature); 'air dried' (at local ambient conditions); 'seed bank
+    air dried' (to 15% relative humidity); and 'oven dried' (>100 deg C for a
+    set number of hours; e.g. seed bank standard is 103 deg C for 17 hours). It
+    is expected that some observations in AusTraits mapped onto â€˜seed_dry_mass'
+    will actually include both the seed and some dispersal tissue, if the two
+    cannot easily be separated; these should be mapped to 'diaspore_dry_mass'.
+    type: numeric
+    units: mg
+    allowed_values_min: 1.0e-05
+    allowed_values_max: 1000000.0
+```
+
+A sample categorical trait definition:
+
+``` {r, eval = FALSE}
+leaf_compoundness:
+    label: Leaf compoundness
+    description: A leaf shape trait [TO:0000492] which is whether a leaf [PO:0025034]
+    is a simple leaf [PO:0020042] or is divided into leaflets [PO:0020049] making
+    it a compound leaf [PO:0020043].;A binary trait that indicates whether a leaf
+    lamina is simple or divided into discontinuous leaflets (compound).
+    comments: See also the trait 'leaf_division' for more detailed leaf compoundness
+    trait values. Note that there might be some species that grade from deeply
+    lobed simple leaves (see trait `leaf_lobation`)  to compound leaves.
+    type: categorical
+    allowed_values_levels:
+        compound: A leaf that is divided into multiple leaflets. [PO:0020043]
+        simple: A leaf with a single undivided blade. [PO:0020042]
+```
+
+For additional examples, see the complete dictionary used for the [AusTraits database](https://github.com/traitecoevo/austraits.build/tree/develop/config).

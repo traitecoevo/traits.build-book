@@ -18,6 +18,7 @@ book:
         - long_wide.qmd
         - database_standard.qmd
         - database_structure.qmd
+        - database_metadata.qmd
         - dictionary.qmd
     - part: Creating with `traits.build`
       chapters:
@@ -43,6 +44,7 @@ book:
     - part: Using outputs of `traits.build`
       chapters:
         - using_data.qmd
+        - austraits_database.qmd
         - austraits_package.qmd
     - part: Getting help
       chapters:

@@ -23,7 +23,7 @@ schema <- get_schema()
 definitions <- austraits$definitions
 ```
 
-This vignette explains the protocol for adding a new study to AusTraits. Before starting this, you should read more about
+This vignette explains in depth the protocol for adding a new study to AusTraits. Before starting this, you should read more about
 
 - an [overview of AusTraits](overview.html),
 - the instructions provided to [data contributors](contributing_data.html),
@@ -31,31 +31,9 @@ This vignette explains the protocol for adding a new study to AusTraits. Before 
 - the [structure of the raw data files](file_structure.html), and
 - [how to build AusTraits](traits.build.html).
 
+Then, read the [overview for adding data](adding_data_brief.html).
 
-It is important that all steps are followed so that our automated workflow proceeds without problems.
-
-## An overview of the main steps
-
-1. Clone the `traits.build` repository from github
-2. Create a new branch in the repo, named for the new `dataset_id` in `author_year` format, e.g. `Gallagher_2014`.
-3. Create a new folder within the folder `data` with the name `dataset_id`, e.g. `Gallagher_2014`.
-4. Prepare the file `data.csv` and place it within the new folder ([details](#csv_file) here).
-5. Prepare the file `metadata.yml` and place it within the new folder ([details](#metadata_file) here).
-6. Add the new study into the build framework and rebuild AusTraits, by running `build_setup_pipeline()`.
-
-This step updates the file `remake.yml` with appropriate rules for the new dataset; similarly if you remove datasets, do the same. (At this stage, [remake](https://github.com/richfitz/remake) offers no looping constructs, so for now we generate the remake file using: [whisker](https://github.com/edwindj/whisker).)
-
-You can then rebuild AusTraits, including your dataset.
-
-7. Run tests and quality checks on the newly added dataset and correct the `data.csv` and `metadata.yml` files as necessary ([details](#quality_checks) here).
-8. Generate and proofread a report on the data. In particular, check that numeric trait values fall within a logical range relative to other studies, and that individual trait observations are not unnecessarily excluded because their trait values are unsupported.
-9. Return to step 6 if changes are made to the `data.csv` or `metadata.yml` files.
-10. Push the GitHub branch.
-
-It may help to download one of the [existing datasets](https://github.com/traitecoevo/traits.build/tree/master/data) to use as a template for your own files and a guide on required content. You should look at the files in the [config folder](https://github.com/traitecoevo/traits.build/tree/master/config), particularly the `definitions` file for the list of traits we cover and the supported trait values for each trait. The GitHub repository also hosts a compiled [trait definitions table](trait_definitions.html).
-
-
-The remainder of this vignette provides incredibly detailed instructions for steps 4-8 above. It is intended for anyone wishing to add datasets to either AusTraits itself or to use the traits.build workflow to create a separate database.
+As you read through this chapter, keep in mind that there are a series of 7 [tutorials](tutorial_dataset_1.html) to break down the process of building a [metadata.yml file](#metadata_file).
 
 # Getting started
 
@@ -743,7 +721,7 @@ If there are additional context properties that were designated in the traits se
 
 ### Using substitutions
 
-It is very unlikely that a contributor will use categorical trait values that are entirely identical to those in the `traits.yml` file. You need to add substitutions for those that do not exactly align to match the wording and syntax supported by AusTraits. Combinations of multiple trait values are allowed - simply list them, space delimited (e.g. `shrub tree` for a species whose growth form includes both)
+It is very unlikely that a contributor will use categorical trait values that are entirely identical to those in the `traits.yml` file. You need to add substitutions for those that do not exactly align to match the wording and syntax supported by AusTraits. Combinations of multiple trait values are allowed - simply list them, space delimited (e.g. `shrub tree` for a species whose growth form includes both). Note that combinations of multiple trait values are reorganised into alphabetic order in order to collapse into fewer combinations (e.g. "fire_killed resprouts" and "resprouts fire_killed" are alphabetised and hence collapsed into one combination, "fire_killed resprouts").
 
 Single substitutions can be added by running:
 ```{r, eval=FALSE, echo=TRUE}
