@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - Appendix B — Yaml files</title>
+<title>The {traits.build} data standard, R package, and workflow - 8&nbsp; Overview of traits.build ontology</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./csv.html" rel="prev">
+<link href="./dictionary.html" rel="next">
+<link href="./database_structure.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./csv.html">Appendices</a></li><li class="breadcrumb-item"><a href="./yaml.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Yaml files</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./long_wide.html">Data structure and standard</a></li><li class="breadcrumb-item"><a href="./database_metadata.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Overview of traits.build ontology</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -162,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./database_metadata.html" class="sidebar-item-text sidebar-link">
+  <a href="./database_metadata.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Overview of traits.build ontology</span></span></a>
   </div>
 </li>
@@ -367,7 +368,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./yaml.html" class="sidebar-item-text sidebar-link active">
+  <a href="./yaml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Yaml files</span></span></a>
   </div>
 </li>
@@ -379,14 +380,31 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#using-the-oboe-structure" id="toc-using-the-oboe-structure" class="nav-link active" data-scroll-target="#using-the-oboe-structure"><span class="header-section-number">8.1</span> Using the OBOE structure</a></li>
+  <li><a href="#metadata-for-each-trait-value" id="toc-metadata-for-each-trait-value" class="nav-link" data-scroll-target="#metadata-for-each-trait-value"><span class="header-section-number">8.2</span> Metadata for each trait value</a>
+  <ul class="collapse">
+  <li><a href="#entity-metadata" id="toc-entity-metadata" class="nav-link" data-scroll-target="#entity-metadata">entity metadata&nbsp;</a></li>
+  <li><a href="#value-metadata" id="toc-value-metadata" class="nav-link" data-scroll-target="#value-metadata">value metadata&nbsp;</a></li>
+  <li><a href="#measurement-metadata" id="toc-measurement-metadata" class="nav-link" data-scroll-target="#measurement-metadata">measurement metadata&nbsp;</a></li>
+  <li><a href="#location-properties" id="toc-location-properties" class="nav-link" data-scroll-target="#location-properties">location properties&nbsp;</a></li>
+  <li><a href="#context-properties" id="toc-context-properties" class="nav-link" data-scroll-target="#context-properties">context properties&nbsp;</a></li>
+  <li><a href="#taxonomic-information" id="toc-taxonomic-information" class="nav-link" data-scroll-target="#taxonomic-information">taxonomic information&nbsp;</a></li>
+  <li><a href="#dataset-metadata" id="toc-dataset-metadata" class="nav-link" data-scroll-target="#dataset-metadata">dataset metadata&nbsp;</a></li>
+  </ul></li>
+  <li><a href="#documenting-the-relationships-between-variables" id="toc-documenting-the-relationships-between-variables" class="nav-link" data-scroll-target="#documenting-the-relationships-between-variables"><span class="header-section-number">8.3</span> Documenting the relationships between variables</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Appendix B — Yaml files</h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Overview of traits.build ontology</span></h1>
 </div>
 
 
@@ -401,9 +419,91 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>The <code>yml</code> file extension (pronounced “YAML”) <a href="https://en.wikipedia.org/wiki/YAML">is a type structured data file</a>, that is both human and machine readable. You can edit it in any text editor, or also in Rstudio. Generally, yml is used in situations where a table is not suitable because of variable lengths and or nested structures. It has the advantage over a spreadsheet in that the nested “headers” can have variable numbers of categories. The data under each of the hierarchical headings are easily extracted by R.</p>
+<section id="using-the-oboe-structure" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="using-the-oboe-structure"><span class="header-section-number">8.1</span> Using the OBOE structure</h2>
+<p>The traits.build ontology is built upon the Extensible Observation Ontology <a href="https://doi.org/10.1016/j.ecoinf.2007.05.004">(OBOE)</a>. OBOE was developed explicitly to document the multitude of information associated with ecological observations.</p>
+<p>OBOE has 4 core classes:</p>
+<ol type="1">
+<li><p>the <strong>entity</strong>, the “thing” being measured. For instance, an entity might be an individual, population or species.</p></li>
+<li><p>an <strong>observation</strong> of the entity at a single point in time. An observation can be comprised of multiple measurements and therefore can be represented by multiple rows of data within a database.</p></li>
+<li><p>the <strong>measurements</strong> that comprise an observation, where each measurement is of a single trait. A single measured value is associated with each measurement.</p></li>
+<li><p>the <strong>trait</strong> being measured, which must be documented within the accompanying trait dictionary.</p></li>
+</ol>
+<p><img src="figures/traits_build_structure_Slide1.png" class="img-fluid"></p>
+<p>Within the OBOE structure, observations can be grouped into a series of nested <strong>observation collections</strong>, representing broader groupings of measurements. This flexibility within the OBOE structure, means that the database structure can uniquely indicate which traits are measured at the</p>
+<p><img src="figures/traits_build_structure_Slide4.png" class="img-fluid"></p>
+</section>
+<section id="metadata-for-each-trait-value" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="metadata-for-each-trait-value"><span class="header-section-number">8.2</span> Metadata for each trait value</h2>
+<p>Ecological data is only meaningful when each data value is linked to all necessary metadata.&nbsp;</p>
+<p>The OBOE structure also accommodates this requirement, allowing various metadata and context types to be linked to each of the core classes.</p>
+<p>The following metadata/context fields are linked to each measurement in <code>traits.build</code>:</p>
+<section id="entity-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="entity-metadata">entity metadata&nbsp;</h3>
+<pre><code>-   entity type (species, population, individual)&nbsp;
+-   life stage (adult, seedling, sapling)&nbsp;
+-   basis of record (field, glasshouse, field experiment)&nbsp;    
+-   sex, size, etc.</code></pre>
+</section>
+<section id="value-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="value-metadata">value metadata&nbsp;</h3>
+<pre><code>-   value type (mean, minimum, maximum, mode, raw)&nbsp;
+-   basis of value (measurement, expert observation, literature)&nbsp;
+-   replicate count&nbsp;
+-   units&nbsp;</code></pre>
+<p><img src="figures/traits_build_structure_Slide2.png" class="img-fluid"></p>
+</section>
+<section id="measurement-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="measurement-metadata">measurement metadata&nbsp;</h3>
+<pre><code>-   trait collection methods&nbsp;</code></pre>
+</section>
+<section id="location-properties" class="level3">
+<h3 class="anchored" data-anchor-id="location-properties">location properties&nbsp;</h3>
+<pre><code>-   latitude/longitude&nbsp;
+-   vegetation description&nbsp;
+-   location properties, such as&nbsp;
+    -   soil nutrients (soil N)  
+    -   climate variables (MAT, MAP, aridity index)  
+    -   fire history (fire intensity, fire severity, years since fire)          </code></pre>
+</section>
+<section id="context-properties" class="level3">
+<h3 class="anchored" data-anchor-id="context-properties">context properties&nbsp;</h3>
+<p>That is, anything else recorded about a specific row of data that explains differences between trait values across rows of data&nbsp;</p>
+<pre><code>-   entity contexts (*e.g. plant sex, plant age, leaf type measured, tree diameter*)&nbsp;
+-   treatment contexts (*e.g. nutrient addition treatment, drought treatment*)&nbsp;
+-   plot contexts (*differences within a single "location"; e.g. slope position, fire history*)  
+-   temporal contexts (*e.g. sampling season, sampling time of day*)&nbsp;
+-   method contexts (*e.g. canopy position, branch length sampled*)&nbsp;     </code></pre>
+<p><img src="figures/traits_build_structure_Slide3.png" class="img-fluid"></p>
+</section>
+<section id="taxonomic-information" class="level3">
+<h3 class="anchored" data-anchor-id="taxonomic-information">taxonomic information&nbsp;</h3>
+<pre><code>-   genus, family&nbsp;
+-   full scientific name&nbsp;
+-   taxon rank&nbsp;
+-   taxon identifiers (from APC, APNI)&nbsp;</code></pre>
+</section>
+<section id="dataset-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="dataset-metadata">dataset metadata&nbsp;</h3>
+<pre><code>-   collection date&nbsp;
+-   dataset description&nbsp;
+-   dataset sampling strategy&nbsp;
+-   dataset citation&nbsp;
+-   data collectors&nbsp;</code></pre>
+</section>
+</section>
+<section id="documenting-the-relationships-between-variables" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="documenting-the-relationships-between-variables"><span class="header-section-number">8.3</span> Documenting the relationships between variables</h2>
+<p>To satisfy the OBOE structure, it is important that these many metadata fields are linked to the correct class, a measurement, specific observation or observation collection, entity, value, etc.</p>
+<p>The many identifiers present within the <code>traits.build</code> data tables are required to accomplish this.</p>
+<p>For instance:</p>
+<ul>
+<li><p>a <code>population</code> is defined as a group of individuals of the same species, subjected to the same treatment and plot contexts and occurring in the same location. Populations are defined by having a common <code>population_id</code>.</p></li>
+<li><p>a <code>temporal_context</code> indicates measurements on an entity have been stratified across time, such as occurs when the same individual is measured during two different growing seasons. The column <code>temporal_context_id</code> in the <a href="database_structure.html#traits">traits table</a> offers an identifier that links to details about the temporal context in the <a href="database_structure.html#contexts">context table</a>.</p></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -641,11 +741,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./csv.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">CSV files</span></span>
+      <a href="./database_structure.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data structure</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./dictionary.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Trait dictionary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
