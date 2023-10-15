@@ -23,7 +23,9 @@ Before you begin, download (or build) the latest AusTraits data, by one of the m
 Some traits have a vast amount of data:
 
 ```{r, eval = FALSE}
-> austraits$traits %>% filter(trait_name == "leaf_N_per_dry_mass") %>% distinct(taxon_name) %>% nrow()
+austraits$traits %>% 
+  dplyr::filter(trait_name == "leaf_N_per_dry_mass") %>%
+  dplyr::distinct(taxon_name) %>% nrow()
 [1] 2262
 
 austraits::plot_trait_distribution_beeswarm(austraits, "leaf_N_per_dry_mass", y_axis_category = "dataset_id")
@@ -39,7 +41,10 @@ austraits::lookup_trait(austraits, "hydraulic")
  [7] "stem_specific_hydraulic_conductivity"                "stem_hydraulic_conductivity"                        
  [9] "hydraulic_safety_margin_50"                          "hydraulic_safety_margin_88" 
 
-austraits$traits %>% filter(trait_name == "sapwood_specific_hydraulic_conductivity") %>% distinct(taxon_name) %>% nrow()
+austraits$traits %>% 
+  dplyr::filter(trait_name == "sapwood_specific_hydraulic_conductivity") %>%
+  dplyr::distinct(taxon_name) %>% nrow()
+
 [1] 179
 
 austraits::plot_trait_distribution_beeswarm(austraits, "sapwood_specific_hydraulic_conductivity", y_axis_category = "dataset_id")
@@ -74,9 +79,10 @@ General patterns of taxon distribution are immediately apparent:
 data <-
   (austraits %>%
      austraits::extract_taxa(genus = "Hibbertia") %>%
-     austraits::join_locations %>% austraits::join_taxonomy)$traits
+     austraits::join_locations() %>%
+     austraits::join_taxonomy())$traits
 
-data %>% plot_locations("genus")
+data %>% austraits::plot_locations("genus")
 ```
 
 Or to see how much data is available:
@@ -85,13 +91,13 @@ Or to see how much data is available:
 austraits::lookup_trait(austraits, "_N_") -> N_traits
 
 austraits$traits %>% 
-  filter(trait_name %in% N_traits) %>% 
-  distinct(taxon_name, trait_name) %>% 
-  mutate(counter = 1) %>% 
-  group_by(trait_name) %>% 
-    mutate(counter = sum(counter)) %>% 
-    distinct(trait_name, counter) %>% 
-  ungroup()
+  dplyr::filter(trait_name %in% N_traits) %>% 
+  dplyr::distinct(taxon_name, trait_name) %>% 
+  dplyr::mutate(counter = 1) %>% 
+  dplyr::group_by(trait_name) %>% 
+    dplyr::mutate(counter = sum(counter)) %>% 
+    dplyr::distinct(trait_name, counter) %>% 
+  dplyr::ungroup()
 ```
 
 
@@ -106,7 +112,8 @@ The database is output as a collection of relational tables, as described [here]
 The core AusTraits table is the traits table. It is in "long" format, with each row documenting a single trait measurement.
 
 ```{r, eval = FALSE}
-> austraits$traits
+austraits$traits
+
 # A tibble: 1,253,250 × 24
    dataset_id taxon_name      observation_id trait_name value unit  entity_type value_type basis_of_value replicates basis_of_record life_stage population_id individual_id temporal_id source_id location_id entity_context_id
    <chr>      <chr>           <chr>          <chr>      <chr> <chr> <chr>       <chr>      <chr>          <chr>      <chr>           <chr>      <chr>         <chr>         <chr>       <chr>     <chr>       <chr>            
@@ -182,7 +189,7 @@ austraits::summarise_austraits(austraits, "genus")
 austraits::summarise_austraits(austraits, "trait_name")
 ```
 
-If you are curious about traits that contain a specific search term:
+Alternatively you can look up traits that contain a specific search term:
 
 ```{r, eval = FALSE}
 austraits::lookup_trait(austraits, "leaf")
@@ -197,15 +204,15 @@ There are a trio of austraits.R functions to filter data by `trait_name`, `taxon
 ```{r, eval = FALSE}
 leaf_mass_per_area_values <-
   austraits %>% 
-     extract_trait(trait_names = c("leaf_mass_per_area"))
+     austraits::extract_trait(trait_names = c("leaf_mass_per_area"))
 
 Westoby_2014_values <-
   austraits %>%
-     extract_dataset("Westoby_2014")
+     austraits::extract_dataset("Westoby_2014")
 
 Eucalyptus_values <-
   austraits %>%
-     extract_taxa(genus = "Eucalyptus")
+     austraits::extract_taxa(genus = "Eucalyptus")
 ```
 
 You can alternatively simply filter by whatever combination of values you are searching for:
@@ -213,9 +220,9 @@ You can alternatively simply filter by whatever combination of values you are se
 ```{r, eval = FALSE}
 my_data <-
   austraits$traits %>%
-    filter(stringr::str_detect(taxon_name, "Eucalyptus")) %>%
-    filter(trait_name %in% c("leaf_mass_per_area", "leaf_length", "leaf_thickness")) %>%
-    filter(basis_of_record == "field")
+    dplyr::filter(stringr::str_detect(taxon_name, "Eucalyptus")) %>%
+    dplyr::filter(trait_name %in% c("leaf_mass_per_area", "leaf_length", "leaf_thickness")) %>%
+    dplyr::filter(basis_of_record == "field")
 ```
 
 ## Wrangling data: joining tables
@@ -225,51 +232,47 @@ my_data <-
 To just add location name, latitude, and longitude:
 
 ```{r, eval = FALSE}
-
 traits_with_lat_long <- 
-  (austraits %>% join_locations)$traits
+  (austraits %>% austraits::join_locations())$traits
 ```
 
 To add all location properties:
 
 ```{r, eval = FALSE}
-
 locations <- 
   austraits$locations %>%
-  pivot_wider(names_from = location_property, values_from = value)
+  tidyr::pivot_wider(names_from = location_property, values_from = value)
 
 traits_with_locations <- 
   austraits$traits %>% 
-  left_join(locations, by = c("dataset_id", "location_id"))
+  dplyr::left_join(locations, by = c("dataset_id", "location_id"))
 ```
 
 The number of location properties is of course long. You'll possible want to check which location properties you care about and just merge those:
 
 ```{r, eval = FALSE}
-
 locations_properties <- 
   austraits$locations %>% 
-  distinct(location_property)
+  dplyr::distinct(location_property)
   
 locations <- 
   austraits$locations %>%
-  filter(location_property %in% c("latitude (deg)", "longitude (deg)", "description", "aridity index (MAP/PET)", "soil type", "fire history")) %>%
-  pivot_wider(names_from = location_property, values_from = value)
+  dplyr::filter(location_property %in% c("latitude (deg)", "longitude (deg)", "description", "aridity index (MAP/PET)", "soil type", "fire history")) %>%
+  tidyr::pivot_wider(names_from = location_property, values_from = value)
 
 traits_with_locations <- 
   austraits$traits %>% 
-  left_join(locations, by = c("dataset_id", "location_id"))
+  dplyr::left_join(locations, by = c("dataset_id", "location_id"))
 ```
 
 ### Contexts
 
-Joining the context table to the traits table is best done using the austraits.R function, as there are 5 identifiers in the traits table (`entity_context_id`, `method_context_id`, `temporal_id`, `plot_id` and `treatment_id`) that link to two columns in the contexts table (`link_vals` and `link_id`).
+Joining the context table to the traits table is best done using the austraits.R function, as there are 5 identifiers in the traits table (`entity_context_id`, `method_context_id`, `temporal_context_id`, `plot_context_id` and `treatment_context_id`) that link to two columns in the contexts table (`link_vals` and `link_id`).
 
 ```{r, eval = FALSE}
-
 traits_with_contexts <- 
-  (austraits %>% join_contexts)$traits %>% 
-  select(-all_of(c("temporal_id", "method_id", "treatment_id", "entity_context_id", "plot_id")))  # "..._id" to become "..._context_id" in v5.0.0
+  (austraits %>% austraits::join_contexts())$traits %>% 
+  dplyr::select(-dplyr::all_of(c("temporal_context_id", "method_context_id", "treatment_context_id", "entity_context_id", "plot_context_id")))
 ```
 
 If you wish to include fewer context properties, you have to manually select the columns you wish to retain/lose.
@@ -279,20 +282,17 @@ If you wish to include fewer context properties, you have to manually select the
 To just add trait methods:
 
 ```{r, eval = FALSE}
-
 traits_with_methods <- 
-  (austraits %>% join_methods)$traits
+  (austraits %>% austraits::join_methods())$traits
 ```
 
 To add all information within the methods table:
 
 ```{r, eval = FALSE}
-
 traits_with_all_methods <- 
   austraits$traits %>% 
-  left_join(austraits$methods %>% 
-              distinct(dataset_id, trait_name, .keep_all = TRUE),    # to deal with a soon to be fixed bug
-            by = c("dataset_id", "trait_name"))                      # a reworked "method_id" will be added here soon
+  dplyr::left_join(austraits$methods, 
+            by = c("dataset_id", "trait_name", "method_id"))
 ```
 
 As there are quite a few columns in the method table with lengthy text fields, it is worth first viewing the methods table and confirming you want information like `sampling_strategy` merged into the traits table.
@@ -300,13 +300,11 @@ As there are quite a few columns in the method table with lengthy text fields, i
 "dataset_id", "trait_name", "methods", "description", "sampling_strategy", "source_primary_key", "source_primary_citation", "source_secondary_key", "source_secondary_citation", "source_original_dataset_key", "source_original_dataset_citation", "data_collectors", "assistants", "austraits_curators"
 
 ```{r, eval = FALSE}
-
 traits_with_all_methods <- 
   austraits$traits %>% 
-  left_join(austraits$methods %>% 
-              select("dataset_id", "trait_name", "methods", "description",  "source_primary_citation", "data_collectors") %>% 
-              distinct(dataset_id, trait_name, .keep_all = TRUE),      # to deal with a soon to be fixed bug
-            by = c("dataset_id", "trait_name"))                        # a reworked "method_id" will be added here soon
+  dplyr::left_join(austraits$methods %>% 
+              dplyr::select("dataset_id", "trait_name", "methods", "method_id", "description",  "source_primary_citation", "data_collectors"),
+            by = c("dataset_id", "trait_name", "method_id"))
 ```
 
 ### Taxa
@@ -315,7 +313,7 @@ To add family, genus, taxon_rank and establishment_means:
 
 ```{r, eval = FALSE}
 austraits_with_taxa <-
-  (austraits %>% join_taxonomy)$traits
+  (austraits %>% austraits::join_taxonomy())$traits
 ```
 
 To add all columns from austraits\$taxa:
@@ -323,7 +321,7 @@ To add all columns from austraits\$taxa:
 ```{r, eval = FALSE}
 austraits_with_taxa <-
   austraits$traits %>%
-  left_join(austraits$taxa)
+  dplyr::left_join(austraits$taxa)
 ```
 
 ## Plotting data
@@ -338,47 +336,52 @@ To plot locations, you need to begin by merging on the latitude & longitude data
 
 data <-
   (austraits %>% 
-     extract_trait(trait_names = c("leaf_mass_per_area")) %>%
-     join_locations)$traits
+     austraits::extract_trait(trait_names = c("leaf_mass_per_area")) %>%
+     austraits::join_locations())$traits
 
-data %>% plot_locations("trait_name")
+data %>% austraits::plot_locations("trait_name")
 
 # or
 
 data <-
   (austraits %>%
-     extract_trait(trait_names = c("leaf_mass_per_area", "plant_height")) %>%
-     join_locations)$traits
+     austraits::extract_trait(trait_names = c("leaf_mass_per_area", "plant_height")) %>%
+     austraits::join_locations())$traits
 
-data %>% plot_locations("trait_name")
+data %>% austraits::plot_locations("trait_name")
 ```
 
 #### Plot locations by study
 
 ```{r, eval = FALSE}
+data <-
+  (austraits %>%
+     austraits::extract_dataset("Westoby_2014") %>%
+     austraits::join_locations())$traits
+
+data %>% austraits::plot_locations("dataset_id")
 
 data <-
   (austraits %>%
-     extract_dataset("Westoby_2014") %>%
-     join_locations)$traits
+     austraits::extract_dataset("Schulze_2014") %>%
+     austraits::join_locations())$traits
 
-data %>% plot_locations("dataset_id")
-
-data <-
-  (austraits %>%
-     extract_dataset("Schulze_2014") %>%
-     join_locations)$traits
-
-data %>% plot_locations("dataset_id")
+data %>% austraits::plot_locations("dataset_id")
 ```
+### An example with ALA data
 
+A recent tutorial posted by ALA shows how one can combine AusTraits trait data and ALA spatial occurrence data:
+
+https://labs.ala.org.au/posts/2023-08-28_alternatives-to-box-plots/post.html
+
+We've adopted it [here](spatial_data_example.html).
 
 
 ## Summarising data
 
 ### Summarising traits by taxon counts, dataset_id, etc.
 
-You can summarise all of AusTraits by trait name:
+As described above, you can summarise all of AusTraits by trait name:
 
 ```{r, eval = FALSE}
 austraits::summarise_austraits(austraits, "trait_name")
@@ -392,13 +395,13 @@ Or just look at info for nitrogen-related traits:
 austraits::lookup_trait(austraits, "_N_") -> N_traits
 
 austraits$traits %>% 
-  filter(trait_name %in% N_traits) %>% 
-  distinct(taxon_name, trait_name) %>% 
-  mutate(counter = 1) %>% 
-  group_by(trait_name) %>% 
-    mutate(counter = sum(counter)) %>% 
-    distinct(trait_name, counter) %>% 
-  ungroup()
+  dplyr::filter(trait_name %in% N_traits) %>% 
+  dplyr::distinct(taxon_name, trait_name) %>% 
+  dplyr::mutate(counter = 1) %>% 
+  dplyr::group_by(trait_name) %>% 
+    dplyr::mutate(counter = sum(counter)) %>% 
+    dplyr::distinct(trait_name, counter) %>% 
+  dplyr::ungroup()
 ```
 
 Or look at how many datasets have each trait:
@@ -407,13 +410,13 @@ Or look at how many datasets have each trait:
 austraits::lookup_trait(austraits, "_N_") -> N_traits
 
 austraits$traits %>% 
-  filter(trait_name %in% N_traits) %>% 
-  distinct(dataset_id, trait_name) %>% 
-  mutate(counter = 1) %>% 
-  group_by(trait_name) %>% 
-    mutate(counter = sum(counter)) %>% 
-    distinct(trait_name, counter) %>% 
-  ungroup()
+  dplyr::filter(trait_name %in% N_traits) %>% 
+  dplyr::distinct(dataset_id, trait_name) %>% 
+  dplyr::mutate(counter = 1) %>% 
+  dplyr::group_by(trait_name) %>% 
+    dplyr::mutate(counter = sum(counter)) %>% 
+    dplyr::distinct(trait_name, counter) %>% 
+  dplyr::ungroup()
 ```
 
 If you've sourced the file `extra_functions.R`, there are a few functions that allow you to summarise trait values.
@@ -430,7 +433,7 @@ Alternatively, create a wider matrix with possible trait values as columns:
 ```{r, eval = FALSE}
 categorical_summary_wider <- 
   categorical_summary_by_value(austraits, "resprouting_capacity") %>%
-    pivot_wider(names_from = value_tmp, values_from = replicates)
+    tidyr::pivot_wider(names_from = value_tmp, values_from = replicates)
 ```
 
 We're hesitant to write functions to summarise numeric traits, as this quickly requires statistical assumptions.
@@ -449,18 +452,18 @@ weighted <- austraits_weighted_means(austraits, c("leaf_mass_per_area", "leaf_le
 
 This function first groups values at the site level, then at the taxon level. For trait data sourced from floras, where trait values are documented as a minimum and maximum value, it simply takes the mean of these as an additional mean.
 
-
 ## A complexity: pivoting datasets
 
 AusTraits datasets can be pivoted from `long` to `wide` format:
 
 ```{r, eval = FALSE}
-
 Edwards_2000_values <-
   austraits %>%
-     extract_dataset("Edwards_2000")
+     austraits::extract_dataset("Edwards_2000")
 
-Edwards_2000_pivoted <- Edwards_2000_values$traits %>% trait_pivot_wider
+Edwards_2000_pivoted <- 
+  Edwards_2000_values$traits %>%
+  trait_pivot_wider()
 
 View(Edwards_2000_pivoted)
 ```
@@ -489,7 +492,8 @@ If a single dataset includes traits that are attributed to different entity type
 We're developing a function that collapses the pivoted data into a more condensed table, but this loses some of the metadata: 
 
 ```{r, eval = FALSE}
-Edwards_2000_pivoted_merged <- merge_entity_types("Edwards_2000")
+Edwards_2000_pivoted_merged <-
+  merge_entity_types("Edwards_2000")
 ```
 
 -   This function will duplicate any "higher-entity" trait values (e.g. A single species-level value is filled in for all individuals or populations)
@@ -497,7 +501,8 @@ Edwards_2000_pivoted_merged <- merge_entity_types("Edwards_2000")
 -   Metadata fields like `entity_type`, `value_type` is only retained if it is identical for all measurements
 
 ```{r, eval = FALSE}
-Westoby_2014_pivoted_merged <- merge_entity_types("Westoby_2014")
+Westoby_2014_pivoted_merged <-
+  merge_entity_types("Westoby_2014")
 ```
 
 
@@ -538,7 +543,7 @@ The R package [APCalign](https://github.com/traitecoevo/APCalign) is used to ali
 
 APC align can also now be installed directly from CRAN
 ``` {r, eval=FALSE}
-  install.packages("APCalign")
+install.packages("APCalign")
 ```
 
 There are two key components to the workflow: 
@@ -565,9 +570,9 @@ Identical `genus sp.` inputs from disparate datasets are given unique "names": 
 
 ```{r, eval = FALSE}
 austraits$traits %>%
-  filter(stringr::str_detect(taxon_name, "Eucalyptus sp\\.$")) %>%
-  distinct(dataset_id, taxon_name, original_name) %>%
-  filter(original_name != taxon_name)
+  dplyr::filter(stringr::str_detect(original_name, "Eucalyptus sp\\.$")) %>%
+  dplyr::distinct(dataset_id, taxon_name, original_name) %>%
+  dplyr::filter(original_name != taxon_name) 
 
 # A tibble: 4 × 3
   dataset_id     taxon_name                      original_name 
@@ -582,9 +587,9 @@ Outdated names are updated: 
 
 ```{r, eval = FALSE}
 austraits$traits %>%
-  filter(stringr::str_detect(original_name, "Dryandra")) %>%
-  distinct(taxon_name, original_name) %>%
-  filter(original_name != taxon_name)
+  dplyr::filter(stringr::str_detect(original_name, "Dryandra")) %>%
+  dplyr::distinct(taxon_name, original_name) %>%
+  dplyr::filter(original_name != taxon_name) %>% head()
 
 # A tibble: 152 × 2
    taxon_name                   original_name                
@@ -605,8 +610,8 @@ Phrase name syntax across datasets is aligned:
 
 ```{r, eval = FALSE}
 austraits$traits %>%
-     filter(stringr::str_detect(taxon_name, "Argyrodendron sp. Whyanbeel")) %>%
-     distinct(taxon_name, original_name)
+     dplyr::filter(stringr::str_detect(taxon_name, "Argyrodendron sp. Whyanbeel")) %>%
+     dplyr::distinct(taxon_name, original_name)
 
 # A tibble: 6 × 2
   taxon_name                                       original_name                                    
