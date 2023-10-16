@@ -401,6 +401,10 @@ data <-
 data$traits %>% austraits::plot_locations("dataset_id")
 ```
 
+### An example looking at trait-climate gradients
+
+A simple workflow allows one to look at [trait values across a climate gradient](traits_and_climate_example.html)
+
 ### An example with ALA data
 
 A recent tutorial posted by ALA shows how one can combine AusTraits trait data and ALA spatial occurrence data:
