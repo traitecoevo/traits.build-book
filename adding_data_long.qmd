@@ -1257,7 +1257,18 @@ dataset_ids <- "Smith_1995"
 build_setup_pipeline(method="base")
 
 # check data builds
-build(dataset_ids)
+source(build.R) # to build all of the database
+
+# or open the file build.R and run:
+
+library(traits.build)
+schema <- get_schema()
+resource_metadata <- get_schema("config/metadata.yml", "metadata")
+definitions <- get_schema("config/traits.yml", "traits")
+unit_conversions <- get_unit_conversions("config/unit_conversions.csv")
+taxon_list <- read_csv_char("config/taxon_list.csv")
+
+# plus the three lines of code for the dataset you're adding
 
 # run tests on dataset
 austraits_run_tests()
@@ -1267,7 +1278,9 @@ f <- file.path("data", dataset_ids, "metadata.yml")
 read_metadata(f) %>% write_metadata(f)
 
 # rebuild
-build(dataset_ids)
+source(build.R) # to build all of the database
+
+# or open the file build.R and run the lines of code specified above
 ```
 
 Now back in the terminal

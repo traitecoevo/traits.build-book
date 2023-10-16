@@ -45,7 +45,8 @@ book:
       chapters:
         - austraits_database.qmd
         - austraits_package.qmd
-        - austraits_build_tutorial.qmd
+        - AusTraits_tutorial.qmd
+        - spatial_data_example.qmd
     - part: Getting help
       chapters:
         - help.qmd
