@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - 6&nbsp; Data standard</title>
+<title>The {traits.build} data standard, R package, and workflow - 30&nbsp; Combining trait values and climate data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./database_structure.html" rel="next">
-<link href="./long_wide.html" rel="prev">
+<link href="./spatial_data_example.html" rel="next">
+<link href="./AusTraits_tutorial.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./long_wide.html">Data structure and standard</a></li><li class="breadcrumb-item"><a href="./database_standard.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data standard</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./austraits_database.html">Using outputs of <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./traits_and_climate_example.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Combining trait values and climate data</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -151,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./database_standard.html" class="sidebar-item-text sidebar-link active">
+  <a href="./database_standard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data standard</span></span></a>
   </div>
 </li>
@@ -328,7 +362,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./traits_and_climate_example.html" class="sidebar-item-text sidebar-link">
+  <a href="./traits_and_climate_example.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Combining trait values and climate data</span></span></a>
   </div>
 </li>
@@ -396,9 +430,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#database-that-fully-documents-ecological-metadata" id="toc-database-that-fully-documents-ecological-metadata" class="nav-link" data-scroll-target="#database-that-fully-documents-ecological-metadata">Database that fully documents ecological metadata</a></li>
-  <li><a href="#database-standard-described-by-an-ontology" id="toc-database-standard-described-by-an-ontology" class="nav-link" data-scroll-target="#database-standard-described-by-an-ontology">Database standard described by an ontology</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">30.1</span> Introduction</a></li>
+  <li><a href="#extract-data-from-austraits" id="toc-extract-data-from-austraits" class="nav-link" data-scroll-target="#extract-data-from-austraits"><span class="header-section-number">30.2</span> Extract data from AusTraits</a></li>
+  <li><a href="#download-and-open-spatial-climatic-data" id="toc-download-and-open-spatial-climatic-data" class="nav-link" data-scroll-target="#download-and-open-spatial-climatic-data"><span class="header-section-number">30.3</span> Download and open spatial climatic data</a></li>
+  <li><a href="#plot-your-data" id="toc-plot-your-data" class="nav-link" data-scroll-target="#plot-your-data"><span class="header-section-number">30.4</span> Plot your data</a></li>
   </ul>
 </nav>
     </div>
@@ -407,7 +442,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data standard</span></h1>
+<h1 class="title"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Combining trait values and climate data</span></h1>
 </div>
 
 
@@ -422,49 +457,138 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="overview" class="level3">
-<h3 class="anchored" data-anchor-id="overview">Overview</h3>
-<p>A single universally accepted trait database standard does not currently exist among plant ecologists, limiting our ability to merge together distinct databases.</p>
-<p>A broadly accepted standard must achieve two goals:</p>
-<ol type="1">
-<li><p>Be able to fully document the metadata and, in particular, the contextual information, essential to interpreting ecological data.</p></li>
-<li><p>Be fully described in an ontology (or through figures) that clearly capture the meaning of each database field (column) and the relationships between database fields.</p></li>
-</ol>
-<p>The AusTraits Project aims to offer a trait database standard that achieves both these goals.</p>
-<p>Our database standard has not been invented from scratch. We have built upon ideas and standards described in previous publications and ontologies. In particular:</p>
-<ul>
-<li><p>OBOE, the Extensible Observation Ontology (Madin, Joshua, et al.&nbsp;(2007) “An ontology for describing and synthesizing ecological observation data.” Ecological informatics) doi: <a href="https://doi.org/10.1016/j.ecoinf.2007.05.004">10.1016/j.ecoinf.2007.05.004</a></p></li>
-<li><p>ETS, the Ecological Trait-data Standard (Schneider, Florian D., et al.&nbsp;(2019) “Towards an ecological trait‐data standard.” Methods in Ecology and Evolution.) doi: <a href="https://doi.org/10.1111/2041-210X.13288">10.1111/2041-210X.13288</a></p></li>
-<li><p>DarwinCore <a href="https://dwc.tdwg.org/">dwc.tdwg.org</a></p></li>
-</ul>
+<section id="introduction" class="level2" data-number="30.1">
+<h2 data-number="30.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">30.1</span> Introduction</h2>
+<p>A more involved analysis is merging trait data with climatic parameters.</p>
+<p><em>Please note the data summary and analysis presented here is similar to that in a manuscript currently in review, Towers et al, “Revisiting the role of mean annual precipitation in shaping functional trait distributions at a continental scale”, doi: 10.1101/2023.06.29.546983</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># open austraits</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="database-that-fully-documents-ecological-metadata" class="level3">
-<h3 class="anchored" data-anchor-id="database-that-fully-documents-ecological-metadata">Database that fully documents ecological metadata</h3>
-<p>To date, <a href="https://github.com/traitecoevo/austraits.build">AusTraits</a>, Australia’s Plant Trait Database, has incorporated more than 370 unique datasets, spanning the breadth of plant trait data collected across Australia. It has been more than 6 months (and ~50 datasets) since we have identified a class of metadata or contextual information that could not be mapped into the traits.build structure.</p>
-<p>The database structure can capture:</p>
-<ul>
-<li><p><strong>location information</strong>, including coordinates and location properties</p></li>
-<li><p>the <strong>entity</strong> associated with each trait measurement (e.g.&nbsp;species, population, individual)</p></li>
-<li><p><strong>temporal contexts</strong>, reflecting repeat measurements of an entity across time</p></li>
-<li><p><strong>treatment contexts</strong>, indicating distinct treatments applied to different entities</p></li>
-<li><p><strong>entity contexts</strong>, documenting defining features of individual entities (e.g.&nbsp;sex or age of an individual)</p></li>
-<li><p><strong>method contexts</strong>, documenting slight variations in sampling protocols</p></li>
-<li><p><strong>response curve measurements</strong> are grouped into a single observation and assigned sequential identifiers</p></li>
-</ul>
-<p>The database standard will continue to evolve as traits.build is used to build a greater diversity of trait databases, but, already offers a flexible, detailed structure for capturing and harmonising ecological data.</p>
-<p>See <a href="database_metadata.html">relationships between database variables</a> for more details.</p>
+<section id="extract-data-from-austraits" class="level2" data-number="30.2">
+<h2 data-number="30.2" class="anchored" data-anchor-id="extract-data-from-austraits"><span class="header-section-number">30.2</span> Extract data from AusTraits</h2>
+<p>For the analysis here, two subsets of AusTraits data are required.</p>
+<p>First, extracting data on woodiness. There are three traits for which AusTraits has near-complete taxon coverage. Woodiness &amp; plant growth form are in Wenk_2022 and life history is in Wenk_2023_1:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>woody_taxa <span class="ot">&lt;-</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  austraits<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(trait_name <span class="sc">==</span> <span class="st">"woodiness_detailed"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(dataset_id <span class="sc">==</span> <span class="st">"Wenk_2022"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(taxon_name, value) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">woodiness =</span> <span class="fu">ifelse</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(value, <span class="st">"herb"</span>), <span class="st">"herbaceous"</span>, <span class="st">"woody"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Second, extract the numeric trait data you want to analyse. Only field-collected data on adult plants with reported coordinates is used:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>trait_data <span class="ot">&lt;-</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  (austraits <span class="sc">%&gt;%</span> <span class="fu">join_locations</span>())<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">latitude =</span> <span class="st">`</span><span class="at">latitude (deg)</span><span class="st">`</span>, <span class="at">longitude =</span> <span class="st">`</span><span class="at">longitude (deg)</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(latitude)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(trait_name <span class="sc">==</span> <span class="st">"leaf_mass_per_area"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(basis_of_record <span class="sc">==</span> <span class="st">"field"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(life_stage <span class="sc">==</span> <span class="st">"adult"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(dataset_id, location_name, taxon_name) <span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">value =</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(value))) <span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">ID =</span> <span class="fu">row_number</span>(),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">latitude =</span> <span class="fu">as.numeric</span>(latitude),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">longitude =</span> <span class="fu">as.numeric</span>(longitude)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(value, dataset_id, location_name, taxon_name, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(latitude)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(longitude)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">left_join</span>(woody_taxa, <span class="at">by =</span> <span class="st">"taxon_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="database-standard-described-by-an-ontology" class="level3">
-<h3 class="anchored" data-anchor-id="database-standard-described-by-an-ontology">Database standard described by an ontology</h3>
-<p>A database standard is only useful if:</p>
-<ul>
-<li><p>Each database field has a clear and consistent meaning</p></li>
-<li><p>The relationships between database fields are explicit and meaningful</p></li>
-<li><p>This information can readily be interpreted by both trait database custodians and database users</p></li>
-</ul>
-<p>Building both a formal ontology and visualisations of the ontology has been essential toward reaching these goals. To quote a seminal paper, “Ontological analysis clarifies the structure of knowledge” <a href="http://dx.doi.org/10.1109/5254.747902">(Chandrasekaran et al., 1999)</a>.</p>
-<p>Indeed, the construction of <code>knowledge graphs</code> and ontological analysis has undercovered locations where a lack of semantic clarity in database structure reduced the interpretation of the output data. This iterative process leads to the continual refinement of the database structure and mapped links across database fields.</p>
-<p>Our ontology remains a work-in-progress, but an outdated version is available at <a href="https://github.com/traitecoevo/austraits.build/blob/develop/config/traits.build_v000.owl">traits.build ontology</a>.</p>
+<section id="download-and-open-spatial-climatic-data" class="level2" data-number="30.3">
+<h2 data-number="30.3" class="anchored" data-anchor-id="download-and-open-spatial-climatic-data"><span class="header-section-number">30.3</span> Download and open spatial climatic data</h2>
+<p>Download the climatic layers of interest from WorldClim:</p>
+<p>https://www.worldclim.org/data/worldclim21.html</p>
+<p>Download a shapefile of Australia:</p>
+<p>https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files</p>
+<p>Load a target raster, to set the baseline Coordinate Reference System (CRS) and resolution:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>target_raster <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">rast</span>(<span class="st">"data/climate_data/wc2.1_2.5m_bio/wc2.1_2.5m_bio_12.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Set the target CRS:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>target_crs <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">crs</span>(target_raster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Load australia as a vector file to bound observations, using the target crs from above:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>australia <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">vect</span>(<span class="st">"data/AUS_2021_AUST_SHP_GDA2020/"</span>, <span class="at">crs=</span>target_crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Crop the extent of the target raster with the vector file above and confirm the data are as expected:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>precip_data_cropped <span class="ot">&lt;-</span> target_raster <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">crop</span>(australia)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(precip_data_cropped)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Project the AusTraits data into a spatial format and confirm the data plot as expected:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>occurrence_data_species_family_vect <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">vect</span>(trait_data,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                                                   <span class="at">geom =</span> <span class="fu">c</span>(<span class="st">"longitude"</span>, <span class="st">"latitude"</span>),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                                                   <span class="at">crs =</span> terra<span class="sc">::</span><span class="fu">crs</span>(precip_data_cropped))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(occurrence_data_species_family_vect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Use the function <code>terra::extract</code> to extract climate variables for each AusTraits data point:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>extracted_tmp <span class="ot">&lt;-</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">extract</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> precip_data_cropped,                   <span class="co"># climatic data</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> occurrence_data_species_family_vect,   <span class="co"># AusTraits trait data</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"simple"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">cells =</span> <span class="cn">TRUE</span>, <span class="at">bind =</span> <span class="cn">TRUE</span>, <span class="at">ID =</span> <span class="cn">FALSE</span>, <span class="at">xy =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Turn extracted values into a dataframe and separate data for herbaceous versus woody taxa:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>extracted <span class="ot">&lt;-</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">values</span>(extracted_tmp) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">value_herbs =</span> <span class="fu">ifelse</span>(woodiness <span class="sc">==</span> <span class="st">"herbaceous"</span>, value, <span class="cn">NA</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">value_woody =</span> <span class="fu">ifelse</span>(woodiness <span class="sc">==</span> <span class="st">"woody"</span>, value, <span class="cn">NA</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="plot-your-data" class="level2" data-number="30.4">
+<h2 data-number="30.4" class="anchored" data-anchor-id="plot-your-data"><span class="header-section-number">30.4</span> Plot your data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> extracted,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> wc2<span class="fl">.1</span>_2<span class="fl">.5</span>m_bio_12,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> value_herbs),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">shape =</span> <span class="dv">16</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">alpha =</span> <span class="fl">0.4</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"darkseagreen3"</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> extracted,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> wc2<span class="fl">.1</span>_2<span class="fl">.5</span>m_bio_12,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> value_woody),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="dv">16</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.4</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"coral"</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">trans =</span> <span class="st">"log10"</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">trans =</span> <span class="st">"log10"</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Annual precipitation (mm)"</span>,</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Leaf mass per area (g/m2)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
@@ -705,13 +829,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./long_wide.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Long vs Wide data</span></span>
+      <a href="./AusTraits_tutorial.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./database_structure.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data structure</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./spatial_data_example.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Tutorial: Using AusTraits with spatial data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
