@@ -1,0 +1,158 @@
+# Combining trait values and climate data
+
+## Introduction
+
+A more involved analysis is merging trait data with climatic parameters. 
+
+*Please note the data summary and analysis presented here is similar to that in a manuscript currently in review, Towers et al, "Revisiting the role of mean annual precipitation in shaping functional trait distributions at a continental scale", doi: 10.1101/2023.06.29.546983*
+
+```{r, eval = FALSE, message = FALSE}
+library(dplyr)
+library(stringr)
+library(terra)
+library(purrr)
+library(ggplot2)
+
+# open austraits
+```
+
+## Extract data from AusTraits
+
+For the analysis here, two subsets of AusTraits data are required.
+
+First, extracting data on woodiness. There are three traits for which AusTraits has near-complete taxon coverage. Woodiness & plant growth form are in Wenk_2022 and life history is in Wenk_2023_1:
+
+```{r, eval = FALSE}
+woody_taxa <-
+  austraits$traits %>%
+  dplyr::filter(trait_name == "woodiness_detailed") %>%
+  dplyr::filter(dataset_id == "Wenk_2022") %>%
+  dplyr::select(taxon_name, value) %>%
+  dplyr::mutate(woodiness = ifelse(stringr::str_detect(value, "herb"), "herbaceous", "woody")) %>%
+  dplyr::select(-value)
+```
+
+Second, extract the numeric trait data you want to analyse. Only field-collected data on adult plants with reported coordinates is used: 
+
+```{r, eval = FALSE}
+trait_data <-
+  (austraits %>% join_locations())$traits %>%
+  rename(latitude = `latitude (deg)`, longitude = `longitude (deg)`) %>%
+  dplyr::filter(!is.na(latitude)) %>%
+  dplyr::filter(trait_name == "leaf_mass_per_area") %>%
+  dplyr::filter(basis_of_record == "field") %>%
+  dplyr::filter(life_stage == "adult") %>%
+  dplyr::group_by(dataset_id, location_name, taxon_name) %>%
+  dplyr::mutate(value = mean(as.numeric(value))) %>%
+  dplyr::ungroup() %>%
+  dplyr::mutate(
+    ID = row_number(),
+    latitude = as.numeric(latitude),
+    longitude = as.numeric(longitude)
+  ) %>%
+  distinct(value, dataset_id, location_name, taxon_name, .keep_all = TRUE) %>%
+  dplyr::filter(!is.na(latitude)) %>%
+  dplyr::filter(!is.na(longitude)) %>%
+  dplyr::left_join(woody_taxa, by = "taxon_name")
+```
+
+## Download and open spatial climatic data
+
+Download the climatic layers of interest from WorldClim:
+
+https://www.worldclim.org/data/worldclim21.html
+
+Download a shapefile of Australia:
+
+https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files
+
+Load a target raster, to set the baseline Coordinate Reference System (CRS) and resolution:
+
+```{r, eval = FALSE}
+target_raster <- terra::rast("data/climate_data/wc2.1_2.5m_bio/wc2.1_2.5m_bio_12.tif")
+```
+
+Set the target CRS:
+
+```{r, eval = FALSE}
+target_crs <- terra::crs(target_raster)
+```
+
+Load australia as a vector file to bound observations, using the target crs from above:
+
+```{r, eval = FALSE}
+australia <- terra::vect("data/AUS_2021_AUST_SHP_GDA2020/", crs=target_crs)
+```
+
+Crop the extent of the target raster with the vector file above and confirm the data are as expected:
+
+```{r, eval = FALSE}
+precip_data_cropped <- target_raster %>%
+  terra::crop(australia)
+
+plot(precip_data_cropped)
+```
+
+Project the AusTraits data into a spatial format and confirm the data plot as expected:
+
+```{r, eval = FALSE}
+occurrence_data_species_family_vect <- terra::vect(trait_data,
+                                                   geom = c("longitude", "latitude"),
+                                                   crs = terra::crs(precip_data_cropped))
+
+plot(occurrence_data_species_family_vect)
+```
+
+Use the function `terra::extract` to extract climate variables for each AusTraits data point:
+
+```{r, eval = FALSE}
+extracted_tmp <-
+  terra::extract(
+    x = precip_data_cropped,                   # climatic data
+    y = occurrence_data_species_family_vect,   # AusTraits trait data
+    method = "simple",
+    cells = TRUE, bind = TRUE, ID = FALSE, xy = TRUE)
+```
+
+
+Turn extracted values into a dataframe and separate data for herbaceous versus woody taxa:
+
+```{r, eval = FALSE}
+extracted <-
+  terra::values(extracted_tmp) %>%
+    mutate(
+      value_herbs = ifelse(woodiness == "herbaceous", value, NA),
+      value_woody = ifelse(woodiness == "woody", value, NA)
+    )
+```
+
+## Plot your data
+
+```{r, eval = FALSE}
+ggplot() +
+  geom_point(
+    data = extracted,
+    aes(x = wc2.1_2.5m_bio_12,
+        y = value_herbs),
+        shape = 16,
+        alpha = 0.4,
+        color = "darkseagreen3"
+    ) +
+  geom_point(
+    data = extracted,
+    aes(x = wc2.1_2.5m_bio_12,
+        y = value_woody),
+    shape = 16,
+    alpha = 0.4,
+    color = "coral"
+  ) +
+  scale_x_continuous(
+    trans = "log10"
+  ) +
+  scale_y_continuous(
+    trans = "log10"
+  ) +
+  labs(
+    x = "Annual precipitation (mm)",
+    y = "Leaf mass per area (g/m2)")
+```

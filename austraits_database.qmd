@@ -16,3 +16,53 @@ As of October, 2023, AusTraits has:
 
 -   30,000 Australian plant taxa 
 
+## Accessing AusTraits data
+
+There are multiple ways to access and manipulate AusTraits data.\
+
+-   Download the dataset from [Zenodo](https://doi.org/10.5281/zenodo.3568417)\
+
+-   Source AusTraits using the [austraits R package](https://github.com/traitecoevo/austraits)\
+
+-   Clone the austraits.build GitHub repository and build AusTraits from the current [develop branch](https://github.com/traitecoevo/austraits.build) (*not easily reproducible*)
+
+### Download database with austraits.R package
+
+First install and source the package: 
+
+```{r, eval = FALSE}
+install.packages("remotes")  # if it isn't already installed on your machine
+
+remotes::install_github("traitecoevo/austraits", dependencies = TRUE, upgrade = "ask")
+
+library(austraits) 
+```
+
+Before loading AusTraits, see what versions are available,
+
+```{r  eval = FALSE}
+get_versions()
+```
+
+yields:
+
+```{r, eval = FALSE}
+# A tibble: 6 × 3
+  date       version doi                   
+  <chr>      <chr>   <chr>                 
+1 2023-01-30 4.2.0   10.5281/zenodo.8353840 
+2 2023-01-30 4.1.0   10.5281/zenodo.7583087
+3 2022-11-27 4.0.0   10.5281/zenodo.7368074
+4 2021-07-14 3.0.2   10.5281/zenodo.5112001
+5 2021-07-14 3.0.1   10.5281/zenodo.5099552
+6 2021-07-14 3.0.0   10.5281/zenodo.5099545
+```
+
+Download the most recently released version:
+
+```{r, eval = FALSE}
+austraits <- austraits::load_austraits(doi = "10.5281/zenodo.8353840") # you can load from the Zenodo doi
+
+austraits <- austraits::load_austraits(version = "4.1.0") # you can load from the version
+                                                          # the `path` argument stores a copy for future use.
+```
