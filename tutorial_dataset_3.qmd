@@ -292,9 +292,8 @@ At this point, run the dataset tests and rebuild the dataset:
 ```{r, eval=FALSE}
 dataset_test("tutorial_dataset_3")
 
-build_setup_pipeline()
-
-traits.build_database <- remake::make("austraits")
+build_setup_pipeline(method = "base", database_name = "traits.build_database")
+source("build.R")
 ```
 
 The dataset test should yield an error that one `water_potential_predawn` value does not convert to numeric, indicating a placeholder-character is being used in place of an NA [{note: this error wasn't triggering as this vignette was being written)]{style="color:red;"}

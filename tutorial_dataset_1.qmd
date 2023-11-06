@@ -423,11 +423,11 @@ This *should* result in the following output:
 
 ##### **add dataset to the database** {#build_pipline}
 
-Next add the dataset_id to the remake file that builds the database and remake the database
+Next add the dataset_id to the build file that builds the database and rebuild the database
 
 ```{r, eval=FALSE}
-build_setup_pipeline()
-traits.build_database <- remake::make("austraits")
+build_setup_pipeline(method = "base", database_name = "traits.build_database")
+source("build.R")
 ```
 
 ##### **build dataset report**

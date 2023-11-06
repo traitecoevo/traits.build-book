@@ -33,8 +33,8 @@ traits.build-template is a GitHub repository that contains:
 
 Once you have cloned the repository and installed the package, the next step is to build the simplistic sample database:
 ```{r, eval=FALSE}
-build_setup_pipeline()
-traits.build_database <- remake::make("austraits")
+build_setup_pipeline(method = "base", database_name = "traits.build_database")
+source("build.R")
 ```
 
 As described in the chapter on [data structure](database_structure.html) the database is comprised of a series of relational tables and additional lists with metadata.
