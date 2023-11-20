@@ -576,16 +576,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> Drake and Franks <span class="dv">2003</span>  </span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span> Drake et al. <span class="dv">2011</span>      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You would now need to look up each of these references in the reference section of the manuscript and use Google Scholar (or another reference resource) to look up the doi for each reference.<br>
-</p>
-<p>To add additional references, you need to add an argument to the <code>metadata_add_source_doi</code> function:<br>
+<p>You would now need to look up each of these references in the reference section of the manuscript and use Google Scholar (or another reference resource) to look up the doi for each reference.add additional references, you need to add an argument to the <code>metadata_add_source_doi</code> function:<br>
 </p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_4"</span>, <span class="at">doi =</span> <span class="st">"10.1071/bt9960249"</span>, <span class="at">type =</span> <span class="st">"secondary"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_4"</span>, <span class="at">doi =</span> <span class="st">"10.1071/bt9960249"</span>, <span class="at">type =</span> <span class="st">"original_01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If you now look at the metadata file you’ll see that a second reference has been added. However, you need to manually change the <code>key</code> field to be the <code>author_year</code> of this reference, <code>Barrett_1996</code>. In addition, you need to change the field <code>secondary_01</code> to <code>original_01</code>. Per the <code>traits.build</code> schema, a secondary reference is when there have been two related publications out of a single dataset, while the term <code>original</code> is used if the data were collected as part of a previous dataset (generally by different authors) and added to <code>traits.build</code> as part of a compilation.<br>
+<p>Per the <code>traits.build</code> schema, a secondary reference is when there have been two related publications out of a single dataset, while the term <code>original</code> is used if the data were collected as part of a previous dataset (generally by different authors) and added to <code>traits.build</code> as part of a compilation.<br>
 </p>
-<p>When you add <code>Benyon_1999</code> (doi - “10.1016/s0378-3774(98)00080-8”), you’ll need to change the field <code>secondary_01</code> to <code>original_02</code>, etc.</p>
+<p>When you add <code>Benyon_1999</code> (doi - “10.1016/s0378-3774(98)00080-8”), you’ll need to change the <code>type</code> field to <code>original_02</code>, etc.</p>
 <p>Note that AusTraits will build fine without adding all 11 original sources; it is up to you how many you want to add as a test.</p>
 <hr>
 </section>

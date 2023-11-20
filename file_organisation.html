@@ -866,9 +866,9 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><strong>data_is_long_format</strong>: Indicates if the data spreadsheet has a vertical (long) or horizontal (wide) configuration with <code>yes</code> or <code>no</code> terminology.</li>
 <li><strong>custom_R_code</strong>: A field where additional R code can be included. This allows for custom manipulation of the data in the submitted spreadsheet into a different format for easy integration with AusTraits. <code>.na</code> indicates no custom R code was used.</li>
-<li><strong>collection_date</strong>: Date sample was taken, in the format <code>yyyy-mm-dd</code>, <code>yyyy-mm</code> or <code>yyyy</code>, depending on the resoluton specified. Alternatively an overall range for the study can be indicating, with the starting and ending sample date sepatated by a <code>/</code>, as in 2010-10/2011-03</li>
+<li><strong>collection_date</strong>: Date sample was taken, in the format <code>yyyy-mm-dd</code>, <code>yyyy-mm</code> or <code>yyyy</code>, depending on the resoluton specified. Alternatively an overall range for the study can be indicating, with the starting and ending sample date sepatated by a <code>/</code>, as in 2010-10/2011-03.</li>
 <li><strong>taxon_name</strong>: Scientific name of the taxon on which traits were sampled, without authorship. When possible, this is the currently accepted (botanical) or valid (zoological) scientific name, but might also be a higher taxonomic level.</li>
-<li><strong>location_name</strong>: location name</li>
+<li><strong>location_name</strong>: The location name.</li>
 <li><strong>source_id</strong>: For datasets that are compilations, an identifier for the original data source.</li>
 <li><strong>individual_id</strong>: A unique integer identifier for an individual, with individuals numbered sequentially within each dataset by taxon by population grouping. Most often each row of data represents an individual, but in some datasets trait data collected on a single individual is presented across multiple rows of data, such as if the same trait is measured using different methods or the same individual is measured repeatedly across time.</li>
 <li><strong>repeat_measurements_id</strong>: A unique integer identifier for repeat measurements of a trait that comprise a single observation, such as a response curve.</li>
@@ -943,7 +943,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>context_property</strong>: The context property represented by the data in the column specified by <code>var_in</code>.</li>
 <li><strong>category</strong>: The category of contextual data. Options are <code>plot</code> (a distinct collection of organisms within a single geographic location, such as plants growing on different aspects or blocks in an experiment), <code>treatment</code> (an experimental treatment), <code>entity_context</code> (contextual information to record about the entity the isn’t documented elsewhere, including the entity’s sex, caste), <code>temporal</code> (indicating when repeat observations are made on the same individual (or population, or taxon) across time) and <code>method</code> (indicating the same trait was measured on the same individual (or population, or taxon) using multiple methods).</li>
 <li><strong>var_in</strong>: Name of column with contextual data in the original data submitted.</li>
-<li><strong>find</strong>: The contextual values in the original data submitted (optional)</li>
+<li><strong>find</strong>: The contextual values in the original data submitted (optional).</li>
 <li><strong>value</strong>: The standardised contextual values, aligning syntax and wording with other studies.</li>
 <li><strong>description</strong>: A description of the contextual values.</li>
 </ul>
@@ -1008,7 +1008,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>basis_of_value</strong>: A categorical variable describing how the trait value was obtained.</li>
 <li><strong>source_id</strong>: For datasets that are compilations, an identifier for the original data source.</li>
 <li><strong>replicates</strong>: Number of replicate measurements that comprise a recorded trait measurement. A numeric value (or range) is ideal and appropriate if the value type is a <code>mean</code>, <code>median</code>, <code>min</code> or <code>max</code>. For these value types, if replication is unknown the entry should be <code>unknown</code>. If the value type is <code>raw_value</code> the replicate value should be 1. If the trait is categorical or the value indicates a measurement for an entire species (or other taxon) replicate value should be <code>.na</code>.</li>
-<li><strong>collection_date</strong>: Date sample was taken, in the format <code>yyyy-mm-dd</code>, <code>yyyy-mm</code> or <code>yyyy</code>, depending on the resoluton specified. Alternatively an overall range for the study can be indicating, with the starting and ending sample date sepatated by a <code>/</code>, as in 2010-10/2011-03</li>
+<li><strong>collection_date</strong>: Date sample was taken, in the format <code>yyyy-mm-dd</code>, <code>yyyy-mm</code> or <code>yyyy</code>, depending on the resoluton specified. Alternatively an overall range for the study can be indicating, with the starting and ending sample date sepatated by a <code>/</code>, as in 2010-10/2011-03.</li>
 <li><strong>measurement_remarks</strong>: Brief comments or notes accompanying the trait measurement.</li>
 <li><strong>methods</strong>: A textual description of the methods used to collect the trait data. Whenever available, methods are taken near-verbatim from the referenced source. Methods can include descriptions such as ‘measured on botanical collections’, ‘data from the literature’, or a detailed description of the field or lab methods used to collect the data.</li>
 <li><strong>life_stage</strong>: A field to indicate the life stage or age class of the entity measured. Standard values are <code>adult</code>, <code>sapling</code>, <code>seedling</code> and <code>juvenile</code>.</li>
@@ -1075,6 +1075,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>find</strong>: Name given to taxon in the original data supplied by the authors.</li>
 <li><strong>replace</strong>: Scientific name of the taxon on which traits were sampled, without authorship. When possible, this is the currently accepted (botanical) or valid (zoological) scientific name, but might also be a higher taxonomic level.</li>
 <li><strong>reason</strong>: Records why the change was implemented, e.g.&nbsp;<code>typos</code>, <code>taxonomic synonyms</code>, and <code>standardising spellings</code></li>
+<li><strong>taxonomic_resolution</strong>: The rank of the most specific taxon name (or scientific name) to which a submitted orignal name resolves.</li>
 </ul>
 <p>Algorithms within AusTraits automatically align outdated taxonomy and taxonomic synonyms to their currently accepted scientific name, so such adjustments are not documented as substitutions.</p>
 <p>Some examples of taxonomic updates are as follows:</p>
