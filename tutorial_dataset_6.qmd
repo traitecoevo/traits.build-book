@@ -74,7 +74,7 @@ Notes:\
 
 -   This is the first tutorial that includes `repeat_measurement_id`'s. `repeat_measurement_id`'s are sequential integer identifiers assigned to a sequence of measurements on a single trait that together represent a single observation (and are assigned a single `observation_id` by the `traits.build` pipeline. The assumption is that these are measurements that document points on a response curve. Although the exact `time` of each measurement will of course be different for point on the curve, `time` is not a temporal context and must be identical for all measurements within a single curve.
 
-For this dataset - and probably for most datasets that document response curve data - all traits being added will be repeat measurements. However, if some columns of trait data are not part of the response curve data, one can alternatively map `repeat_measurments_id: TRUE` for individual traits in the traits section of `metadata.yml`.
+For this dataset - and probably for most datasets that document response curve data - all traits being added will be repeat measurements. However, if some columns of trait data are not part of the response curve data, one can alternatively map `repeat_measurement_id: TRUE` for individual traits in the traits section of `metadata.yml`.
 
 A word of warning for datasets where the output data includes a `time stamp`. Ensure that there is a separate `collection_date` column that is a `date` not a `time`, as all measurements that comprise a single response curve must have the same `collection_date`. Otherwise, the `traits.build` pipeline will assign them each separate `observation_id`'s.
 

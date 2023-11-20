@@ -114,7 +114,7 @@ To confirm you are using the correct syntax, check the terms already in use:
 
 ```{r, eval=FALSE}
 locations_properties <-
-  traits.build_database$sites %>%
+  traits.build_database$locations %>%
   distinct(location_property) %>%
   View()
 ```
@@ -299,7 +299,7 @@ To add a column with substitutions, then add the substitutions to the metadata f
 
 ```{r, eval=FALSE}
 table <- table %>%
-  mutate(replace = c("shrub", "tree", "herb", NA, "graminoid", "fern", "vine"))
+  mutate(replace = c("shrub", "tree", "herb", NA, "graminoid", "fern", "climber_herbaceous"))
 
 ## an alternative is `mutate(replace = c("shrub", "tree", "herb", "epiphyte", "graminoid", "fern", "climber_herbaceous"))` which will result in the epiphyte observations remaining in the excluded data table
 
@@ -407,8 +407,10 @@ custom_R_code: '
     mutate(
       across(c("TRAIT Leaf Dry Mass UNITS g"), ~na_if(.x,0))
     ) %>%
-    group_by(name_original) %>% #column with taxon name
-      across(c("TRAIT Growth Form CATEGORICAL EP epiphyte (mistletoe) F fern G grass H herb S shrub T tree V vine"), replace_duplicates_with_NA) %>%
+    group_by(name_original) %>% 
+    mutate(
+      across(c("TRAIT Growth Form CATEGORICAL EP epiphyte (mistletoe) F fern G grass H herb S shrub T tree V vine"), replace_duplicates_with_NA)
+    ) %>%
     ungroup()
 '
 ```

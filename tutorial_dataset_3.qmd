@@ -98,7 +98,7 @@ For instance, for this study:\
 3.  values for these fields must then be filled in manually\
 
 ```{r, eval=FALSE}
-data <- read_csv("data/tutorial_dataset_3.csv")
+data <- read_csv("data/tutorial_dataset_3/data.csv")
 
 metadata_add_locations("tutorial_dataset_3", data)
 ```
