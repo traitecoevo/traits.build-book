@@ -48,7 +48,7 @@ Then download (or build) the latest AusTraits data, by one of the methods descri
 This tutorial uses the most recent AusTraits release, version `r austraits::get_versions()[[2]][1]`
 
 ```{r, eval = TRUE}
-most_recent <- austraits::get_versions()[[3]][1]
+most_recent <- austraits::get_versions()|> dplyr::pull("doi") |> dplyr::first()
 
 most_recent
 
