@@ -6,14 +6,24 @@ A more involved analysis is merging trait data with climatic parameters.
 
 *Please note the data summary and analysis presented here is similar to that in a manuscript currently in review, Towers et al, "Revisiting the role of mean annual precipitation in shaping functional trait distributions at a continental scale", doi: 10.1101/2023.06.29.546983*
 
+The code presented here must be run on your off machine, as the climate data files required are not hosted on the traits.build-book GitHub repository.
+
 ```{r, eval = FALSE, message = FALSE}
 library(dplyr)
 library(stringr)
 library(terra)
 library(purrr)
 library(ggplot2)
+```
 
-# open austraits
+This example uses the most recent AusTraits release, version `r austraits::get_versions()[[2]][1]`
+
+```{r, eval = TRUE}
+most_recent <- austraits::get_versions()[[3]][1]
+
+most_recent
+
+austraits <- austraits::load_austraits(doi = most_recent)
 ```
 
 ## Extract data from AusTraits
@@ -29,12 +39,13 @@ woody_taxa <-
   dplyr::filter(dataset_id == "Wenk_2022") %>%
   dplyr::select(taxon_name, value) %>%
   dplyr::mutate(woodiness = ifelse(stringr::str_detect(value, "herb"), "herbaceous", "woody")) %>%
-  dplyr::select(-value)
+  dplyr::select(-value) %>%
+  dplyr::distinct(taxon_name, .keep_all = TRUE)
 ```
 
 Second, extract the numeric trait data you want to analyse. Only field-collected data on adult plants with reported coordinates is used: 
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, message = FALSE, warning = FALSE}
 trait_data <-
   (austraits %>% join_locations())$traits %>%
   rename(latitude = `latitude (deg)`, longitude = `longitude (deg)`) %>%
@@ -69,7 +80,7 @@ https://www.abs.gov.au/statistics/standards/australian-statistical-geography-sta
 Load a target raster, to set the baseline Coordinate Reference System (CRS) and resolution:
 
 ```{r, eval = FALSE}
-target_raster <- terra::rast("export/workshop/wc2.1_2.5m_bio_12.tif")
+target_raster <- terra::rast("export/wc2.1_2.5m_bio_12.tif")
 ```
 
 Set the target CRS:
@@ -81,7 +92,7 @@ target_crs <- terra::crs(target_raster)
 Load australia as a vector file to bound observations, using the target crs from above:
 
 ```{r, eval = FALSE}
-australia <- terra::vect("export/workshop/AUS_2021_AUST_SHP_GDA2020/", crs=target_crs)
+australia <- terra::vect("export/AUS_2021_AUST_SHP_GDA2020/", crs=target_crs)
 ```
 
 Crop the extent of the target raster with the vector file above and confirm the data are as expected:
