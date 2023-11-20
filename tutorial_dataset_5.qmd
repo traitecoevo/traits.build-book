@@ -176,7 +176,7 @@ Therefore, the metadata template will now have the following section:
 ```{r, eval=FALSE}
 contexts:
 - context_property: unknown
-  category: treatment
+  category: treatment_context
   var_in: Elevation
   values:
   - find: LoElev
@@ -186,7 +186,7 @@ contexts:
     value: unknown
     description: unknown
 - context_property: unknown
-  category: treatment
+  category: treatment_context
   var_in: Treatment
   values:
   - find: LoWat
@@ -201,7 +201,7 @@ Which will be filled in as:
 
 ```{r, eval=FALSE}
 - context_property: seed provenance
-  category: treatment
+  category: treatment_context
   var_in: Elevation
   values:
   - find: LoElev
@@ -211,7 +211,7 @@ Which will be filled in as:
     value: high elevation
     description: Seeds sourced from hight elevation populations.
 - context_property: drought treatment
-  category: treatment
+  category: treatment_context
   var_in: Treatment
   values:
   - find: LoWat

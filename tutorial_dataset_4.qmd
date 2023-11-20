@@ -121,17 +121,15 @@ References
 11 Drake et al. 2011      
 ```
 
-You would now need to look up each of these references in the reference section of the manuscript and use Google Scholar (or another reference resource) to look up the doi for each reference.\
-
-To add additional references, you need to add an argument to the `metadata_add_source_doi` function:\
+You would now need to look up each of these references in the reference section of the manuscript and use Google Scholar (or another reference resource) to look up the doi for each reference.\To add additional references, you need to add an argument to the `metadata_add_source_doi` function:\
 
 ```{r, eval=FALSE}
-metadata_add_source_doi(dataset_id = "tutorial_dataset_4", doi = "10.1071/bt9960249", type = "secondary")
+metadata_add_source_doi(dataset_id = "tutorial_dataset_4", doi = "10.1071/bt9960249", type = "original_01")
 ```
 
-If you now look at the metadata file you'll see that a second reference has been added. However, you need to manually change the `key` field to be the `author_year` of this reference, `Barrett_1996`. In addition, you need to change the field `secondary_01` to `original_01`. Per the `traits.build` schema, a secondary reference is when there have been two related publications out of a single dataset, while the term `original` is used if the data were collected as part of a previous dataset (generally by different authors) and added to `traits.build` as part of a compilation.\
+Per the `traits.build` schema, a secondary reference is when there have been two related publications out of a single dataset, while the term `original` is used if the data were collected as part of a previous dataset (generally by different authors) and added to `traits.build` as part of a compilation.\
 
-When you add `Benyon_1999` (doi - "10.1016/s0378-3774(98)00080-8"), you'll need to change the field `secondary_01` to `original_02`, etc.
+When you add `Benyon_1999` (doi - "10.1016/s0378-3774(98)00080-8"), you'll need to change the `type` field to `original_02`, etc.
 
 Note that AusTraits will build fine without adding all 11 original sources; it is up to you how many you want to add as a test.
 
