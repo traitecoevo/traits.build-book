@@ -4,8 +4,8 @@
 This tutorial is based on [this great tutorial](https://labs.ala.org.au/posts/2023-08-28_alternatives-to-box-plots/post.html) by Dax Kellie and Shandiya Balasubramaniam from the ALA team.
 
 
-```{r, eval=FALSE}
-# remotes::install_github("traitecoevo/austraits", ref = "changes-for-v5-austraits.build")
+```{r, eval=TRUE, message = FALSE, warning = FALSE}
+# remotes::install_github("traitecoevo/austraits")
 library(tidyverse)
 library(austraits)
 ```
@@ -13,27 +13,29 @@ library(austraits)
 
 Load austraits
 
-```{r, eval=FALSE}
-austraits <- read_rds("data/austraits.rds")
+```{r, eval = TRUE}
+most_recent <- austraits::get_versions()[[3]][1]
+
+most_recent
+
+austraits <- austraits::load_austraits(doi = most_recent)
 ```
-
-
 Extract leaf mass per area (LMA) data
 
-```{r, eval=FALSE}
+```{r, eval = TRUE}
 # You can use `lookup_trait()` to search for traits containing keywords
-lookup_trait(austraits, "leaf_mass")
+austraits::lookup_trait(austraits, "leaf_mass")
 
 # Get trait data
 leaf_mass <- austraits %>%
-  extract_trait("leaf_mass_per_area") %>%
-  pluck("traits") # Grab the traits table from the list of austraits tables
+  austraits::extract_trait("leaf_mass_per_area") %>%
+  purrr::pluck("traits") # Grab the traits table from the list of austraits tables
 ```
 
 
 Filter to six species in the dataset
 
-```{r, eval=FALSE}
+```{r, eval = TRUE}
 sample_names <- c("Cryptocarya rigida", "Pteridium esculentum",
                   "Eucalyptus baxteri", "Melaleuca armillaris",
                   "Eucalyptus wandoo", "Eucalyptus piperita")
@@ -44,7 +46,7 @@ leaf_mass_sample <- leaf_mass %>% filter(taxon_name %in% sample_names)
 
 Plot raincloud plot of LMA for the six species
 
-```{r, eval=FALSE}
+```{r, eval = TRUE}
 # install.packages(c("ggdist", "gghalves", "ggtext"))
 # remotes::install_github("olihawkins/pilot")
 ggplot(
@@ -65,7 +67,7 @@ ggplot(
     size = 2.2) +
   geom_boxplot(
     aes(colour = taxon_name,
-        colour = after_scale(colorspace::darken(taxon_name, .7))),
+        colour = after_scale(colorspace::darken(colour, .7))),
     width = .12, # Adjust box width
     fill = NA,
     size = 1.1, # Size of box line
@@ -93,7 +95,7 @@ ggplot(
 
 
 Plot the species distributions of these six species with ALA occurrence data (using `galah`)
-```{r, eval=FALSE}
+```{r, eval = TRUE}
 # install.packages(c("galah", "sf", "ozmaps"))
 library(galah)
 library(sf)

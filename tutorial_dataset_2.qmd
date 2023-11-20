@@ -235,8 +235,8 @@ For this tutorial however, keep reading...
 There are several ways to proceed, but for these errors, it is useful to next build the dataset:
 
 ```{r, eval=FALSE}
-build_setup_pipeline()
-traits.build_database <- remake::make("austraits")
+build_setup_pipeline(method = "base", database_name = "traits.build_database")
+source("build.R")
 ```
 
 If you look at the excluded_data table, you'll find any data for this dataset that could not be mapped to known traits, known trait values, or fell within allowable ranges.
@@ -364,7 +364,7 @@ Note: 
 Build the database again, then check the `excluded_data` table to confirm there are no longer any excluded measurements: 
 
 ```{r, eval=FALSE}
-traits.build_database <- remake::make("austraits")
+source("build.R")
 
 traits.build_database$excluded_data %>%
   filter(dataset_id == "tutorial_dataset_2") %>%
@@ -424,7 +424,7 @@ dataset_test("tutorial_dataset_2")
 Then rebuild the database and look at the output in the traits table for one of the taxa that previously had duplicate `plant_growth_form` entries: 
 
 ```{r, eval=FALSE}
-traits.build_database <- remake::make("austraits")
+source("build.R")
 
 traits.build_database$traits %>%
   filter(dataset_id == "tutorial_dataset_2") %>% 
