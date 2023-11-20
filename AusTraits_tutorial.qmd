@@ -25,13 +25,16 @@ Or you can visit the Github repositories for individual packages/data repos:
 
 ## Download AusTraits data
 
-Before you begin, source essential packages and functions.
+Before you begin, download and source essential packages and functions.
 
 ```{r, eval = TRUE, message = FALSE}
 library(readr)
 library(tidyr)
 library(dplyr)
 library(stringr)
+
+#remotes::install_github("traitecoevo/austraits@7f4a5fa", quick=TRUE)   # temporary
+#remotes::install_github("traitecoevo/austraits", quick=TRUE)           # permanent
 
 library(austraits)    # functions for exploring a traits.build database, available at Github repo
 library(traits.build) # additional functions for exploring a traits.build database, available at Github repo
