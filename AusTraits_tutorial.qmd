@@ -195,7 +195,7 @@ Like the core `traits` table, each is in 'long' format.
 
 The tables `locations`, `contexts`, `methods` and `taxa` include metadata that links seamlessly to individual rows within `traits`.
 
-As such, you can use `dplyr::join` functions to join together the relational tables into a single (much) wider table. Some `{austraits}` package functions also join key columns to the traits table.
+As such, you can use the various `{dplyr}` join functions to join together the relational tables into a single (much) wider table. Some `{austraits}` package functions also join key columns to the traits table.
 
 | table             | metadata in table                                                                                                                               | columns that link to austraits\$traits                                                                                                                         |
 |------------------|--------------------------|----------------------------|
@@ -350,7 +350,7 @@ However, the `{austraits}` function `join_locations` only joins latitude and lon
 
 To join all location properties you need to use `tidyr::pivot_wider` and `dplyr::left_join`, using the code in steps (2) and (3) below.
 
-Moreover, as there are currently `r length(unique(austraits$locations$location_property))` location properties, you'' want to first filter the locations properties, to tailor your join request to the exact information relevant to your study.
+Moreover, as there are currently `r length(unique(austraits$locations$location_property))` location properties, you will want to first filter the locations properties, to tailor your join request to the exact information relevant to your study.
 
 1.  Select specific location properties to merge onto the traits table:
 
