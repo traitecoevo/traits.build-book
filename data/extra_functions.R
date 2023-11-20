@@ -4,15 +4,15 @@ austraits_weighted_means <- function(austraits, traits) {
   
   # any data that is a mean, median or raw, create a site mean
   data_means <- 
-    (austraits %>% join_locations)$traits %>% 
-    filter(trait_name %in% traits) %>%
-    filter(value_type %in% c("mean", "raw", "median")) %>%
-    mutate(
+    (austraits %>% austraits::join_locations())$traits %>% 
+    dplyr::filter(trait_name %in% traits) %>%
+    dplyr::filter(value_type %in% c("mean", "raw", "median")) %>%
+    dplyr::mutate(
       replicates = 1,
       log_value = ifelse(!is.na(value) & value > 0, log10(as.numeric(value)), NA)
       ) %>%
-    group_by(taxon_name, trait_name, dataset_id, location_id) %>% 
-    summarise(
+    dplyr::group_by(taxon_name, trait_name, dataset_id, location_id) %>% 
+    dplyr::summarise(
       mean = mean(as.numeric(value)),
       min = min(as.numeric(value)),
       max = max(as.numeric(value)),
@@ -21,11 +21,11 @@ austraits_weighted_means <- function(austraits, traits) {
       `longitude (deg)` = first(`longitude (deg)`),
       location_name = first(location_name),
       all_replicates = sum(replicates),
-     geom_mean = mean(log_value)
+      geom_mean = mean(log_value)
     ) %>%
-    ungroup() %>%
-    distinct(taxon_name, trait_name, dataset_id, location_id, mean, min, max, median, geom_mean, all_replicates, location_name, `latitude (deg)`, `longitude (deg)`) %>%
-    mutate(
+    dplyr::ungroup() %>%
+    dplyr::distinct(taxon_name, trait_name, dataset_id, location_id, mean, min, max, median, geom_mean, all_replicates, location_name, `latitude (deg)`, `longitude (deg)`) %>%
+    dplyr::mutate(
       location_replicates = 1,
       flora_replicates = 0,
       geom_mean = 10^(geom_mean)
@@ -34,21 +34,21 @@ austraits_weighted_means <- function(austraits, traits) {
   # any data that is a max or a min (range) and basically from a flora, create a mean value
   flora_means <-
     austraits$traits %>%
-    filter(trait_name %in% traits) %>%
-    filter(value_type %in% c("minimum", "maximum"), basis_of_record %in% c("preserved_specimen", "literature"))
+    dplyr::filter(trait_name %in% traits) %>%
+    dplyr::filter(value_type %in% c("minimum", "maximum"), basis_of_record %in% c("preserved_specimen", "literature"))
   
   if (nrow(flora_means > 0)) {
     flora_means <- 
       flora_means %>%
-        group_by(taxon_name, trait_name, dataset_id, observation_id, original_name) %>% 
-        summarise(
+        dplyr::group_by(taxon_name, trait_name, dataset_id, observation_id, original_name) %>% 
+        dplyr::summarise(
           mean = mean(as.numeric(value)),
           min = min(as.numeric(value)),
           max = max(as.numeric(value))
         ) %>%
-        ungroup() %>%
-        distinct(taxon_name, trait_name, dataset_id, observation_id, original_name, mean, min, max) %>%
-        mutate(
+        dplyr::ungroup() %>%
+        dplyr::distinct(taxon_name, trait_name, dataset_id, observation_id, original_name, mean, min, max) %>%
+        dplyr::mutate(
           location_replicates = 0,
           flora_replicates = 1,
           all_replicates = 1,
@@ -58,20 +58,20 @@ austraits_weighted_means <- function(austraits, traits) {
   
   means <-
     if (nrow(flora_means > 0)) {
-      bind_rows(
-        data_means %>% mutate(across(any_of(c("mean", "min", "max")), ~as.numeric(.x))),
-        flora_means %>% mutate(across(any_of(c("mean", "min", "max")), ~as.numeric(.x)))
+      dplyr::bind_rows(
+        data_means %>% dplyr::mutate(across(dplyr::any_of(c("mean", "min", "max")), ~as.numeric(.x))),
+        flora_means %>% dplyr::mutate(across(dplyr::any_of(c("mean", "min", "max")), ~as.numeric(.x)))
       )
     } else {
-      data_means %>% mutate(across(any_of(c("mean", "min", "max")), ~as.numeric(.x)))
+      data_means %>% dplyr::mutate(across(dplyr::any_of(c("mean", "min", "max")), ~as.numeric(.x)))
     }
   
   means <- means %>%
-    mutate(
+    dplyr::mutate(
       log_value = ifelse(!is.na(mean) & mean > 0, log10(as.numeric(mean)), NA)
     ) %>%
-    group_by(taxon_name, trait_name) %>%
-    summarise(
+    dplyr::group_by(taxon_name, trait_name) %>%
+    dplyr::summarise(
       mean = mean(mean),
       min = min(min),
       max = max(max),
@@ -81,9 +81,9 @@ austraits_weighted_means <- function(austraits, traits) {
       location_replicates = sum(location_replicates),
       flora_replicates = sum(flora_replicates)
     ) %>%
-    ungroup() %>%
-    distinct()  %>%
-    mutate(
+    dplyr::ungroup() %>%
+    dplyr::distinct()  %>%
+    dplyr::mutate(
       geom_mean = 10^(geom_mean)
     )
   
@@ -94,33 +94,33 @@ categorical_summary <- function(austraits, trait_names) {
   
 tmp <-  
   austraits$traits %>%
-    filter(trait_name %in% trait_names) %>%
-    select(dataset_id, taxon_name, trait_name, location_id, observation_id, value) %>%
-    mutate(value_tmp = stringr::str_split(value, " "))
+    dplyr::filter(trait_name %in% trait_names) %>%
+    dplyr::select(dplyr::all_of(c("dataset_id", "taxon_name", "trait_name", "location_id", "observation_id", "value"))) %>%
+    dplyr::mutate(value_tmp = stringr::str_split(value, " "))
   
 tmp <-
   tmp %>%
-    unnest_longer(value_tmp) %>%
-    mutate(
+    tidyr::unnest_longer(value_tmp) %>%
+    dplyr::mutate(
       replicates = 1
     ) %>%
-  group_by(taxon_name, trait_name, value_tmp) %>%
+  dplyr::group_by(taxon_name, trait_name, value_tmp) %>%
     summarise(
       replicates = sum(replicates),
       value_tmp = first(value_tmp)
       ) %>%
-  ungroup() %>%
-  distinct() %>%
-  mutate(
+  dplyr::ungroup() %>%
+  dplyr::distinct() %>%
+  dplyr::mutate(
     tmp_summary = paste0(value_tmp, " (", replicates, ")")
   ) %>%
-  group_by(taxon_name, trait_name) %>%
-    mutate(
+  dplyr::group_by(taxon_name, trait_name) %>%
+  dplyr:: mutate(
       value_summary = paste0(tmp_summary, collapse = "; ")  
     ) %>%
-  ungroup() %>%
-  select(-value_tmp, - replicates, -tmp_summary) %>%
-  distinct()
+  dplyr::ungroup() %>%
+  dplyr::select(-dplyr::all_of(c("value_tmp", "replicates", "tmp_summary"))) %>%
+  dplyr::distinct()
 
   tmp
 }
@@ -129,23 +129,23 @@ categorical_summary_by_value <- function(austraits, trait_names) {
   
   tmp <-  
     austraits$traits %>%
-    filter(trait_name %in% trait_names) %>%
-    select(dataset_id, taxon_name, trait_name, location_id, observation_id, value) %>%
-    mutate(value_tmp = stringr::str_split(value, " "))
+    dplyr::filter(trait_name %in% trait_names) %>%
+    dplyr::select(dplyr::all_of(c("dataset_id", "taxon_name", "trait_name", "location_id", "observation_id", "value"))) %>%
+    dplyr::mutate(value_tmp = stringr::str_split(value, " "))
   
   tmp <-
     tmp %>%
-    unnest_longer(value_tmp) %>%
-    mutate(
+    tidyr::unnest_longer(value_tmp) %>%
+    dplyr::mutate(
       replicates = 1
     ) %>%
-    group_by(taxon_name, trait_name, value_tmp) %>%
-    summarise(
+    dplyr::group_by(taxon_name, trait_name, value_tmp) %>%
+    dplyr::summarise(
       replicates = sum(replicates),
       value_tmp = first(value_tmp)
     ) %>%
-    ungroup() %>%
-    distinct()
+    dplyr::ungroup() %>%
+    dplyr::distinct()
   
   tmp
 }
@@ -157,36 +157,48 @@ merge_entity_types <- function(dataset_id) {
     austraits::extract_dataset(dataset_id))$traits 
   
   if(any(as.numeric(tmp$method_context_id) > 1) && !all(is.na(tmp$method_context_id))) {
-    tmp_columns <- tmp %>% filter(as.numeric(method_context_id) > 1) %>% distinct(trait_name)
+    
+    tmp_columns <-
+      tmp %>%
+        dplyr::filter(as.numeric(method_context_id) > 1) %>%
+        dplyr::distinct(trait_name)
+    
     tmp <- 
       tmp %>% 
-        mutate(trait_name = ifelse(trait_name %in% tmp_columns$trait_name,
-                                 paste(trait_name, "method_context_id", method_context_id, sep = "_"),
-                                 trait_name))
+        dplyr::mutate(trait_name = ifelse(trait_name %in% tmp_columns$trait_name,
+                                   paste(trait_name, "method_context_id", method_context_id, sep = "_"),
+                                   trait_name))
   }
   
   if(any(as.numeric(tmp$method_id) > 1) && !all(is.na(tmp$method_id))) {
-    tmp_columns <- tmp %>% filter(as.numeric(method_id) > 1) %>% distinct(trait_name) 
+    
+    tmp_columns <-
+      tmp %>%
+        dplyr::filter(as.numeric(method_id) > 1) %>%
+        dplyr::distinct(trait_name)
+    
     tmp <- 
       tmp %>% 
-      mutate(trait_name = ifelse(trait_name %in% tmp_columns$trait_name,
-                                 paste(trait_name, "method_id", method_id, sep = "_"),
-                                 trait_name))
+        dplyr::mutate(trait_name = ifelse(trait_name %in% tmp_columns$trait_name,
+                                   paste(trait_name, "method_id", method_id, sep = "_"),
+                                   trait_name))
   }
   
-  tmp <- tmp %>% dplyr::select(-dplyr::all_of(c("method_id", "method_context_id", "unit", "measurement_remarks", "replicates")))
+  tmp <- 
+    tmp %>% 
+      dplyr::select(-dplyr::all_of(c("method_id", "method_context_id", "unit", "measurement_remarks", "replicates")))
   
-  tmp <- tmp %>%
-    dplyr::mutate(counter = 1) %>%
-    group_by(trait_name, dataset_id, observation_id, repeat_measurements_id) %>%
-    dplyr::mutate(
-      counter = sum(counter),
-      value = ifelse(counter > 1, paste0(value, " (", value_type, ")"), value),
-      value = paste(value, collapse = "; ")
-    ) %>%
-    ungroup() %>%
-    dplyr::select(-value_type) %>%
-    distinct()
+  tmp <- 
+    tmp %>%
+      dplyr::group_by(trait_name, dataset_id, observation_id, repeat_measurements_id) %>%
+      dplyr::mutate(
+        count = length(trait_name),
+        value = ifelse(count > 1, paste0(value, " (", value_type, ")"), value),
+        value = paste(value, collapse = "; ")
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::select(-value_type) %>%
+      dplyr:: distinct()
   
   for (i in c("source_id", "repeat_measurements_id", "plot_context_id", "treatment_context_id",
               "temporal_context_id", "entity_context_id")) {
@@ -196,7 +208,10 @@ merge_entity_types <- function(dataset_id) {
   }
 
   if(length(unique(tmp$original_name)) == length(unique(tmp$taxon_name))) {
-    tmp <- tmp %>% dplyr::select(-original_name)
+    
+    tmp <- 
+      tmp %>%
+        dplyr::select(-dplyr::all_of(c("original_name")))
   }
 
   for (i in c("basis_of_record", "life_stage", "value_type")) {

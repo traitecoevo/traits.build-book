@@ -22,7 +22,7 @@ To access the Github repositories for individual components, see:
 
 ## Download AusTraits data
 
-Before you begin, download (or build) the latest AusTraits data, by one of the methods described [here](austraits_database.html#access_data)
+Before you begin, source essential packages and functions.
 
 ```{r, eval = TRUE, message = FALSE}
 library(readr)
@@ -30,25 +30,40 @@ library(tidyr)
 library(dplyr)
 library(stringr)
 
-library(austraits)   # functions for exploring a traits.build database, available at Github repo
-library(APCalign)    # Australian plant taxon alignment function, available on CRAN 
+library(austraits)    # functions for exploring a traits.build database, available at Github repo
+library(traits.build) # additional functions for exploring a traits.build database, available at Github repo
+library(APCalign)     # Australian plant taxon alignment function, available on CRAN 
 
 source("data/extra_functions.R")
+```
 
-austraits <- austraits::load_austraits(doi = "10.5281/zenodo.8353840") # XXX need to update to version 5.0.0 for tutorial functions to work
+Then download (or build) the latest AusTraits data, by one of the methods described [here](austraits_database.html#access_data).
+
+This tutorial uses the most recent AusTraits release, version `r austraits::get_versions()[[2]][1]`
+
+```{r, eval = TRUE}
+most_recent <- austraits::get_versions()[[3]][1]
+
+most_recent
+
+austraits <- austraits::load_austraits(doi = most_recent)
 ```
 
 ## A first look at data {#exploring}
 
 If you're not familiar with AusTraits, you may want to begin by exploring the breadth and depth of data within the database. The database can be explored by trait name, species, or genus using either [austraits functions](#austraits_functions) or dplyr functions.
 
-*How many taxon have leaf N data in AusTraits? How are these data distributed across datasets*
+*How many taxa have `leaf_N_per_dry_mass` data in AusTraits?*
 
 ```{r, eval = TRUE}
 austraits$traits %>% 
   dplyr::filter(trait_name == "leaf_N_per_dry_mass") %>%
   dplyr::distinct(taxon_name) %>% nrow()
+```
 
+*How are these data distributed across datasets?*
+
+```{r, eval = TRUE}
 austraits::plot_trait_distribution_beeswarm(austraits, "leaf_N_per_dry_mass", y_axis_category = "dataset_id")
 ```
 
@@ -60,26 +75,29 @@ austraits::lookup_trait(austraits, "_N_") -> N_traits
 austraits$traits %>% 
   dplyr::filter(trait_name %in% N_traits) %>% 
   dplyr::distinct(taxon_name, trait_name) %>% 
-  dplyr::mutate(counter = 1) %>% 
   dplyr::group_by(trait_name) %>% 
-    dplyr::mutate(counter = sum(counter)) %>% 
-    dplyr::distinct(trait_name, counter) %>% 
-  dplyr::ungroup()
+    dplyr::mutate(n_taxa = length(trait_name)) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::distinct(trait_name, n_taxa)
 ```
 
-*How many "hydraulic" traits are in AusTraits? How much data exists for these traits?*
+*How many "hydraulic" traits are in AusTraits? How much data exist for these traits?*
 
 ```{r, eval = TRUE}
-austraits::lookup_trait(austraits, "hydraulic")
+austraits::lookup_trait(austraits, "hydraulic") -> hydraulic_traits
 
 austraits$traits %>% 
-  dplyr::filter(trait_name == "sapwood_specific_hydraulic_conductivity") %>%
-  dplyr::distinct(taxon_name) %>% nrow()
+  dplyr::filter(trait_name %in% hydraulic_traits) %>% 
+  dplyr::distinct(taxon_name, trait_name) %>% 
+  dplyr::group_by(trait_name) %>% 
+    dplyr::mutate(n_taxa = length(trait_name)) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::distinct(trait_name, n_taxa)
 ```
 
 *Where have trait data for Acacia aneura been collected?*
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, warning = FALSE, message = FALSE}
 data <-
   austraits %>%
      austraits::extract_taxa(taxon_name = "Acacia aneura") %>%
@@ -90,7 +108,7 @@ data$traits %>% austraits::plot_locations("taxon_name") # 1 taxon, so 1 plot
 
 *Where have data for Hibbertia species been collected?*
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, warning = FALSE,  message = FALSE}
 data <-
   austraits %>%
      austraits::extract_taxa(genus = "Hibbertia") %>%
@@ -117,7 +135,7 @@ names(austraits)
 The core AusTraits table is the traits table. It is in "long" format, with each row documenting a single trait measurement.
 
 ```{r, eval = TRUE}
-austraits$traits %>% slice(1:20)
+austraits$traits %>% dplyr::slice(1:20)
 ```
 
 The columns include:
@@ -127,8 +145,32 @@ The columns include:
     -   taxon_name 
     -   trait_name 
     -   value (trait value) 
--   entity & value metadata
+-   entity metadata
+    -   entity_type\
+    -   life_stage
+-   value metadata
+    -   value_type\
+    -   unit\
+    -   basis_of_value\
+    -   replicate\
+    -   basis_of_record\
+-   additional metadata
+    -   collection_date
+    -   measurement_remarks
+-   identifiers for specific observations, individuals, etc.
+    -   observation_id\
+    -   individual_id\
+    -   population_id\
+    -   repeat_measurements_id\
 -   identifiers that provide links to ancillary tables with additional metadata
+    -   location_id\
+    -   treatment_context_id\
+    -   plot_context_id\
+    -   entity_context_id\
+    -   temporal_context_id\
+    -   method_context_id\
+    -   method_id\
+    -   source_id
 
 ### Ancillary data tables
 
@@ -155,25 +197,24 @@ As such, you can use `dplyr::join` functions to join together the relational tab
 | contexts          | context name, context category (method context, temporal, entity context, plot, treatment), context property                                    | dataset_id, link_id (identifier to link to: method_context_id, temporal_id, entity_context_id, plot_id, treatment_id), link_vals (identifier value to link to) |
 | methods           | dataset description, dataset sampling strategy, trait collection method, data collectors, data curators, dataset citation, source_id & citation | dataset_id, trait_name, method_id                                                                                                                              |
 | taxa              | genus, family, scientific name, APC/APNI taxon concept/taxon name identifiers                                                                   | taxon_name                                                                                                                                                     |
-| taxonomic_updates |                                                                                                                                                 | dataset_id, taxon_name, original_name                                                                                                                          |
-| contributors      |                                                                                                                                                 | dataset_id                                                                                                                                                     |
+| taxonomic_updates | original name (name submitted), aligned name (typos removed; standardised syntax), identifiers for aligned name                                 | dataset_id, taxon_name, original_name                                                                                                                          |
+| contributors      | people who contributed data, including their ORCIDs, affiliations, roles                                                                        | dataset_id                                                                                                                                                     |
 
 ## Exploring AusTraits
 
-With 1,800,000+ rows of trait values in the main traits table, knowing how to explore the contents is essential.
+With `r nrow(austraits$traits)` rows of trait values in the main traits table, knowing how to explore the contents is essential.
 
 The R package [`{austraits}`](https://github.com/traitecoevo/austraits) offers a collection of functions to explore and wrangle AusTraits data - or indeed any data using the traits.build format.
 
 Function categories include:
 
--   [**summarise and lookup functions**](#summarise_functions): These functions offer summaries by taxon name or trait, summarising taxa per trait (or variable), datasets per trait, and observations per trait.
+-   [**summarise and lookup functions**](#summarise_functions): These functions offer summaries by taxon name or trait, summarising taxa per trait (or other variable), datasets per trait, and observations per trait.
 
--   [**filtering functions**](#filtering_functions): These functions begin with the work `extract` and filter all of the relational tables simultaneously.
-
+-   [**filtering functions**](#filtering_functions): These functions begin with the word `extract` and filter all of the relational tables simultaneously.
 
 -   [**join functions**](#join_functions): These functions allow columns from the relational tables to be joined to the core traits table.
 
--   [**pivot functions**](#pivot_functions): These functions allow the traits table to be pivoted between long and wide formats.  
+-   [**pivot functions**](#pivot_functions): These functions allow the traits table to be pivoted between long and wide formats.
 
 -   [**plotting functions**](#plotting_functions): These functions offer a means to rapidly visualise AusTraits data, either plotting collection locations on a map of Australia or plotting trait values by dataset.
 
@@ -187,16 +228,16 @@ Reference guide to: [austraits functions](https://traitecoevo.github.io/austrait
 
 There are three functions for summarising AusTraits data:
 
--   **summarise_austraits()**  
--   **summarise_trait_means()**  
--   **lookup_trait()**  
+-   **summarise_austraits()**\
+-   **summarise_trait_means()**\
+-   **lookup_trait()**
 
 Use the function `summarise_austraits` to output summaries of total records, datasets with records, and taxa with records across `families`, `genera` or `traits`:
 
 ```{r, eval = TRUE}
-austraits::summarise_austraits(austraits, "trait_name") %>% slice(100:130)
-austraits::summarise_austraits(austraits, var =  "family") %>% slice(1:20)
-austraits::summarise_austraits(austraits, var =  "genus") %>% slice(1:20)
+austraits::summarise_austraits(austraits, "trait_name") %>% dplyr::slice(100:130)
+austraits::summarise_austraits(austraits, var =  "family") %>% dplyr::slice(1:20)
+austraits::summarise_austraits(austraits, var =  "genus") %>% dplyr::slice(1:20)
 ```
 
 Since this function summarises the variable selected for **ALL** of AusTraits, you will want to first [filter](#filtering_functions) the data before summarising by "taxon_name" -- or even "trait_name".
@@ -204,14 +245,15 @@ Since this function summarises the variable selected for **ALL** of AusTraits, y
 Alternatively you can look up traits that contain a specific search term:
 
 ```{r, eval = TRUE}
-austraits::lookup_trait(austraits, "leaf")
+austraits::lookup_trait(austraits, "leaf") %>% length()
+austraits::lookup_trait(austraits, "leaf")[1:30]
 austraits::lookup_trait(austraits, "_N_") # elemental contents use their symbol and are always in the middle of a trait name
 austraits::lookup_trait(austraits, "photo")
 ```
 
 If you'd like to summarise similar metrics for a subset of data, it is best to write your own code to filter, then summarise based on specific variable values.
 
-Or just look at info for nitrogen-related traits:
+For instance, to just look at info for nitrogen-related traits:
 
 ```{r, eval = TRUE}
 austraits::lookup_trait(austraits, "_N_") -> N_traits
@@ -219,11 +261,10 @@ austraits::lookup_trait(austraits, "_N_") -> N_traits
 austraits$traits %>% 
   dplyr::filter(trait_name %in% N_traits) %>% 
   dplyr::distinct(taxon_name, trait_name) %>% 
-  dplyr::mutate(counter = 1) %>% 
   dplyr::group_by(trait_name) %>% 
-    dplyr::mutate(counter = sum(counter)) %>% 
-    dplyr::distinct(trait_name, counter) %>% 
-  dplyr::ungroup()
+  dplyr::mutate(n_taxa = length(trait_name)) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::distinct(trait_name, n_taxa)
 ```
 
 Or look at how many datasets have each trait:
@@ -233,14 +274,12 @@ austraits::lookup_trait(austraits, "_N_") -> N_traits
 
 austraits$traits %>% 
   dplyr::filter(trait_name %in% N_traits) %>% 
-  dplyr::distinct(dataset_id, trait_name) %>% 
-  dplyr::mutate(counter = 1) %>% 
+  dplyr::distinct(dataset_id, trait_name) %>%
   dplyr::group_by(trait_name) %>% 
-    dplyr::mutate(counter = sum(counter)) %>% 
-    dplyr::distinct(trait_name, counter) %>% 
-  dplyr::ungroup()
+  dplyr::mutate(n_dataset = length(trait_name)) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::distinct(trait_name, n_dataset)
 ```
-
 
 ### Filtering data {#filtering_functions}
 
@@ -259,15 +298,14 @@ Eucalyptus_values <-
   austraits %>%
      austraits::extract_taxa(genus = "Eucalyptus")
 
-
-Eucalyptus_values <-
+Banksia_serrata_values <-
   austraits %>%
      austraits::extract_taxa(genus = "Banksia serrata")
 ```
 
-The advantage of the `{austraits}` package functions is that they simultaneously subset both the core traits table and all the ancillary data tables.
+The advantage of the `{austraits}` package functions over `dplyr::filter()` is that they simultaneously subset both the core traits table and all the ancillary data tables.
 
-However, there are many columns within the traits tables that you cannot (currently) filter from using `{austraits}` functions.
+However, there are many columns within the traits tables that you cannot (currently) filter by using `{austraits}` functions.
 
 If you wish to also subset data based on fields such as `basis_of_record` or `life_stage` you need to use `dplyr::filter()`. This allows you to pipe together multiple filtering calls, but only filters the traits table.
 
@@ -277,15 +315,18 @@ my_data <-
     dplyr::filter(stringr::str_detect(taxon_name, "Eucalyptus")) %>%
     dplyr::filter(trait_name %in% c("leaf_mass_per_area", "leaf_length", "leaf_thickness")) %>%
     dplyr::filter(basis_of_record == "field")
+
+my_data %>% nrow()
+my_data %>% dplyr::slice(1:10)
 ```
 
 ### Joining relational tables {#join_functions}
 
-For many research purposes you will want to join metadata from one of the relational tables to the core traits table. There are a series of `{austraits}` functions that facilitate this - or you can use `{dplyr} left_join` functions to join tables.
+For many research purposes you will want to join metadata from one of the relational tables to the core traits table. There are a series of `{austraits}` functions that facilitate this - or you can use `dplyr::left_join()` to join tables.
 
 #### Joining locations
 
-The locations table includes information on all location properties measured, including the actual location (latitude/longitude), climatic data, soil properties, fire history, vegetation history, and geologic history. 
+The locations table includes information on all location properties measured, including the actual location (latitude/longitude), climatic data, soil properties, fire history, vegetation history, and geologic history.
 
 To just add location name, latitude, and longitude:
 
@@ -293,14 +334,19 @@ To just add location name, latitude, and longitude:
 traits_with_lat_long <- 
   austraits %>% austraits::join_locations()
 
-traits_with_lat_long$traits
+traits_with_lat_long$traits %>%
+  dplyr::select(dataset_id, taxon_name, trait_name, value, location_name, location_id, `latitude (deg)`, `longitude (deg)`) %>%
+  dplyr::filter(!is.na(`latitude (deg)`)) %>%
+  dplyr::slice(1:20) %>% View()
 ```
 
 However, the `{austraits}` function `join_locations` only joins latitude and longitude data from the locations tables.
 
-To add additional location properties you need to use `dplyr::left_join` in conjunction with manipulations to the locations table.
+To join all location properties you need to use `tidyr::pivot_wider` and `dplyr::left_join`, using the code in steps (2) and (3) below.
 
-1.    The number of location properties is long. You'll first want to select specific location properties to merge onto the traits table:
+Moreover, as there are currently `r length(unique(austraits$locations$location_property))` location properties, you'' want to first filter the locations properties, to tailor your join request to the exact information relevant to your study.
+
+1.  Select specific location properties to merge onto the traits table:
 
 ```{r, eval = TRUE}
 austraits$locations %>% 
@@ -311,7 +357,7 @@ locations <-
   dplyr::filter(location_property %in% c("latitude (deg)", "longitude (deg)", "description", "aridity index (MAP/PET)", "soil type", "fire history"))
 ```
 
-2.    The data from the locations table must be pivoted into a wide-format table to join to the traits table. 
+2.  The data from the locations table must be pivoted into a wide-format table to join to the traits table.
 
 ```{r, eval = TRUE}
 locations <- 
@@ -319,18 +365,25 @@ locations <-
   tidyr::pivot_wider(names_from = location_property, values_from = value)
 ```
 
-3.    You can now now join this table of location properties onto the traits table.
+3.  You can now now join this table of location properties onto the traits table.
+
 ```{r, eval = TRUE}
 traits_with_locations <- 
   austraits$traits %>% 
   dplyr::left_join(locations, by = c("dataset_id", "location_id"))
 ```
 
-While the `{austraits}` function offers a quick method for merging on pre-selected data, becoming familiar with how you can select the specific location properties you want to merge using `tidyr::pivot_wider` and `dplyr::left_join` offers the flexibility to tailor your join request to the exact information relevant to your study.
-
 #### Joining contexts
 
-The context tables documents any additional measurements of non-traits that may be useful for interpreting trait values. They are dividing into 5 categories, treatment context, plot context, entity context, temporal context, and method context, distinguishing between the entity on which the measurement is made.
+The context tables documents additional context properties/ancillary data may be useful for interpreting trait values. Context properties are divided into 5 categories, `treatment context`, `plot context`, `entity context`, `temporal context`, and `method context`.
+
+| context category  | description                                                                                                                                                                                                      |
+|---------------|---------------------------------------------------------|
+| treatment context | Context property that is an experimental manipulation that might affect the trait values measured on an individual, population or species-level entity.                                                          |
+| plot context      | Context property that is a feature of a plot (subset of a location) that might affect the trait values measured on an individual, population or species-level entity.                                            |
+| entity context    | Context property that is information about an organismal entity (individual, population or taxon) that does not comprise a trait-centered observation but might affect the trait values measured on the entity.  |
+| temporal context  | Context property that is a feature of a "point in time" that might affect the trait values measured on an individual, population or species-level entity.                                                        |
+| method context    | Context property that records specific information about a measurement method that is modified between measurements.                                                                                    |
 
 Joining the context table to the traits table is best done using the `{austraits}` function, as there are 5 identifiers in the traits table (`entity_context_id`, `method_context_id`, `temporal_context_id`, `plot_context_id` and `treatment_context_id`) that link to two columns in the contexts table (`link_vals` and `link_id`).
 
@@ -338,29 +391,27 @@ Joining the context table to the traits table is best done using the `{austraits
 traits_with_contexts <- 
   austraits %>% austraits::join_contexts()
 
-# next chunk of code to be removed after function is edited - XX
 traits_with_contexts$traits %>% 
   dplyr::select(-dplyr::all_of(c("temporal_context_id", "method_context_id", "treatment_context_id", "entity_context_id", "plot_context_id")))
 ```
 
-As this function adds columns to the traits table for all context properties, you may prefer to filter the contexts table to only include specific context properties:
+This function adds columns to the traits table for all context properties. You may want to instead include fewer contexts.
 
 ```{r, eval = TRUE}
 austraits$contexts %>%
   dplyr::distinct(context_property, category)
+```
 
-tmp <- austraits
+Select all austraits$traits columns (`r ncol(austraits$traits)` currently) together with the context properties you want to keep.
 
-tmp$contexts <- tmp$contexts %>%
-  dplyr::filter(context_property %in% c("sampling season", "plant sex", "leaf surface", "leaf age", "fire intensity", "slope position", "fire season", "drought treatment", "temperature treatment"))
-
-traits_with_contexts_fewer <- 
-  tmp %>% austraits::join_contexts()
+```{r, eval = TRUE}
+traits_with_contexts$traits %>%
+  dplyr::select(1:ncol(austraits$traits),  c("sampling season", "plant sex", "leaf surface", "leaf age", "fire intensity", "slope position", "fire season", "drought treatment", "temperature treatment"))
 ```
 
 #### Joining methods
 
-The methods table documents a selection of metadata recorded about the entire dataset and methods used for individual trait measurements. There is a single row of data per `dataset_id` * `trait_name` * `method_id` combination. `Method_id` is used to distinguish between instances where a single trait is measured using two separate protocols and is separate to `method_context_id` which documents explicit differences in a method between measurements. 
+The methods table documents a selection of metadata recorded about the entire dataset and methods used for individual trait measurements. There is a single row of data per `dataset_id` x `trait_name` x `method_id` combination. `Method_id` is used to distinguish between instances where a single trait is measured twice using two separate protocols and is separate to `method_context_id` which documents specific components of a methods that are modified between measurements.
 
 The `{austraits}` function offers a function to just add trait methods to the traits table:
 
@@ -401,7 +452,7 @@ traits_with_all_methods <-
 
 #### Joining taxa
 
-The taxon table documents a collection of names and identifiers for each taxon. Within AusTraits `names` submitted as identifiers within a dataset might be resolved to species, a infraspecific taxon, or sometimes just to genus- or family-level resolution; this information is recorded as the `taxon_rank`. The `taxon_rank` determines which information is filled in in the taxon table. 
+The taxon table documents a collection of names and identifiers for each taxon. Within AusTraits `names` submitted as identifiers within a dataset might be resolved to species, an infraspecific taxon, or sometimes just to genus- or family-level resolution; this information is recorded as the `taxon_rank`. The `taxon_rank` determines which information is filled in in the taxon table.
 
 The `{austraits}` function makes it possible to quickly merge in family, genus, taxon_rank and establishment_means:
 
@@ -414,12 +465,11 @@ austraits_with_taxa$traits
 
 To add all columns from austraits\$taxa:
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, message = FALSE}
 austraits_with_taxa <-
   austraits$traits %>%
   dplyr::left_join(austraits$taxa)
 ```
-
 
 ## Summarising data: trait means, modes, etc.
 
@@ -429,7 +479,7 @@ If you've sourced the file `extra_functions.R`, there are a few functions that a
 
 For instance, `categorical_summary` indicates how many times a specific trait value is reported for a given taxa (across all datasets):
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, message = FALSE}
 cat_summary <- categorical_summary(austraits, "resprouting_capacity")
 
 cat_summary
@@ -437,10 +487,12 @@ cat_summary
 
 Alternatively, create a wider matrix with possible trait values as columns:
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, message = FALSE}
 categorical_summary_wider <- 
   categorical_summary_by_value(austraits, "resprouting_capacity") %>%
     tidyr::pivot_wider(names_from = value_tmp, values_from = replicates)
+
+categorical_summary_wider
 ```
 
 ### Numeric traits
@@ -453,16 +505,17 @@ How do you take the mean of these trait values?
 
 Do you want to include both data from experiments and plants growing under natural conditions? This information is recorded in the `basis_of_record` column.
 
-The function `austraits::summarise_trait_means()` outputs `location` * `taxon_name` * `dataset_id` means, but is not (*currently*) appropriately updating/removing columns such as `observation_id`, `individual_id`, and `replicates`.
+The function `austraits::summarise_trait_means()` outputs `location` x `taxon_name` x `dataset_id` means, but is not (*currently*) appropriately updating/removing columns such as `observation_id`, `individual_id`, and `replicates`.
 
 An alternative function we're developing is:
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, message = FALSE}
 weighted <- austraits_weighted_means(austraits, c("leaf_mass_per_area", "leaf_length"))
+
+weighted
 ```
 
 This function first groups values at the site level, then at the taxon level. For trait data sourced from floras, where trait values are documented as a minimum and maximum value, it simply takes the mean of these as an additional mean.
-
 
 ## Plotting data {#plotting_functions}
 
@@ -486,13 +539,13 @@ To plot locations, you need to begin by merging on the latitude & longitude data
 
 The `plot_locations` function plots the selected data, separating data into a series of plots based on the variable name selected. You can separate data based on the values of **any** column within the traits table - including `basis_of_record`, `life_stage`, `value_type` - or higher taxon categories (`genus`, `family`).
 
-For instance, `austraits::plot_locations("trait_name")` will output a separate plot for each `trait_name` within the selected data. 
+For instance, `austraits::plot_locations("trait_name")` will output a separate plot for each `trait_name` within the selected data.
 
-A warning: `austraits::plot_locations()` WILL BE VERY SLOW if you request more than ~20 plots. For instance, do not attempt to generate plots for all traits simultaneously. Always first use extract/filter to just select a narrow range of traits, datasets, or taxa. 
+A warning: `austraits::plot_locations()` WILL BE VERY SLOW if you request more than \~20 plots. For instance, do not attempt to generate plots for all traits simultaneously. Always first use extract/filter to just select a narrow range of traits, datasets, or taxa.
 
 #### Plot locations by trait
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, message = FALSE, warning = FALSE}
 
 data <-
   austraits %>% 
@@ -517,7 +570,7 @@ data$traits %>%
 
 #### Plot locations by study
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, message = FALSE, warning = FALSE}
 data <-
   austraits %>%
      austraits::extract_dataset("Westoby_2014") %>%
@@ -539,22 +592,21 @@ data$traits %>%
 
 #### Plot locations by taxon
 
-`plot_locations` lets you plot 
-```{r, eval = TRUE}
+`plot_locations` lets you plot
+
+```{r, eval = TRUE, message = FALSE, warning = FALSE}
 data <-
   austraits %>%
   austraits::extract_taxa(taxon_name = "Acacia aneura") %>%
   austraits::join_locations()
 
-data$traits %>% data$traits %>% 
-  filter(!is.na(`latitude (deg)`)) %>%
-  austraits::plot_locations("taxon_name")     # 1 taxon, so 1 plot
+data$traits <- data$traits %>% 
+  filter(!is.na(`latitude (deg)`)) 
 
-data$traits %>% 
-  filter(!is.na(`latitude (deg)`)) %>%
-  austraits::plot_locations("dataset_id")     # 1 plot for each dataset_id
+austraits::plot_locations(data, "taxon_name")     # 1 taxon, so 1 plot
+
+austraits::plot_locations(data, "dataset_id")     # 1 plot for each dataset_id
 ```
-
 
 ### More complex workflows - some examples
 
@@ -570,10 +622,9 @@ https://labs.ala.org.au/posts/2023-08-28_alternatives-to-box-plots/post.html
 
 We've adopted it [here](spatial_data_example.html).
 
-
 ## A complexity: pivoting datasets
 
-The AusTraits tables are all in `long` format with an individual row for each trait measurement. This is the most compact way to store data and offers the flexibility of documenting different metadata values for each measurement. 
+The AusTraits tables are all in `long` format with an individual row for each trait measurement. This is the most compact way to store data and offers the flexibility of documenting diverse metadata for each trait measurement.
 
 However, for many research uses, it may be more useful to view data in a `wide` format, with the multiple traits that comprise a single observation displayed as consecutive columns.
 
@@ -588,9 +639,9 @@ Farrell_2017_values <-
 
 Farrell_2017_pivoted <- 
   Farrell_2017_values$traits %>%
-  trait_pivot_wider()
+  austraits::trait_pivot_wider()
 
-View(Farrell_2017_pivoted)
+Farrell_2017_pivoted
 ```
 
 This example pivots "nicely" as all observations have `entity_type = individual`.
@@ -604,9 +655,9 @@ Edwards_2000_values <-
 
 Edwards_2000_pivoted <- 
   Edwards_2000_values$traits %>%
-  trait_pivot_wider()
+  austraits::trait_pivot_wider()
 
-View(Edwards_2000_pivoted)
+Edwards_2000_pivoted
 ```
 
 The values at the individual, population and species level do not collapse together, because traits measured on different `entity_types` have separate `observation_id`'s.
@@ -632,16 +683,16 @@ If a single dataset includes traits that are attributed to different entity type
 
 We're developing a function that collapses the pivoted data into a more condensed table, but this loses some of the metadata:
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, message = FALSE, warning = FALSE}
 Edwards_2000_pivoted_merged <-
   merge_entity_types("Edwards_2000")
 ```
 
 -   This function will duplicate any "higher-entity" trait values (e.g. A single species-level value is filled in for all individuals or populations)
 
--   Metadata fields like `entity_type`, `value_type` is only retained if it is identical for all measurements
+-   Metadata fields like `entity_type`, `value_type` are only retained if it is identical for all measurements
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, message = FALSE, warning = FALSE}
 Westoby_2014_pivoted_merged <-
   merge_entity_types("Westoby_2014")
 ```
@@ -663,7 +714,7 @@ The trait dictionary embedded within AusTraits also has:
 -   trait definitions 
 -   definitions for all categorical trait values 
 
-Together these clarify each "trait concept", which we define as: "a circumscribed set of trait measurements". Much like a taxon concept, delimits a collection of organisms, a trait concept delimits a collection of trait values pertaining to a distinct characteristic of a specific part of an organism (cell, tissue, organ, or whole organism)"
+Together these clarify each "trait concept", which we define as: "a circumscribed set of trait measurements". Much like a taxon concept delimits a collection of organisms, a trait concept delimits a collection of trait values pertaining to a distinct characteristic of a specific part of an organism (cell, tissue, organ, or whole organism).
 
 The [AusTraits Plant Dictionary (APD)](http:///w3id.org/APD) offers detailed descriptions for all trait concepts included in AusTraits. With the APD, each trait is given a unique, resolvable identifier, allowing trait definitions to be reused and shared.
 
@@ -714,14 +765,6 @@ austraits$traits %>%
   dplyr::filter(stringr::str_detect(original_name, "Eucalyptus sp\\.$")) %>%
   dplyr::distinct(dataset_id, taxon_name, original_name) %>%
   dplyr::filter(original_name != taxon_name) 
-
-# A tibble: 4 × 3
-  dataset_id     taxon_name                      original_name 
-  <chr>          <chr>                           <chr>         
-1 Clarke_2015    Eucalyptus sp. [Clarke_2015]    Eucalyptus sp.
-2 Nolan_2022     Eucalyptus sp. [Nolan_2022]     Eucalyptus sp.
-3 Soper_2014     Eucalyptus sp. [Soper_2014]     Eucalyptus sp.
-4 Zieminska_2015 Eucalyptus sp. [Zieminska_2015] Eucalyptus sp.
 ```
 
 Outdated names are updated: 
@@ -730,21 +773,7 @@ Outdated names are updated: 
 austraits$traits %>%
   dplyr::filter(stringr::str_detect(original_name, "Dryandra")) %>%
   dplyr::distinct(taxon_name, original_name) %>%
-  dplyr::filter(original_name != taxon_name) %>% slice(1:15)
-
-# A tibble: 152 × 2
-   taxon_name                   original_name                
-   <chr>                        <chr>                        
- 1 Banksia acanthopoda          Dryandra acanthopoda         
- 2 Banksia anatona              Dryandra anatona             
- 3 Banksia arborea              Dryandra arborea             
- 4 Banksia brunnea              Dryandra arctotidis          
- 5 Banksia armata               Dryandra armata              
- 6 Banksia armata var. armata   Dryandra armata var. armata  
- 7 Banksia armata var. ignicida Dryandra armata var. ignicida
- 8 Banksia aurantia             Dryandra aurantia            
- 9 Banksia biterax              Dryandra baxteri             
-10 Banksia bipinnatifida        Dryandra bipinnatifida 
+  dplyr::filter(original_name != taxon_name) %>% dplyr::slice(1:15)
 ```
 
 Phrase name syntax across datasets is aligned:
@@ -753,14 +782,4 @@ Phrase name syntax across datasets is aligned:
 austraits$traits %>%
      dplyr::filter(stringr::str_detect(taxon_name, "Argyrodendron sp. Whyanbeel")) %>%
      dplyr::distinct(taxon_name, original_name)
-
-# A tibble: 6 × 2
-  taxon_name                                       original_name                                    
-  <chr>                                            <chr>                                            
-1 Argyrodendron sp. Whyanbeel (B.P.Hyland RFK1106) Argyrodendron (Whyanbeel)                        
-2 Argyrodendron sp. Whyanbeel (B.P.Hyland RFK1106) Argyrodendron ssp. (Whyanbeel BH 1106RFK)        
-3 Argyrodendron sp. Whyanbeel (B.P.Hyland RFK1106) Argyrodendron Whyanbeel                          
-4 Argyrodendron sp. Whyanbeel (B.P.Hyland RFK1106) Argyrodendron sp. (Whyanbeel BH 1106RFK)         
-5 Argyrodendron sp. Whyanbeel (B.P.Hyland RFK1106) Argyrodendron sp. Whyanbeel (B.P.Hyland RFK 1106)
-6 Argyrodendron sp. Whyanbeel (B.P.Hyland RFK1106) Argyrodendron sp. Whyanbeel (B.P.Hyland RFK1106) 
 ```
