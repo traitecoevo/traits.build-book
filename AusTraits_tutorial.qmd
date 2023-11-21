@@ -27,18 +27,17 @@ Or you can visit the Github repositories for individual packages/data repos:
 
 Before you begin, download and source essential packages and functions.
 
+
 ```{r, eval = TRUE, message = FALSE}
 library(readr)
 library(tidyr)
 library(dplyr)
 library(stringr)
 
-remotes::install_github("traitecoevo/austraits@7f4a5fa", quick=TRUE)   # temporary
-#remotes::install_github("traitecoevo/austraits", quick=TRUE)          # permanent
+#remotes::install_github("traitecoevo/austraits", quick=TRUE)
 
 library(austraits)    # functions for exploring a traits.build database, available at Github repo
 library(traits.build) # additional functions for exploring a traits.build database, available at Github repo
-library(APCalign)     # Australian plant taxon alignment function, available on CRAN 
 
 source("data/extra_functions.R")
 ```
@@ -741,7 +740,9 @@ The R package [`{APCalign}`](https://github.com/traitecoevo/APCalign) is used to
 APC align can also be installed directly from CRAN
 
 ```{r, eval = TRUE}
-install.packages("APCalign")
+#install.packages("APCalign")
+
+library(APCalign)     # Australian plant taxon alignment function, available on CRAN 
 ```
 
 There are two key components to the workflow: 
