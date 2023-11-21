@@ -92,7 +92,7 @@ elements <- schema$austraits$elements$traits
 ```
 
 
-### Entity type
+### Entity type {#entity_type}
 
 An entity is the `feature of interest`, indicating what a trait value applies to. While an entity can be just a component of an organism, within the scope of AusTraits, an `individual` is the finest scale entity that can be documented. The same study might measure some traits at a population-level (`entity = population`) and others at an individual-level (`entity = individual`).
 
@@ -138,7 +138,7 @@ To expand on the definitions provided above,
 
 As well, `measurement_remarks` is used to document `r tolower(schema$metadata$elements$traits$elements$measurement_remarks)`
 
-### Life stage, basis of record 
+### Life stage, basis of record {#life_stage}
 
 - `life_stage` is `r tolower(schema$metadata$elements$traits$elements$life_stage)`.
 
