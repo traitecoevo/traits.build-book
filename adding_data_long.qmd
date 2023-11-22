@@ -660,17 +660,17 @@ The `dataset` section includes fields that are:
 
 #### **required fields manually filled in**
 
--   **description:** 1-2 sentence description of the study's goals. The abstract of a manuscript usually includes some good sentences/phrases to borrow.
+-   **description:** 1-2 sentence description of the study's goals. The abstract of a manuscript usually includes some good sentences/phrases to borrow.  
 
--   **basis_of_record:** Basis of record can be coded in as a fixed value for an entire dataset, by trait, by location or read in from a column in the `data.csv` file. If it is being read in from a column list the column name in the field, otherwise input the fixed value. Allowable values are: `field`, `field_experiment`, `captive_cultivated`, `lab`, `preserved_specimen`, and `literature`. See the [database structure vignette](database_structure.html#life_stage) for definitions of these accepted basis_of_record values. If fixed values are specified for both the entire dataset under `metadata[["dataset"]]` and for specific locations/traits under `metadata[["locations"]]` or `metadata[["traits"]]`, the location/trait value overrides that entered under `metadata[["dataset"]]`.
+-   **basis_of_record:** Basis of record can be coded in as a fixed value for an entire dataset, by trait, by location or read in from a column in the `data.csv` file. If it is being read in from a column list the column name in the field, otherwise input the fixed value. Allowable values are: `field`, `field_experiment`, `captive_cultivated`, `lab`, `preserved_specimen`, and `literature`. See the [database structure vignette](database_structure.html#life_stage) for definitions of these accepted basis_of_record values. If fixed values are specified for both the entire dataset under `metadata[["dataset"]]` and for specific locations/traits under `metadata[["locations"]]` or `metadata[["traits"]]`, the location/trait value overrides that entered under `metadata[["dataset"]]`.  
+ 
+-   **life_stage:** Life stage can be coded in as a fixed value for an entire dataset, by trait, by location or read in from a column in the `data.csv` file. If it is being read in from a column list the column name in the field, otherwise input the fixed value. Allowable values are: `adult`, `sapling`, `seedling`, `juvenile`. See the [database structure vignette](database_structure.html#life_stage) for definitions of these accepted basis_of_record values. If fixed values are specified for both the entire dataset under `metadata[["dataset"]]` and for specific locations/traits under `metadata[["locations"]]` or `metadata[["traits"]]`, the location/trait value overrides that entered under `metadata[["dataset"]]`.  
 
--   **life_stage:** Life stage can be coded in as a fixed value for an entire dataset, by trait, by location or read in from a column in the `data.csv` file. If it is being read in from a column list the column name in the field, otherwise input the fixed value. Allowable values are: `adult`, `sapling`, `seedling`, `juvenile`. See the [database structure vignette](database_structure.html#life_stage) for definitions of these accepted basis_of_record values. If fixed values are specified for both the entire dataset under `metadata[["dataset"]]` and for specific locations/traits under `metadata[["locations"]]` or `metadata[["traits"]]`, the location/trait value overrides that entered under `metadata[["dataset"]]`.
+-   **sampling_strategy:** Often a quite long description of the sampling strategy, extracted verbatim from a manuscript whenever possible.  
 
--   **sampling_strategy:** Often a quite long description of the sampling strategy, extracted verbatim from a manuscript whenever possible.
+-   **original_file:** The name of the file initially submitted to the database curators. It is generally archived in the dataset folder, in a subfolder named `raw`. For AusTraits datasets are also usually archived in the project's GoogleDrive folder.  
 
--   **original_file:** The name of the file initially submitted to the database curators. It is generally archived in the dataset folder, in a subfolder named `raw`. For AusTraits datasets are also usually archived in the project's GoogleDrive folder.
-
--   **notes:** Notes about the study and processing of data, especially if there were complications or if some data is suspected duplicates with another study and were filtered out.
+-   **notes:** Notes about the study and processing of data, especially if there were complications or if some data is suspected duplicates with another study and were filtered out.  
 
 #### **optional fields manually filled in**
 
@@ -887,18 +887,18 @@ The trait details then need to be filled in manually.
 
 -   **units**: fill in the units associated with the trait values in the submitted dataset - such as mm2 in the example above. If you're uncertain about the syntax/format used for some more complex units, look through the traits definition file (`config/traits.yml`) or the file showing unit conversions (`config/unit_conversions.csv`). For categorical variables, leave this as `.na`.
 
-AusTraits uses the Unified Code for Units of Measure (UCUM) standard for units (https://ucum.org/ucum), but each database using the `traits.build` workflow can select their own choices for unit abbreviations. The UCUM standard follows clear, simple rules, but also has a flexible syntax for documenting notes that are recorded as part of the 'unit' for specific traits, yet are not formally units, in curly brackets. For instance, {count}/mm2 or umol{CO2}/m2/s, where the actual units are 1/mm2 and umol/m2/s. There are a few not-very-intuitive units in UCUM. `a` is `year` (annum).
-
-  **Notes**:
-  -   If the units start with a punctuation symbol, the units must be in single, straight quotes, such as: `unit_in: '{count}/mm2'` 
-  -   It is best not to start units with a `-` (negative sign). In AusTraits we've adopted the convention of using, for instance, `neg_MPa` instead of `-MPa`
+  AusTraits uses the Unified Code for Units of Measure (UCUM) standard for units (https://ucum.org/ucum), but each database using the `traits.build` workflow can select their own choices for unit abbreviations. The UCUM standard follows clear, simple rules, but also has a flexible syntax for documenting notes that are recorded as part of the 'unit' for specific traits, yet are not formally units, in curly brackets. For instance, {count}/mm2 or umol{CO2}/m2/s, where the actual units are 1/mm2 and umol/m2/s. There are a few not-very-intuitive units in UCUM. `a` is `year` (annum).
+  
+  **Notes**:  
+  -   If the units start with a punctuation symbol, the units must be in single, straight quotes, such as: `unit_in: '{count}/mm2'`   
+  -   It is best not to start units with a `-` (negative sign). In AusTraits we've adopted the convention of using, for instance, `neg_MPa` instead of `-MPa`  
 
 -   **trait_name**: This is the trait name of the appropriate trait concept for the datasets `config/traits.yml`. For currently unsupported traits, leave this as `.na` but then fill in the rest of the data and flag this study as having a potential new trait concept. Then in the future, if an appropriate trait concept is added to the `traits.yml` file, the data can be read into the database by simply replacing the `.na` with a trait name. Each database will have their own criteria/rules for adding traits to the trait dictionary, and likely rules that evolve as a trait database grows. In AusTraits, if no appropriate trait concept exists in the trait dictionary, a new trait must be defined within the accompanying AusTraits Plant Dictionary and should only be added if it is clearly a distinct trait concept, can be explicitly defined, and there exists sufficient trait data that the measurements have comparative value.
 
 -   **entity_type**: Entity type indicates "what" is being observed for the trait measurements - as in the organismal-level to which the trait measurements apply. As such, `entity_type` can be `individual`, `population`, `species`, `genus`, `family` or `order`. Metapopulation-level measurements are coded as `population` and infraspecific taxon-level measurements are coded as `species`. See the [database structure vignette](database_structure.html#entity_type) for definitions of these accepted `entity_type` values. 
 
-  **Note**:
-  -   `entity_type` is about the "organismal-level" to which the trait measurement refers; this is separate from the taxonomic resolution of the entity's name.
+  **Note**:  
+  -   `entity_type` is about the "organismal-level" to which the trait measurement refers; this is separate from the taxonomic resolution of the entity's name.  
 
 -   **value_type**: Value type indicates the statistical nature of the trait value recorded. Allowable value types are `mean`, `minimum`, `maximum`, `mode`, `range`, `raw`, and `bin`. See the [database structure vignette](database_structure.html#value_types) for definitions of these accepted value types. All categorical traits are generally scored as being a `mode`, the most commonly observed value. Note that for values that are `bins`, the two numbers are separated by a double-hyphen, `1 -- 10`.
 
@@ -963,12 +963,12 @@ substitutions:
   replace: bristles
 ```
 
-The three elements it includes are:
--   **trait_name** is the AusTraits defined trait name. 
--   **find** is the trait value used in the data.csv file.
--   **replace** is the trait value supported by AusTraits.
+The three elements it includes are:  
+-   **trait_name** is the AusTraits defined trait name.  
+-   **find** is the trait value used in the data.csv file.  
+-   **replace** is the trait value supported by AusTraits.   
 
-You can manually type substitutions into the `metadata.yml` file, ensuring you have the syntax and spacing accurate.
+You can manually type substitutions into the `metadata.yml` file, ensuring you have the syntax and spacing accurate.  
 
 Alternately, function `metadata_add_substitution` adds single substitutions directly into `metadata[["substitutions"]]`:
 
@@ -976,9 +976,10 @@ Alternately, function `metadata_add_substitution` adds single substitutions dire
 traits.build::metadata_add_substitution(current_study, "trait_name", "find", "replace")
 ```
 
-  **Notes**:
-  -   Combinations of multiple trait values are allowed - simply list them, space delimited (e.g. `shrub tree` for a species whose growth form includes both). - Combinations of multiple trait values are reorganised into alphabetic order in order to collapse into fewer combinations (e.g. "fire_killed resprouts" and "resprouts fire_killed" are alphabetised and hence collapsed into one combination, "fire_killed resprouts"). 
-  -   If a trait value is `N` or `Y` that needs to be in single, straight quotes (usually edited later, directly in the `metadata.yml` file)
+  **Notes**:  
+  -   Combinations of multiple trait values are allowed - simply list them, space delimited (e.g. `shrub tree` for a species whose growth form includes both).   
+  -   Combinations of multiple trait values are reorganised into alphabetic order in order to collapse into fewer combinations (e.g. "fire_killed resprouts" and "resprouts fire_killed" are alphabetised and hence collapsed into one combination, "fire_killed resprouts").  
+  -   If a trait value is `N` or `Y` that needs to be in single, straight quotes (usually edited later, directly in the `metadata.yml` file)  
 
 If you have many substitutions to add, it is more efficient to create a spreadsheet with a list of all `trait_name` by `trait_value` combinations requiring substitutions. The spreadsheet would have four columns with headers `dataset_id`, `trait_name`, `find` and `replace`. This table can be read directly into the `metadata.yml` file using the function `metadata_add_substitutions_table`:
 
@@ -1042,16 +1043,16 @@ taxonomic_updates:
   taxonomic_resolution: Species
 ```
 
-  **Notes**:
-  -   Each trait database will have their own conventions for how to align names that cannot be perfectly matched to an accepted/valid taxon concept. The examples and notes provided here indicate the conventions used by AusTraits.
-  -   `Poa sp.` and `Acacia ancistrophylla/sclerophylla` are examples of taxon names that can only be aligned to genus. The `taxonomic_resolution` is therefore specified as `genus`. The portion of the name that can be aligned to the taxonomic resource must be before the square brackets. Any information within the square brackets is important for uniquely identifying this entry within the trait database, but does not provide additional taxonomic information.
-  -   `Polyalthia (Wyvur)` is a poorly formatted phrase name that has been matched to its appropriate syntax in the APC.
+  **Notes**:  
+  -   Each trait database will have their own conventions for how to align names that cannot be perfectly matched to an accepted/valid taxon concept. The examples and notes provided here indicate the conventions used by AusTraits.   
+  -   `Poa sp.` and `Acacia ancistrophylla/sclerophylla` are examples of taxon names that can only be aligned to genus. The `taxonomic_resolution` is therefore specified as `genus`. The portion of the name that can be aligned to the taxonomic resource must be before the square brackets. Any information within the square brackets is important for uniquely identifying this entry within the trait database, but does not provide additional taxonomic information.   
+  -   `Polyalthia (Wyvur)` is a poorly formatted phrase name that has been matched to its appropriate syntax in the APC.   
 
 The four elements it includes are:  
--   **find**: The original name given to taxon in the original data supplied by the authors.
--   **replace**: The updated taxon name, that should now to aligned to a taxon name within the chosen taxonomic reference.
--   **reason**: Records why the change was implemented, e.g. `typos`, `taxonomic synonyms`, and `standardising spellings`.
--   **taxonomic_resolution**: The rank of the most specific taxon name (or scientific name) to which a submitted original name resolves.
+-   **find**: The original name given to taxon in the original data supplied by the authors.  
+-   **replace**: The updated taxon name, that should now to aligned to a taxon name within the chosen taxonomic reference.  
+-   **reason**: Records why the change was implemented, e.g. `typos`, `taxonomic synonyms`, and `standardising spellings`.  
+-   **taxonomic_resolution**: The rank of the most specific taxon name (or scientific name) to which a submitted original name resolves.  
 
 The function `metadata_add_taxonomic_change` adds single taxonomic updates directly into `metadata[["taxonomic_updates"]]`:
 
@@ -1101,9 +1102,9 @@ exclude_observations:
 ```
 
 The three elements it includes are:
--   **variable**: A variable from the traits table, typically `taxon_name`, `location_name` or `context_name`
--   **find**: Value of variable to remove
--   **reason**: Records why the data were removed, e.g. `exotic`
+-   **variable**: A variable from the traits table, typically `taxon_name`, `location_name` or `context_name`  
+-   **find**: Value of variable to remove  
+-   **reason**: Records why the data were removed, e.g. `exotic`  
 
 **NOTE**: Multiple, comma-delimited values can be added under `find`.
 
@@ -1174,9 +1175,9 @@ Fix as many errors as you can and then rerun `dataset_test()` repeatedly until n
 
 You may want to fix errors in tandem with [building the new dataset](#build_new_dataset), such as to be able to quickly compile a list of trait values requiring [substitutions](#add_substitutions) or taxon names requiring [taxonomic updates](#add_taxonomic_updates)
 
-See the [common issues](#data_common_issues.html) chapter for solutions to common issues, such as:
--   dataset not [pivoting](#data_common_issues.html#cannot_pivot)
--   unsupported trait values
+See the [common issues](#data_common_issues.html) chapter for solutions to common issues, such as:  
+-   dataset not [pivoting](#data_common_issues.html#cannot_pivot)  
+-   unsupported trait values  
 
 ### Rebuild AusTraits {#build_new_dataset}
 
@@ -1196,7 +1197,7 @@ traits.build::build_setup_pipeline(method = "remake", database_name = "database"
 austraits <- remake::make("austraits")
 ```
 
-## Check excluded data
+### Check excluded data
 
 AusTraits automatically excludes measurements for a number of reasons. Data might be excluded for legitimate reasons (value far out of range for a numeric trait) or because
 
@@ -1295,20 +1296,19 @@ traits.build::dataset_report(database, current_study, overwrite = TRUE)
 ```
 
 **NOTES**:  
--   The report will appear in the folder `export/reports`
--   The argument `overwrite = TRUE` overwrites pre-existing copies of the report in this folder.
+-   The report will appear in the folder `export/reports`    
+-   The argument `overwrite = TRUE` overwrites pre-existing copies of the report in this folder.  
 
 Check the study report to ensure:
 
--   All possible metadata fields were filled in
--   The locations plot sensibly on the map
--   For numeric traits, the trait values plot sensibly relative to other studies
--   The list of unknown/unmatched species doesn't include names you think should be recognised/aligned
+-   All possible metadata fields were filled in  
+-   The locations plot sensibly on the map  
+-   For numeric traits, the trait values plot sensibly relative to other studies  
+-   The list of unknown/unmatched species doesn't include names you think should be recognised/aligned  
 
 If necessary, cycle back through earlier steps to fix any errors, rebuilding the study report as necessary
 
 At the very end, re-clear formatting, re-run tests, rebuild AusTraits, rebuild report.
-
 
 To generate a report for a collection of studies:
 
