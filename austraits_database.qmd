@@ -40,29 +40,19 @@ library(austraits)
 
 Before loading AusTraits, see what versions are available,
 
-```{r  eval = FALSE}
-get_versions()
-```
-
-yields:
-
-```{r, eval = FALSE}
-# A tibble: 6 × 3
-  date       version doi                   
-  <chr>      <chr>   <chr>                 
-1 2023-01-30 4.2.0   10.5281/zenodo.8353840 
-2 2023-01-30 4.1.0   10.5281/zenodo.7583087
-3 2022-11-27 4.0.0   10.5281/zenodo.7368074
-4 2021-07-14 3.0.2   10.5281/zenodo.5112001
-5 2021-07-14 3.0.1   10.5281/zenodo.5099552
-6 2021-07-14 3.0.0   10.5281/zenodo.5099545
+```{r  eval = TRUE}
+austraits::get_versions()
 ```
 
 Download the most recently released version:
 
 ```{r, eval = FALSE}
-austraits <- austraits::load_austraits(doi = "10.5281/zenodo.8353840") # you can load from the Zenodo doi
+most_recent_doi <- austraits::get_versions()|> dplyr::pull("doi") |> dplyr::first()
 
-austraits <- austraits::load_austraits(version = "4.1.0") # you can load from the version
+most_recent_doi
+
+austraits <- austraits::load_austraits(doi = most_recent) # you can load from the Zenodo doi
+
+austraits <- austraits::load_austraits(version = "5.0.0") # you can load from the version
                                                           # the `path` argument stores a copy for future use.
 ```
