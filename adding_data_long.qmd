@@ -35,16 +35,13 @@ If you are embarking on building a new database using the `traits.build` standar
 
 Then come back to this document for details and unusual dataset circumstances that are not covered in the tutorials.
 
-Before starting this, you should also read more about
+Other chapters you may want to read include:
 
--   an [overview of AusTraits](overview.html),
--   the instructions provided to [data
-    contributors](contributing_data.html),
--   the [structure of the compiled AusTraits
-    database](database_structure.html),
+-   an [overview of `traits.build`](overview.html),
+-   the instructions provided to [data contributors](contributing_data.html),
+-   the [structure of a compiled `traits.build` database](database_structure.html),
 -   the [structure of the raw data files](file_structure.html)
-
-Then, read the [overview for adding data](adding_data_brief.html).
+-   the [overview for adding data](adding_data_brief.html).
 
 ## Getting started
 
