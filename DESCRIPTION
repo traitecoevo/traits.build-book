@@ -15,11 +15,21 @@ License: MIT + file LICENSE
 Depends:
     R (>= 4.2.0),
     austraits,
-    traits.build
+    traits.build (>= 1.0.0),
+    APCalign,
+    readr,
+    dplyr,
+    tidyr,
+    stringr,
+    tidyverse,
+    galah,
+    sf,
+    ozmaps
 Suggests:
   knitr (>= 1.30),
   rmarkdown (>= 2.4),
-  testthat (>= 2.3.2)
+  testthat (>= 2.3.2),
+  purrr
 Remotes:
   traitecoevo/traits.build@develop,
   traitecoevo/austraits@develop,

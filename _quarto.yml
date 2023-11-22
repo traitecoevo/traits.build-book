@@ -44,10 +44,10 @@ book:
     - part: Using outputs of `traits.build`
       chapters:
         - austraits_database.qmd
-        - austraits_package.qmd
         - AusTraits_tutorial.qmd
         - traits_and_climate_example.qmd
         - spatial_data_example.qmd
+        - austraits_package.qmd
     - part: Getting help
       chapters:
         - help.qmd

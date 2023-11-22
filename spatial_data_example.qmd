@@ -14,7 +14,7 @@ library(austraits)
 Load austraits
 
 ```{r, eval = TRUE}
-most_recent <- austraits::get_versions()[[3]][1]
+most_recent <- austraits::get_versions()[["doi"]][1]
 
 most_recent
 
