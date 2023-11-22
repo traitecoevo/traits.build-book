@@ -113,8 +113,7 @@ readr::read_csv("data/dataset_id/raw/raw_data.csv") %>%
     ) %>%
   dplyr::ungroup()
 ```
-
-* Make sure you `group_by` all categorical variables you want to retain, for only columns that are grouping variables will be kept.*
+*Make sure you `group_by` all categorical variables you want to retain, for only columns that are grouping variables will be kept.*
 
 When you want to take the mean of multiple data columns simultaneously, use:
 
@@ -178,9 +177,9 @@ data %>%
 
 ### Unexpected hangups
 
--   When Excel saves an `.xls` file as a `.csv` file it only preserves the number of significant figures that are displayed on the screen. This means that if, for some reason, a column has been set to display a very low number of significant figures or a column is very narrow, data quality is lost.
+-   When Excel saves an `.xls` file as a `.csv` file it only preserves the number of significant figures that are displayed on the screen. This means that if, for some reason, a column has been set to display a very low number of significant figures or a column is very narrow, data quality is lost.  
 
--   If you're reading a file into R where there are lots of blanks at the beginning of a column of numeric data, the defaults for `readr::`read_csv`fail to register the column as numeric. It is fixed by adding the argument`guess_max\`:
+-   If you're reading a file into R where there are lots of blanks at the beginning of a column of numeric data, the defaults for `readr::`read_csv` fail to register the column as numeric. It is fixed by adding the argument `guess_max`:  
 
 ```{r, eval=FALSE, echo=TRUE}
 read_csv("data/dataset_id/raw/raw_data.csv", guess_max = 10000)
@@ -288,7 +287,7 @@ The different elements within the source will automatically be generated.
 
 Double check the information added to ensure:
 
-1.  The title is in `sentence case`.\
+1.  The title is in `sentence case`.  
 2.  The information isn't in `all caps` (sources from a few journals gets read in as all caps).
 3.  Pages numbers are present and include `--` between page numbers (for example, `123 -- 134`).
 4.  If there is a colon (:) or apostrophe (') in a reference, the text for that line must be in quotes (").
@@ -370,8 +369,7 @@ source:
     title: "Unpublished data: Herbivory survey within Royal National Park, University
       of New South Wales"
 ```
-
--   Note the title of an unpublished dataset must begin with the words "Unpublished data" and include the data collectors affiliation.
+-   Note the title of an unpublished dataset must begin with the words "Unpublished data" and include the data collectors affiliation. 
 
 ### Adding contributors {#contributors}
 
@@ -680,7 +678,7 @@ The `dataset` section includes fields that are:
 
 -   **entity_type** is standardly added to each trait, and is described below under traits, but a fixed value or column could be read in under `metadata[["dataset"]]`
 
-### Adding location details {#adding_locations}
+#### Adding location details {#adding_locations}
 
 Location data includes location names, latitude/longitude coordinates, verbal location descriptions, and any additional abiotic/biotic location variables provided by the contributor (or in the accompanying manuscript). For studies with more than a few locations, it is most efficient to create a table of this data that is automatically read into the `metadata.yml` file.
 
@@ -1179,7 +1177,6 @@ You may want to fix errors in tandem with [building the new dataset](#build_new_
 See the [common issues](#data_common_issues.html) chapter for solutions to common issues, such as:
 -   dataset not [pivoting](#data_common_issues.html#cannot_pivot)
 -   unsupported trait values
-
 
 ### Rebuild AusTraits {#build_new_dataset}
 
