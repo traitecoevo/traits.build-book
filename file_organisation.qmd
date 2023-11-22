@@ -16,7 +16,7 @@ my_kable_styling <- util_kable_styling_html
 ```
 
 ```{r, echo=FALSE, results='hide', message=FALSE}
-austraits <- austraits:::austraits_lite
+austraits <- austraits:::austraits_5.0.0_lite
 schema <- get_schema()
 ```
 

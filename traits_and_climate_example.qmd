@@ -16,10 +16,10 @@ library(purrr)
 library(ggplot2)
 ```
 
-This example uses the most recent AusTraits release, version `r austraits::get_versions()[[2]][1]`
+This example uses the most recent AusTraits release, version `r austraits::get_versions()[["version"]][1]`
 
 ```{r, eval = TRUE}
-most_recent <- austraits::get_versions()[[3]][1]
+most_recent <- austraits::get_versions()[["doi"]][1]
 
 most_recent
 

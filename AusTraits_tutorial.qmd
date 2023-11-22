@@ -44,7 +44,7 @@ source("data/extra_functions.R")
 
 Then download (or build) the latest AusTraits data, by one of the methods described [here](austraits_database.html#access_data).
 
-This tutorial uses the most recent AusTraits release, version `r austraits::get_versions()[[2]][1]`
+This tutorial uses the most recent AusTraits release, version `r austraits::get_versions()[["version"]][1]`
 
 ```{r, eval = TRUE}
 most_recent <- austraits::get_versions()|> dplyr::pull("doi") |> dplyr::first()
