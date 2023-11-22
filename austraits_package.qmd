@@ -28,7 +28,7 @@ The `austraits` package is designed to aid users in accessing data from [AusTrai
 #install.packages("remotes")
 #remotes::install_github("traitecoevo/austraits", dependencies = TRUE, upgrade = "ask")
 
-# Load the austraits package
+## Load the austraits package
 library(austraits)
 ```
 
