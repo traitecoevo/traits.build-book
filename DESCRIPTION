@@ -22,9 +22,13 @@ Depends:
     tidyr,
     stringr,
     tidyverse,
+    ggdist,
+    gghalves,
+    ggtext,
     galah,
     sf,
-    ozmaps
+    ozmaps,
+    pilot
 Suggests:
   knitr (>= 1.30),
   rmarkdown (>= 2.4),
@@ -32,7 +36,8 @@ Suggests:
   purrr
 Remotes:
   traitecoevo/traits.build@develop,
-  traitecoevo/austraits@develop,
+  traitecoevo/austraits@master,
+  olihawkins/pilot
 Encoding: UTF-8
 Language: en-UK
 Roxygen: list(markdown = TRUE)
