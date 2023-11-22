@@ -40,7 +40,7 @@ sample_names <- c("Cryptocarya rigida", "Pteridium esculentum",
                   "Eucalyptus baxteri", "Melaleuca armillaris",
                   "Eucalyptus wandoo", "Eucalyptus piperita")
 
-leaf_mass_sample <- leaf_mass %>% filter(taxon_name %in% sample_names)
+leaf_mass_sample <- leaf_mass %>% dplyr::filter(taxon_name %in% sample_names)
 ```
 
 
