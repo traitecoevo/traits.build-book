@@ -342,7 +342,7 @@ traits_with_lat_long <-
 traits_with_lat_long$traits %>%
   dplyr::select(dataset_id, taxon_name, trait_name, value, location_name, location_id, `latitude (deg)`, `longitude (deg)`) %>%
   dplyr::filter(!is.na(`latitude (deg)`)) %>%
-  dplyr::slice(1:20) %>% View()
+  dplyr::slice(1:20)
 ```
 
 However, the `{austraits}` function `join_locations` only joins latitude and longitude data from the locations tables.
