@@ -54,7 +54,7 @@ austraits
 
 These include all the data and contextual information submitted with each contributed dataset. 
 
-# Components
+## Components
 
 The core components are defined as follows.
 
