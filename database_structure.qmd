@@ -154,8 +154,9 @@ schema$basis_of_record$values %>%
 
 Each record in the table of trait data has an associated `value`, `value_type`, and `basis_of_value`.
 
-`Value type:` A trait's `value_type` is either `numeric` or `categorical`. For traits with numerical values, the recorded value has been converted into standardised units and the AusTraits workflow has confirmed the value can be converted into a number and lies within the allowable range. For categorical variables, records have been aligned through substitutions to values listed as allowable values (terms) in a trait's definition. \* we use `_` for multi-word terms, e.g. `semi_deciduous`\
-\* we use a space for situations where two values co-occur for the same entity. For instance, a flora might indicate that a plant species can be either annual or biennial, in which case the trait is scored as `annual biennial`.
+`Value type:` A trait's `value_type` is either `numeric` or `categorical`. For traits with numerical values, the recorded value has been converted into standardised units and the AusTraits workflow has confirmed the value can be converted into a number and lies within the allowable range. For categorical variables, records have been aligned through substitutions to values listed as allowable values (terms) in a trait's definition.  
+-   we use `_` for multi-word terms, e.g. `semi_deciduous`   
+-   we use a space for situations where two values co-occur for the same entity. For instance, a flora might indicate that a plant species can be either annual or biennial, in which case the trait is scored as `annual biennial`.  
 
 Each trait measurement has an associated `value_type`, which is `r tolower(schema$metadata$elements$traits$elements$value_type)` 
 
