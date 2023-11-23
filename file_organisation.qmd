@@ -35,21 +35,20 @@ dir() %>%
   writeLines()
 ```
 
-
 **Files used for data compilation**
 ```
 ├── remake.yml/build.R    # instructions for build
 ├── config                # configuration files
 ├── data                  # raw data files
-├── R                     # folder with custom functions
+├── R                     # folder with custom R functions
 ├── export                # folder for output
-└── scripts               # scripts for processing files before/after build
+└── scripts               # R scripts for processing files before/after build
 ```
 
 **R project file**
 
 ```
-├── traits.build.Rproj     # Rstudio project
+├── austraits.build.Rproj     # Rstudio project
 ```
 
 **Files for maintaining a repo on github**
@@ -59,8 +58,7 @@ dir() %>%
 ├── .github           # folder containing github actions, issue templates, code of conduct
 ├── LICENCE
 ├── NEWS.md
-├── _pkgdown.yml      # used to create packagedown website
-├── docs              # contains website
+├── inst              # contains images that appear on github repo 
 ├── Dockerfile        # creates an image of R environment used in build
 ```
 
@@ -72,9 +70,7 @@ XXX Explain this more
 ├── NAMESPACE             # functions being exported
 ├── DESCRIPTION           # R package description
 ├── tests                 # defines tests applied to datasets
-├── vignettes             # documentation of repo file structure, AusTraits database structure, definitions, data input processes
 ```
-
 
 ## `/config` folder
 
