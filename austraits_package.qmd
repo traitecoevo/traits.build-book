@@ -12,7 +12,7 @@ library(dplyr)
 library(stringr)
 library(austraits)
 
-austraits <- austraits:::austraits_lite
+austraits <- austraits:::austraits_3.0.2_lite
 austraits$build_info$version <- "0.0.0.900"
 class(austraits) <- "austraits"
 ```
@@ -26,7 +26,7 @@ The `austraits` package is designed to aid users in accessing data from [AusTrai
 
 ```{r setup, eval = FALSE}
 #install.packages("remotes")
-remotes::install_github("traitecoevo/austraits", dependencies = TRUE, upgrade = "ask")
+#remotes::install_github("traitecoevo/austraits", dependencies = TRUE, upgrade = "ask")
 
 ## Load the austraits package
 library(austraits)

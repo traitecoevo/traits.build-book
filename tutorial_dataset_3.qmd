@@ -328,6 +328,6 @@ At this point, rerunning the tests and rebuilding the database should not genera
 As a final step, build a report for the study
 
 ```{r, eval=FALSE}
-traits.build_database$build_info$version <- "4.0.0"  # a fix because the function was built around specific AusTraits versions
+traits.build_database$build_info$version <- "5.0.0"  # a fix because the function was built around specific AusTraits versions
 dataset_report("tutorial_dataset_3", traits.build_database, overwrite = TRUE)
 ```
