@@ -159,7 +159,7 @@ Each record in the table of trait data has an associated `value`, `value_type`, 
 -   we use `_` for multi-word terms, e.g. `semi_deciduous`   
 -   we use a space for situations where two values co-occur for the same entity. For instance, a flora might indicate that a plant species can be either annual or biennial, in which case the trait is scored as `annual biennial`.  
 
-Each trait measurement has an associated `value_type`, which is `r tolower(schema$metadata$elements$traits$elements$value_type)` 
+Each trait measurement has an associated `value_type`, which is `r tolower(schema$metadata$elements$traits$elements$value_type)`
 
 Possible values are:
 
@@ -170,7 +170,7 @@ schema$value_type$values %>%
   writeLines()
 ```
 
-Each trait measurement also has an associated `basis_of_value`, which is `r tolower(schema$metadata$elements$traits$elements$basis_of_value)` 
+Each trait measurement also has an associated `basis_of_value`, which is `r tolower(schema$metadata$elements$traits$elements$basis_of_value)`
 
 Possible values are:
 
