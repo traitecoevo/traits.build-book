@@ -1,17 +1,30 @@
 # Tutorial: Adding datasets
 
-This tutorial gives detailed exmaples of adding datasets to a `traits.build` database. 
+This part of the `traits.build` book contains a series of tutorials, teaching you for to add datasets to a `traits.build` database. 
 
-Prior to completing this tutorial, you should have completed the example of [running the template example](tutorial_compilation.html).
+Prior to beginning these tutorials, ensure you have: 
+
+1.  Installed the `{traits.build}` R package
+```
+remotes::install_github("traitecoevo/traits.build")
+```
+2.  Cloned the traitecoevo/traits.build-template repository.
+
+3.  Built the [example database](tutorial_compilation.html).
 
 The tutorial is divided into the following sections:
 
-- [tutorial 1](tutorial_dataset_1.html): Adding a simple dataset.
-- [tutorial 2](tutorial_dataset_2.html): Adding a more complex dataset.
-- [tutorial 3](tutorial_dataset_3.html): Adding contexts and complex units.
-- [tutorial 4](tutorial_dataset_4.html): Additional complexities for adding datasets.
-- [tutorial 5](tutorial_dataset_5.html): Adding datasets with multiple columns for a trait.
-- [tutorial 6](tutorial_dataset_6.html): Adding datasets with repeat measurements (response curves).
-- [tutorial 7](tutorial_dataset_7.html): Adding a long format dataset and mapping in units from a column.
+- [tutorial 1](tutorial_dataset_1.html): Adding a simple dataset.  
+- [tutorial 2](tutorial_dataset_2.html): Adding a more complex dataset.  
+- [tutorial 3](tutorial_dataset_3.html): Adding contexts and complex units.  
+- [tutorial 4](tutorial_dataset_4.html): Additional complexities for adding datasets.  
+- [tutorial 5](tutorial_dataset_5.html): Adding datasets with multiple columns for a trait.  
+- [tutorial 6](tutorial_dataset_6.html): Adding datasets with repeat measurements (response curves).  
+- [tutorial 7](tutorial_dataset_7.html): Adding a long format dataset and mapping in units from a column.  
 
-See also the guide to [common issues when adding data](data_common_issues.html).
+Once you've worked your way through the tutorials and begin adding your own datasets, you'll also want to refer to:
+
+-   lengthy guide to [adding datasets](adding_data_long.html)  
+-   guide to [common issues when adding data](data_common_issues.html).  
+
+If you are building a `{traits.build}` compiled trait database and have specific problems that should be covered in additional tutorials or require better explanations, please post an [issue](https://github.com/traitecoevo/traits.build-book/issues/new).

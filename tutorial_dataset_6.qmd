@@ -165,6 +165,6 @@ traits.build_database$excluded_data %>% filter(dataset_id == "tutorial_dataset_6
 There should be no errors. However there are many excluded data values - entirely negative photosynthetic rates. The definition of `leaf_photosynthetic_rate_per_area_saturated` requires photosynthetic rates to be positive, so these are valid excluded values and simply remain in the excluded data table. So go ahead and build a report for the study:
 
 ```{r, eval=FALSE}
-traits.build_database$build_info$version <- "4.0.0"  # a fix because the function was built around specific AusTraits versions
+traits.build_database$build_info$version <- "5.0.0"  # a fix because the function was built around specific AusTraits versions
 dataset_report("tutorial_dataset_6", traits.build_database, overwrite = TRUE)
 ```

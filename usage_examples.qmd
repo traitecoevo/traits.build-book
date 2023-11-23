@@ -4,7 +4,7 @@
 
 The workflow described here evolved out of the AusTraits project. AusTraits is an open-source, harmonized database of Australian plant trait data. It synthesises data on nearly 500 traits across more than 30,000 taxa from over 300 sources. Begun in 2016 as an initiative between three lab groups, it has grown to be the largest collation of plant trait data for Australian plants.
 
-The `traits.build` workflow is used to build the AusTraits database. The workflow XXXX
+The `traits.build` workflow is now used to build the AusTraits database. Indeed, the GitHub repository `traitecoevo/austraits.build` now includes only the trait datasets (& metadata) and the configuration files required to compile AusTraits. The R workflow to build the database is now sourced from the `{traits.build}` package
 
 ## Other examples 
 

@@ -44,24 +44,12 @@ write_csv(table, "data/dataset_id/raw/substitutions_required.csv")
 table <- read_csv("data/dataset_id/raw/substitutions_required.csv")
 ```
 
-## Dataset can't pivot wider
+## Dataset can't pivot wider {#cannot_pivot}
 
-In order to convert a traits.build database into a wide format, the traits.build$traits table must be able to pivot wider. This dataset was unable to pivot, due to duplication in the following rows:
+In order to convert a traits.build database into a wide format, the traits.build$traits table must be able to pivot wider. 
 
-```{r, eval=FALSE}
-my_database$traits %>%
-  filter(dataset_id == dataset_ids) %>%
-  select(
-      dplyr::all_of(c("dataset_id", "trait_name", "value", "observation_id", "source_id", "taxon_name",
-      "entity_type", "life_stage", "basis_of_record", "value_type", "population_id", "individual_id",
-      "temporal_id", "method_id", "method_context_id", "entity_context_id", "original_name"))
-          )
-  pivot_wider(names_from = trait_name, values_from = value, values_fn = length) %>%
-  pivot_longer(cols = 16:ncol(.)) %>%
-  rename(trait_name = name, number_of_duplicates = value) %>%
-  select(dataset_id, taxon_name, trait_name, number_of_duplicates, observation_id, entity_type, value_type, population_id, everything()) %>%
-  filter(number_of_duplicates > 1)
-```
+One of the tests run during `dataset_test` is the function `traits.build::check_pivot_wider()`. This function checks that each row in the `traits` table has a unique combination of a particular 7 columns:
+  `dataset_id`, `trait_name`, `observation_id`, `value_type`, `repeat_measurements_id`, `method_id`, `method_context_id`
 
 There are two likely explanations -- and solutions -- to this error:
 
@@ -77,3 +65,5 @@ data %>%
 2.  Rows of data that represent measurements made at different times,
 
  ... TBC
+
+

@@ -27,25 +27,24 @@ Or you can visit the Github repositories for individual packages/data repos:
 
 Before you begin, download and source essential packages and functions.
 
+
 ```{r, eval = TRUE, message = FALSE}
 library(readr)
 library(tidyr)
 library(dplyr)
 library(stringr)
 
-#remotes::install_github("traitecoevo/austraits@7f4a5fa", quick=TRUE)   # temporary
-#remotes::install_github("traitecoevo/austraits", quick=TRUE)           # permanent
+#remotes::install_github("traitecoevo/austraits", quick=TRUE)
 
 library(austraits)    # functions for exploring a traits.build database, available at Github repo
 library(traits.build) # additional functions for exploring a traits.build database, available at Github repo
-library(APCalign)     # Australian plant taxon alignment function, available on CRAN 
 
 source("data/extra_functions.R")
 ```
 
 Then download (or build) the latest AusTraits data, using one of the methods described [here](austraits_database.html#access_data).
 
-This tutorial uses the most recent AusTraits release, version `r austraits::get_versions()[[2]][1]`
+This tutorial uses the most recent AusTraits release, version `r austraits::get_versions()[["version"]][1]`
 
 ```{r, eval = TRUE}
 most_recent <- austraits::get_versions()|> dplyr::pull("doi") |> dplyr::first()
@@ -343,7 +342,7 @@ traits_with_lat_long <-
 traits_with_lat_long$traits %>%
   dplyr::select(dataset_id, taxon_name, trait_name, value, location_name, location_id, `latitude (deg)`, `longitude (deg)`) %>%
   dplyr::filter(!is.na(`latitude (deg)`)) %>%
-  dplyr::slice(1:20) %>% View()
+  dplyr::slice(1:20)
 ```
 
 However, the `{austraits}` function `join_locations` only joins latitude and longitude data from the locations tables.
@@ -381,7 +380,7 @@ traits_with_locations <-
 
 #### Joining contexts
 
-The context tables document additional context properties/ancillary data which may be useful for interpreting trait values. Context properties are divided into 5 categories: `treatment context`, `plot context`, `entity context`, `temporal context`, and `method context`.
+The context table documents additional context properties/ancillary data which may be useful for interpreting trait values. Context properties are divided into 5 categories: `treatment context`, `plot context`, `entity context`, `temporal context`, and `method context`.
 
 | context category  | description                                                                                                                                                                                                      |
 |---------------|---------------------------------------------------------|
@@ -417,7 +416,7 @@ traits_with_contexts$traits %>%
 
 #### Joining methods
 
-The methods table documents a selection of metadata recorded about the entire dataset and methods used for individual trait measurements. There is a single row of data per `dataset_id` x `trait_name` x `method_id` combination. `Method_id` is used to distinguish between instances where a single trait is measured twice using two separate protocols and is separate to `method_context_id`, which documents specific components of methods that are modified between measurements.
+The methods table documents a selection of metadata recorded about the entire dataset and methods used for individual trait measurements. There is a single row of data per `dataset_id` x `trait_name` x `method_id` combination. `Method_id` is used to distinguish between instances where a single trait is measured twice using two separate protocols and is separate to `method_context_id`, which documents specific components of a method that are modified between measurements.
 
 The `{austraits}` function offers a function to just add trait methods to the traits table:
 
@@ -505,7 +504,7 @@ categorical_summary_wider
 
 We're hesitant to write functions to summarise numeric traits, as this quickly requires statistical assumptions.
 
-The datasets that comprise AusTraits were collected by different people, with a different number of replicates and different entity types reported. One dataset might include 20 measurements on individuals for a trait and another  might have submitted a single population-level mean derived from 5 measurements.
+The datasets that comprise AusTraits were collected by different people, with a different number of replicates and different entity types reported. One dataset might include 20 measurements on individuals for a trait and another might have submitted a single population-level mean derived from 5 measurements.
 
 How do you take the mean of these trait values?
 
@@ -696,7 +695,7 @@ Edwards_2000_pivoted_merged <-
 
 -   This function will duplicate any "higher-entity" trait values (e.g. A single species-level value is filled in for all individuals or populations)
 
--   Metadata fields, like `entity_type`or `value_type`, are only retained if it is identical for all measurements
+-   Metadata fields, like `entity_type` or `value_type`, are only retained if it is identical for all measurements
 
 ```{r, eval = TRUE, message = FALSE, warning = FALSE}
 Westoby_2014_pivoted_merged <-
@@ -741,7 +740,9 @@ The R package [`{APCalign}`](https://github.com/traitecoevo/APCalign) is used to
 APC align can also be installed directly from CRAN
 
 ```{r, eval = TRUE}
-install.packages("APCalign")
+#install.packages("APCalign")
+
+library(APCalign)     # Australian plant taxon alignment function, available on CRAN 
 ```
 
 There are two key components to the workflow: 

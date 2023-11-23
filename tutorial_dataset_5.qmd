@@ -292,6 +292,6 @@ Then remake the database and again check the excluded data table.
 If the only excluded values remaining are the negative gas exchange rates, build a report for the study:
 
 ```{r, eval=FALSE}
-traits.build_database$build_info$version <- "4.0.0"  # a fix because the function was built around specific AusTraits versions
+traits.build_database$build_info$version <- "5.0.0"  # a fix because the function was built around specific AusTraits versions
 dataset_report("tutorial_dataset_5", traits.build_database, overwrite = TRUE)
 ```
