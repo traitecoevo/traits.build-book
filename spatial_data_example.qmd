@@ -1,5 +1,5 @@
 
-# Tutorial: Using AusTraits with spatial data
+# Analysis example: Using AusTraits with spatial data
 
 This tutorial is based on [this great tutorial](https://labs.ala.org.au/posts/2023-08-28_alternatives-to-box-plots/post.html) by Dax Kellie and Shandiya Balasubramaniam from the ALA team.
 

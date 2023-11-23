@@ -1,4 +1,4 @@
-# Combining trait values and climate data
+# Analysis example: Using AusTraits for trait-climate analyses
 
 ## Introduction
 
