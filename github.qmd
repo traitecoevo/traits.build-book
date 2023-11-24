@@ -1,166 +1,61 @@
 # Using GitHub
 
-# Working with our GitHub repository
+## Working with your GitHub repository
 
-By far our preferred way of contributing is for you to contribute files directly into the repository and then send a  [pull request](https://help.github.com/articles/using-pull-requests/) with your input. You can do this by
+For {traits.build} users, by far the preferred way of hosting your database is on GitHub.
 
-- (for approved maintainers of traits.build) Creating a branch, or
-- (for others) forking the database in github
+### Setting up the repository
+
+There are some GitHub settings we recommend:
+- `General`: Enable "Always suggest updating pull request branches" to keep the branch up to date with the main branch before merging
+- `General`: Enable "Automatically delete head branches" to delete the branch after merging, which keeps your branches clean
+- `Branches`: Add a branch protection rule for your main or develop branch and enable "Require a pull request before merging", "Require conversation resolution before merging", "Require deployments to succeed before merging"
+
+#### Automated tests during pull requests
+
+To run automated tests that must pass before a pull request can be merged in, you can set up GitHub workflows via the Actions tab on GitHub. The setting "Require deployments to succeed before merging" must be enabled for the `main` or `develop` branch. You can write your own workflows which are stored in `.github/workflows/`. For {austraits.build}, the GitHub workflow runs `dataset_test` on all data sources and compiles the database (see [here](https://github.com/traitecoevo/austraits.build/blob/51964dbe4d302c6dade51db133e9e32514cddaae/.github/workflows/check-build.yml)).
+
+
+### Adding to the repository
+
+New data can be added to the repository by creating a branch and then opening a [pull request](https://help.github.com/articles/using-pull-requests/) (PR). Those who want to contribute but aren't approved maintainers of the database, must fork and clone the database from GitHub. #TODO appropriate settings for GitHub
 
 In short,
 
-1. Create a Git branch for your new work, either within the AusTraits repo (if you are an approved contributor) or as a [fork of the repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
+1. Create a Git branch for your new work, either within the repo (if you are an approved contributor) or as a [fork of the repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 2. Make commits and push these up onto the branch.
-2. Make sure everything runs fine before you send a pull request.
-3. When you're ready to merge in the new features,
+3. Make sure everything runs fine before you send a PR (see [tutorials for adding datasets](tutorial_datasets.html)).
+4. Submit the PR and tag someone as a reviewer.
+5. Squash and merge the PR once approved and any changes have been made.
 
-Before you make a substantial pull request, you should always [file an issue](https://github.com/traitecoevo/traits.build/issues) and make sure someone from the team agrees that it’s worth pursuing the problem. If you’ve found a bug, create an associated issue and illustrate the bug with a minimal [reprex](https://www.tidyverse.org/help/#reprex) illustrating the issue.
+**Tip**: For working with git and GitHub, GitHub Desktop is a user-friendly graphical interface tool that we recommend.
 
-If this is not possible, you could email the relevant files (see above) to the AusTraits email: austraits.database@gmail.com
+#### Merging a pull request
 
-## Merging a pull request
+The easiest way to merge a PR is to use GitHub's built-in options for squashing and merging. This leads to:
 
-There are multiple ways to merge a pull request, including using GitHub's built-in options for merging and squashing. When merging a PR, we ideally want
+- A single commit
+- The work is attributed to the original author
 
-- a single commit
-- to attribute the work to the original author
-- to run various checks along the way
+You can merge in a PR after it has been approved. To merge a PR, you need to be an approved maintainer. You do not need to be the original author of the PR (the commit will still be by the original author).
 
-There are two ways to do this. For both, you need to be an approved maintainer.
+1. Send the PR.
+2. Tag someone to review.
+3. If there are any updates to the main branch, merge those into your new branch and resolve any conflicts.
+4. Once ready, merge into the main branch, choosing "Squash & Merge", using an informative commit message. "Squash" merges all your commits on the branch into one.
 
-### Merging in your own PR
+##### Commit messages
 
-You can merge in your own PR after you've had someone else review it.
+Informative commit messages are ideal. They should clearly describe the work done and value added to the database in a few, clear, bulleted points. If relevant, they should reference any GitHub issues. You can [link to and directly close GitHub issues via the commit message](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword). To link to another commit you can also use the SHA-hash or its 7-character prefix.
 
-1. Send the PR
-2. Tag someone to review
-3. Once ready, merge into main choosing "Squash & Merge", using an informative commit message.
-
-
-### Merging someone else's PR
-
-When merging in someone else's PR, the built-in  options aren't ideal, as they either take all of the commits on a branch (ugh, messy), OR make the commit under the name of the person merging the request.
-
-The workflow below describes how to merge a pull request from the command line, with a single commit & attributing the work to the original author. Lets assume a branch of name `Smith_1995`.
-
-First, from the master branch in the repo, run the following:
+An example commit message:
 
 ```
-git merge --squash origin/Smith_1995
+Smith_1996: Add study
+- For #224, closes #286
+- Trait data for Nothofagus forests across Australia, New Zealand and South America
 ```
 
-Then in R
+## Bugs and feature requests in {traits.build}
 
-```{r, eval=FALSE}
-dataset_ids <- "Smith_1995"
-
-# Update build file
-build_setup_pipeline(method="base")
-
-# check data builds
-source(build.R) # to build all of the database
-
-# or open the file build.R and run:
-
-library(traits.build)
-schema <- get_schema()
-resource_metadata <- get_schema("config/metadata.yml", "metadata")
-definitions <- get_schema("config/traits.yml", "traits")
-unit_conversions <- get_unit_conversions("config/unit_conversions.csv")
-taxon_list <- read_csv_char("config/taxon_list.csv")
-
-# plus the three lines of code for the dataset you're adding
-
-# run tests on dataset
-austraits_run_tests()
-
-# read and write yaml to prevent future reformatting
-f <- file.path("data", dataset_ids, "metadata.yml")
-read_metadata(f) %>% write_metadata(f)
-
-# rebuild
-source(build.R) # to build all of the database
-
-# or open the file build.R and run the lines of code specified above
-```
-
-Now back in the terminal
-
-```
-git add .
-git commit
-```
-
-Add a commit message, referencing relevant pull requests and issues, e.g.
-
-```
-Smith_1995: Import new data
-
-For #224, closes #286
-```
-
-And finally, amend the commit author, to reference the person who did all the work!
-```
-git commit --amend --author "XXX <XXX@gmail.com>"
-```
-
-## Commit messages
-
-Informative commit messages are ideal. Where possible, these should reference the issue being addressed. They should clearly describe the work done and value added to AusTraits in a few, clear, bulleted points.
-
-
-
-## Version updating & Making a new release
-
-Releases of the dataset are snapshots that are archived and available for use.
-
-We use semantic versioning to label our versions. As discussed in [Falster et al 2019](http://doi.org/10.1093/gigascience/giz035), semantic versioning can apply to datasets as well as code.
-
-The version number will have 3 components for actual releases, and 4 for development versions. The structure is `major.minor.patch.dev`, where `dev` is at least 9000.  The `dev` component provides a visual signal that this is a development version. So, if the current version is 0.9.1.9000, the release be 0.9.2, 0.10.0 or 1.0.0.
-
-Our approach to incrementing version numbers is
-
-- `major`: increment when you make changes to the structure that are likely incompatible with any code written to work with previous versions.
-- `minor`: increment to communicate any changes to the structure that are likely to be compatible with any code written to work with the previous versions (i.e., allows code to run without error). Such changes might involve adding new data within the existing structure, so that the previous dataset version exists as a subset of the new version. For tabular data, this includes adding columns or rows. On the other hand, removing data should constitute a major version because records previously relied on may no longer exist.
-- `patch`: Increment to communicate correction of errors in the actual data, without any changes to the structure. Such changes are unlikely to break or change analyses
-written with the previous version in a substantial way.
-
-<img src="figures/giz035fig2.png">
-
-**Figure:** Semantic versioning communicates to users the types of changes that have occurred between successive versions of an evolving dataset, using a tri-digit label where increments in a number indicate major, minor, and patch-level changes, respectively. From [Falster et al 2019](http://doi.org/10.1093/gigascience/giz035), (CC-BY).
-
-The process of making a release is as follows. Note that corresponding releases and versions are needed in both `austraits` and `traits.build`:
-
-1. Update the version number in the DESCRIPTION file, using `
-
-```{r, eval=FALSE}
-desc::desc_bump_version()
-```
-
-2. Compile `traits.build`.
-
-3. Update the documentation.
-
-4. Commit and push to github.
-
-5. Make a release on github, adding version number
-
-5. Prepare for the next version by updating version numbers.
-
-```{r, eval=FALSE}
-desc::desc_bump_version("dev")
-```
-
-## Extracting data from PDF tables
-
-If you encounter a PDF table of data and need to extract values, this can be achieved with the [`tabula-java` tool](https://github.com/tabulapdf/tabula-java/). There's actually an R wrapper (called [`tabulizer`](https://github.com/ropensci/tabulizer)), but we haven't succeeded in getting this running. However, it's easy enough to run the java tool at the command line on OSX.
-
-1. [Download latest release of `tabula-java`](https://github.com/tabulapdf/tabula-java/releases) and save the file in your path
-
-2. Run
-```
-java -jar tabula-1.0.3-jar-with-dependencies.jar my_table.pdf -o my_data.csv
-```
-This should output the data from the table in `my_table.pdf` into the csv `my_data.csv`
-
-3. Clean up in Excel. check especially that the locations of white spaces are correct.
+If you find a bug or have a feature request for {traits.build}, [file a GitHub issue](https://github.com/traitecoevo/traits.build/issues) on {traits.build}. Illustrate the bug with a minimal [reprex](https://www.tidyverse.org/help/#reprex) (reproducible example). Please feel free to contribute by implementing the fix or feature via pull request. For substantial pull requests, it is best to first check with the {traits.build} team that it's worth pursuing the problem.
