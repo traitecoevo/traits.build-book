@@ -161,7 +161,7 @@ dataset_check_outlier_by_species <- function(database, dataset, trait, multiplie
       comparisons) %>%
     dplyr::filter(as.numeric(value) > multiplier*mean_value | as.numeric(value) < (1/multiplier)*mean_value) %>%
     dplyr::mutate(value_ratio = as.numeric(value)/mean_value) %>%
-    dplyr::arrange(value_ratio)
+    dplyr::arrange(dplyr::desc(value_ratio))
 
   need_review
 
@@ -213,7 +213,7 @@ dataset_check_outlier_by_genus <- function(database, dataset, trait, multiplier)
       comparisons) %>%
     dplyr::filter(as.numeric(value) > multiplier*mean_value | as.numeric(value) < (1/multiplier)*mean_value) %>%
     dplyr::mutate(value_ratio = as.numeric(value)/mean_value) %>%
-    dplyr::arrange(value_ratio)
+    dplyr::arrange(dplyr::desc(value_ratio))
 
   need_review
 
