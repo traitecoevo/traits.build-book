@@ -14,7 +14,7 @@ Before you begin this tutorial, ensure you have installed traits.build, cloned t
 
 -   Learn additional [custom_R_code tricks](#custom_R_code). 
 
-### New Functions Introduced
+### New functions introduced
 
 -   metadata_add_contexts
 
@@ -303,7 +303,7 @@ Looking at the excluded_data table indicates there is a "\*" in one column, so o
 ```{r, eval=FALSE}
   custom_R_code: '
     data %>%
-      mutate(      
+      mutate(
         across(c("WP leaf (Mpa) predawn"), ~na_if(.x,"*"))
       )
   '
@@ -317,7 +317,7 @@ This indicates a mismatch between column types, necessitating that you change th
   custom_R_code: '
     data %>%
       mutate(
-        across(c("WP leaf (Mpa) predawn"), ~as.character(.x)), 
+        across(c("WP leaf (Mpa) predawn"), ~as.character(.x)),
         across(c("WP leaf (Mpa) predawn"), ~na_if(.x,"*"))
       )
   '
