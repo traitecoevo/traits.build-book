@@ -155,7 +155,7 @@ dataset_check_outlier_by_species <- function(database, dataset, trait, multiplie
   need_review <- to_compare %>%
     dplyr::filter(trait_name == trait) %>%
     dplyr::filter(taxon_name %in% comparisons$taxon_name) %>%
-    dplyr::select(dplyr::all_of(c("taxon_name", "trait_name", "value", "observation_id", "unit", "original_name")))
+    dplyr::select(dplyr::all_of(c("taxon_name", "trait_name", "value", "observation_id", "unit", "original_name"))) %>%
     dplyr::left_join(
       by = c("taxon_name", "trait_name"),
       comparisons) %>%
