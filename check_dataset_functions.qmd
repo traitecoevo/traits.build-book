@@ -12,7 +12,7 @@ The functions here are additional checks that should be run on datasets, such th
 
 If a categorical trait value is not identical to an allowed value in the corresponding trait concept in the accompanying trait dictionary (`traits.yml` file), it is moved to the `excluded_data` table. The following function generates a table of values requiring substitutions, as described in [adding data](adding_data_long.html#add_substitutions)
 
-The output table needs to be edited, to map an appropriate replacement for each unsupported trait value. This is generally most easily accomplish in Excel or a text editor.
+The output table needs to be edited, to map an appropriate replacement for each unsupported trait value. This is generally most easily accomplished in Excel or a text editor.
 
 ```
 dataset_check_categorical_substitutions <- function(database, dataset) {
@@ -27,7 +27,7 @@ dataset_check_categorical_substitutions <- function(database, dataset) {
       dplyr::rename(find = value) %>%
       dplyr::select(-dataset_id) %>%
       dplyr::mutate(replace = NA)
-  
+
   required_substitutions
 }
 ```
@@ -48,14 +48,14 @@ dataset_check_numeric_values <- function(database, dataset) {
         error == "Value out of allowable range"
       ) %>%
       dplyr::select(dataset_id, trait_name, value)
-  
+
   out_of_range_values
 }
 ```
 
 ### dataset_check_taxonomic_updates
 
-**output**: Table of taxon names requiring taxonomic_updates
+**output**: Table of taxon names requiring `taxonomic_updates`
 
 An `aligned_name` in the `taxonomic_updates` table of a newly added dataset might not be in the database's `taxon_list.csv` file for two reasons: 1) It requires aligning due to typos, non-standard syntax; 2) The `taxon_list.csv` file does not include all possible taxon names and needs to be updated from an external resource. Each database requires its own taxonomy functions and taxonomic references, but this function creates a list of names that require further effort to align.
 
@@ -63,14 +63,14 @@ An `aligned_name` in the `taxonomic_updates` table of a newly added dataset migh
 dataset_check_taxonomic_updates <- function(taxon_list, database, dataset) {
 
   taxon_list <- readr::read_csv("config/taxon_list.csv")
-  
-  names_to_align <- 
+
+  names_to_align <-
     database$taxonomic_updates %>%
       dplyr::filter(dataset_id == current_study) %>%
       dplyr::filter(!aligned_name %in% taxon_list$aligned_name & !aligned_name %in% taxon_list$taxon_name) %>%
       dplyr::filter(is.na(taxonomic_resolution)) %>%
       dplyr::distinct(original_name)
-      
+
   names_to_align
 }
 ```
@@ -84,7 +84,7 @@ dataset_check_taxonomic_updates <- function(taxon_list, database, dataset) {
 
 One of the automated tests in the function `dataset_test()` confirms the dataset can pivot from `longer` to `wider`. This tests is confirming that each row in the traits table has a unique combination of a particular 7 columns: `dataset_id`, `trait_name`, `observation_id`, `value_type`, `repeat_measurements_id`, `method_id`, `method_context_id`. When a dataset does not pivot wider, it is generally because `observation_id` has not been correctly parsed during the dataset processing. `observation_id` is an integral counter within a dataset that represents unique combinations of `taxon_name`, `population_id`, `individual_id`, `temporal_context_id`, `entity_type`, `life_stage`, `source_id`, `entity_context_id`, `basis_of_record`, `collection_date`, `original_name`. If any of these 11 pieces of metadata are incorrectly encoded in the metadata file, two distinct `observations` of traits might be assigned identical `observation_id`'s. The most likely culprits are forgetting to map in a context property or a column with `source_id`'s.
 
-Overall, there are 17 separate columns that could be causing the `db_traits_pivot_wider()` test to fail making it difficult to discern where to trouble shoot. This function outputs a list of trait measurements that is causing the pivot test to fail, allowing you to hone in on the source of the problem.
+Overall, there are 17 separate columns that could be causing the `db_traits_pivot_wider()` test from `dataset_test()` to fail, making it difficult to discern where to trouble shoot. This function outputs a list of trait measurements that is causing the pivot test to fail, allowing you to hone in on the source of the problem.
 
 ```
 check_pivot_duplicates <- function(
@@ -122,15 +122,15 @@ check_pivot_duplicates <- function(
 
 **output**: Table for numeric trait values that are x% higher/lower than the mean trait value for the species.
 
-Although there is an automated process for eliminating trait values outside the allowable range specified in the accompanying trait dictionary, this filter cannot determine if a trait value is in range for a specific taxon. For plant checking outliers on a taxon-by-taxon basis is particularly relevant for a trait like `seed_dry_mass` where values across all plant taxa can vary by 10^10, but values within a taxon are quite constrained. It is frought to implement this as an automated filter, as the "correct" value for taxa is not known. Instead, this function, and the accompanying `dataset_check_outlier_by_genus()` offer the user a change to look at outliers (per their definition) on a trait-by-trait basis, deciding if specific values appear erroneous. Note that this function of course only "works" once a database that already has some data for the taxon. 
+Although there is an automated process for eliminating trait values outside the allowable range specified in the accompanying trait dictionary, this filter cannot determine if a trait value is in range for a specific taxon. For plants, checking outliers on a taxon-by-taxon basis is particularly relevant for a trait like `seed_dry_mass` where values across all taxa can vary by 10^10, but values within a taxon are quite constrained. It is fraught to implement this as an automated filter, as the "correct" value for taxa is not known. Instead, this function, and the accompanying `dataset_check_outlier_by_genus()` allow the user to look at outliers (per their definition) on a trait-by-trait basis, deciding if specific values appear erroneous. Note that this function of course only "works" once a database that already has some data for the taxon.
 
 A `multiplier` value of 100 or 1000 will (almost) always identify true outliers, while a `multiplier` value of 10 is likely to flag legitimate trait values.
 
 ```
 dataset_check_outlier_by_species <- function(database, dataset, trait, multiplier) {
 
-  to_compare <- 
-    database$traits %>% 
+  to_compare <-
+    database$traits %>%
     dplyr::filter(dataset_id == dataset)
 
   comparisons <- database$traits %>%
@@ -152,8 +152,8 @@ dataset_check_outlier_by_species <- function(database, dataset, trait, multiplie
       max_value = max(value),
       count = first(count)
     ) %>%
-    dplyr::ungroup() 
-  
+    dplyr::ungroup()
+
   need_review <- to_compare %>%
     dplyr::filter(trait_name == trait) %>%
     dplyr::filter(taxon_name %in% comparisons$taxon_name) %>%
@@ -174,13 +174,13 @@ dataset_check_outlier_by_species <- function(database, dataset, trait, multiplie
 
 **output**: Table for numeric trait values that are x% higher/lower than the mean trait value for the genus.
 
-Although there is an automated process for eliminating trait values outside the allowable range specified in the accompanying trait dictionary, this filter cannot determine if a trait value is in range for a specific taxon, for this function represented by the organisms' genus. For plant checking outliers on a taxon-by-taxon basis is particularly relevant for a trait like `seed_dry_mass` where values across all plant taxa can vary by 10^10, but values within a taxon are quite constrained. It is frought to implement this as an automated filter, as the "correct" value for taxa is not known. Instead, this function, and the accompanying `dataset_check_outlier_by_species()` offer the user a change to look at outliers (per their definition) on a trait-by-trait basis, deciding if specific values appear erroneous when compared to the average for all measurements of that trait recorded for members of the specified genus. Note that this function of course only "works" once a database that already has some data for the genus. Also note, that this function is worthless for traits where members of the genus display a broad range of trait values; it will readily identify "outliers" for species whose trait values correctly lie well outside of the "normal" range for the genus. 
+Although there is an automated process for eliminating trait values outside the allowable range specified in the accompanying trait dictionary, this filter cannot determine if a trait value is in range for a specific taxon, for this function represented by the organism's genus. For plants, checking outliers on a taxon-by-taxon basis is particularly relevant for a trait like `seed_dry_mass` where values across all plant taxa can vary by 10^10, but values within a taxon are quite constrained. It is fraught to implement this as an automated filter, as the "correct" value for taxa is not known. Instead, this function, and the accompanying `dataset_check_outlier_by_species()` allow the user to look at outliers (per their definition) on a trait-by-trait basis, deciding if specific values appear erroneous when compared to the average for all measurements recorded for members of the specified genus. Note that this function of course only "works" once a database already has some data for the genus. Also note, that this function is worthless for traits where members of the genus display a broad range of trait values; it will readily identify "outliers" for species whose trait values correctly lie well outside of the "normal" range for the genus.
 
 ```
 dataset_check_outlier_by_genus <- function(database, dataset, trait, multiplier) {
-  
-  to_compare <- 
-    database$traits %>% 
+
+  to_compare <-
+    database$traits %>%
     dplyr::filter(dataset_id == dataset) %>%
     dplyr::left_join(by = c("taxon_name"), database$taxa %>% select(taxon_name, genus))
 
@@ -204,8 +204,8 @@ dataset_check_outlier_by_genus <- function(database, dataset, trait, multiplier)
       max_value = max(value),
       count = first(count)
     ) %>%
-    dplyr::ungroup() 
-  
+    dplyr::ungroup()
+
   need_review <- to_compare %>%
     dplyr::filter(trait_name == trait) %>%
     dplyr::filter(genus %in% comparisons$genus) %>%
@@ -216,9 +216,9 @@ dataset_check_outlier_by_genus <- function(database, dataset, trait, multiplier)
     dplyr::filter(as.numeric(value) > multiplier*mean_value | as.numeric(value) < (1/multiplier)*mean_value) %>%
     dplyr::mutate(value_ratio = as.numeric(value)/mean_value) %>%
     dplyr::arrange(value_ratio)
-  
+
   need_review
-  
+
 }
 ```
 
@@ -226,7 +226,7 @@ dataset_check_outlier_by_genus <- function(database, dataset, trait, multiplier)
 
 **output**: Table of suspected duplicates across datasets.
 
-This function still needs to be written. AusTraits team members have developed trait-specific and dataset-specific code in the past, but extrapolating it into a generalised function is difficult, as it requires assumptions about how many significant figures to retain when comparing trait values and for traits where all plants display a narrow range of values (such as nutrient contents) it is likely to mistakenly flag values as duplicates. The core purpose of this function will be to identify clusters of identical trait measurements that have been submitted to the database twice, either because two collaborators submitted the same dataset or because a dataset was contributed both by the data collector and as part of a broader compilation. For AusTraits, the function should identify "legitimate" duplicates, where information was extracted for the same taxon from different state floras; these will likely include mostly identical trait values.
+This function still needs to be written. AusTraits team members have developed trait-specific and dataset-specific code in the past, but extrapolating it into a generalised function is difficult, as it requires assumptions about how many significant figures to retain when comparing trait values and for traits where all plants display a narrow range of values (such as nutrient contents), it is likely to mistakenly flag values as duplicates. The core purpose of this function will be to identify clusters of identical trait measurements that have been submitted to the database twice, either because two collaborators submitted the same dataset or because a dataset was contributed both by the data collector and as part of a broader compilation. For AusTraits, the function should identify "legitimate" duplicates, where information was extracted for the same taxon from different state floras; these will likely include mostly identical trait values.
 
 If you would like to help write such a function for use with `{traits.build}` databases, please leave an issue [here](https://github.com/traitecoevo/traits.build/issues/new), then flag that you are working on it.
 
@@ -234,7 +234,7 @@ If you would like to help write such a function for use with `{traits.build}` da
 dataset_check_duplicates_across_datasets <- function(database, dataset, trait) {
 
   ## TO BE WRITTEN
-  
+
 }
 ```
 
@@ -261,7 +261,7 @@ dataset_check_duplicates_within_dataset <- function(database, dataset) {
         ) %>%
       dplyr::ungroup() %>%
       dplyr::filter(n_duplicates > 1)
-    
+
   duplicates_within_dataset
 }
 ```
