@@ -25,10 +25,11 @@ dataset_check_categorical_substitutions <- function(database, dataset) {
       ) %>%
       dplyr::distinct(dataset_id, trait_name, value) %>%
       dplyr::rename(find = value) %>%
-      dplyr::select(-dataset_id) %>%
+      dplyr::select(-"dataset_id") %>%
       dplyr::mutate(replace = NA)
 
   required_substitutions
+
 }
 ```
 
@@ -47,9 +48,10 @@ dataset_check_numeric_values <- function(database, dataset) {
         dataset_id == dataset,
         error == "Value out of allowable range"
       ) %>%
-      dplyr::select(dataset_id, trait_name, value)
+      dplyr::select(dplyr::all_of(c("dataset_id", "trait_name", "value", "observation_id", "unit", "original_name")))
 
   out_of_range_values
+
 }
 ```
 
@@ -60,18 +62,16 @@ dataset_check_numeric_values <- function(database, dataset) {
 An `aligned_name` in the `taxonomic_updates` table of a newly added dataset might not be in the database's `taxon_list.csv` file for two reasons: 1) It requires aligning due to typos, non-standard syntax; 2) The `taxon_list.csv` file does not include all possible taxon names and needs to be updated from an external resource. Each database requires its own taxonomy functions and taxonomic references, but this function creates a list of names that require further effort to align.
 
 ```
+taxon_list <- readr::read_csv("config/taxon_list.csv")
+
 dataset_check_taxonomic_updates <- function(taxon_list, database, dataset) {
 
-  taxon_list <- readr::read_csv("config/taxon_list.csv")
+  database$taxonomic_updates %>%
+    dplyr::filter(dataset_id == dataset) %>%
+    dplyr::filter(!aligned_name %in% taxon_list$aligned_name & !aligned_name %in% taxon_list$taxon_name) %>%
+    dplyr::filter(is.na(taxonomic_resolution)) %>%
+    dplyr::distinct(original_name)
 
-  names_to_align <-
-    database$taxonomic_updates %>%
-      dplyr::filter(dataset_id == current_study) %>%
-      dplyr::filter(!aligned_name %in% taxon_list$aligned_name & !aligned_name %in% taxon_list$taxon_name) %>%
-      dplyr::filter(is.na(taxonomic_resolution)) %>%
-      dplyr::distinct(original_name)
-
-  names_to_align
 }
 ```
 
@@ -87,16 +87,13 @@ One of the automated tests in the function `dataset_test()` confirms the dataset
 Overall, there are 17 separate columns that could be causing the `db_traits_pivot_wider()` test from `dataset_test()` to fail, making it difficult to discern where to trouble shoot. This function outputs a list of trait measurements that is causing the pivot test to fail, allowing you to hone in on the source of the problem.
 
 ```
-check_pivot_duplicates <- function(
-  database,
-  dataset
-) {
+check_pivot_duplicates <- function(database, dataset) {
 
   # Check for duplicates
   rows_cannot_pivot <-
     database$traits %>%
-      filter(.data$dataset_id %in% dataset) %>%
-      select(
+      dplyr::filter(.data$dataset_id %in% dataset) %>%
+      dplyr::select(
         # `taxon_name` and `original_name` are not needed for pivoting but are included for informative purposes
         dplyr::all_of(
           c("dataset_id", "trait_name", "value", "taxon_name", "original_name", "observation_id",
@@ -105,13 +102,14 @@ check_pivot_duplicates <- function(
       tidyr::pivot_wider(names_from = "trait_name", values_from = "value", values_fn = length) %>%
       tidyr::pivot_longer(cols = 9:ncol(.)) %>%
       dplyr::rename(dplyr::all_of(c("trait_name" = "name", "number_of_duplicates" = "value"))) %>%
-      select(
+      dplyr::select(
         dplyr::all_of(c("dataset_id", "trait_name", "number_of_duplicates",
         "taxon_name", "original_name", "observation_id", "value_type")), everything()
       ) %>%
-      filter(.data$number_of_duplicates > 1)
+      dplyr::filter(.data$number_of_duplicates > 1)
 
   rows_cannot_pivot
+
 }
 ```
 
@@ -137,7 +135,7 @@ dataset_check_outlier_by_species <- function(database, dataset, trait, multiplie
     dplyr::filter(trait_name == trait) %>%
     dplyr::filter(dataset_id != dataset) %>%
     dplyr::filter(taxon_name %in% to_compare$taxon_name) %>%
-    dplyr::select(taxon_name, trait_name, value) %>%
+    dplyr::select(dplyr::all_of(c("taxon_name", "trait_name", "value"))) %>%
     dplyr::group_by(taxon_name) %>%
     dplyr::mutate(
       count = n(),
@@ -157,7 +155,7 @@ dataset_check_outlier_by_species <- function(database, dataset, trait, multiplie
   need_review <- to_compare %>%
     dplyr::filter(trait_name == trait) %>%
     dplyr::filter(taxon_name %in% comparisons$taxon_name) %>%
-    dplyr::select(taxon_name, trait_name, value) %>%
+    dplyr::select(dplyr::all_of(c("taxon_name", "trait_name", "value", "observation_id", "unit", "original_name")))
     dplyr::left_join(
       by = c("taxon_name", "trait_name"),
       comparisons) %>%
@@ -182,14 +180,14 @@ dataset_check_outlier_by_genus <- function(database, dataset, trait, multiplier)
   to_compare <-
     database$traits %>%
     dplyr::filter(dataset_id == dataset) %>%
-    dplyr::left_join(by = c("taxon_name"), database$taxa %>% select(taxon_name, genus))
+    dplyr::left_join(by = c("taxon_name"), database$taxa %>% dplyr::select(dplyr::all_of(c("taxon_name", "genus"))))
 
   comparisons <- database$traits %>%
     dplyr::filter(trait_name == trait) %>%
     dplyr::filter(dataset_id != dataset) %>%
-    dplyr::left_join(by = c("taxon_name"), database$taxa %>% select(taxon_name, genus)) %>%
+    dplyr::left_join(by = c("taxon_name"), database$taxa %>% dplyr::select(dplyr::all_of(c("taxon_name", "genus")))) %>%
     dplyr::filter(genus %in% to_compare$genus) %>%
-    dplyr::select(genus, trait_name, value) %>%
+    dplyr::select(dplyr::all_of(c("genus", "trait_name", "value"))) %>%
     dplyr::group_by(genus) %>%
     dplyr::mutate(
       count = n(),
@@ -209,7 +207,7 @@ dataset_check_outlier_by_genus <- function(database, dataset, trait, multiplier)
   need_review <- to_compare %>%
     dplyr::filter(trait_name == trait) %>%
     dplyr::filter(genus %in% comparisons$genus) %>%
-    dplyr::select(taxon_name, trait_name, value, genus) %>%
+    dplyr::select(dplyr::all_of(c("taxon_name", "trait_name", "value", "genus", "observation_id", "unit", "original_name"))) %>%
     dplyr::left_join(
       by = c("genus", "trait_name"),
       comparisons) %>%
@@ -263,5 +261,6 @@ dataset_check_duplicates_within_dataset <- function(database, dataset) {
       dplyr::filter(n_duplicates > 1)
 
   duplicates_within_dataset
+
 }
 ```
