@@ -2,7 +2,7 @@
 
 ## Working with your GitHub repository
 
-For {traits.build} users, by far the preferred way of hosting your database is on GitHub.
+For {traits.build} users, the preferred way of hosting your database is on GitHub.
 
 ### Setting up the repository
 
@@ -28,7 +28,7 @@ In short,
 4. Submit the PR and tag someone as a reviewer.
 5. Squash and merge the PR once approved and any changes have been made.
 
-**Tip**: For working with git and GitHub, GitHub Desktop is a user-friendly graphical interface tool that we recommend.
+**Tip**: For working with git and GitHub, we recommend GitHub Desktop, a user-friendly graphical interface tool.
 
 #### Merging a pull request
 
