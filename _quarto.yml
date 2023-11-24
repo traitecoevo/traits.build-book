@@ -42,6 +42,7 @@ book:
         - adding_data_long.qmd
         - check_dataset_functions.qmd
         - data_common_issues.qmd
+        - github.qmd
     - part: Using outputs of `traits.build`
       chapters:
         - austraits_database.qmd
