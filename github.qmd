@@ -18,7 +18,7 @@ To run automated tests that must pass before a pull request can be merged in, yo
 
 ### Adding to the repository
 
-New data can be added to the repository by creating a branch and then opening a [pull request](https://help.github.com/articles/using-pull-requests/) (PR). Those who want to contribute but aren't approved maintainers of the database, must fork and clone the database from GitHub. #TODO appropriate settings for GitHub
+New data can be added to the repository by creating a branch and then opening a [pull request](https://help.github.com/articles/using-pull-requests/) (PR). Those who want to contribute but aren't approved maintainers of the database, must fork and clone the database from GitHub.
 
 In short,
 
