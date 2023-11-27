@@ -241,7 +241,7 @@ elements <- schema$austraits$elements$excluded_data
   writeLines(c(""))
 ```
 
-## taxa
+## Taxa
 
 **Description:** A table containing details on taxa that are included in the table [`traits`](#traits). We have attempted to align species names with known taxonomic units in the [`Australian Plant Census` (APC)](https://biodiversity.org.au/nsl/services/apc) and/or the [`Australian Plant Names Index` (APNI)](https://biodiversity.org.au/nsl/services/APNI); the sourced information is released under a CC-BY3 license.
 
@@ -256,7 +256,7 @@ elements <- schema$austraits$elements$taxa
   writeLines(c(""))
 ```
 
-## taxonomic_updates
+## Taxonomic_updates
 
 ```{r}
 elements <- schema$austraits$elements$taxonomic_updates
@@ -273,7 +273,7 @@ elements <- schema$austraits$elements$taxonomic_updates
 
 Both the original and the updated taxon names are included in the [`traits`](#traits) table.
 
-## definitions
+## Definitions
 
 ```{r}
 elements <- schema$austraits$elements$definitions
@@ -300,7 +300,7 @@ for (trait in c("leaf_mass_per_area", "woodiness")) {
 }
 ```
 
-## contributors
+## Contributors
 
 ```{r}
 elements <- schema$austraits$elements$contributors
@@ -315,7 +315,7 @@ elements <- schema$austraits$elements$contributors
   writeLines(c(""))
 ```
 
-## sources
+## Sources
 
 For each dataset in the compilation there is the option to list primary and secondary citations. The primary citation is defined as, `r austraits$schema$metadata$elements$source$values$primary$description` The secondary citation is defined as, `r austraits$schema$metadata$elements$source$values$secondary$description`
 
@@ -334,7 +334,7 @@ austraits$sources["Falster_2005_1"]
 
 A formatted version of the sources also exists within the table [methods](#methods).
 
-## metadata
+## Metadata
 
 ```{r}
 elements <- schema$austraits$elements$metadata
@@ -346,7 +346,7 @@ elements <- schema$austraits$elements$metadata
   writeLines(c(""))
 ```
 
-## build_info
+## Build_info
 
 ```{r}
 elements <- schema$austraits$elements$build_info
