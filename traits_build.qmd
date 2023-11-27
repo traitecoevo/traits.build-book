@@ -1,5 +1,15 @@
 # The package
 
-The `traits.build` package provides functions needed to build a compilation from sources to the standards specified 
+The traits.build package provides a workflow for harmonising data from disconnected primary sources and arises from the [AusTraits project](austraits.org). In 2023 this package was spun out as a separate package from the autraits.build repository.
 
-XXXX
+The `traits.build` package provides the functions needed to build a compilation from the primary sources ino a standardised database. specified 
+
+The core components of the `{traits.build}` package are:  
+
+1.  15 functions functions, supplemented by a detailed [protocol](tutorial_datasets.html) to wrangle diverse datasets into input files with a common structure that captures both the trait data and all essential metadata and context properties. These are a table (data.csv) containing all trait data, taxon names, location names (if relevant), and any context properties (if relevant) and a structured metadata file (metadata.yml) that assigns the columns from the `data.csv` file to their specific variables and maps all additional dataset metadata in a structured format. 
+
+2.  An R-based pipeline to combine the input files into a single harmonised database with aligned trait names, aligned units, aligned categorical trait values, and aligned taxon names. Four dataset-specific configuration files are required for the build process, 1) a trait dictionary; 2) a units conversion file; 3) a taxon list; and 4) a database metadata file. 
+
+Guided by the information in the configuration files, the R-scripted workflow combines the `data.csv` and `metadata.yml` files for the individual datasets into a unified, harmonised database. There are three distinct steps to this process, processed by a trio of functions, `dataset_configure`, `dataset_process`, and `dataset_taxonomic_updates`. These functions cyclically build each dataset, only combining them into a single database at the end of the workflow.
+
+A combination of automated [tests](adding_data_long#running_tests.html) and other [quality controls](adding_data_long#running_tests.html#quality_checks) ensure each dataset has been appropriately merged in and the output data are reliable, accurate, and supported by detailed metadata.  

@@ -27,7 +27,6 @@ book:
         - file_organisation.qmd
         - create_dictionary.qmd
         - adding_data_brief.qmd
-        - custom_R_code.qmd
         - publishing.qmd
     - part: "Guide to adding data"
       chapters:

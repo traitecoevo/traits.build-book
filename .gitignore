@@ -8,3 +8,5 @@ _freeze
 tmp
 
 /.quarto/
+data/austraits/austraits-5.0.0.rds
+data/austraits/austraits.json

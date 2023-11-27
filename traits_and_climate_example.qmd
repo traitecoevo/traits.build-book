@@ -1,12 +1,12 @@
-# Combining trait values and climate data
+# Analysis example: Using AusTraits for trait-climate analyses
 
 ## Introduction
 
-A more involved analysis is merging trait data with climatic parameters. 
+A more involved analysis is merging trait data with climatic parameters.
 
 *Please note the data summary and analysis presented here is similar to that in a manuscript currently in review, Towers et al, "Revisiting the role of mean annual precipitation in shaping functional trait distributions at a continental scale", doi: 10.1101/2023.06.29.546983*
 
-The code presented here must be run on your off machine, as the climate data files required are not hosted on the traits.build-book GitHub repository.
+The code presented here must be run offline on your machine, as the climate data files required are not hosted on the traits.build-book GitHub repository.
 
 ```{r, eval = FALSE, message = FALSE}
 library(dplyr)
@@ -43,7 +43,7 @@ woody_taxa <-
   dplyr::distinct(taxon_name, .keep_all = TRUE)
 ```
 
-Second, extract the numeric trait data you want to analyse. Only field-collected data on adult plants with reported coordinates is used: 
+Second, extract the numeric trait data you want to analyse. Only field-collected data on adult plants with reported coordinates is used:
 
 ```{r, eval = FALSE, message = FALSE, warning = FALSE}
 trait_data <-
