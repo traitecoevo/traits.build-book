@@ -6,6 +6,7 @@
 _book
 _freeze
 tmp
+*.html
 
 /.quarto/
 data/austraits/austraits-5.0.0.rds

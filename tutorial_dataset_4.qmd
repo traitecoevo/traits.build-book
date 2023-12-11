@@ -121,7 +121,7 @@ References
 11 Drake et al. 2011      
 ```
 
-You would now need to look up each of these references in the reference section of the manuscript and use Google Scholar (or another reference resource) to look up the doi for each reference.\To add additional references, you need to add an argument to the `metadata_add_source_doi` function:\
+You would now need to look up each of these references in the reference section of the manuscript and use Google Scholar (or another reference resource) to look up the doi for each reference. To add additional references, you need to add an argument to the `metadata_add_source_doi` function:\
 
 ```{r, eval=FALSE}
 metadata_add_source_doi(dataset_id = "tutorial_dataset_4", doi = "10.1071/bt9960249", type = "original_01")

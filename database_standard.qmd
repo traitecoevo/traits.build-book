@@ -11,8 +11,6 @@ knitr::opts_chunk$set(
 )
 
 library(traits.build)
-
-my_kable_styling <- util_kable_styling_html
 ```
 
 ### Overview
