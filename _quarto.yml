@@ -61,3 +61,7 @@ format:
   html:
     theme: cosmo
     number-depth: 2
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
