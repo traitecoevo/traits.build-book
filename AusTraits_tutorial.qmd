@@ -408,11 +408,12 @@ austraits$contexts %>%
   dplyr::distinct(context_property, category)
 ```
 
-Select all austraits$traits columns (`r ncol(austraits$traits)\` currently) together with the context properties you want to keep.
+Select all austraits$traits columns (`r ncol(austraits$traits)` currently) together with the context properties you want to keep.
 
 ```{r, eval = TRUE}
 traits_with_contexts$traits %>%
-  dplyr::select(1:ncol(austraits$traits),  c("sampling season", "plant sex", "leaf surface", "leaf age", "fire intensity", "slope position", "fire season", "drought treatment", "temperature treatment"))
+  dplyr::select(1:ncol(austraits$traits),  
+                c("sampling season", "plant sex", "leaf surface", "leaf age", "fire intensity", "slope position", "fire season", "drought treatment", "temperature treatment"))
 ```
 
 #### Joining methods
