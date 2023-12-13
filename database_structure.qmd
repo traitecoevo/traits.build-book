@@ -146,7 +146,7 @@ Additionally, `measurement_remarks` is used to document `r tolower(schema$metada
 
 Possible values are:
 
-```{r basis_of_record}
+```{r life_stage}
 schema$life_stage$values %>%
   util_list_to_df1() %>%
   my_kable_styling() %>%
