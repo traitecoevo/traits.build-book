@@ -56,6 +56,6 @@ Smith_1996: Add study
 - Trait data for Nothofagus forests across Australia, New Zealand and South America
 ```
 
-## Bugs and feature requests in {traits.build}
+## Bugs and feature requests for {traits.build}
 
 If you find a bug or have a feature request for {traits.build}, [file a GitHub issue](https://github.com/traitecoevo/traits.build/issues) on {traits.build}. Illustrate the bug with a minimal [reprex](https://www.tidyverse.org/help/#reprex) (reproducible example). Please feel free to contribute by implementing the fix or feature via pull request. For substantial pull requests, it is best to first check with the {traits.build} team that it's worth pursuing the problem.
