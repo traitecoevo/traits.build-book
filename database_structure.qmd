@@ -12,7 +12,14 @@ knitr::opts_chunk$set(
 
 library(traits.build)
 
-my_kable_styling <- kableExtra::kable
+my_kable_styling <- function(...) {
+  
+  kableExtra::kable(..., booktabs=TRUE, format="latex", longtable = TRUE) %>%
+  kableExtra::kable_styling(font_size = 10, latex_options = c("hold_position", "repeat_header")) %>%
+  kableExtra::column_spec(1, width = "5cm") %>%
+  kableExtra::column_spec(2, width = "11cm") #%>%
+#  kableExtra::kable_styling(font_size = 10, full_width = TRUE, latex_options = "striped", position = "float_left")
+}
 
 if(knitr::is_html_output()) {
   my_kable_styling <- util_kable_styling_html
@@ -79,7 +86,7 @@ print_schema_element <- function(elements) {
 }
 ```
 
-## traits {#traits}
+## Traits {#traits}
 
 ```{r}
 elements <- schema$austraits$elements$traits
@@ -326,14 +333,16 @@ For each dataset in the compilation there is the option to list primary and seco
 
 The element `sources` includes bibtex versions of all sources which can be imported into your reference library:
 
-```         
-RefManageR::WriteBib(austraits$sources, "refs.bib") # write all sources to file
-RefManageR::WriteBib(austraits$sources["Falster_2005_1"], "refs.bib") # write a single reference to a file
+```{r, eval=FALSE}         
+# write all sources to file
+RefManageR::WriteBib(austraits$sources, "refs.bib") 
+# write a single reference to a file
+RefManageR::WriteBib(austraits$sources["Falster_2005_1"], "refs.bib") 
 ```
 
 Or individually viewed:
 
-```         
+```{r, eval=FALSE}         
 austraits$sources["Falster_2005_1"]
 ```
 

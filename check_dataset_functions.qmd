@@ -48,7 +48,9 @@ dataset_check_numeric_values <- function(database, dataset) {
         dataset_id == dataset,
         error == "Value out of allowable range"
       ) %>%
-      dplyr::select(dplyr::all_of(c("dataset_id", "trait_name", "value", "observation_id", "unit", "original_name")))
+      dplyr::select(
+        dplyr::all_of(c("dataset_id", "trait_name", "value", 
+                        "observation_id", "unit", "original_name")))
 
   out_of_range_values
 
@@ -68,7 +70,8 @@ dataset_check_taxonomic_updates <- function(taxon_list, database, dataset) {
 
   database$taxonomic_updates %>%
     dplyr::filter(dataset_id == dataset) %>%
-    dplyr::filter(!aligned_name %in% taxon_list$aligned_name & !aligned_name %in% taxon_list$taxon_name) %>%
+    dplyr::filter(!aligned_name %in% taxon_list$aligned_name,  
+                    !aligned_name %in% taxon_list$taxon_name) %>%
     dplyr::filter(is.na(taxonomic_resolution)) %>%
     dplyr::distinct(original_name)
 
