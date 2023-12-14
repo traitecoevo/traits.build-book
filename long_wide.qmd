@@ -2,20 +2,14 @@
 
 ## Background
 
-- Ease of use (manipulation & analysis)
-- Size of data product: storage costs, speed of loading, transfer
-
 Concepts
 
-- Long data
-- Wide data
-- Tidy data
+There are two distinct formats for storing data, `wide` and `long`. With `wide` format, each row is a separate set of measurements on an entity (individual, taxon), and data for each trait are recorded in successive columns. With `long` format data, each row includes only a single trait measurement, with a column for the trait name and a column that indicates which rows of data belong to the same entity. Most ecological datasets are in `wide` format, as the same trait measurements are made on each entity. However, when merging together datasets that measure different traits, it becomes more efficient to store data in `long` format. Otherwise, you end up with a very "holey" table, as each trait may only be measured on a small proportion of entities. 
 
 ## Our approach
 
-### Multiple products available
-
+The traits.build output tables (traits, locations, contexts, etc.) are each in `long` format. Within a traits.build database different traits, location properties, and context properties are always likely to be collected by different datasets, leading to a database with many, many columns with low completeness. Under this scenario, `long` format significantly reduces the size of the data object, reducing storage costs and increasing the speed of loading. However, most users will prefer a `wide` format for analysis as multiple trait measurements for the same entity will be collapsed to a single row. This becomes practical once the full database is subsetted to just include specific traits. 
 
 ### Pivotting between long and wide
 
-
+Two {tidyr} functions, `pivot_longer` and `pivot_wider` make it quick to convert data from `long` to `wide` format in R. The [AusTraits tutorial](AusTraits_tutorial.html) offers multiple examples for how these functions can be used to pivot the various relational tables in a traits.build database, inuding the [core traits table](AusTraits_tutorial.html#pivotting_datasets).

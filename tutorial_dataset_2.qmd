@@ -181,7 +181,7 @@ These are all fields that contain the word `unknown` and must be filled in manua
 
 The file `data/tutorial_dataset_2/raw/tutorial_dataset_2_notes.txt` indicates the main data_contributor for this study.\
 
-Fill in the remaining contributor information as described in the [`tutorial_dataset_1`tutorial](https://github.com/traitecoevo/traits.build/tree/develop/vignettes).\
+Fill in the remaining contributor information as described in the [`tutorial_dataset_1` tutorial](tutorial_dataset_1.html).\
 
 #### **Dataset fields**
 

@@ -649,7 +649,7 @@ https://labs.ala.org.au/posts/2023-08-28_alternatives-to-box-plots/post.html
 
 We've adopted it [here](spatial_data_example.html).
 
-## A complexity: pivoting datasets
+## A complexity: pivoting datasets {pivotting_datasets}
 
 The AusTraits tables are all in `long` format with an individual row for each trait measurement. This is the most compact way to store data and offers the flexibility of documenting diverse metadata for each trait measurement.
 

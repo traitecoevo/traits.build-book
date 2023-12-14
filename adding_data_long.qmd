@@ -1170,8 +1170,8 @@ Fix as many errors as you can and then rerun `dataset_test()` repeatedly until n
 
 You may want to fix errors in tandem with [building the new dataset](#build_new_dataset), such as to be able to quickly compile a list of trait values requiring [substitutions](#add_substitutions) or taxon names requiring [taxonomic updates](#add_taxonomic_updates)
 
-See the [common issues](#data_common_issues.html) chapter for solutions to common issues, such as:  
--   dataset not [pivoting](#data_common_issues.html#cannot_pivot)  
+See the [common issues](data_common_issues.html) chapter for solutions to common issues, such as:  
+-   dataset not [pivoting](data_common_issues.html#cannot_pivot)  
 -   unsupported trait values  
 
 ### Rebuild AusTraits {#build_new_dataset}
