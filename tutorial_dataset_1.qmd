@@ -12,7 +12,7 @@ Before you begin this tutorial, ensure you have installed traits.build, cloned t
 
 -   Learn how to [merge a new dataset](#build_pipline) into a `traits.build` database.
 
-### New Functions Introduced
+### New functions introduced
 
 -   metadata_create_template
 
@@ -40,7 +40,7 @@ In the traits.build-template repository, there is a folder titled `tutorial_data
 
 -   There is a folder `raw` nested within the `tutorial_dataset_1` folder, that contains one file, `notes.txt`. 
 
-### source necessary functions
+### Source necessary functions
 
 -   Source the functions in the `traits.build` package:
 
@@ -140,7 +140,7 @@ A follow-up question then allows you to add a fixed `collection_date` as a range
 
 [Enter collection_date range in format '2007/2009':]{style="color:blue;"} [**2002-11/2002-11**]{style="color:red;"}\
 
-A final user prompt asks if, for any traits, a sequence of rows represents repeat observations.\ 
+A final user prompt asks if, for any traits, a sequence of rows represents repeat observations.\
 
 [Do all traits need `repeat_measurements_id`'s?]{style="color:blue;"}
 
@@ -168,7 +168,7 @@ metadata_add_source_doi(dataset_id = "tutorial_dataset_1", doi = "10.1111/j.0022
 The following information is automatically propagated into the source field:
 
 ```{r, eval=FALSE}
-primary: 
+primary:
   key: Test_1
   bibtype: Article
   year: '2005'
@@ -286,30 +286,30 @@ You select columns 3, 4, 5, as these contain trait data.
 
 ```{r, eval=FALSE}
 traits:
-- var_in: LMA (mg mm-2)  
-  unit_in: unknown  
-  trait_name: unknown  
-  entity_type: unknown  
-  value_type: unknown  
-  basis_of_value: unknown  
-  replicates: unknown  
-  methods: unknown  
-- var_in: Leaf nitrogen (mg mg-1)  
-  unit_in: unknown  
-  trait_name: unknown  
-  entity_type: unknown  
-  value_type: unknown  
-  basis_of_value: unknown  
-  replicates: unknown  
-  methods: unknown  
-- var_in: leaf size (mm2)  
-  unit_in: unknown  
-  trait_name: unknown  
-  entity_type: unknown  
-  value_type: unknown  
-  basis_of_value: unknown  
-  replicates: unknown  
-  methods: unknown  
+- var_in: LMA (mg mm-2)
+  unit_in: unknown
+  trait_name: unknown
+  entity_type: unknown
+  value_type: unknown
+  basis_of_value: unknown
+  replicates: unknown
+  methods: unknown
+- var_in: Leaf nitrogen (mg mg-1)
+  unit_in: unknown
+  trait_name: unknown
+  entity_type: unknown
+  value_type: unknown
+  basis_of_value: unknown
+  replicates: unknown
+  methods: unknown
+- var_in: leaf size (mm2)
+  unit_in: unknown
+  trait_name: unknown
+  entity_type: unknown
+  value_type: unknown
+  basis_of_value: unknown
+  replicates: unknown
+  methods: unknown
 ```
 
 ------------------------------------------------------------------------
@@ -401,7 +401,7 @@ If the units being read in for a specific trait differ from those defined for th
 
 #### **Final steps**
 
-##### **double check the metadata.yml file**
+##### **Double check the metadata.yml file**
 
 You should now have a completed `metadata.yml` file, with no `unknown` fields.
 
@@ -409,7 +409,7 @@ You'll notice five sections we haven't used, `contexts`, `substitutions`, `taxon
 
 These should each contain an `.na` (as in `substitutions: .na`). They will be explored in future lessons.
 
-##### **run tests on the metadata file**
+##### **Run tests on the metadata file**
 
 Confirm there are no errors in the `metadata.yml` file:
 
@@ -421,7 +421,7 @@ This *should* result in the following output:
 
 [\[ FAIL 0 \| WARN 0 \| SKIP 0 \| PASS 79 \]]{style="color:blue;"}\
 
-##### **add dataset to the database** {#build_pipline}
+##### **Add dataset to the database** {#build_pipeline}
 
 Next add the dataset_id to the build file that builds the database and rebuild the database
 
@@ -430,7 +430,7 @@ build_setup_pipeline(method = "base", database_name = "traits.build_database")
 source("build.R")
 ```
 
-##### **build dataset report**
+##### **Build dataset report**
 
 As a final step, build a report for the study
 

@@ -18,7 +18,7 @@ Before you begin this tutorial, ensure you have installed traits.build, cloned t
 
 -   Understand the importance of having the [dataset pivot](#dataset_pivot).
 
-### New Functions Introduced
+### New functions introduced
 
 -   metadata_add_substitution
 
@@ -125,14 +125,14 @@ Then rename your columns to match those in use:
 locations <-
   locations %>%
     rename(
-      `longitude (deg)` = long,  
-      `latitude (deg)` = lat,  
-      `description` = vegetation,  
-      `elevation (m)` = elevation,  
-      `precipitation, MAP (mm)` = MAP,  
-      `soil P, total (mg/kg)` = `soil P`,  
-      `soil N, total (ppm)` = `soil N`,  
-      `geology (parent material)` = `parent material`  
+      `longitude (deg)` = long,
+      `latitude (deg)` = lat,
+      `description` = vegetation,
+      `elevation (m)` = elevation,
+      `precipitation, MAP (mm)` = MAP,
+      `soil P, total (mg/kg)` = `soil P`,
+      `soil N, total (ppm)` = `soil N`,
+      `geology (parent material)` = `parent material`
     )
 ```
 
@@ -407,7 +407,7 @@ custom_R_code: '
     mutate(
       across(c("TRAIT Leaf Dry Mass UNITS g"), ~na_if(.x,0))
     ) %>%
-    group_by(name_original) %>% 
+    group_by(name_original) %>%
     mutate(
       across(c("TRAIT Growth Form CATEGORICAL EP epiphyte (mistletoe) F fern G grass H herb S shrub T tree V vine"), replace_duplicates_with_NA)
     ) %>%
@@ -427,23 +427,23 @@ Then rebuild the database and look at the output in the traits table for one of 
 source("build.R")
 
 traits.build_database$traits %>%
-  filter(dataset_id == "tutorial_dataset_2") %>% 
+  filter(dataset_id == "tutorial_dataset_2") %>%
   filter(taxon_name == "Actinotus minor") %>% View()
 
   dataset_id     taxon_name      observation_id trait_name         value            unit  entity_type location_id
-  <chr>          <chr>           <chr>          <chr>              <chr>            <chr> <chr>       <chr>      
-1 tutorial_dataset_2 Actinotus minor 010            leaf_area          18.8             mm2   population  02         
-2 tutorial_dataset_2 Actinotus minor 010            leaf_dry_mass      7                mg    population  02         
-3 tutorial_dataset_2 Actinotus minor 010            leaf_mass_per_area 344.827586206897 g/m2  population  02         
-4 tutorial_dataset_2 Actinotus minor 011            leaf_area          75.9             mm2   population  03         
-5 tutorial_dataset_2 Actinotus minor 011            leaf_dry_mass      7                mg    population  03         
-6 tutorial_dataset_2 Actinotus minor 011            leaf_mass_per_area 89.2857142857143 g/m2  population  03         
-7 tutorial_dataset_2 Actinotus minor 012            plant_growth_form  herb             NA    species     NA      
+  <chr>          <chr>           <chr>          <chr>              <chr>            <chr> <chr>       <chr>
+1 tutorial_dataset_2 Actinotus minor 010            leaf_area          18.8             mm2   population  02
+2 tutorial_dataset_2 Actinotus minor 010            leaf_dry_mass      7                mg    population  02
+3 tutorial_dataset_2 Actinotus minor 010            leaf_mass_per_area 344.827586206897 g/m2  population  02
+4 tutorial_dataset_2 Actinotus minor 011            leaf_area          75.9             mm2   population  03
+5 tutorial_dataset_2 Actinotus minor 011            leaf_dry_mass      7                mg    population  03
+6 tutorial_dataset_2 Actinotus minor 011            leaf_mass_per_area 89.2857142857143 g/m2  population  03
+7 tutorial_dataset_2 Actinotus minor 012            plant_growth_form  herb             NA    species     NA
 ```
 
 The measurements for the three numeric traits from a single location share a common `observation_id`, as they are all part of an observation of a common entity (a specific population of *Actinotus minor*), at a single location, at a single point in time. However the row with the plant growth form measurement has a separate `observation_id` reflecting that this is an observation of a different entity (the taxon *Actinotus minor*).
 
-##### **build dataset report**
+##### **Build dataset report**
 
 As a final step, build a report for the study
 
