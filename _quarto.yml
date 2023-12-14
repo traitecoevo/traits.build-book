@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "The {traits.build} data standard, R package, and workflow"
+  title: "The {traits.build} data model, R package, and workflow"
   author: "Elizabeth Wenk, Sophie Yang, Fonti Kar, Daniel Falster\n\nEvolution and Ecology Research Centre, \n\nThe University of New South Wales Sydney, NSW 2052\n\nAustralia"
   page-footer: "How to get help: <https://traitecoevo.github.io/traits.build-book/help.html><br>Copyright 2023, Daniel Falster and Elizabeth Wenk" 
   page-navigation: true
