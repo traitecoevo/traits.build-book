@@ -8,11 +8,11 @@ Before you begin this tutorial, ensure you have installed traits.build, cloned t
 
 ### Goals
 
--   Learn how to [add contexts](#contexts). 
+-   Learn how to [add contexts](#add_contexts). 
 
 -   Learn some complexities with respect to [units](#complex_units). 
 
--   Learn additional [custom_R_code tricks](#custom_R_code). 
+-   Learn additional [custom_R_code tricks](#custom_R_code_tricks). 
 
 ### New functions introduced
 
@@ -72,7 +72,8 @@ In this dataset, unlike the first two, the data being input is at the individual
 This dataset is from a published source and therefore the source information can be added with the function `metadata_add_source_doi`:
 
 ```{r, eval=FALSE}
-metadata_add_source_doi(dataset_id = "tutorial_dataset_3", doi = "10.1007/s11104-013-1725-x")
+metadata_add_source_doi(dataset_id = "tutorial_dataset_3", 
+                        doi = "10.1007/s11104-013-1725-x")
 ```
 
 confirm:
@@ -135,7 +136,7 @@ Select columns [**5 6 7 8 9 10**]{style="color:red;"}, as these contain trait da
 
 ------------------------------------------------------------------------
 
-#### **Add contexts** {#contexts}
+#### **Add contexts** {#add_contexts}
 
 A context is any piece of ancillary information that helps explain why a certain trait value was measured. 
 
@@ -268,7 +269,7 @@ The file `data/tutorial_dataset_3/raw/tutorial_dataset_3_notes.txt` indicates ho
 
 Remember, the `trait_name` must match a trait concept within the [traits dictionary](https://github.com/traitecoevo/traits.build-template/blob/master/config/traits.yml). For this example:
 
-| column in dataset              | trait concept                 | units_in      | entity_type | value_type | basis_of_value | replicates |
+| column in dataset              | trait concept                 | units_in      | entity_type | value_type | basis_of_ value | replicates |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | life_form                      | life_form                     | .na           | species     | mode       | expert_score   | .na        |
 | WP leaf (Mpa) predawn          | water_potential_predawn       | neg_MPa       | individual  | raw        | measurement    | 1          |
@@ -285,7 +286,7 @@ With the units, note:
 
 -   If the unit begin with a curly bracket, the unit needs to be placed in single quotes
 
-### Testing, error fixes, and report building {#custom_R_code}
+### Testing, error fixes, and report building {#custom_R_code_tricks}
 
 At this point, run the dataset tests and rebuild the dataset:
 
@@ -328,6 +329,7 @@ At this point, rerunning the tests and rebuilding the database should not genera
 As a final step, build a report for the study
 
 ```{r, eval=FALSE}
-traits.build_database$build_info$version <- "5.0.0"  # a fix because the function was built around specific AusTraits versions
+traits.build_database$build_info$version <- "5.0.0"  
+    # a fix because the function was built around specific AusTraits versions
 dataset_report("tutorial_dataset_3", traits.build_database, overwrite = TRUE)
 ```

@@ -29,64 +29,64 @@ The OBOE structure also accommodates this requirement, allowing various metadata
 The following metadata/context fields are linked to each measurement in `traits.build`:
 
 
-### entity metadata 
+### Entity metadata 
 
-    -   entity type (species, population, individual) 
-    -   life stage (adult, seedling, sapling) 
-    -   basis of record (field, glasshouse, field experiment)     
-    -   sex, size, etc.
+- entity type (species, population, individual) 
+- life stage (adult, seedling, sapling) 
+- basis of record (field, glasshouse, field experiment)     
+- sex, size, etc.
     
 
-### value metadata 
+### Value metadata 
 
-    -   value type (mean, minimum, maximum, mode, raw) 
-    -   basis of value (measurement, expert observation, literature) 
-    -   replicate count 
-    -   units 
+- value type (mean, minimum, maximum, mode, raw) 
+- basis of value (measurement, expert observation, literature) 
+- replicate count 
+- units 
 
 ![](figures/traits_build_structure_Slide2.png)
     
-### measurement metadata 
+### Measurement metadata 
 
-    -   trait collection methods 
+- trait collection methods 
     
 
-### location properties 
+### Location properties 
 
-    -   latitude/longitude 
-    -   vegetation description 
-    -   location properties, such as 
-        -   soil nutrients (soil N)  
-        -   climate variables (MAT, MAP, aridity index)  
-        -   fire history (fire intensity, fire severity, years since fire)          
+- latitude/longitude 
+- vegetation description 
+- location properties, such as 
+    - soil nutrients (soil N)  
+    - climate variables (MAT, MAP, aridity index)  
+    - fire history (fire intensity, fire severity, years since fire)          
 
-### context properties 
+### Context properties
 
-  That is, anything else recorded about a specific row of data that explains differences between trait values across rows of data 
-  
-    -   entity contexts (*e.g. plant sex, plant age, leaf type measured, tree diameter*) 
-    -   treatment contexts (*e.g. nutrient addition treatment, drought treatment*) 
-    -   plot contexts (*differences within a single "location"; e.g. slope position, fire history*)  
-    -   temporal contexts (*e.g. sampling season, sampling time of day*) 
-    -   method contexts (*e.g. canopy position, branch length sampled*)      
+That is, anything else recorded about a specific row of data that explains differences between trait values across rows of data, such as
+
+- entity contexts (*e.g. plant sex, plant age, leaf type measured, tree diameter*)
+- treatment contexts (*e.g. nutrient addition treatment, drought treatment*)
+- plot contexts (*differences within a single "location"; e.g. slope position, fire history*)
+- temporal contexts (*e.g. sampling season, sampling time of day*)
+- method contexts (*e.g. canopy position, branch length sampled*).
    
 ![](figures/traits_build_structure_Slide3.png)
 
    
-### taxonomic information 
+### Taxonomic information 
 
-    -   genus, family 
-    -   full scientific name 
-    -   taxon rank 
-    -   taxon identifiers (from APC, APNI) 
+- genus, family 
+- full scientific name 
+- taxon rank 
+- taxon identifiers (from APC, APNI) 
 
-### dataset metadata 
+### Dataset metadata 
 
-    -   collection date 
-    -   dataset description 
-    -   dataset sampling strategy 
-    -   dataset citation 
-    -   data collectors 
+- collection date 
+- dataset description 
+- dataset sampling strategy 
+- dataset citation 
+- data collectors 
 
 
 ## Documenting the relationships between variables

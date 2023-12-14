@@ -48,7 +48,9 @@ dataset_check_numeric_values <- function(database, dataset) {
         dataset_id == dataset,
         error == "Value out of allowable range"
       ) %>%
-      dplyr::select(dplyr::all_of(c("dataset_id", "trait_name", "value", "observation_id", "unit", "original_name")))
+      dplyr::select(
+        dplyr::all_of(c("dataset_id", "trait_name", "value", 
+                        "observation_id", "unit", "original_name")))
 
   out_of_range_values
 
@@ -68,7 +70,8 @@ dataset_check_taxonomic_updates <- function(taxon_list, database, dataset) {
 
   database$taxonomic_updates %>%
     dplyr::filter(dataset_id == dataset) %>%
-    dplyr::filter(!aligned_name %in% taxon_list$aligned_name & !aligned_name %in% taxon_list$taxon_name) %>%
+    dplyr::filter(!aligned_name %in% taxon_list$aligned_name,  
+                    !aligned_name %in% taxon_list$taxon_name) %>%
     dplyr::filter(is.na(taxonomic_resolution)) %>%
     dplyr::distinct(original_name)
 
@@ -82,7 +85,7 @@ dataset_check_taxonomic_updates <- function(taxon_list, database, dataset) {
 
 **output**: Table of trait measurements that are preventing the dataset from pivoting
 
-One of the automated tests in the function `dataset_test()` confirms the dataset can pivot from `longer` to `wider`. This tests is confirming that each row in the traits table has a unique combination of a particular 7 columns: `dataset_id`, `trait_name`, `observation_id`, `value_type`, `repeat_measurements_id`, `method_id`, `method_context_id`. When a dataset does not pivot wider, it is generally because `observation_id` has not been correctly parsed during the dataset processing. `observation_id` is an integral counter within a dataset that represents unique combinations of `taxon_name`, `population_id`, `individual_id`, `temporal_context_id`, `entity_type`, `life_stage`, `source_id`, `entity_context_id`, `basis_of_record`, `collection_date`, `original_name`. If any of these 11 pieces of metadata are incorrectly encoded in the metadata file, two distinct `observations` of traits might be assigned identical `observation_id`'s. The most likely culprits are forgetting to map in a context property or a column with `source_id`'s.
+One of the automated tests is the function `dataset_test()` confirms the dataset can pivot from `longer` to `wider`. This tests is confirming that each row in the traits table has a unique combination of a particular 7 columns: `dataset_id`, `trait_name`, `observation_id`, `value_type`, `repeat_measurements_id`, `method_id`, `method_context_id`. When a dataset does not pivot wider, it is generally because `observation_id` has not been correctly parsed during the dataset processing. `observation_id` is an integral counter within a dataset that represents unique combinations of `taxon_name`, `population_id`, `individual_id`, `temporal_context_id`, `entity_type`, `life_stage`, `source_id`, `entity_context_id`, `basis_of_record`, `collection_date`, `original_name`. If any of these 11 pieces of metadata are incorrectly encoded in the metadata file, two distinct `observations` of traits might be assigned identical `observation_id`'s. The most likely culprits are forgetting to map in a context property or a column with `source_id`'s.
 
 Overall, there are 17 separate columns that could be causing the `db_traits_pivot_wider()` test from `dataset_test()` to fail, making it difficult to discern where to trouble shoot. This function outputs a list of trait measurements that is causing the pivot test to fail, allowing you to hone in on the source of the problem.
 
@@ -96,12 +99,19 @@ dataset_check_not_pivoting <- function(database, dataset) {
       dplyr::select(
         # `taxon_name` and `original_name` are not needed for pivoting but are included for informative purposes
         dplyr::all_of(
-          c("dataset_id", "trait_name", "value", "taxon_name", "original_name", "observation_id",
-          "value_type", "repeat_measurements_id", "method_id", "method_context_id"))
+          c("dataset_id", "trait_name", "value", "taxon_name", "original_name", 
+          "observation_id", "value_type", "repeat_measurements_id", "method_id", 
+          "method_context_id"))
       ) %>%
-      tidyr::pivot_wider(names_from = "trait_name", values_from = "value", values_fn = length) %>%
+      tidyr::pivot_wider(
+        names_from = "trait_name",
+        values_from = "value",
+        values_fn = length
+      ) %>%
       tidyr::pivot_longer(cols = 9:ncol(.)) %>%
-      dplyr::rename(dplyr::all_of(c("trait_name" = "name", "number_of_duplicates" = "value"))) %>%
+      dplyr::rename(dplyr::all_of(
+        c("trait_name" = "name", "number_of_duplicates" = "value")
+        )) %>%
       dplyr::select(
         dplyr::all_of(c("dataset_id", "trait_name", "number_of_duplicates",
         "taxon_name", "original_name", "observation_id", "value_type")), everything()
@@ -155,11 +165,13 @@ dataset_check_outlier_by_species <- function(database, dataset, trait, multiplie
   need_review <- to_compare %>%
     dplyr::filter(trait_name == trait) %>%
     dplyr::filter(taxon_name %in% comparisons$taxon_name) %>%
-    dplyr::select(dplyr::all_of(c("taxon_name", "trait_name", "value", "observation_id", "unit", "original_name"))) %>%
+    dplyr::select(dplyr::all_of(c("taxon_name", "trait_name", "value", 
+                                  "observation_id", "unit", "original_name"))) %>%
     dplyr::left_join(
       by = c("taxon_name", "trait_name"),
       comparisons) %>%
-    dplyr::filter(as.numeric(value) > multiplier*mean_value | as.numeric(value) < (1/multiplier)*mean_value) %>%
+    dplyr::filter(as.numeric(value) > multiplier*mean_value | 
+                  as.numeric(value) < (1/multiplier)*mean_value) %>%
     dplyr::mutate(value_ratio = as.numeric(value)/mean_value) %>%
     dplyr::arrange(dplyr::desc(value_ratio))
 
@@ -180,12 +192,14 @@ dataset_check_outlier_by_genus <- function(database, dataset, trait, multiplier)
   to_compare <-
     database$traits %>%
     dplyr::filter(dataset_id == dataset) %>%
-    dplyr::left_join(by = c("taxon_name"), database$taxa %>% dplyr::select(dplyr::all_of(c("taxon_name", "genus"))))
+    dplyr::left_join(by = c("taxon_name"), 
+                     database$taxa %>% dplyr::select(dplyr::all_of(c("taxon_name", "genus"))))
 
   comparisons <- database$traits %>%
     dplyr::filter(trait_name == trait) %>%
     dplyr::filter(dataset_id != dataset) %>%
-    dplyr::left_join(by = c("taxon_name"), database$taxa %>% dplyr::select(dplyr::all_of(c("taxon_name", "genus")))) %>%
+    dplyr::left_join(by = c("taxon_name"), 
+                     database$taxa %>% dplyr::select(dplyr::all_of(c("taxon_name", "genus")))) %>%
     dplyr::filter(genus %in% to_compare$genus) %>%
     dplyr::select(dplyr::all_of(c("genus", "trait_name", "value"))) %>%
     dplyr::group_by(genus) %>%
@@ -207,11 +221,13 @@ dataset_check_outlier_by_genus <- function(database, dataset, trait, multiplier)
   need_review <- to_compare %>%
     dplyr::filter(trait_name == trait) %>%
     dplyr::filter(genus %in% comparisons$genus) %>%
-    dplyr::select(dplyr::all_of(c("taxon_name", "trait_name", "value", "genus", "observation_id", "unit", "original_name"))) %>%
+    dplyr::select(dplyr::all_of(c("taxon_name", "trait_name", "value", "genus", 
+                                  "observation_id", "unit", "original_name"))) %>%
     dplyr::left_join(
       by = c("genus", "trait_name"),
       comparisons) %>%
-    dplyr::filter(as.numeric(value) > multiplier*mean_value | as.numeric(value) < (1/multiplier)*mean_value) %>%
+    dplyr::filter(as.numeric(value) > multiplier*mean_value | 
+                  as.numeric(value) < (1/multiplier)*mean_value) %>%
     dplyr::mutate(value_ratio = as.numeric(value)/mean_value) %>%
     dplyr::arrange(dplyr::desc(value_ratio))
 

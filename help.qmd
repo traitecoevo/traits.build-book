@@ -5,7 +5,6 @@ This chapter explains how to ask for help. Questions can range from [detailed tr
 Links to 
 
 - [troubleshooting](troubleshooting.html)
-- [debugging](debugging.html)
 
 :::{.callout-note}
 
@@ -29,7 +28,7 @@ Please note that the `traits.build` project adheres to a [Contributor Code of Co
 
 ### Search existing issues
 
-Please check if your question already has an answer. You can search the [GitHub Repositories:
+Please check if your question already has an answer. You can search the GitHub Repositories:
 
 - [traits.build-book](https://github.com/traitecoevo/traits.build-book/issues)
 - [traits.build](https://github.com/traitecoevo/traits.build/issues)
@@ -49,10 +48,7 @@ If the error is a bug in `traits.build` or `austraits`, it is possible the bug h
 
 ### Attribute the error
 
-The `traits.build` package itself is often not usually the cause of problems that arise in `traits.build` pipelines. Most issues come from the user-defined R code, or data files that the pipeline calls, as well as other R packages on your system.  So before you post a question, please attempt to troubleshoot and figure out if `traits.build` is actually the source of the trouble, or if the error comes from another package or your own code. The tips in the [debugging chapter](#debugging) may help. If the culprit turns out to be a non-`traits.build` issue, then please ask your question in a non-`traits.build` forum and write the question accordingly.
-
-### Attribute the error
-
+The `traits.build` package itself is often not usually the cause of problems that arise in `traits.build` pipelines. Most issues come from the user-defined R code, or data files that the pipeline calls, as well as other R packages on your system.  So before you post a question, please attempt to troubleshoot and figure out if `traits.build` is actually the source of the trouble, or if the error comes from another package or your own code. The tips in the [adding datasets](adding_data_long.html) or [common data issues](data_common_issues.html) chapters may help. If the culprit turns out to be a non-`traits.build` issue, then please ask your question in a non-`traits.build` forum and write the question accordingly.
 
 ### Write a reprex
 

@@ -17,8 +17,6 @@ knitr::opts_chunk$set(
 )
 
 library(traits.build)
-
-my_kable_styling <- util_kable_styling_html
 ```
 
 ```{r, echo=FALSE, results='hide', message=FALSE}
@@ -292,7 +290,8 @@ Double check the information added to ensure:
 By default, details are added as the primary source. If multiple sources are linked to a single `dataset_id`, you can specify a source as `secondary`.
 
 ```{r, eval=FALSE, echo=TRUE}
-traits.build::metadata_add_source_doi(dataset_id = current_study, doi = "doi", type = "secondary")
+traits.build::metadata_add_source_doi(dataset_id = current_study, doi = "doi", 
+                                      type = "secondary")
 ```
 
 -   Attempting to add a second primary source will overwrite the information already input. Instead, if there is a third resource to add, use `type = "secondary_2"`
@@ -401,7 +400,8 @@ To allow custom modifications to a particular dataset before the common pipeline
 
 ```{r, eval=FALSE, echo=TRUE}
 data <-
-  readr::read_csv(filename_data_raw, col_types = cols(), guess_max = 100000, progress = FALSE) %>%
+  readr::read_csv(filename_data_raw, col_types = cols(), guess_max = 100000, 
+                  progress = FALSE) %>%
   process_custom_code(metadata[["dataset"]][["custom_R_code"]])()
 ```
 
@@ -526,8 +526,10 @@ If the dataset has location information, but lacks unique location names (or any
 ```{r, eval=FALSE, echo=TRUE}
 data %>%
   dplyr::mutate(
-    location_name = ifelse(location_name == "Mt Field" & habitat == "Montane rainforest", "Mt Field_wet", location_name),
-    location_name = ifelse(location_name == "Mt Field" & habitat == "Dry sclerophyll", "Mt Field_dry", location_name)
+    location_name = ifelse(location_name == "Mt Field" & habitat == "Montane rainforest", 
+                           "Mt Field_wet", location_name),
+    location_name = ifelse(location_name == "Mt Field" & habitat == "Dry sclerophyll", 
+                           "Mt Field_dry", location_name)
   )
 ```
 
@@ -542,7 +544,8 @@ data %>%
       longitude == 151.2917 ~ "diatreme"
     )
   )
-# Note with `dplyr::case_when`, any rows that do not match any of the conditions become `NA`'s.
+# Note with `dplyr::case_when`, 
+# any rows that do not match any of the conditions become `NA`'s.
 ```
 
 or
@@ -615,8 +618,10 @@ A particularly complicated example where some dates are presented as `yyyy-mm` a
 ```{r, eval=FALSE, echo=TRUE}
 data %>%
     dplyr::mutate(
-      weird_date = ifelse(stringr::str_detect(gathering_date, "^[0-9]{4}"), gathering_date, NA),
-      gathering_date = gathering_date %>% lubridate::mdy(quiet = T) %>% as.character(),
+      weird_date = ifelse(stringr::str_detect(gathering_date, "^[0-9]{4}"), 
+                          gathering_date, NA),
+      gathering_date = gathering_date %>% 
+          lubridate::mdy(quiet = T) %>% as.character(),
       gathering_date = coalesce(gathering_date, weird_date)
     ) %>%
     select(-weird_date)
@@ -712,7 +717,9 @@ Some examples of syntax to add `locations` data that exists in different formats
 locations <-
   check_custom_R_code(current_study) %>%
     dplyr::distinct(location_name, latitude, longitude, `veg type`) %>%
-    dplyr::rename(dplyr::all_of(c("latitude (deg)" = "latitude", "longitude (deg)" = "longitude", "description" = "veg type")))
+    dplyr::rename(dplyr::all_of(c("latitude (deg)" = "latitude",
+                                  "longitude (deg)" = "longitude", 
+                                  "description" = "veg type")))
 
 traits.build::metadata_add_locations(current_study, locations)
 ```
@@ -918,9 +925,11 @@ The trait details then need to be filled in manually.
   **NOTE**:   
   -   If the identical methods apply to a string of traits, for the first trait use the following syntax, where the `&leaf_length_method` notation assigns the remaining text in the field as the `leaf_length_method`.  
 
-  ```
-    methods: &leaf_length_method All measurements were from dry herbarium collections, with leaf and bracteole measurements taken from the largest of these structures on each specimen.
-  ```
+```
+  methods: &leaf_length_method All measurements were from dry herbarium 
+    collections, with leaf and bracteole measurements taken from the largest 
+    of these structures on each specimen.
+```
   
   Then for the next trait that uses this method you can just include. At the end of processing you can read/write the yml file and this will fill in the assigned text throughout.
 
@@ -1020,7 +1029,8 @@ metadata_add_substitutions_list(dataset_id, substitutions_to_add)
 taxonomic_updates:
 - find: Acacia ancistrophylla/sclerophylla
   replace: Acacia sp. [Acacia ancistrophylla/sclerophylla; White_2020]
-  reason: Rewording taxon where `/` indicates uncertain species identification to align with `APC accepted` genus (2022-11-10)
+  reason: Rewording taxon where `/` indicates uncertain species identification 
+    to align with `APC accepted` genus (2022-11-10)
   taxonomic_resolution: genus
 - find: Pimelea neo-anglica
   replace: Pimelea neoanglica
@@ -1036,7 +1046,8 @@ taxonomic_updates:
   taxonomic_resolution: genus
 - find: Polyalthia (Wyvur)
   replace: Polyalthia sp. (Wyvuri B.P.Hyland RFK2632)
-  reason: Fuzzy match alignment with species-level canonical name in `APC known` when everything except first 2 words ignored (2022-11-10)
+  reason: Fuzzy match alignment with species-level canonical name in `APC known` 
+    when everything except first 2 words ignored (2022-11-10)
   taxonomic_resolution: Species
 ```
 
@@ -1054,7 +1065,9 @@ The four elements it includes are:
 The function `metadata_add_taxonomic_change` adds single taxonomic updates directly into `metadata[["taxonomic_updates"]]`:
 
 ```{r, eval=FALSE, echo=TRUE}
-traits.build::metadata_add_taxonomic_change(current_study, "find", "replace", "reason", "taxonomic_resolution")
+traits.build::metadata_add_taxonomic_change(current_study, 
+                                            "find", "replace", "reason", 
+                                            "taxonomic_resolution")
 ```
 
 The function `metadata_add_taxonomic_changes_list` adds a table of taxonomic updates directly into `metadata[["taxonomic_updates"]]`. The column headers must be `find`, `replace`, `reason`, and `taxonomic_resolution`.
@@ -1172,8 +1185,8 @@ Fix as many errors as you can and then rerun `dataset_test()` repeatedly until n
 
 You may want to fix errors in tandem with [building the new dataset](#build_new_dataset), such as to be able to quickly compile a list of trait values requiring [substitutions](#add_substitutions) or taxon names requiring [taxonomic updates](#add_taxonomic_updates)
 
-See the [common issues](#data_common_issues.html) chapter for solutions to common issues, such as:  
--   dataset not [pivoting](#data_common_issues.html#cannot_pivot)  
+See the [common issues](data_common_issues.html) chapter for solutions to common issues, such as:  
+-   dataset not [pivoting](data_common_issues.html#cannot_pivot)  
 -   unsupported trait values  
 
 ### Rebuild AusTraits {#build_new_dataset}
@@ -1310,7 +1323,8 @@ At the very end, re-clear formatting, re-run tests, rebuild AusTraits, rebuild r
 To generate a report for a collection of studies:
 
 ```{r, eval=FALSE, echo=TRUE}
-traits.build::dataset_reports(database, c("Falster_2005_1", "Wright_2002"), overwrite = TRUE)
+traits.build::dataset_reports(database, c("Falster_2005_1", "Wright_2002"), 
+                              overwrite = TRUE)
 ```
 
 Or for all studies:

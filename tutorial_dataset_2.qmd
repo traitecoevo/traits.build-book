@@ -8,7 +8,7 @@ Before you begin this tutorial, ensure you have installed traits.build, cloned t
 
 ### Goals
 
--   Learn how to [merge in location data from a standalone spreadsheet](#locations).
+-   Learn how to [merge in location data from a standalone spreadsheet](#add_locations).
 
 -   Learn how to [add substitutions for categorical trait values](#categorical_substitutions).
 
@@ -78,7 +78,8 @@ As with `tutorial_dataset_1` this function leads you through a series of menus r
 This dataset is from a published source and therefore the source information can be added with the function `metadata_add_source_doi`:
 
 ```{r, eval=FALSE}
-metadata_add_source_doi(dataset_id = "tutorial_dataset_2", doi = "10.1046/j.1365-2745.2000.00506.x")
+metadata_add_source_doi(dataset_id = "tutorial_dataset_2", 
+                        doi = "10.1046/j.1365-2745.2000.00506.x")
 ```
 
 confirm:
@@ -89,7 +90,7 @@ confirm:
 
 ------------------------------------------------------------------------
 
-#### **Add location details** {#locations}
+#### **Add location details** {#add_locations}
 
 For this dataset, location data is provided as a standalone spreadsheet, located in the raw data folder: `tutorial_dataset_2\raw\locations.csv`
 
@@ -181,7 +182,7 @@ These are all fields that contain the word `unknown` and must be filled in manua
 
 The file `data/tutorial_dataset_2/raw/tutorial_dataset_2_notes.txt` indicates the main data_contributor for this study.\
 
-Fill in the remaining contributor information as described in the [`tutorial_dataset_1`tutorial](https://github.com/traitecoevo/traits.build/tree/develop/vignettes).\
+Fill in the remaining contributor information as described in the [`tutorial_dataset_1` tutorial](tutorial_dataset_1.html).\
 
 #### **Dataset fields**
 
@@ -193,10 +194,10 @@ The file `data/tutorial_dataset_2/raw/tutorial_dataset_2_notes.txt` indicates ho
 
 | column in dataset                                                                                 | trait concept      | units_in | entity_type | value_type | basis_of_value | replicates |
 |---------------|----------|----------|----------|----------|----------|----------|
-| TRAIT Growth Form CATEGORICAL EP epiphyte (mistletoe) F fern G grass H herb S shrub T tree V vine | plant_growth_form  | .na      | species     | mode       | expert_score   | .na        |
-| TRAIT SLA UNITS mm2/g                                                                             | leaf_mass_per_area | mm2/g    | population  | mean       | measurement    | 5          |
+| TRAIT Growth Form CATEGORICAL EP epiphyte (mistletoe) F fern G grass H herb S shrub T tree V vine | plant_ growth_ form  | .na      | species     | mode       | expert_score   | .na        |
+| TRAIT SLA UNITS mm2/g                                                                             | leaf_mass_ per_area | mm2/g    | population  | mean       | measurement    | 5          |
 | TRAIT Leaf Size UNITS mm2                                                                         | leaf_area          | mm2      | population  | mean       | measurement    | 5          |
-| TRAIT Leaf Dry Mass UNITS g                                                                       | leaf_dry_mass      | g        | population  | mean       | measurement    | 5          |
+| TRAIT Leaf Dry Mass UNITS g                                                                       | leaf_dry_ mass      | g        | population  | mean       | measurement    | 5          |
 
 Some notes:
 
@@ -271,7 +272,8 @@ There are two ways to add substitutions into the `metadata.yml` file.
 1.  Map in individual trait value substitutions using `metadata_add_substitution`:
 
 ```{r, eval=FALSE}
-metadata_add_substitution(dataset_id = "tutorial_dataset_2", trait_name = "plant_growth_form", find = "t", replace = "tree")
+metadata_add_substitution(dataset_id = "tutorial_dataset_2", 
+        trait_name = "plant_growth_form", find = "t", replace = "tree")
 ```
 
 Look at the `metadata.yml` file and you'll note that a substitution has been added, to indicate the `t`'s are `tree`'s
@@ -299,9 +301,13 @@ To add a column with substitutions, then add the substitutions to the metadata f
 
 ```{r, eval=FALSE}
 table <- table %>%
-  mutate(replace = c("shrub", "tree", "herb", NA, "graminoid", "fern", "climber_herbaceous"))
+  mutate(replace = c("shrub", "tree", "herb", NA, 
+                     "graminoid", "fern", "climber_herbaceous"))
 
-## an alternative is `mutate(replace = c("shrub", "tree", "herb", "epiphyte", "graminoid", "fern", "climber_herbaceous"))` which will result in the epiphyte observations remaining in the excluded data table
+## an alternative is 
+## `mutate(replace = c("shrub", "tree", "herb", "epiphyte", "graminoid",  
+##          "fern", "climber_herbaceous"))` 
+## which will result in the epiphyte observations remaining in the excluded data table
 
 metadata_add_substitutions_list("tutorial_dataset_2", table)
 ```
@@ -409,7 +415,8 @@ custom_R_code: '
     ) %>%
     group_by(name_original) %>%
     mutate(
-      across(c("TRAIT Growth Form CATEGORICAL EP epiphyte (mistletoe) F fern G grass H herb S shrub T tree V vine"), replace_duplicates_with_NA)
+      across(c("TRAIT Growth Form CATEGORICAL EP epiphyte (mistletoe) F fern G grass H herb S shrub T tree V vine"), 
+              replace_duplicates_with_NA)
     ) %>%
     ungroup()
 '

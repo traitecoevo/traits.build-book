@@ -12,7 +12,14 @@ knitr::opts_chunk$set(
 
 library(traits.build)
 
-my_kable_styling <- util_kable_styling_html
+my_kable_styling <- function(...) {
+  kableExtra::kable(..., booktabs=TRUE, format="latex") %>%
+  kableExtra::kable_styling(latex_options="scale_down", font_size = 8, full_width = TRUE)}
+
+
+if(knitr::is_html_output()) {
+  my_kable_styling <- util_kable_styling_html
+}
 ```
 
 ```{r, echo=FALSE, results='hide', message=FALSE}
@@ -92,17 +99,20 @@ The file `traits.yml` provides the trait definitions used to compile the trait d
 
 The file `taxon_list.csv` is our master list of taxa in the trait database. 
 
-It includes all unique taxon names after typos have been corrected (through taxonomic_updates). It includes both accepted/valid taxon concepts and outdated taxonomic names. It includes taxon names indicating a taxon that can be identified to species and names that indicate name-alignment to a lower taxon rank.
+It includes all unique taxon names after typos have been corrected (through taxonomic_updates). It includes both accepted/valid taxon concepts and outdated taxonomic names. It includes taxon names indicating a taxon that can be identified to species and names that can only be resolved to a lower taxon rank.
 
-The file `taxon_list.csv` is added to if a study includes taxa not previously represented in the trait database.
+There are only three required columns within `taxon_list.csv`: `aligned_name`, `taxon_name` and `taxon_rank`. In the file, `aligned_name` refers to the taxon name after any typos have been corrected, while `taxon_name` is the taxon name following updates to the currently accepted/valid taxon name (when available). `Taxon_rank` indicates the resolution of the `taxon_name`. 
 
-For any species (& infraspecific taxon concepts) or genera that align with known taxon concepts, identifiers for these taxon concepts are included if available in a master taxon list. For instance for AusTraits, identifiers from the two vascular plants National Species Lists (NSL), the APC (Australian Plant Census) and the Australian Plant Name Index (APNI) are included.
+However, it is best practice to include additional columns when available, including taxon identifiers for species (& infraspecific taxon concepts) or genera that align with known taxon concepts. 
 
-In the file, `cleaned_name` refers to the taxon name after any typos have been corrected, while `taxon_name` is the taxon name following updates to the currently accepted/valid taxon name (when available).
+The file `taxon_list.csv` should be added to if a study includes taxa not previously represented in the trait database. It must be compiled outside of the traits.build workflow, as each dataset will use different taxonomic datasets, with different columns of information. 
+
+For AusTraits, the taxonomic datasets referenced are the two vascular plant lists within the National Species Lists (NSL), the APC (Australian Plant Census) and the Australian Plant Name Index (APNI). The workflow used by AusTraits to rebuild the taxon list is available [here](https://github.com/traitecoevo/austraits.build/blob/develop/R/build_update_taxon_list.R).
+
 
 ```{r, results='show'}
 read_csv("data/taxon_list.csv", show_col_types = FALSE) %>%
-  select(taxon_name, cleaned_name, family, taxonomic_reference, taxon_rank, cleaned_name_taxonomic_status, taxon_id, scientific_name, scientific_name_id
+  select(taxon_name, aligned_name, family, taxonomic_dataset, taxon_rank,aligned_name_taxonomic_status, taxon_id, scientific_name, scientific_name_id
 ) %>%
   slice(1:10) %>%
   my_kable_styling()

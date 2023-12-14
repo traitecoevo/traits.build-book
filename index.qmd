@@ -24,10 +24,6 @@ To get you started, we've provided a template example compilation which you can 
 
 Along the way, users may encounter a number of errors and warnings. Some of these are designed to help you build a robust database, others may constitue an error in your data, file structure, or the package. If you encounter an error or warning, please read the message carefully and [follow the instructions for getting help](help.html). 
 
-## Contributing
-
-XXX
-
 ## Acknowledgements
 
 This manual arose from code within the AusTraits project at <https://github.com/traitecoevo/austraits.build>. The AusTraits project received investment (<https://doi.org/10.47486/DP720>) from the Australian Research Data Commons (ARDC). The ARDC is funded by the National Collaborative Research Infrastructure Strategy (NCRIS).

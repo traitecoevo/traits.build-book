@@ -46,10 +46,16 @@ leaf_mass_sample <- leaf_mass %>% dplyr::filter(taxon_name %in% sample_names)
 
 Plot raincloud plot of LMA for the six species
 
-```{r, eval = TRUE}
+```{r, eval = F}
 # install.packages(c("ggdist", "gghalves", "ggtext"))
 # remotes::install_github("olihawkins/pilot")
-ggplot(
+library(ggplot2)
+library(ggdist)
+library(gghalves)
+library(ggtext)
+library(pilot)
+
+ggplot2::ggplot(
   data = leaf_mass_sample,
   aes(x = taxon_name %>% stringr::str_wrap(10) %>% reorder(value),
       y = value,
@@ -95,19 +101,21 @@ ggplot(
 
 
 Plot the species distributions of these six species with ALA occurrence data (using `galah`)
-```{r, eval = TRUE}
+```{r, eval = F}
 # install.packages(c("galah", "sf", "ozmaps"))
 library(galah)
 library(sf)
+library(ozmaps)
 
 # Configurate `galah` to use an email that has been registered with the ALA (https://auth.ala.org.au/userdetails/registration/createAccount)
-galah_config(email = "sophie.yang917@gmail.com", verbose = FALSE)
+#galah_config(email = "XXX@gmail.com", verbose = FALSE)
 
 # Download data
-plants <- galah_call() %>%
-  galah_identify(sample_names) %>%
-  galah_apply_profile(ALA) %>%
-  atlas_occurrences()
+#plants <- galah_call() %>%
+#  galah_identify(sample_names) %>%
+#  galah_apply_profile(ALA) %>%
+#  atlas_occurrences()
+plants <- readr::read_csv("data/plants.csv")
 
 # Recategorise subspecies into species categories
 plants <- plants %>%

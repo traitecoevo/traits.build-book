@@ -5,8 +5,12 @@
 .Ruserdata
 _book
 _freeze
+*_files
+figures/
 tmp
-
+*.html
 /.quarto/
 data/austraits/austraits-5.0.0.rds
 data/austraits/austraits.json
+site_libs
+index.tex

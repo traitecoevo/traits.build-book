@@ -143,7 +143,7 @@ Then fill in the details for each trait column in the traits section of the meta
 
 Remember, the `trait_name` must match a trait concept within the [traits dictionary](https://github.com/traitecoevo/traits.build-template/blob/master/config/traits.yml). For this example:
 
-| column in dataset | trait concept                               | units_in       | entity_type | value_type | basis_of_value | replicates |
+| column in dataset | trait concept                               | units_in       | entity_type | value_type | basis_of_ value | replicates |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | Photo             | leaf_photosynthetic_rate_per_area_saturated | umol{CO2}/m2/s | individual  | raw        | measurement    | 1          |
 | Cond              | leaf_stomatal_conductance_per_area_at_Asat  | mol{H2O}/m2/s  | individual  | raw        | measurement    | 1          |
@@ -265,7 +265,7 @@ The file `data/tutorial_dataset_5/raw/tutorial_dataset_5_notes.txt` indicates th
 
 The file `data/tutorial_dataset_5/raw/tutorial_dataset_5_notes.txt` indicates how to fill in the `unknown` dataset fields for this study.
 
-### Testing, error fixes, and report building {#exclude_data}
+### Testing, error fixes, and report building
 
 At this point, run the dataset tests, rebuild the dataset, and check for excluded data:
 
@@ -276,7 +276,8 @@ build_setup_pipeline(method = "base", database_name = "traits.build_database")
 
 source("build.R")
 
-traits.build_database$excluded_data %>% filter(dataset_id == "tutorial_dataset_5") %>%  View()
+traits.build_database$excluded_data %>% 
+  filter(dataset_id == "tutorial_dataset_5") %>%  View()
 ```
 
 There should be no errors.\
@@ -292,6 +293,7 @@ Then remake the database and again check the excluded data table.
 If the only excluded values remaining are the negative gas exchange rates, build a report for the study:
 
 ```{r, eval=FALSE}
-traits.build_database$build_info$version <- "5.0.0"  # a fix because the function was built around specific AusTraits versions
+traits.build_database$build_info$version <- "5.0.0"  
+    # a fix because the function was built around specific AusTraits versions
 dataset_report("tutorial_dataset_5", traits.build_database, overwrite = TRUE)
 ```
