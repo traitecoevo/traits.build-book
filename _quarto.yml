@@ -4,7 +4,7 @@ project:
 book:
   title: "The {traits.build} data standard, R package, and workflow"
   author: ["Elizabeth Wenk", "Daniel Falster", "Sophie Yang", "Fonti Kar"]
-  page-footer: "How to get help: <https://traitecoevo.github.io/traits.build-book/help.html><br>Copyright 2023, Daniel Falster and Elizabeth Wenk" 
+  page-footer: "How to get help: <https://traitecoevo.github.io/traits.build-book/help.html><br>Copyright 2023, Daniel Falster and Elizabeth Wenk"
   page-navigation: true
   chapters:
     - part: Introduction
@@ -13,7 +13,7 @@ book:
         - motivation.qmd
         - workflow.qmd
         - usage_examples.qmd
-    - part: Data structure and standard 
+    - part: Data structure and standard
       chapters:
         - long_wide.qmd
         - database_standard.qmd
@@ -41,6 +41,8 @@ book:
         - adding_data_long.qmd
         - check_dataset_functions.qmd
         - data_common_issues.qmd
+        - github.qmd
+        - versioned_releases.qmd
     - part: Using outputs of `traits.build`
       chapters:
         - austraits_database.qmd
@@ -55,7 +57,7 @@ book:
   appendices:
     - csv.qmd
     - yaml.qmd
-  
+
 format:
   html:
     theme: cosmo

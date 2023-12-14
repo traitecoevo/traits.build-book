@@ -14,7 +14,7 @@ It is also recommended that you first work through some of the earlier tutorials
 
 -   Learn how to add [measurement remarks](#measurement_remarks) 
 
-### New Functions Introduced
+### New functions introduced
 
 -   none.
 
@@ -94,7 +94,7 @@ For instance, in this dataset, the column `Mother` documents the maternal lineag
 
 ```{r, eval=FALSE}
   custom_R_code: '
-    data %>% 
+    data %>%
       mutate(
         measurement_remarks = paste0("maternal lineage ", Mother)
       )
@@ -109,7 +109,7 @@ There isn't a location name specified in the data.csv file, so use `custom_R_cod
 
 ```{r, eval=FALSE}
   custom_R_code: '
-    data %>% 
+    data %>%
       mutate(
         measurement_remarks = paste0("maternal lineage ", Mother),
         location = "Australian National University glasshouse"
@@ -259,7 +259,7 @@ Since the trait metadata is read in long after the `custom_R_code` code is execu
 
 #### **Adding contributors**
 
-The file `data/tutorial_dataset_5/raw/tutorial_dataset_5_notes.txt` indicates the main data_contributor for this study.\ 
+The file `data/tutorial_dataset_5/raw/tutorial_dataset_5_notes.txt` indicates the main data_contributor for this study.\
 
 #### **Dataset fields**
 
@@ -279,9 +279,9 @@ source("build.R")
 traits.build_database$excluded_data %>% filter(dataset_id == "tutorial_dataset_5") %>%  View()
 ```
 
-There should be no errors.\ 
+There should be no errors.\
 
-There are a handful of excluded values, including both negative photosynthetic rates and negative conductance rates and two instances where `leaf_area = 0`.  The `leaf_area = 0` values need to be removed using `custom_R_code`.\ 
+There are a handful of excluded values, including both negative photosynthetic rates and negative conductance rates and two instances where `leaf_area = 0`.  The `leaf_area = 0` values need to be removed using `custom_R_code`.\
 
 ```{r, eval=FALSE}
 mutate(across(c("area_mm2"), ~na_if(.x,0)))

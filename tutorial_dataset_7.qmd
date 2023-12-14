@@ -14,7 +14,7 @@ It is also recommended that you first work through some of the earlier tutorials
 
 -   Learn how to add [units from a column](#units_column) 
 
-### New Functions Introduced
+### New functions introduced
 
 -   none.
 
@@ -119,13 +119,13 @@ Then fill in the details for each trait column in the traits section of the meta
 | seed length minimum | seed_length      | units    | species     | minimum    | measurement    | .na        |
 
 
-Notes: 
+Notes:
 
 -   You may have noticed in the data.csv file that there is also a column `units`. For many long datasets there is a fixed unit for each trait, just as is standardly the case for wide datasets. In such cases fixed units values are mapped into the traits section of the metadata file, just as occurs with most wide datasets. In this dataset there is a column documenting the units, as different tax have leaf length and seed length reported in different units. The column for units can be mapped in at the trait level, as indicated here, or, for a long dataset, it could be mapped in a single time in the dataset section of the metadata, `units_in: units` and then you'd delete the line referring to `units_in` from each of the traits.
 
-- There are two different trait names that refer to seed length, `seed length maximum` and `seed length minimum`. It is not a problem that these both map to the trait concept `seed_length` as they are different value types.\ 
+- There are two different trait names that refer to seed length, `seed length maximum` and `seed length minimum`. It is not a problem that these both map to the trait concept `seed_length` as they are different value types.\
 
-- Because these are species-level trait values, even the numeric traits do not have a replicate count. The range of values should represent all individuals of the species.\ 
+- Because these are species-level trait values, even the numeric traits do not have a replicate count. The range of values should represent all individuals of the species.\
 
 #### **Adding contributors**
 
@@ -133,7 +133,7 @@ The file `data/tutorial_dataset_7/raw/tutorial_dataset_7_notes.txt` indicates th
 
 #### **Dataset fields**
 
-The file `data/tutorial_dataset_7/raw/tutorial_dataset_7_notes.txt` indicates how to fill in the `unknown` dataset fields for this study.\ 
+The file `data/tutorial_dataset_7/raw/tutorial_dataset_7_notes.txt` indicates how to fill in the `unknown` dataset fields for this study.\
 
 ### Testing, error fixes, and report building {#exclude_data}
 
@@ -149,13 +149,13 @@ source("build.R")
 traits.build_database$excluded_data %>% filter(dataset_id == "tutorial_dataset_7") %>%  View()
 ```
 
-The excluded data includes four rows of data with the error `Unsupported trait value` for the trait `leaf_compoundness`. The term `article` does not describe a leaf's compoundness. As articles are always `simple` leaves you can add a substitution:\ 
+The excluded data includes four rows of data with the error `Unsupported trait value` for the trait `leaf_compoundness`. The term `article` does not describe a leaf's compoundness. As articles are always `simple` leaves you can add a substitution:\
 
 ```{r, eval=FALSE}
 metadata_add_substitution(dataset_id = "tutorial_dataset_7", trait_name = "leaf_compoundness", find = "articles", replace = "simple")
 ```
 
-Then rebuild the database and again check excluded data to ensure the substitution has worked as intended.\ 
+Then rebuild the database and again check excluded data to ensure the substitution has worked as intended.\
 
 ```{r, eval=FALSE}
 traits.build_database$build_info$version <- "5.0.0"  # a fix because the function was built around specific AusTraits versions

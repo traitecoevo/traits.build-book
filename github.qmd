@@ -1,0 +1,61 @@
+# Using GitHub
+
+## Working with your GitHub repository
+
+For {traits.build} users, the preferred way of hosting your database is on GitHub.
+
+### Setting up the repository
+
+There are some GitHub settings we recommend:
+- `General`: Enable "Always suggest updating pull request branches" to keep the branch up to date with the main branch before merging
+- `General`: Enable "Automatically delete head branches" to delete the branch after merging, which keeps your branches clean
+- `Branches`: Add a branch protection rule for your main or develop branch and enable "Require a pull request before merging", "Require conversation resolution before merging", "Require deployments to succeed before merging"
+
+#### Automated tests during pull requests
+
+To run automated tests that must pass before a pull request can be merged in, you can set up GitHub workflows via the Actions tab on GitHub. The setting "Require deployments to succeed before merging" must be enabled for the `main` or `develop` branch. You can write your own workflows which are stored in `.github/workflows/`. For {austraits.build}, the GitHub workflow runs `dataset_test` on all data sources and compiles the database (see [here](https://github.com/traitecoevo/austraits.build/blob/51964dbe4d302c6dade51db133e9e32514cddaae/.github/workflows/check-build.yml)).
+
+
+### Adding to the repository
+
+New data can be added to the repository by creating a branch and then opening a [pull request](https://help.github.com/articles/using-pull-requests/) (PR). Those who want to contribute but aren't approved maintainers of the database, must fork and clone the database from GitHub.
+
+In short,
+
+1. Create a Git branch for your new work, either within the repo (if you are an approved contributor) or as a [fork of the repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
+2. Make commits and push these up onto the branch.
+3. Make sure everything runs fine before you send a PR (see [tutorials for adding datasets](tutorial_datasets.html)).
+4. Submit the PR and tag someone as a reviewer.
+5. Squash and merge the PR once approved and any changes have been made.
+
+**Tip**: For working with git and GitHub, we recommend GitHub Desktop, a user-friendly graphical interface tool.
+
+#### Merging a pull request
+
+The easiest way to merge a PR is to use GitHub's built-in options for squashing and merging. This leads to:
+
+- A single commit
+- The work is attributed to the original author
+
+You can merge in a PR after it has been approved. To merge a PR, you need to be an approved maintainer. You do not need to be the original author of the PR (the commit will still be by the original author).
+
+1. Send the PR.
+2. Tag someone to review.
+3. If there are any updates to the main branch, merge those into your new branch and resolve any conflicts.
+4. Once ready, merge into the main branch, choosing "Squash & Merge", using an informative commit message. "Squash" merges all your commits on the branch into one.
+
+##### Commit messages
+
+Informative commit messages are ideal. They should clearly describe the work done and value added to the database in a few, clear, bulleted points. If relevant, they should reference any GitHub issues. You can [link to and directly close GitHub issues via the commit message](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword). To link to another commit you can also use the SHA-hash or its 7-character prefix.
+
+An example commit message:
+
+```
+Smith_1996: Add study
+- For #224, closes #286
+- Trait data for Nothofagus forests across Australia, New Zealand and South America
+```
+
+## Bugs and feature requests for {traits.build}
+
+If you find a bug or have a feature request for {traits.build}, [file a GitHub issue](https://github.com/traitecoevo/traits.build/issues) on {traits.build}. Illustrate the bug with a minimal [reprex](https://www.tidyverse.org/help/#reprex) (reproducible example). Please feel free to contribute by implementing the fix or feature via pull request. For substantial pull requests, it is best to first check with the {traits.build} team that it's worth pursuing the problem.

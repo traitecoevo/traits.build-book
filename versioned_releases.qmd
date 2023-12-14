@@ -1,0 +1,39 @@
+# Version updating & making a new release
+
+Releases of your database are snapshots that are archived and available for use.
+
+We suggest semantic versioning to label your versions. As discussed in [Falster et al 2019](http://doi.org/10.1093/gigascience/giz035), semantic versioning can apply to datasets as well as code.
+
+The version number will have 3 components for actual releases, and 4 for development versions. The structure is `major.minor.patch.dev`, where `dev` is at least 9000. The `dev` component provides a visual signal that this is a development version. So, if the current version is 0.9.1.9000, the release will be be 0.9.2, 0.10.0 or 1.0.0.
+
+Our approach to incrementing version numbers is:
+
+- `major`: Increment when you make changes to the structure that are likely incompatible with any code written to work with previous versions.
+- `minor`: Increment to communicate any changes to the structure that are likely to be compatible with any code written to work with the previous versions (i.e., allows code to run without error). Such changes might involve adding new data within the existing structure, so that the previous database version exists as a subset of the new version. For tabular data, this includes adding columns or rows. On the other hand, removing data should constitute a major version because records previously relied on may no longer exist.
+- `patch`: Increment to communicate correction of errors in the actual data, without any changes to the structure. Such changes are unlikely to break or change analyses written with the previous version in a substantial way.
+
+<img src="figures/giz035fig2.png">
+
+**Figure:** Semantic versioning communicates to users the types of changes that have occurred between successive versions of an evolving dataset, using a tri-digit label where increments in a number indicate major, minor, and patch-level changes, respectively. From [Falster et al 2019](http://doi.org/10.1093/gigascience/giz035), (CC-BY).
+
+The process of making a release is as follows. Note that corresponding releases and versions are needed in both `austraits` and `traits.build`: #TODO - this is no longer true right?
+
+1. Update the version number in the DESCRIPTION file, using:
+
+```{r, eval=FALSE}
+desc::desc_bump_version() # Specify `which` argument for type of version increment
+```
+
+2. Compile the database.
+
+3. Update documentation.
+
+4. Commit and push to GitHub (using PR workflow).
+
+5. Make a release on GitHub, adding version number.
+
+6. Prepare for the next version by updating version numbers.
+
+```{r, eval=FALSE}
+desc::desc_bump_version("dev")
+```

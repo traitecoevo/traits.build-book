@@ -14,7 +14,7 @@ It is also recommended that you first work through some of the earlier tutorials
 
 -   Learn how to add [individual_id's](#individual_id) 
 
-### New Functions Introduced
+### New functions introduced
 
 -   none.
 
@@ -92,7 +92,7 @@ In order for `repeat_measurements_id`'s to properly generate, it is essential to
 
 ```{r, eval=FALSE}
   custom_R_code: '
-    data %>% 
+    data %>%
       mutate(
         individual_id = paste(Site, Species, `Leaf number`, sep = "_")
       )
