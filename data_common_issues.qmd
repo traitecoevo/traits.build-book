@@ -17,7 +17,12 @@ table <- my_database$excluded_data %>%
 You can individually add substitutions to [metadata.yml]{style="color:blue;"} using the function [metadata_add_substitution]{style="color:blue;"}
 
 ```{r, eval=FALSE}
-metadata_add_substitution(dataset_id = current_study, trait_name = "plant_growth_form", find = "T", replace = "tree")
+metadata_add_substitution(
+  dataset_id = current_study,
+  trait_name = "plant_growth_form",
+  find = "T",
+  replace = "tree"
+)
 ```
 
 Or, you can add an additional column to the table output (code above) and read it into [metadata.yml]{style="color:blue;"} using the function [metadata_add_substitutions_table]{style="color:blue;"}
@@ -31,7 +36,13 @@ table <- table %>%
   rename(find = value) %>%
   mutate(replace = c("tree", "mallee", "shrub", "graminoid", "herb"))
 
-metadata_add_substitutions_table(table, dataset_id = dataset_id, trait_name = trait_name, find = find, replace = replace)
+metadata_add_substitutions_table(
+  table,
+  dataset_id = dataset_id,
+  trait_name = trait_name,
+  find = find,
+  replace = replace
+)
 ```
 
 You can of course also write the table to a csv file, edit it in Excel or a text editor, then read it back into R.

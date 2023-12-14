@@ -162,7 +162,10 @@ This only occurs if the dataset documents response curve data (e.g. an A-ci or l
 This dataset is from a published source with a `doi` and therefore the source information can be added with a single line of code:
 
 ```{r, eval=FALSE}
-metadata_add_source_doi(dataset_id = "tutorial_dataset_1", doi = "10.1111/j.0022-0477.2005.00992.x")
+metadata_add_source_doi(
+  dataset_id = "tutorial_dataset_1", 
+  doi = "10.1111/j.0022-0477.2005.00992.x"
+  )
 ```
 
 The following information is automatically propagated into the source field:
@@ -319,9 +322,9 @@ traits:
 The remaining fields within the metadata.yml file must now be filled in manually.
 
 These include:\
-*the `contributors` section*\
-*the `description`, `basis_of_record`, `life_stage`, `sampling_strategy`, `original_file`, and `notes` under the `dataset` section*\
-*details for each trait, including `unit_in`, `trait_name`, `entity_type`, `value_type`, `basis_of_record`, `replicates` and `methods`*
+* the `contributors` section\
+* the `description`, `basis_of_record`, `life_stage`, `sampling_strategy`, `original_file`, and `notes` under the `dataset` section\
+* details for each trait, including `unit_in`, `trait_name`, `entity_type`, `value_type`, `basis_of_record`, `replicates` and `methods`
 
 These are all fields that contain the word `unknown`.
 
@@ -435,7 +438,8 @@ source("build.R")
 As a final step, build a report for the study
 
 ```{r, eval=FALSE}
-traits.build_database$build_info$version <- "5.0.0"  # a fix because the function was built around specific AusTraits versions
+traits.build_database$build_info$version <- "5.0.0"  
+    # a fix because the function was built around specific AusTraits versions
 dataset_report("tutorial_dataset_1", traits.build_database, overwrite = TRUE)
 ```
 

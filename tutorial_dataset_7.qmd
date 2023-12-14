@@ -111,7 +111,7 @@ Select columns [**1 2 3 4**]{style="color:red;"}, you want to include all four t
 
 Then fill in the details for each trait column in the traits section of the metadata file.\
 
-| trait   | trait concept    | units_in | entity_type | value_type | basis_of_value | replicates |
+| trait   | trait concept    | units_in | entity_type | value_type | basis_of_ value | replicates |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | leaf length maximum | leaf_length      | units    | species     | maximum    | measurement    | .na        |
 | leaf type           | leaf_compoundness | .na      | species     | mode       | expert_score   | .na        |
@@ -161,6 +161,7 @@ metadata_add_substitution(dataset_id = "tutorial_dataset_7",
 Then rebuild the database and again check excluded data to ensure the substitution has worked as intended.\
 
 ```{r, eval=FALSE}
-traits.build_database$build_info$version <- "5.0.0"  # a fix because the function was built around specific AusTraits versions
+traits.build_database$build_info$version <- "5.0.0"  
+    # a fix because the function was built around specific AusTraits versions
 dataset_report("tutorial_dataset_7", traits.build_database, overwrite = TRUE)
 ```

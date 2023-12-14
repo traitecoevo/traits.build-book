@@ -143,7 +143,7 @@ Then fill in the details for each trait column in the traits section of the meta
 
 Remember, the `trait_name` must match a trait concept within the [traits dictionary](https://github.com/traitecoevo/traits.build-template/blob/master/config/traits.yml). For this example:
 
-| column in dataset | trait concept                               | units_in       | entity_type | value_type | basis_of_value | replicates |
+| column in dataset | trait concept                               | units_in       | entity_type | value_type | basis_of_ value | replicates |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | Photo             | leaf_photosynthetic_rate_per_area_saturated | umol{CO2}/m2/s | individual  | raw        | measurement    | 1          |
 | Cond              | leaf_stomatal_conductance_per_area_at_Asat  | mol{H2O}/m2/s  | individual  | raw        | measurement    | 1          |
@@ -293,6 +293,7 @@ Then remake the database and again check the excluded data table.
 If the only excluded values remaining are the negative gas exchange rates, build a report for the study:
 
 ```{r, eval=FALSE}
-traits.build_database$build_info$version <- "5.0.0"  # a fix because the function was built around specific AusTraits versions
+traits.build_database$build_info$version <- "5.0.0"  
+    # a fix because the function was built around specific AusTraits versions
 dataset_report("tutorial_dataset_5", traits.build_database, overwrite = TRUE)
 ```
