@@ -75,7 +75,7 @@ austraits$traits %>%
 *How are these data distributed across datasets?*
 
 ```{r, eval = TRUE}
-traits.build::plot_trait_distribution_beeswarm(austraits, "leaf_N_per_dry_mass", y_axis_category = "dataset_id")
+austraits::plot_trait_distribution_beeswarm(austraits, "leaf_N_per_dry_mass", y_axis_category = "dataset_id")
 ```
 
 *How much data exist for other nitrogen traits?*
@@ -559,14 +559,14 @@ This function first groups values at the site level, then at the taxon level. Fo
 
 Another way to summarise AusTraits data by trait, and determine whether AusTraits offers sufficient data coverage for a trait of choice, is to plot the distribution of trait values in AusTraits.
 
-As seen in [`A first look at data`](#exploring), the function `traits.build::plot_trait_distribution_beeswarm()` plots trait data by dataset_id:
+As seen in [`A first look at data`](#exploring), the function `austraits::plot_trait_distribution_beeswarm()` plots trait data by dataset_id:
 
 ```{r, eval = TRUE}
 austraits$traits %>% 
   dplyr::filter(trait_name == "leaf_N_per_dry_mass") %>%
   dplyr::distinct(taxon_name) %>% nrow()
 
-traits.build::plot_trait_distribution_beeswarm(austraits, "leaf_N_per_dry_mass", 
+austraits::plot_trait_distribution_beeswarm(austraits, "leaf_N_per_dry_mass", 
                                                y_axis_category = "dataset_id")
 ```
 
