@@ -33,7 +33,9 @@ Depends:
     gridExtra,
     ggpointdensity,
     scales,
-    forcats
+    forcats,
+    viridis,
+    lubridate
 Suggests:
   knitr (>= 1.30),
   rmarkdown (>= 2.4),
