@@ -78,7 +78,8 @@ As with `tutorial_dataset_1` this function leads you through a series of menus r
 This dataset is from a published source and therefore the source information can be added with the function `metadata_add_source_doi`:
 
 ```{r, eval=FALSE}
-metadata_add_source_doi(dataset_id = "tutorial_dataset_2", doi = "10.1046/j.1365-2745.2000.00506.x")
+metadata_add_source_doi(dataset_id = "tutorial_dataset_2", 
+                        doi = "10.1046/j.1365-2745.2000.00506.x")
 ```
 
 confirm:
@@ -304,7 +305,8 @@ table <- table %>%
                      "graminoid", "fern", "climber_herbaceous"))
 
 ## an alternative is 
-## `mutate(replace = c("shrub", "tree", "herb", "epiphyte", "graminoid", "fern", "climber_herbaceous"))` 
+## `mutate(replace = c("shrub", "tree", "herb", "epiphyte", "graminoid",  
+##          "fern", "climber_herbaceous"))` 
 ## which will result in the epiphyte observations remaining in the excluded data table
 
 metadata_add_substitutions_list("tutorial_dataset_2", table)
