@@ -30,7 +30,8 @@ Depends:
     ozmaps,
     pilot,
     ggbeeswarm,
-    gridExtra
+    gridExtra,
+    ggpointdensity
 Suggests:
   knitr (>= 1.30),
   rmarkdown (>= 2.4),
