@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - 23&nbsp; Tutorial 7: Adding long format dataset</title>
+<title>The {traits.build} data model, R package, and workflow - 23&nbsp; Tutorial 7: Adding long format dataset</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">The {traits.build} data standard, R package, and workflow</a> 
+      <a href="./">The {traits.build} data model, R package, and workflow</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -331,6 +331,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Using GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./versioned_releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Version updating &amp; making a new release</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -345,31 +357,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_database.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AusTraits_tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_and_climate_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatial_data_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_package.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
   </div>
 </li>
       </ul>
@@ -386,13 +398,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
   </div>
 </li>
       </ul>
@@ -433,14 +439,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">23.1</span> Overview</a>
   <ul class="collapse">
   <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
-  <li><a href="#new-functions-introduced" id="toc-new-functions-introduced" class="nav-link" data-scroll-target="#new-functions-introduced">New Functions Introduced</a></li>
+  <li><a href="#new-functions-introduced" id="toc-new-functions-introduced" class="nav-link" data-scroll-target="#new-functions-introduced">New functions introduced</a></li>
   </ul></li>
   <li><a href="#adding-tutorial_dataset_7" id="toc-adding-tutorial_dataset_7" class="nav-link" data-scroll-target="#adding-tutorial_dataset_7"><span class="header-section-number">23.2</span> Adding tutorial_dataset_7</a>
   <ul class="collapse">
   <li><a href="#ensure-the-dataset-folder-contains-the-correct-data-files" id="toc-ensure-the-dataset-folder-contains-the-correct-data-files" class="nav-link" data-scroll-target="#ensure-the-dataset-folder-contains-the-correct-data-files">Ensure the dataset folder contains the correct data files</a></li>
   <li><a href="#source-necessary-functions" id="toc-source-necessary-functions" class="nav-link" data-scroll-target="#source-necessary-functions">source necessary functions</a></li>
   <li><a href="#create-a-metadata.yml-file" id="toc-create-a-metadata.yml-file" class="nav-link" data-scroll-target="#create-a-metadata.yml-file">Create a metadata.yml file</a></li>
-  <li><a href="#exclude_data" id="toc-exclude_data" class="nav-link" data-scroll-target="#exclude_data">Testing, error fixes, and report building</a></li>
+  <li><a href="#testing-error-fixes-and-report-building" id="toc-testing-error-fixes-and-report-building" class="nav-link" data-scroll-target="#testing-error-fixes-and-report-building">Testing, error fixes, and report building</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -479,7 +485,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <section id="new-functions-introduced" class="level3">
-<h3 class="anchored" data-anchor-id="new-functions-introduced">New Functions Introduced</h3>
+<h3 class="anchored" data-anchor-id="new-functions-introduced">New functions introduced</h3>
 <ul>
 <li>none.</li>
 </ul>
@@ -581,7 +587,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th>units_in</th>
 <th>entity_type</th>
 <th>value_type</th>
-<th>basis_of_value</th>
+<th>basis_of_ value</th>
 <th>replicates</th>
 </tr>
 </thead>
@@ -627,8 +633,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Notes:</p>
 <ul>
 <li><p>You may have noticed in the data.csv file that there is also a column <code>units</code>. For many long datasets there is a fixed unit for each trait, just as is standardly the case for wide datasets. In such cases fixed units values are mapped into the traits section of the metadata file, just as occurs with most wide datasets. In this dataset there is a column documenting the units, as different tax have leaf length and seed length reported in different units. The column for units can be mapped in at the trait level, as indicated here, or, for a long dataset, it could be mapped in a single time in the dataset section of the metadata, <code>units_in: units</code> and then you’d delete the line referring to <code>units_in</code> from each of the traits.</p></li>
-<li><p>There are two different trait names that refer to seed length, <code>seed length maximum</code> and <code>seed length minimum</code>. It is not a problem that these both map to the trait concept <code>seed_length</code> as they are different value types.&nbsp;</p></li>
-<li><p>Because these are species-level trait values, even the numeric traits do not have a replicate count. The range of values should represent all individuals of the species.&nbsp;</p></li>
+<li><p>There are two different trait names that refer to seed length, <code>seed length maximum</code> and <code>seed length minimum</code>. It is not a problem that these both map to the trait concept <code>seed_length</code> as they are different value types.<br>
+</p></li>
+<li><p>Because these are species-level trait values, even the numeric traits do not have a replicate count. The range of values should represent all individuals of the species.<br>
+</p></li>
 </ul>
 </section>
 <section id="adding-contributors" class="level4">
@@ -638,11 +646,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="dataset-fields" class="level4">
 <h4 class="anchored" data-anchor-id="dataset-fields"><strong>Dataset fields</strong></h4>
-<p>The file <code>data/tutorial_dataset_7/raw/tutorial_dataset_7_notes.txt</code> indicates how to fill in the <code>unknown</code> dataset fields for this study.&nbsp;</p>
+<p>The file <code>data/tutorial_dataset_7/raw/tutorial_dataset_7_notes.txt</code> indicates how to fill in the <code>unknown</code> dataset fields for this study.<br>
+</p>
 </section>
 </section>
-<section id="exclude_data" class="level3">
-<h3 class="anchored" data-anchor-id="exclude_data">Testing, error fixes, and report building</h3>
+<section id="testing-error-fixes-and-report-building" class="level3">
+<h3 class="anchored" data-anchor-id="testing-error-fixes-and-report-building">Testing, error fixes, and report building</h3>
 <p>At this point, run the dataset tests, rebuild the dataset, and check for excluded data:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_test</span>(<span class="st">"tutorial_dataset_7"</span>)</span>
@@ -651,16 +660,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"build.R"</span>)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(dataset_id <span class="sc">==</span> <span class="st">"tutorial_dataset_7"</span>) <span class="sc">%&gt;%</span>  <span class="fu">View</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span> </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset_id <span class="sc">==</span> <span class="st">"tutorial_dataset_7"</span>) <span class="sc">%&gt;%</span>  <span class="fu">View</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The excluded data includes four rows of data with the error <code>Unsupported trait value</code> for the trait <code>leaf_compoundness</code>. The term <code>article</code> does not describe a leaf’s compoundness. As articles are always <code>simple</code> leaves you can add a substitution:&nbsp;</p>
+<p>The excluded data includes four rows of data with the error <code>Unsupported trait value</code> for the trait <code>leaf_compoundness</code>. The term <code>article</code> does not describe a leaf’s compoundness. As articles are always <code>simple</code> leaves you can add a substitution:<br>
+</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_substitution</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_7"</span>, <span class="at">trait_name =</span> <span class="st">"leaf_compoundness"</span>, <span class="at">find =</span> <span class="st">"articles"</span>, <span class="at">replace =</span> <span class="st">"simple"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_substitution</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_7"</span>, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">trait_name =</span> <span class="st">"leaf_compoundness"</span>, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">find =</span> <span class="st">"articles"</span>, <span class="at">replace =</span> <span class="st">"simple"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then rebuild the database and again check excluded data to ensure the substitution has worked as intended.&nbsp;</p>
+<p>Then rebuild the database and again check excluded data to ensure the substitution has worked as intended.<br>
+</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>build_info<span class="sc">$</span>version <span class="ot">&lt;-</span> <span class="st">"5.0.0"</span>  <span class="co"># a fix because the function was built around specific AusTraits versions</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_report</span>(<span class="st">"tutorial_dataset_7"</span>, traits.build_database, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>build_info<span class="sc">$</span>version <span class="ot">&lt;-</span> <span class="st">"5.0.0"</span>  </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># a fix because the function was built around specific AusTraits versions</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_report</span>(<span class="st">"tutorial_dataset_7"</span>, traits.build_database, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

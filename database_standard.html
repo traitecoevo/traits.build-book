@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - 6&nbsp; Data standard</title>
+<title>The {traits.build} data model, R package, and workflow - 6&nbsp; Data standard</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">The {traits.build} data standard, R package, and workflow</a> 
+      <a href="./">The {traits.build} data model, R package, and workflow</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -297,6 +297,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Using GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./versioned_releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Version updating &amp; making a new release</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -311,31 +323,31 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_database.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AusTraits_tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_and_climate_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatial_data_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_package.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
   </div>
 </li>
       </ul>
@@ -352,13 +364,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
   </div>
 </li>
       </ul>
@@ -396,9 +402,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#database-that-fully-documents-ecological-metadata" id="toc-database-that-fully-documents-ecological-metadata" class="nav-link" data-scroll-target="#database-that-fully-documents-ecological-metadata">Database that fully documents ecological metadata</a></li>
-  <li><a href="#database-standard-described-by-an-ontology" id="toc-database-standard-described-by-an-ontology" class="nav-link" data-scroll-target="#database-standard-described-by-an-ontology">Database standard described by an ontology</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">6.1</span> Overview</a></li>
+  <li><a href="#database-that-fully-documents-ecological-metadata" id="toc-database-that-fully-documents-ecological-metadata" class="nav-link" data-scroll-target="#database-that-fully-documents-ecological-metadata"><span class="header-section-number">6.2</span> Database that fully documents ecological metadata</a></li>
+  <li><a href="#database-standard-described-by-an-ontology" id="toc-database-standard-described-by-an-ontology" class="nav-link" data-scroll-target="#database-standard-described-by-an-ontology"><span class="header-section-number">6.3</span> Database standard described by an ontology</a></li>
   </ul>
 </nav>
     </div>
@@ -422,8 +428,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="overview" class="level3">
-<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<section id="overview" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">6.1</span> Overview</h2>
 <p>A single universally accepted trait database standard does not currently exist among plant ecologists, limiting our ability to merge together distinct databases.</p>
 <p>A broadly accepted standard must achieve two goals:</p>
 <ol type="1">
@@ -438,8 +444,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>DarwinCore <a href="https://dwc.tdwg.org/">dwc.tdwg.org</a></p></li>
 </ul>
 </section>
-<section id="database-that-fully-documents-ecological-metadata" class="level3">
-<h3 class="anchored" data-anchor-id="database-that-fully-documents-ecological-metadata">Database that fully documents ecological metadata</h3>
+<section id="database-that-fully-documents-ecological-metadata" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="database-that-fully-documents-ecological-metadata"><span class="header-section-number">6.2</span> Database that fully documents ecological metadata</h2>
 <p>To date, <a href="https://github.com/traitecoevo/austraits.build">AusTraits</a>, Australia’s Plant Trait Database, has incorporated more than 370 unique datasets, spanning the breadth of plant trait data collected across Australia. It has been more than 6 months (and ~50 datasets) since we have identified a class of metadata or contextual information that could not be mapped into the traits.build structure.</p>
 <p>The database structure can capture:</p>
 <ul>
@@ -454,8 +460,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The database standard will continue to evolve as traits.build is used to build a greater diversity of trait databases, but, already offers a flexible, detailed structure for capturing and harmonising ecological data.</p>
 <p>See <a href="database_metadata.html">relationships between database variables</a> for more details.</p>
 </section>
-<section id="database-standard-described-by-an-ontology" class="level3">
-<h3 class="anchored" data-anchor-id="database-standard-described-by-an-ontology">Database standard described by an ontology</h3>
+<section id="database-standard-described-by-an-ontology" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="database-standard-described-by-an-ontology"><span class="header-section-number">6.3</span> Database standard described by an ontology</h2>
 <p>A database standard is only useful if:</p>
 <ul>
 <li><p>Each database field has a clear and consistent meaning</p></li>

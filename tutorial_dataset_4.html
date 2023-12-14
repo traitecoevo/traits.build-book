@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - 20&nbsp; Tutorial 4: Additional complexities</title>
+<title>The {traits.build} data model, R package, and workflow - 20&nbsp; Tutorial 4: Additional complexities</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">The {traits.build} data standard, R package, and workflow</a> 
+      <a href="./">The {traits.build} data model, R package, and workflow</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -331,6 +331,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Using GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./versioned_releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Version updating &amp; making a new release</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -345,31 +357,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_database.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AusTraits_tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_and_climate_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatial_data_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_package.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
   </div>
 </li>
       </ul>
@@ -386,13 +398,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
   </div>
 </li>
       </ul>
@@ -433,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">20.1</span> Overview</a>
   <ul class="collapse">
   <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
-  <li><a href="#new-functions-introduced" id="toc-new-functions-introduced" class="nav-link" data-scroll-target="#new-functions-introduced">New Functions Introduced</a></li>
+  <li><a href="#new-functions-introduced" id="toc-new-functions-introduced" class="nav-link" data-scroll-target="#new-functions-introduced">New functions introduced</a></li>
   </ul></li>
   <li><a href="#adding-tutorial_dataset_4" id="toc-adding-tutorial_dataset_4" class="nav-link" data-scroll-target="#adding-tutorial_dataset_4"><span class="header-section-number">20.2</span> Adding tutorial_dataset_4</a>
   <ul class="collapse">
@@ -481,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <section id="new-functions-introduced" class="level3">
-<h3 class="anchored" data-anchor-id="new-functions-introduced">New Functions Introduced</h3>
+<h3 class="anchored" data-anchor-id="new-functions-introduced">New functions introduced</h3>
 <ul>
 <li>none.</li>
 </ul>
@@ -492,8 +498,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="20.2" class="anchored" data-anchor-id="adding-tutorial_dataset_4"><span class="header-section-number">20.2</span> Adding tutorial_dataset_4</h2>
 <p>This dataset is a subset of data from Togashi_2015 in AusTraits. The data are a compilation of many datasets, each with their own references information.<br>
 </p>
-<p>For such datasets, there are two options: 1) sourcing the data from the original publication, and adding it to the database as its own datset; 2) entering the dataset as part of a broader compilation. For this study, in AusTraits, a combination of both approaches was used. For original sources that included a broader range of traits and similar (or better) resolution, the original source was used. However, in this compilation there were several studies where Togashi had already individually contacted the authors of the source publications, as the data appendix for this publication often had better resolution than the original papers.&nbsp;</p>
-<p>This tutorial focuses on adding a single dataset derived from many original studies.&nbsp;</p>
+<p>For such datasets, there are two options: 1) sourcing the data from the original publication, and adding it to the database as its own datset; 2) entering the dataset as part of a broader compilation. For this study, in AusTraits, a combination of both approaches was used. For original sources that included a broader range of traits and similar (or better) resolution, the original source was used. However, in this compilation there were several studies where Togashi had already individually contacted the authors of the source publications, as the data appendix for this publication often had better resolution than the original papers.<br>
+</p>
+<p>This tutorial focuses on adding a single dataset derived from many original studies.<br>
+</p>
 <p>Before you begin creating the metadata file, take a look at the data.csv file - you’ll notice that the columns present are quite different from the datasets added so far. There are columns for latitude &amp; longitude, but not location name column. There are columns for the original source. These are columns for entity_type, basis_of_record, and value_type, three metadata fields that, for the previous tutorial datasets, were entered in the metadata file as a fixed value. And the only trait column <code>log_LA.SA</code> is in a non-standard format.</p>
 <p>With a few small tricks this dataset can also be added seamlessly.</p>
 <section id="ensure-the-dataset-folder-contains-the-correct-data-files" class="level3">
@@ -518,12 +526,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="create-the-metadata.yml-file" class="level3">
 <h3 class="anchored" data-anchor-id="create-the-metadata.yml-file">Create the metadata.yml file</h3>
 <ul>
-<li>Note, that because, for this dataset, there are a number of variables that cannot simply be adding using the <code>metadata_add_...</code> functions, unlike in previous tutorials, you’ll now mix the three steps that were previously separated:&nbsp;</li>
+<li>Note, that because, for this dataset, there are a number of variables that cannot simply be adding using the <code>metadata_add_...</code> functions, unlike in previous tutorials, you’ll now mix the three steps that were previously separated:<br>
+</li>
 </ul>
 <ol type="1">
-<li>Use <code>metadata_add...</code> functions where possible.&nbsp;</li>
-<li>Mutate new columns using <code>custom_R_code</code>.&nbsp;</li>
-<li>Manually map newly creted column names in the appropriate part of the <code>metadata.yml</code> file.&nbsp;</li>
+<li>Use <code>metadata_add...</code> functions where possible.<br>
+</li>
+<li>Mutate new columns using <code>custom_R_code</code>.<br>
+</li>
+<li>Manually map newly creted column names in the appropriate part of the <code>metadata.yml</code> file.<br>
+</li>
 </ol>
 <section id="create-a-metadata-template" class="level4">
 <h4 class="anchored" data-anchor-id="create-a-metadata-template"><strong>Create a metadata template</strong></h4>
@@ -562,24 +574,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"data/tutorial_dataset_4/data.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(References)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A tibble: 11 × 1</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>References             </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>   <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>                  </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span> Barrett et al. <span class="dv">1996</span>    </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span> Benyon et al. <span class="dv">1999</span>     </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span> Bleby et al<span class="fl">.2009</span>       </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>References</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>   <span class="sc">&lt;</span>chr<span class="sc">&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a> <span class="dv">1</span> Barrett et al. <span class="dv">1996</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span> Benyon et al. <span class="dv">1999</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a> <span class="dv">3</span> Bleby et al<span class="fl">.2009</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span> Brodribb and Felid <span class="dv">2000</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span> Brooksbank et al. <span class="dv">2011</span> </span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a> <span class="dv">6</span> Canham et al. <span class="dv">2009</span>     </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a> <span class="dv">7</span> Carter and White <span class="dv">2009</span>  </span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a> <span class="dv">8</span> Cernusak et al. <span class="dv">2006</span>   </span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a> <span class="dv">9</span> Choat et al. <span class="dv">2005</span>      </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> Drake and Franks <span class="dv">2003</span>  </span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span> Drake et al. <span class="dv">2011</span>      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a> <span class="dv">5</span> Brooksbank et al. <span class="dv">2011</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a> <span class="dv">6</span> Canham et al. <span class="dv">2009</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a> <span class="dv">7</span> Carter and White <span class="dv">2009</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a> <span class="dv">8</span> Cernusak et al. <span class="dv">2006</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a> <span class="dv">9</span> Choat et al. <span class="dv">2005</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> Drake and Franks <span class="dv">2003</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span> Drake et al. <span class="dv">2011</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You would now need to look up each of these references in the reference section of the manuscript and use Google Scholar (or another reference resource) to look up the doi for each reference.add additional references, you need to add an argument to the <code>metadata_add_source_doi</code> function:<br>
+<p>You would now need to look up each of these references in the reference section of the manuscript and use Google Scholar (or another reference resource) to look up the doi for each reference. To add additional references, you need to add an argument to the <code>metadata_add_source_doi</code> function:<br>
 </p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_4"</span>, <span class="at">doi =</span> <span class="st">"10.1071/bt9960249"</span>, <span class="at">type =</span> <span class="st">"original_01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_4"</span>, <span class="at">doi =</span> <span class="st">"10.1071/bt9960249"</span>, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">type =</span> <span class="st">"original_01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Per the <code>traits.build</code> schema, a secondary reference is when there have been two related publications out of a single dataset, while the term <code>original</code> is used if the data were collected as part of a previous dataset (generally by different authors) and added to <code>traits.build</code> as part of a compilation.<br>
 </p>
@@ -590,10 +603,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="source_ID" class="level4">
 <h4 class="anchored" data-anchor-id="source_ID"><strong>Map source_id into metadata file</strong></h4>
 <ul>
-<li><p><code>source_id</code> is a metadata field that is used relatively infrequently. In the AusTraits trait database only 1/20 studies require the mapping of a <code>source_id</code> and therefore as a default the field does not get added to the metadata template.&nbsp;</p></li>
-<li><p>Instead, you have to manually add it to the files’ <code>dataset</code> section, generally directly below <code>location_name</code>.&nbsp;</p></li>
-<li><p>Simply add a line <code>source_id: source_id</code>. Make sure the indents line up with the fields above/below.&nbsp;</p></li>
-<li><p>When the AusTraits team initially added this dataset, the curator manually added the <code>source_id</code> column. Otherwise such a column could be mutated from the reference column using <code>custom_R_code</code> or added manually in Excel.&nbsp;</p></li>
+<li><p><code>source_id</code> is a metadata field that is used relatively infrequently. In the AusTraits trait database only 1/20 studies require the mapping of a <code>source_id</code> and therefore as a default the field does not get added to the metadata template.<br>
+</p></li>
+<li><p>Instead, you have to manually add it to the files’ <code>dataset</code> section, generally directly below <code>location_name</code>.<br>
+</p></li>
+<li><p>Simply add a line <code>source_id: source_id</code>. Make sure the indents line up with the fields above/below.<br>
+</p></li>
+<li><p>When the AusTraits team initially added this dataset, the curator manually added the <code>source_id</code> column. Otherwise such a column could be mutated from the reference column using <code>custom_R_code</code> or added manually in Excel.<br>
+</p></li>
 </ul>
 <hr>
 </section>
@@ -605,18 +622,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  custom_R_code<span class="sc">:</span> <span class="st">'</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">    data %&gt;% </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">    data %&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">      mutate(</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="st">        location_name = paste0("lat_",Lat,"_long_",Long)</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="st">      )</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this case you’re using <code>custom_R_code</code> to generate many unique location names as a column in the data table as it is first read into the R workflow.&nbsp;</p>
-<p><em>Note: While, for this example you are generating many unique location names, there are many datasets where all data have been collected at a single location, and therefore the submitted dataset doesn’t include a <code>location_name</code> column. For all of those you simply add code like <code>mutate(location_name = "Broken Hill")</code> into <code>custom_R_code</code>.</em>&nbsp;</p>
+<p><em>Note: While, for this example you are generating many unique location names, there are many datasets where all data have been collected at a single location, and therefore the submitted dataset doesn’t include a <code>location_name</code> column. For all of those you simply add code like <code>mutate(location_name = "Broken Hill")</code> into <code>custom_R_code</code>.</em><br>
+</p>
 <p>You next want to create a table of location names and location properties (i.e latitude &amp; longitude):<br>
 </p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>location_table <span class="ot">&lt;-</span> </span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>location_table <span class="ot">&lt;-</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">metadata_check_custom_R_code</span>(<span class="st">"tutorial_dataset_4"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(location_name, Lat, Long) <span class="sc">%&gt;%</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">latitude (deg)</span><span class="st">`</span> <span class="ot">=</span> Lat, <span class="st">`</span><span class="at">longitude (deg)</span><span class="st">`</span> <span class="ot">=</span> Long) <span class="sc">%&gt;%</span></span>
@@ -624,9 +642,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_locations</span>(<span class="st">"tutorial_dataset_4"</span>, location_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Notes:&nbsp;</p>
+<p>Notes:<br>
+</p>
 <ul>
-<li><p>Remember the function <code>metadata_check_custom_R_code</code> reads in the data.csv file, applies custom_R_code manipulations, and outputs the updated data table. This is very useful if you want to check your <code>custom_R_code</code> is performing as expected or if you want to perform further manipulations to the output.&nbsp;</p></li>
+<li><p>Remember the function <code>metadata_check_custom_R_code</code> reads in the data.csv file, applies custom_R_code manipulations, and outputs the updated data table. This is very useful if you want to check your <code>custom_R_code</code> is performing as expected or if you want to perform further manipulations to the output.<br>
+</p></li>
 <li><p>There are many other ways to create a table of location names and properties. You could create a standalone table using R (or Excel), but this solution generates no additional files to store.<br>
 </p></li>
 </ul>
@@ -647,7 +667,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>  custom_R_code<span class="sc">:</span> <span class="st">'</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="st">    data %&gt;% </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="st">    data %&gt;%</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">      mutate(</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="st">        location_name = paste0("lat_",Lat,"_long_",Long),</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="st">        LA.SA = 10^(log_LA.SA)</span></span>
@@ -674,11 +694,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This trait has several “non-standard” values:<br>
 </p>
 <ul>
-<li><strong>unit_in</strong>: The units for the input column are leaf area/sapwood area, a dimensionless “area ratio”. Meanwhile, Huber value is reported as sapwood area/leaf area, the inverse dimensionless “area ratio”.&nbsp;</li>
+<li><strong>unit_in</strong>: The units for the input column are leaf area/sapwood area, a dimensionless “area ratio”. Meanwhile, Huber value is reported as sapwood area/leaf area, the inverse dimensionless “area ratio”.<br>
+</li>
 </ul>
-<p>The UCUM standard to which <code>traits.build</code> conforms specifies that “dimensionless” is only accepted for the very few traits that are truly dimensionless, not traits where units top and bottom simply cancel out. You need to specify that it is a ratio of area/area (or mass/mass, count/count, etc.)&nbsp;</p>
-<p>Looking in the trait dictionary, you’ll see that the units are specified as: <code>mm2{sapwood}/mm2{leaf}</code>, specifically to be explicit about which area is the denominator vs numerator. You therefore specify that the <code>units_in</code> are <code>mm2{leaf}/mm2{sapwood}</code>.&nbsp;</p>
-<p>Since it is dimensionless, you could, of course specify any area units on top and bottom as long as they are identical, but I know <code>mm2{leaf}/mm2{sapwood}</code> is already in the unit conversions file.&nbsp;</p>
+<p>The UCUM standard to which <code>traits.build</code> conforms specifies that “dimensionless” is only accepted for the very few traits that are truly dimensionless, not traits where units top and bottom simply cancel out. You need to specify that it is a ratio of area/area (or mass/mass, count/count, etc.)<br>
+</p>
+<p>Looking in the trait dictionary, you’ll see that the units are specified as: <code>mm2{sapwood}/mm2{leaf}</code>, specifically to be explicit about which area is the denominator vs numerator. You therefore specify that the <code>units_in</code> are <code>mm2{leaf}/mm2{sapwood}</code>.<br>
+</p>
+<p>Since it is dimensionless, you could, of course specify any area units on top and bottom as long as they are identical, but I know <code>mm2{leaf}/mm2{sapwood}</code> is already in the unit conversions file.<br>
+</p>
 <ul>
 <li><p><strong>entity_type</strong>, <strong>value_type</strong>: Because this study is a compilation of many sources, the entity_type and value_type are not consistent across all measurements. Instead the data curator had to go back to many of the original sources and document which were population-level versus individual-level measurements, and correspondingly which were means vs raw values. For such circumstances (which also can occur within a single study), you can map a column name as the value.<br>
 </p></li>
@@ -720,12 +744,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Sample</strong></p>
 <p><span style="color:red;">4: method_context</span><br>
 </p>
-<p>This context is a method context, because it specifies a difference in methodology that might influence that trait value.&nbsp;</p>
+<p>This context is a method context, because it specifies a difference in methodology that might influence that trait value.<br>
+</p>
 <p><span style="color:blue;">The following values exist for this context: trunk sample branch sample</span><br>
 <span style="color:blue;">Are replacement values required? (y/n)</span> <span style="color:red;">n</span><br>
 <span style="color:blue;">Are descriptions required? (y/n)</span> <span style="color:red;">y</span><br>
 </p>
-<p>The answers to the next two questions are up to the dataset curator, but at AusTraits we decided that <code>trunk sample</code> and <code>branch sample</code> were sufficiently explicit context property values, but that it would be helpful to add a description.&nbsp;</p>
+<p>The answers to the next two questions are up to the dataset curator, but at AusTraits we decided that <code>trunk sample</code> and <code>branch sample</code> were sufficiently explicit context property values, but that it would be helpful to add a description.<br>
+</p>
 <p>Therefore, we filled in <code>context_property: wood sample type</code> and added descriptions for the context property values:<br>
 </p>
 <div class="cell">
@@ -767,16 +793,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">build_setup_pipeline</span>(<span class="at">method =</span> <span class="st">"base"</span>, <span class="at">database_name =</span> <span class="st">"traits.build_database"</span>)</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"build.R"</span>)</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(dataset_id <span class="sc">==</span> <span class="st">"tutorial_dataset_4"</span>) <span class="sc">%&gt;%</span>  <span class="fu">View</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span> </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset_id <span class="sc">==</span> <span class="st">"tutorial_dataset_4"</span>) <span class="sc">%&gt;%</span>  <span class="fu">View</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There should be no errors and no excluded data, so go ahead and build a report for the study:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>build_info<span class="sc">$</span>version <span class="ot">&lt;-</span> <span class="st">"5.0.0"</span>  <span class="co"># a fix because the function was built around specific AusTraits versions</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_report</span>(<span class="st">"tutorial_dataset_4"</span>, traits.build_database, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>build_info<span class="sc">$</span>version <span class="ot">&lt;-</span> <span class="st">"5.0.0"</span>  </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># a fix because the function was built around specific AusTraits versions</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_report</span>(<span class="st">"tutorial_dataset_4"</span>, traits.build_database, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Overall, this report isn’t very informative since it is the first Huber value dataset in the new database.<br>
 </p>
-<p>But let me draw your attention to the list of taxa at the bottom. Because the tutorials are, for now, ignoring taxon alignments (<code>traits.build</code> in a state of flux with regard to this), the tutorials have ignored this section.&nbsp; But let me draw your attention to the list of taxa at the bottom. Because the tutorials are, for now, ignoring taxon alignments (<code>traits.build</code> in a state of flux with regard to this), the tutorials have ignored this section.&nbsp;</p>
+<p>But let me draw your attention to the list of taxa at the bottom. Because the tutorials are, for now, ignoring taxon alignments (<code>traits.build</code> in a state of flux with regard to this), the tutorials have ignored this section.<br>
+But let me draw your attention to the list of taxa at the bottom. Because the tutorials are, for now, ignoring taxon alignments (<code>traits.build</code> in a state of flux with regard to this), the tutorials have ignored this section.&nbsp;</p>
 <p>However, note the unknown taxa names <code>unk sp. 1</code> and <code>unk sp. 2</code>. Although the AusTraits database accepts names resolved to genus and family, data collected on a truly unknown taxon is useless and should be excluded. Being a terrestrial vascular plant database, we also exclude mosses and lichens that are sometimes in datasets. The curators for other databases aligned to the <code>traits.build</code> workflow will have their own standards for values to explicitly disallow, based on taxonomy (or some other variable).</p>
 <p>Near the bottom of the metadata file is a section for excluding data.<br>
 </p>
@@ -787,12 +816,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Change this to:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>exclude_observations<span class="sc">:</span> </span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>exclude_observations<span class="sc">:</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> variable<span class="sc">:</span> taxon_name</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  find<span class="sc">:</span> unk sp. <span class="dv">1</span>, unk sp. <span class="dv">2</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  reason<span class="sc">:</span> omitting completely unknown <span class="fu">taxa</span> (E Wenk, <span class="dv">2023</span>.<span class="fl">09.20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Notes:&nbsp;</p>
+<p>Notes:<br>
+</p>
 <ul>
 <li>Other variable names can also be used here. Perhaps there is a particular context value or location that is known to have problematic data. In AusTraits this field is almost exclusively used to exclude specific taxa, but the metadata section is designed to have broader applications.</li>
 </ul>

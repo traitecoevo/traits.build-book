@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - 8&nbsp; Overview of traits.build ontology</title>
+<title>The {traits.build} data model, R package, and workflow - 8&nbsp; Overview of traits.build ontology</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">The {traits.build} data standard, R package, and workflow</a> 
+      <a href="./">The {traits.build} data model, R package, and workflow</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -297,6 +297,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Using GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./versioned_releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Version updating &amp; making a new release</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -311,31 +323,31 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_database.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AusTraits_tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_and_climate_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatial_data_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_package.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
   </div>
 </li>
       </ul>
@@ -352,13 +364,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
   </div>
 </li>
       </ul>
@@ -399,13 +405,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#using-the-oboe-structure" id="toc-using-the-oboe-structure" class="nav-link active" data-scroll-target="#using-the-oboe-structure"><span class="header-section-number">8.1</span> Using the OBOE structure</a></li>
   <li><a href="#metadata-for-each-trait-value" id="toc-metadata-for-each-trait-value" class="nav-link" data-scroll-target="#metadata-for-each-trait-value"><span class="header-section-number">8.2</span> Metadata for each trait value</a>
   <ul class="collapse">
-  <li><a href="#entity-metadata" id="toc-entity-metadata" class="nav-link" data-scroll-target="#entity-metadata">entity metadata&nbsp;</a></li>
-  <li><a href="#value-metadata" id="toc-value-metadata" class="nav-link" data-scroll-target="#value-metadata">value metadata&nbsp;</a></li>
-  <li><a href="#measurement-metadata" id="toc-measurement-metadata" class="nav-link" data-scroll-target="#measurement-metadata">measurement metadata&nbsp;</a></li>
-  <li><a href="#location-properties" id="toc-location-properties" class="nav-link" data-scroll-target="#location-properties">location properties&nbsp;</a></li>
-  <li><a href="#context-properties" id="toc-context-properties" class="nav-link" data-scroll-target="#context-properties">context properties&nbsp;</a></li>
-  <li><a href="#taxonomic-information" id="toc-taxonomic-information" class="nav-link" data-scroll-target="#taxonomic-information">taxonomic information&nbsp;</a></li>
-  <li><a href="#dataset-metadata" id="toc-dataset-metadata" class="nav-link" data-scroll-target="#dataset-metadata">dataset metadata&nbsp;</a></li>
+  <li><a href="#entity-metadata" id="toc-entity-metadata" class="nav-link" data-scroll-target="#entity-metadata">Entity metadata&nbsp;</a></li>
+  <li><a href="#value-metadata" id="toc-value-metadata" class="nav-link" data-scroll-target="#value-metadata">Value metadata&nbsp;</a></li>
+  <li><a href="#measurement-metadata" id="toc-measurement-metadata" class="nav-link" data-scroll-target="#measurement-metadata">Measurement metadata&nbsp;</a></li>
+  <li><a href="#location-properties" id="toc-location-properties" class="nav-link" data-scroll-target="#location-properties">Location properties&nbsp;</a></li>
+  <li><a href="#context-properties" id="toc-context-properties" class="nav-link" data-scroll-target="#context-properties">Context properties</a></li>
+  <li><a href="#taxonomic-information" id="toc-taxonomic-information" class="nav-link" data-scroll-target="#taxonomic-information">Taxonomic information&nbsp;</a></li>
+  <li><a href="#dataset-metadata" id="toc-dataset-metadata" class="nav-link" data-scroll-target="#dataset-metadata">Dataset metadata&nbsp;</a></li>
   </ul></li>
   <li><a href="#documenting-the-relationships-between-variables" id="toc-documenting-the-relationships-between-variables" class="nav-link" data-scroll-target="#documenting-the-relationships-between-variables"><span class="header-section-number">8.3</span> Documenting the relationships between variables</a></li>
   </ul>
@@ -451,57 +457,76 @@ ul.task-list li input[type="checkbox"] {
 <p>The OBOE structure also accommodates this requirement, allowing various metadata and context types to be linked to each of the core classes.</p>
 <p>The following metadata/context fields are linked to each measurement in <code>traits.build</code>:</p>
 <section id="entity-metadata" class="level3">
-<h3 class="anchored" data-anchor-id="entity-metadata">entity metadata&nbsp;</h3>
-<pre><code>-   entity type (species, population, individual)&nbsp;
--   life stage (adult, seedling, sapling)&nbsp;
--   basis of record (field, glasshouse, field experiment)&nbsp;    
--   sex, size, etc.</code></pre>
+<h3 class="anchored" data-anchor-id="entity-metadata">Entity metadata&nbsp;</h3>
+<ul>
+<li>entity type (species, population, individual)&nbsp;</li>
+<li>life stage (adult, seedling, sapling)&nbsp;</li>
+<li>basis of record (field, glasshouse, field experiment)&nbsp;<br>
+</li>
+<li>sex, size, etc.</li>
+</ul>
 </section>
 <section id="value-metadata" class="level3">
-<h3 class="anchored" data-anchor-id="value-metadata">value metadata&nbsp;</h3>
-<pre><code>-   value type (mean, minimum, maximum, mode, raw)&nbsp;
--   basis of value (measurement, expert observation, literature)&nbsp;
--   replicate count&nbsp;
--   units&nbsp;</code></pre>
+<h3 class="anchored" data-anchor-id="value-metadata">Value metadata&nbsp;</h3>
+<ul>
+<li>value type (mean, minimum, maximum, mode, raw)&nbsp;</li>
+<li>basis of value (measurement, expert observation, literature)&nbsp;</li>
+<li>replicate count&nbsp;</li>
+<li>units&nbsp;</li>
+</ul>
 <p><img src="figures/traits_build_structure_Slide2.png" class="img-fluid"></p>
 </section>
 <section id="measurement-metadata" class="level3">
-<h3 class="anchored" data-anchor-id="measurement-metadata">measurement metadata&nbsp;</h3>
-<pre><code>-   trait collection methods&nbsp;</code></pre>
+<h3 class="anchored" data-anchor-id="measurement-metadata">Measurement metadata&nbsp;</h3>
+<ul>
+<li>trait collection methods&nbsp;</li>
+</ul>
 </section>
 <section id="location-properties" class="level3">
-<h3 class="anchored" data-anchor-id="location-properties">location properties&nbsp;</h3>
-<pre><code>-   latitude/longitude&nbsp;
--   vegetation description&nbsp;
--   location properties, such as&nbsp;
-    -   soil nutrients (soil N)  
-    -   climate variables (MAT, MAP, aridity index)  
-    -   fire history (fire intensity, fire severity, years since fire)          </code></pre>
+<h3 class="anchored" data-anchor-id="location-properties">Location properties&nbsp;</h3>
+<ul>
+<li>latitude/longitude&nbsp;</li>
+<li>vegetation description&nbsp;</li>
+<li>location properties, such as&nbsp;
+<ul>
+<li>soil nutrients (soil N)<br>
+</li>
+<li>climate variables (MAT, MAP, aridity index)<br>
+</li>
+<li>fire history (fire intensity, fire severity, years since fire)</li>
+</ul></li>
+</ul>
 </section>
 <section id="context-properties" class="level3">
-<h3 class="anchored" data-anchor-id="context-properties">context properties&nbsp;</h3>
-<p>That is, anything else recorded about a specific row of data that explains differences between trait values across rows of data&nbsp;</p>
-<pre><code>-   entity contexts (*e.g. plant sex, plant age, leaf type measured, tree diameter*)&nbsp;
--   treatment contexts (*e.g. nutrient addition treatment, drought treatment*)&nbsp;
--   plot contexts (*differences within a single "location"; e.g. slope position, fire history*)  
--   temporal contexts (*e.g. sampling season, sampling time of day*)&nbsp;
--   method contexts (*e.g. canopy position, branch length sampled*)&nbsp;     </code></pre>
+<h3 class="anchored" data-anchor-id="context-properties">Context properties</h3>
+<p>That is, anything else recorded about a specific row of data that explains differences between trait values across rows of data, such as</p>
+<ul>
+<li>entity contexts (<em>e.g.&nbsp;plant sex, plant age, leaf type measured, tree diameter</em>)</li>
+<li>treatment contexts (<em>e.g.&nbsp;nutrient addition treatment, drought treatment</em>)</li>
+<li>plot contexts (<em>differences within a single “location”; e.g.&nbsp;slope position, fire history</em>)</li>
+<li>temporal contexts (<em>e.g.&nbsp;sampling season, sampling time of day</em>)</li>
+<li>method contexts (<em>e.g.&nbsp;canopy position, branch length sampled</em>).</li>
+</ul>
 <p><img src="figures/traits_build_structure_Slide3.png" class="img-fluid"></p>
 </section>
 <section id="taxonomic-information" class="level3">
-<h3 class="anchored" data-anchor-id="taxonomic-information">taxonomic information&nbsp;</h3>
-<pre><code>-   genus, family&nbsp;
--   full scientific name&nbsp;
--   taxon rank&nbsp;
--   taxon identifiers (from APC, APNI)&nbsp;</code></pre>
+<h3 class="anchored" data-anchor-id="taxonomic-information">Taxonomic information&nbsp;</h3>
+<ul>
+<li>genus, family&nbsp;</li>
+<li>full scientific name&nbsp;</li>
+<li>taxon rank&nbsp;</li>
+<li>taxon identifiers (from APC, APNI)&nbsp;</li>
+</ul>
 </section>
 <section id="dataset-metadata" class="level3">
-<h3 class="anchored" data-anchor-id="dataset-metadata">dataset metadata&nbsp;</h3>
-<pre><code>-   collection date&nbsp;
--   dataset description&nbsp;
--   dataset sampling strategy&nbsp;
--   dataset citation&nbsp;
--   data collectors&nbsp;</code></pre>
+<h3 class="anchored" data-anchor-id="dataset-metadata">Dataset metadata&nbsp;</h3>
+<ul>
+<li>collection date&nbsp;</li>
+<li>dataset description&nbsp;</li>
+<li>dataset sampling strategy&nbsp;</li>
+<li>dataset citation&nbsp;</li>
+<li>data collectors&nbsp;</li>
+</ul>
 </section>
 </section>
 <section id="documenting-the-relationships-between-variables" class="level2" data-number="8.3">

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - 12&nbsp; File organisation</title>
+<title>The {traits.build} data model, R package, and workflow - 12&nbsp; File organisation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">The {traits.build} data standard, R package, and workflow</a> 
+      <a href="./">The {traits.build} data model, R package, and workflow</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -300,6 +300,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Using GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./versioned_releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Version updating &amp; making a new release</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -314,31 +326,31 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_database.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AusTraits_tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_and_climate_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatial_data_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_package.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
   </div>
 </li>
       </ul>
@@ -355,13 +367,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
   </div>
 </li>
       </ul>
@@ -474,10 +480,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="taxon_list.csv" class="level3">
 <h3 class="anchored" data-anchor-id="taxon_list.csv"><code>taxon_list.csv</code></h3>
 <p>The file <code>taxon_list.csv</code> is our master list of taxa in the trait database.</p>
-<p>It includes all unique taxon names after typos have been corrected (through taxonomic_updates). It includes both accepted/valid taxon concepts and outdated taxonomic names. It includes taxon names indicating a taxon that can be identified to species and names that indicate name-alignment to a lower taxon rank.</p>
-<p>The file <code>taxon_list.csv</code> is added to if a study includes taxa not previously represented in the trait database.</p>
-<p>For any species (&amp; infraspecific taxon concepts) or genera that align with known taxon concepts, identifiers for these taxon concepts are included if available in a master taxon list. For instance for AusTraits, identifiers from the two vascular plants National Species Lists (NSL), the APC (Australian Plant Census) and the Australian Plant Name Index (APNI) are included.</p>
-<p>In the file, <code>cleaned_name</code> refers to the taxon name after any typos have been corrected, while <code>taxon_name</code> is the taxon name following updates to the currently accepted/valid taxon name (when available).</p>
+<p>It includes all unique taxon names after typos have been corrected (through taxonomic_updates). It includes both accepted/valid taxon concepts and outdated taxonomic names. It includes taxon names indicating a taxon that can be identified to species and names that can only be resolved to a lower taxon rank.</p>
+<p>There are only three required columns within <code>taxon_list.csv</code>: <code>aligned_name</code>, <code>taxon_name</code> and <code>taxon_rank</code>. In the file, <code>aligned_name</code> refers to the taxon name after any typos have been corrected, while <code>taxon_name</code> is the taxon name following updates to the currently accepted/valid taxon name (when available). <code>Taxon_rank</code> indicates the resolution of the <code>taxon_name</code>.</p>
+<p>However, it is best practice to include additional columns when available, including taxon identifiers for species (&amp; infraspecific taxon concepts) or genera that align with known taxon concepts.</p>
+<p>The file <code>taxon_list.csv</code> should be added to if a study includes taxa not previously represented in the trait database. It must be compiled outside of the traits.build workflow, as each dataset will use different taxonomic datasets, with different columns of information.</p>
+<p>For AusTraits, the taxonomic datasets referenced are the two vascular plant lists within the National Species Lists (NSL), the APC (Australian Plant Census) and the Australian Plant Name Index (APNI). The workflow used by AusTraits to rebuild the taxon list is available <a href="https://github.com/traitecoevo/austraits.build/blob/develop/R/build_update_taxon_list.R">here</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="table-responsive">
@@ -485,11 +492,11 @@ ul.task-list li input[type="checkbox"] {
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">taxon_name</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">cleaned_name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">aligned_name</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">family</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">taxonomic_reference</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">taxonomic_dataset</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">taxon_rank</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">cleaned_name_taxonomic_status</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">aligned_name_taxonomic_status</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">taxon_id</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">scientific_name</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">scientific_name_id</th>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - 17&nbsp; Tutorial 1: Adding a simple dataset</title>
+<title>The {traits.build} data model, R package, and workflow - 17&nbsp; Tutorial 1: Adding a simple dataset</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">The {traits.build} data standard, R package, and workflow</a> 
+      <a href="./">The {traits.build} data model, R package, and workflow</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -331,6 +331,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Using GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./versioned_releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Version updating &amp; making a new release</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -345,31 +357,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_database.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AusTraits_tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_and_climate_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatial_data_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_package.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
   </div>
 </li>
       </ul>
@@ -386,13 +398,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
   </div>
 </li>
       </ul>
@@ -433,12 +439,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">17.1</span> Overview</a>
   <ul class="collapse">
   <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
-  <li><a href="#new-functions-introduced" id="toc-new-functions-introduced" class="nav-link" data-scroll-target="#new-functions-introduced">New Functions Introduced</a></li>
+  <li><a href="#new-functions-introduced" id="toc-new-functions-introduced" class="nav-link" data-scroll-target="#new-functions-introduced">New functions introduced</a></li>
   </ul></li>
   <li><a href="#adding-tutorial_dataset_1" id="toc-adding-tutorial_dataset_1" class="nav-link" data-scroll-target="#adding-tutorial_dataset_1"><span class="header-section-number">17.2</span> Adding tutorial_dataset_1</a>
   <ul class="collapse">
   <li><a href="#ensure-the-dataset-folder-contains-the-correct-data-files" id="toc-ensure-the-dataset-folder-contains-the-correct-data-files" class="nav-link" data-scroll-target="#ensure-the-dataset-folder-contains-the-correct-data-files">Ensure the dataset folder contains the correct data files</a></li>
-  <li><a href="#source-necessary-functions" id="toc-source-necessary-functions" class="nav-link" data-scroll-target="#source-necessary-functions">source necessary functions</a></li>
+  <li><a href="#source-necessary-functions" id="toc-source-necessary-functions" class="nav-link" data-scroll-target="#source-necessary-functions">Source necessary functions</a></li>
   <li><a href="#build_metadata" id="toc-build_metadata" class="nav-link" data-scroll-target="#build_metadata">Use functions to create a metadata.yml file</a></li>
   <li><a href="#manual-filling-in-of-metadata" id="toc-manual-filling-in-of-metadata" class="nav-link" data-scroll-target="#manual-filling-in-of-metadata">Manual filling in of metadata</a></li>
   </ul></li>
@@ -477,7 +483,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <section id="new-functions-introduced" class="level3">
-<h3 class="anchored" data-anchor-id="new-functions-introduced">New Functions Introduced</h3>
+<h3 class="anchored" data-anchor-id="new-functions-introduced">New functions introduced</h3>
 <ul>
 <li><p>metadata_create_template</p></li>
 <li><p>metadata_add_source_doi</p></li>
@@ -501,7 +507,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <section id="source-necessary-functions" class="level3">
-<h3 class="anchored" data-anchor-id="source-necessary-functions">source necessary functions</h3>
+<h3 class="anchored" data-anchor-id="source-necessary-functions">Source necessary functions</h3>
 <ul>
 <li>Source the functions in the <code>traits.build</code> package:</li>
 </ul>
@@ -579,7 +585,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A follow-up question then allows you to add a fixed <code>collection_date</code> as a range. The information can be manually updated later.</p>
 <p><span style="color:blue;">Enter collection_date range in format ‘2007/2009’:</span> <span style="color:red;"><strong>2002-11/2002-11</strong></span><br>
 </p>
-<p>A final user prompt asks if, for any traits, a sequence of rows represents repeat observations.&nbsp;</p>
+<p>A final user prompt asks if, for any traits, a sequence of rows represents repeat observations.<br>
+</p>
 <p><span style="color:blue;">Do all traits need <code>repeat_measurements_id</code>’s?</span></p>
 <p><span style="color:blue;">1: Yes</span> <span style="color:blue;">2: No</span></p>
 <p>This only occurs if the dataset documents response curve data (e.g.&nbsp;an A-ci or light response curve for plants; or a temperature response curve for animal or plant behaviour) and the answer is almost always <code>no</code>.<br>
@@ -595,11 +602,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="propagate-source-information-into-the-metadata.yml-file"><strong>Propagate source information into the metadata.yml file</strong></h4>
 <p>This dataset is from a published source with a <code>doi</code> and therefore the source information can be added with a single line of code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_1"</span>, <span class="at">doi =</span> <span class="st">"10.1111/j.0022-0477.2005.00992.x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_source_doi</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_1"</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">doi =</span> <span class="st">"10.1111/j.0022-0477.2005.00992.x"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The following information is automatically propagated into the source field:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>primary<span class="sc">:</span> </span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>primary<span class="sc">:</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  key<span class="sc">:</span> Test_1</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  bibtype<span class="sc">:</span> Article</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  year<span class="sc">:</span> <span class="st">'2005'</span></span>
@@ -699,30 +709,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>metadata.yml</code> now includes a framework in which to manually fill in details about each trait:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>traits<span class="sc">:</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> var_in<span class="sc">:</span> <span class="fu">LMA</span> (mg mm<span class="dv">-2</span>)  </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  unit_in<span class="sc">:</span> unknown  </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  trait_name<span class="sc">:</span> unknown  </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  entity_type<span class="sc">:</span> unknown  </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  value_type<span class="sc">:</span> unknown  </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  basis_of_value<span class="sc">:</span> unknown  </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  replicates<span class="sc">:</span> unknown  </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  methods<span class="sc">:</span> unknown  </span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> var_in<span class="sc">:</span> Leaf <span class="fu">nitrogen</span> (mg mg<span class="dv">-1</span>)  </span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  unit_in<span class="sc">:</span> unknown  </span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  trait_name<span class="sc">:</span> unknown  </span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  entity_type<span class="sc">:</span> unknown  </span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  value_type<span class="sc">:</span> unknown  </span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  basis_of_value<span class="sc">:</span> unknown  </span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  replicates<span class="sc">:</span> unknown  </span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  methods<span class="sc">:</span> unknown  </span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> var_in<span class="sc">:</span> leaf <span class="fu">size</span> (mm2)  </span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  unit_in<span class="sc">:</span> unknown  </span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  trait_name<span class="sc">:</span> unknown  </span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  entity_type<span class="sc">:</span> unknown  </span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  value_type<span class="sc">:</span> unknown  </span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  basis_of_value<span class="sc">:</span> unknown  </span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  replicates<span class="sc">:</span> unknown  </span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  methods<span class="sc">:</span> unknown  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> var_in<span class="sc">:</span> <span class="fu">LMA</span> (mg mm<span class="dv">-2</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  unit_in<span class="sc">:</span> unknown</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  trait_name<span class="sc">:</span> unknown</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  entity_type<span class="sc">:</span> unknown</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  value_type<span class="sc">:</span> unknown</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  basis_of_value<span class="sc">:</span> unknown</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  replicates<span class="sc">:</span> unknown</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  methods<span class="sc">:</span> unknown</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> var_in<span class="sc">:</span> Leaf <span class="fu">nitrogen</span> (mg mg<span class="dv">-1</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  unit_in<span class="sc">:</span> unknown</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  trait_name<span class="sc">:</span> unknown</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  entity_type<span class="sc">:</span> unknown</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  value_type<span class="sc">:</span> unknown</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  basis_of_value<span class="sc">:</span> unknown</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  replicates<span class="sc">:</span> unknown</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  methods<span class="sc">:</span> unknown</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> var_in<span class="sc">:</span> leaf <span class="fu">size</span> (mm2)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  unit_in<span class="sc">:</span> unknown</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  trait_name<span class="sc">:</span> unknown</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  entity_type<span class="sc">:</span> unknown</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  value_type<span class="sc">:</span> unknown</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  basis_of_value<span class="sc">:</span> unknown</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  replicates<span class="sc">:</span> unknown</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  methods<span class="sc">:</span> unknown</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
@@ -731,9 +741,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="manual-filling-in-of-metadata">Manual filling in of metadata</h3>
 <p>The remaining fields within the metadata.yml file must now be filled in manually.</p>
 <p>These include:<br>
-<em>the <code>contributors</code> section</em><br>
-<em>the <code>description</code>, <code>basis_of_record</code>, <code>life_stage</code>, <code>sampling_strategy</code>, <code>original_file</code>, and <code>notes</code> under the <code>dataset</code> section</em><br>
-<em>details for each trait, including <code>unit_in</code>, <code>trait_name</code>, <code>entity_type</code>, <code>value_type</code>, <code>basis_of_record</code>, <code>replicates</code> and <code>methods</code></em></p>
+* the <code>contributors</code> section<br>
+* the <code>description</code>, <code>basis_of_record</code>, <code>life_stage</code>, <code>sampling_strategy</code>, <code>original_file</code>, and <code>notes</code> under the <code>dataset</code> section<br>
+* details for each trait, including <code>unit_in</code>, <code>trait_name</code>, <code>entity_type</code>, <code>value_type</code>, <code>basis_of_record</code>, <code>replicates</code> and <code>methods</code></p>
 <p>These are all fields that contain the word <code>unknown</code>.</p>
 <section id="adding-contributors" class="level4">
 <h4 class="anchored" data-anchor-id="adding-contributors"><strong>Adding contributors</strong></h4>
@@ -918,13 +928,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="final-steps" class="level4">
 <h4 class="anchored" data-anchor-id="final-steps"><strong>Final steps</strong></h4>
 <section id="double-check-the-metadata.yml-file" class="level5">
-<h5 class="anchored" data-anchor-id="double-check-the-metadata.yml-file"><strong>double check the metadata.yml file</strong></h5>
+<h5 class="anchored" data-anchor-id="double-check-the-metadata.yml-file"><strong>Double check the metadata.yml file</strong></h5>
 <p>You should now have a completed <code>metadata.yml</code> file, with no <code>unknown</code> fields.</p>
 <p>You’ll notice five sections we haven’t used, <code>contexts</code>, <code>substitutions</code>, <code>taxonomic_updates</code>, <code>exclude_observations</code>, and <code>questions</code>.</p>
 <p>These should each contain an <code>.na</code> (as in <code>substitutions: .na</code>). They will be explored in future lessons.</p>
 </section>
 <section id="run-tests-on-the-metadata-file" class="level5">
-<h5 class="anchored" data-anchor-id="run-tests-on-the-metadata-file"><strong>run tests on the metadata file</strong></h5>
+<h5 class="anchored" data-anchor-id="run-tests-on-the-metadata-file"><strong>Run tests on the metadata file</strong></h5>
 <p>Confirm there are no errors in the <code>metadata.yml</code> file:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_test</span>(<span class="st">"tutorial_dataset_1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -933,8 +943,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><span style="color:blue;">[ FAIL 0 | WARN 0 | SKIP 0 | PASS 79 ]</span><br>
 </p>
 </section>
-<section id="build_pipline" class="level5">
-<h5 class="anchored" data-anchor-id="build_pipline"><strong>add dataset to the database</strong></h5>
+<section id="build_pipeline" class="level5">
+<h5 class="anchored" data-anchor-id="build_pipeline"><strong>Add dataset to the database</strong></h5>
 <p>Next add the dataset_id to the build file that builds the database and rebuild the database</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">build_setup_pipeline</span>(<span class="at">method =</span> <span class="st">"base"</span>, <span class="at">database_name =</span> <span class="st">"traits.build_database"</span>)</span>
@@ -942,11 +952,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="build-dataset-report" class="level5">
-<h5 class="anchored" data-anchor-id="build-dataset-report"><strong>build dataset report</strong></h5>
+<h5 class="anchored" data-anchor-id="build-dataset-report"><strong>Build dataset report</strong></h5>
 <p>As a final step, build a report for the study</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>build_info<span class="sc">$</span>version <span class="ot">&lt;-</span> <span class="st">"5.0.0"</span>  <span class="co"># a fix because the function was built around specific AusTraits versions</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_report</span>(<span class="st">"tutorial_dataset_1"</span>, traits.build_database, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>build_info<span class="sc">$</span>version <span class="ot">&lt;-</span> <span class="st">"5.0.0"</span>  </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># a fix because the function was built around specific AusTraits versions</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dataset_report</span>(<span class="st">"tutorial_dataset_1"</span>, traits.build_database, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Have a look at the report, but there reports become much more interesting once there are more datasets in the database.</p>
 

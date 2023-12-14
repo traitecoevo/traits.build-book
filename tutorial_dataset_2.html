@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - 18&nbsp; Tutorial 2: Adding a more complex dataset</title>
+<title>The {traits.build} data model, R package, and workflow - 18&nbsp; Tutorial 2: Adding a more complex dataset</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">The {traits.build} data standard, R package, and workflow</a> 
+      <a href="./">The {traits.build} data model, R package, and workflow</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -331,6 +331,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Using GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./versioned_releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Version updating &amp; making a new release</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -345,31 +357,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_database.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AusTraits_tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_and_climate_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatial_data_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_package.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
   </div>
 </li>
       </ul>
@@ -386,13 +398,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
   </div>
 </li>
       </ul>
@@ -433,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">18.1</span> Overview</a>
   <ul class="collapse">
   <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
-  <li><a href="#new-functions-introduced" id="toc-new-functions-introduced" class="nav-link" data-scroll-target="#new-functions-introduced">New Functions Introduced</a></li>
+  <li><a href="#new-functions-introduced" id="toc-new-functions-introduced" class="nav-link" data-scroll-target="#new-functions-introduced">New functions introduced</a></li>
   </ul></li>
   <li><a href="#adding-tutorial_dataset_2" id="toc-adding-tutorial_dataset_2" class="nav-link" data-scroll-target="#adding-tutorial_dataset_2"><span class="header-section-number">18.2</span> Adding tutorial_dataset_2</a>
   <ul class="collapse">
@@ -473,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="goals" class="level3">
 <h3 class="anchored" data-anchor-id="goals">Goals</h3>
 <ul>
-<li><p>Learn how to <a href="#locations">merge in location data from a standalone spreadsheet</a>.</p></li>
+<li><p>Learn how to <a href="#add_locations">merge in location data from a standalone spreadsheet</a>.</p></li>
 <li><p>Learn how to <a href="#categorical_substitutions">add substitutions for categorical trait values</a>.</p></li>
 <li><p>Learn how to <a href="#custom_R_code">add custom R code</a> to the metadata file.</p></li>
 <li><p>Understand the importance of <a href="#correct_entity_type">attributing traits to the correct entity_type</a>.</p></li>
@@ -481,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <section id="new-functions-introduced" class="level3">
-<h3 class="anchored" data-anchor-id="new-functions-introduced">New Functions Introduced</h3>
+<h3 class="anchored" data-anchor-id="new-functions-introduced">New functions introduced</h3>
 <ul>
 <li><p>metadata_add_substitution</p></li>
 <li><p>metadata_add_substitutions_list</p></li>
@@ -534,7 +540,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="propagate-source-information-into-the-metadata.yml-file"><strong>Propagate source information into the metadata.yml file</strong></h4>
 <p>This dataset is from a published source and therefore the source information can be added with the function <code>metadata_add_source_doi</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_2"</span>, <span class="at">doi =</span> <span class="st">"10.1046/j.1365-2745.2000.00506.x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_2"</span>, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">doi =</span> <span class="st">"10.1046/j.1365-2745.2000.00506.x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>confirm:</p>
 <ol type="1">
@@ -547,8 +554,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <hr>
 </section>
-<section id="locations" class="level4">
-<h4 class="anchored" data-anchor-id="locations"><strong>Add location details</strong></h4>
+<section id="add_locations" class="level4">
+<h4 class="anchored" data-anchor-id="add_locations"><strong>Add location details</strong></h4>
 <p>For this dataset, location data is provided as a standalone spreadsheet, located in the raw data folder: <code>tutorial_dataset_2\raw\locations.csv</code></p>
 <p>First read the location data provided into R:</p>
 <div class="cell">
@@ -574,14 +581,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>locations <span class="ot">&lt;-</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  locations <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">longitude (deg)</span><span class="st">`</span> <span class="ot">=</span> long,  </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">latitude (deg)</span><span class="st">`</span> <span class="ot">=</span> lat,  </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">description</span><span class="st">`</span> <span class="ot">=</span> vegetation,  </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">elevation (m)</span><span class="st">`</span> <span class="ot">=</span> elevation,  </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">precipitation, MAP (mm)</span><span class="st">`</span> <span class="ot">=</span> MAP,  </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">soil P, total (mg/kg)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">soil P</span><span class="st">`</span>,  </span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">soil N, total (ppm)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">soil N</span><span class="st">`</span>,  </span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">geology (parent material)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">parent material</span><span class="st">`</span>  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">longitude (deg)</span><span class="st">`</span> <span class="ot">=</span> long,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">latitude (deg)</span><span class="st">`</span> <span class="ot">=</span> lat,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">description</span><span class="st">`</span> <span class="ot">=</span> vegetation,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">elevation (m)</span><span class="st">`</span> <span class="ot">=</span> elevation,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">precipitation, MAP (mm)</span><span class="st">`</span> <span class="ot">=</span> MAP,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">soil P, total (mg/kg)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">soil P</span><span class="st">`</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">soil N, total (ppm)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">soil N</span><span class="st">`</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">geology (parent material)</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">parent material</span><span class="st">`</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now add the location information into the metadata file:</p>
@@ -622,7 +629,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="adding-contributors"><strong>Adding contributors</strong></h4>
 <p>The file <code>data/tutorial_dataset_2/raw/tutorial_dataset_2_notes.txt</code> indicates the main data_contributor for this study.<br>
 </p>
-<p>Fill in the remaining contributor information as described in the <a href="https://github.com/traitecoevo/traits.build/tree/develop/vignettes"><code>tutorial_dataset_1</code>tutorial</a>.<br>
+<p>Fill in the remaining contributor information as described in the <a href="tutorial_dataset_1.html"><code>tutorial_dataset_1</code> tutorial</a>.<br>
 </p>
 </section>
 <section id="dataset-fields" class="level4">
@@ -656,7 +663,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>TRAIT Growth Form CATEGORICAL EP epiphyte (mistletoe) F fern G grass H herb S shrub T tree V vine</td>
-<td>plant_growth_form</td>
+<td>plant_ growth_ form</td>
 <td>.na</td>
 <td>species</td>
 <td>mode</td>
@@ -665,7 +672,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>TRAIT SLA UNITS mm2/g</td>
-<td>leaf_mass_per_area</td>
+<td>leaf_mass_ per_area</td>
 <td>mm2/g</td>
 <td>population</td>
 <td>mean</td>
@@ -683,7 +690,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>TRAIT Leaf Dry Mass UNITS g</td>
-<td>leaf_dry_mass</td>
+<td>leaf_dry_ mass</td>
 <td>g</td>
 <td>population</td>
 <td>mean</td>
@@ -746,7 +753,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Map in individual trait value substitutions using <code>metadata_add_substitution</code>:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_substitution</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_2"</span>, <span class="at">trait_name =</span> <span class="st">"plant_growth_form"</span>, <span class="at">find =</span> <span class="st">"t"</span>, <span class="at">replace =</span> <span class="st">"tree"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_substitution</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_2"</span>, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">trait_name =</span> <span class="st">"plant_growth_form"</span>, <span class="at">find =</span> <span class="st">"t"</span>, <span class="at">replace =</span> <span class="st">"tree"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Look at the <code>metadata.yml</code> file and you’ll note that a substitution has been added, to indicate the <code>t</code>’s are <code>tree</code>’s</p>
 <p>You would repeat this step for the remaining unknown trait values.</p>
@@ -770,11 +778,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To add a column with substitutions, then add the substitutions to the metadata file:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> table <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">replace =</span> <span class="fu">c</span>(<span class="st">"shrub"</span>, <span class="st">"tree"</span>, <span class="st">"herb"</span>, <span class="cn">NA</span>, <span class="st">"graminoid"</span>, <span class="st">"fern"</span>, <span class="st">"climber_herbaceous"</span>))</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="do">## an alternative is `mutate(replace = c("shrub", "tree", "herb", "epiphyte", "graminoid", "fern", "climber_herbaceous"))` which will result in the epiphyte observations remaining in the excluded data table</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_substitutions_list</span>(<span class="st">"tutorial_dataset_2"</span>, table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">replace =</span> <span class="fu">c</span>(<span class="st">"shrub"</span>, <span class="st">"tree"</span>, <span class="st">"herb"</span>, <span class="cn">NA</span>, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"graminoid"</span>, <span class="st">"fern"</span>, <span class="st">"climber_herbaceous"</span>))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="do">## an alternative is </span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="do">## `mutate(replace = c("shrub", "tree", "herb", "epiphyte", "graminoid",  </span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="do">##          "fern", "climber_herbaceous"))` </span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="do">## which will result in the epiphyte observations remaining in the excluded data table</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_substitutions_list</span>(<span class="st">"tutorial_dataset_2"</span>, table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>All required substitutions have been added to the <code>metadata.yml</code> file.</p>
 <p>If you were to rerun <code>dataset_test("tutorial_dataset_2")</code> the error referring to <code>Unsupported trait values</code> would now have vanished.</p>
@@ -865,12 +877,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="st">    mutate(</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="st">      across(c("TRAIT Leaf Dry Mass UNITS g"), ~na_if(.x,0))</span></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="st">    ) %&gt;%</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="st">    group_by(name_original) %&gt;% </span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="st">    group_by(name_original) %&gt;%</span></span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="st">    mutate(</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="st">      across(c("TRAIT Growth Form CATEGORICAL EP epiphyte (mistletoe) F fern G grass H herb S shrub T tree V vine"), replace_duplicates_with_NA)</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="st">    ) %&gt;%</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="st">    ungroup()</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="st">      across(c("TRAIT Growth Form CATEGORICAL EP epiphyte (mistletoe) F fern G grass H herb S shrub T tree V vine"), </span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="st">              replace_duplicates_with_NA)</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="st">    ) %&gt;%</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="st">    ungroup()</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Rerun the tests and everything should now pass:&nbsp;</p>
 <div class="cell">
@@ -881,23 +894,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"build.R"</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset_id <span class="sc">==</span> <span class="st">"tutorial_dataset_2"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset_id <span class="sc">==</span> <span class="st">"tutorial_dataset_2"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(taxon_name <span class="sc">==</span> <span class="st">"Actinotus minor"</span>) <span class="sc">%&gt;%</span> <span class="fu">View</span>()</span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  dataset_id     taxon_name      observation_id trait_name         value            unit  entity_type location_id</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>          <span class="er">&lt;</span>chr<span class="sc">&gt;</span>           <span class="er">&lt;</span>chr<span class="sc">&gt;</span>          <span class="er">&lt;</span>chr<span class="sc">&gt;</span>              <span class="er">&lt;</span>chr<span class="sc">&gt;</span>            <span class="er">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>       <span class="er">&lt;</span>chr<span class="sc">&gt;</span>      </span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> tutorial_dataset_2 Actinotus minor <span class="dv">010</span>            leaf_area          <span class="fl">18.8</span>             mm2   population  <span class="dv">02</span>         </span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> tutorial_dataset_2 Actinotus minor <span class="dv">010</span>            leaf_dry_mass      <span class="dv">7</span>                mg    population  <span class="dv">02</span>         </span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> tutorial_dataset_2 Actinotus minor <span class="dv">010</span>            leaf_mass_per_area <span class="fl">344.827586206897</span> g<span class="sc">/</span>m2  population  <span class="dv">02</span>         </span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> tutorial_dataset_2 Actinotus minor <span class="dv">011</span>            leaf_area          <span class="fl">75.9</span>             mm2   population  <span class="dv">03</span>         </span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> tutorial_dataset_2 Actinotus minor <span class="dv">011</span>            leaf_dry_mass      <span class="dv">7</span>                mg    population  <span class="dv">03</span>         </span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> tutorial_dataset_2 Actinotus minor <span class="dv">011</span>            leaf_mass_per_area <span class="fl">89.2857142857143</span> g<span class="sc">/</span>m2  population  <span class="dv">03</span>         </span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> tutorial_dataset_2 Actinotus minor <span class="dv">012</span>            plant_growth_form  herb             <span class="cn">NA</span>    species     <span class="cn">NA</span>      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>          <span class="er">&lt;</span>chr<span class="sc">&gt;</span>           <span class="er">&lt;</span>chr<span class="sc">&gt;</span>          <span class="er">&lt;</span>chr<span class="sc">&gt;</span>              <span class="er">&lt;</span>chr<span class="sc">&gt;</span>            <span class="er">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>       <span class="er">&lt;</span>chr<span class="sc">&gt;</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> tutorial_dataset_2 Actinotus minor <span class="dv">010</span>            leaf_area          <span class="fl">18.8</span>             mm2   population  <span class="dv">02</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> tutorial_dataset_2 Actinotus minor <span class="dv">010</span>            leaf_dry_mass      <span class="dv">7</span>                mg    population  <span class="dv">02</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> tutorial_dataset_2 Actinotus minor <span class="dv">010</span>            leaf_mass_per_area <span class="fl">344.827586206897</span> g<span class="sc">/</span>m2  population  <span class="dv">02</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> tutorial_dataset_2 Actinotus minor <span class="dv">011</span>            leaf_area          <span class="fl">75.9</span>             mm2   population  <span class="dv">03</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> tutorial_dataset_2 Actinotus minor <span class="dv">011</span>            leaf_dry_mass      <span class="dv">7</span>                mg    population  <span class="dv">03</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> tutorial_dataset_2 Actinotus minor <span class="dv">011</span>            leaf_mass_per_area <span class="fl">89.2857142857143</span> g<span class="sc">/</span>m2  population  <span class="dv">03</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> tutorial_dataset_2 Actinotus minor <span class="dv">012</span>            plant_growth_form  herb             <span class="cn">NA</span>    species     <span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The measurements for the three numeric traits from a single location share a common <code>observation_id</code>, as they are all part of an observation of a common entity (a specific population of <em>Actinotus minor</em>), at a single location, at a single point in time. However the row with the plant growth form measurement has a separate <code>observation_id</code> reflecting that this is an observation of a different entity (the taxon <em>Actinotus minor</em>).</p>
 </section>
 <section id="build-dataset-report" class="level5">
-<h5 class="anchored" data-anchor-id="build-dataset-report"><strong>build dataset report</strong></h5>
+<h5 class="anchored" data-anchor-id="build-dataset-report"><strong>Build dataset report</strong></h5>
 <p>As a final step, build a report for the study</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>build_info<span class="sc">$</span>version <span class="ot">&lt;-</span> <span class="st">"5.0.0"</span>  <span class="co"># a fix because the function was built around specific AusTraits versions</span></span>

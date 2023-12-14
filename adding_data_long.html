@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data standard, R package, and workflow - 24&nbsp; Adding datasets, a lengthy guide</title>
+<title>The {traits.build} data model, R package, and workflow - 24&nbsp; Adding datasets, a lengthy guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">The {traits.build} data standard, R package, and workflow</a> 
+      <a href="./">The {traits.build} data model, R package, and workflow</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -331,6 +331,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Using GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./versioned_releases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Version updating &amp; making a new release</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -345,31 +357,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_database.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AusTraits_tutorial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_and_climate_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatial_data_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_package.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
   </div>
 </li>
       </ul>
@@ -386,13 +398,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
   </div>
 </li>
       </ul>
@@ -701,7 +707,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>If there is a colon (:) or apostrophe (’) in a reference, the text for that line must be in quotes (“).</li>
 </ol>
 <p>By default, details are added as the primary source. If multiple sources are linked to a single <code>dataset_id</code>, you can specify a source as <code>secondary</code>.</p>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> current_study, <span class="at">doi =</span> <span class="st">"doi"</span>, <span class="at">type =</span> <span class="st">"secondary"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> current_study, <span class="at">doi =</span> <span class="st">"doi"</span>, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">type =</span> <span class="st">"secondary"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Attempting to add a second primary source will overwrite the information already input. Instead, if there is a third resource to add, use <code>type = "secondary_2"</code></li>
 <li>Always check the <code>key</code> field, as it can be incorrect for hyphenated last names.</li>
@@ -788,8 +795,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="background"><strong>Background</strong></h4>
 <p>To allow custom modifications to a particular dataset before the common pipeline of operations gets applied, the workflow permits for some customised R code to be run as a first step in the processing pipeline. That pipeline (the function <code>process_custom_code</code> called within <a href="https://github.com/traitecoevo/traits.build/blob/master/R/process.R"><code>dataset_process</code></a>) looks like this:</p>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(filename_data_raw, <span class="at">col_types =</span> <span class="fu">cols</span>(), <span class="at">guess_max =</span> <span class="dv">100000</span>, <span class="at">progress =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">process_custom_code</span>(metadata[[<span class="st">"dataset"</span>]][[<span class="st">"custom_R_code"</span>]])()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  readr<span class="sc">::</span><span class="fu">read_csv</span>(filename_data_raw, <span class="at">col_types =</span> <span class="fu">cols</span>(), <span class="at">guess_max =</span> <span class="dv">100000</span>, </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">progress =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">process_custom_code</span>(metadata[[<span class="st">"dataset"</span>]][[<span class="st">"custom_R_code"</span>]])()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The second line shows that the custom code gets applied, right after the file is loaded.</p>
 </section>
 <section id="overview-of-options-and-syntax" class="level4">
@@ -891,9 +899,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If the dataset has location information, but lacks unique location names (or any location name), you might mutate a <code>location name</code> column to map in. (See also <a href="#adding_locations">Adding location details</a>).</p>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">location_name =</span> <span class="fu">ifelse</span>(location_name <span class="sc">==</span> <span class="st">"Mt Field"</span> <span class="sc">&amp;</span> habitat <span class="sc">==</span> <span class="st">"Montane rainforest"</span>, <span class="st">"Mt Field_wet"</span>, location_name),</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">location_name =</span> <span class="fu">ifelse</span>(location_name <span class="sc">==</span> <span class="st">"Mt Field"</span> <span class="sc">&amp;</span> habitat <span class="sc">==</span> <span class="st">"Dry sclerophyll"</span>, <span class="st">"Mt Field_dry"</span>, location_name)</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">location_name =</span> <span class="fu">ifelse</span>(location_name <span class="sc">==</span> <span class="st">"Mt Field"</span> <span class="sc">&amp;</span> habitat <span class="sc">==</span> <span class="st">"Montane rainforest"</span>, </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Mt Field_wet"</span>, location_name),</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">location_name =</span> <span class="fu">ifelse</span>(location_name <span class="sc">==</span> <span class="st">"Mt Field"</span> <span class="sc">&amp;</span> habitat <span class="sc">==</span> <span class="st">"Dry sclerophyll"</span>, </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Mt Field_dry"</span>, location_name)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>or</p>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
@@ -903,7 +913,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>      longitude <span class="sc">==</span> <span class="fl">151.2917</span> <span class="sc">~</span> <span class="st">"diatreme"</span></span>
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Note with `dplyr::case_when`, any rows that do not match any of the conditions become `NA`'s.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Note with `dplyr::case_when`, </span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co"># any rows that do not match any of the conditions become `NA`'s.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>or</p>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
@@ -949,11 +960,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A particularly complicated example where some dates are presented as <code>yyyy-mm</code> and others as <code>yyyy-mm-dd</code></p>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">weird_date =</span> <span class="fu">ifelse</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(gathering_date, <span class="st">"^[0-9]{4}"</span>), gathering_date, <span class="cn">NA</span>),</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">gathering_date =</span> gathering_date <span class="sc">%&gt;%</span> lubridate<span class="sc">::</span><span class="fu">mdy</span>(<span class="at">quiet =</span> T) <span class="sc">%&gt;%</span> <span class="fu">as.character</span>(),</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">gathering_date =</span> <span class="fu">coalesce</span>(gathering_date, weird_date)</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>weird_date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">weird_date =</span> <span class="fu">ifelse</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(gathering_date, <span class="st">"^[0-9]{4}"</span>), </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>                          gathering_date, <span class="cn">NA</span>),</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">gathering_date =</span> gathering_date <span class="sc">%&gt;%</span> </span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>          lubridate<span class="sc">::</span><span class="fu">mdy</span>(<span class="at">quiet =</span> T) <span class="sc">%&gt;%</span> <span class="fu">as.character</span>(),</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">gathering_date =</span> <span class="fu">coalesce</span>(gathering_date, weird_date)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>weird_date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="testing-your-custom-r-code" class="level4">
@@ -1024,9 +1037,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>locations <span class="ot">&lt;-</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">check_custom_R_code</span>(current_study) <span class="sc">%&gt;%</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">distinct</span>(location_name, latitude, longitude, <span class="st">`</span><span class="at">veg type</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">rename</span>(dplyr<span class="sc">::</span><span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">"latitude (deg)"</span> <span class="ot">=</span> <span class="st">"latitude"</span>, <span class="st">"longitude (deg)"</span> <span class="ot">=</span> <span class="st">"longitude"</span>, <span class="st">"description"</span> <span class="ot">=</span> <span class="st">"veg type"</span>)))</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">metadata_add_locations</span>(current_study, locations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">rename</span>(dplyr<span class="sc">::</span><span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">"latitude (deg)"</span> <span class="ot">=</span> <span class="st">"latitude"</span>,</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"longitude (deg)"</span> <span class="ot">=</span> <span class="st">"longitude"</span>, </span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"description"</span> <span class="ot">=</span> <span class="st">"veg type"</span>)))</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">metadata_add_locations</span>(current_study, locations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>If you were to want to add or edit the data, it is probably easiest to save the <code>locations</code> table, then edit in Excel, before reading it back into R</p></li>
 <li><p>It is possible that you will want to specify <code>life_stage</code> or <code>basis_of_record</code> at the location_level. When required, it is usually easiest to manually add these fields to some or all locations.</p></li>
@@ -1188,7 +1203,9 @@ If there is a column that specifies replicate number, you can list the column na
 <p>If the there are two columns of data with measurements for the same trait using completely different methods, simply add the respective methods to the metadata for the respective columns. A <code>method_id</code> counter will be added to these during processing to ensure the correct trait values are linked to the correct methods. This is separate to <code>method_contexts</code> which are minor tweaks to the methods between measurements, that are expected to have concurrent effects on trait values (see below).</p>
 <p><strong>NOTE</strong>:<br>
 - If the identical methods apply to a string of traits, for the first trait use the following syntax, where the <code>&amp;leaf_length_method</code> notation assigns the remaining text in the field as the <code>leaf_length_method</code>.</p>
-<pre><code>  methods: &amp;leaf_length_method All measurements were from dry herbarium collections, with leaf and bracteole measurements taken from the largest of these structures on each specimen.</code></pre>
+<pre><code>  methods: &amp;leaf_length_method All measurements were from dry herbarium 
+    collections, with leaf and bracteole measurements taken from the largest 
+    of these structures on each specimen.</code></pre>
 <p>Then for the next trait that uses this method you can just include. At the end of processing you can read/write the yml file and this will fill in the assigned text throughout.</p>
 <pre><code>  methods: *leaf_length_method</code></pre>
 <p>In addition to the automatically propagated fields, there are a number of optional fields you can add if appropriate.</p>
@@ -1253,7 +1270,8 @@ If there is a column that specifies replicate number, you can list the column na
 <pre><code>taxonomic_updates:
 - find: Acacia ancistrophylla/sclerophylla
   replace: Acacia sp. [Acacia ancistrophylla/sclerophylla; White_2020]
-  reason: Rewording taxon where `/` indicates uncertain species identification to align with `APC accepted` genus (2022-11-10)
+  reason: Rewording taxon where `/` indicates uncertain species identification 
+    to align with `APC accepted` genus (2022-11-10)
   taxonomic_resolution: genus
 - find: Pimelea neo-anglica
   replace: Pimelea neoanglica
@@ -1269,7 +1287,8 @@ If there is a column that specifies replicate number, you can list the column na
   taxonomic_resolution: genus
 - find: Polyalthia (Wyvur)
   replace: Polyalthia sp. (Wyvuri B.P.Hyland RFK2632)
-  reason: Fuzzy match alignment with species-level canonical name in `APC known` when everything except first 2 words ignored (2022-11-10)
+  reason: Fuzzy match alignment with species-level canonical name in `APC known` 
+    when everything except first 2 words ignored (2022-11-10)
   taxonomic_resolution: Species</code></pre>
 <p><strong>Notes</strong>:<br>
 - Each trait database will have their own conventions for how to align names that cannot be perfectly matched to an accepted/valid taxon concept. The examples and notes provided here indicate the conventions used by AusTraits.<br>
@@ -1281,7 +1300,9 @@ If there is a column that specifies replicate number, you can list the column na
 - <strong>reason</strong>: Records why the change was implemented, e.g.&nbsp;<code>typos</code>, <code>taxonomic synonyms</code>, and <code>standardising spellings</code>.<br>
 - <strong>taxonomic_resolution</strong>: The rank of the most specific taxon name (or scientific name) to which a submitted original name resolves.</p>
 <p>The function <code>metadata_add_taxonomic_change</code> adds single taxonomic updates directly into <code>metadata[["taxonomic_updates"]]</code>:</p>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">metadata_add_taxonomic_change</span>(current_study, <span class="st">"find"</span>, <span class="st">"replace"</span>, <span class="st">"reason"</span>, <span class="st">"taxonomic_resolution"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">metadata_add_taxonomic_change</span>(current_study, </span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"find"</span>, <span class="st">"replace"</span>, <span class="st">"reason"</span>, </span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"taxonomic_resolution"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The function <code>metadata_add_taxonomic_changes_list</code> adds a table of taxonomic updates directly into <code>metadata[["taxonomic_updates"]]</code>. The column headers must be <code>find</code>, <code>replace</code>, <code>reason</code>, and <code>taxonomic_resolution</code>.</p>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">metadata_add_taxonomic_changes_list</span>(current_study, table_of_substitutions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Working manually through taxonomic alignments for all datasets in a database can be a huge time sink. The AusTraits team developed the R-package <code>{APCalign}</code> to automate the process of aligning names of Australian plants to names within the National Species Lists, the APC and APNI. This is supplemented by an AusTraits-specific function <a href="https://github.com/traitecoevo/austraits.build/blob/develop/R/build_align_taxon_names.R"><code>build_align_taxon_names</code></a> that uses <code>{APCalign}</code> to automatically add <code>taxonomic_updates</code> to <code>metadata.yml</code> files. While these packages/functions are Australian-plant specific, they include code that can be re-purposed for other global regions or taxonomic groups.</p>
@@ -1362,8 +1383,8 @@ If there is a column that specifies replicate number, you can list the column na
 <p>Do not be disheartened by errors when you first run tests on a newly entered dataset - even after adding 100’s of datasets into AusTraits it is very rare to have zero errors on a first run of <code>dataset_test()</code>.</p>
 <p>Fix as many errors as you can and then rerun <code>dataset_test()</code> repeatedly until no errors remain.</p>
 <p>You may want to fix errors in tandem with <a href="#build_new_dataset">building the new dataset</a>, such as to be able to quickly compile a list of trait values requiring <a href="#add_substitutions">substitutions</a> or taxon names requiring <a href="#add_taxonomic_updates">taxonomic updates</a></p>
-<p>See the <a href="#data_common_issues.html">common issues</a> chapter for solutions to common issues, such as:<br>
-- dataset not <a href="#data_common_issues.html#cannot_pivot">pivoting</a><br>
+<p>See the <a href="data_common_issues.html">common issues</a> chapter for solutions to common issues, such as:<br>
+- dataset not <a href="data_common_issues.html#cannot_pivot">pivoting</a><br>
 - unsupported trait values</p>
 </section>
 <section id="build_new_dataset" class="level3">
@@ -1473,7 +1494,8 @@ If there is a column that specifies replicate number, you can list the column na
 <p>If necessary, cycle back through earlier steps to fix any errors, rebuilding the study report as necessary</p>
 <p>At the very end, re-clear formatting, re-run tests, rebuild AusTraits, rebuild report.</p>
 <p>To generate a report for a collection of studies:</p>
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_reports</span>(database, <span class="fu">c</span>(<span class="st">"Falster_2005_1"</span>, <span class="st">"Wright_2002"</span>), <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_reports</span>(database, <span class="fu">c</span>(<span class="st">"Falster_2005_1"</span>, <span class="st">"Wright_2002"</span>), </span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Or for all studies:</p>
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_reports</span>(database, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(Reports are written in <a href="https://rstudio.github.io/rmarkdown/">Rmarkdown</a> and generated via the <a href="https://cran.r-project.org/web/packages/knitr/">knitr</a> package. The template is <a href="https://github.com/traitecoevo/traits.build/blob/develop/inst/support/report_dataset.Rmd">here</a>).</p>
