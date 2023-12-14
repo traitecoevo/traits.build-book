@@ -144,14 +144,6 @@ Additionally, `measurement_remarks` is used to document `r tolower(schema$metada
 
 -   `life_stage`: `r stringr::str_replace(schema$metadata$elements$traits$elements$life_stage,"^A", "a")`
 
-Possible values are:
-
-```{r life_stage}
-schema$life_stage$values %>%
-  util_list_to_df1() %>%
-  my_kable_styling() %>%
-  writeLines()
-```
 
 -   `basis_of_record`: `r tolower(schema$metadata$elements$traits$elements$basis_of_record)`
 
