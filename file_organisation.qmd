@@ -12,7 +12,10 @@ knitr::opts_chunk$set(
 
 library(traits.build)
 
-my_kable_styling <- kableExtra::kable
+my_kable_styling <- function(...) {
+  kableExtra::kable(..., booktabs=TRUE, format="latex") %>%
+  kableExtra::kable_styling(latex_options="scale_down", font_size = 8, full_width = TRUE)}
+
 
 if(knitr::is_html_output()) {
   my_kable_styling <- util_kable_styling_html

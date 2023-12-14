@@ -46,7 +46,7 @@ leaf_mass_sample <- leaf_mass %>% dplyr::filter(taxon_name %in% sample_names)
 
 Plot raincloud plot of LMA for the six species
 
-```{r, eval = TRUE}
+```{r, eval = F}
 # install.packages(c("ggdist", "gghalves", "ggtext"))
 # remotes::install_github("olihawkins/pilot")
 library(ggplot2)
@@ -101,7 +101,7 @@ ggplot2::ggplot(
 
 
 Plot the species distributions of these six species with ALA occurrence data (using `galah`)
-```{r, eval = TRUE}
+```{r, eval = F}
 # install.packages(c("galah", "sf", "ozmaps"))
 library(galah)
 library(sf)

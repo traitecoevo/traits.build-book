@@ -265,7 +265,7 @@ The file `data/tutorial_dataset_5/raw/tutorial_dataset_5_notes.txt` indicates th
 
 The file `data/tutorial_dataset_5/raw/tutorial_dataset_5_notes.txt` indicates how to fill in the `unknown` dataset fields for this study.
 
-### Testing, error fixes, and report building {#exclude_data}
+### Testing, error fixes, and report building
 
 At this point, run the dataset tests, rebuild the dataset, and check for excluded data:
 

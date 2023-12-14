@@ -8,6 +8,8 @@ Each trait concept must have a complete, explicit definition to eliminate confus
 
 The trait dictionary is compiled in a simple yml format, allowing trait definitions to be easily added and edited.
 
+## Examples
+
 A sample numeric trait definition:
 
 ``` {r, eval = FALSE}
@@ -48,3 +50,4 @@ leaf_compoundness:
 ```
 
 For additional examples, see the complete dictionary used for the [AusTraits database](https://github.com/traitecoevo/austraits.build/tree/develop/config).
+

@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 library(traits.build)
 ```
 
-### Overview
+## Overview
 
 A single universally accepted trait database standard does not currently exist among plant ecologists, limiting our ability to merge together distinct databases.   
 
@@ -33,7 +33,7 @@ Our database standard has not been invented from scratch. We have built upon ide
 
 - DarwinCore [dwc.tdwg.org](https://dwc.tdwg.org/)  
 
-### Database that fully documents ecological metadata
+## Database that fully documents ecological metadata
 
 To date, [AusTraits](https://github.com/traitecoevo/austraits.build), Australia's Plant Trait Database, has incorporated more than 370 unique datasets, spanning the breadth of plant trait data collected across Australia. It has been more than 6 months (and ~50 datasets) since we have identified a class of metadata or contextual information that could not be mapped into the traits.build structure.
 
@@ -58,7 +58,7 @@ The database standard will continue to evolve as traits.build is used to build a
 
 See [relationships between database variables](database_metadata.html) for more details.
 
-### Database standard described by an ontology
+## Database standard described by an ontology
 
 A database standard is only useful if:
 
