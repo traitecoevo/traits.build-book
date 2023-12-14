@@ -32,7 +32,7 @@ desc::desc_bump_version() # Specify `which` argument for type of version increme
 
 5. Make a release on GitHub, adding version number.
 
-5. Prepare for the next version by updating version numbers.
+6. Prepare for the next version by updating version numbers.
 
 ```{r, eval=FALSE}
 desc::desc_bump_version("dev")
