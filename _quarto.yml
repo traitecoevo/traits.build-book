@@ -51,7 +51,6 @@ book:
     - part: Getting help
       chapters:
         - help.qmd
-        - debugging.qmd
 
   appendices:
     - csv.qmd
