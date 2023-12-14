@@ -75,8 +75,7 @@ austraits$traits %>%
 *How are these data distributed across datasets?*
 
 ```{r, eval = TRUE}
-traits.build::plot_trait_distribution_beeswarm(austraits, "leaf_N_per_dry_mass", 
-                                               y_axis_category = "dataset_id")
+traits.build::plot_trait_distribution_beeswarm(austraits, "leaf_N_per_dry_mass", y_axis_category = "dataset_id")
 ```
 
 *How much data exist for other nitrogen traits?*
@@ -152,11 +151,11 @@ austraits$traits %>% dplyr::slice(1:20)
 
 The columns include:
 
--   core columns 
-    -   dataset_id 
-    -   taxon_name 
-    -   trait_name 
-    -   value (trait value) 
+-   core columns\
+    -   dataset_id\
+    -   taxon_name\
+    -   trait_name\
+    -   value (trait value)\
 -   entity metadata
     -   entity_type\
     -   life_stage
@@ -339,8 +338,7 @@ unique(austraits$traits$basis_of_record)
 my_data <-
   austraits$traits %>%
     dplyr::filter(stringr::str_detect(taxon_name, "Eucalyptus")) %>%
-    dplyr::filter(trait_name %in% c("leaf_mass_per_area", "leaf_length", 
-                                    "leaf_thickness")) %>%
+    dplyr::filter(trait_name %in% c("leaf_mass_per_area", "leaf_length", "leaf_thickness")) %>%
     dplyr::filter(basis_of_record == "field")
 
 my_data %>% nrow()
@@ -362,8 +360,7 @@ traits_with_lat_long <-
   austraits %>% austraits::join_locations()
 
 traits_with_lat_long$traits %>%
-  dplyr::select(dataset_id, taxon_name, trait_name, value, location_name, 
-                location_id, `latitude (deg)`, `longitude (deg)`) %>%
+  dplyr::select(dataset_id, taxon_name, trait_name, value, location_name, location_id, `latitude (deg)`, `longitude (deg)`) %>%
   dplyr::filter(!is.na(`latitude (deg)`)) %>%
   dplyr::slice(1:20)
 ```
@@ -382,9 +379,7 @@ austraits$locations %>%
 
 locations <- 
   austraits$locations %>%
-  dplyr::filter(location_property %in% c("latitude (deg)", "longitude (deg)", 
-                                         "description", "aridity index (MAP/PET)", 
-                                         "soil type", "fire history"))
+  dplyr::filter(location_property %in% c("latitude (deg)", "longitude (deg)", "description", "aridity index (MAP/PET)", "soil type", "fire history"))
 ```
 
 2.  The data from the locations table must be pivoted into a wide-format table to join to the traits table:
@@ -422,9 +417,7 @@ traits_with_contexts <-
   austraits %>% austraits::join_contexts()
 
 traits_with_contexts$traits %>% 
-  dplyr::select(-dplyr::all_of(c("temporal_context_id", "method_context_id", 
-                                 "treatment_context_id", "entity_context_id", 
-                                 "plot_context_id")))
+  dplyr::select(-dplyr::all_of(c("temporal_context_id", "method_context_id", "treatment_context_id", "entity_context_id", "plot_context_id")))
 ```
 
 This function adds columns to the traits table for all context properties. You may want to instead include fewer contexts.
@@ -439,9 +432,7 @@ Select all austraits$traits columns (`r ncol(austraits$traits)` currently) toget
 ```{r, eval = TRUE}
 traits_with_contexts$traits %>%
   dplyr::select(1:ncol(austraits$traits),  
-                c("sampling season", "plant sex", "leaf surface", "leaf age", 
-                  "fire intensity", "slope position", "fire season", 
-                  "drought treatment", "temperature treatment"))
+                c("sampling season", "plant sex", "leaf surface", "leaf age", "fire intensity", "slope position", "fire season", "drought treatment", "temperature treatment"))
 ```
 
 #### Joining methods
@@ -481,9 +472,7 @@ Then just join the columns of interest:
 traits_with_all_methods <- 
   austraits$traits %>% 
   dplyr::left_join(austraits$methods %>% 
-              dplyr::select("dataset_id", "trait_name", "methods", "method_id", 
-                            "description",  "source_primary_citation", 
-                            "data_collectors"),
+              dplyr::select("dataset_id", "trait_name", "methods", "method_id", "description",  "source_primary_citation", "data_collectors"),
             by = c("dataset_id", "trait_name", "method_id"))
 ```
 
@@ -547,8 +536,7 @@ The function `austraits::summarise_trait_means()` outputs `location` x `taxon_na
 An alternative function we're developing is:
 
 ```{r, eval = TRUE, message = FALSE}
-weighted <- austraits_weighted_means(austraits, c("leaf_mass_per_area", 
-                                                  "leaf_length"))
+weighted <- austraits_weighted_means(austraits, c("leaf_mass_per_area", "leaf_length"))
 
 weighted
 ```
@@ -568,8 +556,7 @@ austraits$traits %>%
   dplyr::filter(trait_name == "leaf_N_per_dry_mass") %>%
   dplyr::distinct(taxon_name) %>% nrow()
 
-traits.build::plot_trait_distribution_beeswarm(austraits, "leaf_N_per_dry_mass", 
-                                               y_axis_category = "dataset_id")
+traits.build::plot_trait_distribution_beeswarm(austraits, "leaf_N_per_dry_mass", y_axis_category = "dataset_id")
 ```
 
 ### Plotting data distribution by location
