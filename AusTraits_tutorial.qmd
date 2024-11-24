@@ -43,7 +43,8 @@ library(stringr)
 library(austraits)    # functions for exploring a traits.build database, available at Github repo
 # XX library(traits.build) # additional functions for exploring a traits.build database, available at Github repo
 
-source("https://raw.githubusercontent.com/traitecoevo/traits.build-book/master/data/extra_functions.R")
+#source("https://raw.githubusercontent.com/traitecoevo/traits.build-book/master/data/extra_functions.R")
+source("data/extra_functions.R")
 ```
 
 Then download (or build) the latest AusTraits database, using one of the methods described [here](austraits_database.html#access_data).
@@ -832,7 +833,7 @@ See where Banksia leaf area data have been collected, divided by `taxon_name`
 ```{r, eval = TRUE, message = FALSE, warning = FALSE}
 Banksia_data <- Banksia_data %>%
   austraits::join_location_coordinates() %>%
-  austraits::extract_data("leaf_area")
+  austraits::extract_trait(trait_name = "leaf_area")
 
 austraits::plot_locations(database = Banksia_data, feature = "taxon_name")
 ```
@@ -842,10 +843,10 @@ Where were the various Westoby datasets collected?
 ```{r, eval = TRUE, message = FALSE, warning = FALSE}
 Westoby <-
   austraits %>%
-     austraits::extract_dataset("Westoby") %>%
+     austraits::extract_dataset(dataset_id = "Westoby") %>%
      austraits::join_location_coordinates()
 
-austraits::plot_locations(dataset = Westoby, feature = "dataset_id")
+austraits::plot_locations(database = Westoby, feature = "dataset_id")
 
 # Note that while the `dataset` is intended to be a relational database, this function also works with just the traits table, should you have separated it out of the relational structure.
 
@@ -858,7 +859,7 @@ Where were data for Acacia aneura collected?
 data <-
   austraits %>%
   austraits::extract_taxa(taxon_name = "Acacia aneura") %>%
-  austraits::join_locations()
+  austraits::join_location_coordinates()
 
 data$traits <- data$traits %>% 
   dplyr::filter(!is.na(`latitude (deg)`)) 
@@ -895,7 +896,7 @@ It is recommended to only use this function on individual datasets -- or perhaps
 ```{r, eval = TRUE}
 Farrell_2017_values <-
   austraits %>%
-    austraits::extract_dataset("Farrell_2017")
+    austraits::extract_dataset(dataset_id = "Farrell_2017")
 
 Farrell_2017_pivoted <- 
   Farrell_2017_values$traits %>%
@@ -911,7 +912,7 @@ Compare this first example to the dataset `Edwards_2000` which includes individu
 ```{r, eval = TRUE}
 Edwards_2000_values <-
   austraits %>%
-    austraits::extract_dataset("Edwards_2000")
+    austraits::extract_dataset(dataset_id = "Edwards_2000")
 
 Edwards_2000_pivoted <- 
   Edwards_2000_values$traits %>%

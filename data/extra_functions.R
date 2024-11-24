@@ -4,7 +4,7 @@ austraits_weighted_means <- function(austraits, traits) {
   
   # any data that is a mean, median or raw, create a site mean
   data_means <- 
-    (austraits %>% austraits::join_locations())$traits %>% 
+    (austraits %>% austraits::join_location_coordinates())$traits %>% 
     dplyr::filter(trait_name %in% traits) %>%
     dplyr::filter(value_type %in% c("mean", "raw", "median")) %>%
     dplyr::mutate(
