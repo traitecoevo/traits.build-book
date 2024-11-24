@@ -96,7 +96,7 @@ This section provides `r tolower(schema$metadata$elements$contributors$descripti
 
 ```{r, echo=FALSE, results="show"}
 schema$metadata$elements$contributors$elements$data_collectors$elements %>%
-  util_list_to_df1() %>%
+  austraits::convert_list_to_df1() %>%
   my_kable_styling()
 ```
 
