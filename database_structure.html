@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data model, R package, and workflow - 7&nbsp; Data structure</title>
+<title>7&nbsp; Data structure – The {traits.build} data model, R package, and workflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,17 +37,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cd7de1037569933fbb609f06423bd096.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -71,13 +78,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./long_wide.html">Data structure and standard</a></li><li class="breadcrumb-item"><a href="./database_structure.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data structure</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./long_wide.html">Data structure and standard</a></li><li class="breadcrumb-item"><a href="./database_structure.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data structure</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -86,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
@@ -101,9 +108,9 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Introduction</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -136,9 +143,9 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Data structure and standard</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -177,9 +184,9 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Creating with <code>traits.build</code></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -224,9 +231,9 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Guide to adding data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -313,9 +320,9 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Using outputs of <code>traits.build</code></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -354,9 +361,9 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Getting help</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -371,9 +378,9 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -395,7 +402,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -427,7 +434,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./long_wide.html">Data structure and standard</a></li><li class="breadcrumb-item"><a href="./database_structure.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data structure</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data structure</span></h1>
 </div>
@@ -442,7 +449,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>This chapter describes the structure of the output of a <code>traits.build</code> compilation.</p>
 <p>Note that the information below is based on the information provided within the file <code>traits.build_schema.yml</code>, which can be accessed by running <code>get_schema</code> or <code>system.file("support", "traits.build_schema.yml", package = "traits.build")</code>.</p>
@@ -470,7 +479,6 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="7.2" class="anchored" data-anchor-id="traits"><span class="header-section-number">7.2</span> Traits</h2>
 <p><strong>Description:</strong> A table containing measurements of traits.</p>
 <p><strong>Content:</strong></p>
-
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left:30px; width: auto !important; ">
 <thead>
 <tr>
@@ -692,7 +700,6 @@ Name given to taxon in the original data supplied by the authors.
 </td>
 </tr>
 </tbody>
-
 </table>
 <section id="entity_type" class="level3">
 <h3 class="anchored" data-anchor-id="entity_type">Entity type</h3>
@@ -701,7 +708,6 @@ Name given to taxon in the original data supplied by the authors.
 <ul>
 <li><code>entity_type</code> is a categorical variable specifying the entity corresponding to the trait values recorded. Possible values are:</li>
 </ul>
-
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left:30px; width: auto !important; ">
 <thead>
 <tr>
@@ -771,7 +777,6 @@ Value represents a summary statistic or expert score for an entire order.
 </td>
 </tr>
 </tbody>
-
 </table>
 </section>
 <section id="identifiers" class="level3">
@@ -800,7 +805,6 @@ Value represents a summary statistic or expert score for an entire order.
 <li><p><code>basis_of_record</code>: a categorical variable specifying from which kind of specimen traits were recorded.</p></li>
 </ul>
 <p>Possible values are:</p>
-
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left:30px; width: auto !important; ">
 <thead>
 <tr>
@@ -862,7 +866,6 @@ Traits were sourced from values reported in the literature, and where the basis 
 </td>
 </tr>
 </tbody>
-
 </table>
 </section>
 <section id="value_types" class="level3">
@@ -873,7 +876,6 @@ Traits were sourced from values reported in the literature, and where the basis 
 - we use a space for situations where two values co-occur for the same entity. For instance, a flora might indicate that a plant species can be either annual or biennial, in which case the trait is scored as <code>annual biennial</code>.</p>
 <p><code>Value types:</code> Each trait measurement has an associated <code>value_type</code>, which is a categorical variable describing the statistical nature of the trait value recorded.</p>
 <p>Possible value types are:</p>
-
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left:30px; width: auto !important; ">
 <thead>
 <tr>
@@ -952,6 +954,14 @@ Value for an entity falls within specified limits.
 </tr>
 <tr>
 <td style="text-align:left;">
+standard_error
+</td>
+<td style="text-align:left;">
+Value is the standard error of a mean of values recorded for an entity.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 unknown
 </td>
 <td style="text-align:left;">
@@ -959,11 +969,9 @@ Not currently known.
 </td>
 </tr>
 </tbody>
-
 </table>
 <p>Each trait measurement also has an associated <code>basis_of_value</code>, which is a categorical variable describing how the trait value was obtained.</p>
 <p>Possible values are:</p>
-
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left:30px; width: auto !important; ">
 <thead>
 <tr>
@@ -1009,7 +1017,6 @@ Not currently known.
 </td>
 </tr>
 </tbody>
-
 </table>
 </section>
 </section>
@@ -1017,7 +1024,6 @@ Not currently known.
 <h2 data-number="7.3" class="anchored" data-anchor-id="locations"><span class="header-section-number">7.3</span> Locations</h2>
 <p><strong>Description:</strong> A table containing observations of location/site characteristics associated with information in <code>traits</code>. Cross referencing between the two dataframes is possible using combinations of the variables <code>dataset_id</code>, <code>location_name</code>.</p>
 <p><strong>Content:</strong></p>
-
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left:30px; width: auto !important; ">
 <thead>
 <tr>
@@ -1071,14 +1077,12 @@ The measured value of a location property.
 </td>
 </tr>
 </tbody>
-
 </table>
 </section>
 <section id="contexts" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="contexts"><span class="header-section-number">7.4</span> Contexts</h2>
 <p><strong>Description:</strong> A table containing observations of contextual characteristics associated with information in <code>traits</code>. Cross referencing between the two dataframes is possible using combinations of the variables <code>dataset_id</code>, <code>link_id</code>, and <code>link_vals</code>.</p>
 <p><strong>Content:</strong></p>
-
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left:30px; width: auto !important; ">
 <thead>
 <tr>
@@ -1148,14 +1152,12 @@ Unique integer identifiers that link between identifier columns in the <code>tra
 </td>
 </tr>
 </tbody>
-
 </table>
 </section>
 <section id="methods" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="methods"><span class="header-section-number">7.5</span> Methods</h2>
 <p><strong>Description:</strong> A table containing details on methods with which data were collected, including time frame and source. Cross referencing with the <code>traits</code> table is possible using combinations of the variables <code>dataset_id</code>, <code>trait_name</code>.</p>
 <p><strong>Content:</strong></p>
-
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left:30px; width: auto !important; ">
 <thead>
 <tr>
@@ -1277,7 +1279,7 @@ The person (people) leading data collection for this study.
 assistants
 </td>
 <td style="text-align:left;">
-Names of additional people who played a more minor role in data collection for the study.
+Names of people who played a more minor role in data collection for the study.
 </td>
 </tr>
 <tr>
@@ -1285,18 +1287,16 @@ Names of additional people who played a more minor role in data collection for t
 dataset_curators
 </td>
 <td style="text-align:left;">
-Names of AusTraits team member(s) who contacted the data collectors and added the study to the AusTraits repository.
+Names of database team member(s) who contacted the data collectors and added the study to the database repository.
 </td>
 </tr>
 </tbody>
-
 </table>
 </section>
 <section id="excluded_data" class="level2" data-number="7.6">
 <h2 data-number="7.6" class="anchored" data-anchor-id="excluded_data"><span class="header-section-number">7.6</span> Excluded_data</h2>
 <p><strong>Description:</strong> A table of data that did not pass quality tests and so were excluded from the master dataset. The structure is identical to that presented in the <code>traits</code> table, only with an extra column called <code>error</code> indicating why the record was excluded. Common reasons are missing_unit_conversions, missing_value, and unsupported_trait_value.</p>
 <p><strong>Content:</strong></p>
-
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left:30px; width: auto !important; ">
 <thead>
 <tr>
@@ -1526,15 +1526,13 @@ Name given to taxon in the original data supplied by the authors.
 </td>
 </tr>
 </tbody>
-
 </table>
 </section>
 <section id="taxa" class="level2" data-number="7.7">
 <h2 data-number="7.7" class="anchored" data-anchor-id="taxa"><span class="header-section-number">7.7</span> Taxa</h2>
 <p><strong>Description:</strong> A table containing details on taxa that are included in the table <a href="#traits"><code>traits</code></a>. We have attempted to align species names with known taxonomic units in the <a href="https://biodiversity.org.au/nsl/services/apc"><code>Australian Plant Census</code> (APC)</a> and/or the <a href="https://biodiversity.org.au/nsl/services/APNI"><code>Australian Plant Names Index</code> (APNI)</a>; the sourced information is released under a CC-BY3 license.</p>
-<p>Version 0.1.0 of AusTraits contains records for 6739 different taxa.</p>
+<p>Version 0.1.0 of AusTraits contains records for 7324 different taxa.</p>
 <p><strong>Content:</strong></p>
-
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left:30px; width: auto !important; ">
 <thead>
 <tr>
@@ -1668,14 +1666,12 @@ An identifier for the set of taxon information (data associated with the taxon c
 </td>
 </tr>
 </tbody>
-
 </table>
 </section>
 <section id="taxonomic_updates" class="level2" data-number="7.8">
 <h2 data-number="7.8" class="anchored" data-anchor-id="taxonomic_updates"><span class="header-section-number">7.8</span> Taxonomic_updates</h2>
 <p><strong>Description:</strong> A table of all taxonomic changes implemented in the construction of AusTraits. Changes are determined by comparing the originally submitted taxon name against the taxonomic names listed in the taxonomic reference files, best placed in a subfolder in the <code>config</code> folder . Cross referencing with the <code>traits</code> table is possible using combinations of the variables <code>dataset_id</code> and <code>taxon_name</code>.</p>
 <p><strong>Content:</strong></p>
-
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left:30px; width: auto !important; ">
 <thead>
 <tr>
@@ -1745,7 +1741,6 @@ The status of the use of the <code>aligned_name</code> as a label for a taxon. R
 </td>
 </tr>
 </tbody>
-
 </table>
 <p>Both the original and the updated taxon names are included in the <a href="#traits"><code>traits</code></a> table.</p>
 </section>
@@ -1755,7 +1750,7 @@ The status of the use of the <code>aligned_name</code> as a label for a taxon. R
 <p><strong>Details on trait definitions:</strong> The allowable trait names and trait values are defined in the definitions file. Each trait is labelled as either <code>numeric</code> or <code>categorical</code>. An example of each type is as follows. For an example, see the the <a href="http://traitecoevo.github.io/austraits.build/articles/trait_definitions.html">Trait definitions for AusTraits</a>.</p>
 <p><strong>leaf_mass_per_area</strong></p>
 <ul>
-<li>number of records: 2815</li>
+<li>number of records: 2261</li>
 <li>number of studies: 13</li>
 </ul>
 <p><strong>woodiness</strong></p>
@@ -1768,7 +1763,6 @@ The status of the use of the <code>aligned_name</code> as a label for a taxon. R
 <h2 data-number="7.10" class="anchored" data-anchor-id="contributors"><span class="header-section-number">7.10</span> Contributors</h2>
 <p><strong>Description:</strong> A table of people contributing to each study.</p>
 <p><strong>Content:</strong></p>
-
 <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left:30px; width: auto !important; ">
 <thead>
 <tr>
@@ -1830,7 +1824,6 @@ Additional roles of data collector, mostly contact person.
 </td>
 </tr>
 </tbody>
-
 </table>
 </section>
 <section id="sources" class="level2" data-number="7.11">
@@ -1887,18 +1880,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1930,11 +1912,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1944,8 +1963,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1957,7 +1985,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2001,6 +2151,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2026,6 +2177,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2087,12 +2264,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./database_standard.html" class="pagination-link">
+      <a href="./database_standard.html" class="pagination-link" aria-label="Data standard">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data standard</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./database_metadata.html" class="pagination-link">
+      <a href="./database_metadata.html" class="pagination-link" aria-label="Overview of traits.build ontology">
         <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Overview of traits.build ontology</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -2103,12 +2280,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</div>
+    <div class="nav-footer-center">
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 

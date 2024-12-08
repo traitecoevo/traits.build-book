@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The {traits.build} data model, R package, and workflow - 33&nbsp; The austraits package</title>
+<title>33&nbsp; The austraits package – The {traits.build} data model, R package, and workflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -71,17 +71,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cd7de1037569933fbb609f06423bd096.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -105,13 +112,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./austraits_database.html">Using outputs of <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./austraits_package.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">The `austraits` package</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./austraits_database.html">Using outputs of <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./austraits_package.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -120,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
@@ -135,9 +142,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Introduction</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -170,9 +177,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Data structure and standard</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -211,9 +218,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Creating with <code>traits.build</code></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -258,9 +265,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Guide to adding data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -347,9 +354,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Using outputs of <code>traits.build</code></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -388,9 +395,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Getting help</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -405,9 +412,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -429,7 +436,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -448,19 +455,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#extracting-by-trait" id="toc-extracting-by-trait" class="nav-link" data-scroll-target="#extracting-by-trait">Extracting by trait</a></li>
   </ul></li>
   <li><a href="#join-data-from-other-tables-and-elements" id="toc-join-data-from-other-tables-and-elements" class="nav-link" data-scroll-target="#join-data-from-other-tables-and-elements"><span class="header-section-number">33.4</span> Join data from other tables and elements</a></li>
-  <li><a href="#visualising-data-by-site" id="toc-visualising-data-by-site" class="nav-link" data-scroll-target="#visualising-data-by-site"><span class="header-section-number">33.5</span> Visualising data by site</a></li>
-  <li><a href="#visualising-data-distribution-and-variance" id="toc-visualising-data-distribution-and-variance" class="nav-link" data-scroll-target="#visualising-data-distribution-and-variance"><span class="header-section-number">33.6</span> Visualising data distribution and variance</a></li>
-  <li><a href="#pivotting-from-long-to-wide-format" id="toc-pivotting-from-long-to-wide-format" class="nav-link" data-scroll-target="#pivotting-from-long-to-wide-format"><span class="header-section-number">33.7</span> Pivotting from long to wide format</a>
-  <ul class="collapse">
-  <li><a href="#pivot-wider-3.0.2" id="toc-pivot-wider-3.0.2" class="nav-link" data-scroll-target="#pivot-wider-3.0.2">Pivot wider &lt;=3.0.2</a></li>
-  </ul></li>
+  <li><a href="#binding-extracted-databases" id="toc-binding-extracted-databases" class="nav-link" data-scroll-target="#binding-extracted-databases"><span class="header-section-number">33.5</span> Binding extracted databases</a></li>
+  <li><a href="#visualising-data-by-site" id="toc-visualising-data-by-site" class="nav-link" data-scroll-target="#visualising-data-by-site"><span class="header-section-number">33.6</span> Visualising data by site</a></li>
+  <li><a href="#visualising-data-distribution-and-variance" id="toc-visualising-data-distribution-and-variance" class="nav-link" data-scroll-target="#visualising-data-distribution-and-variance"><span class="header-section-number">33.7</span> Visualising data distribution and variance</a></li>
+  <li><a href="#pivotting-from-long-to-wide-format" id="toc-pivotting-from-long-to-wide-format" class="nav-link" data-scroll-target="#pivotting-from-long-to-wide-format"><span class="header-section-number">33.8</span> Pivotting from long to wide format</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./austraits_database.html">Using outputs of <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./austraits_package.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></h1>
 </div>
@@ -475,13 +480,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
 
-<p>The <code>austraits</code> package is designed to aid users in accessing data from <a href="https://zenodo.org/record/5112001">AusTraits</a>, a curated plant trait database for the Australian flora. This package contains several core functions to wrangle and visualise data. Below, we include a tutorial to illustrate how to use these functions in greater detail.</p>
-<p><strong>Note that we are using a reduced subset of v.3.0.2, so the number of records and taxa will not be match your values</strong></p>
+
+<p>The <code>austraits</code> package was initially designed to aid users in accessing data from <a href="https://zenodo.org/record/5112001">AusTraits</a>, a curated plant trait database for the Australian flora. This package contains several core functions to explore, wrangle and visualise data.</p>
+<p>In 2024 the package was generalised to support all databases built using the <a href="https://github.com/traitecoevo/traits.build">traits.build workflow</a>, new functions were added, and existing functions were re-worked. The structure of AusTraits evolved from its release in 2021 until present and the version 3.0 of the austraits package only supports AusTraits versions from 5.0 onwards. If you are working with AusTraits version 4.2.0 or earlier, you need to install an <a href="">old version of austraits</a></p>
+<p>Below, we include a tutorial to illustrate how to use these functions.</p>
+<p><strong>Note the examples shown us a subset of AusTraits release 5.0.0, but the code can be run using any traits.build database.</strong></p>
 <section id="getting-started" class="level2" data-number="33.1">
 <h2 data-number="33.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">33.1</span> Getting started</h2>
-<p><code>austraits</code> is still under development. To install the current version from GitHub:</p>
+<p><code>austraits</code> is still under development and not yet on Cran. To install the current version from GitHub:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("remotes")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#remotes::install_github("traitecoevo/austraits", dependencies = TRUE, upgrade = "ask")</span></span>
@@ -491,458 +500,800 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="loading-austraits-database" class="level3">
 <h3 class="anchored" data-anchor-id="loading-austraits-database">Loading AusTraits database</h3>
-<p>By default, <code>load_austraits</code> will download AusTraits to a specified path e.g.&nbsp;<code>data/austraits</code> and will reload it from this location in the future. You can set <code>update = TRUE</code> so the austrait versions are downloaded fresh from <a href="https://zenodo.org/record/3568429">Zenodo</a>. Note that <code>load_austraits</code> will happily accept a DOI of a particular version.</p>
+<p><code>load_austraits</code> is the one <code>austraits</code> function that is specific to the AusTraits database. By default, <code>load_austraits</code> will download AusTraits to a specified path e.g.&nbsp;<code>data/austraits</code> and will reload it from this location in the future. You can set <code>update = TRUE</code> so the austrait versions are downloaded fresh from <a href="https://zenodo.org/record/3568429">Zenodo</a>. Note that <code>load_austraits</code> accepts a version number or the DOI of a particular version.</p>
+<p>If you are new to using AusTraits we recommend you download the most recent release, while you may want to download an older version to reproduce a previous analysis.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>austraits <span class="ot">&lt;-</span> <span class="fu">load_austraits</span>(<span class="at">version =</span> <span class="st">"3.0.2"</span>, <span class="at">path =</span> <span class="st">"data/austraits"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>austraits <span class="ot">&lt;-</span> <span class="fu">load_austraits</span>(<span class="at">version =</span> <span class="st">"6.0.0"</span>, <span class="at">path =</span> <span class="st">"data/austraits"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can check out different versions and their associated DOI of AusTraits by using:</p>
+<p>You can check out the different versions of Austraits and their associated DOI by using:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_versions</span>(<span class="at">path =</span> <span class="st">"data/austraits"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The AusTraits object is a very <em>long</em> list with various of elements. If you are not familiar with working with lists in R, we recommend having a quick look at this <a href="https://www.tutorialspoint.com/r/r_lists.htm">tutorial</a>. To learn more about the structure of <code>austraits</code>, check out the <a href="https://traitecoevo.github.io/austraits/articles/structure.html">structure of the database</a>.</p>
+<p>The traits.build object is a very <em>long</em> list with various of elements. If you are not familiar with working with lists in R, we recommend having a quick look at this <a href="https://www.tutorialspoint.com/r/r_lists.htm">tutorial</a>. To learn more about the structure of a traits.build database, check out the <a href="https://traitecoevo.github.io/austraits/articles/structure.html">structure of the database</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>austraits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt; This is version 0.0.0.900 of austraits!
-#&gt;  
-#&gt; This object contains a total of 5859 records for 1245 taxa and 33 traits.
-#&gt; 
-#&gt; This object is a 'list' with the following components:
-#&gt; 
-#&gt;  - `traits`: A table containing measurements of plant traits.
-#&gt; - `sites`: A table containing observations of site characteristics associated with information in `traits`. Cross referencing between the two dataframes is possible using combinations of the variables `dataset_id`, `site_name`.
-#&gt; - `contexts`: A table containing observations of contextual characteristics associated with information in `traits`. Cross referencing between the two dataframes is possible using combinations of the variables `dataset_id`, `context_name`.
-#&gt; - `methods`: A table containing details on methods with which data were collected, including time frame and source.
-#&gt; - `excluded_data`: A table of data that did not pass quality test and so were excluded from the master dataset.
-#&gt; - `taxa`: A table containing details on taxa associated with information in `traits`. This information has been sourced from the APC (Australian Plant Census) and APNI (Australian Plant Names Index) and is released under a CC-BY3 license.
-#&gt; - `definitions`: A copy of the definitions for all tables and terms. Information included here was used to process data and generate any documentation for the study.
-#&gt; - `sources`: Bibtex entries for all primary and secondary sources in the compilation.
-#&gt; - `contributors`: A table of people contributing to each study.
-#&gt; - `taxonomic_updates`: A table of all taxonomic changes implemented in the construction of AusTraits. Changes are determined by comapring against the APC (Australian Plant Census) and APNI (Australian Plant Names Index).
-#&gt; - `build_info`: A description of the computing environment used to create this version of the dataset, including version number, git commit and R session_info.
-#&gt; 
-#&gt; To access a component, try using the $ e.g. austraits$traits</code></pre>
-</div>
 </div>
 </section>
 </section>
 <section id="descriptive-summaries-of-traits-and-taxa" class="level2" data-number="33.2">
 <h2 data-number="33.2" class="anchored" data-anchor-id="descriptive-summaries-of-traits-and-taxa"><span class="header-section-number">33.2</span> Descriptive summaries of traits and taxa</h2>
-<p>AusTraits contains 33 plant traits. Check out <a href="https://traitecoevo.github.io/austraits/articles/dictionary.html">definitions of the traits</a> to learn more about how each trait is defined.</p>
-<p>Have a look at what trait or taxa we have with:</p>
+<p>The perfect way to begin exploring a traits.build database is to learn which traits are included and how much data exists for various traits and taxa.</p>
+<p>Interested in a specific trait? <code>lookup_trait</code>, <code>lookup_location_property</code> and <code>lookup_context_property</code> let you find terms based on exact and partial string matches.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise_austraits</span>(austraits, <span class="st">"trait_name"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lookup_trait</span>(<span class="at">database =</span> austraits, <span class="at">term =</span> <span class="st">"leaf"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;            trait_name n_records n_dataset n_taxa percent_total
-#&gt;  branch_mass_fraction        45         1     45      0.007680
-#&gt;     fire_cued_seeding         5         1      5      0.000853
-#&gt;         fire_response        73         2     72      0.012500
-#&gt;        flowering_time        31         1     31      0.005290
-#&gt;           huber_value       193         2     57      0.032900
-#&gt;   leaf_N_per_dry_mass        62         2     62      0.010600</code></pre>
+<pre><code>#&gt; [1] "leaf_compoundness"                   "leaf_length"                        
+#&gt; [3] "leaf_phenology"                      "leaf_width"                         
+#&gt; [5] "leaf_delta13C"                       "leaf_water_use_efficiency_intrinsic"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise_austraits</span>(austraits, <span class="at">var =</span>  <span class="st">"family"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lookup_location_property</span>(<span class="at">database =</span> austraits, <span class="at">term =</span> <span class="st">"temperature"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;         family n_records n_dataset n_taxa percent_total
-#&gt;    Acanthaceae         1         1      1      0.000171
-#&gt;     Akaniaceae         3         1      1      0.000512
-#&gt;  Anacardiaceae        20         2      7      0.003410
-#&gt;     Annonaceae        15         2      5      0.002560
-#&gt;       Apiaceae        17         1      2      0.002900
-#&gt;    Apocynaceae        32         3      9      0.005460</code></pre>
+<pre><code>#&gt; [1] "temperature, MAT (C)"         "temperature, max MAT (C)"    
+#&gt; [3] "temperature, min MAT (C)"     "temperature, summer mean (C)"
+#&gt; [5] "temperature, winter mean (C)" "temperature, monthly max (C)"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise_austraits</span>(austraits, <span class="st">"genus"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lookup_context_property</span>(<span class="at">database =</span> austraits, <span class="at">term =</span> <span class="st">"fire"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;       genus n_records n_dataset n_taxa percent_total
-#&gt;      Acacia       184         4     77      0.031400
-#&gt;   Aceratium         5         1      3      0.000854
-#&gt;      Ackama        10         1      2      0.001710
-#&gt;   Acradenia         3         1      2      0.000512
-#&gt;  Acronychia        21         3      7      0.003590
-#&gt;   Actinotus        10         1      1      0.001710</code></pre>
+<pre><code>#&gt; [1] "fire history"   "fire severity"  "fire intensity" "fire season"</code></pre>
 </div>
 </div>
-<p>Interested in a specific trait? Try <code>lookup_trait</code></p>
+<p>Alternatively, have a look how much data a traits.build database has for specific traits or taxa. <em>This function only summarises by <code>trait_name</code>, <code>genus</code> or <code>family</code>.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lookup_trait</span>(austraits, <span class="st">"leaf"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise_database</span>(<span class="at">database =</span> austraits, <span class="at">var =</span> <span class="st">"trait_name"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] "leaf_angle"              "leaf_area"              
-#&gt; [3] "leaf_compoundness"       "leaf_N_per_dry_mass"    
-#&gt; [5] "specific_leaf_area"      "leaf_cell_wall_fraction"</code></pre>
+<pre><code>#&gt; # A tibble: 6 × 5
+#&gt;   trait_name                    n_records n_dataset n_taxa percent_total
+#&gt;   &lt;chr&gt;                             &lt;int&gt;     &lt;int&gt;  &lt;int&gt;         &lt;dbl&gt;
+#&gt; 1 atmospheric_CO2_concentration       217         1     17       0.00188
+#&gt; 2 bark_C_per_dry_mass                 159         1     17       0.00137
+#&gt; 3 bark_N_per_dry_mass                 159         1     17       0.00137
+#&gt; 4 bark_delta13C                       159         1     17       0.00137
+#&gt; 5 bark_delta15N                       159         1     17       0.00137
+#&gt; 6 bark_thickness                      198         2     17       0.00171</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise_database</span>(<span class="at">database =</span> austraits, <span class="at">var =</span>  <span class="st">"family"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; # A tibble: 6 × 5
+#&gt;   family        n_records n_dataset n_taxa percent_total
+#&gt;   &lt;chr&gt;             &lt;int&gt;     &lt;int&gt;  &lt;int&gt;         &lt;dbl&gt;
+#&gt; 1 Acanthaceae         177         1     14    0.00153   
+#&gt; 2 Achariaceae          38         2      2    0.000328  
+#&gt; 3 Actinidiaceae        13         1      1    0.000112  
+#&gt; 4 Agapanthaceae         9         1      1    0.0000778 
+#&gt; 5 Akaniaceae           18         2      1    0.000156  
+#&gt; 6 Alismataceae          1         1      1    0.00000864</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise_database</span>(<span class="at">database =</span> austraits, <span class="at">var =</span>  <span class="st">"genus"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; # A tibble: 6 × 5
+#&gt;   genus       n_records n_dataset n_taxa percent_total
+#&gt;   &lt;chr&gt;           &lt;int&gt;     &lt;int&gt;  &lt;int&gt;         &lt;dbl&gt;
+#&gt; 1 Abroma             13         1      1     0.000112 
+#&gt; 2 Abrophyllum        13         1      1     0.000112 
+#&gt; 3 Abrus               9         2      1     0.0000778
+#&gt; 4 Abutilon           91         1      7     0.000786 
+#&gt; 5 Acacia           4350        13    121     0.0376   
+#&gt; 6 Acalypha           65         1      5     0.000562</code></pre>
+</div>
+</div>
+<p>All traits.build databases include definitions for all traits. Check out the dictionary if you want to learn more about trait’s that have been output by a <code>lookup_</code> or <code>summarise_</code> query.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>definitions <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; $accessory_cost_fraction
+#&gt; $accessory_cost_fraction$label
+#&gt; [1] "Seed accessory cost fraction"
+#&gt; 
+#&gt; $accessory_cost_fraction$description
+#&gt; [1] "A reproductive shoot system [PO:0025082] biomass allocation [EnvThes:21360] trait which is one minus the ratio [PATO:0001470] of total plant seed [PO:0009010] dry [PATO:0001824] mass [PATO:0000125] to total plant reproductive shoot system tissue dry mass where reproductive tissues include all flower buds [PO:0000056], flowers [PO:0009046], fruits [PO:0009001], dispersal [EnvThes:21038] tissues, and seeds produced during the developmental process involved in reproduction [GO:0003006].;The fraction of total reproductive investment required to mature a seed that is invested in non-seed tissues. It is calculated as one minus, the ratio of total biomass investment in seeds to total biomass investment in all reproductive tissues, including flower buds, flowers, fruits, dispersal tissues, aborted seeds, and successfully matured seeds."
+#&gt; 
+#&gt; $accessory_cost_fraction$type
+#&gt; [1] "numeric"
+#&gt; 
+#&gt; $accessory_cost_fraction$units
+#&gt; [1] "mg/mg"
+#&gt; 
+#&gt; $accessory_cost_fraction$allowed_values_min
+#&gt; [1] 0.01
+#&gt; 
+#&gt; $accessory_cost_fraction$allowed_values_max
+#&gt; [1] 1
+#&gt; 
+#&gt; $accessory_cost_fraction$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0012221"
+#&gt; 
+#&gt; 
+#&gt; $accessory_cost_mass
+#&gt; $accessory_cost_mass$label
+#&gt; [1] "Seed accessory cost mass"
+#&gt; 
+#&gt; $accessory_cost_mass$description
+#&gt; [1] "A reproductive shoot system [PO:0025082] biomass allocation [EnvThes:21360] trait which is the sum of the dry [PATO:0001824] mass [PATO:0000125] of all flower buds [PO:0000056], flowers [PO:0009046], fruits [PO:0009001], aborted seeds, and dispersal [EnvThes:21038] tissues produced during the developmental process involved in reproduction [GO:0003006], but excludes mature [PATO:0001701] seed [PO:0009010] dry mass.;The mass of seed accessory costs, which is the total biomass investment in all reproductive tissues, excluding biomass invested in successfully matured seeds; it includes all biomass invested in flower buds, flowers, fruits, dispersal tissues and aborted seeds."
+#&gt; 
+#&gt; $accessory_cost_mass$type
+#&gt; [1] "numeric"
+#&gt; 
+#&gt; $accessory_cost_mass$units
+#&gt; [1] "mg"
+#&gt; 
+#&gt; $accessory_cost_mass$allowed_values_min
+#&gt; [1] 0.01
+#&gt; 
+#&gt; $accessory_cost_mass$allowed_values_max
+#&gt; [1] 10000
+#&gt; 
+#&gt; $accessory_cost_mass$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0012222"
+#&gt; 
+#&gt; 
+#&gt; $atmospheric_CO2_concentration
+#&gt; $atmospheric_CO2_concentration$label
+#&gt; [1] "Ambient CO2 concentration (ca)"
+#&gt; 
+#&gt; $atmospheric_CO2_concentration$description
+#&gt; [1] "The atmospheric carbon dioxide [ENVO:01000451] concentration [PATO:0000033].;Atmospheric CO2 concentration (external CO2 concentration); ca."
+#&gt; 
+#&gt; $atmospheric_CO2_concentration$comments
+#&gt; [1] "This is not a trait itself, but will often be used to calculate traits related to photosynthetic rates and therefore is recorded."
+#&gt; 
+#&gt; $atmospheric_CO2_concentration$type
+#&gt; [1] "numeric"
+#&gt; 
+#&gt; $atmospheric_CO2_concentration$units
+#&gt; [1] "umol{CO2}/mol"
+#&gt; 
+#&gt; $atmospheric_CO2_concentration$allowed_values_min
+#&gt; [1] 50
+#&gt; 
+#&gt; $atmospheric_CO2_concentration$allowed_values_max
+#&gt; [1] 2000
+#&gt; 
+#&gt; $atmospheric_CO2_concentration$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0020315"
+#&gt; 
+#&gt; 
+#&gt; $bark_Al_per_dry_mass
+#&gt; $bark_Al_per_dry_mass$label
+#&gt; [1] "Bark aluminium (Al) content per unit bark dry mass"
+#&gt; 
+#&gt; $bark_Al_per_dry_mass$description
+#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of aluminium [CHEBI:28984] in bark [PO:0004518] to bark dry mass."
+#&gt; 
+#&gt; $bark_Al_per_dry_mass$type
+#&gt; [1] "numeric"
+#&gt; 
+#&gt; $bark_Al_per_dry_mass$units
+#&gt; [1] "mg/g"
+#&gt; 
+#&gt; $bark_Al_per_dry_mass$allowed_values_min
+#&gt; [1] 0.01
+#&gt; 
+#&gt; $bark_Al_per_dry_mass$allowed_values_max
+#&gt; [1] 10
+#&gt; 
+#&gt; $bark_Al_per_dry_mass$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0000612"
+#&gt; 
+#&gt; 
+#&gt; $bark_ash_per_dry_mass
+#&gt; $bark_ash_per_dry_mass$label
+#&gt; [1] "Bark ash content per unit bark dry mass"
+#&gt; 
+#&gt; $bark_ash_per_dry_mass$description
+#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of bark [PO:0004518] ash [ENVO:02000090] remaining after a combustion process [ENVO:01000839] to the bark dry mass before the combustion process."
+#&gt; 
+#&gt; $bark_ash_per_dry_mass$type
+#&gt; [1] "numeric"
+#&gt; 
+#&gt; $bark_ash_per_dry_mass$units
+#&gt; [1] "g/g"
+#&gt; 
+#&gt; $bark_ash_per_dry_mass$allowed_values_min
+#&gt; [1] 1e-04
+#&gt; 
+#&gt; $bark_ash_per_dry_mass$allowed_values_max
+#&gt; [1] 1
+#&gt; 
+#&gt; $bark_ash_per_dry_mass$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0002824"
+#&gt; 
+#&gt; 
+#&gt; $bark_B_per_dry_mass
+#&gt; $bark_B_per_dry_mass$label
+#&gt; [1] "Bark boron (B) content per unit bark dry mass"
+#&gt; 
+#&gt; $bark_B_per_dry_mass$description
+#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of boron [CHEBI:27560] in bark [PO:0004518] to bark dry mass."
+#&gt; 
+#&gt; $bark_B_per_dry_mass$type
+#&gt; [1] "numeric"
+#&gt; 
+#&gt; $bark_B_per_dry_mass$units
+#&gt; [1] "mg/g"
+#&gt; 
+#&gt; $bark_B_per_dry_mass$allowed_values_min
+#&gt; [1] 0.001
+#&gt; 
+#&gt; $bark_B_per_dry_mass$allowed_values_max
+#&gt; [1] 1
+#&gt; 
+#&gt; $bark_B_per_dry_mass$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0000614"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>definitions[[<span class="st">"leaf_area"</span>]] <span class="sc">%&gt;%</span> convert_list_to_df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; # A tibble: 8 × 2
+#&gt;   key                value                                                      
+#&gt;   &lt;chr&gt;              &lt;chr&gt;                                                      
+#&gt; 1 label              Leaf area                                                  
+#&gt; 2 description        A leaf area trait [TO:0000540] which is the 2-D [PATO:0001…
+#&gt; 3 comments           This trait includes measurements of leaves and leaf analog…
+#&gt; 4 type               numeric                                                    
+#&gt; 5 units              mm2                                                        
+#&gt; 6 allowed_values_min 0.1                                                        
+#&gt; 7 allowed_values_max 1e+07                                                      
+#&gt; 8 entity_URI         https://w3id.org/APD/traits/trait_0011211</code></pre>
 </div>
 </div>
 </section>
 <section id="extracting-data" class="level2" data-number="33.3">
 <h2 data-number="33.3" class="anchored" data-anchor-id="extracting-data"><span class="header-section-number">33.3</span> Extracting data</h2>
-<p>In most cases, users would like to extract a subset of <code>austraits</code> for their own research purposes.<code>extract_dataset</code> subsets a particular study, whereas <code>extract_trait</code>subsets by certain traits. Note that the other tables and elements of the AusTraits data are extracted too, not just the main trait table. See <code>?extract_dataset</code> and <code>?extract_trait</code> for more details</p>
+<p>In most cases, users would like to extract a subset of a traits.build database for their own research purposes.<code>extract_dataset</code> subsets by dataset(s), <code>extract_trait</code>subsets by trait, and <code>extract_taxa</code> subsets by taxon_name, genus or family. In addition, the function <code>extract_data</code> extracts data based on a specified value(s) from any column of any table within a traits.build database.</p>
+<p>Note that the other tables and elements of the AusTraits data are extracted too, not just the main traits table, retaining the database’s original structure. See <code>?extract_data</code> and <code>?extract_trait</code> for more details.</p>
 <section id="extracting-by-study" class="level3">
 <h3 class="anchored" data-anchor-id="extracting-by-study">Extracting by study</h3>
 <p>Filtering <strong>one particular study</strong> and assigning it to an object</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>subset_data <span class="ot">&lt;-</span> <span class="fu">extract_dataset</span>(austraits, <span class="st">"Falster_2005_2"</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>subset_data<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>subset_data <span class="ot">&lt;-</span> <span class="fu">extract_dataset</span>(<span class="at">database =</span> austraits, <span class="at">dataset_id =</span> <span class="st">"Falster_2005_2"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>subset_data<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 6 × 12
-#&gt;   dataset_id   taxon_name site_name context_name observation_id trait_name value
-#&gt;   &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;
-#&gt; 1 Falster_200… Acacia lo… Myall_La… &lt;NA&gt;         Falster_2005_… fire_resp… fire…
-#&gt; 2 Falster_200… Acacia lo… Myall_La… &lt;NA&gt;         Falster_2005_… huber_val… 0.00…
-#&gt; 3 Falster_200… Acacia lo… Myall_La… &lt;NA&gt;         Falster_2005_… huber_val… 0.00…
-#&gt; 4 Falster_200… Acacia lo… Myall_La… &lt;NA&gt;         Falster_2005_… huber_val… 0.00…
-#&gt; 5 Falster_200… Acacia lo… Myall_La… &lt;NA&gt;         Falster_2005_… huber_val… 0.00…
-#&gt; 6 Falster_200… Acacia lo… Myall_La… &lt;NA&gt;         Falster_2005_… leaf_area  1761 
-#&gt; # ℹ 5 more variables: unit &lt;chr&gt;, date &lt;chr&gt;, value_type &lt;fct&gt;,
-#&gt; #   replicates &lt;chr&gt;, original_name &lt;chr&gt;</code></pre>
+<pre><code>#&gt; # A tibble: 6 × 26
+#&gt;   dataset_id     taxon_name    observation_id trait_name value unit  entity_type
+#&gt;   &lt;chr&gt;          &lt;chr&gt;         &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+#&gt; 1 Falster_2005_2 Acacia longi… 01             huber_val… 0.00… mm2{… population 
+#&gt; 2 Falster_2005_2 Acacia longi… 01             huber_val… 0.00… mm2{… population 
+#&gt; 3 Falster_2005_2 Acacia longi… 01             huber_val… 0.00… mm2{… population 
+#&gt; 4 Falster_2005_2 Acacia longi… 01             huber_val… 0.00… mm2{… population 
+#&gt; 5 Falster_2005_2 Acacia longi… 01             leaf_N_pe… 23.2  mg/g  population 
+#&gt; 6 Falster_2005_2 Acacia longi… 01             leaf_area  1761  mm2   population 
+#&gt; # ℹ 19 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
+#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
+#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
+#&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
+#&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;</code></pre>
 </div>
 </div>
 <p>Filtering <strong>multiple studies by two different lead authors</strong> and assigning it to an object</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>subset_multi_studies <span class="ot">&lt;-</span> <span class="fu">extract_dataset</span>(austraits, </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">dataset_id =</span> <span class="fu">c</span>(<span class="st">"Thompson_2001"</span>,<span class="st">"Ilic_2000"</span>))</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>subset_multi_studies<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>subset_multi_studies <span class="ot">&lt;-</span> <span class="fu">extract_dataset</span>(<span class="at">database =</span> austraits, </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">dataset_id =</span> <span class="fu">c</span>(<span class="st">"Thompson_2001"</span>,<span class="st">"Ilic_2000"</span>))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>subset_multi_studies<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(dataset_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 6 × 12
-#&gt;   dataset_id taxon_name   site_name context_name observation_id trait_name value
-#&gt;   &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;
-#&gt; 1 Ilic_2000  Acacia acra… &lt;NA&gt;      &lt;NA&gt;         Ilic_2000_0001 wood_dens… 0.904
-#&gt; 2 Ilic_2000  Acacia acum… &lt;NA&gt;      &lt;NA&gt;         Ilic_2000_0002 wood_dens… 0.895
-#&gt; 3 Ilic_2000  Acacia acum… &lt;NA&gt;      &lt;NA&gt;         Ilic_2000_0003 wood_dens… 1.008
-#&gt; 4 Ilic_2000  Acacia adsu… &lt;NA&gt;      &lt;NA&gt;         Ilic_2000_0004 wood_dens… 0.887
-#&gt; 5 Ilic_2000  Acacia ampl… &lt;NA&gt;      &lt;NA&gt;         Ilic_2000_0005 wood_dens… 0.568
-#&gt; 6 Ilic_2000  Acacia aneu… &lt;NA&gt;      &lt;NA&gt;         Ilic_2000_0006 wood_dens… 1.035
-#&gt; # ℹ 5 more variables: unit &lt;chr&gt;, date &lt;chr&gt;, value_type &lt;fct&gt;,
-#&gt; #   replicates &lt;chr&gt;, original_name &lt;chr&gt;</code></pre>
+<pre><code>#&gt; # A tibble: 0 × 1
+#&gt; # ℹ 1 variable: dataset_id &lt;chr&gt;</code></pre>
 </div>
 </div>
 <p>Filtering <strong>multiple studies by same lead author</strong> (e.g.&nbsp;Falster) and assigning it to an object.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, we need to identify all studies with an id that includes "Falster"</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>( dataset_ids <span class="ot">&lt;-</span> austraits<span class="sc">$</span>methods<span class="sc">$</span>dataset_id <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">subset</span>(., <span class="fu">grepl</span>(<span class="st">"Falster"</span>,.))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>data_falster_studies <span class="ot">&lt;-</span> <span class="fu">extract_dataset</span>(austraits, <span class="st">"Falster"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>data_falster_studies<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(dataset_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] "Falster_2003"   "Falster_2005_1" "Falster_2005_2"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Then we extract</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>data_falster_studies <span class="ot">&lt;-</span> <span class="fu">extract_dataset</span>(austraits, dataset_ids)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>data_falster_studies<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 6 × 12
-#&gt;   dataset_id   taxon_name site_name context_name observation_id trait_name value
-#&gt;   &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;
-#&gt; 1 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle 66.1 
-#&gt; 2 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  319  
-#&gt; 3 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp… simp…
-#&gt; 4 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle 71.7 
-#&gt; 5 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  562  
-#&gt; 6 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp… simp…
-#&gt; # ℹ 5 more variables: unit &lt;chr&gt;, date &lt;chr&gt;, value_type &lt;fct&gt;,
-#&gt; #   replicates &lt;chr&gt;, original_name &lt;chr&gt;</code></pre>
+<pre><code>#&gt; # A tibble: 3 × 1
+#&gt;   dataset_id    
+#&gt;   &lt;chr&gt;         
+#&gt; 1 Falster_2003  
+#&gt; 2 Falster_2005_1
+#&gt; 3 Falster_2005_2</code></pre>
 </div>
 </div>
 </section>
 <section id="extracting-by-taxonomic-level" class="level3">
 <h3 class="anchored" data-anchor-id="extracting-by-taxonomic-level">Extracting by taxonomic level</h3>
+<p>Filtering</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By family </span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>proteaceae <span class="ot">&lt;-</span> <span class="fu">extract_taxa</span>(austraits, <span class="at">family =</span> <span class="st">"Proteaceae"</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking that only taxa in Proteaceae have been extracted</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>proteaceae<span class="sc">$</span>taxa<span class="sc">$</span>family <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By family </span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>proteaceae <span class="ot">&lt;-</span> <span class="fu">extract_taxa</span>(austraits, <span class="at">family =</span> <span class="st">"Proteaceae"</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking that only taxa in Proteaceae have been extracted</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>proteaceae<span class="sc">$</span>taxa<span class="sc">$</span>family <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] "Proteaceae"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By genus </span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>acacia <span class="ot">&lt;-</span> <span class="fu">extract_taxa</span>(austraits, <span class="at">genus =</span> <span class="st">"Acacia"</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking that only taxa in Acacia have been extracted</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>acacia<span class="sc">$</span>traits<span class="sc">$</span>taxon_name <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By genus </span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>acacia <span class="ot">&lt;-</span> <span class="fu">extract_taxa</span>(austraits, <span class="at">genus =</span> <span class="st">"Acacia"</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking that only taxa in Acacia have been extracted</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>acacia<span class="sc">$</span>traits<span class="sc">$</span>taxon_name <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] "Acacia myrtifolia" "Acacia suaveolens" "Acacia floribunda"
-#&gt; [4] "Acacia celsa"      "Acacia longifolia" "Acacia terminalis"</code></pre>
+<pre><code>#&gt; [1] "Acacia aneura"         "Acacia dealbata"       "Acacia dictyophleba"  
+#&gt; [4] "Acacia hemiteles"      "Acacia melanoxylon"    "Acacia parramattensis"</code></pre>
 </div>
 </div>
 </section>
 <section id="extracting-by-trait" class="level3">
 <h3 class="anchored" data-anchor-id="extracting-by-trait">Extracting by trait</h3>
-<p>Filtering <strong>one particular trait</strong> and assigning it to an object</p>
+<p>Filtering <strong>one trait</strong> and assigning it to an object</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data_wood_dens <span class="ot">&lt;-</span> <span class="fu">extract_trait</span>(austraits, <span class="st">"wood_density"</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_wood_dens<span class="sc">$</span>traits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>data_wood_dens <span class="ot">&lt;-</span> <span class="fu">extract_trait</span>(austraits, <span class="st">"wood_density"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_wood_dens<span class="sc">$</span>traits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 6 × 12
-#&gt;   dataset_id   taxon_name site_name context_name observation_id trait_name value
-#&gt;   &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt;
-#&gt; 1 Falster_200… Acacia ce… Atherton  &lt;NA&gt;         Falster_2005_… wood_dens… 0.498
-#&gt; 2 Falster_200… Acronychi… Atherton  &lt;NA&gt;         Falster_2005_… wood_dens… 0.525
-#&gt; 3 Falster_200… Alphitoni… Atherton  &lt;NA&gt;         Falster_2005_… wood_dens… 0.413
-#&gt; 4 Falster_200… Glochidio… Atherton  &lt;NA&gt;         Falster_2005_… wood_dens… 0.566
-#&gt; 5 Falster_200… Homalanth… Atherton  &lt;NA&gt;         Falster_2005_… wood_dens… 0.319
-#&gt; 6 Falster_200… Melicope … Atherton  &lt;NA&gt;         Falster_2005_… wood_dens… 0.346
-#&gt; # ℹ 5 more variables: unit &lt;chr&gt;, date &lt;chr&gt;, value_type &lt;fct&gt;,
-#&gt; #   replicates &lt;chr&gt;, original_name &lt;chr&gt;</code></pre>
+<pre><code>#&gt; # A tibble: 6 × 26
+#&gt;   dataset_id  taxon_name       observation_id trait_name value unit  entity_type
+#&gt;   &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+#&gt; 1 Apgaua_2017 Aglaia meridion… 001            wood_dens… 0.64… mg/m… individual 
+#&gt; 2 Apgaua_2017 Aleurites rocki… 003            wood_dens… 0.50… mg/m… individual 
+#&gt; 3 Apgaua_2017 Alphitonia petr… 005            wood_dens… 0.62… mg/m… individual 
+#&gt; 4 Apgaua_2017 Alstonia schola… 007            wood_dens… 0.361 mg/m… individual 
+#&gt; 5 Apgaua_2017 Amaracarpus nem… 009            wood_dens… 0.59… mg/m… individual 
+#&gt; 6 Apgaua_2017 Antirhea tenuif… 013            wood_dens… 0.53… mg/m… individual 
+#&gt; # ℹ 19 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
+#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
+#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
+#&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
+#&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;</code></pre>
 </div>
 </div>
-<p>Combining <code>lookup_trait</code> with <code>extract_trait</code> to obtain <strong>all traits with ‘leaf’ in the trait name</strong> and assigning it to an object. Note we use the <code>.</code> notation to pass on the <code>lookup_trait</code> results to <code>extract_trait</code></p>
+<p>Using <code>extract_trait</code> to extract data for <strong>all traits with ‘leaf’ in the trait name</strong> and assigning it to an object.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data_leaf <span class="ot">&lt;-</span> <span class="fu">lookup_trait</span>(austraits, <span class="st">"leaf"</span>) <span class="sc">%&gt;%</span> <span class="fu">extract_trait</span>(austraits, .) </span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_leaf<span class="sc">$</span>traits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>data_leaf <span class="ot">&lt;-</span> <span class="fu">extract_trait</span>(austraits, <span class="st">"leaf"</span>) </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data_leaf<span class="sc">$</span>traits<span class="sc">$</span>trait_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 6 × 12
-#&gt;   dataset_id   taxon_name site_name context_name observation_id trait_name value
-#&gt;   &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt;
-#&gt; 1 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle  66.1
-#&gt; 2 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  319  
-#&gt; 3 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp…  NA  
-#&gt; 4 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle  71.7
-#&gt; 5 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  562  
-#&gt; 6 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp…  NA  
-#&gt; # ℹ 5 more variables: unit &lt;chr&gt;, date &lt;chr&gt;, value_type &lt;fct&gt;,
-#&gt; #   replicates &lt;chr&gt;, original_name &lt;chr&gt;</code></pre>
+<pre><code>#&gt;  [1] "leaf_compoundness"                                                          
+#&gt;  [2] "leaf_length"                                                                
+#&gt;  [3] "leaf_phenology"                                                             
+#&gt;  [4] "leaf_width"                                                                 
+#&gt;  [5] "leaf_delta13C"                                                              
+#&gt;  [6] "leaf_water_use_efficiency_intrinsic"                                        
+#&gt;  [7] "leaf_NP_ratio"                                                              
+#&gt;  [8] "leaf_N_per_area"                                                            
+#&gt;  [9] "leaf_N_per_dry_mass"                                                        
+#&gt; [10] "leaf_P_per_area"                                                            
+#&gt; [11] "leaf_P_per_dry_mass"                                                        
+#&gt; [12] "leaf_dark_respiration_per_area"                                             
+#&gt; [13] "leaf_dark_respiration_per_dry_mass"                                         
+#&gt; [14] "leaf_dry_matter_content"                                                    
+#&gt; [15] "leaf_intercellular_CO2_concentration_at_Amax"                               
+#&gt; [16] "leaf_intercellular_CO2_concentration_at_Asat"                               
+#&gt; [17] "leaf_intercellular_CO2_concentration_to_atmospheric_CO2_concentration_ratio"
+#&gt; [18] "leaf_mass_per_area"                                                         
+#&gt; [19] "leaf_photosynthetic_nitrogen_use_efficiency_saturated"                      
+#&gt; [20] "leaf_photosynthetic_phosphorus_use_efficiency_saturated"                    
+#&gt; [21] "leaf_photosynthetic_rate_per_area_maximum"                                  
+#&gt; [22] "leaf_photosynthetic_rate_per_area_saturated"                                
+#&gt; [23] "leaf_photosynthetic_rate_per_dry_mass_maximum"                              
+#&gt; [24] "leaf_photosynthetic_rate_per_dry_mass_saturated"                            
+#&gt; [25] "leaf_transpiration_per_area_at_Asat"                                        
+#&gt; [26] "leaf_water_use_efficiency_instantaneous"                                    
+#&gt; [27] "leaf_stomatal_conductance_per_area_at_Amax"                                 
+#&gt; [28] "leaf_stomatal_conductance_per_area_at_Asat"                                 
+#&gt; [29] "leaf_transpiration_per_area_at_Amax"                                        
+#&gt; [30] "leaf_dark_transpiration_per_area"                                           
+#&gt; [31] "leaf_CN_ratio"                                                              
+#&gt; [32] "leaf_C_per_dry_mass"                                                        
+#&gt; [33] "leaf_delta15N"                                                              
+#&gt; [34] "leaf_area"                                                                  
+#&gt; [35] "leaf_dry_mass"                                                              
+#&gt; [36] "leaf_fresh_mass"                                                            
+#&gt; [37] "leaf_thickness"                                                             
+#&gt; [38] "leaf_photosynthetic_rate_per_area_ambient"                                  
+#&gt; [39] "leaf_stomatal_conductance_per_area_ambient"                                 
+#&gt; [40] "leaf_transpiration_per_area_ambient"                                        
+#&gt; [41] "leaf_specific_hydraulic_conductivity"                                       
+#&gt; [42] "leaf_light_respiration_per_area"                                            
+#&gt; [43] "leaf_photosynthesis_Jmax_per_area"                                          
+#&gt; [44] "leaf_photosynthesis_Jmax_per_area_25C"                                      
+#&gt; [45] "leaf_photosynthesis_Vcmax_per_area"                                         
+#&gt; [46] "leaf_senesced_N_per_dry_mass"                                               
+#&gt; [47] "leaf_senesced_P_per_dry_mass"                                               
+#&gt; [48] "leaf_inclination_angle"                                                     
+#&gt; [49] "leaf_B_per_dry_mass"                                                        
+#&gt; [50] "leaf_Ca_per_dry_mass"                                                       
+#&gt; [51] "leaf_Cu_per_dry_mass"                                                       
+#&gt; [52] "leaf_Fe_per_dry_mass"                                                       
+#&gt; [53] "leaf_K_per_dry_mass"                                                        
+#&gt; [54] "leaf_Mg_per_dry_mass"                                                       
+#&gt; [55] "leaf_Mn_per_dry_mass"                                                       
+#&gt; [56] "leaf_Na_per_dry_mass"                                                       
+#&gt; [57] "leaf_S_per_dry_mass"                                                        
+#&gt; [58] "leaf_Zn_per_dry_mass"                                                       
+#&gt; [59] "leaf_lobation"                                                              
+#&gt; [60] "leaf_chlorophyll_per_area"                                                  
+#&gt; [61] "leaf_mass_to_stem_mass_ratio"                                               
+#&gt; [62] "leaf_chlorophyll_per_dry_mass"                                              
+#&gt; [63] "leaf_density"                                                               
+#&gt; [64] "leaf_water_content_per_dry_mass"                                            
+#&gt; [65] "leaf_water_content_per_fresh_mass"                                          
+#&gt; [66] "leaf_lifespan"                                                              
+#&gt; [67] "leaf_specific_hydraulic_conductance"                                        
+#&gt; [68] "leaf_vessel_density"                                                        
+#&gt; [69] "leaf_vessel_diameter"                                                       
+#&gt; [70] "leaf_Mo_per_dry_mass"                                                       
+#&gt; [71] "leaf_Al_per_dry_mass"                                                       
+#&gt; [72] "leaf_mass_fraction"</code></pre>
 </div>
+</div>
+<p>Using <code>extract_trait</code> to extract data for <strong>all traits with ‘leaf_N’ or ‘leaf_P’ in the trait name</strong> and assigning it to an object.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>data_vector_extraction <span class="ot">&lt;-</span> <span class="fu">extract_trait</span>(austraits, <span class="fu">c</span>(<span class="st">"leaf_photosyn"</span>, <span class="st">"huber_value"</span>)) </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data_vector_extraction<span class="sc">$</span>traits<span class="sc">$</span>trait_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;  [1] "leaf_photosynthetic_nitrogen_use_efficiency_saturated"  
+#&gt;  [2] "leaf_photosynthetic_phosphorus_use_efficiency_saturated"
+#&gt;  [3] "leaf_photosynthetic_rate_per_area_maximum"              
+#&gt;  [4] "leaf_photosynthetic_rate_per_area_saturated"            
+#&gt;  [5] "leaf_photosynthetic_rate_per_dry_mass_maximum"          
+#&gt;  [6] "leaf_photosynthetic_rate_per_dry_mass_saturated"        
+#&gt;  [7] "huber_value"                                            
+#&gt;  [8] "leaf_photosynthetic_rate_per_area_ambient"              
+#&gt;  [9] "leaf_photosynthesis_Jmax_per_area"                      
+#&gt; [10] "leaf_photosynthesis_Jmax_per_area_25C"                  
+#&gt; [11] "leaf_photosynthesis_Vcmax_per_area"</code></pre>
+</div>
+</div>
+<p>The function <code>extract_data</code> offers the flexibility of subsetting a database based on any combination of data table, column within the table, and column value.</p>
+<p>The database tables you can subset on are: ‘traits’, ‘locations’, ‘contexts’, ‘methods’, ‘contributors’, ‘taxa’, and ‘taxonomic_updates’</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>observations_with_soil_data <span class="ot">&lt;-</span> <span class="fu">extract_data</span>(</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">database =</span> austraits, </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">table =</span> <span class="st">"locations"</span>,</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"location_property"</span>,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_value =</span> <span class="st">"soil"</span>) </span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co"># If you are unsure about column names, check with:</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(austraits<span class="sc">$</span>methods)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;  [1] "dataset_id"                       "trait_name"                      
+#&gt;  [3] "methods"                          "method_id"                       
+#&gt;  [5] "description"                      "sampling_strategy"               
+#&gt;  [7] "source_primary_key"               "source_primary_citation"         
+#&gt;  [9] "source_secondary_key"             "source_secondary_citation"       
+#&gt; [11] "source_original_dataset_key"      "source_original_dataset_citation"
+#&gt; [13] "data_collectors"                  "assistants"                      
+#&gt; [15] "dataset_curators"</code></pre>
+</div>
+</div>
+<p>Any of the extract functions can be linked together to output a more precise subset of data.</p>
+<p>For instance, to return data on ‘leaf mass per area’ and ‘wood density’ for ‘adult’ plants of any species in the genus Acacia:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>Acacias_specific_traits <span class="ot">&lt;-</span> austraits <span class="sc">%&gt;%</span> </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_taxa</span>(<span class="at">genus =</span> <span class="st">"Acacia"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_trait</span>(<span class="at">trait_name =</span> <span class="fu">c</span>(<span class="st">"leaf_mass_per_area"</span>, <span class="st">"wood_density"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_data</span>(<span class="at">table =</span> <span class="st">"traits"</span>, <span class="at">col =</span> <span class="st">"life_stage"</span>, <span class="at">col_value =</span> <span class="st">"adult"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="join-data-from-other-tables-and-elements" class="level2" data-number="33.4">
 <h2 data-number="33.4" class="anchored" data-anchor-id="join-data-from-other-tables-and-elements"><span class="header-section-number">33.4</span> Join data from other tables and elements</h2>
-<p>Once users have extracted the data they want, they may want to merge other study details into the main <code>traits</code> dataframe for their analyses. For example, users may require taxonomic information for a phylogenetic analysis. This is where the <code>join_</code> functions come in. There are five <code>join_</code> functions in total, each designed to append specific information from other tables and elements in the <code>austraits</code> object. Their suffixes refer to the type of information that is joined, e.g.&nbsp;<code>join_taxonomy</code> appends taxonomic information to the <code>traits</code> dataframe. See <code>?join_all</code> for more details.</p>
+<p>Once users have extracted the data they want, they may want to merge the study metadata stored in various relational tables into the main <code>traits</code> dataframe for their analyses. For example, users may require additional taxonomic information for a phylogenetic analysis, location coordinates to plot data, or context properties to understand variation in trait values for a single taxon. This is where the <code>join_</code> functions come in.</p>
+<p>There are seven <code>join_</code> functions in total, each designed to append specific information from other tables and elements in the <code>austraits</code>the ancillary data tables in a <code>traits.build</code> object. Their suffixes refer to the type of information that is joined, e.g.&nbsp;<code>join_taxonomy</code> appends taxonomic information to the <code>traits</code> dataframe. Each function lets you select which data columns you wish to add and the output format.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join taxonomic information </span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_taxonomy)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join location coordinates</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_location_coordinates)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 6 × 16
-#&gt;   dataset_id   taxon_name site_name context_name observation_id trait_name value
-#&gt;   &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt;
-#&gt; 1 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle  66.1
-#&gt; 2 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  319  
-#&gt; 3 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp…  NA  
-#&gt; 4 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle  71.7
-#&gt; 5 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  562  
-#&gt; 6 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp…  NA  
-#&gt; # ℹ 9 more variables: unit &lt;chr&gt;, date &lt;chr&gt;, value_type &lt;fct&gt;,
-#&gt; #   replicates &lt;chr&gt;, original_name &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;,
-#&gt; #   taxonRank &lt;chr&gt;, acceptedNameUsageID &lt;chr&gt;</code></pre>
+<pre><code>#&gt; # A tibble: 6 × 29
+#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
+#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
+#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
+#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
+#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; # ℹ 22 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
+#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
+#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
+#&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
+#&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, location_name &lt;chr&gt;, …</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join methodological information </span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_methods)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join location properties using defaults</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_location_properties)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 6 × 16
-#&gt;   dataset_id   taxon_name site_name context_name observation_id trait_name value
-#&gt;   &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt;
-#&gt; 1 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle  66.1
-#&gt; 2 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  319  
-#&gt; 3 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp…  NA  
-#&gt; 4 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle  71.7
-#&gt; 5 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  562  
-#&gt; 6 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp…  NA  
-#&gt; # ℹ 9 more variables: unit &lt;chr&gt;, date &lt;chr&gt;, value_type &lt;fct&gt;,
-#&gt; #   replicates &lt;chr&gt;, original_name &lt;chr&gt;, methods &lt;chr&gt;,
-#&gt; #   year_collected_start &lt;chr&gt;, year_collected_end &lt;chr&gt;, collection_type &lt;chr&gt;</code></pre>
+<pre><code>#&gt; # A tibble: 6 × 28
+#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
+#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
+#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
+#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
+#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; # ℹ 21 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
+#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
+#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
+#&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
+#&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, location_name &lt;chr&gt;, …</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join site based information </span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_sites)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join location properties, with each location property pertaining to soil added as a separate column.</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>temperature_properties <span class="ot">&lt;-</span> <span class="fu">lookup_location_property</span>(data_leaf, <span class="st">"temperature"</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> <span class="fu">join_location_properties</span>(<span class="at">format =</span> <span class="st">"many_columns"</span>, <span class="at">vars =</span> temperature_properties))<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 6 × 14
-#&gt;   dataset_id   taxon_name site_name context_name observation_id trait_name value
-#&gt;   &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt;
-#&gt; 1 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle  66.1
-#&gt; 2 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  319  
-#&gt; 3 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp…  NA  
-#&gt; 4 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle  71.7
-#&gt; 5 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  562  
-#&gt; 6 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp…  NA  
-#&gt; # ℹ 7 more variables: unit &lt;chr&gt;, date &lt;chr&gt;, value_type &lt;fct&gt;,
-#&gt; #   replicates &lt;chr&gt;, original_name &lt;chr&gt;, `latitude (deg)` &lt;chr&gt;,
-#&gt; #   `longitude (deg)` &lt;chr&gt;</code></pre>
+<pre><code>#&gt; # A tibble: 6 × 32
+#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
+#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
+#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
+#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
+#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; # ℹ 25 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
+#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
+#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
+#&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
+#&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, location_name &lt;chr&gt;, …</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join context information </span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_contexts)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join context properties using defaults</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_context_properties)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 6 × 16
-#&gt;   dataset_id   taxon_name site_name context_name observation_id trait_name value
-#&gt;   &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt;
-#&gt; 1 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle  66.1
-#&gt; 2 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  319  
-#&gt; 3 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp…  NA  
-#&gt; 4 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle  71.7
-#&gt; 5 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  562  
-#&gt; 6 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp…  NA  
-#&gt; # ℹ 9 more variables: unit &lt;chr&gt;, date &lt;chr&gt;, value_type &lt;fct&gt;,
-#&gt; #   replicates &lt;chr&gt;, original_name &lt;chr&gt;, type &lt;chr&gt;, description &lt;chr&gt;,
-#&gt; #   leaf_parts &lt;chr&gt;, plant_age &lt;chr&gt;</code></pre>
+<pre><code>#&gt; # A tibble: 6 × 31
+#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
+#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
+#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
+#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
+#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; # ℹ 24 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
+#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
+#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
+#&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
+#&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, …</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively users can join *all* information </span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_all)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join context properties, with each context property pertaining to fire added as a separate column.</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>fire_properties <span class="ot">&lt;-</span> <span class="fu">lookup_context_property</span>(data_leaf, <span class="st">"fire"</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>(austraits <span class="sc">%&gt;%</span> <span class="fu">join_context_properties</span>(<span class="at">format =</span> <span class="st">"many_columns"</span>, <span class="at">vars =</span> fire_properties, <span class="at">include_description =</span> <span class="cn">TRUE</span>))<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 6 × 22
-#&gt;   dataset_id   taxon_name site_name context_name observation_id trait_name value
-#&gt;   &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt;
-#&gt; 1 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle  66.1
-#&gt; 2 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  319  
-#&gt; 3 Falster_2003 Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp…  NA  
-#&gt; 4 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle  71.7
-#&gt; 5 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  562  
-#&gt; 6 Falster_2003 Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp…  NA  
-#&gt; # ℹ 15 more variables: unit &lt;chr&gt;, date &lt;chr&gt;, value_type &lt;fct&gt;,
-#&gt; #   replicates &lt;chr&gt;, original_name &lt;chr&gt;, `latitude (deg)` &lt;chr&gt;,
-#&gt; #   `longitude (deg)` &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, taxonRank &lt;chr&gt;,
-#&gt; #   acceptedNameUsageID &lt;chr&gt;, methods &lt;chr&gt;, year_collected_start &lt;chr&gt;,
-#&gt; #   year_collected_end &lt;chr&gt;, collection_type &lt;chr&gt;</code></pre>
+<pre><code>#&gt; # A tibble: 6 × 27
+#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
+#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
+#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
+#&gt; 4 ABRS_1981  Acanthocarpus ca… 0001           seed_heig… 3     mm    species    
+#&gt; 5 ABRS_1981  Acanthocarpus ca… 0001           seed_leng… 3     mm    species    
+#&gt; 6 ABRS_1981  Acanthocarpus ca… 0001           seed_width 3     mm    species    
+#&gt; # ℹ 20 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
+#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
+#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
+#&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
+#&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, …</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join methodological information using defaults</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_methods)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; # A tibble: 6 × 27
+#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
+#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
+#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
+#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
+#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; # ℹ 20 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
+#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
+#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
+#&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
+#&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, methods &lt;chr&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join taxonomic information using defaults</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_taxa)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; # A tibble: 6 × 30
+#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
+#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
+#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
+#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
+#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; # ℹ 23 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
+#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
+#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
+#&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
+#&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, …</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join taxonomic updates information using defaults</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_taxonomic_updates)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; # A tibble: 6 × 27
+#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
+#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
+#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
+#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
+#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; # ℹ 20 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
+#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
+#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
+#&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
+#&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, aligned_name &lt;chr&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join contributors information using defaults</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_contributors)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; # A tibble: 6 × 27
+#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
+#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
+#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
+#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
+#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; # ℹ 20 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
+#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
+#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
+#&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
+#&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, data_contributors &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>All data tables can be merged with <code>flatten_database</code>, which calls each of the <code>join_</code> functions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Flatten database using defaults</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>all_joined <span class="ot">&lt;-</span> data_leaf <span class="sc">%&gt;%</span> <span class="fu">flatten_database</span>()</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Flatten database also accepts a list of vectors to specify which columns to include for each table</span></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>data_leaf <span class="sc">%&gt;%</span> <span class="fu">flatten_database</span>(</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">format =</span> <span class="st">"single_column_json"</span>,</span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">vars =</span> <span class="fu">list</span>(</span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">location =</span> <span class="st">"all"</span>,</span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">context =</span> <span class="st">"all"</span>,</span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">contributors =</span> <span class="st">"all"</span>,</span>
+<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">taxonomy =</span> <span class="fu">c</span>(<span class="st">"family"</span>),</span>
+<span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">taxonomic_updates =</span> <span class="fu">c</span>(<span class="st">"aligned_name"</span>),</span>
+<span id="cb58-13"><a href="#cb58-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">methods =</span> <span class="fu">c</span>(<span class="st">"methods"</span>))</span>
+<span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; # A tibble: 70,471 × 39
+#&gt;    dataset_id taxon_name       observation_id trait_name value unit  entity_type
+#&gt;    &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+#&gt;  1 ABRS_1981  Acanthocarpus c… 0001           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt;  2 ABRS_1981  Acanthocarpus c… 0001           leaf_leng… 3     mm    species    
+#&gt;  3 ABRS_1981  Acanthocarpus c… 0001           leaf_leng… 15    mm    species    
+#&gt;  4 ABRS_1981  Acanthocarpus h… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt;  5 ABRS_1981  Acanthocarpus h… 0002           leaf_leng… 4     mm    species    
+#&gt;  6 ABRS_1981  Acanthocarpus h… 0002           leaf_leng… 12    mm    species    
+#&gt;  7 ABRS_1981  Acanthocarpus p… 0003           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt;  8 ABRS_1981  Acanthocarpus p… 0003           leaf_leng… 3     mm    species    
+#&gt;  9 ABRS_1981  Acanthocarpus p… 0004           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 10 ABRS_1981  Acanthocarpus p… 0004           leaf_leng… 20    mm    species    
+#&gt; # ℹ 70,461 more rows
+#&gt; # ℹ 32 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
+#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
+#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
+#&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;, …</code></pre>
 </div>
 </div>
 </section>
-<section id="visualising-data-by-site" class="level2" data-number="33.5">
-<h2 data-number="33.5" class="anchored" data-anchor-id="visualising-data-by-site"><span class="header-section-number">33.5</span> Visualising data by site</h2>
-<p><code>plot_site_locations</code> graphically summarises where trait data was collected from and how much data is available. The legend refers to the number of neighbouring points: the warmer the colour, the more data that is available. This function only works for studies that are geo-referenced. Users must first use <code>join_sites</code> to append latitude and longitude information into the trait dataframe before plotting</p>
+<section id="binding-extracted-databases" class="level2" data-number="33.5">
+<h2 data-number="33.5" class="anchored" data-anchor-id="binding-extracted-databases"><span class="header-section-number">33.5</span> Binding extracted databases</h2>
+<p>The function <code>bind_databases</code> allows you to bind together two subsetted databases you have created by filtering (<code>extract_</code> functions) based on two critera.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>extracted_wood <span class="ot">&lt;-</span> austraits <span class="sc">%&gt;%</span> <span class="fu">extract_trait</span>(<span class="st">"wood_density"</span>)</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>extracted_Rutaceae <span class="ot">&lt;-</span> austraits <span class="sc">%&gt;%</span> <span class="fu">extract_taxa</span>(<span class="at">family =</span> <span class="st">"Rutaceae"</span>)</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>merged <span class="ot">&lt;-</span> <span class="fu">bind_databases</span>(extracted_wood, extracted_Rutaceae)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualising-data-by-site" class="level2" data-number="33.6">
+<h2 data-number="33.6" class="anchored" data-anchor-id="visualising-data-by-site"><span class="header-section-number">33.6</span> Visualising data by site</h2>
+<p><code>plot_locations</code> graphically summarises where trait data were collected and how much data is available. The legend refers to the number of neighbouring points: the warmer the colour, the more data that are available for a particular location. This function only includes data that are geo-referenced. Users must first use <code>join_location_coordinates</code> to append latitude and longitude information into the trait dataframe before plotting</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>data_wood_dens <span class="ot">&lt;-</span> data_wood_dens <span class="sc">%&gt;%</span> <span class="fu">join_sites</span>()</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_site_locations</span>(data_wood_dens<span class="sc">$</span>traits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>data_wood_dens <span class="ot">&lt;-</span> data_wood_dens <span class="sc">%&gt;%</span> <span class="fu">join_location_coordinates</span>()</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_locations</span>(data_wood_dens<span class="sc">$</span>traits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/site_plot-1.png" class="img-fluid figure-img" width="480"></p>
+<p><img src="figures/site_plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="visualising-data-distribution-and-variance" class="level2" data-number="33.6">
-<h2 data-number="33.6" class="anchored" data-anchor-id="visualising-data-distribution-and-variance"><span class="header-section-number">33.6</span> Visualising data distribution and variance</h2>
-<p><code>plot_trait_distribution</code> creates histograms and <a href="https://github.com/eclarke/ggbeeswarm">beeswarm plots</a> for specific traits to help users visualise the variance of the data. Users can specify whether to create separate beeswarm plots at the level of taxonomic family or for each <code>dataset_id</code></p>
+<section id="visualising-data-distribution-and-variance" class="level2" data-number="33.7">
+<h2 data-number="33.7" class="anchored" data-anchor-id="visualising-data-distribution-and-variance"><span class="header-section-number">33.7</span> Visualising data distribution and variance</h2>
+<p><code>plot_trait_distribution_beeswarm</code> creates histograms and <a href="https://github.com/eclarke/ggbeeswarm">beeswarm plots</a> for continuous traits to help users visualise the data. Users can specify whether to create separate beeswarm plots based on any column in the traits table (e.g.&nbsp;<code>dataset_id</code> or <code>life_stage</code>) or at the level of <code>genus</code> or <code>family</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>austraits <span class="sc">%&gt;%</span> <span class="fu">plot_trait_distribution_beeswarm</span>(<span class="st">"wood_density"</span>, <span class="st">"family"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>austraits <span class="sc">%&gt;%</span> <span class="fu">plot_trait_distribution_beeswarm</span>(<span class="st">"wood_density"</span>, <span class="st">"family"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/beeswarm-1.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="figures/beeswarm-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>austraits <span class="sc">%&gt;%</span> <span class="fu">plot_trait_distribution_beeswarm</span>(<span class="st">"wood_density"</span>, <span class="st">"dataset_id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>austraits <span class="sc">%&gt;%</span> <span class="fu">plot_trait_distribution_beeswarm</span>(<span class="st">"wood_density"</span>, <span class="st">"dataset_id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/beeswarm-2.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="figures/beeswarm-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="pivotting-from-long-to-wide-format" class="level2" data-number="33.7">
-<h2 data-number="33.7" class="anchored" data-anchor-id="pivotting-from-long-to-wide-format"><span class="header-section-number">33.7</span> Pivotting from long to wide format</h2>
-<p>The table of traits in AusTraits comes in <strong>long</strong> format, where data for all trait information are denoted by two columns called <code>trait_name</code> and <code>value</code>. You can convert this to wide format, where each trait is in a separate column, using the function <code>trait_pivot_wider</code>.</p>
-<p>The function operates differently depending on the version of AusTraits</p>
-<section id="pivot-wider-3.0.2" class="level3 tabset">
-<h3 class="tabset anchored" data-anchor-id="pivot-wider-3.0.2">Pivot wider &lt;=3.0.2</h3>
-<p>In AusTraits &lt;=3.0.2, some studies will have <em>multiple observations</em> for some traits, e.g.&nbsp;huber values. This can prevent pivoting from long format to wide. There are two ways to collapse multiple observations. The first option <code>bind_trait_values</code> concatenates the observations into a single string, thereby retaining all information.</p>
-<p>Alternatively, if you don’t want to bind the trait values, you can give <code>summarise_trait_means</code> a go, which computes means with multiple observations. Note that this method condenses the traits table and you won’t be able to revert it back unless you <code>load_austraits</code> again</p>
-<section id="bind_trait_values" class="level4">
-<h4 class="anchored" data-anchor-id="bind_trait_values"><code>bind_trait_values</code></h4>
+<section id="pivotting-from-long-to-wide-format" class="level2" data-number="33.8">
+<h2 data-number="33.8" class="anchored" data-anchor-id="pivotting-from-long-to-wide-format"><span class="header-section-number">33.8</span> Pivotting from long to wide format</h2>
+<p>The table of traits in AusTraits comes in <strong>long</strong> format, where data for all trait information are denoted by two columns called <code>trait_name</code> and <code>value</code>. You can convert this to wide format, where each trait is in a separate column, using the function <code>trait_pivot_wider</code>. Note, that the informtion in the columns <code>unit</code>, <code>replicates</code>, <code>measurement_remarks</code>, and <code>basis_of_value</code> is lost when this function pivots.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>data_wide_bound <span class="ot">&lt;-</span> data_falster_studies<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_trait_values</span>() <span class="sc">%&gt;%</span> <span class="co"># Joining multiple obs with `--`</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trait_pivot_wider</span>() <span class="co">#Pivot wide</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>data_wide_bound<span class="sc">$</span>value <span class="co"># The trait values table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 103 × 17
-#&gt;    dataset_id   taxon_name      site_name context_name observation_id leaf_angle
-#&gt;    &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;     
-#&gt;  1 Falster_2003 Acacia myrtifo… Ku-ring-… &lt;NA&gt;         Falster_2003_… 66.1      
-#&gt;  2 Falster_2003 Acacia suaveol… Ku-ring-… &lt;NA&gt;         Falster_2003_… 71.7      
-#&gt;  3 Falster_2003 Angophora hisp… Ku-ring-… &lt;NA&gt;         Falster_2003_… 50.8      
-#&gt;  4 Falster_2003 Banksia margin… Ku-ring-… &lt;NA&gt;         Falster_2003_… 53.1      
-#&gt;  5 Falster_2003 Banksia oblong… Ku-ring-… &lt;NA&gt;         Falster_2003_… 45        
-#&gt;  6 Falster_2003 Boronia pinnata Ku-ring-… &lt;NA&gt;         Falster_2003_… 43.9      
-#&gt;  7 Falster_2003 Conospermum lo… Ku-ring-… &lt;NA&gt;         Falster_2003_… 72.3      
-#&gt;  8 Falster_2003 Epacris pulche… Ku-ring-… &lt;NA&gt;         Falster_2003_… 42.9      
-#&gt;  9 Falster_2003 Eriostemon aus… Ku-ring-… &lt;NA&gt;         Falster_2003_… 62.1      
-#&gt; 10 Falster_2003 Corymbia gummi… Ku-ring-… &lt;NA&gt;         Falster_2003_… 59.3      
-#&gt; # ℹ 93 more rows
-#&gt; # ℹ 11 more variables: leaf_area &lt;chr&gt;, leaf_compoundness &lt;chr&gt;,
-#&gt; #   branch_mass_fraction &lt;chr&gt;, huber_value &lt;chr&gt;, leaf_N_per_dry_mass &lt;chr&gt;,
-#&gt; #   seed_mass &lt;chr&gt;, specific_leaf_area &lt;chr&gt;, wood_density &lt;chr&gt;,
-#&gt; #   fire_response &lt;chr&gt;, plant_height &lt;chr&gt;, original_name &lt;chr&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>data_wide_bound <span class="ot">&lt;-</span> data_falster_studies <span class="sc">%&gt;%</span> <span class="co"># Joining multiple obs with `--`</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trait_pivot_wider</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check out the 'bounded' trait values</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>data_wide_bound<span class="sc">$</span>value <span class="sc">%&gt;%</span> </span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)) <span class="sc">%&gt;%</span> <span class="co">#Excluding values that are not traits so we can see which columns contains bounded values</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter_all</span>(<span class="at">.vars_predicate =</span> <span class="fu">any_vars</span>(<span class="fu">str_detect</span>(., <span class="st">"--"</span>))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 55 × 12
-#&gt;    leaf_angle leaf_area leaf_compoundness branch_mass_fraction huber_value      
-#&gt;    &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;             &lt;chr&gt;                &lt;chr&gt;            
-#&gt;  1 &lt;NA&gt;       2786      &lt;NA&gt;              0.67                 0.00033590863285…
-#&gt;  2 &lt;NA&gt;       14302     &lt;NA&gt;              0.48                 0.00013227513227…
-#&gt;  3 &lt;NA&gt;       6820      &lt;NA&gt;              0.42                 0.00023041474654…
-#&gt;  4 &lt;NA&gt;       3209      &lt;NA&gt;              0.41                 0.00050175614651…
-#&gt;  5 &lt;NA&gt;       10682     &lt;NA&gt;              0.47                 0.00046816479400…
-#&gt;  6 &lt;NA&gt;       6955      &lt;NA&gt;              0.58                 0.00023803856224…
-#&gt;  7 &lt;NA&gt;       5228      &lt;NA&gt;              0.58                 0.00059311981020…
-#&gt;  8 &lt;NA&gt;       6806      &lt;NA&gt;              0.42                 0.00016644474034…
-#&gt;  9 &lt;NA&gt;       11157     &lt;NA&gt;              0                    0.00020092425155…
-#&gt; 10 &lt;NA&gt;       3401      &lt;NA&gt;              0.34                 0.00023142791020…
-#&gt; # ℹ 45 more rows
-#&gt; # ℹ 7 more variables: leaf_N_per_dry_mass &lt;chr&gt;, seed_mass &lt;chr&gt;,
-#&gt; #   specific_leaf_area &lt;chr&gt;, wood_density &lt;chr&gt;, fire_response &lt;chr&gt;,
-#&gt; #   plant_height &lt;chr&gt;, original_name &lt;chr&gt;</code></pre>
-</div>
-</div>
-<p>If you would like to revert the bounded trait values, you have to use <code>trait_pivot_longer</code> first, then call <code>separate_trait_values</code>:</p>
+<p>If there are multiple measurements linked to the same observation_id, such as when both a minimum and maximum are recorded, this information is retained as separate rows when using <code>trait_pivot_wider</code>. Instead, you can use <code>bind_trait_values</code> first, which merges multiple entries for <code>value</code>, <code>value_type</code>, <code>basis_of_value</code>, and <code>replicates</code> into a single row, with values delimited by “–”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>data_wide_bound <span class="sc">%&gt;%</span> </span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trait_pivot_longer</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_trait_values</span>(., austraits<span class="sc">$</span>definitions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 691 × 12
-#&gt;    dataset_id  taxon_name site_name context_name observation_id trait_name value
-#&gt;    &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;
-#&gt;  1 Falster_20… Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle 66.1 
-#&gt;  2 Falster_20… Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  319  
-#&gt;  3 Falster_20… Acacia my… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp… simp…
-#&gt;  4 Falster_20… Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle 71.7 
-#&gt;  5 Falster_20… Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  562  
-#&gt;  6 Falster_20… Acacia su… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp… simp…
-#&gt;  7 Falster_20… Angophora… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle 50.8 
-#&gt;  8 Falster_20… Angophora… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_area  1590 
-#&gt;  9 Falster_20… Angophora… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_comp… simp…
-#&gt; 10 Falster_20… Banksia m… Ku-ring-… &lt;NA&gt;         Falster_2003_… leaf_angle 53.1 
-#&gt; # ℹ 681 more rows
-#&gt; # ℹ 5 more variables: unit &lt;chr&gt;, date &lt;chr&gt;, value_type &lt;fct&gt;,
-#&gt; #   replicates &lt;chr&gt;, original_name &lt;chr&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>bound_values <span class="ot">&lt;-</span> (austraits <span class="sc">%&gt;%</span> <span class="fu">extract_dataset</span>(<span class="st">"ABRS_1981"</span>))<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_trait_values</span>()</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>bounded_wider <span class="ot">&lt;-</span> bound_values <span class="sc">%&gt;%</span> trait_pivot_wider</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section id="summarise_trait_means" class="level4">
-<h4 class="anchored" data-anchor-id="summarise_trait_means"><code>summarise_trait_means</code></h4>
+<p>If you would like to revert the bounded trait values, you have to use <code>separate_trait_values</code>. Note, this function does not always recreate the original table as the delimitor “–” is also used for value_type <code>bin</code> and <code>range</code>, which should not necessarily be split. <em>This function is on the list to rework for future <code>austraits</code> versions.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>data_wide_summarised <span class="ot">&lt;-</span> data_falster_studies<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_trait_means</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trait_pivot_wider</span>()</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>data_wide_summarised<span class="sc">$</span>value <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>bound_values2 <span class="ot">&lt;-</span> (austraits <span class="sc">%&gt;%</span> </span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">extract_dataset</span>(<span class="st">"ABRS_1981"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">extract_data</span>(<span class="at">table =</span> <span class="st">"traits"</span>, <span class="at">col =</span> <span class="st">"value_type"</span>, <span class="at">col_value =</span> <span class="fu">c</span>(<span class="st">"minimum"</span>, <span class="st">"maximum"</span>))</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>                  )<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_trait_values</span>()</span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>bound_values2 <span class="sc">%&gt;%</span></span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_trait_values</span>(., austraits<span class="sc">$</span>definitions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 6 × 17
-#&gt;   dataset_id   taxon_name       site_name context_name observation_id leaf_angle
-#&gt;   &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;               &lt;dbl&gt;
-#&gt; 1 Falster_2003 Acacia myrtifol… Ku-ring-… &lt;NA&gt;         Falster_2003_…       66.1
-#&gt; 2 Falster_2003 Acacia suaveole… Ku-ring-… &lt;NA&gt;         Falster_2003_…       71.7
-#&gt; 3 Falster_2003 Angophora hispi… Ku-ring-… &lt;NA&gt;         Falster_2003_…       50.8
-#&gt; 4 Falster_2003 Banksia margina… Ku-ring-… &lt;NA&gt;         Falster_2003_…       53.1
-#&gt; 5 Falster_2003 Banksia oblongi… Ku-ring-… &lt;NA&gt;         Falster_2003_…       45  
-#&gt; 6 Falster_2003 Boronia pinnata  Ku-ring-… &lt;NA&gt;         Falster_2003_…       43.9
-#&gt; # ℹ 11 more variables: leaf_area &lt;dbl&gt;, leaf_compoundness &lt;dbl&gt;,
-#&gt; #   branch_mass_fraction &lt;dbl&gt;, leaf_N_per_dry_mass &lt;dbl&gt;, seed_mass &lt;dbl&gt;,
-#&gt; #   specific_leaf_area &lt;dbl&gt;, wood_density &lt;dbl&gt;, huber_value &lt;dbl&gt;,
-#&gt; #   fire_response &lt;dbl&gt;, plant_height &lt;dbl&gt;, original_name &lt;chr&gt;</code></pre>
+<pre><code>#&gt; # A tibble: 2,587 × 26
+#&gt;    dataset_id taxon_name       observation_id trait_name value unit  entity_type
+#&gt;    &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+#&gt;  1 ABRS_1981  Acanthocarpus c… 0001           leaf_leng… 15    mm    species    
+#&gt;  2 ABRS_1981  Acanthocarpus c… 0001           leaf_leng… 3     mm    species    
+#&gt;  3 ABRS_1981  Acanthocarpus c… 0001           seed_heig… 3     mm    species    
+#&gt;  4 ABRS_1981  Acanthocarpus c… 0001           seed_leng… 3     mm    species    
+#&gt;  5 ABRS_1981  Acanthocarpus c… 0001           seed_width 3     mm    species    
+#&gt;  6 ABRS_1981  Acanthocarpus h… 0002           seed_leng… 4     mm    species    
+#&gt;  7 ABRS_1981  Acanthocarpus p… 0003           leaf_leng… 3     mm    species    
+#&gt;  8 ABRS_1981  Acanthocarpus r… 0006           seed_heig… 2.5   mm    species    
+#&gt;  9 ABRS_1981  Acanthocarpus r… 0006           seed_leng… 2.5   mm    species    
+#&gt; 10 ABRS_1981  Acanthocarpus r… 0006           seed_width 2.5   mm    species    
+#&gt; # ℹ 2,577 more rows
+#&gt; # ℹ 19 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
+#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
+#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
+#&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;, …</code></pre>
 </div>
 </div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -981,18 +1332,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1024,11 +1364,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1038,8 +1415,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1051,7 +1437,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1095,6 +1603,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1120,6 +1629,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1181,12 +1716,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./spatial_data_example.html" class="pagination-link">
+      <a href="./spatial_data_example.html" class="pagination-link" aria-label="Analysis example: Using AusTraits with spatial data">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./help.html" class="pagination-link">
+      <a href="./help.html" class="pagination-link" aria-label="Getting help">
         <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Getting help</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1197,12 +1732,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</div>
+    <div class="nav-footer-center">
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 
