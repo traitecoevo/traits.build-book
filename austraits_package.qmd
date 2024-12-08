@@ -41,7 +41,7 @@ library(austraits)
 If you are new to using AusTraits we recommend you download the most recent release, while you may want to download an older version to reproduce a previous analysis.
 
 ```{r, load_data, eval = FALSE}
-austraits <- load_austraits(version = "5.0.0", path = "data/austraits")
+austraits <- load_austraits(version = "6.0.0", path = "data/austraits")
 ```
 
 You can check out the different versions of Austraits and their associated DOI by using: 
@@ -65,7 +65,7 @@ Interested in a specific trait? `lookup_trait`, `lookup_location_property` and `
 ```{r}
 lookup_trait(database = austraits, term = "leaf") %>% head()
 
-lookup_location_property(database = austraits, term = "nitrogen") %>% head()
+lookup_location_property(database = austraits, term = "temperature") %>% head()
 
 lookup_context_property(database = austraits, term = "fire") %>% head()
 ```
