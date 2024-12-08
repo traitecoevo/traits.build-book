@@ -2,6 +2,9 @@
 
 A core component of the traits.build database structure is a trait dictionary that clearly defines and describes each trait concept included within the trait database.
 
+A description of the trait dictionary is available at: Wenk, E.H., Sauquet, H., Gallagher, R.V., Brownlee, R., Boettiger, C., Coleman, D., Yang, S., Auld, T., Barrett, R., Brodribb, T., Choat, B., Dun, L., Ellsworth, D., Gosper, C., Guja, L., Jordan, G.J., Le Breton, T., Leigh, A., Lu-Irving, P., Medlyn, B., Nolan, R., Ooi, M., Sommerville, K.D., Vesk, P., White, M., Wright, I.J., Falster, D.S., 2024. The AusTraits plant dictionary. Sci Data 11, 537. [DOI: 10.1038/s41597-024-03368-z](https://doi.org/10.1038/s41597-024-03368-z).
+
+
 Building upon the standard outlined by the ETS [Ecological Trait-data Standard](https://doi.org/10.1111/2041-210X.13288), all numeric traits must have standard units and an allowable range. Categorical traits must have a list of allowable trait values.
 
 Each trait concept must have a complete, explicit definition to eliminate confusion between trait concepts.

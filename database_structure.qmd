@@ -79,7 +79,7 @@ print_schema_element <- function(elements) {
       writeLines()
 
     elements$elements %>%
-      util_list_to_df1() %>%
+      austraits::convert_list_to_df1() %>%
       my_kable_styling() %>%
       writeLines()
   }
@@ -112,7 +112,7 @@ In detail:
 
 ```{r entity_type}
 schema$entity_type$values %>%
-  util_list_to_df1() %>%
+  austraits::convert_list_to_df1() %>%
   my_kable_styling() %>%
   writeLines()
 ```
@@ -158,7 +158,7 @@ Possible values are:
 
 ```{r basis_of_record}
 schema$basis_of_record$values %>%
-  util_list_to_df1() %>%
+  austraits::convert_list_to_df1() %>%
   my_kable_styling() %>%
   writeLines()
 ```
@@ -177,7 +177,7 @@ Possible value types are:
 
 ```{r value_type}
 schema$value_type$values %>%
-  util_list_to_df1() %>%
+  austraits::convert_list_to_df1() %>%
   my_kable_styling() %>%
   writeLines()
 ```
@@ -188,7 +188,7 @@ Possible values are:
 
 ```{r basis_of_value}
 schema$basis_of_value$values %>%
-  util_list_to_df1() %>%
+  austraits::convert_list_to_df1() %>%
   my_kable_styling() %>%
   writeLines()
 ```
