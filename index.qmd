@@ -6,6 +6,9 @@ Imagine you wanted to build a database of traits. You might start by compiling d
 
 `traits.build` is a data standard, R package, and workflow that is desgined to help you build a harmonised, relational database from disparate datasets. The package was first developed to create  [`austraits.build`](https://github.com/traitecoevo/austraits.build/) an, open-source database of Australian plant traits. The code has been transformed into a standalone package allowing anyone to build a relational, tabular database for any taxonomic group and any collection of traits.
 
+A description of this package is available at: Wenk, E., Bal, P., Coleman, D., Gallagher, R., Yang, S., Falster, D., 2024. Traits.build: A data model, workflow and R package for building harmonised ecological trait databases. Ecological Informatics 83, 102773. [DOI: j.ecoinf.2024.102773](https://doi.org/10.1016/j.ecoinf.2024.102773)
+
+
 ## About this manual
 
 This manual is a step-by-step user guide to the `traits.build` standard, R package and workflow manual. Alongside this manual, you may find the following resources useful:
