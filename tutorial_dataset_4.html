@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cd7de1037569933fbb609f06423bd096.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-78faf54a06e50be45dc6d83ab59297a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -543,7 +543,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li>Mutate new columns using <code>custom_R_code</code>.<br>
 </li>
-<li>Manually map newly creted column names in the appropriate part of the <code>metadata.yml</code> file.<br>
+<li>Manually map newly created column names in the appropriate part of the <code>metadata.yml</code> file.<br>
 </li>
 </ol>
 <section id="create-a-metadata-template" class="level4">
@@ -667,6 +667,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Because the column location_name did not exist when you created the metadata table, you filled in <code>location_name = NA</code> during the initial user prompts.</p></li>
 <li><p>You now need to manually fill the newly mutated location name column into the metadata file. Under the <code>dataset</code> section you’ll find the field <code>location_name: unknown</code>. This needs to be replaced with <code>location_name: location_name</code>.<br>
 </p></li>
+</ul>
+<hr>
+</section>
+<section id="fill-in-missing-dataset-level-metadata" class="level4">
+<h4 class="anchored" data-anchor-id="fill-in-missing-dataset-level-metadata"><strong>Fill in missing dataset-level metadata</strong></h4>
+<ul>
+<li>Manually fill in the the information for the fields <code>description</code>, <code>basis_of_record</code>, <code>life_stage</code> and <code>sampling_strategy</code>, copying information from the supplied text file into <code>metadata.yml</code>.</li>
 </ul>
 <hr>
 </section>
