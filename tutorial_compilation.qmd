@@ -4,7 +4,7 @@ This tutorial walks you through an example of creating a `traits.build` database
 
 ## Clone traits.build-template
 
-traits.build-template is a GitHub repository that contains:
+[traits.build-template](https://github.com/traitecoevo/traits.build-template) is a GitHub repository that contains:
 
 1.  Core files required to build your own database:
     -   a sample [trait dictionary](https://github.com/traitecoevo/traits.build-template/blob/master/config/traits.yml)
@@ -28,6 +28,8 @@ traits.build-template is a GitHub repository that contains:
     -   The datasets offer explicit examples of the types of complexities summarised in the [Adding Data](https://github…) vignette.
 
     -   As of September 2023 there are 3 tutorials, but this will expand to 6 tutorials by October 2023.
+
+To clone the repository, either visit the GitHub repository and click on the green `<> Code` tab toward the upper right corner of the [landing page](https://github.com/traitecoevo/traits.build-template), or clone the repository through GitHub desktop, R Studio, or your choice of Git client. 
 
 ## Build the example
 

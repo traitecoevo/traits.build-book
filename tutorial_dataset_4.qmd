@@ -62,7 +62,7 @@ source("R/custom_R_code.R")
 
   1.    Use `metadata_add...` functions where possible.\
   2.    Mutate new columns using `custom_R_code`.\
-  3.    Manually map newly creted column names in the appropriate part of the `metadata.yml` file.\
+  3.    Manually map newly created column names in the appropriate part of the `metadata.yml` file.\
 
 #### **Create a metadata template**
 
@@ -193,6 +193,12 @@ Notes:\
 -    Because the column location_name did not exist when you created the metadata table, you filled in `location_name = NA` during the initial user prompts.
 
 -   You now need to manually fill the newly mutated location name column into the metadata file. Under the `dataset` section you'll find the field `location_name: unknown`. This needs to be replaced with `location_name: location_name`.\
+
+------------------------------------------------------------------------
+
+#### **Fill in missing dataset-level metadata**
+
+-   Manually fill in the the information for the fields `description`, `basis_of_record`, `life_stage` and `sampling_strategy`, copying information from the supplied text file into `metadata.yml`.
 
 ------------------------------------------------------------------------
 
