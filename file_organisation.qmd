@@ -34,7 +34,7 @@ We strongly suggest you create a standalone folder for your repository, e.g. `au
 
 ## Repository structure
 
-The main directory for the [`austraits.build`](https://github.com/traitecoevo/austraits.build/) repository contains the following files and folders, with purpose as indicated. Not all of these files are required for a compilation, some are used for extra features such as website. They are included here for completeness.
+The main directory for the [`austraits.build`](https://github.com/traitecoevo/austraits.build/) repository contains the following files and folders, with purpose as indicated. Not all of these files are required for a compilation, some are used for extra features such as building a repo website. They are included here for completeness.
 
 ```{r, eval=FALSE}
 dir() %>%

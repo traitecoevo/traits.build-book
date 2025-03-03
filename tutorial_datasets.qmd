@@ -8,7 +8,9 @@ Prior to beginning these tutorials, ensure you have:
 ```
 remotes::install_github("traitecoevo/traits.build")
 ```
-2.  Cloned the traitecoevo/traits.build-template repository.
+2.  Cloned the [traitecoevo/traits.build-template repository](https://github.com/traitecoevo/traits.build-template).
+
+-  Click on the green `<> Code` tab toward the upper right corner of `https://github.com/traitecoevo/traits.build-template`.
 
 -  Click on the green `<> Code` tab toward the upper right corner of `https://github.com/traitecoevo/traits.build-template`.
 

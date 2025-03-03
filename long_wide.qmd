@@ -12,4 +12,4 @@ The traits.build output tables (traits, locations, contexts, etc.) are each in `
 
 ### Pivotting between long and wide
 
-Two {tidyr} functions, `pivot_longer` and `pivot_wider` make it quick to convert data from `long` to `wide` format in R. The [AusTraits tutorial](AusTraits_tutorial.html) offers multiple examples for how these functions can be used to pivot the various relational tables in a traits.build database, inuding the [core traits table](AusTraits_tutorial.html#pivotting_datasets).
+Two {tidyr} functions, `pivot_longer` and `pivot_wider` make it quick to convert data from `long` to `wide` format in R. The [AusTraits tutorial](AusTraits_tutorial.html) offers multiple examples for how these functions can be used to pivot the various relational tables in a traits.build database, including the [core traits table](AusTraits_tutorial.html#pivotting_datasets).
