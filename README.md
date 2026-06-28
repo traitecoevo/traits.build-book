@@ -12,6 +12,18 @@ This repository is the [`traits.build`](https://github.com/traitecoevo/traits.bu
 
 The manual is implemented as a typical [`quarto book`](https://quarto.org/docs/books/) project with a single `_quarto.yml` file at the top level and one Quarto source file for each chapter. End users are encouraged to read the rendered output at <https://traitecoevo.github.io/traits.build-book/>.
 
+## AusTraits family
+
+`traits.build-book` is part of the **AusTraits family** of packages maintained by the
+[AusTraits](https://austraits.org) team. See **[austraits.org](https://austraits.org)** for the
+project, the data, and the people behind it.
+
+Contributing? Issues across the family are tracked on one board,
+[AusTraits #9](https://github.com/orgs/traitecoevo/projects/9), and new issues are auto-added. Please
+read the [issue & labelling guide](https://github.com/traitecoevo/austraits-meta/blob/main/governance/issue-guide.md)
+in [`austraits-meta`](https://github.com/traitecoevo/austraits-meta) — the family's cross-package
+knowledge and governance hub — before filing.
+
 ## Code of conduct
 
 Please note that the `traits.build` project adheres to a [Contributor Code of Conduct, as specified in austraits.build](https://github.com/traitecoevo/austraits.build/blob/develop/.github/CODE_OF_CONDUCT.md). By contributing to this project you agree to abide by its terms.
