@@ -10,7 +10,7 @@ Before you begin this tutorial, ensure you have installed traits.build, cloned t
 
 -   Learn how to [build a metadata.yml file](#build_metadata) for a dataset.
 
--   Learn how to [merge a new dataset](#build_pipline) into a `traits.build` database.
+-   Learn how to [merge a new dataset](#build_pipeline) into a `traits.build` database.
 
 ### New functions introduced
 

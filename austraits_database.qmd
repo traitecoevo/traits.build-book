@@ -2,7 +2,7 @@
 
 [AusTraits](https://github.com/traitecoevo/austraits.build), Australia's largest plant trait database, was the first trait database to be built using the traits.build workflow.
 
-## AusTraits data records
+## AusTraits data records {#plant_database}
 
 AusTraits includes (see the [latest release on Zenodo](https://doi.org/10.5281/zenodo.3568417) for current totals):
 
@@ -16,7 +16,7 @@ AusTraits includes (see the [latest release on Zenodo](https://doi.org/10.5281/z
 
 -   30,000 Australian plant taxa 
 
-## Accessing AusTraits data
+## Accessing AusTraits data {#access_data}
 
 There are multiple ways to access and manipulate AusTraits data.\
 

@@ -214,7 +214,7 @@ A collection of `join_` functions within `austraits` join the ancillary tables t
 | taxonomic_updates | original name (name submitted), aligned name (typos removed; standardised syntax), identifiers for aligned name                                 | dataset_id, taxon_name, original_name                                                                                                                                                  |
 | contributors      | people who contributed data, including their ORCIDs, affiliations, roles                                                                        | dataset_id                                                                                                                                                                             |
 
-## Exploring AusTraits
+## Exploring AusTraits {#austraits_functions}
 
 With `r nrow(austraits$traits)` rows of trait values in the main traits table, knowing how to explore the contents is essential.
 
@@ -230,7 +230,7 @@ Function categories include:
 
 -   [**join functions**](#join_functions): These functions allow columns from the relational tables to be joined to the core traits table.
 
--   [**pivot functions**](#pivot_functions): These functions allow the traits table to be pivoted to wide format.
+-   [**pivot functions**](#pivotting_datasets): These functions allow the traits table to be pivoted to wide format.
 
 -   [**plotting functions**](#plotting_functions): These functions offer a means of rapidly visualising AusTraits data, either plotting collection locations on a map of Australia or plotting trait values by dataset.
 
@@ -915,7 +915,7 @@ austraits::plot_locations(data, "taxon_name")     # actually 4 taxa, because of 
 austraits::plot_locations(data, "dataset_id")     # 1 plot for each dataset_id
 ```
 
-### More complex workflows -- some examples
+### More complex workflows -- some examples {#sample_analyses}
 
 #### An example looking at trait-climate gradients
 

@@ -478,7 +478,7 @@ data %>%
 
 4.  **Removing duplicate values across datasets**
 
-Values that were sourced from a different study need to be filtered out. See [Duplicates between studies](#duplicates_between_studies) below -functions to automate this process are in progress.
+Values that were sourced from a different study need to be filtered out. See [Duplicates between studies](data_common_issues.html#duplicates) -- functions to automate this process are in progress.
 
 5.  **Replacing "missing values" with NA's**
 
