@@ -2,10 +2,6 @@
 
 This chapter explains how to ask for help. Questions can range from [detailed troubleshooting](data_common_issues.html) to [general advice](#general_advice). To ensure a constructive dialogue, please read this entire page before reaching out. Thank you for respecting the time and effort it takes to provide one-on-one support.
 
-Links to 
-
-- [troubleshooting](troubleshooting.html)
-
 :::{.callout-note}
 
 ## Summary {#general_advice}
@@ -70,8 +66,8 @@ There are many ways to reach out.
 
 To contact the maintainer directly, please post to the relevant public [GitHub Discussions](https://github.com/features/discussions) page of the package.^[You may need to create a free [GitHub](https://github.com/) account, but the process is straightforward.] Examples:
 
-* `traits.build`: <https://github.com/ropensci/targets/discussions>
-* `austraits`: <https://github.com/ropensci/tarchetypes/discussions>
+* `traits.build`: <https://github.com/traitecoevo/traits.build/discussions>
+* `austraits`: <https://github.com/traitecoevo/austraits/discussions>
 
 
 GitHub makes it easy to search for and link to public discussions. Not only does this help users solve their own problems, it also helps the maintainer avoid repetition. So please use discussions instead of private emails, instant messages, or mentions on social media.

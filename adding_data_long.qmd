@@ -35,10 +35,9 @@ Then come back to this document for details and unusual dataset circumstances th
 
 Other chapters you may want to read include:
 
--   an [overview of `traits.build`](overview.html),
--   the instructions provided to [data contributors](contributing_data.html),
+-   an [overview of `traits.build`](traits_build.html),
 -   the [structure of a compiled `traits.build` database](database_structure.html),
--   the [structure of the raw data files](file_structure.html)
+-   the [structure of the raw data files](file_organisation.html)
 -   the [overview for adding data](adding_data_brief.html).
 
 ## Getting started

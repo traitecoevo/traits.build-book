@@ -25,9 +25,9 @@ This tutorial walks you through an example of creating a `traits.build` database
 
     -   By working through the dataset tutorials, you are progressively introduced to how the complexities of ecological datasets can be documented within the `traits.build` structure
 
-    -   The datasets offer explicit examples of the types of complexities summarised in the [Adding Data](https://github…) vignette.
+    -   The datasets offer explicit examples of the types of complexities summarised in the [Adding datasets, a lengthy guide](adding_data_long.html) chapter.
 
-    -   As of September 2023 there are 3 tutorials, but this will expand to 6 tutorials by October 2023.
+    -   There are seven dataset tutorials, progressing from simple to more complex dataset structures.
 
 To clone the repository, either visit the GitHub repository and click on the green `<> Code` tab toward the upper right corner of the [landing page](https://github.com/traitecoevo/traits.build-template), or clone the repository through GitHub desktop, R Studio, or your choice of Git client. 
 
