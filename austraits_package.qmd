@@ -240,6 +240,7 @@ data_leaf %>% flatten_database(
                   location = "all",
                   context = "all",
                   contributors = "all",
+                  identifiers = "all",
                   taxonomy = c("family"),
                   taxonomic_updates = c("aligned_name"),
                   methods = c("methods"))

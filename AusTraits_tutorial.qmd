@@ -673,6 +673,7 @@ flat_database <- austraits %>% flatten_database(
     location = "all",
     context = "sampling_season",
     contributors = c("last_name", "first_name", "ORCID"),
+    identifiers = "all",
     taxonomy = c("family", "establishment_means"),
     taxonomic_updates = "aligned_name",
     methods = "methods"
