@@ -30,4 +30,4 @@ Please note that the `traits.build` project adheres to a [Contributor Code of Co
 
 ## Acknowledgements
 
-This manual arose from code within the AusTraits project at <https://github.com/traitecoevo/austraits.build>. The AusTraits project received investment (<https://doi.org/10.47486/DP720>) from the Australian Research Data Commons (ARDC). The ARDC is funded by the National Collaborative Research Infrastructure Strategy (NCRIS).
+This manual arose from code within the AusTraits project at <https://github.com/traitecoevo/austraits.build>. AusTraits is a co-investment partnership with the [Australian Research Data Commons](https://ardc.edu.au/) (ARDC) through the Planet Research Data Commons ([DOI: 10.3565/nyk4-4r91](https://doi.org/10.3565/nyk4-4r91)). The ARDC is enabled by the Australian Government's [National Collaborative Research Infrastructure Strategy](https://www.education.gov.au/ncris) (NCRIS). This work received investment ([DP720](https://doi.org/10.47486/DP720)) from the ARDC.

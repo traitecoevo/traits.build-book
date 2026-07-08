@@ -21,7 +21,7 @@ We developed these tools for the to create  [AusTraits](https://github.com/trait
 Along the way, we hdeveloped a suite of tools:
 
 - [traits.build data standard](database_standard.html): a relational database structure that fully documents the contextual data essential to interpreting ecological data.
-- [traits.build R package](traits.build.html): a set of functions that enable users to create a harmonised database from disparate datasets.
+- [traits.build R package](traits_build.html): a set of functions that enable users to create a harmonised database from disparate datasets.
 - [APD](http://w3id.org/APD/): The AusTraits Plant Dictionary, with  detailed descriptions for more than 500 plant trait concepts.  
 - [APCalign](https://github.com/traitecoevo/APCalign): an R package to align and update Australian plant taxon name strings with the Australian Plant Census.
 
