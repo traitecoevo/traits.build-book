@@ -108,8 +108,8 @@ subset_data$traits %>% head()
 Filtering **multiple studies by two different lead authors**  and assigning it to an object
 
 ```{r, extract_studies}
-subset_multi_studies <- extract_dataset(database = austraits, 
-                                        dataset_id = c("Thompson_2001","Ilic_2000"))
+subset_multi_studies <- extract_dataset(database = austraits,
+                                        dataset_id = c("Westoby_2014","Wright_2019"))
  
 subset_multi_studies$traits %>% distinct(dataset_id)
 ```
