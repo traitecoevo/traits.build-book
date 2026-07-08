@@ -45,7 +45,7 @@ You can then rebuild the database, including the new dataset.
 
 The best place to get started learning how to add datasets is to work through a series of 7 [tutorials](tutorial_dataset_1.html). Each introduces you to specific [traits.build functions](https://traitecoevo.github.io/traits.build/reference/index.html) designed to facilitate the addition of dataset metadata or the metadata formats for specific types of datasets. 
 
-The chapter [Adding datasets, a lengthy guide](tutorial_data_long.html) then offers a comprehensive guide to generating the `data.csv` and `metadata.yml` files and error-checking your results. This document is likely overwhelming until you are familiar with the traits.build workflow and metadata format.
+The chapter [Adding datasets, a lengthy guide](adding_data_long.html) then offers a comprehensive guide to generating the `data.csv` and `metadata.yml` files and error-checking your results. This document is likely overwhelming until you are familiar with the traits.build workflow and metadata format.
 
 It may also help to download one of the two [sample datasets](https://github.com/traitecoevo/traits.build-template/tree/master/data) to use as a template for your own files and a guide on required content. Or alteratively, to see a greater diversity of dataset styles, look at the [austraits.build repository](https://github.com/traitecoevo/austraits.build/tree/master/data)
 

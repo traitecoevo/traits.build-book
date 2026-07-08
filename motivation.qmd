@@ -26,3 +26,21 @@ Along the way, we hdeveloped a suite of tools:
 - [APCalign](https://github.com/traitecoevo/APCalign): an R package to align and update Australian plant taxon name strings with the Australian Plant Census.
 
 The tools are open-source, so that users can apply them to suit their needs and without cost.
+
+## Where `traits.build` fits: the AusTraits family
+
+`traits.build` is one piece of a connected **family** of open-source tools, datasets, and
+vocabularies. Each does one job and hands off to the next: a controlled vocabulary (**APD**) defines
+the traits; a taxonomy tool (**APCalign**) standardises the names; the **`traits.build`** workflow
+engine harmonises contributed data into a documented, relational database; that engine is used to
+compile **`austraits.build`** (the AusTraits dataset); and the **`austraits`** R package plus the web
+portal and API let anyone access the released data.
+
+A useful distinction: the **data flow** (APD + APCalign + source data → `traits.build` →
+`austraits.build` → Zenodo → `austraits` package) is not the same as the R-package dependency graph.
+`traits.build` is the engine that assembles AusTraits, but as an R package it also draws on a few
+helpers from `austraits`.
+
+Rather than repeat the details here, see the [AusTraits family page](https://austraits.org/family.html)
+for a diagram of how the pieces connect and links to each tool. This manual covers the middle of that
+picture: the `traits.build` data standard, R package, and workflow.

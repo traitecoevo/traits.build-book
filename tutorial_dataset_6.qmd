@@ -10,7 +10,7 @@ It is also recommended that you first work through some of the earlier tutorials
 
 ### Goals
 
--   Learn how to add [repeat measurement id's](#repeat_measurements_ids) 
+-   Learn how to add repeat measurement id's 
 
 -   Learn how to add [individual_id's](#individual_id) 
 

@@ -41,7 +41,7 @@ library(austraits)
 If you are new to using AusTraits we recommend you download the most recent release, while you may want to download an older version to reproduce a previous analysis.
 
 ```{r, load_data, eval = FALSE}
-austraits <- load_austraits(version = "6.0.0", path = "data/austraits")
+austraits <- load_austraits(version = "5.0.0", path = "data/austraits")
 ```
 
 You can check out the different versions of Austraits and their associated DOI by using: 
