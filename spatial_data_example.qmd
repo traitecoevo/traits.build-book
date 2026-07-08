@@ -47,7 +47,8 @@ leaf_mass_sample <- leaf_mass %>% dplyr::filter(taxon_name %in% sample_names)
 Plot raincloud plot of LMA for the six species
 
 ```{r, eval = F}
-# install.packages(c("ggdist", "gghalves", "ggtext"))
+# install.packages(c("ggdist", "ggtext"))
+# remotes::install_github("erocoar/gghalves")
 # remotes::install_github("olihawkins/pilot")
 library(ggplot2)
 library(ggdist)
