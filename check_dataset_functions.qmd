@@ -85,9 +85,9 @@ dataset_check_taxonomic_updates <- function(taxon_list, database, dataset) {
 
 **output**: Table of trait measurements that are preventing the dataset from pivoting
 
-One of the automated tests is the function `dataset_test()` confirms the dataset can pivot from `longer` to `wider`. This tests is confirming that each row in the traits table has a unique combination of a particular 7 columns: `dataset_id`, `trait_name`, `observation_id`, `value_type`, `repeat_measurements_id`, `method_id`, `method_context_id`. When a dataset does not pivot wider, it is generally because `observation_id` has not been correctly parsed during the dataset processing. `observation_id` is an integral counter within a dataset that represents unique combinations of `taxon_name`, `population_id`, `individual_id`, `temporal_context_id`, `entity_type`, `life_stage`, `source_id`, `entity_context_id`, `basis_of_record`, `collection_date`, `original_name`. If any of these 11 pieces of metadata are incorrectly encoded in the metadata file, two distinct `observations` of traits might be assigned identical `observation_id`'s. The most likely culprits are forgetting to map in a context property or a column with `source_id`'s.
+One of the automated tests run by `dataset_test()` confirms the dataset can pivot from `longer` to `wider`. This test confirms that each row in the traits table has a unique combination of a particular 7 columns: `dataset_id`, `trait_name`, `observation_id`, `value_type`, `repeat_measurements_id`, `method_id`, `method_context_id`. When a dataset does not pivot wider, it is generally because `observation_id` has not been correctly parsed during dataset processing. `observation_id` is an integral counter within a dataset that represents unique combinations of 11 identity fields: `taxon_name`, `population_id`, `individual_id`, `temporal_context_id`, `entity_type`, `life_stage`, `source_id`, `entity_context_id`, `basis_of_record`, `collection_date`, and `original_name` (see the [glossary](glossary.html#observations) for how these combine). If any of these fields is incorrectly encoded in the metadata file, two distinct `observations` might be assigned identical `observation_id`'s. The most likely culprits are forgetting to map in a context property or a column of `source_id`'s.
 
-Overall, there are 17 separate columns that could be causing the `db_traits_pivot_wider()` test from `dataset_test()` to fail, making it difficult to discern where to trouble shoot. This function outputs a list of trait measurements that is causing the pivot test to fail, allowing you to hone in on the source of the problem.
+Because the pivot combination and the fields that feed `observation_id` between them span many columns, it can be difficult to discern where to troubleshoot. This function outputs a list of the trait measurements that are causing the pivot test to fail, allowing you to hone in on the source of the problem.
 
 ```{r, eval=FALSE, echo=TRUE}
 dataset_check_not_pivoting <- function(database, dataset) {
@@ -240,17 +240,26 @@ dataset_check_outlier_by_genus <- function(database, dataset, trait, multiplier)
 
 **output**: Table of suspected duplicates across datasets.
 
-This function still needs to be written. AusTraits team members have developed trait-specific and dataset-specific code in the past, but extrapolating it into a generalised function is difficult, as it requires assumptions about how many significant figures to retain when comparing trait values and for traits where all plants display a narrow range of values (such as nutrient contents), it is likely to mistakenly flag values as duplicates. The core purpose of this function will be to identify clusters of identical trait measurements that have been submitted to the database twice, either because two collaborators submitted the same dataset or because a dataset was contributed both by the data collector and as part of a broader compilation. For AusTraits, the function should identify "legitimate" duplicates, where information was extracted for the same taxon from different state floras; these will likely include mostly identical trait values.
+*This is a planned check, not yet available as a generalised function.* Its purpose is to identify
+clusters of identical trait measurements that have been submitted to the database twice — for example
+when two collaborators contribute the same dataset, or when a dataset arrives both from its collector
+and as part of a broader compilation.
 
-If you would like to help write such a function for use with `{traits.build}` databases, please leave an issue [here](https://github.com/traitecoevo/traits.build/issues/new), then flag that you are working on it.
+A robust general implementation is genuinely difficult. AusTraits team members have written
+trait-specific and dataset-specific code for this in the past, but generalising it requires assumptions
+that don't hold across all traits: how many significant figures to compare, and how to avoid
+false positives for traits where all taxa display a narrow range of values (such as nutrient contents),
+where near-identical values are expected rather than suspicious. A further complication is that some
+cross-dataset duplication is *legitimate* — for AusTraits, the same taxon's information is often
+extracted from several state floras, producing mostly identical trait values that should be retained.
 
-```{r, eval=FALSE, echo=TRUE}
-dataset_check_duplicates_across_datasets <- function(database, dataset, trait) {
+Until a general function exists, detect cross-dataset duplicates on a case-by-case basis, comparing
+values for the trait and taxa of interest across `dataset_id`s and using your judgement about which
+overlaps are genuine resubmissions.
 
-  ## TO BE WRITTEN
-
-}
-```
+If you would like to help develop such a function for `{traits.build}` databases, please
+[open an issue](https://github.com/traitecoevo/traits.build/issues/new) and flag that you are working
+on it.
 
 ### dataset_check_duplicates_within_dataset
 

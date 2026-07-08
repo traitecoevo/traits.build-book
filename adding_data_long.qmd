@@ -27,7 +27,7 @@ schema <- get_schema()
 definitions <- austraits$definitions
 ```
 
-This vignette is an exhaustive reference for adding datasets to a traits.build database.
+This chapter is an exhaustive reference for adding datasets to a traits.build database.
 
 If you are embarking on building a new database using the `traits.build` standard a better place to get started are 7 [tutorials](tutorial_dataset_1.html).
 
@@ -73,6 +73,34 @@ The preferred format for `dataset_id` is the surname of the first author of any 
 ## Constructing the `data.csv` file {#csv_file}
 
 The trait data for each study (`dataset_id`) must be in a single table, `data.csv`. The `data.csv` file can either be in a wide format (1 column for each trait, with the various `trait names` as the column headers) or long format (a single column for all `trait values` and an additional column for `trait name`.
+
+### Good practices when collecting data {#good_data_collection}
+
+Much of the effort of adding a dataset disappears if the data were recorded tidily in the first place.
+If you are collecting data yourself, or advising students setting up spreadsheets for data entry, a
+few habits make a dataset far easier to bring into `traits.build` (and to reuse generally):
+
+-   **Use consistent names across every table.** A location or taxon should be spelled and formatted
+    identically everywhere it appears — in the trait table, the location table, and any notes. If
+    field sheets use short codes or abbreviations, keep a small **lookup table** that maps each code to
+    its full name, rather than scattering variants that later have to be reconciled by hand.
+-   **Keep taxon names in one place and one form.** Record the name as identified, and avoid mixing
+    authorities, abbreviations, and misspellings; taxonomic alignment is much smoother when the
+    original names are internally consistent.
+-   **Record core metadata explicitly**, either as a separate table or as dedicated columns — who
+    collected the data, where, when, and under what conditions. Don't leave this implicit in a file
+    name or a colleague's memory.
+-   **Always capture dates.** Include the collection date (and, where relevant, the analysis date) in
+    the data spreadsheet itself. `yyyy-mm-dd` is ideal, but any consistent format can be parsed later.
+-   **Record units unambiguously.** Put the unit in the trait's column header (e.g.
+    `leaf_area_mm2`) or in a separate table that documents the unit for each trait — never leave units
+    to be guessed. Keep one measurement per cell.
+-   **Keep the rawest values possible.** Record individual measurements rather than pre-computed means
+    where you can, and note the number of replicates. Summarising is easy later; recovering lost detail
+    is not.
+
+These conventions map directly onto the `data.csv` structure below, so data collected this way needs
+little reshaping before it can be compiled.
 
 ### Required columns
 
@@ -663,9 +691,9 @@ The `dataset` section includes fields that are:
 
 -   **description:** 1-2 sentence description of the study's goals. The abstract of a manuscript usually includes some good sentences/phrases to borrow.  
 
--   **basis_of_record:** Basis of record can be coded in as a fixed value for an entire dataset, by trait, by location or read in from a column in the `data.csv` file. If it is being read in from a column list the column name in the field, otherwise input the fixed value. Allowable values are: `field`, `field_experiment`, `captive_cultivated`, `lab`, `preserved_specimen`, and `literature`. See the [database structure vignette](database_structure.html#life_stage) for definitions of these accepted basis_of_record values. If fixed values are specified for both the entire dataset under `metadata[["dataset"]]` and for specific locations/traits under `metadata[["locations"]]` or `metadata[["traits"]]`, the location/trait value overrides that entered under `metadata[["dataset"]]`.  
+-   **basis_of_record:** Basis of record can be coded in as a fixed value for an entire dataset, by trait, by location or read in from a column in the `data.csv` file. If it is being read in from a column list the column name in the field, otherwise input the fixed value. Allowable values are: `field`, `field_experiment`, `captive_cultivated`, `lab`, `preserved_specimen`, and `literature`. See the [database structure chapter](database_structure.html#life_stage) for definitions of these accepted basis_of_record values. If fixed values are specified for both the entire dataset under `metadata[["dataset"]]` and for specific locations/traits under `metadata[["locations"]]` or `metadata[["traits"]]`, the location/trait value overrides that entered under `metadata[["dataset"]]`.  
  
--   **life_stage:** Life stage can be coded in as a fixed value for an entire dataset, by trait, by location or read in from a column in the `data.csv` file. If it is being read in from a column list the column name in the field, otherwise input the fixed value. Allowable values are: `adult`, `sapling`, `seedling`, `juvenile`. See the [database structure vignette](database_structure.html#life_stage) for definitions of these accepted basis_of_record values. If fixed values are specified for both the entire dataset under `metadata[["dataset"]]` and for specific locations/traits under `metadata[["locations"]]` or `metadata[["traits"]]`, the location/trait value overrides that entered under `metadata[["dataset"]]`.  
+-   **life_stage:** Life stage can be coded in as a fixed value for an entire dataset, by trait, by location or read in from a column in the `data.csv` file. If it is being read in from a column list the column name in the field, otherwise input the fixed value. Allowable values are: `adult`, `sapling`, `seedling`, `juvenile`. See the [database structure chapter](database_structure.html#life_stage) for definitions of these accepted basis_of_record values. If fixed values are specified for both the entire dataset under `metadata[["dataset"]]` and for specific locations/traits under `metadata[["locations"]]` or `metadata[["traits"]]`, the location/trait value overrides that entered under `metadata[["dataset"]]`.  
 
 -   **sampling_strategy:** Often a quite long description of the sampling strategy, extracted verbatim from a manuscript whenever possible.  
 
@@ -898,14 +926,14 @@ The trait details then need to be filled in manually.
 
 -   **trait_name**: This is the trait name of the appropriate trait concept for the datasets `config/traits.yml`. For currently unsupported traits, leave this as `.na` but then fill in the rest of the data and flag this study as having a potential new trait concept. Then in the future, if an appropriate trait concept is added to the `traits.yml` file, the data can be read into the database by simply replacing the `.na` with a trait name. Each database will have their own criteria/rules for adding traits to the trait dictionary, and likely rules that evolve as a trait database grows. In AusTraits, if no appropriate trait concept exists in the trait dictionary, a new trait must be defined within the accompanying AusTraits Plant Dictionary and should only be added if it is clearly a distinct trait concept, can be explicitly defined, and there exists sufficient trait data that the measurements have comparative value.
 
--   **entity_type**: Entity type indicates "what" is being observed for the trait measurements - as in the organismal-level to which the trait measurements apply. As such, `entity_type` can be `individual`, `population`, `species`, `genus`, `family` or `order`. Metapopulation-level measurements are coded as `population` and infraspecific taxon-level measurements are coded as `species`. See the [database structure vignette](database_structure.html#entity_type) for definitions of these accepted `entity_type` values. 
+-   **entity_type**: Entity type indicates "what" is being observed for the trait measurements - as in the organismal-level to which the trait measurements apply. As such, `entity_type` can be `individual`, `population`, `species`, `genus`, `family` or `order`. Metapopulation-level measurements are coded as `population` and infraspecific taxon-level measurements are coded as `species`. See the [database structure chapter](database_structure.html#entity_type) for definitions of these accepted `entity_type` values. 
 
   **Note**:  
   -   `entity_type` is about the "organismal-level" to which the trait measurement refers; this is separate from the taxonomic resolution of the entity's name.  
 
--   **value_type**: Value type indicates the statistical nature of the trait value recorded. Allowable value types are `mean`, `minimum`, `maximum`, `mode`, `range`, `raw`, and `bin`. See the [database structure vignette](database_structure.html#value_types) for definitions of these accepted value types. All categorical traits are generally scored as being a `mode`, the most commonly observed value. Note that for values that are `bins`, the two numbers are separated by a double-hyphen, `1 -- 10`.
+-   **value_type**: Value type indicates the statistical nature of the trait value recorded. Allowable value types are `mean`, `minimum`, `maximum`, `mode`, `range`, `raw`, and `bin`. See the [database structure chapter](database_structure.html#value_types) for definitions of these accepted value types. All categorical traits are generally scored as being a `mode`, the most commonly observed value. Note that for values that are `bins`, the two numbers are separated by a double-hyphen, `1 -- 10`.
 
--   **basis_of_value**: Basis of value indicates how a value was determined. Allowable terms are `measurement`, `expert_score`, `model_derived`, and `literature`. See the [database structure vignette](database_structure.html#value_types) for definitions of these accepted `basis_of_value` values, but most categorical traits measurements are values that have been scored by an expert (`expert_score`) and most numeric trait values are `measurements`.
+-   **basis_of_value**: Basis of value indicates how a value was determined. Allowable terms are `measurement`, `expert_score`, `model_derived`, and `literature`. See the [database structure chapter](database_structure.html#value_types) for definitions of these accepted `basis_of_value` values, but most categorical traits measurements are values that have been scored by an expert (`expert_score`) and most numeric trait values are `measurements`.
 
 -   **replicates**: Fill in with the appropriate number of measurements that comprise each value.
 
@@ -1199,7 +1227,7 @@ traits.build::build_setup_pipeline(method = "remake", database_name = "database"
 austraits <- remake::make(current_study)
 ```
 
-To continue on to [building the dataset report](#build_report), you need to rebuild the entire database:
+To continue on to [building the dataset report](#report), you need to rebuild the entire database:
 
 ```{r, eval=FALSE, echo=TRUE}
 traits.build::build_setup_pipeline(method = "remake", database_name = "database")
@@ -1222,7 +1250,7 @@ Possible reasons for excluding measurements include:
 
 -   **Trait name not in trait dictionary**: `trait_name` not listed in `config/traits.yml` as a trait concept. Double check you have used the correct spelling/exact syntax for the `trait_name`, adding a new `trait concept` to the `traits.yml` file if appropriate. If there is a trait that is currently unsupported by AusTraits, leave `trait_name: .na`. Do not fill in an arbitrary name.
 
--   **Unsupported trait value**: This error, referencing categorical traits, means that the `value` for a trait is not included in the list of supported trait values for that trait in `config/traits.yml`. See [adding many substitutions](#adding_many_substitutions) if there are many trait values requiring substitutions. If appropriate, add another trait value to the `traits.yml` file, but confer with other curators, as the lists of trait values have been carefully agreed upon through workshop sessions.
+-   **Unsupported trait value**: This error, referencing categorical traits, means that the `value` for a trait is not included in the list of supported trait values for that trait in `config/traits.yml`. See [adding many substitutions](#add_substitutions) if there are many trait values requiring substitutions. If appropriate, add another trait value to the `traits.yml` file, but confer with other curators, as the lists of trait values have been carefully agreed upon through workshop sessions.
 
 -   **Value does not convert to numeric**: Is there a strange character in the file preventing easy conversion? This error is rare and generally justified.
 

@@ -1,21 +1,144 @@
-# Creating a dictionary
+# Creating a trait dictionary
 
-All with data within a trait database must be including in an accompanying trait dictionary.
+Every database built with `traits.build` needs a **trait dictionary** — the file `config/traits.yml` —
+that defines each trait the database is allowed to hold. Data for a trait can only be compiled if that
+trait is defined here, so the dictionary is both a specification and a gatekeeper. This chapter
+explains what goes in `traits.yml`, how to write it as valid YAML, and the formatting pitfalls that
+most often stop a database from building.
 
-Following the Ecological Trait-data Standard, [ETS](https://doi.org/10.1111/2041-210X.13288):
+## What a trait definition must contain
 
--   all traits must have a label and definition
+Following the Ecological Trait-data Standard,
+[ETS](https://doi.org/10.1111/2041-210X.13288), every trait must have:
 
--   all traits must be defined as being either `type: numeric` or `type: categorical`
+- a **label** and a **definition**;
+- a **type**, either `numeric` or `categorical`;
+- for **numeric** traits, standard **units** and an allowable **range** (minimum and maximum);
+- for **categorical** traits, a list of **allowable values**, each with its own definition.
 
--   numeric traits must have standard units and an allowable range
+Creating a dictionary that merely *builds* is quick — a brief definition plus the required
+units/range or values. But drafting *meaningful, reusable* definitions takes more care: the concepts
+and categorical values should be explicit enough to eliminate confusion between traits and, ideally,
+agreed upon by the broader research community so the database can be reused and supported by others.
 
--   categorical traits must have a list of allowable trait values.
+For AusTraits, this dictionary has been formalised into a standalone output, the AusTraits Plant
+Dictionary (APD), available in both machine-readable and human-friendly outputs through the
+[w3id.org/APD](https://w3id.org/APD) namespace. The traits in the APD have undergone rigorous internal
+and external review to ensure the concepts and definitions are complete and robust, as described in
+[the APD paper](https://doi.org/10.1101/2023.06.16.545047).
 
-Examples are available [here](dictionary.html), while the complete AusTraits dictionary is available [here](https://github.com/traitecoevo/austraits.build/tree/develop/config).
+Browse [example definitions](dictionary.html) rendered from a live dictionary, and see the complete
+[AusTraits dictionary](https://github.com/traitecoevo/austraits.build/tree/develop/config) for a
+large, worked example.
 
-The trait dictionary is compiled in a simple yml format, allowing trait definitions to be easily added and edited.  
+## The structure of `traits.yml`
 
-Creating a trait dictionary that allows a database to build is quick; it simply requires filling in a brief definition and the required units/range/trait value fields. However, drafting meaningful, reusable trait definitions and categorical trait values requires complete, explicit definitions to eliminate confusion between trait concepts. The definitions and trait values should be agreed upon by the broader research community to allow the database to be reused by other researchers and supported by the research community. 
+The dictionary is a [YAML](yaml.html) file — a plain-text format where structure is expressed through
+**indentation**. Traits are listed under a top-level `traits` key, each keyed by its trait name.
 
-For instance, to achieve these broader goals, the trait dictionary used for the AusTraits database has been formalised into a standalone output, the AusTraits Plant Dictionary (APD), available in both machine-readable and humman-friendly outputs through the [w3id.org/APD](https://w3id.org/APD) namespace. The traits included in the APD have undergone a rigorous internal and external review process to ensure the trait concepts and their definitions are complete and robust, as described in the [The AusTraits Plant Dictionary paper](doi.org/10.1101/2023.06.16.545047).
+A **numeric** trait looks like this:
+
+```yaml
+traits:
+  leaf_mass_per_area:
+    label: Leaf mass per area
+    description: The dry mass of a leaf per unit leaf area.
+    type: numeric
+    units: g/m2
+    allowed_values_min: 1
+    allowed_values_max: 3000
+```
+
+A **categorical** trait lists its allowable values, each with a definition:
+
+```yaml
+  plant_growth_form:
+    label: Plant growth form
+    description: The characteristic growth form of a plant.
+    type: categorical
+    allowed_values_levels:
+      tree: A woody plant, usually with a single main stem, generally more than 3 m tall.
+      shrub: A woody plant, usually with multiple stems, generally less than 3 m tall.
+      graminoid: A grass or grass-like herbaceous plant.
+      herb: A non-woody vascular plant.
+```
+
+To add a new trait, copy an existing block of the same type, rename it, and edit the label,
+description, units/range or values. The exact field names required are validated when the database is
+built — check them against the [database structure](database_structure.html) chapter and the AusTraits
+dictionary if a build fails.
+
+::: {.callout-tip}
+Convert an existing dictionary between the compact `traits.yml` form and a spreadsheet is a common
+request (for example, editing values in Excel then regenerating the YAML). The AusTraits team have
+explored generating `traits.yml` from a pair of CSV files — one of traits, one of categorical values
+and their definitions — reusing code developed for the APD. If you need this, check the
+[`traits.build` issues](https://github.com/traitecoevo/traits.build/issues) for the current status.
+:::
+
+## YAML formatting pitfalls {#yaml-pitfalls}
+
+Because YAML carries all of its meaning in indentation and punctuation, small typographic slips break
+the file in ways that R users — trained to read code, not whitespace — often overlook. These are the
+problems that most frequently stop a dictionary from building.
+
+### Wrong indentation
+
+The most common error comes from copying a definition from one trait into another and leaving it at
+the wrong indentation level. YAML then reads the block as belonging to the wrong parent, and the build
+fails when it can't find an expected field.
+
+For example, if `type` is under-indented so it aligns with the trait name rather than its fields:
+
+```yaml
+  wood_density:
+  type: numeric        # WRONG — 'type' is now a sibling of 'wood_density', not a field of it
+    units: mg/mm3
+```
+
+it should be:
+
+```yaml
+  wood_density:
+    type: numeric      # correct — indented under the trait
+    units: mg/mm3
+```
+
+**Always indent with spaces, never tabs**, and keep sibling entries aligned to exactly the same
+column. Rebuild after such an edit and you will typically see an error where the schema check reports a
+missing or misplaced field.
+
+### Stray spaces and missing final newline
+
+A subtler problem is trailing whitespace or a missing newline at the end of the file. A few stray
+spaces at the bottom of `traits.yml` can produce an error like:
+
+```
+incomplete final line found on 'config/traits.yml'
+```
+
+with a backtrace that points into `yaml::read_yaml()` and `get_schema()`. The fix is simple: open the
+file in a proper text editor, delete any blank lines or stray spaces at the end, and make sure the file
+ends with a single newline.
+
+### Unquoted special characters
+
+Values containing certain characters can be misread by the YAML parser. Wrap them in quotes:
+
+- units and values with slashes, colons, or symbols — e.g. `units: "umol/m2/s"`, or a value like
+  `"20°C"`;
+- any value beginning with a bracket, `>`, `|`, `#`, `%`, `@`, or `` ` ``;
+- descriptions that contain a colon followed by a space (`: `), which YAML would otherwise treat as a
+  new key.
+
+### Validate before building
+
+You don't have to run a full build to catch a broken dictionary. Read it back in R:
+
+```{r, eval=FALSE}
+yaml::read_yaml("config/traits.yml")
+```
+
+If it parses without error, the YAML structure is sound; if it errors, the message will point you to
+the offending line. Use a text editor that shows whitespace and does YAML syntax highlighting — it
+makes indentation problems visible at a glance.

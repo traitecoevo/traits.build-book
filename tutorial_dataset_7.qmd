@@ -93,7 +93,7 @@ Since this dataset is not from a published study with a doi, the source informat
   url: http://www.ausflora.org.au
 ```
 
-There are other `bibtype`'s you will encounter as well, including `Unpublished`, `Book`, `Misc`, `Thesis`, `InBook` (for chapters), `Report` and `TechReport`. For each there are different required and optional fields (per BibTex's rules). See the [complete guide to adding datasets](adding_data.html) for examples of each.
+There are other `bibtype`'s you will encounter as well, including `Unpublished`, `Book`, `Misc`, `Thesis`, `InBook` (for chapters), `Report` and `TechReport`. For each there are different required and optional fields (per BibTex's rules). See the [complete guide to adding datasets](adding_data_long.html) for examples of each.
 
 #### **Add traits** {#units_column}
 
