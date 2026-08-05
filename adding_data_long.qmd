@@ -478,7 +478,7 @@ data %>%
 
 4.  **Removing duplicate values across datasets**
 
-Values that were sourced from a different study need to be filtered out. See [Duplicates between studies](data_common_issues.html#duplicates) -- functions to automate this process are in progress.
+Cross-dataset duplicates are *flagged* by hand and *filtered out* here. There is no generalised check yet, so identifying which values were also sourced from a different study is currently a case-by-case judgement -- see [Duplicate measurements](data_common_issues.html#duplicates), and note that some cross-dataset overlap is legitimate rather than a resubmission. Once you have identified genuine duplicates, remove them with `custom_R_code` and record in the dataset's `notes` field which values you removed and why. Functions to automate the detection step are in progress.
 
 5.  **Replacing "missing values" with NA's**
 
