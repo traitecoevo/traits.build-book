@@ -10,7 +10,7 @@ Before you begin this tutorial, ensure you have installed traits.build, cloned t
 
 -   Learn how to [build a metadata.yml file](#build_metadata) for a dataset.
 
--   Learn how to [merge a new dataset](#build_pipline) into a `traits.build` database.
+-   Learn how to [merge a new dataset](#build_pipeline) into a `traits.build` database.
 
 ### New functions introduced
 
@@ -337,7 +337,7 @@ These are all fields that contain the word `unknown`.
 | affiliation           | Available from the source or the orcid.org website. Use the same syntax for the same affiliation throughout your database. |
 | additional_role       | For the lead dataset contributor, add the field: `additional_role: contact`                                                |
 
--   You can add multiple data collectors by duplicating the relevant 4 lines of code; see the [Adding dataset vignette](adding_data.html) for protocols on who to add as a data collector.
+-   You can add multiple data collectors by duplicating the relevant 4 lines of code; see the [adding data chapter](adding_data_long.html) for protocols on who to add as a data collector.
 
 -   The line `assistants:` can be deleted if there aren't any assistants' names to add.
 

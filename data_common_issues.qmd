@@ -1,10 +1,32 @@
-# Common issues
+# Troubleshooting common issues
 
-Note, this chapter is a work in progress. It will be expanded over time.
+This chapter collects the errors and warnings you are most likely to meet while adding a dataset and
+compiling a `traits.build` database, and explains how to resolve each one. It is the "detailed
+troubleshooting" companion to the [Getting help](help.html) chapter: work through the relevant
+section here before posting a question.
 
-## Unsupported trait values
+Most problems fall into a few families:
 
-This error occurs when, for a categorical trait, the value in [data.csv]{style="color:blue;"} is different to the value in the traits dictionary ([config/traits.yml]{style="color:blue;"}).
+- [Categorical trait values that aren't recognised](#unsupported-values)
+- [Numeric values outside the allowable range](#out-of-range)
+- [Taxon names that don't align](#taxonomy)
+- [A dataset that won't pivot to wide format](#cannot_pivot)
+- [Duplicate measurements](#duplicates)
+- [Errors reading `metadata.yml` or `traits.yml`](#yaml-errors)
+
+Two general habits solve a large share of issues. First, read the error message carefully — the
+`traits.build` messages are designed to name the offending trait, dataset, or value. Second, before
+assuming the package is at fault, check whether the problem lies in your data files or custom R code;
+see [attribute the error](help.html#sec-contact) in the Getting help chapter.
+
+## Unsupported trait values {#unsupported-values}
+
+This error occurs when, for a categorical trait, a value in [data.csv]{style="color:blue;"} is not
+one of the allowable values defined for that trait in the trait dictionary
+([config/traits.yml]{style="color:blue;"}). The offending records are moved to the `excluded_data`
+table rather than silently dropped.
+
+List the values that need a substitution:
 
 ```{r, eval=FALSE}
 table <- my_database$excluded_data %>%
@@ -14,7 +36,8 @@ table <- my_database$excluded_data %>%
   distinct()
 ```
 
-You can individually add substitutions to [metadata.yml]{style="color:blue;"} using the function [metadata_add_substitution]{style="color:blue;"}
+You then map each unrecognised value onto an allowable one using a *substitution*. Add a single
+substitution to [metadata.yml]{style="color:blue;"} with `metadata_add_substitution()`:
 
 ```{r, eval=FALSE}
 metadata_add_substitution(
@@ -25,11 +48,10 @@ metadata_add_substitution(
 )
 ```
 
-Or, you can add an additional column to the table output (code above) and read it into [metadata.yml]{style="color:blue;"} using the function [metadata_add_substitutions_table]{style="color:blue;"}
-
-The table read in must have the columns [dataset_id]{style="color:blue;"}, [trait_name]{style="color:blue;"}, [find]{style="color:blue;"}, and [replace]{style="color:blue;"}.
-
-This is a hypothetical example for a table that contains 5 rows with plant_growth_form value that need updating.
+When many values need fixing, edit the table above (add a `replace` column) and read the whole set in
+at once with `metadata_add_substitutions_table()`. The table must have the columns
+[dataset_id]{style="color:blue;"}, [trait_name]{style="color:blue;"}, [find]{style="color:blue;"}, and
+[replace]{style="color:blue;"}:
 
 ```{r, eval=FALSE}
 table <- table %>%
@@ -45,36 +67,141 @@ metadata_add_substitutions_table(
 )
 ```
 
-You can of course also write the table to a csv file, edit it in Excel or a text editor, then read it back into R.
+For a long list it is often easiest to write the table to a CSV, edit it in a spreadsheet or text
+editor, and read it back:
 
 ```{r, eval=FALSE}
 write_csv(table, "data/dataset_id/raw/substitutions_required.csv")
 
-...edit outside of R
+# ...edit outside of R...
 
 table <- read_csv("data/dataset_id/raw/substitutions_required.csv")
 ```
 
-## Dataset can't pivot wider {#cannot_pivot}
+See [adding substitutions](adding_data_long.html#add_substitutions) for the full workflow, and
+`dataset_check_categorical_substitutions()` in the
+[data-quality functions chapter](check_dataset_functions.html) for a helper that builds the table for
+you.
 
-In order to convert a traits.build database into a wide format, the traits.build$traits table must be able to pivot wider. 
+## Numeric values out of range {#out-of-range}
 
-One of the tests run during `dataset_test` is the function `traits.build::check_pivot_wider()`. This function checks that each row in the `traits` table has a unique combination of a particular 7 columns:
-  `dataset_id`, `trait_name`, `observation_id`, `value_type`, `repeat_measurements_id`, `method_id`, `method_context_id`
+For a numeric trait, a value that falls outside the allowable `range` defined for that trait in
+[config/traits.yml]{style="color:blue;"} is moved to `excluded_data`. Inspect the excluded values:
 
-There are two likely explanations -- and solutions -- to this error:
+```{r, eval=FALSE}
+my_database$excluded_data %>%
+  filter(dataset_id == current_study,
+         error == "Value out of allowable range") %>%
+  select(dataset_id, trait_name, value, observation_id, unit, original_name)
+```
 
-1.  If your dataset combines individual (or population) level measurements with species-level measurements, the same species-level measurement may be read in many times. To solve this problem, you need to retain only the first instance of each species-level measurement, by including the following `custom_R_code`, where `taxon_name` is the column that contains taxon names and `column 1`, `column 2`, etc is a vector of the columns with categorical traits that require `de-duplicating`.
+If the list is long, the cause is almost always a **units-conversion problem** — the incoming units
+in the metadata do not match what the data actually contains, so every value is scaled wrongly. Check
+the `unit_in` you mapped for the trait against the units in the source, and confirm the conversion
+exists in [config/unit_conversions.csv]{style="color:blue;"}. If only a few values are excluded, they
+may be legitimately out of range; confirm they are genuine errors before dismissing them.
+`dataset_check_numeric_values()` in the
+[data-quality functions chapter](check_dataset_functions.html) tabulates these for review.
+
+## Taxon names that don't align {#taxonomy}
+
+An `aligned_name` in a newly added dataset may not appear in the database's
+[config/taxon_list.csv]{style="color:blue;"} for two reasons: the name needs aligning (a typo or
+non-standard syntax), or the taxon list simply doesn't yet include that name and must be extended
+from an external taxonomic resource.
+
+Each database maintains its own taxonomy — the taxon list must be built outside the `traits.build`
+workflow because different databases reference different taxonomic sources (AusTraits, for example,
+uses the Australian Plant Census and the Australian Plant Names Index). Generate the list of names
+still needing attention with `dataset_check_taxonomic_updates()` (see the
+[data-quality functions chapter](check_dataset_functions.html)), then either add taxonomic updates to
+the dataset's [metadata.yml]{style="color:blue;"} (see
+[adding taxonomic updates](adding_data_long.html#add_taxonomic_updates)) or extend the taxon list.
+
+## Dataset can't pivot to wide format {#cannot_pivot}
+
+To convert a `traits.build` database to wide format, the `traits` table must be able to pivot wider.
+One of the tests run by `dataset_test()` — `traits.build::check_pivot_wider()` — confirms this. It
+checks that every row in the `traits` table has a **unique combination of seven columns**:
+
+`dataset_id`, `trait_name`, `observation_id`, `value_type`, `repeat_measurements_id`, `method_id`,
+and `method_context_id`.
+
+If two rows share the same combination, the table cannot pivot and the test fails. In almost every
+case the real cause is that `observation_id` has not been generated as you intended — two genuinely
+distinct observations were assigned the same `observation_id` because a distinguishing piece of
+metadata was not mapped. (See the [glossary](glossary.html#observations) for how `observation_id`
+is built.)
+
+There are two common explanations and solutions:
+
+1.  **Species-level values repeated alongside individual-level measurements.** If your dataset mixes
+    individual- (or population-) level measurements with species-level measurements, the same
+    species-level value may be read in on many rows. Retain only the first instance of each
+    species-level value using `custom_R_code`, where `taxon_name` is the column of taxon names and
+    `column 1`, `column 2`, … are the categorical-trait columns that need de-duplicating:
 
 ```{r, eval=FALSE}
 data %>%
   group_by(taxon_name) %>%
-  mutate(across(c("column 1", "column 2", "column 3"), replace_duplicates_with_NA))
+  mutate(across(c("column 1", "column 2", "column 3"), replace_duplicates_with_NA)) %>%
   ungroup()
 ```
 
-2.  Rows of data that represent measurements made at different times,
+2.  **Repeat measurements over time (or by method) not distinguished.** Rows representing
+    measurements made at different times, or with different methods, on the same entity need a
+    `temporal_context_id` / `repeat_measurements_id` (for repeat measurements over time) or a
+    `method_context_id` (for multiple methods) so that they resolve to distinct rows. Map the column
+    that distinguishes them, or add the appropriate context, so each measurement is uniquely
+    identified.
 
- ... TBC
+To find exactly which measurements are blocking the pivot, run `dataset_check_not_pivoting()` (see
+the [data-quality functions chapter](check_dataset_functions.html)); it returns the specific rows with
+duplicate combinations so you can trace the missing piece of metadata.
 
+## Duplicate measurements {#duplicates}
 
+Duplicates come in two forms.
+
+**Within a dataset**, the same taxon × trait value can legitimately appear many times — for example a
+species-level value (like `plant_growth_form`) reported on every individual's row, or a single bulked
+measurement reported against every contributing individual. When such repetition is unintended, remove
+it with `custom_R_code` (see [custom R code](adding_data_long.html#custom_R)). The helper
+`dataset_check_duplicates_within_dataset()` flags suspicious within-dataset duplication — be alert
+when `n_duplicates` is large or is identical across every taxon for a trait.
+
+**Across datasets**, the same measurements may be submitted twice — for instance when two
+collaborators contribute the same data, or when a dataset arrives both from its collector and inside a
+broader compilation. The automated tests eliminate *most* exact duplicates, but cross-dataset
+detection is genuinely hard (it depends on how many significant figures to compare, and traits with
+naturally narrow ranges produce false positives). See
+`dataset_check_duplicates_across_datasets()` in the
+[data-quality functions chapter](check_dataset_functions.html) for the current status of this check.
+
+## Errors reading `metadata.yml` or `traits.yml` {#yaml-errors}
+
+Both the dataset metadata files and the trait dictionary are [YAML](yaml.html) files, where meaning is
+carried entirely by **indentation** and structure. Small formatting slips produce errors that can look
+alarming but are quick to fix. The most common are:
+
+- **`incomplete final line found on '...'`** — the file is missing a trailing newline, or has stray
+  spaces or blank lines at the end. Open the file in a proper text editor, remove trailing whitespace,
+  and ensure the file ends with a single newline.
+- **Wrong indentation.** Copying a block from one trait or dataset into another often carries the
+  wrong indentation, which changes the structure YAML infers. Indent with **spaces, never tabs**, and
+  keep sibling entries aligned to the same column.
+- **Unquoted special characters.** Values containing `:`, `#`, `%`, leading/trailing brackets, or a
+  leading `>` or `|` can be misread. Wrap such values in quotes — for example units like
+  `"umol/m2/s"` or a description containing a colon.
+
+The [creating a trait dictionary](create_dictionary.html) chapter has a dedicated section on writing
+valid `traits.yml` files and the formatting pitfalls to watch for, including a worked example of an
+indentation error and how to fix it. A useful habit is to validate a file by reading it back with
+`yaml::read_yaml("config/traits.yml")` — if it parses without error, the structure is sound.
+
+## Still stuck?
+
+If none of the above resolves your problem, first update to the latest `traits.build` release in case
+the issue is a bug that has since been fixed, then follow the [Getting help](help.html) chapter:
+attribute the error, prepare a minimal reproducible example, and post to the relevant GitHub
+Discussions page.

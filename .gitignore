@@ -10,7 +10,9 @@ figures/
 tmp
 *.html
 /.quarto/
-data/austraits/austraits-5.0.0.rds
+data/austraits/*.rds
 data/austraits/austraits.json
 site_libs
 index.tex
+
+**/*.quarto_ipynb

@@ -1,0 +1,161 @@
+# Glossary
+
+`traits.build` uses a compact vocabulary of identifiers and terms that recur throughout this manual.
+This chapter gathers them in one place. The [workflow](workflow.html) and
+[data structure](database_structure.html) chapters explain *why* the structure is shaped this way;
+this glossary is a quick reference for *what each term means*.
+
+## The identifiers
+
+A `traits.build` database is relational: a core `traits` table linked to ancillary tables by a set of
+identifiers. The identifiers are the part of the model that new users find most overwhelming, but they
+follow a single logic — **each one records one way in which two measurements can differ**. Together
+they let the workflow decide which measurements belong to the same observation and which are distinct.
+
+The `traits` table carries **twelve identifiers**. Three have human-readable values
+(`dataset_id`, `source_id`, `taxon_name`); the rest are integer counters generated automatically as
+the database is compiled (with the exception of `individual_id`, which can also be set in the metadata
+file).
+
+`dataset_id`
+: The study a record comes from. Corresponds to a folder under `data/` and, usually, to the primary
+  source's citation key (e.g. `Falster_2005_1`).
+
+`source_id`
+: Distinguishes sources *within* a single `dataset_id` — used when one dataset combines data from
+  several sources, such as a compilation assembled for a meta-analysis.
+
+`taxon_name`
+: The (updated, currently accepted) name of the taxon a measurement applies to. Both the original
+  submitted name and the updated name are retained in the database.
+
+`observation_id`
+: Links all measurements of different traits made **on the same entity at the same point in time**.
+  This is the pivot around which the whole model turns (see below).
+
+`population_id`
+: Groups entities that share a common `location_id`, `plot_context_id`, and `treatment_context_id`.
+  It aligns individual- and population-level measurements that belong to the same population.
+  Numbered sequentially within a dataset.
+
+`individual_id`
+: Identifies a unique organism. Multiple observations of the same organism over time share one
+  `individual_id` but have distinct `observation_id` values. Numbered sequentially within a dataset,
+  by population; may be assigned in the metadata file or generated automatically.
+
+`temporal_context_id`
+: A distinct point in time. Used only when there are repeat measurements on a population or individual
+  across time. Links to `temporal` context properties in the `contexts` table.
+
+`location_id`
+: Links to a distinct `location_name` and its `location_properties` in the `locations` table.
+
+`entity_context_id`
+: Links to `entity_context` properties in the `contexts` table — features of the entity itself, such
+  as organism sex or caste.
+
+`plot_context_id`
+: Links to `plot` context properties — blocks or plots in an experimental design, and any stratified
+  variation within a location (e.g. slope position).
+
+`treatment_context_id`
+: Links to `treatment` context properties — experimental manipulations applied to groups of
+  individuals (e.g. elevated CO~2~).
+
+`method_context_id`
+: Links to `method` context properties — used when the same trait was measured using more than one
+  method.
+
+Two further identifiers appear inside the `traits` table's uniqueness logic even though they are not
+usually mapped by hand:
+
+`method_id`
+: Distinguishes different methods recorded for a dataset in the `methods` table.
+
+`repeat_measurements_id`
+: Distinguishes repeated measurements that together make up a single observation (for example the
+  successive points of a response curve).
+
+## Observations: how `observation_id` is generated {#observations}
+
+An **observation** is a collection of trait measurements made at one point in time on one entity. The
+concept comes from [OBOE, the Extensible Observation Ontology](https://bioportal.bioontology.org/ontologies/OBOE),
+developed for exactly this kind of complex ecological data.
+
+The workflow assigns a new `observation_id` to each **unique combination** of the fields that define
+"same entity, same time, same source". In practice these identity fields are:
+
+`taxon_name`, `population_id`, `individual_id`, `temporal_context_id`, `entity_type`, `life_stage`,
+`source_id`, `entity_context_id`, `basis_of_record`, `collection_date`, and `original_name`.
+
+If measurements differ in *any* of these, they receive different `observation_id` values. For example,
+measurements made on the same individual in the wet season and the dry season share an
+`individual_id` but have different `temporal_context_id` values, and therefore different
+`observation_id` values.
+
+This is also why a database sometimes fails to [pivot to wide format](data_common_issues.html#cannot_pivot):
+the wide-format check requires each row to be unique across a **seven-column** combination
+(`dataset_id`, `trait_name`, `observation_id`, `value_type`, `repeat_measurements_id`, `method_id`,
+`method_context_id`). When two genuinely distinct measurements collapse onto one `observation_id` — because
+one of the identity fields above was not mapped — that seven-column combination is no longer unique and
+the pivot fails. The fix is almost always to supply the missing identity field, not to change the
+pivot check.
+
+## Core terms
+
+**Entity / `entity_type`**
+: The *feature of interest* — what a trait value describes. Within AusTraits the finest-scale entity
+  is an `individual`; other entity types include `population`, `species`, and `metapopulation`. One
+  study may record some traits at the individual level and others at the population level.
+
+**Trait**
+: A measurable characteristic. Every trait in a database must be defined in the trait dictionary
+  (`traits.yml`) as either `numeric` (with units and an allowable range) or `categorical` (with a list
+  of allowable values). See [creating a trait dictionary](create_dictionary.html).
+
+**Value / `value_type` / `basis_of_value`**
+: A trait's `value` is either numeric (converted to standard units and range-checked) or categorical
+  (aligned to an allowable value). `value_type` records what the value represents (e.g. `raw`, `mean`,
+  `minimum`, `maximum`, `mode`, `bin`); `basis_of_value` records how it was derived (e.g.
+  `measurement`, `expert_score`, `model_derived`).
+
+**`basis_of_record`**
+: How the record was obtained — for example `field`, `field_experiment`, `preserved_specimen`,
+  `captive_cultivated`, `lab`, or `literature`.
+
+**`life_stage`**
+: The developmental stage of the entity (e.g. `adult`, `sapling`, `seedling`).
+
+**Context**
+: Environmental or experimental conditions that give a measurement its meaning. `traits.build`
+  recognises five context categories, each with its own identifier: `temporal`, `plot`, `treatment`,
+  `method`, and `entity` context (see the identifiers above). Context properties are recorded in the
+  `contexts` table.
+
+**Source vs dataset**
+: A **dataset** (`dataset_id`) is a unit of contribution — one folder, one metadata file. A **source**
+  is a citable reference. Usually they coincide, but one dataset can draw on several sources (each with
+  its own `source_id`), and a source can be `primary`, `secondary`, or `original`.
+
+**Substitution**
+: A mapping from the exact term used in a contributor's `data.csv` to an allowable value in the trait
+  dictionary — the mechanism that harmonises categorical values without editing the raw data. See
+  [adding substitutions](adding_data_long.html#add_substitutions).
+
+**Taxonomic update**
+: A mapping from a submitted taxon name to an aligned/currently accepted name, recording the reason and
+  the taxonomic resolution. See [adding taxonomic updates](adding_data_long.html#add_taxonomic_updates).
+
+**`excluded_data`**
+: The table holding records removed during compilation — unsupported categorical values, out-of-range
+  numeric values, and detected duplicates — so that nothing is silently discarded. See
+  [Troubleshooting](data_common_issues.html).
+
+**Long vs wide format**
+: In **long** format all trait names live in one `trait_name` column and all values in one `value`
+  column; this is how a `traits.build` database is stored. **Wide** format spreads each trait into its
+  own column. Convert between them with `trait_pivot_wider()` (see [long and wide](long_wide.html)).
+
+**Compilation / build**
+: The process of running the workflow over the `data/` and `config/` files to assemble the relational
+  database, and the resulting database object itself.

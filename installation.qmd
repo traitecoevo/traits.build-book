@@ -1,0 +1,98 @@
+# Installation and quick start
+
+This chapter gets you from a clean R installation to a working `traits.build` database in a few
+minutes. It is the fastest way to see what a compilation looks like before reading the concept
+chapters that follow. If you would like a fuller, step-by-step walk-through, see the
+[example compilation tutorial](tutorial_compilation.html) and the
+[guide to adding data](tutorial_datasets.html).
+
+## What you need
+
+- **R** (and, we recommend, RStudio). `traits.build` has no dependencies on proprietary software.
+- The **`remotes`** package, for installing from GitHub: `install.packages("remotes")`.
+- A **Git client** to clone the template. [GitHub Desktop](https://desktop.github.com/) is a
+  friendly option if you are new to Git; RStudio's built-in Git support or the command line work
+  equally well. If Git and GitHub are new to you, the free book
+  [Happy Git with R](https://happygitwithr.com/) is an excellent starting point.
+
+## Step 1 — Install the `traits.build` package
+
+`traits.build` is the engine that compiles a database. Install the current release from GitHub:
+
+```{r, eval=FALSE}
+install.packages("remotes")  # if not already installed
+remotes::install_github("traitecoevo/traits.build", dependencies = TRUE)
+```
+
+For the most up-to-date installation notes — including how to install a specific version — see the
+[package installation instructions](https://traitecoevo.github.io/traits.build/index.html#installation).
+
+## Step 2 — Clone the template
+
+[`traits.build-template`](https://github.com/traitecoevo/traits.build-template) is a ready-to-build
+example repository. It contains everything a compilation needs — a sample
+[trait dictionary](https://github.com/traitecoevo/traits.build-template/blob/master/config/traits.yml),
+a [unit-conversions file](https://github.com/traitecoevo/traits.build-template/blob/master/config/unit_conversions.csv),
+a [database metadata file](https://github.com/traitecoevo/traits.build-template/blob/master/config/metadata.yml),
+a placeholder [taxon list](https://github.com/traitecoevo/traits.build-template/blob/master/config/taxon_list.csv),
+and a script of reusable
+[custom R functions](https://github.com/traitecoevo/traits.build-template/blob/master/R/custom_R_code.R) —
+plus two datasets already added so you can build a working database immediately, and further datasets
+with tutorials that introduce the workflow.
+
+Clone it by visiting the [repository](https://github.com/traitecoevo/traits.build-template), clicking
+the green **`<> Code`** button and choosing your preferred method, or from the command line:
+
+```bash
+git clone https://github.com/traitecoevo/traits.build-template.git
+```
+
+## Step 3 — Build the example database
+
+Open the cloned project in R (set the working directory to the repository root), then generate the
+build script and run it:
+
+```{r, eval=FALSE}
+library(traits.build)
+
+build_setup_pipeline(method = "base", database_name = "traits.build_database")
+source("build.R")
+```
+
+`build_setup_pipeline()` writes a `build.R` script tailored to your compilation; sourcing it reads
+the datasets in `data/`, harmonises them against the trait dictionary, and assembles the relational
+database. When it finishes you have a `traits.build` database object in your R session.
+
+## Step 4 — Look around
+
+The compiled database is a list of linked tables. Explore its structure:
+
+```{r, eval=FALSE}
+names(traits.build_database)
+
+# the core long-format table of trait measurements
+traits.build_database$traits
+
+# metadata and provenance for the build
+traits.build_database$build_info
+```
+
+The [data structure chapter](database_structure.html) explains each of these components, and the
+[glossary](glossary.html) defines the identifiers that link them.
+
+## Where to go next
+
+- To understand *why* the database is shaped this way, read [Motivation](motivation.html) and
+  [Workflow](workflow.html).
+- To add your own data, work through the [guide to adding data](tutorial_datasets.html), which walks
+  through seven progressively more complex datasets.
+- If you hit an error, the [troubleshooting chapter](data_common_issues.html) covers the most common
+  problems, and [Getting help](help.html) explains how to ask a good question.
+
+::: {.callout-note}
+The template's build pipeline currently uses [`remake`](https://github.com/richfitz/remake), which is
+no longer actively maintained; the project expects to move to
+[`targets`](https://docs.ropensci.org/targets/) in a future release. The `build_setup_pipeline()` /
+`build.R` workflow shown above shields you from that change — follow the template's own README for
+the current build command if it has been updated.
+:::

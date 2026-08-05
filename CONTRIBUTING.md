@@ -37,12 +37,12 @@ Please also follow these additional guidelines.
 * Respect the architecture and reasoning of the project.
 * If possible, keep contributions small enough to easily review manually. It is okay to split up your work into multiple pull requests.
 * Format your code according to the [tidyverse style guide](https://style.tidyverse.org/) and check your formatting with the `lint_package()` function from the [`lintr`](https://github.com/jimhester/lintr) package.
-* Describe your contribution in the project's [`NEWS.md`](https://github.com/traitecoevo/traits.build-book/blob/main/NEWS.md) file. Be sure to mention relevent GitHub issue numbers and your GitHub name as done in existing news entries.
-* If you feel contribution is substantial enough for official author or contributor status, please add yourself as an author in the [`DESCRIPTION](https://github.com/traitecoevo/traits.build-book/blob/main/DESCRIPTION) file.
+* Describe your contribution in the project's [`NEWS.md`](https://github.com/traitecoevo/traits.build-book/blob/master/NEWS.md) file. Be sure to mention relevant GitHub issue numbers and your GitHub name as done in existing news entries.
+* If you feel contribution is substantial enough for official author or contributor status, please add yourself as an author in the [`DESCRIPTION`](https://github.com/traitecoevo/traits.build-book/blob/master/DESCRIPTION) file.
 
 
 
 ## Acknowledgements and copyright
 
-This page was adapted from a corresponding file for the `targets`` package, with text by Will Landau. The original file is available at <https://github.com/ropensci-books/targets/>. Text adapted from that page is under copy right specified in that package <https://github.com/ropensci-books/targets/blob/main/LICENSE.md>.
+This page was adapted from a corresponding file for the `targets` package, with text by Will Landau. The original file is available at <https://github.com/ropensci-books/targets/>. Text adapted from that page is under copy right specified in that package <https://github.com/ropensci-books/targets/blob/main/LICENSE.md>.
 

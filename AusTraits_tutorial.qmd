@@ -12,6 +12,14 @@ This tutorial introduces:
 
 -   additional [examples of analyses](#sample_analyses) using the database
 
+::: {.callout-note}
+This chapter is the **extended, worked walkthrough** of exploring and wrangling data, using AusTraits
+as the example database. The [`austraits` package chapter](austraits_package.html) is a more concise
+tour of the same functions — `extract_`, `join_`, `summarise_`, plotting, and pivoting — and applies
+to any `traits.build` database, not only AusTraits. Read that chapter for a quick reference; read this
+one for step-by-step examples.
+:::
+
 To access more information about `traits.build`, see [`traits.build-book`](https://traitecoevo.github.io/traits.build-book/)
 
 Or you can visit the Github repositories for individual packages/data repos:
@@ -206,13 +214,13 @@ A collection of `join_` functions within `austraits` join the ancillary tables t
 | taxonomic_updates | original name (name submitted), aligned name (typos removed; standardised syntax), identifiers for aligned name                                 | dataset_id, taxon_name, original_name                                                                                                                                                  |
 | contributors      | people who contributed data, including their ORCIDs, affiliations, roles                                                                        | dataset_id                                                                                                                                                                             |
 
-## Exploring AusTraits
+## Exploring AusTraits {#austraits_functions}
 
 With `r nrow(austraits$traits)` rows of trait values in the main traits table, knowing how to explore the contents is essential.
 
 The R package [`{austraits}`](https://github.com/traitecoevo/austraits) offers a collection of functions to explore and wrangle AusTraits data -- or indeed any data using the traits.build format. 
 
-An austraits package vignette is available [here](https://traitecoevo.github.io/traits.build-book/austraits_package.html).
+The [`austraits` package chapter](austraits_package.html) covers these functions as well.
 
 Function categories include:
 
@@ -222,7 +230,7 @@ Function categories include:
 
 -   [**join functions**](#join_functions): These functions allow columns from the relational tables to be joined to the core traits table.
 
--   [**pivot functions**](#pivot_functions): These functions allow the traits table to be pivoted to wide format.
+-   [**pivot functions**](#pivotting_datasets): These functions allow the traits table to be pivoted to wide format.
 
 -   [**plotting functions**](#plotting_functions): These functions offer a means of rapidly visualising AusTraits data, either plotting collection locations on a map of Australia or plotting trait values by dataset.
 
@@ -729,6 +737,43 @@ subset_b <- austraits %>%
 subset_ab <- bind_databases(subset_a, subset_b)
 ```
 
+## Citing the data you use {#citing_data}
+
+When you extract a subset of a database for an analysis, you should cite the **original sources** the
+data came from, not just the database as a whole. Because `traits.build` databases retain their full
+structure through the `extract_` functions, the provenance you need travels with your subset.
+
+To see the citations for the sources in a subset, look at the `methods` table, which carries a primary
+citation for every dataset:
+
+```{r, eval = FALSE}
+subset_data <- austraits %>% extract_dataset(c("Falster", "Wright", "Westoby", "White"))
+
+subset_data$methods %>%
+  dplyr::distinct(dataset_id, source_primary_citation)
+```
+
+To produce a BibTeX file you can import into a reference manager (Zotero, EndNote, Mendeley, …), run
+`RefManageR::WriteBib()` on the subset's `sources` element:
+
+```{r, eval = FALSE}
+# writes a .bib file of all sources in the subset to your working directory
+RefManageR::WriteBib(subset_data$sources)
+
+# or write to a named file
+RefManageR::WriteBib(subset_data$sources, file = "austraits_sources.bib")
+```
+
+You can also inspect or export a single source:
+
+```{r, eval = FALSE}
+subset_data$sources["Falster_2005_1"]
+```
+
+This is the most reliable way to acknowledge everyone whose data you have used — for example, to find
+the full citation behind the values for a particular trait, extract that trait and read off the
+citations from its `methods` table or exported `.bib`.
+
 ## Summarising data: trait means, modes, etc.
 
 The function `summarise_trait_means` that was in older `{austraits}` versions was has been deprecated, as it is not appropriate for AusTraits versions > 5.0 -- that is all databases built using `{traits.build}`. A new version is in development and will be released in 2025. 
@@ -870,7 +915,7 @@ austraits::plot_locations(data, "taxon_name")     # actually 4 taxa, because of 
 austraits::plot_locations(data, "dataset_id")     # 1 plot for each dataset_id
 ```
 
-### More complex workflows -- some examples
+### More complex workflows -- some examples {#sample_analyses}
 
 #### An example looking at trait-climate gradients
 
@@ -884,7 +929,7 @@ https://labs.ala.org.au/posts/2023-08-28_alternatives-to-box-plots/post.html
 
 We've adopted it [here](spatial_data_example.html).
 
-## A complexity: pivoting datasets {pivotting_datasets}
+## A complexity: pivoting datasets {#pivotting_datasets}
 
 The AusTraits tables are all in `long` format with an individual row for each trait measurement. This is the most compact way to store data and offers the flexibility of documenting diverse metadata for each trait measurement.
 

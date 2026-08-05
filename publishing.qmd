@@ -1,13 +1,91 @@
-# Publishing
+# Publishing a database
 
-`traits.build` is an R package that was first developed to build AusTraits, a harmonised, open-source database of Australian plant traits. The code has been transformed into a standalone package allowing anyone to build a relational, tabular database for any taxonomic group and any collection of traits.
+Building a database is only half the job; the value of a `traits.build` compilation is realised when
+others can find, cite, and reuse it. This chapter describes how to publish a compilation as a
+citable, versioned, archived resource. It follows the same open-science principles that motivate the
+`traits.build` workflow itself: an open-source, transparent, reproducible product with no dependence
+on proprietary tools.
 
-The project's guiding principles are to:
+The recommended path has three parts: **host** the compilation on GitHub, **release** versioned
+snapshots, and **archive** each release to obtain a permanent DOI.
 
-1.  Create open-source, harmonised, reproducible databases from disparate datasets.
-2.  Provide a fully transparent workflow.
-3.  Offer a relational database structure that fully documents the contextual data essential to interpreting ecological data.
-4.  Offer a straightforward, robust template for building a trait dictionary.
-5.  Offer a database structure that is flexible enough to accommodate the complexities inherent to ecological data.
-6.  Offer a database structure that is underlain by a documented ontology, ensuring each database field is interpretable and interoperable with other databases and data structures.
+## 1. Host the compilation on GitHub
 
+Keep the whole compilation — the `config/` files, the `data/` folders, the build scripts, and the
+custom R code — in a single Git repository, and host it on GitHub. Git records every change to the
+data and metadata, so the process by which the database was assembled is fully transparent and
+reproducible; GitHub adds collaboration, issue tracking, and continuous-integration testing.
+
+See the [using GitHub](github.html) chapter for the practical set-up: recommended repository settings,
+the pull-request workflow for adding data, and running `dataset_test()` automatically on every
+proposed change so that the database only ever accepts data that builds cleanly.
+
+## 2. Make a versioned release
+
+A release is a labelled snapshot of the compilation at a point in time — the unit that people
+download, cite, and reproduce analyses against. Use **semantic versioning** (`major.minor.patch`) so
+that a version number communicates the nature of the change: a new `major` version signals a
+structural change that may break existing code, `minor` signals compatible additions (such as new
+datasets or columns), and `patch` signals corrections to existing data.
+
+The mechanics of bumping the version number, compiling, and cutting the GitHub release are set out in
+the [version updating and making a release](versioned_releases.html) chapter. In outline:
+
+1. Update the version number in the `DESCRIPTION` file.
+2. Recompile the database and update the documentation.
+3. Commit and push through a pull request.
+4. Create a release on GitHub, tagging it with the version number.
+
+Attach the compiled outputs (for example the database as an `.rds` file, and/or the flattened tables
+as CSVs) to the GitHub release so that users can download the data without rebuilding it.
+
+## 3. Archive the release and get a DOI
+
+A GitHub release is not a permanent archive — repositories can move or disappear, and GitHub is not a
+citable data repository. To make a release **permanently citable**, deposit it in a research data
+archive that mints a **DOI (Digital Object Identifier)**. [Zenodo](https://zenodo.org/) is the
+recommended choice: it is free, operated by CERN, integrates directly with GitHub, and issues DOIs.
+AusTraits itself is archived this way — every release has a DOI, listed on its
+[Zenodo record](https://doi.org/10.5281/zenodo.3568417).
+
+To set up automatic archiving:
+
+1. **Log in to Zenodo with your GitHub account** and open the
+   [GitHub settings page](https://zenodo.org/account/settings/github/) in Zenodo.
+2. **Switch on** the repository you want to archive. From then on, Zenodo watches that repository.
+3. **Publish a release on GitHub** (step 2 above). Zenodo automatically downloads the release, archives
+   it, and mints a DOI.
+
+Zenodo issues two kinds of DOI, and the distinction matters for citation:
+
+- A **concept DOI** always resolves to the *latest* version of the database. Use it when you want to
+  point readers to "AusTraits" in general.
+- A **version DOI** resolves to one *specific* release. Use it in an analysis so that the exact data
+  behind your results can always be recovered.
+
+Each release therefore gets its own version DOI, all grouped under one concept DOI. Record the DOI in
+the repository (for example in the `README` and any citation file) so that users cite the version they
+actually used.
+
+::: {.callout-tip}
+## First-time set-up
+Turn on the Zenodo–GitHub integration *before* you make the release you want archived. Zenodo only
+archives releases created after the repository is switched on; earlier releases are not captured
+retroactively.
+:::
+
+## Help others cite the database
+
+Publishing is complete only when the database is easy to cite. Provide, in the repository:
+
+- a clear **"How to cite"** statement naming the concept DOI and the recommended citation, and
+- ideally a machine-readable [`CITATION.cff`](https://citation-file-format.github.io/) file, which
+  makes GitHub display a **"Cite this repository"** button and lets reference managers import the
+  citation directly.
+
+For databases built on `traits.build`, ask users to cite both the dataset (via its DOI) and the
+`traits.build` data model and workflow. See the [How to cite section](index.html#how-to-cite) on the
+About page for the `traits.build` citation, and
+[citing the data you use](AusTraits_tutorial.html#citing_data) for tools that generate a bibliography
+of the *underlying sources* a data subset draws on — so that the original data collectors are credited
+too.

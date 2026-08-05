@@ -10,6 +10,7 @@ book:
     - part: Introduction
       chapters:
         - index.qmd
+        - installation.qmd
         - motivation.qmd
         - workflow.qmd
         - usage_examples.qmd
@@ -55,6 +56,7 @@ book:
         - help.qmd
 
   appendices:
+    - glossary.qmd
     - csv.qmd
     - yaml.qmd
 

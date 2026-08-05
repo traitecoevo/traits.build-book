@@ -387,7 +387,7 @@ dataset_test("tutorial_dataset_2")
 
 However, there should still be an error indicating that the dataset cannot pivot between `long` and `wide` formats. 
 
-The ability to pivot is important for 2 reasons:{#dataset_pivot} 
+The ability to pivot is important for 2 reasons:[]{#dataset_pivot} 
 
 1.  Database users may prefer to display data in wide format to readily compare the values of multiple traits collected on the same individual (or population or species). 
 2.  The `pivot test` groups together 13 variables that are meant to uniquely identify each row of data (dataset_id, trait_name, observation_id, source_id, taxon_name, entity_type, life_stage, basis_of_record, value_type, population_id, individual_id, temporal_id, method_id, entity_context_id, original_name). An inability to pivot indicates either: 
