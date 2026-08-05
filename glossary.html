@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Tutorial: Example compilation – The {traits.build} data model, R package, and workflow</title>
+<title>Appendix A — Glossary – The {traits.build} data model, R package, and workflow</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,41 +26,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -71,8 +36,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./file_organisation.html" rel="next">
-<link href="./traits_build.html" rel="prev">
+<link href="./csv.html" rel="next">
+<link href="./help.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Creating with <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./tutorial_compilation.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./glossary.html">Appendices</a></li><li class="breadcrumb-item"><a href="./glossary.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -247,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorial_compilation.html" class="sidebar-item-text sidebar-link active">
+  <a href="./tutorial_compilation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></span></a>
   </div>
 </li>
@@ -435,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
   </div>
 </li>
@@ -463,17 +428,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#clone-traits.build-template" id="toc-clone-traits.build-template" class="nav-link active" data-scroll-target="#clone-traits.build-template"><span class="header-section-number">12.1</span> Clone traits.build-template</a></li>
-  <li><a href="#build-the-example" id="toc-build-the-example" class="nav-link" data-scroll-target="#build-the-example"><span class="header-section-number">12.2</span> Build the example</a></li>
+  <li><a href="#the-identifiers" id="toc-the-identifiers" class="nav-link active" data-scroll-target="#the-identifiers"><span class="header-section-number">A.1</span> The identifiers</a></li>
+  <li><a href="#observations" id="toc-observations" class="nav-link" data-scroll-target="#observations"><span class="header-section-number">A.2</span> Observations: how <code>observation_id</code> is generated</a></li>
+  <li><a href="#core-terms" id="toc-core-terms" class="nav-link" data-scroll-target="#core-terms"><span class="header-section-number">A.3</span> Core terms</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Creating with <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./tutorial_compilation.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./glossary.html">Appendices</a></li><li class="breadcrumb-item"><a href="./glossary.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></h1>
+<h1 class="title">Appendix A — Glossary</h1>
 </div>
 
 
@@ -490,43 +456,133 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This tutorial walks you through an example of creating a <code>traits.build</code> database from scratch using the <code>traits.build</code> template. We then look at examples of how to add datasets to the database using the <code>traits.build</code> workflow.</p>
-<section id="clone-traits.build-template" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="clone-traits.build-template"><span class="header-section-number">12.1</span> Clone traits.build-template</h2>
-<p><a href="https://github.com/traitecoevo/traits.build-template">traits.build-template</a> is a GitHub repository that contains:</p>
-<ol type="1">
-<li>Core files required to build your own database:
-<ul>
-<li><p>a sample <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/traits.yml">trait dictionary</a></p></li>
-<li><p>a <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/unit_conversions.csv">unit conversions file</a></p></li>
-<li><p>a generic <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/metadata.yml">database metadata file</a></p></li>
-<li><p>a placeholder <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/taxon_list.csv">taxon list</a></p></li>
-<li><p>a script of useful <a href="https://github.com/traitecoevo/traits.build-template/blob/master/R/custom_R_code.R">R functions</a></p></li>
-</ul></li>
-<li>Two pre-added datasets.
-<ul>
-<li><p>See how metadata is documented in fully propagated metadata files.</p></li>
-<li><p>Build a skeletal database before adding your own datasets.</p></li>
-</ul></li>
-<li>Datasets with explicit tutorials for filling in the dataset metadata files.
-<ul>
-<li><p>The tutorials for these datasets introduce you to the <code>traits.build</code> functions.</p></li>
-<li><p>By working through the dataset tutorials, you are progressively introduced to how the complexities of ecological datasets can be documented within the <code>traits.build</code> structure</p></li>
-<li><p>The datasets offer explicit examples of the types of complexities summarised in the <a href="adding_data_long.html">Adding datasets, a lengthy guide</a> chapter.</p></li>
-<li><p>There are seven dataset tutorials, progressing from simple to more complex dataset structures.</p></li>
-</ul></li>
-</ol>
-<p>To clone the repository, either visit the GitHub repository and click on the green <code>&lt;&gt; Code</code> tab toward the upper right corner of the <a href="https://github.com/traitecoevo/traits.build-template">landing page</a>, or clone the repository through GitHub desktop, R Studio, or your choice of Git client.</p>
+<p><code>traits.build</code> uses a compact vocabulary of identifiers and terms that recur throughout this manual. This chapter gathers them in one place. The <a href="workflow.html">workflow</a> and <a href="database_structure.html">data structure</a> chapters explain <em>why</em> the structure is shaped this way; this glossary is a quick reference for <em>what each term means</em>.</p>
+<section id="the-identifiers" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="the-identifiers"><span class="header-section-number">A.1</span> The identifiers</h2>
+<p>A <code>traits.build</code> database is relational: a core <code>traits</code> table linked to ancillary tables by a set of identifiers. The identifiers are the part of the model that new users find most overwhelming, but they follow a single logic — <strong>each one records one way in which two measurements can differ</strong>. Together they let the workflow decide which measurements belong to the same observation and which are distinct.</p>
+<p>The <code>traits</code> table carries <strong>twelve identifiers</strong>. Three have human-readable values (<code>dataset_id</code>, <code>source_id</code>, <code>taxon_name</code>); the rest are integer counters generated automatically as the database is compiled (with the exception of <code>individual_id</code>, which can also be set in the metadata file).</p>
+<dl>
+<dt><code>dataset_id</code></dt>
+<dd>
+The study a record comes from. Corresponds to a folder under <code>data/</code> and, usually, to the primary source’s citation key (e.g.&nbsp;<code>Falster_2005_1</code>).
+</dd>
+<dt><code>source_id</code></dt>
+<dd>
+Distinguishes sources <em>within</em> a single <code>dataset_id</code> — used when one dataset combines data from several sources, such as a compilation assembled for a meta-analysis.
+</dd>
+<dt><code>taxon_name</code></dt>
+<dd>
+The (updated, currently accepted) name of the taxon a measurement applies to. Both the original submitted name and the updated name are retained in the database.
+</dd>
+<dt><code>observation_id</code></dt>
+<dd>
+Links all measurements of different traits made <strong>on the same entity at the same point in time</strong>. This is the pivot around which the whole model turns (see below).
+</dd>
+<dt><code>population_id</code></dt>
+<dd>
+Groups entities that share a common <code>location_id</code>, <code>plot_context_id</code>, and <code>treatment_context_id</code>. It aligns individual- and population-level measurements that belong to the same population. Numbered sequentially within a dataset.
+</dd>
+<dt><code>individual_id</code></dt>
+<dd>
+Identifies a unique organism. Multiple observations of the same organism over time share one <code>individual_id</code> but have distinct <code>observation_id</code> values. Numbered sequentially within a dataset, by population; may be assigned in the metadata file or generated automatically.
+</dd>
+<dt><code>temporal_context_id</code></dt>
+<dd>
+A distinct point in time. Used only when there are repeat measurements on a population or individual across time. Links to <code>temporal</code> context properties in the <code>contexts</code> table.
+</dd>
+<dt><code>location_id</code></dt>
+<dd>
+Links to a distinct <code>location_name</code> and its <code>location_properties</code> in the <code>locations</code> table.
+</dd>
+<dt><code>entity_context_id</code></dt>
+<dd>
+Links to <code>entity_context</code> properties in the <code>contexts</code> table — features of the entity itself, such as organism sex or caste.
+</dd>
+<dt><code>plot_context_id</code></dt>
+<dd>
+Links to <code>plot</code> context properties — blocks or plots in an experimental design, and any stratified variation within a location (e.g.&nbsp;slope position).
+</dd>
+<dt><code>treatment_context_id</code></dt>
+<dd>
+Links to <code>treatment</code> context properties — experimental manipulations applied to groups of individuals (e.g.&nbsp;elevated CO<sub>2</sub>).
+</dd>
+<dt><code>method_context_id</code></dt>
+<dd>
+Links to <code>method</code> context properties — used when the same trait was measured using more than one method.
+</dd>
+</dl>
+<p>Two further identifiers appear inside the <code>traits</code> table’s uniqueness logic even though they are not usually mapped by hand:</p>
+<dl>
+<dt><code>method_id</code></dt>
+<dd>
+Distinguishes different methods recorded for a dataset in the <code>methods</code> table.
+</dd>
+<dt><code>repeat_measurements_id</code></dt>
+<dd>
+Distinguishes repeated measurements that together make up a single observation (for example the successive points of a response curve).
+</dd>
+</dl>
 </section>
-<section id="build-the-example" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="build-the-example"><span class="header-section-number">12.2</span> Build the example</h2>
-<p>Once you have cloned the repository and installed the package, the next step is to build the simplistic sample database:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">build_setup_pipeline</span>(<span class="at">method =</span> <span class="st">"base"</span>, <span class="at">database_name =</span> <span class="st">"traits.build_database"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"build.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>As described in the chapter on <a href="database_structure.html">data structure</a> the database is comprised of a series of relational tables and additional lists with metadata.</p>
-<p>Once you’ve explored and feel familiar with the basic structure of a <code>traits.build</code> database, continue onto the tutorials to learn how to add datasets using the traits.build workflow.</p>
+<section id="observations" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="observations"><span class="header-section-number">A.2</span> Observations: how <code>observation_id</code> is generated</h2>
+<p>An <strong>observation</strong> is a collection of trait measurements made at one point in time on one entity. The concept comes from <a href="https://bioportal.bioontology.org/ontologies/OBOE">OBOE, the Extensible Observation Ontology</a>, developed for exactly this kind of complex ecological data.</p>
+<p>The workflow assigns a new <code>observation_id</code> to each <strong>unique combination</strong> of the fields that define “same entity, same time, same source”. In practice these identity fields are:</p>
+<p><code>taxon_name</code>, <code>population_id</code>, <code>individual_id</code>, <code>temporal_context_id</code>, <code>entity_type</code>, <code>life_stage</code>, <code>source_id</code>, <code>entity_context_id</code>, <code>basis_of_record</code>, <code>collection_date</code>, and <code>original_name</code>.</p>
+<p>If measurements differ in <em>any</em> of these, they receive different <code>observation_id</code> values. For example, measurements made on the same individual in the wet season and the dry season share an <code>individual_id</code> but have different <code>temporal_context_id</code> values, and therefore different <code>observation_id</code> values.</p>
+<p>This is also why a database sometimes fails to <a href="data_common_issues.html#cannot_pivot">pivot to wide format</a>: the wide-format check requires each row to be unique across a <strong>seven-column</strong> combination (<code>dataset_id</code>, <code>trait_name</code>, <code>observation_id</code>, <code>value_type</code>, <code>repeat_measurements_id</code>, <code>method_id</code>, <code>method_context_id</code>). When two genuinely distinct measurements collapse onto one <code>observation_id</code> — because one of the identity fields above was not mapped — that seven-column combination is no longer unique and the pivot fails. The fix is almost always to supply the missing identity field, not to change the pivot check.</p>
+</section>
+<section id="core-terms" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="core-terms"><span class="header-section-number">A.3</span> Core terms</h2>
+<dl>
+<dt><strong>Entity / <code>entity_type</code></strong></dt>
+<dd>
+The <em>feature of interest</em> — what a trait value describes. Within AusTraits the finest-scale entity is an <code>individual</code>; other entity types include <code>population</code>, <code>species</code>, and <code>metapopulation</code>. One study may record some traits at the individual level and others at the population level.
+</dd>
+<dt><strong>Trait</strong></dt>
+<dd>
+A measurable characteristic. Every trait in a database must be defined in the trait dictionary (<code>traits.yml</code>) as either <code>numeric</code> (with units and an allowable range) or <code>categorical</code> (with a list of allowable values). See <a href="create_dictionary.html">creating a trait dictionary</a>.
+</dd>
+<dt><strong>Value / <code>value_type</code> / <code>basis_of_value</code></strong></dt>
+<dd>
+A trait’s <code>value</code> is either numeric (converted to standard units and range-checked) or categorical (aligned to an allowable value). <code>value_type</code> records what the value represents (e.g.&nbsp;<code>raw</code>, <code>mean</code>, <code>minimum</code>, <code>maximum</code>, <code>mode</code>, <code>bin</code>); <code>basis_of_value</code> records how it was derived (e.g. <code>measurement</code>, <code>expert_score</code>, <code>model_derived</code>).
+</dd>
+<dt><strong><code>basis_of_record</code></strong></dt>
+<dd>
+How the record was obtained — for example <code>field</code>, <code>field_experiment</code>, <code>preserved_specimen</code>, <code>captive_cultivated</code>, <code>lab</code>, or <code>literature</code>.
+</dd>
+<dt><strong><code>life_stage</code></strong></dt>
+<dd>
+The developmental stage of the entity (e.g.&nbsp;<code>adult</code>, <code>sapling</code>, <code>seedling</code>).
+</dd>
+<dt><strong>Context</strong></dt>
+<dd>
+Environmental or experimental conditions that give a measurement its meaning. <code>traits.build</code> recognises five context categories, each with its own identifier: <code>temporal</code>, <code>plot</code>, <code>treatment</code>, <code>method</code>, and <code>entity</code> context (see the identifiers above). Context properties are recorded in the <code>contexts</code> table.
+</dd>
+<dt><strong>Source vs dataset</strong></dt>
+<dd>
+A <strong>dataset</strong> (<code>dataset_id</code>) is a unit of contribution — one folder, one metadata file. A <strong>source</strong> is a citable reference. Usually they coincide, but one dataset can draw on several sources (each with its own <code>source_id</code>), and a source can be <code>primary</code>, <code>secondary</code>, or <code>original</code>.
+</dd>
+<dt><strong>Substitution</strong></dt>
+<dd>
+A mapping from the exact term used in a contributor’s <code>data.csv</code> to an allowable value in the trait dictionary — the mechanism that harmonises categorical values without editing the raw data. See <a href="adding_data_long.html#add_substitutions">adding substitutions</a>.
+</dd>
+<dt><strong>Taxonomic update</strong></dt>
+<dd>
+A mapping from a submitted taxon name to an aligned/currently accepted name, recording the reason and the taxonomic resolution. See <a href="adding_data_long.html#add_taxonomic_updates">adding taxonomic updates</a>.
+</dd>
+<dt><strong><code>excluded_data</code></strong></dt>
+<dd>
+The table holding records removed during compilation — unsupported categorical values, out-of-range numeric values, and detected duplicates — so that nothing is silently discarded. See <a href="data_common_issues.html">Troubleshooting</a>.
+</dd>
+<dt><strong>Long vs wide format</strong></dt>
+<dd>
+In <strong>long</strong> format all trait names live in one <code>trait_name</code> column and all values in one <code>value</code> column; this is how a <code>traits.build</code> database is stored. <strong>Wide</strong> format spreads each trait into its own column. Convert between them with <code>trait_pivot_wider()</code> (see <a href="long_wide.html">long and wide</a>).
+</dd>
+<dt><strong>Compilation / build</strong></dt>
+<dd>
+The process of running the workflow over the <code>data/</code> and <code>config/</code> files to assemble the relational database, and the resulting database object itself.
+</dd>
+</dl>
 
 
 </section>
@@ -934,13 +990,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./traits_build.html" class="pagination-link" aria-label="The package">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">The package</span></span>
+      <a href="./help.html" class="pagination-link" aria-label="Getting help">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Getting help</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./file_organisation.html" class="pagination-link" aria-label="File organisation">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">File organisation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./csv.html" class="pagination-link" aria-label="CSV files">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">CSV files</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

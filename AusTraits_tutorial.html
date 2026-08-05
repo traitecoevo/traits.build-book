@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>30&nbsp; AusTraits tutorial – The {traits.build} data model, R package, and workflow</title>
+<title>31&nbsp; AusTraits tutorial – The {traits.build} data model, R package, and workflow</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./austraits_database.html">Using outputs of <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./AusTraits_tutorial.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./austraits_database.html">Using outputs of <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./AusTraits_tutorial.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,20 +165,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation and quick start</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./motivation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Motivation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Motivation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workflow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Workflow</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./usage_examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Usage examples</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Usage examples</span></span></a>
   </div>
 </li>
       </ul>
@@ -195,31 +201,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./long_wide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Long vs Wide data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Long vs Wide data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./database_standard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data standard</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data standard</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./database_structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data structure</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data structure</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./database_metadata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Overview of traits.build ontology</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Overview of traits.build ontology</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dictionary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Trait dictionary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Trait dictionary</span></span></a>
   </div>
 </li>
       </ul>
@@ -236,37 +242,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">The package</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_compilation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./file_organisation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">File organisation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">File organisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./create_dictionary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Creating a dictionary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Creating a trait dictionary</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./adding_data_brief.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Adding datasets, an introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Adding datasets, an introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./publishing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Publishing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Publishing a database</span></span></a>
   </div>
 </li>
       </ul>
@@ -283,79 +289,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_datasets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Tutorial: Adding datasets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tutorial: Adding datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_dataset_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tutorial 1: Adding a simple dataset</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Tutorial 1: Adding a simple dataset</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_dataset_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Tutorial 2: Adding a more complex dataset</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Tutorial 2: Adding a more complex dataset</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_dataset_3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Tutorial 3: Adding contexts and complex units</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tutorial 3: Adding contexts and complex units</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_dataset_4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tutorial 4: Additional complexities</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Tutorial 4: Additional complexities</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_dataset_5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Tutorial 5: Multiple columns for a trait</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Tutorial 5: Multiple columns for a trait</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_dataset_6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Tutorial 6: Data with repeat measurements</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Tutorial 6: Data with repeat measurements</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial_dataset_7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Tutorial 7: Adding long format dataset</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Tutorial 7: Adding long format dataset</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./adding_data_long.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Adding datasets, a lengthy guide</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Adding datasets, a lengthy guide</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./check_dataset_functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Check data quality functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Check data quality functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_common_issues.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Common issues</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Troubleshooting common issues</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Using GitHub</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Using GitHub</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./versioned_releases.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Version updating &amp; making a new release</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Version updating &amp; making a new release</span></span></a>
   </div>
 </li>
       </ul>
@@ -372,31 +378,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_database.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AusTraits_tutorial.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./traits_and_climate_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatial_data_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./austraits_package.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
   </div>
 </li>
       </ul>
@@ -413,7 +419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
   </div>
 </li>
       </ul>
@@ -429,14 +435,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./csv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">CSV files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">CSV files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./yaml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Yaml files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Yaml files</span></span></a>
   </div>
 </li>
       </ul>
@@ -451,39 +463,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">30.1</span> Introduction</a></li>
-  <li><a href="#download-austraits-data" id="toc-download-austraits-data" class="nav-link" data-scroll-target="#download-austraits-data"><span class="header-section-number">30.2</span> Download AusTraits data</a></li>
-  <li><a href="#exploring" id="toc-exploring" class="nav-link" data-scroll-target="#exploring"><span class="header-section-number">30.3</span> A first look at data</a></li>
-  <li><a href="#database_structure" id="toc-database_structure" class="nav-link" data-scroll-target="#database_structure"><span class="header-section-number">30.4</span> The database structure</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">31.1</span> Introduction</a></li>
+  <li><a href="#download-austraits-data" id="toc-download-austraits-data" class="nav-link" data-scroll-target="#download-austraits-data"><span class="header-section-number">31.2</span> Download AusTraits data</a></li>
+  <li><a href="#exploring" id="toc-exploring" class="nav-link" data-scroll-target="#exploring"><span class="header-section-number">31.3</span> A first look at data</a></li>
+  <li><a href="#database_structure" id="toc-database_structure" class="nav-link" data-scroll-target="#database_structure"><span class="header-section-number">31.4</span> The database structure</a>
   <ul class="collapse">
   <li><a href="#traits-table" id="toc-traits-table" class="nav-link" data-scroll-target="#traits-table">Traits table</a></li>
   <li><a href="#ancillary-data-tables" id="toc-ancillary-data-tables" class="nav-link" data-scroll-target="#ancillary-data-tables">Ancillary data tables</a></li>
   </ul></li>
-  <li><a href="#exploring-austraits" id="toc-exploring-austraits" class="nav-link" data-scroll-target="#exploring-austraits"><span class="header-section-number">30.5</span> Exploring AusTraits</a>
+  <li><a href="#austraits_functions" id="toc-austraits_functions" class="nav-link" data-scroll-target="#austraits_functions"><span class="header-section-number">31.5</span> Exploring AusTraits</a>
   <ul class="collapse">
   <li><a href="#austraits.r-function-reference" id="toc-austraits.r-function-reference" class="nav-link" data-scroll-target="#austraits.r-function-reference">austraits.R function reference</a></li>
   <li><a href="#summarise_functions" id="toc-summarise_functions" class="nav-link" data-scroll-target="#summarise_functions">Summarising data: data coverage</a></li>
   </ul></li>
-  <li><a href="#wrangling-austraits" id="toc-wrangling-austraits" class="nav-link" data-scroll-target="#wrangling-austraits"><span class="header-section-number">30.6</span> Wrangling AusTraits</a>
+  <li><a href="#wrangling-austraits" id="toc-wrangling-austraits" class="nav-link" data-scroll-target="#wrangling-austraits"><span class="header-section-number">31.6</span> Wrangling AusTraits</a>
   <ul class="collapse">
   <li><a href="#filtering_functions" id="toc-filtering_functions" class="nav-link" data-scroll-target="#filtering_functions">Filtering data</a></li>
   <li><a href="#join_functions" id="toc-join_functions" class="nav-link" data-scroll-target="#join_functions">Joining relational tables</a></li>
   <li><a href="#combining-extract_-and-join_-functions" id="toc-combining-extract_-and-join_-functions" class="nav-link" data-scroll-target="#combining-extract_-and-join_-functions">Combining <code>extract_</code> and <code>join_</code> functions</a></li>
   <li><a href="#binding-datasets" id="toc-binding-datasets" class="nav-link" data-scroll-target="#binding-datasets">Binding datasets</a></li>
   </ul></li>
-  <li><a href="#summarising-data-trait-means-modes-etc." id="toc-summarising-data-trait-means-modes-etc." class="nav-link" data-scroll-target="#summarising-data-trait-means-modes-etc."><span class="header-section-number">30.7</span> Summarising data: trait means, modes, etc.</a>
+  <li><a href="#citing_data" id="toc-citing_data" class="nav-link" data-scroll-target="#citing_data"><span class="header-section-number">31.7</span> Citing the data you use</a></li>
+  <li><a href="#summarising-data-trait-means-modes-etc." id="toc-summarising-data-trait-means-modes-etc." class="nav-link" data-scroll-target="#summarising-data-trait-means-modes-etc."><span class="header-section-number">31.8</span> Summarising data: trait means, modes, etc.</a>
   <ul class="collapse">
   <li><a href="#categorical-traits" id="toc-categorical-traits" class="nav-link" data-scroll-target="#categorical-traits">Categorical traits</a></li>
   <li><a href="#numeric-traits" id="toc-numeric-traits" class="nav-link" data-scroll-target="#numeric-traits">Numeric traits</a></li>
   </ul></li>
-  <li><a href="#plotting_functions" id="toc-plotting_functions" class="nav-link" data-scroll-target="#plotting_functions"><span class="header-section-number">30.8</span> Plotting data</a>
+  <li><a href="#plotting_functions" id="toc-plotting_functions" class="nav-link" data-scroll-target="#plotting_functions"><span class="header-section-number">31.9</span> Plotting data</a>
   <ul class="collapse">
   <li><a href="#plotting-trait-distributions" id="toc-plotting-trait-distributions" class="nav-link" data-scroll-target="#plotting-trait-distributions">Plotting trait distributions</a></li>
   <li><a href="#plotting-data-distribution-by-location" id="toc-plotting-data-distribution-by-location" class="nav-link" data-scroll-target="#plotting-data-distribution-by-location">Plotting data distribution by location</a></li>
-  <li><a href="#more-complex-workflows-some-examples" id="toc-more-complex-workflows-some-examples" class="nav-link" data-scroll-target="#more-complex-workflows-some-examples">More complex workflows – some examples</a></li>
+  <li><a href="#sample_analyses" id="toc-sample_analyses" class="nav-link" data-scroll-target="#sample_analyses">More complex workflows – some examples</a></li>
   </ul></li>
-  <li><a href="#a-complexity-pivoting-datasets-pivotting_datasets" id="toc-a-complexity-pivoting-datasets-pivotting_datasets" class="nav-link" data-scroll-target="#a-complexity-pivoting-datasets-pivotting_datasets"><span class="header-section-number">30.9</span> A complexity: pivoting datasets {pivotting_datasets}</a></li>
-  <li><a href="#intepreting-trait-names-taxon-names" id="toc-intepreting-trait-names-taxon-names" class="nav-link" data-scroll-target="#intepreting-trait-names-taxon-names"><span class="header-section-number">30.10</span> Intepreting trait names, taxon names</a>
+  <li><a href="#pivotting_datasets" id="toc-pivotting_datasets" class="nav-link" data-scroll-target="#pivotting_datasets"><span class="header-section-number">31.10</span> A complexity: pivoting datasets</a></li>
+  <li><a href="#intepreting-trait-names-taxon-names" id="toc-intepreting-trait-names-taxon-names" class="nav-link" data-scroll-target="#intepreting-trait-names-taxon-names"><span class="header-section-number">31.11</span> Intepreting trait names, taxon names</a>
   <ul class="collapse">
   <li><a href="#trait-dictionary" id="toc-trait-dictionary" class="nav-link" data-scroll-target="#trait-dictionary">Trait dictionary</a></li>
   <li><a href="#understanding-taxon-names" id="toc-understanding-taxon-names" class="nav-link" data-scroll-target="#understanding-taxon-names">Understanding taxon names</a></li>
@@ -494,9 +507,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./austraits_database.html">Using outputs of <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./AusTraits_tutorial.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./austraits_database.html">Using outputs of <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./AusTraits_tutorial.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></h1>
+<h1 class="title"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></h1>
 </div>
 
 
@@ -513,8 +526,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="introduction" class="level2" data-number="30.1">
-<h2 data-number="30.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">30.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="31.1">
+<h2 data-number="31.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">31.1</span> Introduction</h2>
 <p>With more than 1.8 million data records, AusTraits is Australia’s <a href="austraits_database.html#plant_database">largest plant trait database</a>, created using the <a href="https://github.com/traitecoevo/traits.build"><code>{traits.build}</code> R package</a></p>
 <p>This tutorial introduces:</p>
 <ul>
@@ -522,6 +535,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><a href="#austraits_functions"><code>{austraits}</code> R package functions</a></p></li>
 <li><p>additional <a href="#sample_analyses">examples of analyses</a> using the database</p></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This chapter is the <strong>extended, worked walkthrough</strong> of exploring and wrangling data, using AusTraits as the example database. The <a href="austraits_package.html"><code>austraits</code> package chapter</a> is a more concise tour of the same functions — <code>extract_</code>, <code>join_</code>, <code>summarise_</code>, plotting, and pivoting — and applies to any <code>traits.build</code> database, not only AusTraits. Read that chapter for a quick reference; read this one for step-by-step examples.</p>
+</div>
+</div>
 <p>To access more information about <code>traits.build</code>, see <a href="https://traitecoevo.github.io/traits.build-book/"><code>traits.build-book</code></a></p>
 <p>Or you can visit the Github repositories for individual packages/data repos:</p>
 <ul>
@@ -530,8 +556,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>an R package for exploring and wrangling the data: <a href="https://github.com/traitecoevo/austraits"><code>austraits</code></a></p></li>
 </ul>
 </section>
-<section id="download-austraits-data" class="level2" data-number="30.2">
-<h2 data-number="30.2" class="anchored" data-anchor-id="download-austraits-data"><span class="header-section-number">30.2</span> Download AusTraits data</h2>
+<section id="download-austraits-data" class="level2" data-number="31.2">
+<h2 data-number="31.2" class="anchored" data-anchor-id="download-austraits-data"><span class="header-section-number">31.2</span> Download AusTraits data</h2>
 <p>Before you begin, download and source essential packages and functions.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Packages need to be installed the first time you use them.</span></span>
@@ -573,8 +599,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="exploring" class="level2" data-number="30.3">
-<h2 data-number="30.3" class="anchored" data-anchor-id="exploring"><span class="header-section-number">30.3</span> A first look at data</h2>
+<section id="exploring" class="level2" data-number="31.3">
+<h2 data-number="31.3" class="anchored" data-anchor-id="exploring"><span class="header-section-number">31.3</span> A first look at data</h2>
 <p>If you’re not familiar with AusTraits, you may want to begin by exploring the breadth and depth of data within the database. The database can be explored by trait name, species, or genus using either <a href="#austraits_functions">austraits functions</a> or dplyr functions.</p>
 <p><em>How many taxa have <code>leaf_N_per_dry_mass</code> data in AusTraits?</em></p>
 <div class="cell">
@@ -682,8 +708,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="database_structure" class="level2" data-number="30.4">
-<h2 data-number="30.4" class="anchored" data-anchor-id="database_structure"><span class="header-section-number">30.4</span> The database structure</h2>
+<section id="database_structure" class="level2" data-number="31.4">
+<h2 data-number="31.4" class="anchored" data-anchor-id="database_structure"><span class="header-section-number">31.4</span> The database structure</h2>
 <p>The <code>{traits.build}</code> R package is the workflow that builds AusTraits from its component datasets.</p>
 <p>The database is output as a list, a collection of relational tables, described in detail <a href="database_structure.html">here</a>.</p>
 <p>A <code>traits.build</code> data object includes both the relational data tables and additional tables documenting database metadata and a traits dictionary.</p>
@@ -951,17 +977,17 @@ session_info.</code></pre>
 </table>
 </section>
 </section>
-<section id="exploring-austraits" class="level2" data-number="30.5">
-<h2 data-number="30.5" class="anchored" data-anchor-id="exploring-austraits"><span class="header-section-number">30.5</span> Exploring AusTraits</h2>
+<section id="austraits_functions" class="level2" data-number="31.5">
+<h2 data-number="31.5" class="anchored" data-anchor-id="austraits_functions"><span class="header-section-number">31.5</span> Exploring AusTraits</h2>
 <p>With 1798215 rows of trait values in the main traits table, knowing how to explore the contents is essential.</p>
 <p>The R package <a href="https://github.com/traitecoevo/austraits"><code>{austraits}</code></a> offers a collection of functions to explore and wrangle AusTraits data – or indeed any data using the traits.build format.</p>
-<p>An austraits package vignette is available <a href="https://traitecoevo.github.io/traits.build-book/austraits_package.html">here</a>.</p>
+<p>The <a href="austraits_package.html"><code>austraits</code> package chapter</a> covers these functions as well.</p>
 <p>Function categories include:</p>
 <ul>
 <li><p><a href="#summarise_functions"><strong>summarise and lookup functions</strong></a>: These functions offer summaries by taxon name or trait, summarising taxa per trait (or other variable), datasets per trait, and observations per trait.</p></li>
 <li><p><a href="#filtering_functions"><strong>filtering functions</strong></a>: These functions begin with the word <code>extract</code> and filter all of the relational tables simultaneously.</p></li>
 <li><p><a href="#join_functions"><strong>join functions</strong></a>: These functions allow columns from the relational tables to be joined to the core traits table.</p></li>
-<li><p><a href="#pivot_functions"><strong>pivot functions</strong></a>: These functions allow the traits table to be pivoted to wide format.</p></li>
+<li><p><a href="#pivotting_datasets"><strong>pivot functions</strong></a>: These functions allow the traits table to be pivoted to wide format.</p></li>
 <li><p><a href="#plotting_functions"><strong>plotting functions</strong></a>: These functions offer a means of rapidly visualising AusTraits data, either plotting collection locations on a map of Australia or plotting trait values by dataset.</p></li>
 </ul>
 <section id="austraits.r-function-reference" class="level3">
@@ -1250,8 +1276,8 @@ session_info.</code></pre>
 </div>
 </section>
 </section>
-<section id="wrangling-austraits" class="level2" data-number="30.6">
-<h2 data-number="30.6" class="anchored" data-anchor-id="wrangling-austraits"><span class="header-section-number">30.6</span> Wrangling AusTraits</h2>
+<section id="wrangling-austraits" class="level2" data-number="31.6">
+<h2 data-number="31.6" class="anchored" data-anchor-id="wrangling-austraits"><span class="header-section-number">31.6</span> Wrangling AusTraits</h2>
 <section id="filtering_functions" class="level3">
 <h3 class="anchored" data-anchor-id="filtering_functions">Filtering data</h3>
 <p>There are four <code>austraits</code> functions that filter data: <code>extract_trait</code>, <code>extract_taxon</code> or <code>extract_dataset_id</code>, and <code>extract_data</code>.</p>
@@ -2360,16 +2386,40 @@ session_info.</code></pre>
 </div>
 </section>
 </section>
-<section id="summarising-data-trait-means-modes-etc." class="level2" data-number="30.7">
-<h2 data-number="30.7" class="anchored" data-anchor-id="summarising-data-trait-means-modes-etc."><span class="header-section-number">30.7</span> Summarising data: trait means, modes, etc.</h2>
+<section id="citing_data" class="level2" data-number="31.7">
+<h2 data-number="31.7" class="anchored" data-anchor-id="citing_data"><span class="header-section-number">31.7</span> Citing the data you use</h2>
+<p>When you extract a subset of a database for an analysis, you should cite the <strong>original sources</strong> the data came from, not just the database as a whole. Because <code>traits.build</code> databases retain their full structure through the <code>extract_</code> functions, the provenance you need travels with your subset.</p>
+<p>To see the citations for the sources in a subset, look at the <code>methods</code> table, which carries a primary citation for every dataset:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb157"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a>subset_data <span class="ot">&lt;-</span> austraits <span class="sc">%&gt;%</span> <span class="fu">extract_dataset</span>(<span class="fu">c</span>(<span class="st">"Falster"</span>, <span class="st">"Wright"</span>, <span class="st">"Westoby"</span>, <span class="st">"White"</span>))</span>
+<span id="cb157-2"><a href="#cb157-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-3"><a href="#cb157-3" aria-hidden="true" tabindex="-1"></a>subset_data<span class="sc">$</span>methods <span class="sc">%&gt;%</span></span>
+<span id="cb157-4"><a href="#cb157-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(dataset_id, source_primary_citation)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>To produce a BibTeX file you can import into a reference manager (Zotero, EndNote, Mendeley, …), run <code>RefManageR::WriteBib()</code> on the subset’s <code>sources</code> element:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># writes a .bib file of all sources in the subset to your working directory</span></span>
+<span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a>RefManageR<span class="sc">::</span><span class="fu">WriteBib</span>(subset_data<span class="sc">$</span>sources)</span>
+<span id="cb158-3"><a href="#cb158-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-4"><a href="#cb158-4" aria-hidden="true" tabindex="-1"></a><span class="co"># or write to a named file</span></span>
+<span id="cb158-5"><a href="#cb158-5" aria-hidden="true" tabindex="-1"></a>RefManageR<span class="sc">::</span><span class="fu">WriteBib</span>(subset_data<span class="sc">$</span>sources, <span class="at">file =</span> <span class="st">"austraits_sources.bib"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You can also inspect or export a single source:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb159"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a>subset_data<span class="sc">$</span>sources[<span class="st">"Falster_2005_1"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This is the most reliable way to acknowledge everyone whose data you have used — for example, to find the full citation behind the values for a particular trait, extract that trait and read off the citations from its <code>methods</code> table or exported <code>.bib</code>.</p>
+</section>
+<section id="summarising-data-trait-means-modes-etc." class="level2" data-number="31.8">
+<h2 data-number="31.8" class="anchored" data-anchor-id="summarising-data-trait-means-modes-etc."><span class="header-section-number">31.8</span> Summarising data: trait means, modes, etc.</h2>
 <p>The function <code>summarise_trait_means</code> that was in older <code>{austraits}</code> versions was has been deprecated, as it is not appropriate for AusTraits versions &gt; 5.0 – that is all databases built using <code>{traits.build}</code>. A new version is in development and will be released in 2025. In the meantime, if you’ve sourced the file <code>extra_functions.R</code>, there are a few functions that allow you to summarise trait values.</p>
 <section id="categorical-traits" class="level3">
 <h3 class="anchored" data-anchor-id="categorical-traits">Categorical traits</h3>
 <p>For instance, <code>categorical_summary</code> indicates how many times a specific trait value is reported for a given taxa (across all datasets):</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb157"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a>cat_summary <span class="ot">&lt;-</span> <span class="fu">categorical_summary</span>(austraits, <span class="st">"resprouting_capacity"</span>)</span>
-<span id="cb157-2"><a href="#cb157-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-3"><a href="#cb157-3" aria-hidden="true" tabindex="-1"></a>cat_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb160"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a>cat_summary <span class="ot">&lt;-</span> <span class="fu">categorical_summary</span>(austraits, <span class="st">"resprouting_capacity"</span>)</span>
+<span id="cb160-2"><a href="#cb160-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-3"><a href="#cb160-3" aria-hidden="true" tabindex="-1"></a>cat_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 13,785 × 3
    taxon_name                             trait_name           value_summary    
@@ -2389,11 +2439,11 @@ session_info.</code></pre>
 </div>
 <p>Alternatively, create a wider matrix with possible trait values as columns:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb159"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a>categorical_summary_wider <span class="ot">&lt;-</span> </span>
-<span id="cb159-2"><a href="#cb159-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">categorical_summary_by_value</span>(austraits, <span class="st">"resprouting_capacity"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb159-3"><a href="#cb159-3" aria-hidden="true" tabindex="-1"></a>    tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> value_tmp, <span class="at">values_from =</span> replicates)</span>
-<span id="cb159-4"><a href="#cb159-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-5"><a href="#cb159-5" aria-hidden="true" tabindex="-1"></a>categorical_summary_wider</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb162"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a>categorical_summary_wider <span class="ot">&lt;-</span> </span>
+<span id="cb162-2"><a href="#cb162-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">categorical_summary_by_value</span>(austraits, <span class="st">"resprouting_capacity"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb162-3"><a href="#cb162-3" aria-hidden="true" tabindex="-1"></a>    tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> value_tmp, <span class="at">values_from =</span> replicates)</span>
+<span id="cb162-4"><a href="#cb162-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-5"><a href="#cb162-5" aria-hidden="true" tabindex="-1"></a>categorical_summary_wider</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 13,785 × 5
    taxon_name               trait_name fire_killed resprouts partial_resprouting
@@ -2420,10 +2470,10 @@ session_info.</code></pre>
 <p>Do you want to include both data from experiments and plants growing under natural conditions? This information is recorded in the <code>basis_of_record</code> column.</p>
 <p>One function we’re developing calculates weighted group means for field and experiment-sourced data, by first grouping values at the site level, then at the taxon level. For trait data sourced from floras where trait values are documented as a minimum and maximum value, the function takes the mean of these. The two subsets of data are then merged together.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb161"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a>weighted <span class="ot">&lt;-</span> <span class="fu">austraits_weighted_means</span>(austraits, <span class="fu">c</span>(<span class="st">"leaf_mass_per_area"</span>, </span>
-<span id="cb161-2"><a href="#cb161-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="st">"leaf_length"</span>))</span>
-<span id="cb161-3"><a href="#cb161-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb161-4"><a href="#cb161-4" aria-hidden="true" tabindex="-1"></a>weighted</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a>weighted <span class="ot">&lt;-</span> <span class="fu">austraits_weighted_means</span>(austraits, <span class="fu">c</span>(<span class="st">"leaf_mass_per_area"</span>, </span>
+<span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="st">"leaf_length"</span>))</span>
+<span id="cb164-3"><a href="#cb164-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-4"><a href="#cb164-4" aria-hidden="true" tabindex="-1"></a>weighted</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 25,245 × 10
    taxon_name       trait_name  mean   min   max median geom_mean all_replicates
@@ -2445,55 +2495,55 @@ session_info.</code></pre>
 <p>This function may be sufficient for exploratory purposes. Alternatively, you can download the file with the function and edit the code to suit your purposes.</p>
 </section>
 </section>
-<section id="plotting_functions" class="level2" data-number="30.8">
-<h2 data-number="30.8" class="anchored" data-anchor-id="plotting_functions"><span class="header-section-number">30.8</span> Plotting data</h2>
+<section id="plotting_functions" class="level2" data-number="31.9">
+<h2 data-number="31.9" class="anchored" data-anchor-id="plotting_functions"><span class="header-section-number">31.9</span> Plotting data</h2>
 <section id="plotting-trait-distributions" class="level3">
 <h3 class="anchored" data-anchor-id="plotting-trait-distributions">Plotting trait distributions</h3>
 <p>Another way to summarise AusTraits data by trait, and determine whether AusTraits offers sufficient data coverage for a trait of choice, is to plot the distribution of trait values in AusTraits.</p>
 <p>As seen in <a href="#exploring"><code>A first look at data</code></a>, the function <code>austraits::plot_trait_distribution_beeswarm()</code> plots trait data by <code>dataset_id</code>, <code>genus</code>, <code>family</code> or indeed any column in the traits table, such as <code>life_stage</code> or <code>basis_of_record</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb163"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How does leaf N vary by dataset?</span></span>
-<span id="cb163-2"><a href="#cb163-2" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_trait_distribution_beeswarm</span>(austraits, <span class="st">"leaf_N_per_dry_mass"</span>, </span>
-<span id="cb163-3"><a href="#cb163-3" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">y_axis_category =</span> <span class="st">"dataset_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb166"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How does leaf N vary by dataset?</span></span>
+<span id="cb166-2"><a href="#cb166-2" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_trait_distribution_beeswarm</span>(austraits, <span class="st">"leaf_N_per_dry_mass"</span>, </span>
+<span id="cb166-3"><a href="#cb166-3" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">y_axis_category =</span> <span class="st">"dataset_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How does leaf N vary across Banksia species?</span></span>
-<span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a>Banksia_data <span class="ot">&lt;-</span> austraits <span class="sc">%&gt;%</span> <span class="fu">extract_taxa</span>(<span class="at">genus =</span> <span class="st">"Banksia"</span>)</span>
-<span id="cb164-3"><a href="#cb164-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb164-4"><a href="#cb164-4" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_trait_distribution_beeswarm</span>(Banksia_data, <span class="st">"leaf_N_per_dry_mass"</span>,</span>
-<span id="cb164-5"><a href="#cb164-5" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">y_axis_category =</span> <span class="st">"taxon_name"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb167"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How does leaf N vary across Banksia species?</span></span>
+<span id="cb167-2"><a href="#cb167-2" aria-hidden="true" tabindex="-1"></a>Banksia_data <span class="ot">&lt;-</span> austraits <span class="sc">%&gt;%</span> <span class="fu">extract_taxa</span>(<span class="at">genus =</span> <span class="st">"Banksia"</span>)</span>
+<span id="cb167-3"><a href="#cb167-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-4"><a href="#cb167-4" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_trait_distribution_beeswarm</span>(Banksia_data, <span class="st">"leaf_N_per_dry_mass"</span>,</span>
+<span id="cb167-5"><a href="#cb167-5" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">y_axis_category =</span> <span class="st">"taxon_name"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-38-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-41-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb165"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Does leaf mass per area shift in Eucalyptus seedlings versus adults, which is captured in `life_stage`? What about amongst Eucalypts where information about the age of the leaves was recorded, captured as the context property "leaf age"?</span></span>
-<span id="cb165-2"><a href="#cb165-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb165-3"><a href="#cb165-3" aria-hidden="true" tabindex="-1"></a>Euc_data <span class="ot">&lt;-</span> austraits <span class="sc">%&gt;%</span> <span class="fu">extract_taxa</span>(<span class="at">genus =</span> <span class="st">"Eucalyptus"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb165-4"><a href="#cb165-4" aria-hidden="true" tabindex="-1"></a>  austraits<span class="sc">::</span><span class="fu">join_context_properties</span>(<span class="at">vars =</span> <span class="st">"leaf age"</span>, <span class="at">format =</span> <span class="st">"many_columns"</span>, <span class="at">include_description =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb165-5"><a href="#cb165-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb165-6"><a href="#cb165-6" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_trait_distribution_beeswarm</span>(Euc_data, <span class="st">"leaf_mass_per_area"</span>, </span>
-<span id="cb165-7"><a href="#cb165-7" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">y_axis_category =</span> <span class="st">"life_stage"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb168"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Does leaf mass per area shift in Eucalyptus seedlings versus adults, which is captured in `life_stage`? What about amongst Eucalypts where information about the age of the leaves was recorded, captured as the context property "leaf age"?</span></span>
+<span id="cb168-2"><a href="#cb168-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-3"><a href="#cb168-3" aria-hidden="true" tabindex="-1"></a>Euc_data <span class="ot">&lt;-</span> austraits <span class="sc">%&gt;%</span> <span class="fu">extract_taxa</span>(<span class="at">genus =</span> <span class="st">"Eucalyptus"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb168-4"><a href="#cb168-4" aria-hidden="true" tabindex="-1"></a>  austraits<span class="sc">::</span><span class="fu">join_context_properties</span>(<span class="at">vars =</span> <span class="st">"leaf age"</span>, <span class="at">format =</span> <span class="st">"many_columns"</span>, <span class="at">include_description =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb168-5"><a href="#cb168-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-6"><a href="#cb168-6" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_trait_distribution_beeswarm</span>(Euc_data, <span class="st">"leaf_mass_per_area"</span>, </span>
+<span id="cb168-7"><a href="#cb168-7" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">y_axis_category =</span> <span class="st">"life_stage"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-38-3.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-41-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb166"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_trait_distribution_beeswarm</span>(Euc_data, <span class="st">"leaf_mass_per_area"</span>, </span>
-<span id="cb166-2"><a href="#cb166-2" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">y_axis_category =</span> <span class="st">"method_context: leaf age"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_trait_distribution_beeswarm</span>(Euc_data, <span class="st">"leaf_mass_per_area"</span>, </span>
+<span id="cb169-2"><a href="#cb169-2" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">y_axis_category =</span> <span class="st">"method_context: leaf age"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-38-4.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-41-4.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2509,64 +2559,10 @@ session_info.</code></pre>
 <h4 class="anchored" data-anchor-id="plot-locations-by-trait-dataset-or-other-column">Plot locations by trait, dataset, or other column</h4>
 <p>See where Eucalyptus data have been collected, divided by <code>life_stage</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb167"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a>Euc_data <span class="ot">&lt;-</span> Euc_data <span class="sc">%&gt;%</span></span>
-<span id="cb167-2"><a href="#cb167-2" aria-hidden="true" tabindex="-1"></a>  austraits<span class="sc">::</span><span class="fu">join_location_coordinates</span>()</span>
-<span id="cb167-3"><a href="#cb167-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb167-4"><a href="#cb167-4" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_locations</span>(<span class="at">database =</span> Euc_data, <span class="at">feature =</span> <span class="st">"life_stage"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>See where Banksia leaf area data have been collected, divided by <code>taxon_name</code></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb168"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a>Banksia_data <span class="ot">&lt;-</span> Banksia_data <span class="sc">%&gt;%</span></span>
-<span id="cb168-2"><a href="#cb168-2" aria-hidden="true" tabindex="-1"></a>  austraits<span class="sc">::</span><span class="fu">join_location_coordinates</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb168-3"><a href="#cb168-3" aria-hidden="true" tabindex="-1"></a>  austraits<span class="sc">::</span><span class="fu">extract_trait</span>(<span class="at">trait_name =</span> <span class="st">"leaf_area"</span>)</span>
-<span id="cb168-4"><a href="#cb168-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb168-5"><a href="#cb168-5" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_locations</span>(<span class="at">database =</span> Banksia_data, <span class="at">feature =</span> <span class="st">"taxon_name"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Where were the various Westoby datasets collected?</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a>Westoby <span class="ot">&lt;-</span></span>
-<span id="cb169-2"><a href="#cb169-2" aria-hidden="true" tabindex="-1"></a>  austraits <span class="sc">%&gt;%</span></span>
-<span id="cb169-3"><a href="#cb169-3" aria-hidden="true" tabindex="-1"></a>     austraits<span class="sc">::</span><span class="fu">extract_dataset</span>(<span class="at">dataset_id =</span> <span class="st">"Westoby"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb169-4"><a href="#cb169-4" aria-hidden="true" tabindex="-1"></a>     austraits<span class="sc">::</span><span class="fu">join_location_coordinates</span>()</span>
-<span id="cb169-5"><a href="#cb169-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb169-6"><a href="#cb169-6" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_locations</span>(<span class="at">database =</span> Westoby, <span class="at">feature =</span> <span class="st">"dataset_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb170"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that while the `dataset` is intended to be a relational database, this function also works with just the traits table, should you have separated it out of the relational structure.</span></span>
-<span id="cb170-2"><a href="#cb170-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb170-3"><a href="#cb170-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Westoby_traits &lt;- Westoby$traits</span></span>
-<span id="cb170-4"><a href="#cb170-4" aria-hidden="true" tabindex="-1"></a><span class="co"># austraits::plot_locations(dataset = Westoby_traits, feature = "dataset_id")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Where were data for Acacia aneura collected?</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb171"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
-<span id="cb171-2"><a href="#cb171-2" aria-hidden="true" tabindex="-1"></a>  austraits <span class="sc">%&gt;%</span></span>
-<span id="cb171-3"><a href="#cb171-3" aria-hidden="true" tabindex="-1"></a>  austraits<span class="sc">::</span><span class="fu">extract_taxa</span>(<span class="at">taxon_name =</span> <span class="st">"Acacia aneura"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb171-4"><a href="#cb171-4" aria-hidden="true" tabindex="-1"></a>  austraits<span class="sc">::</span><span class="fu">join_location_coordinates</span>()</span>
-<span id="cb171-5"><a href="#cb171-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb171-6"><a href="#cb171-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>traits <span class="ot">&lt;-</span> data<span class="sc">$</span>traits <span class="sc">%&gt;%</span> </span>
-<span id="cb171-7"><a href="#cb171-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">latitude (deg)</span><span class="st">`</span>)) </span>
-<span id="cb171-8"><a href="#cb171-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb171-9"><a href="#cb171-9" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_locations</span>(data, <span class="st">"taxon_name"</span>)     <span class="co"># actually 4 taxa, because of subspecies</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb170"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a>Euc_data <span class="ot">&lt;-</span> Euc_data <span class="sc">%&gt;%</span></span>
+<span id="cb170-2"><a href="#cb170-2" aria-hidden="true" tabindex="-1"></a>  austraits<span class="sc">::</span><span class="fu">join_location_coordinates</span>()</span>
+<span id="cb170-3"><a href="#cb170-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-4"><a href="#cb170-4" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_locations</span>(<span class="at">database =</span> Euc_data, <span class="at">feature =</span> <span class="st">"life_stage"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2574,19 +2570,73 @@ session_info.</code></pre>
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_locations</span>(data, <span class="st">"dataset_id"</span>)     <span class="co"># 1 plot for each dataset_id</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>See where Banksia leaf area data have been collected, divided by <code>taxon_name</code></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb171"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a>Banksia_data <span class="ot">&lt;-</span> Banksia_data <span class="sc">%&gt;%</span></span>
+<span id="cb171-2"><a href="#cb171-2" aria-hidden="true" tabindex="-1"></a>  austraits<span class="sc">::</span><span class="fu">join_location_coordinates</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb171-3"><a href="#cb171-3" aria-hidden="true" tabindex="-1"></a>  austraits<span class="sc">::</span><span class="fu">extract_trait</span>(<span class="at">trait_name =</span> <span class="st">"leaf_area"</span>)</span>
+<span id="cb171-4"><a href="#cb171-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-5"><a href="#cb171-5" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_locations</span>(<span class="at">database =</span> Banksia_data, <span class="at">feature =</span> <span class="st">"taxon_name"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-42-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Where were the various Westoby datasets collected?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a>Westoby <span class="ot">&lt;-</span></span>
+<span id="cb172-2"><a href="#cb172-2" aria-hidden="true" tabindex="-1"></a>  austraits <span class="sc">%&gt;%</span></span>
+<span id="cb172-3"><a href="#cb172-3" aria-hidden="true" tabindex="-1"></a>     austraits<span class="sc">::</span><span class="fu">extract_dataset</span>(<span class="at">dataset_id =</span> <span class="st">"Westoby"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb172-4"><a href="#cb172-4" aria-hidden="true" tabindex="-1"></a>     austraits<span class="sc">::</span><span class="fu">join_location_coordinates</span>()</span>
+<span id="cb172-5"><a href="#cb172-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb172-6"><a href="#cb172-6" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_locations</span>(<span class="at">database =</span> Westoby, <span class="at">feature =</span> <span class="st">"dataset_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb173"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that while the `dataset` is intended to be a relational database, this function also works with just the traits table, should you have separated it out of the relational structure.</span></span>
+<span id="cb173-2"><a href="#cb173-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb173-3"><a href="#cb173-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Westoby_traits &lt;- Westoby$traits</span></span>
+<span id="cb173-4"><a href="#cb173-4" aria-hidden="true" tabindex="-1"></a><span class="co"># austraits::plot_locations(dataset = Westoby_traits, feature = "dataset_id")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Where were data for Acacia aneura collected?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb174"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
+<span id="cb174-2"><a href="#cb174-2" aria-hidden="true" tabindex="-1"></a>  austraits <span class="sc">%&gt;%</span></span>
+<span id="cb174-3"><a href="#cb174-3" aria-hidden="true" tabindex="-1"></a>  austraits<span class="sc">::</span><span class="fu">extract_taxa</span>(<span class="at">taxon_name =</span> <span class="st">"Acacia aneura"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb174-4"><a href="#cb174-4" aria-hidden="true" tabindex="-1"></a>  austraits<span class="sc">::</span><span class="fu">join_location_coordinates</span>()</span>
+<span id="cb174-5"><a href="#cb174-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-6"><a href="#cb174-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>traits <span class="ot">&lt;-</span> data<span class="sc">$</span>traits <span class="sc">%&gt;%</span> </span>
+<span id="cb174-7"><a href="#cb174-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">latitude (deg)</span><span class="st">`</span>)) </span>
+<span id="cb174-8"><a href="#cb174-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-9"><a href="#cb174-9" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_locations</span>(data, <span class="st">"taxon_name"</span>)     <span class="co"># actually 4 taxa, because of subspecies</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb175"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">::</span><span class="fu">plot_locations</span>(data, <span class="st">"dataset_id"</span>)     <span class="co"># 1 plot for each dataset_id</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="AusTraits_tutorial_files/figure-html/unnamed-chunk-45-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="more-complex-workflows-some-examples" class="level3">
-<h3 class="anchored" data-anchor-id="more-complex-workflows-some-examples">More complex workflows – some examples</h3>
+<section id="sample_analyses" class="level3">
+<h3 class="anchored" data-anchor-id="sample_analyses">More complex workflows – some examples</h3>
 <section id="an-example-looking-at-trait-climate-gradients" class="level4">
 <h4 class="anchored" data-anchor-id="an-example-looking-at-trait-climate-gradients">An example looking at trait-climate gradients</h4>
 <p>A simple workflow allows one to look at <a href="traits_and_climate_example.html">trait values across a climate gradient</a></p>
@@ -2599,22 +2649,22 @@ session_info.</code></pre>
 </section>
 </section>
 </section>
-<section id="a-complexity-pivoting-datasets-pivotting_datasets" class="level2" data-number="30.9">
-<h2 data-number="30.9" class="anchored" data-anchor-id="a-complexity-pivoting-datasets-pivotting_datasets"><span class="header-section-number">30.9</span> A complexity: pivoting datasets {pivotting_datasets}</h2>
+<section id="pivotting_datasets" class="level2" data-number="31.10">
+<h2 data-number="31.10" class="anchored" data-anchor-id="pivotting_datasets"><span class="header-section-number">31.10</span> A complexity: pivoting datasets</h2>
 <p>The AusTraits tables are all in <code>long</code> format with an individual row for each trait measurement. This is the most compact way to store data and offers the flexibility of documenting diverse metadata for each trait measurement.</p>
 <p>However, for many research uses, it may be more useful to view data in a <code>wide</code> format, with the multiple traits that comprise a single observation displayed as consecutive columns.</p>
 <p>The <code>{austraits}</code> function <code>trait_pivot_wider</code> allows AusTraits datasets to be pivoted from <code>long</code> to <code>wide</code> format.</p>
 <p>It is recommended to only use this function on individual datasets – or perhaps a small selection of datasets – as each dataset includes a different collection of traits and pivoting wider otherwise creates a very “holey” dataset.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb173"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a>Farrell_2017_values <span class="ot">&lt;-</span></span>
-<span id="cb173-2"><a href="#cb173-2" aria-hidden="true" tabindex="-1"></a>  austraits <span class="sc">%&gt;%</span></span>
-<span id="cb173-3"><a href="#cb173-3" aria-hidden="true" tabindex="-1"></a>    austraits<span class="sc">::</span><span class="fu">extract_dataset</span>(<span class="at">dataset_id =</span> <span class="st">"Farrell_2017"</span>)</span>
-<span id="cb173-4"><a href="#cb173-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-5"><a href="#cb173-5" aria-hidden="true" tabindex="-1"></a>Farrell_2017_pivoted <span class="ot">&lt;-</span> </span>
-<span id="cb173-6"><a href="#cb173-6" aria-hidden="true" tabindex="-1"></a>  Farrell_2017_values<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
-<span id="cb173-7"><a href="#cb173-7" aria-hidden="true" tabindex="-1"></a>    austraits<span class="sc">::</span><span class="fu">trait_pivot_wider</span>()</span>
-<span id="cb173-8"><a href="#cb173-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-9"><a href="#cb173-9" aria-hidden="true" tabindex="-1"></a>Farrell_2017_pivoted</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb176"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb176-1"><a href="#cb176-1" aria-hidden="true" tabindex="-1"></a>Farrell_2017_values <span class="ot">&lt;-</span></span>
+<span id="cb176-2"><a href="#cb176-2" aria-hidden="true" tabindex="-1"></a>  austraits <span class="sc">%&gt;%</span></span>
+<span id="cb176-3"><a href="#cb176-3" aria-hidden="true" tabindex="-1"></a>    austraits<span class="sc">::</span><span class="fu">extract_dataset</span>(<span class="at">dataset_id =</span> <span class="st">"Farrell_2017"</span>)</span>
+<span id="cb176-4"><a href="#cb176-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-5"><a href="#cb176-5" aria-hidden="true" tabindex="-1"></a>Farrell_2017_pivoted <span class="ot">&lt;-</span> </span>
+<span id="cb176-6"><a href="#cb176-6" aria-hidden="true" tabindex="-1"></a>  Farrell_2017_values<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
+<span id="cb176-7"><a href="#cb176-7" aria-hidden="true" tabindex="-1"></a>    austraits<span class="sc">::</span><span class="fu">trait_pivot_wider</span>()</span>
+<span id="cb176-8"><a href="#cb176-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-9"><a href="#cb176-9" aria-hidden="true" tabindex="-1"></a>Farrell_2017_pivoted</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 177 × 25
    dataset_id   taxon_name observation_id entity_type basis_of_record life_stage
@@ -2641,15 +2691,15 @@ session_info.</code></pre>
 <p>This example pivots “nicely” as all observations have <code>entity_type = individual</code>.</p>
 <p>Compare this first example to the dataset <code>Edwards_2000</code> which includes individual-, population-, and species-level observations:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb175"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1" aria-hidden="true" tabindex="-1"></a>Edwards_2000_values <span class="ot">&lt;-</span></span>
-<span id="cb175-2"><a href="#cb175-2" aria-hidden="true" tabindex="-1"></a>  austraits <span class="sc">%&gt;%</span></span>
-<span id="cb175-3"><a href="#cb175-3" aria-hidden="true" tabindex="-1"></a>    austraits<span class="sc">::</span><span class="fu">extract_dataset</span>(<span class="at">dataset_id =</span> <span class="st">"Edwards_2000"</span>)</span>
-<span id="cb175-4"><a href="#cb175-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-5"><a href="#cb175-5" aria-hidden="true" tabindex="-1"></a>Edwards_2000_pivoted <span class="ot">&lt;-</span> </span>
-<span id="cb175-6"><a href="#cb175-6" aria-hidden="true" tabindex="-1"></a>  Edwards_2000_values<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
-<span id="cb175-7"><a href="#cb175-7" aria-hidden="true" tabindex="-1"></a>    austraits<span class="sc">::</span><span class="fu">trait_pivot_wider</span>()</span>
-<span id="cb175-8"><a href="#cb175-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb175-9"><a href="#cb175-9" aria-hidden="true" tabindex="-1"></a>Edwards_2000_pivoted</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb178"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb178-1"><a href="#cb178-1" aria-hidden="true" tabindex="-1"></a>Edwards_2000_values <span class="ot">&lt;-</span></span>
+<span id="cb178-2"><a href="#cb178-2" aria-hidden="true" tabindex="-1"></a>  austraits <span class="sc">%&gt;%</span></span>
+<span id="cb178-3"><a href="#cb178-3" aria-hidden="true" tabindex="-1"></a>    austraits<span class="sc">::</span><span class="fu">extract_dataset</span>(<span class="at">dataset_id =</span> <span class="st">"Edwards_2000"</span>)</span>
+<span id="cb178-4"><a href="#cb178-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb178-5"><a href="#cb178-5" aria-hidden="true" tabindex="-1"></a>Edwards_2000_pivoted <span class="ot">&lt;-</span> </span>
+<span id="cb178-6"><a href="#cb178-6" aria-hidden="true" tabindex="-1"></a>  Edwards_2000_values<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
+<span id="cb178-7"><a href="#cb178-7" aria-hidden="true" tabindex="-1"></a>    austraits<span class="sc">::</span><span class="fu">trait_pivot_wider</span>()</span>
+<span id="cb178-8"><a href="#cb178-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb178-9"><a href="#cb178-9" aria-hidden="true" tabindex="-1"></a>Edwards_2000_pivoted</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 139 × 35
    dataset_id   taxon_name observation_id entity_type basis_of_record life_stage
@@ -2693,20 +2743,20 @@ session_info.</code></pre>
 <p>If a single dataset includes traits that are attributed to different entity types, they are assigned separate <code>observation_id</code>’s. For instance, many datasets are comprised of individual-level physiological trait data and a column <code>growth_form</code>, documenting the growth form (i.e.&nbsp;tree, shrub, herb, etc.) of each <em>species</em>.</p>
 <p>We’re developing a function, <code>merge_entity_types</code> that collapses the pivoted data into a more condensed table, but this loses some of the metadata. This function is currently in the R file <code>extra_functions.R</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb177"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a>Edwards_2000_pivoted_merged <span class="ot">&lt;-</span></span>
-<span id="cb177-2"><a href="#cb177-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">merge_entity_types</span>(<span class="st">"Edwards_2000"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb180"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb180-1"><a href="#cb180-1" aria-hidden="true" tabindex="-1"></a>Edwards_2000_pivoted_merged <span class="ot">&lt;-</span></span>
+<span id="cb180-2"><a href="#cb180-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">merge_entity_types</span>(<span class="st">"Edwards_2000"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>This function will duplicate any “higher-entity” trait values (e.g.&nbsp;A single species-level value is filled in for all individuals or populations)</p></li>
 <li><p>Metadata fields, like <code>entity_type</code> or <code>value_type</code>, are only retained if their values are identical for all measurements</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb178"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb178-1"><a href="#cb178-1" aria-hidden="true" tabindex="-1"></a>Westoby_2014_pivoted_merged <span class="ot">&lt;-</span></span>
-<span id="cb178-2"><a href="#cb178-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">merge_entity_types</span>(<span class="st">"Westoby_2014"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb181"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a>Westoby_2014_pivoted_merged <span class="ot">&lt;-</span></span>
+<span id="cb181-2"><a href="#cb181-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">merge_entity_types</span>(<span class="st">"Westoby_2014"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="intepreting-trait-names-taxon-names" class="level2" data-number="30.10">
-<h2 data-number="30.10" class="anchored" data-anchor-id="intepreting-trait-names-taxon-names"><span class="header-section-number">30.10</span> Intepreting trait names, taxon names</h2>
+<section id="intepreting-trait-names-taxon-names" class="level2" data-number="31.11">
+<h2 data-number="31.11" class="anchored" data-anchor-id="intepreting-trait-names-taxon-names"><span class="header-section-number">31.11</span> Intepreting trait names, taxon names</h2>
 <section id="trait-dictionary" class="level3">
 <h3 class="anchored" data-anchor-id="trait-dictionary">Trait dictionary</h3>
 <p>The <code>{traits.build}</code> pipeline requires a trait dictionary that documents 4 pieces of information about each trait:</p>
@@ -2739,9 +2789,9 @@ session_info.</code></pre>
 <p>The R package <a href="https://github.com/traitecoevo/APCalign"><code>{APCalign}</code></a> is used to align and update taxon names submitted to AusTraits with those in the APC/APNI.</p>
 <p><code>{APCalign}</code> can be installed directly from CRAN</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb179"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("APCalign")</span></span>
-<span id="cb179-2"><a href="#cb179-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb179-3"><a href="#cb179-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(APCalign) <span class="co"># Australian plant taxon alignment function, available on CRAN </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb182"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("APCalign")</span></span>
+<span id="cb182-2"><a href="#cb182-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb182-3"><a href="#cb182-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(APCalign) <span class="co"># Australian plant taxon alignment function, available on CRAN </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'APCalign'</code></pre>
@@ -2774,10 +2824,10 @@ Attaching package: 'APCalign'</code></pre>
 <p>Examples:&nbsp;</p>
 <p>Identical <code>genus sp.</code> inputs from disparate datasets are given unique “names”:&nbsp;</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb182"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
-<span id="cb182-2"><a href="#cb182-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(original_name, <span class="st">"Eucalyptus sp</span><span class="sc">\\</span><span class="st">.$"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb182-3"><a href="#cb182-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(dataset_id, taxon_name, original_name) <span class="sc">%&gt;%</span></span>
-<span id="cb182-4"><a href="#cb182-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(original_name <span class="sc">!=</span> taxon_name) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb185"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a href="#cb185-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
+<span id="cb185-2"><a href="#cb185-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(original_name, <span class="st">"Eucalyptus sp</span><span class="sc">\\</span><span class="st">.$"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb185-3"><a href="#cb185-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(dataset_id, taxon_name, original_name) <span class="sc">%&gt;%</span></span>
+<span id="cb185-4"><a href="#cb185-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(original_name <span class="sc">!=</span> taxon_name) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 3
   dataset_id     taxon_name                      original_name 
@@ -2790,10 +2840,10 @@ Attaching package: 'APCalign'</code></pre>
 </div>
 <p>Outdated names are updated:&nbsp;</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb184"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
-<span id="cb184-2"><a href="#cb184-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(original_name, <span class="st">"Dryandra"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb184-3"><a href="#cb184-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(taxon_name, original_name) <span class="sc">%&gt;%</span></span>
-<span id="cb184-4"><a href="#cb184-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(original_name <span class="sc">!=</span> taxon_name) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb187"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href="#cb187-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
+<span id="cb187-2"><a href="#cb187-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(original_name, <span class="st">"Dryandra"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb187-3"><a href="#cb187-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(taxon_name, original_name) <span class="sc">%&gt;%</span></span>
+<span id="cb187-4"><a href="#cb187-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(original_name <span class="sc">!=</span> taxon_name) <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 2
    taxon_name                                 original_name                     
@@ -2817,9 +2867,9 @@ Attaching package: 'APCalign'</code></pre>
 </div>
 <p>Phrase name syntax across datasets is aligned:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb186"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
-<span id="cb186-2"><a href="#cb186-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(taxon_name, <span class="st">"Argyrodendron sp. Whyanbeel"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb186-3"><a href="#cb186-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(taxon_name, original_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb189"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href="#cb189-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>traits <span class="sc">%&gt;%</span></span>
+<span id="cb189-2"><a href="#cb189-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(taxon_name, <span class="st">"Argyrodendron sp. Whyanbeel"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb189-3"><a href="#cb189-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(taxon_name, original_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 2
   taxon_name                                       original_name                
@@ -3241,12 +3291,12 @@ Attaching package: 'APCalign'</code></pre>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./austraits_database.html" class="pagination-link" aria-label="AusTraits, Australia's Plant Trait Database">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./traits_and_climate_example.html" class="pagination-link" aria-label="Analysis example: Using AusTraits for trait-climate analyses">
-        <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Tutorial: Example compilation – The {traits.build} data model, R package, and workflow</title>
+<title>2&nbsp; Installation and quick start – The {traits.build} data model, R package, and workflow</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,8 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./file_organisation.html" rel="next">
-<link href="./traits_build.html" rel="prev">
+<link href="./motivation.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Creating with <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./tutorial_compilation.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./installation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation and quick start</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +165,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation.html" class="sidebar-item-text sidebar-link">
+  <a href="./installation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation and quick start</span></span></a>
   </div>
 </li>
@@ -247,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorial_compilation.html" class="sidebar-item-text sidebar-link active">
+  <a href="./tutorial_compilation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></span></a>
   </div>
 </li>
@@ -463,17 +463,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#clone-traits.build-template" id="toc-clone-traits.build-template" class="nav-link active" data-scroll-target="#clone-traits.build-template"><span class="header-section-number">12.1</span> Clone traits.build-template</a></li>
-  <li><a href="#build-the-example" id="toc-build-the-example" class="nav-link" data-scroll-target="#build-the-example"><span class="header-section-number">12.2</span> Build the example</a></li>
+  <li><a href="#what-you-need" id="toc-what-you-need" class="nav-link active" data-scroll-target="#what-you-need"><span class="header-section-number">2.1</span> What you need</a></li>
+  <li><a href="#step-1-install-the-traits.build-package" id="toc-step-1-install-the-traits.build-package" class="nav-link" data-scroll-target="#step-1-install-the-traits.build-package"><span class="header-section-number">2.2</span> Step 1 — Install the <code>traits.build</code> package</a></li>
+  <li><a href="#step-2-clone-the-template" id="toc-step-2-clone-the-template" class="nav-link" data-scroll-target="#step-2-clone-the-template"><span class="header-section-number">2.3</span> Step 2 — Clone the template</a></li>
+  <li><a href="#step-3-build-the-example-database" id="toc-step-3-build-the-example-database" class="nav-link" data-scroll-target="#step-3-build-the-example-database"><span class="header-section-number">2.4</span> Step 3 — Build the example database</a></li>
+  <li><a href="#step-4-look-around" id="toc-step-4-look-around" class="nav-link" data-scroll-target="#step-4-look-around"><span class="header-section-number">2.5</span> Step 4 — Look around</a></li>
+  <li><a href="#where-to-go-next" id="toc-where-to-go-next" class="nav-link" data-scroll-target="#where-to-go-next"><span class="header-section-number">2.6</span> Where to go next</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Creating with <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./tutorial_compilation.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./installation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation and quick start</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation and quick start</span></h1>
 </div>
 
 
@@ -490,43 +494,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This tutorial walks you through an example of creating a <code>traits.build</code> database from scratch using the <code>traits.build</code> template. We then look at examples of how to add datasets to the database using the <code>traits.build</code> workflow.</p>
-<section id="clone-traits.build-template" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="clone-traits.build-template"><span class="header-section-number">12.1</span> Clone traits.build-template</h2>
-<p><a href="https://github.com/traitecoevo/traits.build-template">traits.build-template</a> is a GitHub repository that contains:</p>
-<ol type="1">
-<li>Core files required to build your own database:
+<p>This chapter gets you from a clean R installation to a working <code>traits.build</code> database in a few minutes. It is the fastest way to see what a compilation looks like before reading the concept chapters that follow. If you would like a fuller, step-by-step walk-through, see the <a href="tutorial_compilation.html">example compilation tutorial</a> and the <a href="tutorial_datasets.html">guide to adding data</a>.</p>
+<section id="what-you-need" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="what-you-need"><span class="header-section-number">2.1</span> What you need</h2>
 <ul>
-<li><p>a sample <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/traits.yml">trait dictionary</a></p></li>
-<li><p>a <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/unit_conversions.csv">unit conversions file</a></p></li>
-<li><p>a generic <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/metadata.yml">database metadata file</a></p></li>
-<li><p>a placeholder <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/taxon_list.csv">taxon list</a></p></li>
-<li><p>a script of useful <a href="https://github.com/traitecoevo/traits.build-template/blob/master/R/custom_R_code.R">R functions</a></p></li>
-</ul></li>
-<li>Two pre-added datasets.
-<ul>
-<li><p>See how metadata is documented in fully propagated metadata files.</p></li>
-<li><p>Build a skeletal database before adding your own datasets.</p></li>
-</ul></li>
-<li>Datasets with explicit tutorials for filling in the dataset metadata files.
-<ul>
-<li><p>The tutorials for these datasets introduce you to the <code>traits.build</code> functions.</p></li>
-<li><p>By working through the dataset tutorials, you are progressively introduced to how the complexities of ecological datasets can be documented within the <code>traits.build</code> structure</p></li>
-<li><p>The datasets offer explicit examples of the types of complexities summarised in the <a href="adding_data_long.html">Adding datasets, a lengthy guide</a> chapter.</p></li>
-<li><p>There are seven dataset tutorials, progressing from simple to more complex dataset structures.</p></li>
-</ul></li>
-</ol>
-<p>To clone the repository, either visit the GitHub repository and click on the green <code>&lt;&gt; Code</code> tab toward the upper right corner of the <a href="https://github.com/traitecoevo/traits.build-template">landing page</a>, or clone the repository through GitHub desktop, R Studio, or your choice of Git client.</p>
+<li><strong>R</strong> (and, we recommend, RStudio). <code>traits.build</code> has no dependencies on proprietary software.</li>
+<li>The <strong><code>remotes</code></strong> package, for installing from GitHub: <code>install.packages("remotes")</code>.</li>
+<li>A <strong>Git client</strong> to clone the template. <a href="https://desktop.github.com/">GitHub Desktop</a> is a friendly option if you are new to Git; RStudio’s built-in Git support or the command line work equally well. If Git and GitHub are new to you, the free book <a href="https://happygitwithr.com/">Happy Git with R</a> is an excellent starting point.</li>
+</ul>
 </section>
-<section id="build-the-example" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="build-the-example"><span class="header-section-number">12.2</span> Build the example</h2>
-<p>Once you have cloned the repository and installed the package, the next step is to build the simplistic sample database:</p>
+<section id="step-1-install-the-traits.build-package" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="step-1-install-the-traits.build-package"><span class="header-section-number">2.2</span> Step 1 — Install the <code>traits.build</code> package</h2>
+<p><code>traits.build</code> is the engine that compiles a database. Install the current release from GitHub:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">build_setup_pipeline</span>(<span class="at">method =</span> <span class="st">"base"</span>, <span class="at">database_name =</span> <span class="st">"traits.build_database"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"build.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)  <span class="co"># if not already installed</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"traitecoevo/traits.build"</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>As described in the chapter on <a href="database_structure.html">data structure</a> the database is comprised of a series of relational tables and additional lists with metadata.</p>
-<p>Once you’ve explored and feel familiar with the basic structure of a <code>traits.build</code> database, continue onto the tutorials to learn how to add datasets using the traits.build workflow.</p>
+<p>For the most up-to-date installation notes — including how to install a specific version — see the <a href="https://traitecoevo.github.io/traits.build/index.html#installation">package installation instructions</a>.</p>
+</section>
+<section id="step-2-clone-the-template" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="step-2-clone-the-template"><span class="header-section-number">2.3</span> Step 2 — Clone the template</h2>
+<p><a href="https://github.com/traitecoevo/traits.build-template"><code>traits.build-template</code></a> is a ready-to-build example repository. It contains everything a compilation needs — a sample <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/traits.yml">trait dictionary</a>, a <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/unit_conversions.csv">unit-conversions file</a>, a <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/metadata.yml">database metadata file</a>, a placeholder <a href="https://github.com/traitecoevo/traits.build-template/blob/master/config/taxon_list.csv">taxon list</a>, and a script of reusable <a href="https://github.com/traitecoevo/traits.build-template/blob/master/R/custom_R_code.R">custom R functions</a> — plus two datasets already added so you can build a working database immediately, and further datasets with tutorials that introduce the workflow.</p>
+<p>Clone it by visiting the <a href="https://github.com/traitecoevo/traits.build-template">repository</a>, clicking the green <strong><code>&lt;&gt; Code</code></strong> button and choosing your preferred method, or from the command line:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/traitecoevo/traits.build-template.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="step-3-build-the-example-database" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="step-3-build-the-example-database"><span class="header-section-number">2.4</span> Step 3 — Build the example database</h2>
+<p>Open the cloned project in R (set the working directory to the repository root), then generate the build script and run it:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(traits.build)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">build_setup_pipeline</span>(<span class="at">method =</span> <span class="st">"base"</span>, <span class="at">database_name =</span> <span class="st">"traits.build_database"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"build.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>build_setup_pipeline()</code> writes a <code>build.R</code> script tailored to your compilation; sourcing it reads the datasets in <code>data/</code>, harmonises them against the trait dictionary, and assembles the relational database. When it finishes you have a <code>traits.build</code> database object in your R session.</p>
+</section>
+<section id="step-4-look-around" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="step-4-look-around"><span class="header-section-number">2.5</span> Step 4 — Look around</h2>
+<p>The compiled database is a list of linked tables. Explore its structure:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(traits.build_database)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the core long-format table of trait measurements</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>traits</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># metadata and provenance for the build</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>build_info</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The <a href="database_structure.html">data structure chapter</a> explains each of these components, and the <a href="glossary.html">glossary</a> defines the identifiers that link them.</p>
+</section>
+<section id="where-to-go-next" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="where-to-go-next"><span class="header-section-number">2.6</span> Where to go next</h2>
+<ul>
+<li>To understand <em>why</em> the database is shaped this way, read <a href="motivation.html">Motivation</a> and <a href="workflow.html">Workflow</a>.</li>
+<li>To add your own data, work through the <a href="tutorial_datasets.html">guide to adding data</a>, which walks through seven progressively more complex datasets.</li>
+<li>If you hit an error, the <a href="data_common_issues.html">troubleshooting chapter</a> covers the most common problems, and <a href="help.html">Getting help</a> explains how to ask a good question.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The template’s build pipeline currently uses <a href="https://github.com/richfitz/remake"><code>remake</code></a>, which is no longer actively maintained; the project expects to move to <a href="https://docs.ropensci.org/targets/"><code>targets</code></a> in a future release. The <code>build_setup_pipeline()</code> / <code>build.R</code> workflow shown above shields you from that change — follow the template’s own README for the current build command if it has been updated.</p>
+</div>
+</div>
 
 
 </section>
@@ -934,13 +970,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./traits_build.html" class="pagination-link" aria-label="The package">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">The package</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="About">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./file_organisation.html" class="pagination-link" aria-label="File organisation">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">File organisation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./motivation.html" class="pagination-link" aria-label="Motivation">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Motivation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
