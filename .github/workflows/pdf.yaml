@@ -60,7 +60,7 @@ jobs:
         run: quarto render --profile pdf --to pdf
 
       - name: Upload as workflow artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: traits.build-book-pdf
           path: _book/traits.build-book.pdf
