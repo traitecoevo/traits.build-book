@@ -1,8 +1,3 @@
----
-aliases:
-  - ../adding_data_brief.html
----
-
 # Adding datasets, an introduction {#sec-adding_data_brief}
 
 ```{r, include = FALSE}

@@ -1,8 +1,3 @@
----
-aliases:
-  - ../github.html
----
-
 # Using GitHub {#sec-github}
 
 ## Working with your GitHub repository

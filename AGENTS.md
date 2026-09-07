@@ -25,10 +25,15 @@ The rendered manual lives at <https://traitecoevo.github.io/traits.build-book/>.
   `execute: freeze: auto`. Freeze **must** be declared in `_quarto.yml`, not a root
   `_metadata.yml` — that file does not reach chapters in a subdirectory, so freeze silently stops
   caching and every render re-executes all 38 chapters.
-- **Renaming or moving a chapter changes its published URL.** Each file in `content/` carries an
-  `aliases:` entry pointing at its pre-`content/` path, which emits a redirect stub at the old
-  URL so existing external links keep working. Keep that alias when renaming, and add one for the
-  new name.
+- **Renaming or moving a chapter changes its published URL**, and only five chapters are
+  protected against that. `AusTraits_tutorial`, `tutorial_compilation`, `tutorial_datasets`,
+  `database_structure` and `help` each carry an `aliases:` entry pointing at their pre-`content/`
+  path, which emits a redirect stub at the old URL. Those five are the ones linked from outside
+  this repo — from `austraits.org`, and from the READMEs of `austraits`, `traits.build`,
+  `traits.build-template`, `austraits.build` and `ausinvertraits.build`. The other 32 chapters
+  have no alias by decision (#38): old links to them are allowed to die. So if you rename one of
+  the five, carry its alias forward; and if a chapter starts being linked from another repo,
+  either give it an alias or accept that its URL is not stable.
 - **Build / preview:** `quarto render` builds the book into `_book/`; `quarto preview` serves it
   with live reload. Rendering executes the `.qmd` code, so the R packages in `DESCRIPTION`
   (incl. `traits.build`, `austraits`, `APCalign`, tidyverse, `galah`, `sf`) must be installed.

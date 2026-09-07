@@ -1,8 +1,3 @@
----
-aliases:
-  - ../versioned_releases.html
----
-
 # Version updating & making a new release {#sec-versioned_releases}
 
 Releases of your database are snapshots that are archived and available for use.

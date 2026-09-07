@@ -1,8 +1,3 @@
----
-aliases:
-  - ../tutorial_dataset_2.html
----
-
 # Tutorial 2: Adding a more complex dataset {#sec-tutorial_dataset_2}
 
 ## Overview

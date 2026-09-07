@@ -1,8 +1,3 @@
----
-aliases:
-  - ../tutorial_dataset_7.html
----
-
 # Tutorial 7: Adding long format dataset {#sec-tutorial_dataset_7}
 
 ## Overview

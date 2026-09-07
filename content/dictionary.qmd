@@ -1,8 +1,3 @@
----
-aliases:
-  - ../dictionary.html
----
-
 # Trait dictionary {#sec-dictionary}
 
 A core component of the traits.build database structure is a trait dictionary that clearly defines and describes each trait concept included within the trait database.

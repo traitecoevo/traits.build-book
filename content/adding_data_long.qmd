@@ -2,8 +2,6 @@
 editor: 
   markdown: 
     wrap: 72
-aliases:
-  - ../adding_data_long.html
 ---
 
 # Adding datasets, a lengthy guide {#sec-adding_data_long}

@@ -1,8 +1,3 @@
----
-aliases:
-  - ../installation.html
----
-
 # Installation and quick start {#sec-installation}
 
 This chapter gets you from a clean R installation to a working `traits.build` database in a few

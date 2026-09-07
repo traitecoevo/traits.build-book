@@ -1,8 +1,3 @@
----
-aliases:
-  - ../traits_and_climate_example.html
----
-
 # Analysis example: Using AusTraits for trait-climate analyses {#sec-traits_and_climate_example}
 
 ## Introduction

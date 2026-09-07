@@ -1,8 +1,3 @@
----
-aliases:
-  - ../austraits_database.html
----
-
 # AusTraits, Australia's Plant Trait Database {#sec-austraits_database}
 
 [AusTraits](https://github.com/traitecoevo/austraits.build), Australia's largest plant trait database, was the first trait database to be built using the traits.build workflow.

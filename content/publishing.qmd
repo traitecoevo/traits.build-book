@@ -1,8 +1,3 @@
----
-aliases:
-  - ../publishing.html
----
-
 # Publishing a database {#sec-publishing}
 
 Building a database is only half the job; the value of a `traits.build` compilation is realised when

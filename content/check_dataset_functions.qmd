@@ -1,8 +1,3 @@
----
-aliases:
-  - ../check_dataset_functions.html
----
-
 # Check data quality functions {#sec-check_dataset_functions}
 
 Checking the data quality in each newly input dataset is essential to maintain the credibility of a trait database. The automated components of the workflow offer a number of quality checks, but can only include tests for situations where there is a solution to every "error". Other erroneous data values are placed in the `excluded_data` table. And there are categories of data that simply need a closer look.

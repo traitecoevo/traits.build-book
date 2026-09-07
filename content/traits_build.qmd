@@ -1,8 +1,3 @@
----
-aliases:
-  - ../traits_build.html
----
-
 # The package {#sec-traits_build}
 
 The traits.build package provides a workflow for harmonising data from disconnected primary sources and arises from the [AusTraits project](https://austraits.org). In 2023 this package was spun out as a separate package from the austraits.build repository.

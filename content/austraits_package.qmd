@@ -1,8 +1,3 @@
----
-aliases:
-  - ../austraits_package.html
----
-
 # The `austraits` package {#sec-austraits_package}
 
 ```{r, include = FALSE}
