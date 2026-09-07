@@ -67,7 +67,14 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          clean: false
+          # clean: false left every deleted or renamed page published forever —
+          # gh-pages had 49 top-level .html against 38 real chapters, three of
+          # them chapters removed long ago. clean-exclude is required, not
+          # optional: without it this would delete the pr-preview/ tree and
+          # break the per-PR previews.
+          clean: true
+          clean-exclude: |
+            pr-preview
           branch: gh-pages
           folder: _book
 
