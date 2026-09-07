@@ -4,8 +4,16 @@ project:
 book:
   title: "The {traits.build} data model, R package, and workflow"
   author: "Elizabeth Wenk, Sophie Yang, Fonti Kar, Daniel Falster\n\nEvolution and Ecology Research Centre, \n\nThe University of New South Wales Sydney, NSW 2052\n\nAustralia"
-  page-footer: "How to get help: <https://traitecoevo.github.io/traits.build-book/help.html><br>Copyright 2023, Daniel Falster and Elizabeth Wenk" 
+  page-footer: "How to get help: <https://traitecoevo.github.io/traits.build-book/help.html><br>Source and issues: <https://github.com/traitecoevo/traits.build-book><br>Copyright 2023, Daniel Falster and Elizabeth Wenk"
   page-navigation: true
+
+  ## Puts "Edit this page", "Report an issue" and "View source" on every page,
+  ## each deep-linked to that chapter's .qmd. repo-actions needs repo-url, and
+  ## repo-branch must name the default branch or the edit links 404.
+  site-url: https://traitecoevo.github.io/traits.build-book/
+  repo-url: https://github.com/traitecoevo/traits.build-book
+  repo-branch: master
+  repo-actions: [edit, issue, source]
   chapters:
     - part: Introduction
       chapters:
