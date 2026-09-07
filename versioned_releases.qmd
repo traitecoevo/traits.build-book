@@ -1,4 +1,4 @@
-# Version updating & making a new release
+# Version updating & making a new release {#sec-versioned_releases}
 
 Releases of your database are snapshots that are archived and available for use.
 

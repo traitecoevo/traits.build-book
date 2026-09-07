@@ -1,0 +1,75 @@
+## Builds the book as a single PDF and attaches it to a release.
+##
+## Deliberately separate from render.yaml. A plain `quarto render` builds every
+## format listed in _quarto.yml, so when pdf lived there a LaTeX failure took the
+## gh-pages deploy down with it (see 7507982, Dec 2023). The pdf format lives in
+## the _quarto-pdf.yml profile and only this workflow activates it.
+##
+## Not run on push: the render executes R across all 38 chapters, so it is far too
+## expensive to repeat for every small edit. Once per published release, plus
+## on-demand via workflow_dispatch.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+name: pdf
+
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # needed to upload the asset onto the release
+
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: false
+
+    steps:
+      - uses: actions/checkout@v5
+      - uses: r-lib/actions/setup-r@v2
+      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+
+      - name: Install Linux system dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install libglpk-dev libglpk40 libmbedtls-dev
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::rcmdcheck, any::remotes, local::.
+          needs: check
+
+      # Keyed separately from the html cache in render.yaml: freeze results are
+      # stored per output format (_freeze/<chapter>/execute-results/tex.json), so
+      # the two builds cannot share entries.
+      - name: Cache results
+        uses: actions/cache@v6
+        with:
+          path: _freeze
+          key: book-pdf-${{ hashFiles('**/*qmd') }}
+          restore-keys: book-pdf-
+
+      - name: Render PDF
+        run: quarto render --profile pdf --to pdf
+
+      - name: Upload as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: traits.build-book-pdf
+          path: _book/traits.build-book.pdf
+          if-no-files-found: error
+
+      - name: Attach to the release
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload "${{ github.event.release.tag_name }}" \
+            _book/traits.build-book.pdf --clobber

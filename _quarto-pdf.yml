@@ -1,0 +1,24 @@
+## PDF profile — activate with: quarto render --profile pdf --to pdf
+##
+## Deliberately NOT in _quarto.yml. The pdf format was in the main config once and
+## was commented out in Dec 2023 ("comment out pdf to deploy website", 7507982)
+## because a plain `quarto render` builds every listed format, so a PDF failure
+## took the gh-pages deploy down with it. Keeping pdf in a profile means the
+## website build never sees it.
+
+book:
+  ## Without this the filename is derived from the title, giving
+  ## "The-{traits.build}-data-model,-R-package,-and-workflow.pdf" — braces and
+  ## commas in a filename that has to survive a release URL.
+  output-file: traits.build-book
+
+format:
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
+    papersize: A4
+    geometry:
+      - top=20mm
+      - left=20mm
+      - heightrounded

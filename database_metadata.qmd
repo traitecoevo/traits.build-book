@@ -1,4 +1,4 @@
-# Overview of traits.build ontology
+# Overview of traits.build ontology {#sec-database_metadata}
 
 ## Using the OBOE structure
 
@@ -99,5 +99,5 @@ For instance:
 
 -   a `population` is defined as a group of individuals of the same species, subjected to the same treatment and plot contexts and occurring in the same location. Populations are defined by having a common `population_id`.
 
--   a `temporal_context` indicates measurements on an entity have been stratified across time, such as occurs when the same individual is measured during two different growing seasons. The column `temporal_context_id` in the [traits table](database_structure.html#traits) offers an identifier that links to details about the temporal context in the [context table](database_structure.html#contexts).
+-   a `temporal_context` indicates measurements on an entity have been stratified across time, such as occurs when the same individual is measured during two different growing seasons. The column `temporal_context_id` in the [traits table](database_structure.qmd#traits) offers an identifier that links to details about the temporal context in the [context table](database_structure.qmd#contexts).
 

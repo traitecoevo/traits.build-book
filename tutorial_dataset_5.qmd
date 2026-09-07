@@ -1,10 +1,10 @@
-# Tutorial 5: Multiple columns for a trait
+# Tutorial 5: Multiple columns for a trait {#sec-tutorial_dataset_5}
 
 ## Overview
 
 This is the fifth tutorial on adding datasets to your `traits.build` database.
 
-Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).\
+Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.qmd#sec-tutorial_compilation).\
 
 It is also recommended that you first work through some of the earlier tutorials, as many steps for adding datasets to a `traits.build` database are only thoroughly described in the early tutorials.
 

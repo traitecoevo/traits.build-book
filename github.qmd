@@ -1,4 +1,4 @@
-# Using GitHub
+# Using GitHub {#sec-github}
 
 ## Working with your GitHub repository
 
@@ -24,7 +24,7 @@ In short,
 
 1. Create a Git branch for your new work, either within the repo (if you are an approved contributor) or as a [fork of the repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo).
 2. Make commits and push these up onto the branch.
-3. Make sure everything runs fine before you send a PR (see [tutorials for adding datasets](tutorial_datasets.html)).
+3. Make sure everything runs fine before you send a PR (see [tutorials for adding datasets](tutorial_datasets.qmd#sec-tutorial_datasets)).
 4. Submit the PR and tag someone as a reviewer.
 5. Squash and merge the PR once approved and any changes have been made.
 

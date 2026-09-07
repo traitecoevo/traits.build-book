@@ -1,4 +1,4 @@
-# Long vs Wide data
+# Long vs Wide data {#sec-long_wide}
 
 ## Background
 

@@ -1,10 +1,10 @@
-# Tutorial 1: Adding a simple dataset
+# Tutorial 1: Adding a simple dataset {#sec-tutorial_dataset_1}
 
 ## Overview
 
 This is the first of five tutorials on adding datasets to your `traits.build` database. This introduces you to the basic functions, the user input required, and the manual manipulations required to complete the dataset's metadata file. The next four tutorials introduce you to progressively more complex datasets, functions, and decisions.
 
-Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in `traits.build-template` . Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).
+Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in `traits.build-template` . Instructions are available at [Tutorial: Example compilation](tutorial_compilation.qmd#sec-tutorial_compilation).
 
 ### Goals
 
@@ -337,7 +337,7 @@ These are all fields that contain the word `unknown`.
 | affiliation           | Available from the source or the orcid.org website. Use the same syntax for the same affiliation throughout your database. |
 | additional_role       | For the lead dataset contributor, add the field: `additional_role: contact`                                                |
 
--   You can add multiple data collectors by duplicating the relevant 4 lines of code; see the [adding data chapter](adding_data_long.html) for protocols on who to add as a data collector.
+-   You can add multiple data collectors by duplicating the relevant 4 lines of code; see the [adding data chapter](adding_data_long.qmd#sec-adding_data_long) for protocols on who to add as a data collector.
 
 -   The line `assistants:` can be deleted if there aren't any assistants' names to add.
 

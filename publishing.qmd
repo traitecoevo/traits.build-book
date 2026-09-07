@@ -1,4 +1,4 @@
-# Publishing a database
+# Publishing a database {#sec-publishing}
 
 Building a database is only half the job; the value of a `traits.build` compilation is realised when
 others can find, cite, and reuse it. This chapter describes how to publish a compilation as a
@@ -16,7 +16,7 @@ custom R code — in a single Git repository, and host it on GitHub. Git records
 data and metadata, so the process by which the database was assembled is fully transparent and
 reproducible; GitHub adds collaboration, issue tracking, and continuous-integration testing.
 
-See the [using GitHub](github.html) chapter for the practical set-up: recommended repository settings,
+See the [using GitHub](github.qmd#sec-github) chapter for the practical set-up: recommended repository settings,
 the pull-request workflow for adding data, and running `dataset_test()` automatically on every
 proposed change so that the database only ever accepts data that builds cleanly.
 
@@ -29,7 +29,7 @@ structural change that may break existing code, `minor` signals compatible addit
 datasets or columns), and `patch` signals corrections to existing data.
 
 The mechanics of bumping the version number, compiling, and cutting the GitHub release are set out in
-the [version updating and making a release](versioned_releases.html) chapter. In outline:
+the [version updating and making a release](versioned_releases.qmd#sec-versioned_releases) chapter. In outline:
 
 1. Update the version number in the `DESCRIPTION` file.
 2. Recompile the database and update the documentation.
@@ -84,7 +84,7 @@ Publishing is complete only when the database is easy to cite. Provide, in the r
   citation directly.
 
 For databases built on `traits.build`, ask users to cite both the dataset (via its DOI) and the
-`traits.build` data model and workflow. See the [How to cite section](index.html#how-to-cite) on the
+`traits.build` data model and workflow. See the [How to cite section](index.qmd#how-to-cite) on the
 About page for the `traits.build` citation, and
 [citing the data you use](AusTraits_tutorial.html#citing_data) for tools that generate a bibliography
 of the *underlying sources* a data subset draws on — so that the original data collectors are credited

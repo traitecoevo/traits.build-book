@@ -1,4 +1,4 @@
-# About
+# About {#sec-index}
 
 ## Brief overview
 
@@ -21,15 +21,15 @@ This manual is a step-by-step user guide to the `traits.build` standard, R packa
 
 - [installation instructions](http://traitecoevo.github.io/traits.build/index.html#installation) for the `traits.build` package
 - a [reference page with all user-side functions](http://traitecoevo.github.io/traits.build/reference/index.html) for the `traits.build` package. 
-- links to [example projects](usage_examples.html)
+- links to [example projects](usage_examples.qmd#sec-usage_examples)
 
 ## A simple example
 
-To get you started, we've provided a template example compilation which you can clone and modify. This provides the basic steps for building a `traits.build` compilation. Follow the instructions in [Tutorials](tutorial_compilation.html) chapter for a step-by-step guide to building a database from scratch.
+To get you started, we've provided a template example compilation which you can clone and modify. This provides the basic steps for building a `traits.build` compilation. Follow the instructions in [Tutorials](tutorial_compilation.qmd#sec-tutorial_compilation) chapter for a step-by-step guide to building a database from scratch.
 
 ## Getting help
 
-Along the way, users may encounter a number of errors and warnings. Some of these are designed to help you build a robust database, others may constitue an error in your data, file structure, or the package. If you encounter an error or warning, please read the message carefully and [follow the instructions for getting help](help.html). 
+Along the way, users may encounter a number of errors and warnings. Some of these are designed to help you build a robust database, others may constitue an error in your data, file structure, or the package. If you encounter an error or warning, please read the message carefully and [follow the instructions for getting help](help.qmd#sec-help). 
 
 ## Acknowledgements
 
