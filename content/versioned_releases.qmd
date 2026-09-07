@@ -17,7 +17,7 @@ Our approach to incrementing version numbers is:
 - `minor`: Increment to communicate any changes to the structure that are likely to be compatible with any code written to work with the previous versions (i.e., allows code to run without error). Such changes might involve adding new data within the existing structure, so that the previous database version exists as a subset of the new version. For tabular data, this includes adding columns or rows. On the other hand, removing data should constitute a major version because records previously relied on may no longer exist.
 - `patch`: Increment to communicate correction of errors in the actual data, without any changes to the structure. Such changes are unlikely to break or change analyses written with the previous version in a substantial way.
 
-<img src="figures/giz035fig2.png">
+<img src="../figures/giz035fig2.png">
 
 **Figure:** Semantic versioning communicates to users the types of changes that have occurred between successive versions of an evolving dataset, using a tri-digit label where increments in a number indicate major, minor, and patch-level changes, respectively. From [Falster et al 2019](http://doi.org/10.1093/gigascience/giz035), (CC-BY).
 
