@@ -16,6 +16,10 @@ jobs:
   render:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write       # gh-pages deploy, and the PR preview subdirectory
+      pull-requests: write  # the preview action comments the URL on the PR
+
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: false
@@ -66,3 +70,22 @@ jobs:
           clean: false
           branch: gh-pages
           folder: _book
+
+      # Publishes this PR's build to gh-pages under pr-preview/pr-<n>/ and
+      # comments the URL. Confined to umbrella-dir, so it never writes the root
+      # that serves the live site; the deploy above uses clean: false, so it
+      # leaves the preview directories alone in return. Torn down on close by
+      # pr-preview-cleanup.yaml.
+      #
+      # A PR from a fork gets a read-only token and so gets no preview. That is
+      # accepted rather than worked around: the alternative is
+      # pull_request_target, which would run this workflow at the base ref with
+      # write access to gh-pages.
+      - name: Deploy PR preview
+        if: github.event_name == 'pull_request'
+        uses: rossjrw/pr-preview-action@v1.8.1
+        with:
+          source-dir: _book
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: deploy
