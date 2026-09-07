@@ -213,7 +213,7 @@ This checks 10,000 rows of data before declaring the column is non-numeric.
 
 ## Constructing the `metadata.yml` file {#metadata_file}
 
-As described in detail [here](https://traitecoevo.github.io/traits.build-book/workflow.htm) the `metadata.yml` file maps the meanings of the individual columns within the `data.csv` file and documents all additional dataset metadata.
+As described in detail [here](workflow.qmd#sec-workflow) the `metadata.yml` file maps the meanings of the individual columns within the `data.csv` file and documents all additional dataset metadata.
 
 Before beginning, it is a good idea to look at the two example dataset metadata files in the [`traits.build-template` repository](https://github.com/traitecoevo/traits.build-template/tree/master/data), to become familiar with the general structure.
 
