@@ -52,7 +52,7 @@ jobs:
       # Lets a reviewer check the built book without a local toolchain — this
       # book needs traits.build, austraits, APCalign, galah and sf to render.
       - name: Upload the built book
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: book-html
           path: _book
