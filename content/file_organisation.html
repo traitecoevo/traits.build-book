@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Elizabeth Wenk, Sophie Yang, Fonti Kar, Daniel Falster Evolution and Ecology Research Centre, The University of New South Wales Sydney, NSW 2052 Australia">
 
-<title>The {traits.build} data model, R package, and workflow</title>
+<title>13&nbsp; File organisation – The {traits.build} data model, R package, and workflow</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -30,24 +29,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./content/installation.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ed7344add5f1663e434276306a2aa159.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../content/create_dictionary.html" rel="next">
+<link href="../content/tutorial_compilation.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ed7344add5f1663e434276306a2aa159.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,6 +75,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 </head>
@@ -88,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/traits_build.html">Creating with <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="../content/file_organisation.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">File organisation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -103,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">The {traits.build} data model, R package, and workflow</a> 
+      <a href="../">The {traits.build} data model, R package, and workflow</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -127,31 +129,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/installation.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/installation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation and quick start</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/motivation.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/motivation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Motivation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/workflow.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/workflow.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/usage_examples.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/usage_examples.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Usage examples</span></span></a>
   </div>
 </li>
@@ -168,31 +170,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/long_wide.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/long_wide.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Long vs Wide data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/database_standard.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/database_standard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data standard</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/database_structure.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/database_structure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data structure</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/database_metadata.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/database_metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Overview of traits.build ontology</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/dictionary.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/dictionary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Trait dictionary</span></span></a>
   </div>
 </li>
@@ -209,37 +211,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/traits_build.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/traits_build.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">The package</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/tutorial_compilation.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/tutorial_compilation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/file_organisation.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/file_organisation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">File organisation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/create_dictionary.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/create_dictionary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Creating a trait dictionary</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/adding_data_brief.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/adding_data_brief.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Adding datasets, an introduction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/publishing.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/publishing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Publishing a database</span></span></a>
   </div>
 </li>
@@ -256,79 +258,79 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/tutorial_datasets.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/tutorial_datasets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tutorial: Adding datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/tutorial_dataset_1.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/tutorial_dataset_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Tutorial 1: Adding a simple dataset</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/tutorial_dataset_2.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/tutorial_dataset_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Tutorial 2: Adding a more complex dataset</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/tutorial_dataset_3.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/tutorial_dataset_3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tutorial 3: Adding contexts and complex units</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/tutorial_dataset_4.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/tutorial_dataset_4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Tutorial 4: Additional complexities</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/tutorial_dataset_5.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/tutorial_dataset_5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Tutorial 5: Multiple columns for a trait</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/tutorial_dataset_6.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/tutorial_dataset_6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Tutorial 6: Data with repeat measurements</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/tutorial_dataset_7.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/tutorial_dataset_7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Tutorial 7: Adding long format dataset</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/adding_data_long.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/adding_data_long.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Adding datasets, a lengthy guide</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/check_dataset_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/check_dataset_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Check data quality functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/data_common_issues.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/data_common_issues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Troubleshooting common issues</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/github.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/github.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Using GitHub</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/versioned_releases.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/versioned_releases.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Version updating &amp; making a new release</span></span></a>
   </div>
 </li>
@@ -345,31 +347,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/austraits_database.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/austraits_database.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">AusTraits, Australia’s Plant Trait Database</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/AusTraits_tutorial.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/AusTraits_tutorial.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/traits_and_climate_example.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/traits_and_climate_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits for trait-climate analyses</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/spatial_data_example.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/spatial_data_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/austraits_package.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/austraits_package.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></a>
   </div>
 </li>
@@ -386,7 +388,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/help.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/help.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Getting help</span></span></a>
   </div>
 </li>
@@ -403,19 +405,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/glossary.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/glossary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/csv.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/csv.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">CSV files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/yaml.html" class="sidebar-item-text sidebar-link">
+  <a href="../content/yaml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Yaml files</span></span></a>
   </div>
 </li>
@@ -431,39 +433,30 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-index" id="toc-sec-index" class="nav-link active" data-scroll-target="#sec-index"><span class="header-section-number">1</span> About</a>
+  <li><a href="#repository-structure" id="toc-repository-structure" class="nav-link active" data-scroll-target="#repository-structure"><span class="header-section-number">13.1</span> Repository structure</a></li>
+  <li><a href="#config-folder" id="toc-config-folder" class="nav-link" data-scroll-target="#config-folder"><span class="header-section-number">13.2</span> <code>/config</code> folder</a>
   <ul class="collapse">
-  <li><a href="#brief-overview" id="toc-brief-overview" class="nav-link" data-scroll-target="#brief-overview"><span class="header-section-number">1.1</span> Brief overview</a></li>
-  <li><a href="#how-to-cite" id="toc-how-to-cite" class="nav-link" data-scroll-target="#how-to-cite"><span class="header-section-number">1.2</span> How to cite</a></li>
-  <li><a href="#about-this-manual" id="toc-about-this-manual" class="nav-link" data-scroll-target="#about-this-manual"><span class="header-section-number">1.3</span> About this manual</a></li>
-  <li><a href="#a-simple-example" id="toc-a-simple-example" class="nav-link" data-scroll-target="#a-simple-example"><span class="header-section-number">1.4</span> A simple example</a></li>
-  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="header-section-number">1.5</span> Getting help</a></li>
-  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements"><span class="header-section-number">1.6</span> Acknowledgements</a></li>
+  <li><a href="#metadata.yml" id="toc-metadata.yml" class="nav-link" data-scroll-target="#metadata.yml"><code>metadata.yml</code></a></li>
+  <li><a href="#traits.yml" id="toc-traits.yml" class="nav-link" data-scroll-target="#traits.yml"><code>traits.yml</code></a></li>
+  <li><a href="#taxon_list.csv" id="toc-taxon_list.csv" class="nav-link" data-scroll-target="#taxon_list.csv"><code>taxon_list.csv</code></a></li>
+  <li><a href="#unit_conversions.csv" id="toc-unit_conversions.csv" class="nav-link" data-scroll-target="#unit_conversions.csv"><code>unit_conversions.csv</code></a></li>
   </ul></li>
+  <li><a href="#data-folder" id="toc-data-folder" class="nav-link" data-scroll-target="#data-folder"><span class="header-section-number">13.3</span> <code>/data</code> folder</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/content/file_organisation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/content/file_organisation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">About</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/traits_build.html">Creating with <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="../content/file_organisation.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">File organisation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">The {traits.build} data model, R package, and workflow</h1>
+<h1 class="title"><span id="sec-file_organisation" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">File organisation</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Elizabeth Wenk, Sophie Yang, Fonti Kar, Daniel Falster<br>
-Evolution and Ecology Research Centre,<br>
-The University of New South Wales Sydney, NSW 2052<br>
-Australia </p>
-          </div>
-  </div>
     
   
     
@@ -474,45 +467,281 @@ Australia </p>
 </header>
 
 
-<section id="sec-index" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> About</h1>
-<section id="brief-overview" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="brief-overview"><span class="header-section-number">1.1</span> Brief overview</h2>
-<p>Imagine you wanted to build a database of traits. You might start by compiling data from existing datasets, but you’d quickly find that there are many different ways to name and measure the same trait, that different studies use different units, or use an outdated name for a species or taxon.</p>
-<p><code>traits.build</code> is a data standard, R package, and workflow that is designed to help you build a harmonised, relational database from disparate datasets. The package was first developed to create <a href="https://github.com/traitecoevo/austraits.build/"><code>austraits.build</code></a>, an open-source database of Australian plant traits. The code has been transformed into a standalone package allowing anyone to build a relational, tabular database for any taxonomic group and any collection of traits.</p>
+<p>This chapter describes the typical files you may encounter in a <code>traits.build</code> compilation. The description is based on the <a href="https://github.com/traitecoevo/austraits.build/"><code>austraits.build</code></a> compilation.</p>
+<p>We strongly suggest you create a standalone folder for your repository, e.g.&nbsp;<code>austraits.build</code>. This folder should contain all files needed to build your compilation. We’re big fans of github as a platform for collaboration. If you’re not familiar with git or github, we suggest you check out the <a href="https://happygitwithr.com/">happy git with R</a> book.</p>
+<section id="repository-structure" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="repository-structure"><span class="header-section-number">13.1</span> Repository structure</h2>
+<p>The main directory for the <a href="https://github.com/traitecoevo/austraits.build/"><code>austraits.build</code></a> repository contains the following files and folders, with purpose as indicated. Not all of these files are required for a compilation, some are used for extra features such as building a repo website. They are included here for completeness.</p>
+<p><strong>Files used for data compilation</strong></p>
+<pre><code>├── remake.yml/build.R    # instructions for build
+├── config                # configuration files
+├── data                  # raw data files
+├── R                     # folder with custom R functions
+├── export                # folder for output
+└── scripts               # R scripts for processing files before/after build</code></pre>
+<p><strong>R project file</strong></p>
+<pre><code>├── austraits.build.Rproj     # Rstudio project</code></pre>
+<p><strong>Files for maintaining a repo on github</strong></p>
+<pre><code>├── README.md         # landing page
+├── .github           # folder containing github actions, issue templates, code of conduct
+├── LICENCE
+├── NEWS.md
+├── inst              # contains images that appear on github repo </code></pre>
+<p><strong>Additional files describing the compendium and testing the database build process</strong></p>
+<pre><code>├── DESCRIPTION           # compendium description
+├── tests                 # tests for whether database builds</code></pre>
 </section>
-<section id="how-to-cite" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="how-to-cite"><span class="header-section-number">1.2</span> How to cite</h2>
-<p>If you use <code>traits.build</code>, please cite:</p>
-<blockquote class="blockquote">
-<p>Wenk, E., Bal, P., Coleman, D., Gallagher, R., Yang, S., Falster, D. (2024) traits.build: A data model, workflow and R package for building harmonised ecological trait databases. <em>Ecological Informatics</em> 83, 102773. <a href="https://doi.org/10.1016/j.ecoinf.2024.102773" class="uri">https://doi.org/10.1016/j.ecoinf.2024.102773</a></p>
-</blockquote>
-<p>If you use the <strong>AusTraits</strong> dataset, also cite Falster et al.&nbsp;(2021) <em>Scientific Data</em> 8:254 (<a href="https://doi.org/10.1038/s41597-021-01006-6" class="uri">https://doi.org/10.1038/s41597-021-01006-6</a>); for the <strong>AusTraits Plant Dictionary</strong> cite Wenk et al.&nbsp;(2024) <em>Scientific Data</em> 11:537 (<a href="https://doi.org/10.1038/s41597-024-03368-z" class="uri">https://doi.org/10.1038/s41597-024-03368-z</a>); and for <strong>APCalign</strong> cite Wenk et al.&nbsp;(2024) <em>Australian Journal of Botany</em> 72:BT24014 (<a href="https://doi.org/10.1071/BT24014" class="uri">https://doi.org/10.1071/BT24014</a>).</p>
+<section id="config-folder" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="config-folder"><span class="header-section-number">13.2</span> <code>/config</code> folder</h2>
+<p>The folder <code>config</code> contains four files which govern the building of the dataset.</p>
+<pre><code>config
+├── metadata.yml
+├── traits.yml
+├── taxon_list.csv
+└── unit_conversions.csv</code></pre>
+<section id="metadata.yml" class="level3">
+<h3 class="anchored" data-anchor-id="metadata.yml"><code>metadata.yml</code></h3>
+<p>The file <code>metadata.yml</code> documents dataset-level metadata, including a database description, authors, and funders.</p>
 </section>
-<section id="about-this-manual" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="about-this-manual"><span class="header-section-number">1.3</span> About this manual</h2>
-<p>This manual is a step-by-step user guide to the <code>traits.build</code> standard, R package and workflow manual. Alongside this manual, you may find the following resources useful:</p>
+<section id="traits.yml" class="level3">
+<h3 class="anchored" data-anchor-id="traits.yml"><code>traits.yml</code></h3>
+<p>The file <code>traits.yml</code> provides the trait definitions used to compile the trait database, including allowable trait values. See <a href="../content/create_dictionary.html#sec-create_dictionary">creating a trait dictionary</a> for more information on the process of creating this file. A <code>.yml</code> file is a structured data file where information is presented in a hierarchical format (see <a href="../content/yaml.html#sec-yaml">appendix for details</a>).</p>
+</section>
+<section id="taxon_list.csv" class="level3">
+<h3 class="anchored" data-anchor-id="taxon_list.csv"><code>taxon_list.csv</code></h3>
+<p>The file <code>taxon_list.csv</code> is our master list of taxa in the trait database.</p>
+<p>It includes all unique taxon names after typos have been corrected (through taxonomic_updates). It includes both accepted/valid taxon concepts and outdated taxonomic names. It includes taxon names indicating a taxon that can be identified to species and names that can only be resolved to a lower taxon rank.</p>
+<p>There are only three required columns within <code>taxon_list.csv</code>: <code>aligned_name</code>, <code>taxon_name</code> and <code>taxon_rank</code>. In the file, <code>aligned_name</code> refers to the taxon name after any typos have been corrected, while <code>taxon_name</code> is the taxon name following updates to the currently accepted/valid taxon name (when available). <code>Taxon_rank</code> indicates the resolution of the <code>taxon_name</code>.</p>
+<p>However, it is best practice to include additional columns when available, including taxon identifiers for species (&amp; infraspecific taxon concepts) or genera that align with known taxon concepts.</p>
+<p>The file <code>taxon_list.csv</code> should be added to if a study includes taxa not previously represented in the trait database. It must be compiled outside of the traits.build workflow, as each dataset will use different taxonomic datasets, with different columns of information.</p>
+<p>For AusTraits, the taxonomic datasets referenced are the two vascular plant lists within the National Species Lists (NSL), the APC (Australian Plant Census) and the Australian Plant Name Index (APNI). The workflow used by AusTraits to rebuild the taxon list is available <a href="https://github.com/traitecoevo/austraits.build/blob/develop/R/build_update_taxon_list.R">here</a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">taxon_name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">aligned_name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">family</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">taxonomic_dataset</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">taxon_rank</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">aligned_name_taxonomic_status</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">taxon_id</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">scientific_name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">scientific_name_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Abelia x grandiflora</td>
+<td style="text-align: left;">Abelia x grandiflora</td>
+<td style="text-align: left;">Caprifoliaceae</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">Species</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/taxon/apni/51432945</td>
+<td style="text-align: left;">Abelia x grandiflora (Rovelli ex André) Rehder</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/190758</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Abelmoschus ficulneus</td>
+<td style="text-align: left;">Abelmoschus ficulneus</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">Species</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/node/apni/2897916</td>
+<td style="text-align: left;">Abelmoschus ficulneus (L.) Wight</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/55929</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Abelmoschus manihot</td>
+<td style="text-align: left;">Abelmoschus manihot</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">Species</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/node/apni/2901085</td>
+<td style="text-align: left;">Abelmoschus manihot (L.) Medik.</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/55937</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Abelmoschus manihot subsp. manihot</td>
+<td style="text-align: left;">Abelmoschus manihot subsp. manihot</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">Subspecies</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/node/apni/2917035</td>
+<td style="text-align: left;">Abelmoschus manihot (L.) Medik. subsp. manihot</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/116920</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Abelmoschus manihot subsp. tetraphyllus</td>
+<td style="text-align: left;">Abelmoschus manihot subsp. tetraphyllus</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">Subspecies</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/node/apni/2892917</td>
+<td style="text-align: left;">Abelmoschus manihot subsp. tetraphyllus (Roxb. ex Hornem.) Borss.Waalk.</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/55945</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Abelmoschus moschatus</td>
+<td style="text-align: left;">Abelmoschus moschatus</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">Species</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/node/apni/2900572</td>
+<td style="text-align: left;">Abelmoschus moschatus Medik.</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/55953</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Abelmoschus moschatus subsp. biakensis</td>
+<td style="text-align: left;">Abelmoschus moschatus subsp. biakensis</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">Subspecies</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/node/apni/2907435</td>
+<td style="text-align: left;">Abelmoschus moschatus subsp. biakensis (Hochr.) Borss.Waalk.</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/116595</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Abelmoschus moschatus subsp. moschatus</td>
+<td style="text-align: left;">Abelmoschus moschatus subsp. moschatus</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">Subspecies</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/node/apni/2911283</td>
+<td style="text-align: left;">Abelmoschus moschatus Medik. subsp. moschatus</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/243806</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Abelmoschus moschatus subsp. tuberosus</td>
+<td style="text-align: left;">Abelmoschus moschatus subsp. tuberosus</td>
+<td style="text-align: left;">Malvaceae</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">Subspecies</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/node/apni/2919287</td>
+<td style="text-align: left;">Abelmoschus moschatus subsp. tuberosus (Span.) Borss.Waalk.</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/55961</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Abildgaardia ovata</td>
+<td style="text-align: left;">Abildgaardia ovata</td>
+<td style="text-align: left;">Cyperaceae</td>
+<td style="text-align: left;">APC</td>
+<td style="text-align: left;">Species</td>
+<td style="text-align: left;">accepted</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/node/apni/2919627</td>
+<td style="text-align: left;">Abildgaardia ovata (Burm.f.) Kral</td>
+<td style="text-align: left;">https://id.biodiversity.org.au/name/apni/150737</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="unit_conversions.csv" class="level3">
+<h3 class="anchored" data-anchor-id="unit_conversions.csv"><code>unit_conversions.csv</code></h3>
+<p>The file <code>unit_conversions.csv</code> defines the unit conversions that are used when converting contributed trait data to common units, e.g.</p>
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">unit_from</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">unit_to</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">mg/g</td>
+<td style="text-align: left;">x*10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">g/g</td>
+<td style="text-align: left;">x*0.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">mg/mg</td>
+<td style="text-align: left;">x*0.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">mg/kg</td>
+<td style="text-align: left;">x*10000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">{dimensionless}</td>
+<td style="text-align: left;">x*.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">{count}/{count}</td>
+<td style="text-align: left;">x*.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{dimensionless}</td>
+<td style="text-align: left;">{count}/{count}</td>
+<td style="text-align: left;">x*1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">mo</td>
+<td style="text-align: left;">x*12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{count}/m2</td>
+<td style="text-align: left;">{count}/mm2</td>
+<td style="text-align: left;">x*1/1000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cm</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">x*0.01</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="data-folder" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="data-folder"><span class="header-section-number">13.3</span> <code>/data</code> folder</h2>
+<p>The folder <code>data</code> contains the raw data from individual studies included in the trait database.</p>
+<p>Records within the <code>data</code> folder are organised as coming from a particular study, defined by the <code>dataset_id</code>. Data from each study are organised into a separate folder, with two files:</p>
 <ul>
-<li><a href="http://traitecoevo.github.io/traits.build/index.html#installation">installation instructions</a> for the <code>traits.build</code> package</li>
-<li>a <a href="http://traitecoevo.github.io/traits.build/reference/index.html">reference page with all user-side functions</a> for the <code>traits.build</code> package.</li>
-<li>links to <a href="./content/usage_examples.html#sec-usage_examples">example projects</a></li>
+<li><code>data.csv</code>: a table containing the actual trait data.</li>
+<li><code>metadata.yml</code>: a file that contains study metadata (source, methods, locations, and context), maps trait names and units onto standard types, and lists any substitutions applied to the data in processing.</li>
 </ul>
-</section>
-<section id="a-simple-example" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="a-simple-example"><span class="header-section-number">1.4</span> A simple example</h2>
-<p>To get you started, we’ve provided a template example compilation which you can clone and modify. This provides the basic steps for building a <code>traits.build</code> compilation. Follow the instructions in <a href="./content/tutorial_compilation.html#sec-tutorial_compilation">Tutorials</a> chapter for a step-by-step guide to building a database from scratch.</p>
-</section>
-<section id="getting-help" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">1.5</span> Getting help</h2>
-<p>Along the way, users may encounter a number of errors and warnings. Some of these are designed to help you build a robust database, others may constitue an error in your data, file structure, or the package. If you encounter an error or warning, please read the message carefully and <a href="./content/help.html#sec-help">follow the instructions for getting help</a>.</p>
-</section>
-<section id="acknowledgements" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="acknowledgements"><span class="header-section-number">1.6</span> Acknowledgements</h2>
-<p>This manual arose from code within the AusTraits project at <a href="https://github.com/traitecoevo/austraits.build" class="uri">https://github.com/traitecoevo/austraits.build</a>.</p>
-<p>AusTraits is a co-investment partnership with the <a href="https://ardc.edu.au/">Australian Research Data Commons</a> (ARDC) through the Planet Research Data Commons (<a href="https://doi.org/10.3565/nyk4-4r91">DOI: 10.3565/nyk4-4r91</a>). The ARDC is enabled by the Australian Government’s <a href="https://www.education.gov.au/ncris">National Collaborative Research Infrastructure Strategy</a> (NCRIS). This work received investment (<a href="https://doi.org/10.47486/DP720">DP720</a>) from the ARDC.</p>
+<p>The folder <code>data</code> thus contains a long list of folders, one for each study and each containing two files:</p>
+<pre><code>data
+├── Angevin_2010
+│   ├── data.csv
+│   └── metadata.yml
+├── Barlow_1981
+│   ├── data.csv
+│   └── metadata.yml
+├── Bean_1997
+│   ├── data.csv
+│   └── metadata.yml
+├── ....
+</code></pre>
+<p>where <code>Angevin_2010</code>, <code>Barlow_1981</code>, &amp; <code>Bean_1997</code> are each a unique <code>dataset_id</code> in the final dataset.</p>
+<p>This file can be added to within specific <code>traits.build</code> projects, as required for different dataset styles.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -918,10 +1147,13 @@ Australia </p>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../content/tutorial_compilation.html" class="pagination-link" aria-label="Tutorial: Example compilation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./content/installation.html" class="pagination-link" aria-label="Installation and quick start">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation and quick start</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../content/create_dictionary.html" class="pagination-link" aria-label="Creating a trait dictionary">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Creating a trait dictionary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -933,7 +1165,7 @@ Australia </p>
     </div>   
     <div class="nav-footer-center">
 <p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/content/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/content/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/content/file_organisation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/content/file_organisation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
