@@ -925,7 +925,7 @@ A simple workflow allows one to look at [trait values across a climate gradient]
 
 A recent tutorial posted by ALA shows how one can combine AusTraits trait data and ALA spatial occurrence data:
 
-https://labs.ala.org.au/posts/2023-08-28_alternatives-to-box-plots/post.html
+[Alternatives to box plots](https://labs.ala.org.au/posts/2023-08-28_alternatives-to-box-plots/)
 
 We've adopted it [here](spatial_data_example.qmd#sec-spatial_data_example).
 
