@@ -1,8 +1,16 @@
 on:
   push:
     branches: master
+  pull_request:
 
 name: render
+
+## A PR only renders; the deploy step below is already guarded so it never
+## publishes from a pull request. Superseded runs on the same ref are cancelled,
+## since a full render executes the R in every chapter.
+concurrency:
+  group: render-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   render:
@@ -40,6 +48,16 @@ jobs:
 
       - name: Render
         run: quarto render
+
+      # Lets a reviewer check the built book without a local toolchain — this
+      # book needs traits.build, austraits, APCalign, galah and sf to render.
+      - name: Upload the built book
+        uses: actions/upload-artifact@v7
+        with:
+          name: book-html
+          path: _book
+          if-no-files-found: error
+          retention-days: 14
 
       - name: Deploy to GitHub pages
         if: github.event_name != 'pull_request'
