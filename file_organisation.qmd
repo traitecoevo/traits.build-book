@@ -111,6 +111,10 @@ For AusTraits, the taxonomic datasets referenced are the two vascular plant list
 
 
 ```{r, results='show'}
+# NB: `freeze: auto` keys on this .qmd, not on the CSV, and the CI cache key
+# hashes only `**/*qmd`. So editing data/taxon_list.csv alone reuses the stale
+# frozen output and the change never reaches the built book — this chapter has
+# to be touched too to invalidate its freeze entry.
 read_csv("data/taxon_list.csv", show_col_types = FALSE) %>%
   select(taxon_name, aligned_name, family, taxonomic_dataset, taxon_rank,aligned_name_taxonomic_status, taxon_id, scientific_name, scientific_name_id
 ) %>%
