@@ -6,7 +6,6 @@
 _book
 _freeze
 *_files
-figures/
 tmp
 *.html
 /.quarto/
