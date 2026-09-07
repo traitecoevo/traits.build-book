@@ -1,4 +1,4 @@
-# File organisation
+# File organisation {#sec-file_organisation}
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -12,9 +12,13 @@ knitr::opts_chunk$set(
 
 library(traits.build)
 
+# NB: no `full_width = TRUE` here. In latex mode kableExtra renders that as a
+# `tabu` environment; tabu is unmaintained and errors out against current
+# LaTeX ("Undefined control sequence \tabu@cleanup"). `scale_down` already
+# fits the table to the text block, so full_width added nothing.
 my_kable_styling <- function(...) {
   kableExtra::kable(..., booktabs=TRUE, format="latex") %>%
-  kableExtra::kable_styling(latex_options="scale_down", font_size = 8, full_width = TRUE)}
+  kableExtra::kable_styling(latex_options="scale_down", font_size = 8)}
 
 
 if(knitr::is_html_output()) {
@@ -93,7 +97,7 @@ The file `metadata.yml` documents dataset-level metadata, including a database d
 
 ### `traits.yml`
 
-The file `traits.yml` provides the trait definitions used to compile the trait database, including allowable trait values. See [creating a trait dictionary](create_dictionary.html) for more information on the process of creating this file. A `.yml` file is a structured data file where information is presented in a hierarchical format (see [appendix for details](yaml.html)).
+The file `traits.yml` provides the trait definitions used to compile the trait database, including allowable trait values. See [creating a trait dictionary](create_dictionary.qmd#sec-create_dictionary) for more information on the process of creating this file. A `.yml` file is a structured data file where information is presented in a hierarchical format (see [appendix for details](yaml.qmd#sec-yaml)).
 
 ### `taxon_list.csv`
 

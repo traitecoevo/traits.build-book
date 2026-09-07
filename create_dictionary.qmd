@@ -1,4 +1,4 @@
-# Creating a trait dictionary
+# Creating a trait dictionary {#sec-create_dictionary}
 
 Every database built with `traits.build` needs a **trait dictionary** — the file `config/traits.yml` —
 that defines each trait the database is allowed to hold. Data for a trait can only be compiled if that
@@ -27,13 +27,13 @@ Dictionary (APD), available in both machine-readable and human-friendly outputs 
 and external review to ensure the concepts and definitions are complete and robust, as described in
 [the APD paper](https://doi.org/10.1101/2023.06.16.545047).
 
-Browse [example definitions](dictionary.html) rendered from a live dictionary, and see the complete
+Browse [example definitions](dictionary.qmd#sec-dictionary) rendered from a live dictionary, and see the complete
 [AusTraits dictionary](https://github.com/traitecoevo/austraits.build/tree/develop/config) for a
 large, worked example.
 
 ## The structure of `traits.yml`
 
-The dictionary is a [YAML](yaml.html) file — a plain-text format where structure is expressed through
+The dictionary is a [YAML](yaml.qmd#sec-yaml) file — a plain-text format where structure is expressed through
 **indentation**. Traits are listed under a top-level `traits` key, each keyed by its trait name.
 
 A **numeric** trait looks like this:
@@ -65,7 +65,7 @@ A **categorical** trait lists its allowable values, each with a definition:
 
 To add a new trait, copy an existing block of the same type, rename it, and edit the label,
 description, units/range or values. The exact field names required are validated when the database is
-built — check them against the [database structure](database_structure.html) chapter and the AusTraits
+built — check them against the [database structure](database_structure.qmd#sec-database_structure) chapter and the AusTraits
 dictionary if a build fails.
 
 ::: {.callout-tip}

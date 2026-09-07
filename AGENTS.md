@@ -24,8 +24,19 @@ The rendered manual lives at <https://traitecoevo.github.io/traits.build-book/>.
   rendered site is served from the `gh-pages` branch.
 - **Default branch:** `master`.
 
-> Heads-up: the PDF `format` in `_quarto.yml` is commented out — the book is HTML-only as
-> configured. Don't assume `quarto render --to pdf` works without re-enabling that block.
+## Building the PDF
+
+The book also builds as a single PDF (~260 pages), but the `pdf` format lives in the **`_quarto-pdf.yml` profile**, not in `_quarto.yml`: `quarto render --profile pdf --to pdf`.
+
+Three invariants here, each of which has already broken once:
+
+- **Never move `pdf` into `_quarto.yml`.** A plain `quarto render` builds *every* format listed there, so a LaTeX failure takes the gh-pages deploy down with it. That is exactly why the block was commented out in Dec 2023 (`7507982`, "comment out pdf to deploy website"). The website workflow must never see the pdf format.
+- **Never pass `full_width = TRUE` to `kable_styling()` on the latex path.** kableExtra renders it as a `tabu` environment, and `tabu` is unmaintained and fails against current LaTeX with `Undefined control sequence \tabu@cleanup`. Use `latex_options = "scale_down"` instead. Chapters that style tables define a latex `my_kable_styling()` and swap in `util_kable_styling_html` under `knitr::is_html_output()` — keep that shape.
+- **Write cross-chapter links as `other_chapter.qmd#anchor`, never `other_chapter.html` and never a bare `.qmd`.** Only an anchored `.qmd` link resolves to an internal PDF destination; both a `.html` link and a bare `other_chapter.qmd` become external URIs that are dead links in the PDF. Every chapter H1 therefore carries `{#sec-<filename>}` (e.g. `# File organisation {#sec-file_organisation}`) so there is always an anchor to point at, and links to a whole chapter use that id. `@sec-<filename>` also works but substitutes "Chapter N" for your link text.
+
+Because freeze results are stored per format (`_freeze/<chapter>/execute-results/tex.json` vs `html.json`), the HTML and PDF builds cannot share cache entries — the two CI workflows key their caches separately. The PDF is built by `.github/workflows/pdf.yaml` on published releases and on `workflow_dispatch` only, never on push: a full render executes the R in all 38 chapters.
+
+Since a single file merges every chapter's anchors into one namespace, duplicate heading ids that are harmless across separate HTML pages collide in the PDF. Watch for `Duplicate identifier` warnings in the render log.
 
 ---
 

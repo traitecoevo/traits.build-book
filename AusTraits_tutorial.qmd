@@ -1,8 +1,8 @@
-# AusTraits tutorial
+# AusTraits tutorial {#sec-AusTraits_tutorial}
 
 ## Introduction
 
-With more than 1.8 million data records, AusTraits is Australia's [largest plant trait database](austraits_database.html#plant_database), created using the [`{traits.build}` R package](https://github.com/traitecoevo/traits.build)
+With more than 1.8 million data records, AusTraits is Australia's [largest plant trait database](austraits_database.qmd#plant_database), created using the [`{traits.build}` R package](https://github.com/traitecoevo/traits.build)
 
 This tutorial introduces:
 
@@ -14,7 +14,7 @@ This tutorial introduces:
 
 ::: {.callout-note}
 This chapter is the **extended, worked walkthrough** of exploring and wrangling data, using AusTraits
-as the example database. The [`austraits` package chapter](austraits_package.html) is a more concise
+as the example database. The [`austraits` package chapter](austraits_package.qmd#sec-austraits_package) is a more concise
 tour of the same functions — `extract_`, `join_`, `summarise_`, plotting, and pivoting — and applies
 to any `traits.build` database, not only AusTraits. Read that chapter for a quick reference; read this
 one for step-by-step examples.
@@ -55,7 +55,7 @@ library(austraits)    # functions for exploring a traits.build database, availab
 source("data/extra_functions.R")
 ```
 
-Then download (or build) the latest AusTraits database, using one of the methods described [here](austraits_database.html#access_data).
+Then download (or build) the latest AusTraits database, using one of the methods described [here](austraits_database.qmd#access_data).
 
 This tutorial uses the most recent AusTraits release, version `r austraits::get_versions()[["version"]][1]`
 
@@ -136,7 +136,7 @@ data$traits %>% austraits::plot_locations("genus")
 
 The `{traits.build}` R package is the workflow that builds AusTraits from its component datasets.
 
-The database is output as a list, a collection of relational tables, described in detail [here](database_structure.html).
+The database is output as a list, a collection of relational tables, described in detail [here](database_structure.qmd#sec-database_structure).
 
 A `traits.build` data object includes both the relational data tables and additional tables documenting database metadata and a traits dictionary.
 
@@ -220,7 +220,7 @@ With `r nrow(austraits$traits)` rows of trait values in the main traits table, k
 
 The R package [`{austraits}`](https://github.com/traitecoevo/austraits) offers a collection of functions to explore and wrangle AusTraits data -- or indeed any data using the traits.build format. 
 
-The [`austraits` package chapter](austraits_package.html) covers these functions as well.
+The [`austraits` package chapter](austraits_package.qmd#sec-austraits_package) covers these functions as well.
 
 Function categories include:
 
@@ -331,7 +331,7 @@ Banksia_serrata_data <-
 
 `extract_data` offers the ability of filtering the database based on a value(s) in any column of any of the seven data tables (traits, locations, contexts, methods, taxa, taxonomic_updates, contributors). 
 
-See the [database structure chapter](database_structure.html) for names and definitions of each column and, for those with controlled vocabulary, their allowed values.
+See the [database structure chapter](database_structure.qmd#sec-database_structure) for names and definitions of each column and, for those with controlled vocabulary, their allowed values.
 
 Alternatively to see the list of column names to use:
 
@@ -919,7 +919,7 @@ austraits::plot_locations(data, "dataset_id")     # 1 plot for each dataset_id
 
 #### An example looking at trait-climate gradients
 
-A simple workflow allows one to look at [trait values across a climate gradient](traits_and_climate_example.html)
+A simple workflow allows one to look at [trait values across a climate gradient](traits_and_climate_example.qmd#sec-traits_and_climate_example)
 
 #### An example incorporating ALA distribution data
 
@@ -927,7 +927,7 @@ A recent tutorial posted by ALA shows how one can combine AusTraits trait data a
 
 https://labs.ala.org.au/posts/2023-08-28_alternatives-to-box-plots/post.html
 
-We've adopted it [here](spatial_data_example.html).
+We've adopted it [here](spatial_data_example.qmd#sec-spatial_data_example).
 
 ## A complexity: pivoting datasets {#pivotting_datasets}
 
@@ -1023,7 +1023,7 @@ The trait dictionary embedded within AusTraits also has:
 
 Together these clarify each "trait concept", which we define as: "a circumscribed set of trait measurements". Much like a taxon concept delimits a collection of organisms, a trait concept delimits a collection of trait values pertaining to a distinct characteristic of a specific part of an organism (cell, tissue, organ, or whole organism).
 
-The [AusTraits Plant Dictionary (APD)](http:///w3id.org/APD) offers detailed descriptions for all trait concepts included in AusTraits. With the APD, each trait is given a unique, resolvable identifier, allowing trait definitions to be reused and shared.
+The [AusTraits Plant Dictionary (APD)](https://w3id.org/APD/) offers detailed descriptions for all trait concepts included in AusTraits. With the APD, each trait is given a unique, resolvable identifier, allowing trait definitions to be reused and shared.
 
 The trait dictionary also includes: 
 

@@ -1,8 +1,8 @@
-# Troubleshooting common issues
+# Troubleshooting common issues {#sec-data_common_issues}
 
 This chapter collects the errors and warnings you are most likely to meet while adding a dataset and
 compiling a `traits.build` database, and explains how to resolve each one. It is the "detailed
-troubleshooting" companion to the [Getting help](help.html) chapter: work through the relevant
+troubleshooting" companion to the [Getting help](help.qmd#sec-help) chapter: work through the relevant
 section here before posting a question.
 
 Most problems fall into a few families:
@@ -17,7 +17,7 @@ Most problems fall into a few families:
 Two general habits solve a large share of issues. First, read the error message carefully — the
 `traits.build` messages are designed to name the offending trait, dataset, or value. Second, before
 assuming the package is at fault, check whether the problem lies in your data files or custom R code;
-see [attribute the error](help.html#sec-contact) in the Getting help chapter.
+see [attribute the error](help.qmd#sec-contact) in the Getting help chapter.
 
 ## Unsupported trait values {#unsupported-values}
 
@@ -78,9 +78,9 @@ write_csv(table, "data/dataset_id/raw/substitutions_required.csv")
 table <- read_csv("data/dataset_id/raw/substitutions_required.csv")
 ```
 
-See [adding substitutions](adding_data_long.html#add_substitutions) for the full workflow, and
+See [adding substitutions](adding_data_long.qmd#add_substitutions) for the full workflow, and
 `dataset_check_categorical_substitutions()` in the
-[data-quality functions chapter](check_dataset_functions.html) for a helper that builds the table for
+[data-quality functions chapter](check_dataset_functions.qmd#sec-check_dataset_functions) for a helper that builds the table for
 you.
 
 ## Numeric values out of range {#out-of-range}
@@ -101,7 +101,7 @@ the `unit_in` you mapped for the trait against the units in the source, and conf
 exists in [config/unit_conversions.csv]{style="color:blue;"}. If only a few values are excluded, they
 may be legitimately out of range; confirm they are genuine errors before dismissing them.
 `dataset_check_numeric_values()` in the
-[data-quality functions chapter](check_dataset_functions.html) tabulates these for review.
+[data-quality functions chapter](check_dataset_functions.qmd#sec-check_dataset_functions) tabulates these for review.
 
 ## Taxon names that don't align {#taxonomy}
 
@@ -114,9 +114,9 @@ Each database maintains its own taxonomy — the taxon list must be built outsid
 workflow because different databases reference different taxonomic sources (AusTraits, for example,
 uses the Australian Plant Census and the Australian Plant Names Index). Generate the list of names
 still needing attention with `dataset_check_taxonomic_updates()` (see the
-[data-quality functions chapter](check_dataset_functions.html)), then either add taxonomic updates to
+[data-quality functions chapter](check_dataset_functions.qmd#sec-check_dataset_functions)), then either add taxonomic updates to
 the dataset's [metadata.yml]{style="color:blue;"} (see
-[adding taxonomic updates](adding_data_long.html#add_taxonomic_updates)) or extend the taxon list.
+[adding taxonomic updates](adding_data_long.qmd#add_taxonomic_updates)) or extend the taxon list.
 
 ## Dataset can't pivot to wide format {#cannot_pivot}
 
@@ -130,7 +130,7 @@ and `method_context_id`.
 If two rows share the same combination, the table cannot pivot and the test fails. In almost every
 case the real cause is that `observation_id` has not been generated as you intended — two genuinely
 distinct observations were assigned the same `observation_id` because a distinguishing piece of
-metadata was not mapped. (See the [glossary](glossary.html#observations) for how `observation_id`
+metadata was not mapped. (See the [glossary](glossary.qmd#observations) for how `observation_id`
 is built.)
 
 There are two common explanations and solutions:
@@ -156,7 +156,7 @@ data %>%
     identified.
 
 To find exactly which measurements are blocking the pivot, run `dataset_check_not_pivoting()` (see
-the [data-quality functions chapter](check_dataset_functions.html)); it returns the specific rows with
+the [data-quality functions chapter](check_dataset_functions.qmd#sec-check_dataset_functions)); it returns the specific rows with
 duplicate combinations so you can trace the missing piece of metadata.
 
 ## Duplicate measurements {#duplicates}
@@ -166,7 +166,7 @@ Duplicates come in two forms.
 **Within a dataset**, the same taxon × trait value can legitimately appear many times — for example a
 species-level value (like `plant_growth_form`) reported on every individual's row, or a single bulked
 measurement reported against every contributing individual. When such repetition is unintended, remove
-it with `custom_R_code` (see [custom R code](adding_data_long.html#custom_R)). The helper
+it with `custom_R_code` (see [custom R code](adding_data_long.qmd#custom_R)). The helper
 `dataset_check_duplicates_within_dataset()` flags suspicious within-dataset duplication — be alert
 when `n_duplicates` is large or is identical across every taxon for a trait.
 
@@ -176,11 +176,11 @@ broader compilation. The automated tests eliminate *most* exact duplicates, but 
 detection is genuinely hard (it depends on how many significant figures to compare, and traits with
 naturally narrow ranges produce false positives). See
 `dataset_check_duplicates_across_datasets()` in the
-[data-quality functions chapter](check_dataset_functions.html) for the current status of this check.
+[data-quality functions chapter](check_dataset_functions.qmd#sec-check_dataset_functions) for the current status of this check.
 
 ## Errors reading `metadata.yml` or `traits.yml` {#yaml-errors}
 
-Both the dataset metadata files and the trait dictionary are [YAML](yaml.html) files, where meaning is
+Both the dataset metadata files and the trait dictionary are [YAML](yaml.qmd#sec-yaml) files, where meaning is
 carried entirely by **indentation** and structure. Small formatting slips produce errors that can look
 alarming but are quick to fix. The most common are:
 
@@ -194,7 +194,7 @@ alarming but are quick to fix. The most common are:
   leading `>` or `|` can be misread. Wrap such values in quotes — for example units like
   `"umol/m2/s"` or a description containing a colon.
 
-The [creating a trait dictionary](create_dictionary.html) chapter has a dedicated section on writing
+The [creating a trait dictionary](create_dictionary.qmd#sec-create_dictionary) chapter has a dedicated section on writing
 valid `traits.yml` files and the formatting pitfalls to watch for, including a worked example of an
 indentation error and how to fix it. A useful habit is to validate a file by reading it back with
 `yaml::read_yaml("config/traits.yml")` — if it parses without error, the structure is sound.
@@ -202,6 +202,6 @@ indentation error and how to fix it. A useful habit is to validate a file by rea
 ## Still stuck?
 
 If none of the above resolves your problem, first update to the latest `traits.build` release in case
-the issue is a bug that has since been fixed, then follow the [Getting help](help.html) chapter:
+the issue is a bug that has since been fixed, then follow the [Getting help](help.qmd#sec-help) chapter:
 attribute the error, prepare a minimal reproducible example, and post to the relevant GitHub
 Discussions page.

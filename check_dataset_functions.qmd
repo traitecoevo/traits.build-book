@@ -1,4 +1,4 @@
-# Check data quality functions
+# Check data quality functions {#sec-check_dataset_functions}
 
 Checking the data quality in each newly input dataset is essential to maintain the credibility of a trait database. The automated components of the workflow offer a number of quality checks, but can only include tests for situations where there is a solution to every "error". Other erroneous data values are placed in the `excluded_data` table. And there are categories of data that simply need a closer look.
 
@@ -10,7 +10,7 @@ The functions here are additional checks that should be run on datasets, such th
 
 **output**: Table of categorical trait values that require substitutions
 
-If a categorical trait value is not identical to an allowed value in the corresponding trait concept in the accompanying trait dictionary (`traits.yml` file), it is moved to the `excluded_data` table. The following function generates a table of values requiring substitutions, as described in [adding data](adding_data_long.html#add_substitutions)
+If a categorical trait value is not identical to an allowed value in the corresponding trait concept in the accompanying trait dictionary (`traits.yml` file), it is moved to the `excluded_data` table. The following function generates a table of values requiring substitutions, as described in [adding data](adding_data_long.qmd#add_substitutions)
 
 The output table needs to be edited, to map an appropriate replacement for each unsupported trait value. This is generally most easily accomplished in Excel or a text editor.
 
@@ -85,7 +85,7 @@ dataset_check_taxonomic_updates <- function(taxon_list, database, dataset) {
 
 **output**: Table of trait measurements that are preventing the dataset from pivoting
 
-One of the automated tests run by `dataset_test()` confirms the dataset can pivot from `longer` to `wider`. This test confirms that each row in the traits table has a unique combination of a particular 7 columns: `dataset_id`, `trait_name`, `observation_id`, `value_type`, `repeat_measurements_id`, `method_id`, `method_context_id`. When a dataset does not pivot wider, it is generally because `observation_id` has not been correctly parsed during dataset processing. `observation_id` is an integral counter within a dataset that represents unique combinations of 11 identity fields: `taxon_name`, `population_id`, `individual_id`, `temporal_context_id`, `entity_type`, `life_stage`, `source_id`, `entity_context_id`, `basis_of_record`, `collection_date`, and `original_name` (see the [glossary](glossary.html#observations) for how these combine). If any of these fields is incorrectly encoded in the metadata file, two distinct `observations` might be assigned identical `observation_id`'s. The most likely culprits are forgetting to map in a context property or a column of `source_id`'s.
+One of the automated tests run by `dataset_test()` confirms the dataset can pivot from `longer` to `wider`. This test confirms that each row in the traits table has a unique combination of a particular 7 columns: `dataset_id`, `trait_name`, `observation_id`, `value_type`, `repeat_measurements_id`, `method_id`, `method_context_id`. When a dataset does not pivot wider, it is generally because `observation_id` has not been correctly parsed during dataset processing. `observation_id` is an integral counter within a dataset that represents unique combinations of 11 identity fields: `taxon_name`, `population_id`, `individual_id`, `temporal_context_id`, `entity_type`, `life_stage`, `source_id`, `entity_context_id`, `basis_of_record`, `collection_date`, and `original_name` (see the [glossary](glossary.qmd#observations) for how these combine). If any of these fields is incorrectly encoded in the metadata file, two distinct `observations` might be assigned identical `observation_id`'s. The most likely culprits are forgetting to map in a context property or a column of `source_id`'s.
 
 Because the pivot combination and the fields that feed `observation_id` between them span many columns, it can be difficult to discern where to troubleshoot. This function outputs a list of the trait measurements that are causing the pivot test to fail, allowing you to hone in on the source of the problem.
 
@@ -265,7 +265,7 @@ on it.
 
 **output**: Table of suspected duplicates within a datasets
 
-This function will flag duplicate taxon x trait values within a dataset. Duplicates within a dataset are common when a species-level trait value (i.e. `plant_growth_form`) is reported on every row, beside individual level measurements (i.e. `leaf_mass_per_area`). There are also instances where, for some traits, there is a single bulked measurement across many individuals, with that value reported for each individual that *contributed* to the bulked sample (i.e. `leaf_N_per_dry_mass`). If the same measurement is reported twice, it needs to be removed using `custom_R_code`, as described [here](adding_data_long.html#custom_R) under item 3.
+This function will flag duplicate taxon x trait values within a dataset. Duplicates within a dataset are common when a species-level trait value (i.e. `plant_growth_form`) is reported on every row, beside individual level measurements (i.e. `leaf_mass_per_area`). There are also instances where, for some traits, there is a single bulked measurement across many individuals, with that value reported for each individual that *contributed* to the bulked sample (i.e. `leaf_N_per_dry_mass`). If the same measurement is reported twice, it needs to be removed using `custom_R_code`, as described [here](adding_data_long.qmd#custom_R) under item 3.
 
 For numeric traits where all individuals of a taxon will display a narrow range of values, especially if the trait is standardly reported to only a few significant figures (e.g. nutrient contents) duplication is absolutely expected. It is only if `n_duplicates` is a large number or you note that, for instance, `n_duplicates` is identical for every taxon for a specific trait that you should be suspicious of within-dataset duplication.
 

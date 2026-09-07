@@ -1,4 +1,4 @@
-# The `austraits` package
+# The `austraits` package {#sec-austraits_package}
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
