@@ -1,8 +1,16 @@
 on:
   push:
     branches: master
+  pull_request:
 
 name: render
+
+## A PR only renders; the deploy step below is already guarded so it never
+## publishes from a pull request. Superseded runs on the same ref are cancelled,
+## since a full render executes the R in every chapter.
+concurrency:
+  group: render-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   render:
@@ -13,7 +21,7 @@ jobs:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: false
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - uses: r-lib/actions/setup-r@v2
       - uses: r-lib/actions/setup-pandoc@v2
       - uses: quarto-dev/quarto-actions/setup@v2
@@ -30,7 +38,7 @@ jobs:
           needs: check
 
       - name: Cache results
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             _book
@@ -41,9 +49,19 @@ jobs:
       - name: Render
         run: quarto render
 
+      # Lets a reviewer check the built book without a local toolchain — this
+      # book needs traits.build, austraits, APCalign, galah and sf to render.
+      - name: Upload the built book
+        uses: actions/upload-artifact@v7
+        with:
+          name: book-html
+          path: _book
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Deploy to GitHub pages
         if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           clean: false
           branch: gh-pages

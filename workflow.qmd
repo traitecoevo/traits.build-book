@@ -1,4 +1,4 @@
-# Workflow 
+# Workflow {#sec-workflow}
 
 
 ```{r, include = FALSE}
@@ -88,7 +88,7 @@ The `metadata` file also includes all metadata associated with the study:
 
 We consider detailed error checking to be an important and ongoing part of our workflow. The following steps are taken to ensure data quality.
 
-* The data curator can run a series of **tests** on each data set, detailed in the [adding data vignette](adding_data.html)
+* The data curator can run a series of **tests** on each data set, detailed in the [adding data chapter](adding_data_long.qmd#sec-adding_data_long)
 * These tests identify **misaligned units**, **unrecognised taxon names**, and **unsupported categorical trait values**
 * These tests also identify and eliminate *most* **duplicate data** - instances where the same numeric trait data is submitted by multiple people
 * Each dataset is then compiled into a **report** which summarises metadata and plots/charts trait values in comparison to other measurements of that trait in the database. The report is reviewed by the data contributor to ensure metadata is complete and data values are as expected.

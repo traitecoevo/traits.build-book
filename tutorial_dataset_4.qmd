@@ -1,11 +1,11 @@
-# Tutorial 4: Additional complexities
+# Tutorial 4: Additional complexities {#sec-tutorial_dataset_4}
 
 
 ## Overview
 
 This is the fourth tutorial on adding datasets to your `traits.build` database.
 
-Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.html).\
+Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the example datasets in `traits.build-template`. Instructions are available at [Tutorial: Example compilation](tutorial_compilation.qmd#sec-tutorial_compilation).\
 
 ### Goals
 

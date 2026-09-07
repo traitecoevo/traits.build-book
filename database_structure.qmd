@@ -1,4 +1,4 @@
-# Data structure
+# Data structure {#sec-database_structure}
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -312,7 +312,7 @@ for (trait in c("leaf_mass_per_area", "woodiness")) {
 }
 ```
 
-## Contributors
+## Contributors {#contributors_table}
 
 ```{r}
 elements <- schema$austraits$elements$contributors

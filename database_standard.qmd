@@ -1,4 +1,4 @@
-# Data standard
+# Data standard {#sec-database_standard}
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -56,7 +56,7 @@ The database structure can capture:
 
 The database standard will continue to evolve as traits.build is used to build a greater diversity of trait databases, but, already offers a flexible, detailed structure for capturing and harmonising ecological data.
 
-See [relationships between database variables](database_metadata.html) for more details.
+See [relationships between database variables](database_metadata.qmd#sec-database_metadata) for more details.
 
 ## Database standard described by an ontology
 

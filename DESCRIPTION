@@ -44,7 +44,8 @@ Suggests:
 Remotes:
   traitecoevo/traits.build@develop,
   traitecoevo/austraits@master,
-  olihawkins/pilot
+  olihawkins/pilot,
+  erocoar/gghalves
 Encoding: UTF-8
 Language: en-UK
 Roxygen: list(markdown = TRUE)

@@ -1,14 +1,10 @@
-# Getting help
+# Getting help {#sec-help}
 
-This chapter explains how to ask for help. Questions can range from [detailed troubleshooting](data_common_issues.html) to [general advice](#general_advice). To ensure a constructive dialogue, please read this entire page before reaching out. Thank you for respecting the time and effort it takes to provide one-on-one support.
+This chapter explains how to ask for help. Questions can range from [detailed troubleshooting](data_common_issues.qmd#sec-data_common_issues) to [general advice](#general_advice). To ensure a constructive dialogue, please read this entire page before reaching out. Thank you for respecting the time and effort it takes to provide one-on-one support.
 
-Links to 
+:::{.callout-note #general_advice}
 
-- [troubleshooting](troubleshooting.html)
-
-:::{.callout-note}
-
-## Summary {#general_advice}
+## Summary
 
 Before you post a question, please work through the steps explained in this chapter.
 
@@ -48,7 +44,7 @@ If the error is a bug in `traits.build` or `austraits`, it is possible the bug h
 
 ### Attribute the error
 
-The `traits.build` package itself is often not usually the cause of problems that arise in `traits.build` pipelines. Most issues come from the user-defined R code, or data files that the pipeline calls, as well as other R packages on your system.  So before you post a question, please attempt to troubleshoot and figure out if `traits.build` is actually the source of the trouble, or if the error comes from another package or your own code. The tips in the [adding datasets](adding_data_long.html) or [common data issues](data_common_issues.html) chapters may help. If the culprit turns out to be a non-`traits.build` issue, then please ask your question in a non-`traits.build` forum and write the question accordingly.
+The `traits.build` package itself is often not usually the cause of problems that arise in `traits.build` pipelines. Most issues come from the user-defined R code, or data files that the pipeline calls, as well as other R packages on your system.  So before you post a question, please attempt to troubleshoot and figure out if `traits.build` is actually the source of the trouble, or if the error comes from another package or your own code. The tips in the [adding datasets](adding_data_long.qmd#sec-adding_data_long) or [common data issues](data_common_issues.qmd#sec-data_common_issues) chapters may help. If the culprit turns out to be a non-`traits.build` issue, then please ask your question in a non-`traits.build` forum and write the question accordingly.
 
 ### Write a reprex
 
@@ -70,8 +66,8 @@ There are many ways to reach out.
 
 To contact the maintainer directly, please post to the relevant public [GitHub Discussions](https://github.com/features/discussions) page of the package.^[You may need to create a free [GitHub](https://github.com/) account, but the process is straightforward.] Examples:
 
-* `traits.build`: <https://github.com/ropensci/targets/discussions>
-* `austraits`: <https://github.com/ropensci/tarchetypes/discussions>
+* `traits.build`: <https://github.com/traitecoevo/traits.build/discussions>
+* `austraits`: <https://github.com/traitecoevo/austraits/discussions>
 
 
 GitHub makes it easy to search for and link to public discussions. Not only does this help users solve their own problems, it also helps the maintainer avoid repetition. So please use discussions instead of private emails, instant messages, or mentions on social media.
