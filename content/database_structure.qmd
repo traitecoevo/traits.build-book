@@ -300,7 +300,7 @@ elements <- schema$austraits$elements$definitions
   writeLines(c(""))
 ```
 
-**Details on trait definitions:** The allowable trait names and trait values are defined in the definitions file. Each trait is labelled as either `numeric` or `categorical`. An example of each type is as follows. For an example, see the the [Trait definitions for AusTraits](http://traitecoevo.github.io/austraits.build/articles/trait_definitions.html).
+**Details on trait definitions:** The allowable trait names and trait values are defined in the definitions file. Each trait is labelled as either `numeric` or `categorical`. An example of each type is as follows. For an example, see the [Trait dictionary](dictionary.qmd#sec-dictionary) chapter.
 
 ```{r, traits}
 for (trait in c("leaf_mass_per_area", "woodiness")) {

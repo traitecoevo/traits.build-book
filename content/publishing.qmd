@@ -84,7 +84,7 @@ Publishing is complete only when the database is easy to cite. Provide, in the r
   citation directly.
 
 For databases built on `traits.build`, ask users to cite both the dataset (via its DOI) and the
-`traits.build` data model and workflow. See the [How to cite section](index.qmd#how-to-cite) on the
+`traits.build` data model and workflow. See the [How to cite section](../index.qmd#how-to-cite) on the
 About page for the `traits.build` citation, and
 [citing the data you use](AusTraits_tutorial.qmd#citing_data) for tools that generate a bibliography
 of the *underlying sources* a data subset draws on — so that the original data collectors are credited
