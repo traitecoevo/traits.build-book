@@ -1,0 +1,30 @@
+## Removes a merged or closed PR's preview from gh-pages.
+##
+## Separate from render.yaml on purpose. render.yaml's `pull_request` trigger
+## uses the default types (opened, synchronize, reopened), so it never fires on
+## close — which is what we want, because tearing a preview down must not pay
+## for a full render first. This workflow does the teardown alone.
+
+on:
+  pull_request:
+    types: [closed]
+
+name: pr-preview-cleanup
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Remove the PR preview
+        uses: rossjrw/pr-preview-action@v1.8.1
+        with:
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: remove
