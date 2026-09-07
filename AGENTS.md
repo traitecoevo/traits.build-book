@@ -10,13 +10,25 @@ The rendered manual lives at <https://traitecoevo.github.io/traits.build-book/>.
   (the top-level `DESCRIPTION`/`NAMESPACE` exist only to declare the R packages the chapters
   need at render time).
 - **Layout:** a single `_quarto.yml` at the top level defines the book (title, parts, chapter
-  order, HTML format), and each chapter is one `.qmd` source file. `_metadata.yml` holds shared
-  chapter options; `references.bib` is the bibliography; `figures/` and `data/` hold supporting
-  assets; `_book/` and `_freeze/` are generated output/cache.
+  order, HTML format). Chapters live in **`content/`**, one `.qmd` each — except `index.qmd`,
+  which must stay at the project root because Quarto hard-fails a book without a root home page
+  (`ERROR: Book contents must include a home page`). `figures/` and `data/` hold supporting
+  assets; `_book/` and `_freeze/` are generated output/cache. (`references.bib` exists but is
+  unused — no chapter declares a bibliography or cites anything.)
 - **Chapters:** organised in `_quarto.yml` into parts — Introduction (`index.qmd`,
-  `motivation.qmd`, `workflow.qmd`, ...), Data structure & standard, Creating with
-  `traits.build`, a step-by-step Guide to adding data (`tutorial_dataset_1..7.qmd`), Using
-  outputs, and Getting help; appendices `csv.qmd`, `yaml.qmd`.
+  `content/motivation.qmd`, `content/workflow.qmd`, ...), Data structure & standard, Creating
+  with `traits.build`, a step-by-step Guide to adding data (`content/tutorial_dataset_1..7.qmd`),
+  Using outputs, and Getting help; appendices `content/csv.qmd`, `content/yaml.qmd`.
+- **Two settings the `content/` layout depends on**, both in `_quarto.yml`:
+  `project: execute-dir: project`, without which each chapter executes in its own directory and
+  the ~34 project-root-relative paths (`data/…`, `config/…`) all break; and a project-level
+  `execute: freeze: auto`. Freeze **must** be declared in `_quarto.yml`, not a root
+  `_metadata.yml` — that file does not reach chapters in a subdirectory, so freeze silently stops
+  caching and every render re-executes all 38 chapters.
+- **Renaming or moving a chapter changes its published URL.** Each file in `content/` carries an
+  `aliases:` entry pointing at its pre-`content/` path, which emits a redirect stub at the old
+  URL so existing external links keep working. Keep that alias when renaming, and add one for the
+  new name.
 - **Build / preview:** `quarto render` builds the book into `_book/`; `quarto preview` serves it
   with live reload. Rendering executes the `.qmd` code, so the R packages in `DESCRIPTION`
   (incl. `traits.build`, `austraits`, `APCalign`, tidyverse, `galah`, `sf`) must be installed.

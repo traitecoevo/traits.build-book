@@ -1,5 +1,15 @@
 project:
   type: book
+  ## Chapters live in content/ but their code reads data/ and config/ relative
+  ## to the project root. Without this each .qmd executes in its own directory
+  ## and all 34 of those paths break.
+  execute-dir: project
+
+## Project-level so it also covers content/. A root _metadata.yml does not
+## reach chapters in a subdirectory, so freeze silently stopped caching
+## after the move and every render re-executed every chapter.
+execute:
+  freeze: auto
 
 book:
   title: "The {traits.build} data model, R package, and workflow"
@@ -10,55 +20,55 @@ book:
     - part: Introduction
       chapters:
         - index.qmd
-        - installation.qmd
-        - motivation.qmd
-        - workflow.qmd
-        - usage_examples.qmd
+        - content/installation.qmd
+        - content/motivation.qmd
+        - content/workflow.qmd
+        - content/usage_examples.qmd
     - part: Data structure and standard
       chapters:
-        - long_wide.qmd
-        - database_standard.qmd
-        - database_structure.qmd
-        - database_metadata.qmd
-        - dictionary.qmd
+        - content/long_wide.qmd
+        - content/database_standard.qmd
+        - content/database_structure.qmd
+        - content/database_metadata.qmd
+        - content/dictionary.qmd
     - part: Creating with `traits.build`
       chapters:
-        - traits_build.qmd
-        - tutorial_compilation.qmd
-        - file_organisation.qmd
-        - create_dictionary.qmd
-        - adding_data_brief.qmd
-        - publishing.qmd
+        - content/traits_build.qmd
+        - content/tutorial_compilation.qmd
+        - content/file_organisation.qmd
+        - content/create_dictionary.qmd
+        - content/adding_data_brief.qmd
+        - content/publishing.qmd
     - part: "Guide to adding data"
       chapters:
-        - tutorial_datasets.qmd
-        - tutorial_dataset_1.qmd
-        - tutorial_dataset_2.qmd
-        - tutorial_dataset_3.qmd
-        - tutorial_dataset_4.qmd
-        - tutorial_dataset_5.qmd
-        - tutorial_dataset_6.qmd
-        - tutorial_dataset_7.qmd
-        - adding_data_long.qmd
-        - check_dataset_functions.qmd
-        - data_common_issues.qmd
-        - github.qmd
-        - versioned_releases.qmd
+        - content/tutorial_datasets.qmd
+        - content/tutorial_dataset_1.qmd
+        - content/tutorial_dataset_2.qmd
+        - content/tutorial_dataset_3.qmd
+        - content/tutorial_dataset_4.qmd
+        - content/tutorial_dataset_5.qmd
+        - content/tutorial_dataset_6.qmd
+        - content/tutorial_dataset_7.qmd
+        - content/adding_data_long.qmd
+        - content/check_dataset_functions.qmd
+        - content/data_common_issues.qmd
+        - content/github.qmd
+        - content/versioned_releases.qmd
     - part: Using outputs of `traits.build`
       chapters:
-        - austraits_database.qmd
-        - AusTraits_tutorial.qmd
-        - traits_and_climate_example.qmd
-        - spatial_data_example.qmd
-        - austraits_package.qmd
+        - content/austraits_database.qmd
+        - content/AusTraits_tutorial.qmd
+        - content/traits_and_climate_example.qmd
+        - content/spatial_data_example.qmd
+        - content/austraits_package.qmd
     - part: Getting help
       chapters:
-        - help.qmd
+        - content/help.qmd
 
   appendices:
-    - glossary.qmd
-    - csv.qmd
-    - yaml.qmd
+    - content/glossary.qmd
+    - content/csv.qmd
+    - content/yaml.qmd
 
 format:
   html:
