@@ -947,7 +947,13 @@ The trait details then need to be filled in manually.
 
 -   **methods**: This information can usually be copied verbatim from a manuscript and is a textual description of all components of the method used to measure the trait.
 
-  In general, methods sections extracted from pdfs include "special characters" (non-UTF-8 characters). Non-English alphabet characters are recognised (e.g. é, ö) and should remain unchanged. Other characters will be re-formatted during the study input process, so double check that degree symbols (º), en-dashes (--), em-dashes (---), and curly quotes (',',",") have been maintained or reformatted with a suitable alternative. Greek letters and some other characters are replaced with their Unicode equivalent (e.g. \<U+03A8\> replaces Psi (Ψ)); for these it is best to replace the symbol with an interpretable English-character equivalent.
+  In general, methods sections extracted from pdfs include "special characters" (non-UTF-8 characters). Non-English alphabet characters are recognised (e.g. é, ö) and should remain unchanged. Other characters will be re-formatted during the study input process, so double check that degree symbols (°), en-dashes (--), em-dashes (---), and curly quotes (',',",") have been maintained or reformatted with a suitable alternative. Greek letters and some other characters are replaced with their Unicode equivalent (e.g. \<U+03A8\> replaces Psi (Ψ)); for these it is best to replace the symbol with an interpretable English-character equivalent.
+
+::: {.callout-warning}
+## The degree symbol has a look-alike
+
+The degree symbol must be `°` (U+00B0 DEGREE SIGN). Text copied from PDFs and word processors very often carries `º` (U+00BA MASCULINE ORDINAL INDICATOR) instead, which is near-indistinguishable in most fonts but is a disallowed character — it is the single most common one across the AusTraits databases. `dataset_replace_disallowed_chars()` repairs it; see [Running tests](#running_tests).
+:::
   
   If the there are two columns of data with measurements for the same trait using completely different methods, simply add the respective methods to the metadata for the respective columns. A `method_id` counter will be added to these during processing to ensure the correct trait values are linked to the correct methods. This is separate to `method_contexts` which are minor tweaks to the methods between measurements, that are expected to have concurrent effects on trait values (see below).
   
@@ -1183,7 +1189,7 @@ This lets you have a list of tests you run for each study and you just have to r
 
 The `clear formatting` code below reads and re-writes the yaml file. This is the same process that is repeated when running functions that automatically add substitutions or check taxonomy. Running it first ensures that any formatting issues introduced (or fixed) during the read/write process are identified and solved first.
 
-For instance, the `write_metadata` function inserts line breaks every 80 characters and reworks other line breaks (except in custom_R_code). It also reformats special characters in the text, substituting in its accepted format for degree symbols, en-dashes, em-dashes and quotes, and substituting in Unicode codes for more obscure symbols.
+For instance, the `write_metadata` function re-serialises the file with `yaml::as.yaml()`, which rewraps long lines and reworks line breaks (except in custom_R_code). Any change you see to degree symbols, dashes, quotes or more obscure symbols is a side effect of that serialisation and escaping — `write_metadata` holds no list of character substitutions and applies none deliberately. In particular, **do not expect the read/write cycle to repair a disallowed character**: a wrong degree symbol will survive it untouched. To fix those, see [Running tests](#running_tests).
 
 ```{r, eval=FALSE, echo=TRUE}
 f <- file.path("data", current_study, "metadata.yml")
@@ -1194,7 +1200,17 @@ traits.build::read_metadata(f) %>% traits.build::write_metadata(f)
 
 An extensive dataset test protocol ensures: - the `metadata.yml` file is complete and properly formatted - details entered into the `metadata.yml` file match those in the accompanying `data.csv` file (column names, values for locations, contexts) - details for each trait (trait name, categorical trait values) match those in the trait dictionary
 
-Certain special characters may show up as errors and need to be manually adjusted in the `metadata.yml` file
+Certain special characters show up as errors. `dataset_replace_disallowed_chars()` repairs the ones with a known replacement — including the degree symbol look-alike described above. It defaults to a dry run, so you can read the report before anything is written:
+
+```{r, eval=FALSE, echo=TRUE}
+# Report what would change, without writing
+traits.build::dataset_replace_disallowed_chars(current_study)
+
+# Apply the replacements
+traits.build::dataset_replace_disallowed_chars(current_study, dry_run = FALSE)
+```
+
+By default it touches only `metadata.yml`. Characters with no known replacement — accented names and legitimate typography, for instance — are listed in the report and left alone, so those still need adjusting by hand in the `metadata.yml` file.
 
 To run the dataset tests,
 
