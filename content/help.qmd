@@ -1,8 +1,3 @@
----
-aliases:
-  - ../help.html
----
-
 # Getting help {#sec-help}
 
 This chapter explains how to ask for help. Questions can range from [detailed troubleshooting](data_common_issues.qmd#sec-data_common_issues) to [general advice](#general_advice). To ensure a constructive dialogue, please read this entire page before reaching out. Thank you for respecting the time and effort it takes to provide one-on-one support.

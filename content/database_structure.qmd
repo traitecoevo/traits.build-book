@@ -1,8 +1,3 @@
----
-aliases:
-  - ../database_structure.html
----
-
 # Data structure {#sec-database_structure}
 
 ```{r, include = FALSE}

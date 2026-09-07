@@ -1,8 +1,3 @@
----
-aliases:
-  - ../tutorial_datasets.html
----
-
 # Tutorial: Adding datasets {#sec-tutorial_datasets}
 
 This part of the `traits.build` book contains a series of tutorials, teaching you for to add datasets to a `traits.build` database. 

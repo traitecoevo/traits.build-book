@@ -25,15 +25,13 @@ The rendered manual lives at <https://traitecoevo.github.io/traits.build-book/>.
   `execute: freeze: auto`. Freeze **must** be declared in `_quarto.yml`, not a root
   `_metadata.yml` — that file does not reach chapters in a subdirectory, so freeze silently stops
   caching and every render re-executes all 38 chapters.
-- **Renaming or moving a chapter changes its published URL**, and only five chapters are
-  protected against that. `AusTraits_tutorial`, `tutorial_compilation`, `tutorial_datasets`,
-  `database_structure` and `help` each carry an `aliases:` entry pointing at their pre-`content/`
-  path, which emits a redirect stub at the old URL. Those five are the ones linked from outside
-  this repo — from `austraits.org`, and from the READMEs of `austraits`, `traits.build`,
-  `traits.build-template`, `austraits.build` and `ausinvertraits.build`. The other 32 chapters
-  have no alias by decision (#38): old links to them are allowed to die. So if you rename one of
-  the five, carry its alias forward; and if a chapter starts being linked from another repo,
-  either give it an alias or accept that its URL is not stable.
+- **Chapter URLs are not redirected.** A chapter published at
+  `…/traits.build-book/content/<chapter>.html` has no alias or redirect stub behind it, by
+  decision (#38): renaming or moving a chapter simply breaks its old URL. So when you rename one,
+  grep the sibling repos for the old link. As of the `content/` move, chapter URLs are referenced
+  from **`austraits.org`** and the READMEs of **`austraits`**, **`traits.build`**,
+  **`traits.build-template`**, **`austraits.build`** and **`ausinvertraits.build`** — those are
+  the places that need updating, and they are outside CI's reach, so nothing here will warn you.
 - **Build / preview:** `quarto render` builds the book into `_book/`; `quarto preview` serves it
   with live reload. Rendering executes the `.qmd` code, so the R packages in `DESCRIPTION`
   (incl. `traits.build`, `austraits`, `APCalign`, tidyverse, `galah`, `sf`) must be installed.
