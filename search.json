@@ -418,8 +418,8 @@
     ]
   },
   {
-    "objectID": "database_structure.html#contributors",
-    "href": "database_structure.html#contributors",
+    "objectID": "database_structure.html#contributors_table",
+    "href": "database_structure.html#contributors_table",
     "title": "8  Data structure",
     "section": "8.10 Contributors",
     "text": "8.10 Contributors\nDescription: A table of people contributing to each study.\nContent:\n\n\n\n\nkey\n\n\nvalue\n\n\n\n\n\n\ndataset_id\n\n\nPrimary identifier for each study contributed to AusTraits; most often these are scientific papers, books, or online resources. By default this should be the name of the first author and year of publication, e.g. Falster_2005.\n\n\n\n\nlast_name\n\n\nLast name of the data collector.\n\n\n\n\ngiven_name\n\n\nGiven names of the data collector.\n\n\n\n\nORCID\n\n\nORCID of the data collector.\n\n\n\n\naffiliation\n\n\nLast known institution or affiliation.\n\n\n\n\nadditional_role\n\n\nAdditional roles of data collector, mostly contact person.",
