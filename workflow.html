@@ -104,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -442,14 +445,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#error-checking" id="toc-error-checking" class="nav-link" data-scroll-target="#error-checking">Error checking</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/workflow.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/workflow.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./workflow.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow</span></h1>
+<h1 class="title"><span id="sec-workflow" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Workflow</span></span></h1>
 </div>
 
 
@@ -494,7 +497,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="conceptual-framework">Conceptual framework</h3>
 <p>traits.build’s database structure effectively captures the complexities inherent to ecological data. Each dataset is unique, with measurements recorded on different entities (individuals, populations, species), in specific locations, and under countless environmental and experimental conditions, the so-called context of a measurement. The context offers essential meaning to each trait value. An ecological database must effectively capture all relevant contexts or the accompanying trait measurements lose much of their value.</p>
 <p><code>traits.build</code> is designed around the concept of an <strong>observation</strong>, a collection of measurements of different traits made at a specific point in time on a specific <strong>entity</strong>. OBOE, the Extensible Observation Ontology, first developed this conceptual framework, explicitly for complex ecological datasets. An <strong>observation_id</strong> links the measurements made on different traits that comprise a single observation. Measurements made at different points in time, on different entities, at different locations, or under different contextual conditions require unique <strong>observation_id</strong> values. The additional identifiers in the traits table (and the ancillary tables) were developed to ensure that unique observation_ids were generated for distinct observations, per this framework.</p>
-<p>Within a dataset, observation_id’s are generated for unique combinations of the fields: <strong>taxon_name</strong>, <strong>population_id</strong>, <strong>individual_id</strong>, <strong>temporal_id</strong>, <strong>entity_type</strong>, and <strong>source_id</strong>. For instance, if measurements are made on the same individual during the wet versus dry season, the two observations will share an <strong>individual_id</strong> but have distinct <strong>temporal_id</strong> values, and therefore have distinct <strong>observation_id</strong>’s. See <a href="https://github.com/traitecoevo/traits.build/blob/develop/inst/support/traits.build_schema.yml"><code>traits.build</code> schema</a> for definitions of identifiers</p>
+<p>Within a dataset, observation_ids are generated for unique combinations of the fields: <strong>taxon_name</strong>, <strong>population_id</strong>, <strong>individual_id</strong>, <strong>temporal_id</strong>, <strong>entity_type</strong>, and <strong>source_id</strong>. For instance, if measurements are made on the same individual during the wet versus dry season, the two observations will share an <strong>individual_id</strong> but have distinct <strong>temporal_id</strong> values, and therefore have distinct <strong>observation_id</strong>’s. See <a href="https://github.com/traitecoevo/traits.build/blob/develop/inst/support/traits.build_schema.yml"><code>traits.build</code> schema</a> for definitions of identifiers</p>
 </section>
 </section>
 <section id="concepts" class="level2" data-number="4.3">
@@ -506,13 +509,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="standardising-and-harmonising-data" class="level3">
 <h3 class="anchored" data-anchor-id="standardising-and-harmonising-data">Standardising and harmonising data</h3>
-<p>To create a single database for distribution to the research community, we developed a reproducible and transparent workflow in R for merging each dataset into AusTraits. The pipeline ensures the following information is standardised across all datasets in AusTraits. A <code>metadata</code> file for each study documents how the <code>data tables</code> submitted by an individual contributor are translated into the standardised terms used in the AusTraits database.</p>
+<p>To create a single database for distribution to the research community, we developed a reproducible and transparent workflow in R for merging each dataset into a traits.build database. The pipeline ensures the following information is standardised across all datasets with a database. A <code>metadata</code> file for each study documents how the <code>data tables</code> submitted by an individual contributor are translated into the standardised terms used within the database.</p>
 <ul>
-<li><strong>taxonomic nomenclature</strong> follows the Australian Plant Census (APC), with a pipeline to update outdated taxonomy, correct minor spelling mistakes, and align with a known genus when a full species names isn’t provided.<br>
-</li>
-<li><strong>trait names</strong> are defined in our <code>traits.yml</code> file and only data for traits included in this file can be merged into AusTraits. The trait names used in the incoming dataset are mapped onto the appropriate AusTraits trait name.</li>
-<li>For <strong>numeric traits</strong> the <code>traits.yml</code> file includes <code>units</code> and the allowable <code>range</code> of values. All incoming data are converted to the appropriate units and data outside the range of allowable values are removed from the main AusTraits data table.</li>
-<li>For <strong>categorical traits</strong> the <code>traits.yml</code> file includes a list of allowable <code>values</code>, allowed terms for the trait. Each categorical trait value is defined in the <code>traits.yml</code> file. Lists of substitutions translate the exact syntax and terms in a submitted dataset into the values allowed by AusTraits. This ensures that for a certain trait the same <code>value</code> has an identical meaning throughout the AusTraits database.</li>
+<li><strong>taxonomic nomenclature</strong> should follow an agreed-upon standard for the specific database. For instance, AusTraits follows the Australian Plant Census (APC), and the R package <code>APCalign</code> offers a workflow to correct minor spelling mistakes, indicate which scientific names are current versus outdated and align with a known genus when a full species names isn’t provided. If a reference exists that matches synonyms to currently accepted/valid names, the traits.build workflow will automatically update names during processing.</li>
+<li><strong>trait names</strong> are defined in an accompanying <code>traits.yml</code> file and only data for traits included in this file can be merged into the database. The trait names used in the incoming dataset are mapped onto the appropriate trait name from the dictionary.</li>
+<li>For <strong>numeric traits</strong> the <code>traits.yml</code> file includes <code>units</code> and the allowable <code>range</code> of values. All incoming data are converted to the appropriate units and data outside the range of allowable values are removed from the main database data table.</li>
+<li>For <strong>categorical traits</strong> the <code>traits.yml</code> file includes a list of allowable <code>values</code>, allowed terms for the trait. Each categorical trait value is defined in the <code>traits.yml</code> file. Lists of substitutions translate the exact syntax and terms in a submitted dataset into the values specified within the database trait dictionary. This ensures that for a certain trait the same <code>value</code> has an identical meaning throughout the database.</li>
 <li>Site locations are recorded in decimal degrees.</li>
 </ul>
 </section>
@@ -533,13 +535,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="error-checking" class="level3">
 <h3 class="anchored" data-anchor-id="error-checking">Error checking</h3>
-<p>We consider deatiled error checking to be an inmporant and ongoing part of our workflow. The following steps are taken to ensure data quality.</p>
+<p>We consider detailed error checking to be an important and ongoing part of our workflow. The following steps are taken to ensure data quality.</p>
 <ul>
-<li>The data curator can rus a series of <strong>tests</strong> on each data set, detailed in the <a href="adding_data_long.html">adding data chapter</a></li>
+<li>The data curator can run a series of <strong>tests</strong> on each data set, detailed in the <a href="./adding_data_long.html#sec-adding_data_long">adding data chapter</a></li>
 <li>These tests identify <strong>misaligned units</strong>, <strong>unrecognised taxon names</strong>, and <strong>unsupported categorical trait values</strong></li>
 <li>These tests also identify and eliminate <em>most</em> <strong>duplicate data</strong> - instances where the same numeric trait data is submitted by multiple people</li>
-<li>Each dataset is then compiled into a <strong>report</strong> which summarises metadata and plots/charts trait values in comparison to other measurements of that trait in AusTraits. The report is reviewed by the data contributor to ensure metadata is complete and data values are as expected.</li>
-<li>A second member of the AusTraits team double checks each dataset before it is merged into the main repository.</li>
+<li>Each dataset is then compiled into a <strong>report</strong> which summarises metadata and plots/charts trait values in comparison to other measurements of that trait in the database. The report is reviewed by the data contributor to ensure metadata is complete and data values are as expected.</li>
+<li>A second member of the database team double checks each dataset before it is merged into the main repository.</li>
 </ul>
 
 
@@ -620,7 +622,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -966,8 +968,8 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/workflow.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/workflow.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

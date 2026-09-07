@@ -139,6 +139,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -466,14 +469,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#clone-traits.build-template" id="toc-clone-traits.build-template" class="nav-link active" data-scroll-target="#clone-traits.build-template"><span class="header-section-number">12.1</span> Clone traits.build-template</a></li>
   <li><a href="#build-the-example" id="toc-build-the-example" class="nav-link" data-scroll-target="#build-the-example"><span class="header-section-number">12.2</span> Build the example</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/tutorial_compilation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/tutorial_compilation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Creating with <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./tutorial_compilation.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></h1>
+<h1 class="title"><span id="sec-tutorial_compilation" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Tutorial: Example compilation</span></span></h1>
 </div>
 
 
@@ -512,7 +515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>The tutorials for these datasets introduce you to the <code>traits.build</code> functions.</p></li>
 <li><p>By working through the dataset tutorials, you are progressively introduced to how the complexities of ecological datasets can be documented within the <code>traits.build</code> structure</p></li>
-<li><p>The datasets offer explicit examples of the types of complexities summarised in the <a href="adding_data_long.html">Adding datasets, a lengthy guide</a> chapter.</p></li>
+<li><p>The datasets offer explicit examples of the types of complexities summarised in the <a href="./adding_data_long.html#sec-adding_data_long">Adding datasets, a lengthy guide</a> chapter.</p></li>
 <li><p>There are seven dataset tutorials, progressing from simple to more complex dataset structures.</p></li>
 </ul></li>
 </ol>
@@ -525,7 +528,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">build_setup_pipeline</span>(<span class="at">method =</span> <span class="st">"base"</span>, <span class="at">database_name =</span> <span class="st">"traits.build_database"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"build.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>As described in the chapter on <a href="database_structure.html">data structure</a> the database is comprised of a series of relational tables and additional lists with metadata.</p>
+<p>As described in the chapter on <a href="./database_structure.html#sec-database_structure">data structure</a> the database is comprised of a series of relational tables and additional lists with metadata.</p>
 <p>Once you’ve explored and feel familiar with the basic structure of a <code>traits.build</code> database, continue onto the tutorials to learn how to add datasets using the traits.build workflow.</p>
 
 
@@ -605,7 +608,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -951,8 +954,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/tutorial_compilation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/tutorial_compilation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

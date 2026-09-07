@@ -139,6 +139,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -476,14 +479,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#manual-filling-in-of-metadata" id="toc-manual-filling-in-of-metadata" class="nav-link" data-scroll-target="#manual-filling-in-of-metadata">Manual filling in of metadata</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/tutorial_dataset_1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/tutorial_dataset_1.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial_datasets.html">Guide to adding data</a></li><li class="breadcrumb-item"><a href="./tutorial_dataset_1.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Tutorial 1: Adding a simple dataset</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Tutorial 1: Adding a simple dataset</span></h1>
+<h1 class="title"><span id="sec-tutorial_dataset_1" class="quarto-section-identifier"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Tutorial 1: Adding a simple dataset</span></span></h1>
 </div>
 
 
@@ -503,7 +506,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overview" class="level2" data-number="18.1">
 <h2 data-number="18.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">18.1</span> Overview</h2>
 <p>This is the first of five tutorials on adding datasets to your <code>traits.build</code> database. This introduces you to the basic functions, the user input required, and the manual manipulations required to complete the dataset’s metadata file. The next four tutorials introduce you to progressively more complex datasets, functions, and decisions.</p>
-<p>Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in <code>traits.build-template</code> . Instructions are available at <a href="tutorial_compilation.html">Tutorial: Example compilation</a>.</p>
+<p>Before you begin this tutorial, ensure you have installed traits.build, cloned the traits.build-template repository, and have successfully build a database from the datasets in <code>traits.build-template</code> . Instructions are available at <a href="./tutorial_compilation.html#sec-tutorial_compilation">Tutorial: Example compilation</a>.</p>
 <section id="goals" class="level3">
 <h3 class="anchored" data-anchor-id="goals">Goals</h3>
 <ul>
@@ -803,7 +806,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <ul>
-<li><p>You can add multiple data collectors by duplicating the relevant 4 lines of code; see the <a href="adding_data_long.html">adding data chapter</a> for protocols on who to add as a data collector.</p></li>
+<li><p>You can add multiple data collectors by duplicating the relevant 4 lines of code; see the <a href="./adding_data_long.html#sec-adding_data_long">adding data chapter</a> for protocols on who to add as a data collector.</p></li>
 <li><p>The line <code>assistants:</code> can be deleted if there aren’t any assistants’ names to add.</p></li>
 <li><p>Add yourself as the <code>dataset_curator</code>.<br>
 </p></li>
@@ -1070,7 +1073,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1416,8 +1419,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/tutorial_dataset_1.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/tutorial_dataset_1.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

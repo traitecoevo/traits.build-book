@@ -104,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -434,14 +437,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#pivotting-between-long-and-wide" id="toc-pivotting-between-long-and-wide" class="nav-link" data-scroll-target="#pivotting-between-long-and-wide">Pivotting between long and wide</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/long_wide.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/long_wide.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./long_wide.html">Data structure and standard</a></li><li class="breadcrumb-item"><a href="./long_wide.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Long vs Wide data</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Long vs Wide data</span></h1>
+<h1 class="title"><span id="sec-long_wide" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Long vs Wide data</span></span></h1>
 </div>
 
 
@@ -468,7 +471,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The traits.build output tables (traits, locations, contexts, etc.) are each in <code>long</code> format. Within a traits.build database different traits, location properties, and context properties are always likely to be collected by different datasets, leading to a database with many, many columns with low completeness. Under this scenario, <code>long</code> format significantly reduces the size of the data object, reducing storage costs and increasing the speed of loading. However, most users will prefer a <code>wide</code> format for analysis as multiple trait measurements for the same entity will be collapsed to a single row. This becomes practical once the full database is subsetted to just include specific traits.</p>
 <section id="pivotting-between-long-and-wide" class="level3">
 <h3 class="anchored" data-anchor-id="pivotting-between-long-and-wide">Pivotting between long and wide</h3>
-<p>Two {tidyr} functions, <code>pivot_longer</code> and <code>pivot_wider</code> make it quick to convert data from <code>long</code> to <code>wide</code> format in R. The <a href="AusTraits_tutorial.html">AusTraits tutorial</a> offers multiple examples for how these functions can be used to pivot the various relational tables in a traits.build database, inuding the <a href="AusTraits_tutorial.html#pivotting_datasets">core traits table</a>.</p>
+<p>Two {tidyr} functions, <code>pivot_longer</code> and <code>pivot_wider</code> make it quick to convert data from <code>long</code> to <code>wide</code> format in R. The <a href="./AusTraits_tutorial.html#sec-AusTraits_tutorial">AusTraits tutorial</a> offers multiple examples for how these functions can be used to pivot the various relational tables in a traits.build database, including the <a href="./AusTraits_tutorial.html#pivotting_datasets">core traits table</a>.</p>
 
 
 </section>
@@ -548,7 +551,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -894,8 +897,8 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/long_wide.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/long_wide.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

@@ -104,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -432,14 +435,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution"><span class="header-section-number">3.2</span> The solution</a></li>
   <li><a href="#where-traits.build-fits-the-austraits-family" id="toc-where-traits.build-fits-the-austraits-family" class="nav-link" data-scroll-target="#where-traits.build-fits-the-austraits-family"><span class="header-section-number">3.3</span> Where <code>traits.build</code> fits: the AusTraits family</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/motivation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/motivation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./motivation.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Motivation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Motivation</span></h1>
+<h1 class="title"><span id="sec-motivation" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Motivation</span></span></h1>
 </div>
 
 
@@ -470,8 +473,8 @@ ul.task-list li input[type="checkbox"] {
 <p>We developed these tools for the to create <a href="https://github.com/traitecoevo/austraits.build/">AusTraits</a>, an, open-source database of Australian plant traits. We figured others may want to replicate these efforts, so we the code and workflow was transformed into a standalone package allowing anyone to build a trait database for their own region or taxa.</p>
 <p>Along the way, we hdeveloped a suite of tools:</p>
 <ul>
-<li><a href="database_standard.html">traits.build data standard</a>: a relational database structure that fully documents the contextual data essential to interpreting ecological data.</li>
-<li><a href="traits_build.html">traits.build R package</a>: a set of functions that enable users to create a harmonised database from disparate datasets.</li>
+<li><a href="./database_standard.html#sec-database_standard">traits.build data standard</a>: a relational database structure that fully documents the contextual data essential to interpreting ecological data.</li>
+<li><a href="./traits_build.html#sec-traits_build">traits.build R package</a>: a set of functions that enable users to create a harmonised database from disparate datasets.</li>
 <li><a href="http://w3id.org/APD/">APD</a>: The AusTraits Plant Dictionary, with detailed descriptions for more than 500 plant trait concepts.<br>
 </li>
 <li><a href="https://github.com/traitecoevo/APCalign">APCalign</a>: an R package to align and update Australian plant taxon name strings with the Australian Plant Census.</li>
@@ -561,7 +564,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -907,8 +910,8 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/motivation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/motivation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

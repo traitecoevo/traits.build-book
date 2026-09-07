@@ -139,6 +139,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -481,14 +484,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#dataset_check_duplicates_within_dataset" id="toc-dataset_check_duplicates_within_dataset" class="nav-link" data-scroll-target="#dataset_check_duplicates_within_dataset">dataset_check_duplicates_within_dataset</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/check_dataset_functions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/check_dataset_functions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial_datasets.html">Guide to adding data</a></li><li class="breadcrumb-item"><a href="./check_dataset_functions.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Check data quality functions</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Check data quality functions</span></h1>
+<h1 class="title"><span id="sec-check_dataset_functions" class="quarto-section-identifier"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Check data quality functions</span></span></h1>
 </div>
 
 
@@ -512,7 +515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="dataset_check_categorical_substitutions" class="level3">
 <h3 class="anchored" data-anchor-id="dataset_check_categorical_substitutions">dataset_check_categorical_substitutions</h3>
 <p><strong>output</strong>: Table of categorical trait values that require substitutions</p>
-<p>If a categorical trait value is not identical to an allowed value in the corresponding trait concept in the accompanying trait dictionary (<code>traits.yml</code> file), it is moved to the <code>excluded_data</code> table. The following function generates a table of values requiring substitutions, as described in <a href="adding_data_long.html#add_substitutions">adding data</a></p>
+<p>If a categorical trait value is not identical to an allowed value in the corresponding trait concept in the accompanying trait dictionary (<code>traits.yml</code> file), it is moved to the <code>excluded_data</code> table. The following function generates a table of values requiring substitutions, as described in <a href="./adding_data_long.html#add_substitutions">adding data</a></p>
 <p>The output table needs to be edited, to map an appropriate replacement for each unsupported trait value. This is generally most easily accomplished in Excel or a text editor.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dataset_check_categorical_substitutions <span class="ot">&lt;-</span> <span class="cf">function</span>(database, dataset) {</span>
@@ -580,7 +583,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="dataset_check_not_pivoting" class="level3">
 <h3 class="anchored" data-anchor-id="dataset_check_not_pivoting">dataset_check_not_pivoting</h3>
 <p><strong>output</strong>: Table of trait measurements that are preventing the dataset from pivoting</p>
-<p>One of the automated tests run by <code>dataset_test()</code> confirms the dataset can pivot from <code>longer</code> to <code>wider</code>. This test confirms that each row in the traits table has a unique combination of a particular 7 columns: <code>dataset_id</code>, <code>trait_name</code>, <code>observation_id</code>, <code>value_type</code>, <code>repeat_measurements_id</code>, <code>method_id</code>, <code>method_context_id</code>. When a dataset does not pivot wider, it is generally because <code>observation_id</code> has not been correctly parsed during dataset processing. <code>observation_id</code> is an integral counter within a dataset that represents unique combinations of 11 identity fields: <code>taxon_name</code>, <code>population_id</code>, <code>individual_id</code>, <code>temporal_context_id</code>, <code>entity_type</code>, <code>life_stage</code>, <code>source_id</code>, <code>entity_context_id</code>, <code>basis_of_record</code>, <code>collection_date</code>, and <code>original_name</code> (see the <a href="glossary.html#observations">glossary</a> for how these combine). If any of these fields is incorrectly encoded in the metadata file, two distinct <code>observations</code> might be assigned identical <code>observation_id</code>’s. The most likely culprits are forgetting to map in a context property or a column of <code>source_id</code>’s.</p>
+<p>One of the automated tests run by <code>dataset_test()</code> confirms the dataset can pivot from <code>longer</code> to <code>wider</code>. This test confirms that each row in the traits table has a unique combination of a particular 7 columns: <code>dataset_id</code>, <code>trait_name</code>, <code>observation_id</code>, <code>value_type</code>, <code>repeat_measurements_id</code>, <code>method_id</code>, <code>method_context_id</code>. When a dataset does not pivot wider, it is generally because <code>observation_id</code> has not been correctly parsed during dataset processing. <code>observation_id</code> is an integral counter within a dataset that represents unique combinations of 11 identity fields: <code>taxon_name</code>, <code>population_id</code>, <code>individual_id</code>, <code>temporal_context_id</code>, <code>entity_type</code>, <code>life_stage</code>, <code>source_id</code>, <code>entity_context_id</code>, <code>basis_of_record</code>, <code>collection_date</code>, and <code>original_name</code> (see the <a href="./glossary.html#observations">glossary</a> for how these combine). If any of these fields is incorrectly encoded in the metadata file, two distinct <code>observations</code> might be assigned identical <code>observation_id</code>’s. The most likely culprits are forgetting to map in a context property or a column of <code>source_id</code>’s.</p>
 <p>Because the pivot combination and the fields that feed <code>observation_id</code> between them span many columns, it can be difficult to discern where to troubleshoot. This function outputs a list of the trait measurements that are causing the pivot test to fail, allowing you to hone in on the source of the problem.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dataset_check_not_pivoting <span class="ot">&lt;-</span> <span class="cf">function</span>(database, dataset) {</span>
@@ -735,7 +738,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="dataset_check_duplicates_within_dataset" class="level3">
 <h3 class="anchored" data-anchor-id="dataset_check_duplicates_within_dataset">dataset_check_duplicates_within_dataset</h3>
 <p><strong>output</strong>: Table of suspected duplicates within a datasets</p>
-<p>This function will flag duplicate taxon x trait values within a dataset. Duplicates within a dataset are common when a species-level trait value (i.e.&nbsp;<code>plant_growth_form</code>) is reported on every row, beside individual level measurements (i.e.&nbsp;<code>leaf_mass_per_area</code>). There are also instances where, for some traits, there is a single bulked measurement across many individuals, with that value reported for each individual that <em>contributed</em> to the bulked sample (i.e.&nbsp;<code>leaf_N_per_dry_mass</code>). If the same measurement is reported twice, it needs to be removed using <code>custom_R_code</code>, as described <a href="adding_data_long.html#custom_R">here</a> under item 3.</p>
+<p>This function will flag duplicate taxon x trait values within a dataset. Duplicates within a dataset are common when a species-level trait value (i.e.&nbsp;<code>plant_growth_form</code>) is reported on every row, beside individual level measurements (i.e.&nbsp;<code>leaf_mass_per_area</code>). There are also instances where, for some traits, there is a single bulked measurement across many individuals, with that value reported for each individual that <em>contributed</em> to the bulked sample (i.e.&nbsp;<code>leaf_N_per_dry_mass</code>). If the same measurement is reported twice, it needs to be removed using <code>custom_R_code</code>, as described <a href="./adding_data_long.html#custom_R">here</a> under item 3.</p>
 <p>For numeric traits where all individuals of a taxon will display a narrow range of values, especially if the trait is standardly reported to only a few significant figures (e.g.&nbsp;nutrient contents) duplication is absolutely expected. It is only if <code>n_duplicates</code> is a large number or you note that, for instance, <code>n_duplicates</code> is identical for every taxon for a specific trait that you should be suspicious of within-dataset duplication.</p>
 <p>Note that the value reported in the traits table may have many significant figures, even though the values in the <code>data.csv</code> file do not, if the value has been manipulated by <code>custom_R_code</code> or during trait parsing - for instance, if the value reported is the inverse of the value submitted, as commonly occurs in plant trait datasets as <code>specific_leaf_area</code> is converted to <code>leaf_mass_per_area</code>.</p>
 <div class="cell">
@@ -835,7 +838,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1181,8 +1184,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/check_dataset_functions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/check_dataset_functions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

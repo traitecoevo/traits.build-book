@@ -104,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -431,7 +434,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial_datasets.html">Guide to adding data</a></li><li class="breadcrumb-item"><a href="./tutorial_datasets.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tutorial: Adding datasets</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tutorial: Adding datasets</span></h1>
+<h1 class="title"><span id="sec-tutorial_datasets" class="quarto-section-identifier"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Tutorial: Adding datasets</span></span></h1>
 </div>
 
 
@@ -455,35 +458,35 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <pre><code>remotes::install_github("traitecoevo/traits.build")</code></pre>
 <ol start="2" type="1">
-<li>Cloned the traitecoevo/traits.build-template repository.</li>
+<li>Cloned the <a href="https://github.com/traitecoevo/traits.build-template">traitecoevo/traits.build-template repository</a>.</li>
 </ol>
 <ul>
 <li>Click on the green <code>&lt;&gt; Code</code> tab toward the upper right corner of <code>https://github.com/traitecoevo/traits.build-template</code>.</li>
 </ul>
 <ol start="3" type="1">
-<li>Built the <a href="tutorial_compilation.html">example database</a>.</li>
+<li>Built the <a href="./tutorial_compilation.html#sec-tutorial_compilation">example database</a>.</li>
 </ol>
 <p>The tutorial is divided into the following sections:</p>
 <ul>
-<li><a href="tutorial_dataset_1.html">tutorial 1</a>: Adding a simple dataset.<br>
+<li><a href="./tutorial_dataset_1.html#sec-tutorial_dataset_1">tutorial 1</a>: Adding a simple dataset.<br>
 </li>
-<li><a href="tutorial_dataset_2.html">tutorial 2</a>: Adding a more complex dataset.<br>
+<li><a href="./tutorial_dataset_2.html#sec-tutorial_dataset_2">tutorial 2</a>: Adding a more complex dataset.<br>
 </li>
-<li><a href="tutorial_dataset_3.html">tutorial 3</a>: Adding contexts and complex units.<br>
+<li><a href="./tutorial_dataset_3.html#sec-tutorial_dataset_3">tutorial 3</a>: Adding contexts and complex units.<br>
 </li>
-<li><a href="tutorial_dataset_4.html">tutorial 4</a>: Additional complexities for adding datasets.<br>
+<li><a href="./tutorial_dataset_4.html#sec-tutorial_dataset_4">tutorial 4</a>: Additional complexities for adding datasets.<br>
 </li>
-<li><a href="tutorial_dataset_5.html">tutorial 5</a>: Adding datasets with multiple columns for a trait.<br>
+<li><a href="./tutorial_dataset_5.html#sec-tutorial_dataset_5">tutorial 5</a>: Adding datasets with multiple columns for a trait.<br>
 </li>
-<li><a href="tutorial_dataset_6.html">tutorial 6</a>: Adding datasets with repeat measurements (response curves).<br>
+<li><a href="./tutorial_dataset_6.html#sec-tutorial_dataset_6">tutorial 6</a>: Adding datasets with repeat measurements (response curves).<br>
 </li>
-<li><a href="tutorial_dataset_7.html">tutorial 7</a>: Adding a long format dataset and mapping in units from a column.</li>
+<li><a href="./tutorial_dataset_7.html#sec-tutorial_dataset_7">tutorial 7</a>: Adding a long format dataset and mapping in units from a column.</li>
 </ul>
 <p>Once you’ve worked your way through the tutorials and begin adding your own datasets, you’ll also want to refer to:</p>
 <ul>
-<li>lengthy guide to <a href="adding_data_long.html">adding datasets</a><br>
+<li>lengthy guide to <a href="./adding_data_long.html#sec-adding_data_long">adding datasets</a><br>
 </li>
-<li>guide to <a href="data_common_issues.html">common issues when adding data</a>.</li>
+<li>guide to <a href="./data_common_issues.html#sec-data_common_issues">common issues when adding data</a>.</li>
 </ul>
 <p>If you are building a <code>{traits.build}</code> compiled trait database and have specific problems that should be covered in additional tutorials or require better explanations, please post an <a href="https://github.com/traitecoevo/traits.build-book/issues/new">issue</a>.</p>
 
@@ -563,7 +566,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -909,8 +912,8 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/tutorial_datasets.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/tutorial_datasets.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

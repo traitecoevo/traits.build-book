@@ -104,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -433,14 +436,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#archive-the-release-and-get-a-doi" id="toc-archive-the-release-and-get-a-doi" class="nav-link" data-scroll-target="#archive-the-release-and-get-a-doi"><span class="header-section-number">16.3</span> 3. Archive the release and get a DOI</a></li>
   <li><a href="#help-others-cite-the-database" id="toc-help-others-cite-the-database" class="nav-link" data-scroll-target="#help-others-cite-the-database"><span class="header-section-number">16.4</span> Help others cite the database</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/publishing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/publishing.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Creating with <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./publishing.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Publishing a database</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Publishing a database</span></h1>
+<h1 class="title"><span id="sec-publishing" class="quarto-section-identifier"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Publishing a database</span></span></h1>
 </div>
 
 
@@ -462,12 +465,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="host-the-compilation-on-github" class="level2" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="host-the-compilation-on-github"><span class="header-section-number">16.1</span> 1. Host the compilation on GitHub</h2>
 <p>Keep the whole compilation — the <code>config/</code> files, the <code>data/</code> folders, the build scripts, and the custom R code — in a single Git repository, and host it on GitHub. Git records every change to the data and metadata, so the process by which the database was assembled is fully transparent and reproducible; GitHub adds collaboration, issue tracking, and continuous-integration testing.</p>
-<p>See the <a href="github.html">using GitHub</a> chapter for the practical set-up: recommended repository settings, the pull-request workflow for adding data, and running <code>dataset_test()</code> automatically on every proposed change so that the database only ever accepts data that builds cleanly.</p>
+<p>See the <a href="./github.html#sec-github">using GitHub</a> chapter for the practical set-up: recommended repository settings, the pull-request workflow for adding data, and running <code>dataset_test()</code> automatically on every proposed change so that the database only ever accepts data that builds cleanly.</p>
 </section>
 <section id="make-a-versioned-release" class="level2" data-number="16.2">
 <h2 data-number="16.2" class="anchored" data-anchor-id="make-a-versioned-release"><span class="header-section-number">16.2</span> 2. Make a versioned release</h2>
 <p>A release is a labelled snapshot of the compilation at a point in time — the unit that people download, cite, and reproduce analyses against. Use <strong>semantic versioning</strong> (<code>major.minor.patch</code>) so that a version number communicates the nature of the change: a new <code>major</code> version signals a structural change that may break existing code, <code>minor</code> signals compatible additions (such as new datasets or columns), and <code>patch</code> signals corrections to existing data.</p>
-<p>The mechanics of bumping the version number, compiling, and cutting the GitHub release are set out in the <a href="versioned_releases.html">version updating and making a release</a> chapter. In outline:</p>
+<p>The mechanics of bumping the version number, compiling, and cutting the GitHub release are set out in the <a href="./versioned_releases.html#sec-versioned_releases">version updating and making a release</a> chapter. In outline:</p>
 <ol type="1">
 <li>Update the version number in the <code>DESCRIPTION</code> file.</li>
 <li>Recompile the database and update the documentation.</li>
@@ -512,7 +515,7 @@ ul.task-list li input[type="checkbox"] {
 <li>a clear <strong>“How to cite”</strong> statement naming the concept DOI and the recommended citation, and</li>
 <li>ideally a machine-readable <a href="https://citation-file-format.github.io/"><code>CITATION.cff</code></a> file, which makes GitHub display a <strong>“Cite this repository”</strong> button and lets reference managers import the citation directly.</li>
 </ul>
-<p>For databases built on <code>traits.build</code>, ask users to cite both the dataset (via its DOI) and the <code>traits.build</code> data model and workflow. See the <a href="index.html#how-to-cite">How to cite section</a> on the About page for the <code>traits.build</code> citation, and <a href="AusTraits_tutorial.html#citing_data">citing the data you use</a> for tools that generate a bibliography of the <em>underlying sources</em> a data subset draws on — so that the original data collectors are credited too.</p>
+<p>For databases built on <code>traits.build</code>, ask users to cite both the dataset (via its DOI) and the <code>traits.build</code> data model and workflow. See the <a href="./index.html#how-to-cite">How to cite section</a> on the About page for the <code>traits.build</code> citation, and <a href="./AusTraits_tutorial.html#citing_data">citing the data you use</a> for tools that generate a bibliography of the <em>underlying sources</em> a data subset draws on — so that the original data collectors are credited too.</p>
 
 
 </section>
@@ -591,7 +594,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -937,8 +940,8 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/publishing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/publishing.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

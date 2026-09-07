@@ -104,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -441,14 +444,14 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#documenting-the-relationships-between-variables" id="toc-documenting-the-relationships-between-variables" class="nav-link" data-scroll-target="#documenting-the-relationships-between-variables"><span class="header-section-number">9.3</span> Documenting the relationships between variables</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/database_metadata.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/database_metadata.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./long_wide.html">Data structure and standard</a></li><li class="breadcrumb-item"><a href="./database_metadata.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Overview of traits.build ontology</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Overview of traits.build ontology</span></h1>
+<h1 class="title"><span id="sec-database_metadata" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Overview of traits.build ontology</span></span></h1>
 </div>
 
 
@@ -564,7 +567,7 @@ ul.task-list li input[type="checkbox"] {
 <p>For instance:</p>
 <ul>
 <li><p>a <code>population</code> is defined as a group of individuals of the same species, subjected to the same treatment and plot contexts and occurring in the same location. Populations are defined by having a common <code>population_id</code>.</p></li>
-<li><p>a <code>temporal_context</code> indicates measurements on an entity have been stratified across time, such as occurs when the same individual is measured during two different growing seasons. The column <code>temporal_context_id</code> in the <a href="database_structure.html#traits">traits table</a> offers an identifier that links to details about the temporal context in the <a href="database_structure.html#contexts">context table</a>.</p></li>
+<li><p>a <code>temporal_context</code> indicates measurements on an entity have been stratified across time, such as occurs when the same individual is measured during two different growing seasons. The column <code>temporal_context_id</code> in the <a href="./database_structure.html#traits">traits table</a> offers an identifier that links to details about the temporal context in the <a href="./database_structure.html#contexts">context table</a>.</p></li>
 </ul>
 
 
@@ -644,7 +647,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -990,8 +993,8 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/database_metadata.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/database_metadata.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

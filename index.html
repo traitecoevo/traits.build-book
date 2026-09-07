@@ -104,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -428,7 +431,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about"><span class="header-section-number">1</span> About</a>
+  <li><a href="#sec-index" id="toc-sec-index" class="nav-link active" data-scroll-target="#sec-index"><span class="header-section-number">1</span> About</a>
   <ul class="collapse">
   <li><a href="#brief-overview" id="toc-brief-overview" class="nav-link" data-scroll-target="#brief-overview"><span class="header-section-number">1.1</span> Brief overview</a></li>
   <li><a href="#how-to-cite" id="toc-how-to-cite" class="nav-link" data-scroll-target="#how-to-cite"><span class="header-section-number">1.2</span> How to cite</a></li>
@@ -438,7 +441,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements"><span class="header-section-number">1.6</span> Acknowledgements</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -471,7 +474,7 @@ Australia </p>
 </header>
 
 
-<section id="about" class="level1" data-number="1">
+<section id="sec-index" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> About</h1>
 <section id="brief-overview" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="brief-overview"><span class="header-section-number">1.1</span> Brief overview</h2>
@@ -492,16 +495,16 @@ Australia </p>
 <ul>
 <li><a href="http://traitecoevo.github.io/traits.build/index.html#installation">installation instructions</a> for the <code>traits.build</code> package</li>
 <li>a <a href="http://traitecoevo.github.io/traits.build/reference/index.html">reference page with all user-side functions</a> for the <code>traits.build</code> package.</li>
-<li>links to <a href="usage_examples.html">example projects</a></li>
+<li>links to <a href="./usage_examples.html#sec-usage_examples">example projects</a></li>
 </ul>
 </section>
 <section id="a-simple-example" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="a-simple-example"><span class="header-section-number">1.4</span> A simple example</h2>
-<p>To get you started, we’ve provided a template example compilation which you can clone and modify. This provides the basic steps for building a <code>traits.build</code> compilation. Follow the instructions in <a href="tutorial_compilation.html">Tutorials</a> chapter for a step-by-step guide to building a database from scratch.</p>
+<p>To get you started, we’ve provided a template example compilation which you can clone and modify. This provides the basic steps for building a <code>traits.build</code> compilation. Follow the instructions in <a href="./tutorial_compilation.html#sec-tutorial_compilation">Tutorials</a> chapter for a step-by-step guide to building a database from scratch.</p>
 </section>
 <section id="getting-help" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">1.5</span> Getting help</h2>
-<p>Along the way, users may encounter a number of errors and warnings. Some of these are designed to help you build a robust database, others may constitue an error in your data, file structure, or the package. If you encounter an error or warning, please read the message carefully and <a href="help.html">follow the instructions for getting help</a>.</p>
+<p>Along the way, users may encounter a number of errors and warnings. Some of these are designed to help you build a robust database, others may constitue an error in your data, file structure, or the package. If you encounter an error or warning, please read the message carefully and <a href="./help.html#sec-help">follow the instructions for getting help</a>.</p>
 </section>
 <section id="acknowledgements" class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="acknowledgements"><span class="header-section-number">1.6</span> Acknowledgements</h2>
@@ -586,7 +589,7 @@ Australia </p>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -929,8 +932,8 @@ Australia </p>
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

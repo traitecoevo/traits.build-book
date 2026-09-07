@@ -104,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -432,14 +435,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#observations" id="toc-observations" class="nav-link" data-scroll-target="#observations"><span class="header-section-number">A.2</span> Observations: how <code>observation_id</code> is generated</a></li>
   <li><a href="#core-terms" id="toc-core-terms" class="nav-link" data-scroll-target="#core-terms"><span class="header-section-number">A.3</span> Core terms</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/glossary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/glossary.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./glossary.html">Appendices</a></li><li class="breadcrumb-item"><a href="./glossary.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Appendix A — Glossary</h1>
+<h1 class="title"><span id="sec-glossary" class="quarto-section-identifier">Appendix A — Glossary</span></h1>
 </div>
 
 
@@ -456,7 +459,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><code>traits.build</code> uses a compact vocabulary of identifiers and terms that recur throughout this manual. This chapter gathers them in one place. The <a href="workflow.html">workflow</a> and <a href="database_structure.html">data structure</a> chapters explain <em>why</em> the structure is shaped this way; this glossary is a quick reference for <em>what each term means</em>.</p>
+<p><code>traits.build</code> uses a compact vocabulary of identifiers and terms that recur throughout this manual. This chapter gathers them in one place. The <a href="./workflow.html#sec-workflow">workflow</a> and <a href="./database_structure.html#sec-database_structure">data structure</a> chapters explain <em>why</em> the structure is shaped this way; this glossary is a quick reference for <em>what each term means</em>.</p>
 <section id="the-identifiers" class="level2" data-number="A.1">
 <h2 data-number="A.1" class="anchored" data-anchor-id="the-identifiers"><span class="header-section-number">A.1</span> The identifiers</h2>
 <p>A <code>traits.build</code> database is relational: a core <code>traits</code> table linked to ancillary tables by a set of identifiers. The identifiers are the part of the model that new users find most overwhelming, but they follow a single logic — <strong>each one records one way in which two measurements can differ</strong>. Together they let the workflow decide which measurements belong to the same observation and which are distinct.</p>
@@ -529,7 +532,7 @@ Distinguishes repeated measurements that together make up a single observation (
 <p>The workflow assigns a new <code>observation_id</code> to each <strong>unique combination</strong> of the fields that define “same entity, same time, same source”. In practice these identity fields are:</p>
 <p><code>taxon_name</code>, <code>population_id</code>, <code>individual_id</code>, <code>temporal_context_id</code>, <code>entity_type</code>, <code>life_stage</code>, <code>source_id</code>, <code>entity_context_id</code>, <code>basis_of_record</code>, <code>collection_date</code>, and <code>original_name</code>.</p>
 <p>If measurements differ in <em>any</em> of these, they receive different <code>observation_id</code> values. For example, measurements made on the same individual in the wet season and the dry season share an <code>individual_id</code> but have different <code>temporal_context_id</code> values, and therefore different <code>observation_id</code> values.</p>
-<p>This is also why a database sometimes fails to <a href="data_common_issues.html#cannot_pivot">pivot to wide format</a>: the wide-format check requires each row to be unique across a <strong>seven-column</strong> combination (<code>dataset_id</code>, <code>trait_name</code>, <code>observation_id</code>, <code>value_type</code>, <code>repeat_measurements_id</code>, <code>method_id</code>, <code>method_context_id</code>). When two genuinely distinct measurements collapse onto one <code>observation_id</code> — because one of the identity fields above was not mapped — that seven-column combination is no longer unique and the pivot fails. The fix is almost always to supply the missing identity field, not to change the pivot check.</p>
+<p>This is also why a database sometimes fails to <a href="./data_common_issues.html#cannot_pivot">pivot to wide format</a>: the wide-format check requires each row to be unique across a <strong>seven-column</strong> combination (<code>dataset_id</code>, <code>trait_name</code>, <code>observation_id</code>, <code>value_type</code>, <code>repeat_measurements_id</code>, <code>method_id</code>, <code>method_context_id</code>). When two genuinely distinct measurements collapse onto one <code>observation_id</code> — because one of the identity fields above was not mapped — that seven-column combination is no longer unique and the pivot fails. The fix is almost always to supply the missing identity field, not to change the pivot check.</p>
 </section>
 <section id="core-terms" class="level2" data-number="A.3">
 <h2 data-number="A.3" class="anchored" data-anchor-id="core-terms"><span class="header-section-number">A.3</span> Core terms</h2>
@@ -540,7 +543,7 @@ The <em>feature of interest</em> — what a trait value describes. Within AusTra
 </dd>
 <dt><strong>Trait</strong></dt>
 <dd>
-A measurable characteristic. Every trait in a database must be defined in the trait dictionary (<code>traits.yml</code>) as either <code>numeric</code> (with units and an allowable range) or <code>categorical</code> (with a list of allowable values). See <a href="create_dictionary.html">creating a trait dictionary</a>.
+A measurable characteristic. Every trait in a database must be defined in the trait dictionary (<code>traits.yml</code>) as either <code>numeric</code> (with units and an allowable range) or <code>categorical</code> (with a list of allowable values). See <a href="./create_dictionary.html#sec-create_dictionary">creating a trait dictionary</a>.
 </dd>
 <dt><strong>Value / <code>value_type</code> / <code>basis_of_value</code></strong></dt>
 <dd>
@@ -564,19 +567,19 @@ A <strong>dataset</strong> (<code>dataset_id</code>) is a unit of contribution �
 </dd>
 <dt><strong>Substitution</strong></dt>
 <dd>
-A mapping from the exact term used in a contributor’s <code>data.csv</code> to an allowable value in the trait dictionary — the mechanism that harmonises categorical values without editing the raw data. See <a href="adding_data_long.html#add_substitutions">adding substitutions</a>.
+A mapping from the exact term used in a contributor’s <code>data.csv</code> to an allowable value in the trait dictionary — the mechanism that harmonises categorical values without editing the raw data. See <a href="./adding_data_long.html#add_substitutions">adding substitutions</a>.
 </dd>
 <dt><strong>Taxonomic update</strong></dt>
 <dd>
-A mapping from a submitted taxon name to an aligned/currently accepted name, recording the reason and the taxonomic resolution. See <a href="adding_data_long.html#add_taxonomic_updates">adding taxonomic updates</a>.
+A mapping from a submitted taxon name to an aligned/currently accepted name, recording the reason and the taxonomic resolution. See <a href="./adding_data_long.html#add_taxonomic_updates">adding taxonomic updates</a>.
 </dd>
 <dt><strong><code>excluded_data</code></strong></dt>
 <dd>
-The table holding records removed during compilation — unsupported categorical values, out-of-range numeric values, and detected duplicates — so that nothing is silently discarded. See <a href="data_common_issues.html">Troubleshooting</a>.
+The table holding records removed during compilation — unsupported categorical values, out-of-range numeric values, and detected duplicates — so that nothing is silently discarded. See <a href="./data_common_issues.html#sec-data_common_issues">Troubleshooting</a>.
 </dd>
 <dt><strong>Long vs wide format</strong></dt>
 <dd>
-In <strong>long</strong> format all trait names live in one <code>trait_name</code> column and all values in one <code>value</code> column; this is how a <code>traits.build</code> database is stored. <strong>Wide</strong> format spreads each trait into its own column. Convert between them with <code>trait_pivot_wider()</code> (see <a href="long_wide.html">long and wide</a>).
+In <strong>long</strong> format all trait names live in one <code>trait_name</code> column and all values in one <code>value</code> column; this is how a <code>traits.build</code> database is stored. <strong>Wide</strong> format spreads each trait into its own column. Convert between them with <code>trait_pivot_wider()</code> (see <a href="./long_wide.html#sec-long_wide">long and wide</a>).
 </dd>
 <dt><strong>Compilation / build</strong></dt>
 <dd>
@@ -661,7 +664,7 @@ The process of running the workflow over the <code>data/</code> and <code>config
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1007,8 +1010,8 @@ The process of running the workflow over the <code>data/</code> and <code>config
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/glossary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/glossary.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

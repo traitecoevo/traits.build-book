@@ -139,6 +139,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -502,14 +505,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#understanding-taxon-names" id="toc-understanding-taxon-names" class="nav-link" data-scroll-target="#understanding-taxon-names">Understanding taxon names</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/AusTraits_tutorial.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/AusTraits_tutorial.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./austraits_database.html">Using outputs of <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./AusTraits_tutorial.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></h1>
+<h1 class="title"><span id="sec-AusTraits_tutorial" class="quarto-section-identifier"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">AusTraits tutorial</span></span></h1>
 </div>
 
 
@@ -528,7 +531,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level2" data-number="31.1">
 <h2 data-number="31.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">31.1</span> Introduction</h2>
-<p>With more than 1.8 million data records, AusTraits is Australia’s <a href="austraits_database.html#plant_database">largest plant trait database</a>, created using the <a href="https://github.com/traitecoevo/traits.build"><code>{traits.build}</code> R package</a></p>
+<p>With more than 1.8 million data records, AusTraits is Australia’s <a href="./austraits_database.html#plant_database">largest plant trait database</a>, created using the <a href="https://github.com/traitecoevo/traits.build"><code>{traits.build}</code> R package</a></p>
 <p>This tutorial introduces:</p>
 <ul>
 <li><p><a href="#database_structure">the database structure</a></p></li>
@@ -545,7 +548,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This chapter is the <strong>extended, worked walkthrough</strong> of exploring and wrangling data, using AusTraits as the example database. The <a href="austraits_package.html"><code>austraits</code> package chapter</a> is a more concise tour of the same functions — <code>extract_</code>, <code>join_</code>, <code>summarise_</code>, plotting, and pivoting — and applies to any <code>traits.build</code> database, not only AusTraits. Read that chapter for a quick reference; read this one for step-by-step examples.</p>
+<p>This chapter is the <strong>extended, worked walkthrough</strong> of exploring and wrangling data, using AusTraits as the example database. The <a href="./austraits_package.html#sec-austraits_package"><code>austraits</code> package chapter</a> is a more concise tour of the same functions — <code>extract_</code>, <code>join_</code>, <code>summarise_</code>, plotting, and pivoting — and applies to any <code>traits.build</code> database, not only AusTraits. Read that chapter for a quick reference; read this one for step-by-step examples.</p>
 </div>
 </div>
 <p>To access more information about <code>traits.build</code>, see <a href="https://traitecoevo.github.io/traits.build-book/"><code>traits.build-book</code></a></p>
@@ -579,7 +582,7 @@ Note
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#source("https://raw.githubusercontent.com/traitecoevo/traits.build-book/master/data/extra_functions.R")</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"data/extra_functions.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Then download (or build) the latest AusTraits database, using one of the methods described <a href="austraits_database.html#access_data">here</a>.</p>
+<p>Then download (or build) the latest AusTraits database, using one of the methods described <a href="./austraits_database.html#access_data">here</a>.</p>
 <p>This tutorial uses the most recent AusTraits release, version 7.0.0</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>most_recent <span class="ot">&lt;-</span> austraits<span class="sc">::</span><span class="fu">get_versions</span>() <span class="sc">%&gt;%</span></span>
@@ -711,7 +714,7 @@ Note
 <section id="database_structure" class="level2" data-number="31.4">
 <h2 data-number="31.4" class="anchored" data-anchor-id="database_structure"><span class="header-section-number">31.4</span> The database structure</h2>
 <p>The <code>{traits.build}</code> R package is the workflow that builds AusTraits from its component datasets.</p>
-<p>The database is output as a list, a collection of relational tables, described in detail <a href="database_structure.html">here</a>.</p>
+<p>The database is output as a list, a collection of relational tables, described in detail <a href="./database_structure.html#sec-database_structure">here</a>.</p>
 <p>A <code>traits.build</code> data object includes both the relational data tables and additional tables documenting database metadata and a traits dictionary.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>austraits</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -981,7 +984,7 @@ session_info.</code></pre>
 <h2 data-number="31.5" class="anchored" data-anchor-id="austraits_functions"><span class="header-section-number">31.5</span> Exploring AusTraits</h2>
 <p>With 1798215 rows of trait values in the main traits table, knowing how to explore the contents is essential.</p>
 <p>The R package <a href="https://github.com/traitecoevo/austraits"><code>{austraits}</code></a> offers a collection of functions to explore and wrangle AusTraits data – or indeed any data using the traits.build format.</p>
-<p>The <a href="austraits_package.html"><code>austraits</code> package chapter</a> covers these functions as well.</p>
+<p>The <a href="./austraits_package.html#sec-austraits_package"><code>austraits</code> package chapter</a> covers these functions as well.</p>
 <p>Function categories include:</p>
 <ul>
 <li><p><a href="#summarise_functions"><strong>summarise and lookup functions</strong></a>: These functions offer summaries by taxon name or trait, summarising taxa per trait (or other variable), datasets per trait, and observations per trait.</p></li>
@@ -1312,7 +1315,7 @@ session_info.</code></pre>
 <section id="extract_data" class="level4">
 <h4 class="anchored" data-anchor-id="extract_data"><code>extract_data</code></h4>
 <p><code>extract_data</code> offers the ability of filtering the database based on a value(s) in any column of any of the seven data tables (traits, locations, contexts, methods, taxa, taxonomic_updates, contributors).</p>
-<p>See the <a href="database_structure.html">database structure chapter</a> for names and definitions of each column and, for those with controlled vocabulary, their allowed values.</p>
+<p>See the <a href="./database_structure.html#sec-database_structure">database structure chapter</a> for names and definitions of each column and, for those with controlled vocabulary, their allowed values.</p>
 <p>Alternatively to see the list of column names to use:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(austraits<span class="sc">$</span>traits)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2639,13 +2642,13 @@ session_info.</code></pre>
 <h3 class="anchored" data-anchor-id="sample_analyses">More complex workflows – some examples</h3>
 <section id="an-example-looking-at-trait-climate-gradients" class="level4">
 <h4 class="anchored" data-anchor-id="an-example-looking-at-trait-climate-gradients">An example looking at trait-climate gradients</h4>
-<p>A simple workflow allows one to look at <a href="traits_and_climate_example.html">trait values across a climate gradient</a></p>
+<p>A simple workflow allows one to look at <a href="./traits_and_climate_example.html#sec-traits_and_climate_example">trait values across a climate gradient</a></p>
 </section>
 <section id="an-example-incorporating-ala-distribution-data" class="level4">
 <h4 class="anchored" data-anchor-id="an-example-incorporating-ala-distribution-data">An example incorporating ALA distribution data</h4>
 <p>A recent tutorial posted by ALA shows how one can combine AusTraits trait data and ALA spatial occurrence data:</p>
 <p>https://labs.ala.org.au/posts/2023-08-28_alternatives-to-box-plots/post.html</p>
-<p>We’ve adopted it <a href="spatial_data_example.html">here</a>.</p>
+<p>We’ve adopted it <a href="./spatial_data_example.html#sec-spatial_data_example">here</a>.</p>
 </section>
 </section>
 </section>
@@ -2773,7 +2776,7 @@ session_info.</code></pre>
 <li>definitions for all categorical trait values&nbsp;</li>
 </ul>
 <p>Together these clarify each “trait concept”, which we define as: “a circumscribed set of trait measurements”. Much like a taxon concept delimits a collection of organisms, a trait concept delimits a collection of trait values pertaining to a distinct characteristic of a specific part of an organism (cell, tissue, organ, or whole organism).</p>
-<p>The <a href="http:///w3id.org/APD">AusTraits Plant Dictionary (APD)</a> offers detailed descriptions for all trait concepts included in AusTraits. With the APD, each trait is given a unique, resolvable identifier, allowing trait definitions to be reused and shared.</p>
+<p>The <a href="https://w3id.org/APD/">AusTraits Plant Dictionary (APD)</a> offers detailed descriptions for all trait concepts included in AusTraits. With the APD, each trait is given a unique, resolvable identifier, allowing trait definitions to be reused and shared.</p>
 <p>The trait dictionary also includes:&nbsp;</p>
 <ul>
 <li>keywords&nbsp;</li>
@@ -2961,7 +2964,7 @@ Attaching package: 'APCalign'</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -3307,8 +3310,8 @@ Attaching package: 'APCalign'</code></pre>
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/AusTraits_tutorial.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/AusTraits_tutorial.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

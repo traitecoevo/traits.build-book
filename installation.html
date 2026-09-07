@@ -139,6 +139,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -470,14 +473,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-4-look-around" id="toc-step-4-look-around" class="nav-link" data-scroll-target="#step-4-look-around"><span class="header-section-number">2.5</span> Step 4 — Look around</a></li>
   <li><a href="#where-to-go-next" id="toc-where-to-go-next" class="nav-link" data-scroll-target="#where-to-go-next"><span class="header-section-number">2.6</span> Where to go next</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/installation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/installation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./installation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation and quick start</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation and quick start</span></h1>
+<h1 class="title"><span id="sec-installation" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation and quick start</span></span></h1>
 </div>
 
 
@@ -494,7 +497,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This chapter gets you from a clean R installation to a working <code>traits.build</code> database in a few minutes. It is the fastest way to see what a compilation looks like before reading the concept chapters that follow. If you would like a fuller, step-by-step walk-through, see the <a href="tutorial_compilation.html">example compilation tutorial</a> and the <a href="tutorial_datasets.html">guide to adding data</a>.</p>
+<p>This chapter gets you from a clean R installation to a working <code>traits.build</code> database in a few minutes. It is the fastest way to see what a compilation looks like before reading the concept chapters that follow. If you would like a fuller, step-by-step walk-through, see the <a href="./tutorial_compilation.html#sec-tutorial_compilation">example compilation tutorial</a> and the <a href="./tutorial_datasets.html#sec-tutorial_datasets">guide to adding data</a>.</p>
 <section id="what-you-need" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="what-you-need"><span class="header-section-number">2.1</span> What you need</h2>
 <ul>
@@ -541,14 +544,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># metadata and provenance for the build</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>traits.build_database<span class="sc">$</span>build_info</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The <a href="database_structure.html">data structure chapter</a> explains each of these components, and the <a href="glossary.html">glossary</a> defines the identifiers that link them.</p>
+<p>The <a href="./database_structure.html#sec-database_structure">data structure chapter</a> explains each of these components, and the <a href="./glossary.html#sec-glossary">glossary</a> defines the identifiers that link them.</p>
 </section>
 <section id="where-to-go-next" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="where-to-go-next"><span class="header-section-number">2.6</span> Where to go next</h2>
 <ul>
-<li>To understand <em>why</em> the database is shaped this way, read <a href="motivation.html">Motivation</a> and <a href="workflow.html">Workflow</a>.</li>
-<li>To add your own data, work through the <a href="tutorial_datasets.html">guide to adding data</a>, which walks through seven progressively more complex datasets.</li>
-<li>If you hit an error, the <a href="data_common_issues.html">troubleshooting chapter</a> covers the most common problems, and <a href="help.html">Getting help</a> explains how to ask a good question.</li>
+<li>To understand <em>why</em> the database is shaped this way, read <a href="./motivation.html#sec-motivation">Motivation</a> and <a href="./workflow.html#sec-workflow">Workflow</a>.</li>
+<li>To add your own data, work through the <a href="./tutorial_datasets.html#sec-tutorial_datasets">guide to adding data</a>, which walks through seven progressively more complex datasets.</li>
+<li>If you hit an error, the <a href="./data_common_issues.html#sec-data_common_issues">troubleshooting chapter</a> covers the most common problems, and <a href="./help.html#sec-help">Getting help</a> explains how to ask a good question.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -641,7 +644,7 @@ Note
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -987,8 +990,8 @@ Note
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/installation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/installation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

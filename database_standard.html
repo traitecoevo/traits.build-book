@@ -104,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -432,14 +435,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#database-that-fully-documents-ecological-metadata" id="toc-database-that-fully-documents-ecological-metadata" class="nav-link" data-scroll-target="#database-that-fully-documents-ecological-metadata"><span class="header-section-number">7.2</span> Database that fully documents ecological metadata</a></li>
   <li><a href="#database-standard-described-by-an-ontology" id="toc-database-standard-described-by-an-ontology" class="nav-link" data-scroll-target="#database-standard-described-by-an-ontology"><span class="header-section-number">7.3</span> Database standard described by an ontology</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/database_standard.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/database_standard.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./long_wide.html">Data structure and standard</a></li><li class="breadcrumb-item"><a href="./database_standard.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data standard</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data standard</span></h1>
+<h1 class="title"><span id="sec-database_standard" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data standard</span></span></h1>
 </div>
 
 
@@ -486,7 +489,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>response curve measurements</strong> are grouped into a single observation and assigned sequential identifiers</p></li>
 </ul>
 <p>The database standard will continue to evolve as traits.build is used to build a greater diversity of trait databases, but, already offers a flexible, detailed structure for capturing and harmonising ecological data.</p>
-<p>See <a href="database_metadata.html">relationships between database variables</a> for more details.</p>
+<p>See <a href="./database_metadata.html#sec-database_metadata">relationships between database variables</a> for more details.</p>
 </section>
 <section id="database-standard-described-by-an-ontology" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="database-standard-described-by-an-ontology"><span class="header-section-number">7.3</span> Database standard described by an ontology</h2>
@@ -577,7 +580,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -923,8 +926,8 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/database_standard.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/database_standard.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

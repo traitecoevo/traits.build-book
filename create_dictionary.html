@@ -139,6 +139,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -473,14 +476,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#validate-before-building" id="toc-validate-before-building" class="nav-link" data-scroll-target="#validate-before-building">Validate before building</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/create_dictionary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/create_dictionary.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Creating with <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./create_dictionary.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Creating a trait dictionary</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Creating a trait dictionary</span></h1>
+<h1 class="title"><span id="sec-create_dictionary" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Creating a trait dictionary</span></span></h1>
 </div>
 
 
@@ -509,11 +512,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Creating a dictionary that merely <em>builds</em> is quick — a brief definition plus the required units/range or values. But drafting <em>meaningful, reusable</em> definitions takes more care: the concepts and categorical values should be explicit enough to eliminate confusion between traits and, ideally, agreed upon by the broader research community so the database can be reused and supported by others.</p>
 <p>For AusTraits, this dictionary has been formalised into a standalone output, the AusTraits Plant Dictionary (APD), available in both machine-readable and human-friendly outputs through the <a href="https://w3id.org/APD">w3id.org/APD</a> namespace. The traits in the APD have undergone rigorous internal and external review to ensure the concepts and definitions are complete and robust, as described in <a href="https://doi.org/10.1101/2023.06.16.545047">the APD paper</a>.</p>
-<p>Browse <a href="dictionary.html">example definitions</a> rendered from a live dictionary, and see the complete <a href="https://github.com/traitecoevo/austraits.build/tree/develop/config">AusTraits dictionary</a> for a large, worked example.</p>
+<p>Browse <a href="./dictionary.html#sec-dictionary">example definitions</a> rendered from a live dictionary, and see the complete <a href="https://github.com/traitecoevo/austraits.build/tree/develop/config">AusTraits dictionary</a> for a large, worked example.</p>
 </section>
 <section id="the-structure-of-traits.yml" class="level2" data-number="14.2">
 <h2 data-number="14.2" class="anchored" data-anchor-id="the-structure-of-traits.yml"><span class="header-section-number">14.2</span> The structure of <code>traits.yml</code></h2>
-<p>The dictionary is a <a href="yaml.html">YAML</a> file — a plain-text format where structure is expressed through <strong>indentation</strong>. Traits are listed under a top-level <code>traits</code> key, each keyed by its trait name.</p>
+<p>The dictionary is a <a href="./yaml.html#sec-yaml">YAML</a> file — a plain-text format where structure is expressed through <strong>indentation</strong>. Traits are listed under a top-level <code>traits</code> key, each keyed by its trait name.</p>
 <p>A <strong>numeric</strong> trait looks like this:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">traits</span><span class="kw">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">leaf_mass_per_area</span><span class="kw">:</span></span>
@@ -533,7 +536,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">shrub</span><span class="kw">:</span><span class="at"> A woody plant, usually with multiple stems, generally less than 3 m tall.</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">graminoid</span><span class="kw">:</span><span class="at"> A grass or grass-like herbaceous plant.</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">herb</span><span class="kw">:</span><span class="at"> A non-woody vascular plant.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>To add a new trait, copy an existing block of the same type, rename it, and edit the label, description, units/range or values. The exact field names required are validated when the database is built — check them against the <a href="database_structure.html">database structure</a> chapter and the AusTraits dictionary if a build fails.</p>
+<p>To add a new trait, copy an existing block of the same type, rename it, and edit the label, description, units/range or values. The exact field names required are validated when the database is built — check them against the <a href="./database_structure.html#sec-database_structure">database structure</a> chapter and the AusTraits dictionary if a build fails.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -665,7 +668,7 @@ Tip
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1011,8 +1014,8 @@ Tip
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/create_dictionary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/create_dictionary.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

@@ -139,6 +139,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -471,14 +474,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#yaml-errors" id="toc-yaml-errors" class="nav-link" data-scroll-target="#yaml-errors"><span class="header-section-number">27.6</span> Errors reading <code>metadata.yml</code> or <code>traits.yml</code></a></li>
   <li><a href="#still-stuck" id="toc-still-stuck" class="nav-link" data-scroll-target="#still-stuck"><span class="header-section-number">27.7</span> Still stuck?</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/data_common_issues.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/data_common_issues.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial_datasets.html">Guide to adding data</a></li><li class="breadcrumb-item"><a href="./data_common_issues.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Troubleshooting common issues</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Troubleshooting common issues</span></h1>
+<h1 class="title"><span id="sec-data_common_issues" class="quarto-section-identifier"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Troubleshooting common issues</span></span></h1>
 </div>
 
 
@@ -495,7 +498,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This chapter collects the errors and warnings you are most likely to meet while adding a dataset and compiling a <code>traits.build</code> database, and explains how to resolve each one. It is the “detailed troubleshooting” companion to the <a href="help.html">Getting help</a> chapter: work through the relevant section here before posting a question.</p>
+<p>This chapter collects the errors and warnings you are most likely to meet while adding a dataset and compiling a <code>traits.build</code> database, and explains how to resolve each one. It is the “detailed troubleshooting” companion to the <a href="./help.html#sec-help">Getting help</a> chapter: work through the relevant section here before posting a question.</p>
 <p>Most problems fall into a few families:</p>
 <ul>
 <li><a href="#unsupported-values">Categorical trait values that aren’t recognised</a></li>
@@ -505,7 +508,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="#duplicates">Duplicate measurements</a></li>
 <li><a href="#yaml-errors">Errors reading <code>metadata.yml</code> or <code>traits.yml</code></a></li>
 </ul>
-<p>Two general habits solve a large share of issues. First, read the error message carefully — the <code>traits.build</code> messages are designed to name the offending trait, dataset, or value. Second, before assuming the package is at fault, check whether the problem lies in your data files or custom R code; see <a href="help.html#sec-contact">attribute the error</a> in the Getting help chapter.</p>
+<p>Two general habits solve a large share of issues. First, read the error message carefully — the <code>traits.build</code> messages are designed to name the offending trait, dataset, or value. Second, before assuming the package is at fault, check whether the problem lies in your data files or custom R code; see <a href="./help.html#sec-contact">attribute the error</a> in the Getting help chapter.</p>
 <section id="unsupported-values" class="level2" data-number="27.1">
 <h2 data-number="27.1" class="anchored" data-anchor-id="unsupported-values"><span class="header-section-number">27.1</span> Unsupported trait values</h2>
 <p>This error occurs when, for a categorical trait, a value in <span style="color:blue;">data.csv</span> is not one of the allowable values defined for that trait in the trait dictionary (<span style="color:blue;">config/traits.yml</span>). The offending records are moved to the <code>excluded_data</code> table rather than silently dropped.</p>
@@ -548,7 +551,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/dataset_id/raw/substitutions_required.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>See <a href="adding_data_long.html#add_substitutions">adding substitutions</a> for the full workflow, and <code>dataset_check_categorical_substitutions()</code> in the <a href="check_dataset_functions.html">data-quality functions chapter</a> for a helper that builds the table for you.</p>
+<p>See <a href="./adding_data_long.html#add_substitutions">adding substitutions</a> for the full workflow, and <code>dataset_check_categorical_substitutions()</code> in the <a href="./check_dataset_functions.html#sec-check_dataset_functions">data-quality functions chapter</a> for a helper that builds the table for you.</p>
 </section>
 <section id="out-of-range" class="level2" data-number="27.2">
 <h2 data-number="27.2" class="anchored" data-anchor-id="out-of-range"><span class="header-section-number">27.2</span> Numeric values out of range</h2>
@@ -559,18 +562,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>         error <span class="sc">==</span> <span class="st">"Value out of allowable range"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dataset_id, trait_name, value, observation_id, unit, original_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>If the list is long, the cause is almost always a <strong>units-conversion problem</strong> — the incoming units in the metadata do not match what the data actually contains, so every value is scaled wrongly. Check the <code>unit_in</code> you mapped for the trait against the units in the source, and confirm the conversion exists in <span style="color:blue;">config/unit_conversions.csv</span>. If only a few values are excluded, they may be legitimately out of range; confirm they are genuine errors before dismissing them. <code>dataset_check_numeric_values()</code> in the <a href="check_dataset_functions.html">data-quality functions chapter</a> tabulates these for review.</p>
+<p>If the list is long, the cause is almost always a <strong>units-conversion problem</strong> — the incoming units in the metadata do not match what the data actually contains, so every value is scaled wrongly. Check the <code>unit_in</code> you mapped for the trait against the units in the source, and confirm the conversion exists in <span style="color:blue;">config/unit_conversions.csv</span>. If only a few values are excluded, they may be legitimately out of range; confirm they are genuine errors before dismissing them. <code>dataset_check_numeric_values()</code> in the <a href="./check_dataset_functions.html#sec-check_dataset_functions">data-quality functions chapter</a> tabulates these for review.</p>
 </section>
 <section id="taxonomy" class="level2" data-number="27.3">
 <h2 data-number="27.3" class="anchored" data-anchor-id="taxonomy"><span class="header-section-number">27.3</span> Taxon names that don’t align</h2>
 <p>An <code>aligned_name</code> in a newly added dataset may not appear in the database’s <span style="color:blue;">config/taxon_list.csv</span> for two reasons: the name needs aligning (a typo or non-standard syntax), or the taxon list simply doesn’t yet include that name and must be extended from an external taxonomic resource.</p>
-<p>Each database maintains its own taxonomy — the taxon list must be built outside the <code>traits.build</code> workflow because different databases reference different taxonomic sources (AusTraits, for example, uses the Australian Plant Census and the Australian Plant Names Index). Generate the list of names still needing attention with <code>dataset_check_taxonomic_updates()</code> (see the <a href="check_dataset_functions.html">data-quality functions chapter</a>), then either add taxonomic updates to the dataset’s <span style="color:blue;">metadata.yml</span> (see <a href="adding_data_long.html#add_taxonomic_updates">adding taxonomic updates</a>) or extend the taxon list.</p>
+<p>Each database maintains its own taxonomy — the taxon list must be built outside the <code>traits.build</code> workflow because different databases reference different taxonomic sources (AusTraits, for example, uses the Australian Plant Census and the Australian Plant Names Index). Generate the list of names still needing attention with <code>dataset_check_taxonomic_updates()</code> (see the <a href="./check_dataset_functions.html#sec-check_dataset_functions">data-quality functions chapter</a>), then either add taxonomic updates to the dataset’s <span style="color:blue;">metadata.yml</span> (see <a href="./adding_data_long.html#add_taxonomic_updates">adding taxonomic updates</a>) or extend the taxon list.</p>
 </section>
 <section id="cannot_pivot" class="level2" data-number="27.4">
 <h2 data-number="27.4" class="anchored" data-anchor-id="cannot_pivot"><span class="header-section-number">27.4</span> Dataset can’t pivot to wide format</h2>
 <p>To convert a <code>traits.build</code> database to wide format, the <code>traits</code> table must be able to pivot wider. One of the tests run by <code>dataset_test()</code> — <code>traits.build::check_pivot_wider()</code> — confirms this. It checks that every row in the <code>traits</code> table has a <strong>unique combination of seven columns</strong>:</p>
 <p><code>dataset_id</code>, <code>trait_name</code>, <code>observation_id</code>, <code>value_type</code>, <code>repeat_measurements_id</code>, <code>method_id</code>, and <code>method_context_id</code>.</p>
-<p>If two rows share the same combination, the table cannot pivot and the test fails. In almost every case the real cause is that <code>observation_id</code> has not been generated as you intended — two genuinely distinct observations were assigned the same <code>observation_id</code> because a distinguishing piece of metadata was not mapped. (See the <a href="glossary.html#observations">glossary</a> for how <code>observation_id</code> is built.)</p>
+<p>If two rows share the same combination, the table cannot pivot and the test fails. In almost every case the real cause is that <code>observation_id</code> has not been generated as you intended — two genuinely distinct observations were assigned the same <code>observation_id</code> because a distinguishing piece of metadata was not mapped. (See the <a href="./glossary.html#observations">glossary</a> for how <code>observation_id</code> is built.)</p>
 <p>There are two common explanations and solutions:</p>
 <ol type="1">
 <li><strong>Species-level values repeated alongside individual-level measurements.</strong> If your dataset mixes individual- (or population-) level measurements with species-level measurements, the same species-level value may be read in on many rows. Retain only the first instance of each species-level value using <code>custom_R_code</code>, where <code>taxon_name</code> is the column of taxon names and <code>column 1</code>, <code>column 2</code>, … are the categorical-trait columns that need de-duplicating:</li>
@@ -584,27 +587,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="2" type="1">
 <li><strong>Repeat measurements over time (or by method) not distinguished.</strong> Rows representing measurements made at different times, or with different methods, on the same entity need a <code>temporal_context_id</code> / <code>repeat_measurements_id</code> (for repeat measurements over time) or a <code>method_context_id</code> (for multiple methods) so that they resolve to distinct rows. Map the column that distinguishes them, or add the appropriate context, so each measurement is uniquely identified.</li>
 </ol>
-<p>To find exactly which measurements are blocking the pivot, run <code>dataset_check_not_pivoting()</code> (see the <a href="check_dataset_functions.html">data-quality functions chapter</a>); it returns the specific rows with duplicate combinations so you can trace the missing piece of metadata.</p>
+<p>To find exactly which measurements are blocking the pivot, run <code>dataset_check_not_pivoting()</code> (see the <a href="./check_dataset_functions.html#sec-check_dataset_functions">data-quality functions chapter</a>); it returns the specific rows with duplicate combinations so you can trace the missing piece of metadata.</p>
 </section>
 <section id="duplicates" class="level2" data-number="27.5">
 <h2 data-number="27.5" class="anchored" data-anchor-id="duplicates"><span class="header-section-number">27.5</span> Duplicate measurements</h2>
 <p>Duplicates come in two forms.</p>
-<p><strong>Within a dataset</strong>, the same taxon × trait value can legitimately appear many times — for example a species-level value (like <code>plant_growth_form</code>) reported on every individual’s row, or a single bulked measurement reported against every contributing individual. When such repetition is unintended, remove it with <code>custom_R_code</code> (see <a href="adding_data_long.html#custom_R">custom R code</a>). The helper <code>dataset_check_duplicates_within_dataset()</code> flags suspicious within-dataset duplication — be alert when <code>n_duplicates</code> is large or is identical across every taxon for a trait.</p>
-<p><strong>Across datasets</strong>, the same measurements may be submitted twice — for instance when two collaborators contribute the same data, or when a dataset arrives both from its collector and inside a broader compilation. The automated tests eliminate <em>most</em> exact duplicates, but cross-dataset detection is genuinely hard (it depends on how many significant figures to compare, and traits with naturally narrow ranges produce false positives). See <code>dataset_check_duplicates_across_datasets()</code> in the <a href="check_dataset_functions.html">data-quality functions chapter</a> for the current status of this check.</p>
+<p><strong>Within a dataset</strong>, the same taxon × trait value can legitimately appear many times — for example a species-level value (like <code>plant_growth_form</code>) reported on every individual’s row, or a single bulked measurement reported against every contributing individual. When such repetition is unintended, remove it with <code>custom_R_code</code> (see <a href="./adding_data_long.html#custom_R">custom R code</a>). The helper <code>dataset_check_duplicates_within_dataset()</code> flags suspicious within-dataset duplication — be alert when <code>n_duplicates</code> is large or is identical across every taxon for a trait.</p>
+<p><strong>Across datasets</strong>, the same measurements may be submitted twice — for instance when two collaborators contribute the same data, or when a dataset arrives both from its collector and inside a broader compilation. The automated tests eliminate <em>most</em> exact duplicates, but cross-dataset detection is genuinely hard (it depends on how many significant figures to compare, and traits with naturally narrow ranges produce false positives). See <code>dataset_check_duplicates_across_datasets()</code> in the <a href="./check_dataset_functions.html#sec-check_dataset_functions">data-quality functions chapter</a> for the current status of this check.</p>
 </section>
 <section id="yaml-errors" class="level2" data-number="27.6">
 <h2 data-number="27.6" class="anchored" data-anchor-id="yaml-errors"><span class="header-section-number">27.6</span> Errors reading <code>metadata.yml</code> or <code>traits.yml</code></h2>
-<p>Both the dataset metadata files and the trait dictionary are <a href="yaml.html">YAML</a> files, where meaning is carried entirely by <strong>indentation</strong> and structure. Small formatting slips produce errors that can look alarming but are quick to fix. The most common are:</p>
+<p>Both the dataset metadata files and the trait dictionary are <a href="./yaml.html#sec-yaml">YAML</a> files, where meaning is carried entirely by <strong>indentation</strong> and structure. Small formatting slips produce errors that can look alarming but are quick to fix. The most common are:</p>
 <ul>
 <li><strong><code>incomplete final line found on '...'</code></strong> — the file is missing a trailing newline, or has stray spaces or blank lines at the end. Open the file in a proper text editor, remove trailing whitespace, and ensure the file ends with a single newline.</li>
 <li><strong>Wrong indentation.</strong> Copying a block from one trait or dataset into another often carries the wrong indentation, which changes the structure YAML infers. Indent with <strong>spaces, never tabs</strong>, and keep sibling entries aligned to the same column.</li>
 <li><strong>Unquoted special characters.</strong> Values containing <code>:</code>, <code>#</code>, <code>%</code>, leading/trailing brackets, or a leading <code>&gt;</code> or <code>|</code> can be misread. Wrap such values in quotes — for example units like <code>"umol/m2/s"</code> or a description containing a colon.</li>
 </ul>
-<p>The <a href="create_dictionary.html">creating a trait dictionary</a> chapter has a dedicated section on writing valid <code>traits.yml</code> files and the formatting pitfalls to watch for, including a worked example of an indentation error and how to fix it. A useful habit is to validate a file by reading it back with <code>yaml::read_yaml("config/traits.yml")</code> — if it parses without error, the structure is sound.</p>
+<p>The <a href="./create_dictionary.html#sec-create_dictionary">creating a trait dictionary</a> chapter has a dedicated section on writing valid <code>traits.yml</code> files and the formatting pitfalls to watch for, including a worked example of an indentation error and how to fix it. A useful habit is to validate a file by reading it back with <code>yaml::read_yaml("config/traits.yml")</code> — if it parses without error, the structure is sound.</p>
 </section>
 <section id="still-stuck" class="level2" data-number="27.7">
 <h2 data-number="27.7" class="anchored" data-anchor-id="still-stuck"><span class="header-section-number">27.7</span> Still stuck?</h2>
-<p>If none of the above resolves your problem, first update to the latest <code>traits.build</code> release in case the issue is a bug that has since been fixed, then follow the <a href="help.html">Getting help</a> chapter: attribute the error, prepare a minimal reproducible example, and post to the relevant GitHub Discussions page.</p>
+<p>If none of the above resolves your problem, first update to the latest <code>traits.build</code> release in case the issue is a bug that has since been fixed, then follow the <a href="./help.html#sec-help">Getting help</a> chapter: attribute the error, prepare a minimal reproducible example, and post to the relevant GitHub Discussions page.</p>
 
 
 </section>
@@ -683,7 +686,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1029,8 +1032,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/data_common_issues.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/data_common_issues.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

@@ -104,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -431,7 +434,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Creating with <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./traits_build.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">The package</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">The package</span></h1>
+<h1 class="title"><span id="sec-traits_build" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">The package</span></span></h1>
 </div>
 
 
@@ -452,11 +455,11 @@ ul.task-list li input[type="checkbox"] {
 <p>The <code>traits.build</code> package provides the functions needed to build a compilation from the primary sources into a standardised database.</p>
 <p>The core components of the <code>{traits.build}</code> package are:</p>
 <ol type="1">
-<li><p>15 functions, supplemented by a detailed <a href="tutorial_datasets.html">protocol</a> to wrangle diverse datasets into input files with a common structure that captures both the trait data and all essential metadata and context properties. These are a table (data.csv) containing all trait data, taxon names, location names (if relevant), and any context properties (if relevant) and a structured metadata file (metadata.yml) that assigns the columns from the <code>data.csv</code> file to their specific variables and maps all additional dataset metadata in a structured format.</p></li>
+<li><p>15 functions, supplemented by a detailed <a href="./tutorial_datasets.html#sec-tutorial_datasets">protocol</a> to wrangle diverse datasets into input files with a common structure that captures both the trait data and all essential metadata and context properties. These are a table (data.csv) containing all trait data, taxon names, location names (if relevant), and any context properties (if relevant) and a structured metadata file (metadata.yml) that assigns the columns from the <code>data.csv</code> file to their specific variables and maps all additional dataset metadata in a structured format.</p></li>
 <li><p>An R-based pipeline to combine the input files into a single harmonised database with aligned trait names, aligned units, aligned categorical trait values, and aligned taxon names. Four database-specific configuration files are required for the build process, 1) a trait dictionary; 2) a units conversion file; 3) a taxon list; and 4) a database metadata file.</p></li>
 </ol>
 <p>Guided by the information in the configuration files, the R-scripted workflow combines the <code>data.csv</code> and <code>metadata.yml</code> files for the individual datasets into a unified, harmonised database. There are three distinct steps to this process, processed by a trio of functions, <code>dataset_configure</code>, <code>dataset_process</code>, and <code>dataset_taxonomic_updates</code>. These functions cyclically build each dataset, only combining them into a single database at the end of the workflow.</p>
-<p>A combination of automated <a href="adding_data_long.html">tests</a> and other <a href="check_dataset_functions.html">quality controls</a> ensure each dataset has been appropriately merged in and the output data are reliable, accurate, and supported by detailed metadata.</p>
+<p>A combination of automated <a href="./adding_data_long.html#sec-adding_data_long">tests</a> and other <a href="./check_dataset_functions.html#sec-check_dataset_functions">quality controls</a> ensure each dataset has been appropriately merged in and the output data are reliable, accurate, and supported by detailed metadata.</p>
 
 
 
@@ -534,7 +537,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -880,8 +883,8 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/traits_build.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/traits_build.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

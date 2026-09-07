@@ -106,6 +106,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -440,14 +443,14 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#data-folder" id="toc-data-folder" class="nav-link" data-scroll-target="#data-folder"><span class="header-section-number">13.3</span> <code>/data</code> folder</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/file_organisation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/file_organisation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./traits_build.html">Creating with <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="./file_organisation.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">File organisation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">File organisation</span></h1>
+<h1 class="title"><span id="sec-file_organisation" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">File organisation</span></span></h1>
 </div>
 
 
@@ -468,7 +471,7 @@ ul.task-list li input[type="checkbox"] {
 <p>We strongly suggest you create a standalone folder for your repository, e.g.&nbsp;<code>austraits.build</code>. This folder should contain all files needed to build your compilation. We’re big fans of github as a platform for collaboration. If you’re not familiar with git or github, we suggest you check out the <a href="https://happygitwithr.com/">happy git with R</a> book.</p>
 <section id="repository-structure" class="level2" data-number="13.1">
 <h2 data-number="13.1" class="anchored" data-anchor-id="repository-structure"><span class="header-section-number">13.1</span> Repository structure</h2>
-<p>The main directory for the <a href="https://github.com/traitecoevo/austraits.build/"><code>austraits.build</code></a> repository contains the following files and folders, with purpose as indicated. Not all of these files are required for a compilation, some are used for extra features such as website. They are included here for completeness.</p>
+<p>The main directory for the <a href="https://github.com/traitecoevo/austraits.build/"><code>austraits.build</code></a> repository contains the following files and folders, with purpose as indicated. Not all of these files are required for a compilation, some are used for extra features such as building a repo website. They are included here for completeness.</p>
 <p><strong>Files used for data compilation</strong></p>
 <pre><code>├── remake.yml/build.R    # instructions for build
 ├── config                # configuration files
@@ -502,7 +505,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="traits.yml" class="level3">
 <h3 class="anchored" data-anchor-id="traits.yml"><code>traits.yml</code></h3>
-<p>The file <code>traits.yml</code> provides the trait definitions used to compile the trait database, including allowable trait values. See <a href="create_dictionary.html">creating a trait dictionary</a> for more information on the process of creating this file. A <code>.yml</code> file is a structured data file where information is presented in a hierarchical format (see <a href="yaml.html">appendix for details</a>).</p>
+<p>The file <code>traits.yml</code> provides the trait definitions used to compile the trait database, including allowable trait values. See <a href="./create_dictionary.html#sec-create_dictionary">creating a trait dictionary</a> for more information on the process of creating this file. A <code>.yml</code> file is a structured data file where information is presented in a hierarchical format (see <a href="./yaml.html#sec-yaml">appendix for details</a>).</p>
 </section>
 <section id="taxon_list.csv" class="level3">
 <h3 class="anchored" data-anchor-id="taxon_list.csv"><code>taxon_list.csv</code></h3>
@@ -815,7 +818,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1161,8 +1164,8 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/file_organisation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/file_organisation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

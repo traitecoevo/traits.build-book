@@ -104,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -446,14 +449,14 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#acknowledgements-and-copyright" id="toc-acknowledgements-and-copyright" class="nav-link" data-scroll-target="#acknowledgements-and-copyright"><span class="header-section-number">35.4</span> Acknowledgements and copyright</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/help.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/help.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./help.html">Getting help</a></li><li class="breadcrumb-item"><a href="./help.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Getting help</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Getting help</span></h1>
+<h1 class="title"><span id="sec-help" class="quarto-section-identifier"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Getting help</span></span></h1>
 </div>
 
 
@@ -470,7 +473,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This chapter explains how to ask for help. Questions can range from <a href="data_common_issues.html">detailed troubleshooting</a> to <a href="#general_advice">general advice</a>. To ensure a constructive dialogue, please read this entire page before reaching out. Thank you for respecting the time and effort it takes to provide one-on-one support.</p>
+<p>This chapter explains how to ask for help. Questions can range from <a href="./data_common_issues.html#sec-data_common_issues">detailed troubleshooting</a> to <a href="#general_advice">general advice</a>. To ensure a constructive dialogue, please read this entire page before reaching out. Thank you for respecting the time and effort it takes to provide one-on-one support.</p>
 <div id="general_advice" class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -523,7 +526,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="attribute-the-error" class="level3">
 <h3 class="anchored" data-anchor-id="attribute-the-error">Attribute the error</h3>
-<p>The <code>traits.build</code> package itself is often not usually the cause of problems that arise in <code>traits.build</code> pipelines. Most issues come from the user-defined R code, or data files that the pipeline calls, as well as other R packages on your system. So before you post a question, please attempt to troubleshoot and figure out if <code>traits.build</code> is actually the source of the trouble, or if the error comes from another package or your own code. The tips in the <a href="adding_data_long.html">adding datasets</a> or <a href="data_common_issues.html">common data issues</a> chapters may help. If the culprit turns out to be a non-<code>traits.build</code> issue, then please ask your question in a non-<code>traits.build</code> forum and write the question accordingly.</p>
+<p>The <code>traits.build</code> package itself is often not usually the cause of problems that arise in <code>traits.build</code> pipelines. Most issues come from the user-defined R code, or data files that the pipeline calls, as well as other R packages on your system. So before you post a question, please attempt to troubleshoot and figure out if <code>traits.build</code> is actually the source of the trouble, or if the error comes from another package or your own code. The tips in the <a href="./adding_data_long.html#sec-adding_data_long">adding datasets</a> or <a href="./data_common_issues.html#sec-data_common_issues">common data issues</a> chapters may help. If the culprit turns out to be a non-<code>traits.build</code> issue, then please ask your question in a non-<code>traits.build</code> forum and write the question accordingly.</p>
 </section>
 <section id="write-a-reprex" class="level3">
 <h3 class="anchored" data-anchor-id="write-a-reprex">Write a reprex</h3>
@@ -638,7 +641,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -984,8 +987,8 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/help.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/help.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

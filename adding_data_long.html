@@ -139,6 +139,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The {traits.build} data model, R package, and workflow</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/traitecoevo/traits.build-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -501,14 +504,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#report" id="toc-report" class="nav-link" data-scroll-target="#report">Build study report</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/adding_data_long.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/adding_data_long.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial_datasets.html">Guide to adding data</a></li><li class="breadcrumb-item"><a href="./adding_data_long.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Adding datasets, a lengthy guide</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Adding datasets, a lengthy guide</span></h1>
+<h1 class="title"><span id="sec-adding_data_long" class="quarto-section-identifier"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Adding datasets, a lengthy guide</span></span></h1>
 </div>
 
 
@@ -526,14 +529,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This chapter is an exhaustive reference for adding datasets to a traits.build database.</p>
-<p>If you are embarking on building a new database using the <code>traits.build</code> standard a better place to get started are 7 <a href="tutorial_dataset_1.html">tutorials</a>.</p>
+<p>If you are embarking on building a new database using the <code>traits.build</code> standard a better place to get started are 7 <a href="./tutorial_dataset_1.html#sec-tutorial_dataset_1">tutorials</a>.</p>
 <p>Then come back to this document for details and unusual dataset circumstances that are not covered in the tutorials.</p>
 <p>Other chapters you may want to read include:</p>
 <ul>
-<li>an <a href="traits_build.html">overview of <code>traits.build</code></a>,</li>
-<li>the <a href="database_structure.html">structure of a compiled <code>traits.build</code> database</a>,</li>
-<li>the <a href="file_organisation.html">structure of the raw data files</a></li>
-<li>the <a href="adding_data_brief.html">overview for adding data</a>.</li>
+<li>an <a href="./traits_build.html#sec-traits_build">overview of <code>traits.build</code></a>,</li>
+<li>the <a href="./database_structure.html#sec-database_structure">structure of a compiled <code>traits.build</code> database</a>,</li>
+<li>the <a href="./file_organisation.html#sec-file_organisation">structure of the raw data files</a></li>
+<li>the <a href="./adding_data_brief.html#sec-adding_data_brief">overview for adding data</a>.</li>
 </ul>
 <section id="getting-started" class="level2" data-number="25.1">
 <h2 data-number="25.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">25.1</span> Getting started</h2>
@@ -884,7 +887,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="4" type="1">
 <li><strong>Removing duplicate values across datasets</strong></li>
 </ol>
-<p>Cross-dataset duplicates are <em>flagged</em> by hand and <em>filtered out</em> here. There is no generalised check yet, so identifying which values were also sourced from a different study is currently a case-by-case judgement – see <a href="data_common_issues.html#duplicates">Duplicate measurements</a>, and note that some cross-dataset overlap is legitimate rather than a resubmission. Once you have identified genuine duplicates, remove them with <code>custom_R_code</code> and record in the dataset’s <code>notes</code> field which values you removed and why. Functions to automate the detection step are in progress.</p>
+<p>Cross-dataset duplicates are <em>flagged</em> by hand and <em>filtered out</em> here. There is no generalised check yet, so identifying which values were also sourced from a different study is currently a case-by-case judgement – see <a href="./data_common_issues.html#duplicates">Duplicate measurements</a>, and note that some cross-dataset overlap is legitimate rather than a resubmission. Once you have identified genuine duplicates, remove them with <code>custom_R_code</code> and record in the dataset’s <code>notes</code> field which values you removed and why. Functions to automate the detection step are in progress.</p>
 <ol start="5" type="1">
 <li><strong>Replacing “missing values” with NA’s</strong></li>
 </ol>
@@ -1042,8 +1045,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="required-fields-manually-filled-in"><strong>required fields manually filled in</strong></h4>
 <ul>
 <li><p><strong>description:</strong> 1-2 sentence description of the study’s goals. The abstract of a manuscript usually includes some good sentences/phrases to borrow.</p></li>
-<li><p><strong>basis_of_record:</strong> Basis of record can be coded in as a fixed value for an entire dataset, by trait, by location or read in from a column in the <code>data.csv</code> file. If it is being read in from a column list the column name in the field, otherwise input the fixed value. Allowable values are: <code>field</code>, <code>field_experiment</code>, <code>captive_cultivated</code>, <code>lab</code>, <code>preserved_specimen</code>, and <code>literature</code>. See the <a href="database_structure.html#life_stage">database structure chapter</a> for definitions of these accepted basis_of_record values. If fixed values are specified for both the entire dataset under <code>metadata[["dataset"]]</code> and for specific locations/traits under <code>metadata[["locations"]]</code> or <code>metadata[["traits"]]</code>, the location/trait value overrides that entered under <code>metadata[["dataset"]]</code>.</p></li>
-<li><p><strong>life_stage:</strong> Life stage can be coded in as a fixed value for an entire dataset, by trait, by location or read in from a column in the <code>data.csv</code> file. If it is being read in from a column list the column name in the field, otherwise input the fixed value. Allowable values are: <code>adult</code>, <code>sapling</code>, <code>seedling</code>, <code>juvenile</code>. See the <a href="database_structure.html#life_stage">database structure chapter</a> for definitions of these accepted basis_of_record values. If fixed values are specified for both the entire dataset under <code>metadata[["dataset"]]</code> and for specific locations/traits under <code>metadata[["locations"]]</code> or <code>metadata[["traits"]]</code>, the location/trait value overrides that entered under <code>metadata[["dataset"]]</code>.</p></li>
+<li><p><strong>basis_of_record:</strong> Basis of record can be coded in as a fixed value for an entire dataset, by trait, by location or read in from a column in the <code>data.csv</code> file. If it is being read in from a column list the column name in the field, otherwise input the fixed value. Allowable values are: <code>field</code>, <code>field_experiment</code>, <code>captive_cultivated</code>, <code>lab</code>, <code>preserved_specimen</code>, and <code>literature</code>. See the <a href="./database_structure.html#life_stage">database structure chapter</a> for definitions of these accepted basis_of_record values. If fixed values are specified for both the entire dataset under <code>metadata[["dataset"]]</code> and for specific locations/traits under <code>metadata[["locations"]]</code> or <code>metadata[["traits"]]</code>, the location/trait value overrides that entered under <code>metadata[["dataset"]]</code>.</p></li>
+<li><p><strong>life_stage:</strong> Life stage can be coded in as a fixed value for an entire dataset, by trait, by location or read in from a column in the <code>data.csv</code> file. If it is being read in from a column list the column name in the field, otherwise input the fixed value. Allowable values are: <code>adult</code>, <code>sapling</code>, <code>seedling</code>, <code>juvenile</code>. See the <a href="./database_structure.html#life_stage">database structure chapter</a> for definitions of these accepted basis_of_record values. If fixed values are specified for both the entire dataset under <code>metadata[["dataset"]]</code> and for specific locations/traits under <code>metadata[["locations"]]</code> or <code>metadata[["traits"]]</code>, the location/trait value overrides that entered under <code>metadata[["dataset"]]</code>.</p></li>
 <li><p><strong>sampling_strategy:</strong> Often a quite long description of the sampling strategy, extracted verbatim from a manuscript whenever possible.</p></li>
 <li><p><strong>original_file:</strong> The name of the file initially submitted to the database curators. It is generally archived in the dataset folder, in a subfolder named <code>raw</code>. For AusTraits datasets are also usually archived in the project’s GoogleDrive folder.</p></li>
 <li><p><strong>notes:</strong> Notes about the study and processing of data, especially if there were complications or if some data is suspected duplicates with another study and were filtered out.</p></li>
@@ -1224,13 +1227,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 - It is best not to start units with a <code>-</code> (negative sign). In AusTraits we’ve adopted the convention of using, for instance, <code>neg_MPa</code> instead of <code>-MPa</code></p>
 <ul>
 <li><p><strong>trait_name</strong>: This is the trait name of the appropriate trait concept for the datasets <code>config/traits.yml</code>. For currently unsupported traits, leave this as <code>.na</code> but then fill in the rest of the data and flag this study as having a potential new trait concept. Then in the future, if an appropriate trait concept is added to the <code>traits.yml</code> file, the data can be read into the database by simply replacing the <code>.na</code> with a trait name. Each database will have their own criteria/rules for adding traits to the trait dictionary, and likely rules that evolve as a trait database grows. In AusTraits, if no appropriate trait concept exists in the trait dictionary, a new trait must be defined within the accompanying AusTraits Plant Dictionary and should only be added if it is clearly a distinct trait concept, can be explicitly defined, and there exists sufficient trait data that the measurements have comparative value.</p></li>
-<li><p><strong>entity_type</strong>: Entity type indicates “what” is being observed for the trait measurements - as in the organismal-level to which the trait measurements apply. As such, <code>entity_type</code> can be <code>individual</code>, <code>population</code>, <code>species</code>, <code>genus</code>, <code>family</code> or <code>order</code>. Metapopulation-level measurements are coded as <code>population</code> and infraspecific taxon-level measurements are coded as <code>species</code>. See the <a href="database_structure.html#entity_type">database structure chapter</a> for definitions of these accepted <code>entity_type</code> values.</p></li>
+<li><p><strong>entity_type</strong>: Entity type indicates “what” is being observed for the trait measurements - as in the organismal-level to which the trait measurements apply. As such, <code>entity_type</code> can be <code>individual</code>, <code>population</code>, <code>species</code>, <code>genus</code>, <code>family</code> or <code>order</code>. Metapopulation-level measurements are coded as <code>population</code> and infraspecific taxon-level measurements are coded as <code>species</code>. See the <a href="./database_structure.html#entity_type">database structure chapter</a> for definitions of these accepted <code>entity_type</code> values.</p></li>
 </ul>
 <p><strong>Note</strong>:<br>
 - <code>entity_type</code> is about the “organismal-level” to which the trait measurement refers; this is separate from the taxonomic resolution of the entity’s name.</p>
 <ul>
-<li><p><strong>value_type</strong>: Value type indicates the statistical nature of the trait value recorded. Allowable value types are <code>mean</code>, <code>minimum</code>, <code>maximum</code>, <code>mode</code>, <code>range</code>, <code>raw</code>, and <code>bin</code>. See the <a href="database_structure.html#value_types">database structure chapter</a> for definitions of these accepted value types. All categorical traits are generally scored as being a <code>mode</code>, the most commonly observed value. Note that for values that are <code>bins</code>, the two numbers are separated by a double-hyphen, <code>1 -- 10</code>.</p></li>
-<li><p><strong>basis_of_value</strong>: Basis of value indicates how a value was determined. Allowable terms are <code>measurement</code>, <code>expert_score</code>, <code>model_derived</code>, and <code>literature</code>. See the <a href="database_structure.html#value_types">database structure chapter</a> for definitions of these accepted <code>basis_of_value</code> values, but most categorical traits measurements are values that have been scored by an expert (<code>expert_score</code>) and most numeric trait values are <code>measurements</code>.</p></li>
+<li><p><strong>value_type</strong>: Value type indicates the statistical nature of the trait value recorded. Allowable value types are <code>mean</code>, <code>minimum</code>, <code>maximum</code>, <code>mode</code>, <code>range</code>, <code>raw</code>, and <code>bin</code>. See the <a href="./database_structure.html#value_types">database structure chapter</a> for definitions of these accepted value types. All categorical traits are generally scored as being a <code>mode</code>, the most commonly observed value. Note that for values that are <code>bins</code>, the two numbers are separated by a double-hyphen, <code>1 -- 10</code>.</p></li>
+<li><p><strong>basis_of_value</strong>: Basis of value indicates how a value was determined. Allowable terms are <code>measurement</code>, <code>expert_score</code>, <code>model_derived</code>, and <code>literature</code>. See the <a href="./database_structure.html#value_types">database structure chapter</a> for definitions of these accepted <code>basis_of_value</code> values, but most categorical traits measurements are values that have been scored by an expert (<code>expert_score</code>) and most numeric trait values are <code>measurements</code>.</p></li>
 <li><p><strong>replicates</strong>: Fill in with the appropriate number of measurements that comprise each value.</p></li>
 </ul>
 <p>If the values are raw values (i.e.&nbsp;a measurement of an individual) <code>replicates: 1</code>.<br>
@@ -1241,7 +1244,20 @@ If there is a column that specifies replicate number, you can list the column na
 <ul>
 <li><strong>methods</strong>: This information can usually be copied verbatim from a manuscript and is a textual description of all components of the method used to measure the trait.</li>
 </ul>
-<p>In general, methods sections extracted from pdfs include “special characters” (non-UTF-8 characters). Non-English alphabet characters are recognised (e.g.&nbsp;é, ö) and should remain unchanged. Other characters will be re-formatted during the study input process, so double check that degree symbols (º), en-dashes (–), em-dashes (—), and curly quotes (‘,’,“,”) have been maintained or reformatted with a suitable alternative. Greek letters and some other characters are replaced with their Unicode equivalent (e.g.&nbsp;&lt;U+03A8&gt; replaces Psi (Ψ)); for these it is best to replace the symbol with an interpretable English-character equivalent.</p>
+<p>In general, methods sections extracted from pdfs include “special characters” (non-UTF-8 characters). Non-English alphabet characters are recognised (e.g.&nbsp;é, ö) and should remain unchanged. Other characters will be re-formatted during the study input process, so double check that degree symbols (°), en-dashes (–), em-dashes (—), and curly quotes (‘,’,“,”) have been maintained or reformatted with a suitable alternative. Greek letters and some other characters are replaced with their Unicode equivalent (e.g.&nbsp;&lt;U+03A8&gt; replaces Psi (Ψ)); for these it is best to replace the symbol with an interpretable English-character equivalent.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>The degree symbol has a look-alike
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The degree symbol must be <code>°</code> (U+00B0 DEGREE SIGN). Text copied from PDFs and word processors very often carries <code>º</code> (U+00BA MASCULINE ORDINAL INDICATOR) instead, which is near-indistinguishable in most fonts but is a disallowed character — it is the single most common one across the AusTraits databases. <code>dataset_replace_disallowed_chars()</code> repairs it; see <a href="#running_tests">Running tests</a>.</p>
+</div>
+</div>
 <p>If the there are two columns of data with measurements for the same trait using completely different methods, simply add the respective methods to the metadata for the respective columns. A <code>method_id</code> counter will be added to these during processing to ensure the correct trait values are linked to the correct methods. This is separate to <code>method_contexts</code> which are minor tweaks to the methods between measurements, that are expected to have concurrent effects on trait values (see below).</p>
 <p><strong>NOTE</strong>:<br>
 - If the identical methods apply to a string of traits, for the first trait use the following syntax, where the <code>&amp;leaf_length_method</code> notation assigns the remaining text in the field as the <code>leaf_length_method</code>.</p>
@@ -1407,37 +1423,43 @@ If there is a column that specifies replicate number, you can list the column na
 <section id="clear-formatting" class="level3">
 <h3 class="anchored" data-anchor-id="clear-formatting">Clear formatting</h3>
 <p>The <code>clear formatting</code> code below reads and re-writes the yaml file. This is the same process that is repeated when running functions that automatically add substitutions or check taxonomy. Running it first ensures that any formatting issues introduced (or fixed) during the read/write process are identified and solved first.</p>
-<p>For instance, the <code>write_metadata</code> function inserts line breaks every 80 characters and reworks other line breaks (except in custom_R_code). It also reformats special characters in the text, substituting in its accepted format for degree symbols, en-dashes, em-dashes and quotes, and substituting in Unicode codes for more obscure symbols.</p>
+<p>For instance, the <code>write_metadata</code> function re-serialises the file with <code>yaml::as.yaml()</code>, which rewraps long lines and reworks line breaks (except in custom_R_code). Any change you see to degree symbols, dashes, quotes or more obscure symbols is a side effect of that serialisation and escaping — <code>write_metadata</code> holds no list of character substitutions and applies none deliberately. In particular, <strong>do not expect the read/write cycle to repair a disallowed character</strong>: a wrong degree symbol will survive it untouched. To fix those, see <a href="#running_tests">Running tests</a>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"data"</span>, current_study, <span class="st">"metadata.yml"</span>)</span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">read_metadata</span>(f) <span class="sc">%&gt;%</span> traits.build<span class="sc">::</span><span class="fu">write_metadata</span>(f)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="running_tests" class="level3">
 <h3 class="anchored" data-anchor-id="running_tests">Running tests</h3>
 <p>An extensive dataset test protocol ensures: - the <code>metadata.yml</code> file is complete and properly formatted - details entered into the <code>metadata.yml</code> file match those in the accompanying <code>data.csv</code> file (column names, values for locations, contexts) - details for each trait (trait name, categorical trait values) match those in the trait dictionary</p>
-<p>Certain special characters may show up as errors and need to be manually adjusted in the <code>metadata.yml</code> file</p>
-<p>To run the dataset tests,</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tests run test on one study</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_test</span>(current_study)</span>
+<p>Certain special characters show up as errors. <code>dataset_replace_disallowed_chars()</code> repairs the ones with a known replacement — including the degree symbol look-alike described above. It defaults to a dry run, so you can read the report before anything is written:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Report what would change, without writing</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_replace_disallowed_chars</span>(current_study)</span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tests run test on all studies</span></span>
-<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_test</span>(<span class="fu">dir</span>(<span class="st">"data"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the replacements</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_replace_disallowed_chars</span>(current_study, <span class="at">dry_run =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>By default it touches only <code>metadata.yml</code>. Characters with no known replacement — accented names and legitimate typography, for instance — are listed in the report and left alone, so those still need adjusting by hand in the <code>metadata.yml</code> file.</p>
+<p>To run the dataset tests,</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tests run test on one study</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_test</span>(current_study)</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tests run test on all studies</span></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_test</span>(<span class="fu">dir</span>(<span class="st">"data"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Messages identify errors in the dataset, hopefully pointing you quickly to the changes that are required.</p>
 <p>Do not be disheartened by errors when you first run tests on a newly entered dataset - even after adding 100’s of datasets into AusTraits it is very rare to have zero errors on a first run of <code>dataset_test()</code>.</p>
 <p>Fix as many errors as you can and then rerun <code>dataset_test()</code> repeatedly until no errors remain.</p>
 <p>You may want to fix errors in tandem with <a href="#build_new_dataset">building the new dataset</a>, such as to be able to quickly compile a list of trait values requiring <a href="#add_substitutions">substitutions</a> or taxon names requiring <a href="#add_taxonomic_updates">taxonomic updates</a></p>
-<p>See the <a href="data_common_issues.html">common issues</a> chapter for solutions to common issues, such as:<br>
-- dataset not <a href="data_common_issues.html#cannot_pivot">pivoting</a><br>
+<p>See the <a href="./data_common_issues.html#sec-data_common_issues">common issues</a> chapter for solutions to common issues, such as:<br>
+- dataset not <a href="./data_common_issues.html#cannot_pivot">pivoting</a><br>
 - unsupported trait values</p>
 </section>
 <section id="build_new_dataset" class="level3">
 <h3 class="anchored" data-anchor-id="build_new_dataset">Rebuild AusTraits</h3>
 <p>To continue your <code>checks</code> it is necessary to rebuild your database.</p>
 <p>Until tests come back <code>clean</code> you can simply build the new dataset:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">build_setup_pipeline</span>(<span class="at">method =</span> <span class="st">"remake"</span>, <span class="at">database_name =</span> <span class="st">"database"</span>)</span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>austraits <span class="ot">&lt;-</span> remake<span class="sc">::</span><span class="fu">make</span>(current_study)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>To continue on to <a href="#report">building the dataset report</a>, you need to rebuild the entire database:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">build_setup_pipeline</span>(<span class="at">method =</span> <span class="st">"remake"</span>, <span class="at">database_name =</span> <span class="st">"database"</span>)</span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>austraits <span class="ot">&lt;-</span> remake<span class="sc">::</span><span class="fu">make</span>(<span class="st">"austraits"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>austraits <span class="ot">&lt;-</span> remake<span class="sc">::</span><span class="fu">make</span>(current_study)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To continue on to <a href="#report">building the dataset report</a>, you need to rebuild the entire database:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">build_setup_pipeline</span>(<span class="at">method =</span> <span class="st">"remake"</span>, <span class="at">database_name =</span> <span class="st">"database"</span>)</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>austraits <span class="ot">&lt;-</span> remake<span class="sc">::</span><span class="fu">make</span>(<span class="st">"austraits"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="check-excluded-data" class="level3">
 <h3 class="anchored" data-anchor-id="check-excluded-data">Check excluded data</h3>
@@ -1484,42 +1506,42 @@ If there is a column that specifies replicate number, you can list the column na
 </tbody>
 </table>
 <p>The best way to view excluded data for a study is:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span></span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>    dataset_id <span class="sc">==</span> current_study,</span>
-<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>    error <span class="sc">!=</span> <span class="st">"Observation excluded in metadata"</span></span>
-<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">View</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>    dataset_id <span class="sc">==</span> current_study,</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>    error <span class="sc">!=</span> <span class="st">"Observation excluded in metadata"</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">View</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Missing values (blank cells, cells with NA) are not included in the <code>excluded_data</code> table, because they are assumed to be legitimate blanks. If you want to confirm this, you need to temporarily change the default arguments for the internal function <code>dataset_process</code> where it is called within the <code>remake.yml</code> or <code>build.R</code> file that compiles the database. For instance, the default,</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>      <span class="fu">dataset_process</span>(<span class="st">"data/Ahrens_2019/data.csv"</span>,</span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>                  Ahrens_2019_config,</span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>                  schema</span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>                 )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>needs to be changed to:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>      <span class="fu">dataset_process</span>(<span class="st">"data/Ahrens_2019/data.csv"</span>,</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>                  Ahrens_2019_config,</span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>                  schema,</span>
-<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">filter_missing_values =</span> <span class="cn">FALSE</span></span>
-<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>                 )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>                  schema</span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>                 )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>needs to be changed to:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>      <span class="fu">dataset_process</span>(<span class="st">"data/Ahrens_2019/data.csv"</span>,</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>                  Ahrens_2019_config,</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>                  schema,</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">filter_missing_values =</span> <span class="cn">FALSE</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>                 )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>To check how many of each error type are present for a study:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>database<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(dataset_id <span class="sc">==</span> current_study) <span class="sc">%&gt;%</span></span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(error) <span class="sc">%&gt;%</span></span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Or produce a table of error type by trait:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>database<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>    dataset_id <span class="sc">==</span> current_study,</span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(trait_name, error) <span class="sc">%&gt;%</span></span>
-<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(dataset_id <span class="sc">==</span> current_study) <span class="sc">%&gt;%</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(error) <span class="sc">%&gt;%</span></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or produce a table of error type by trait:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>database<span class="sc">$</span>excluded_data <span class="sc">%&gt;%</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>    dataset_id <span class="sc">==</span> current_study,</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(trait_name, error) <span class="sc">%&gt;%</span></span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="report" class="level3">
 <h3 class="anchored" data-anchor-id="report">Build study report</h3>
 <p>Another important check for each study is building a study report, that summarises all metadata and trait data.</p>
 <p>Make sure you’ve rebuilt the entire database (not just the new study) before building the report.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>database <span class="ot">&lt;-</span> remake<span class="sc">::</span><span class="fu">make</span>(<span class="st">"database"</span>)</span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_report</span>(database, current_study, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>database <span class="ot">&lt;-</span> remake<span class="sc">::</span><span class="fu">make</span>(<span class="st">"database"</span>)</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_report</span>(database, current_study, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>NOTES</strong>:<br>
 - The report will appear in the folder <code>export/reports</code><br>
 - The argument <code>overwrite = TRUE</code> overwrites pre-existing copies of the report in this folder.</p>
@@ -1536,10 +1558,10 @@ If there is a column that specifies replicate number, you can list the column na
 <p>If necessary, cycle back through earlier steps to fix any errors, rebuilding the study report as necessary</p>
 <p>At the very end, re-clear formatting, re-run tests, rebuild AusTraits, rebuild report.</p>
 <p>To generate a report for a collection of studies:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_reports</span>(database, <span class="fu">c</span>(<span class="st">"Falster_2005_1"</span>, <span class="st">"Wright_2002"</span>), </span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_reports</span>(database, <span class="fu">c</span>(<span class="st">"Falster_2005_1"</span>, <span class="st">"Wright_2002"</span>), </span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Or for all studies:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_reports</span>(database, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">dataset_reports</span>(database, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>(Reports are written in <a href="https://rstudio.github.io/rmarkdown/">Rmarkdown</a> and generated via the <a href="https://cran.r-project.org/web/packages/knitr/">knitr</a> package. The template is <a href="https://github.com/traitecoevo/traits.build/blob/develop/inst/support/report_dataset.Rmd">here</a>).</p>
 
 
@@ -1620,7 +1642,7 @@ If there is a column that specifies replicate number, you can list the column na
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/traitecoevo\.github\.io\/traits\.build-book\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1966,8 +1988,8 @@ If there is a column that specifies replicate number, you can list the column na
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
-</div>
+<p>How to get help: <a href="https://traitecoevo.github.io/traits.build-book/help.html" class="uri">https://traitecoevo.github.io/traits.build-book/help.html</a><br>Source and issues: <a href="https://github.com/traitecoevo/traits.build-book" class="uri">https://github.com/traitecoevo/traits.build-book</a><br>Copyright 2023, Daniel Falster and Elizabeth Wenk</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/adding_data_long.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/adding_data_long.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
