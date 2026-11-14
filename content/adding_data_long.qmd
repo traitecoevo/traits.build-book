@@ -293,9 +293,34 @@ If your `data.csv` file does not have a `collection_date` column, you will be pr
 
 ### Adding a source {#source}
 
-The skeletal `metadata.yml` file created by `metadata_create_template` included a section for the primary source with default fields for a journal article.
+The skeletal `metadata.yml` file created by `metadata_create_template` included a `source` section holding the dataset's own reference, `dataset`, with default fields for a journal article and its `key` already set to the `dataset_id`.
 
-You can manually enter citation details, but whenever possible, use one of the three functions developed to automatically propagate citation details.
+A `source` section can hold three types of reference:
+
+-   `dataset`: the study the data were collected for (or, for a compilation, the publication or database the data were assembled for). There is exactly one, and its `key` must be the `dataset_id`.
+-   `source`: for a compilation, each study observations were taken from. Each observation's `source_id` holds the `key` of the reference it came from.
+-   `secondary`: later publications from the same research group that re-used or re-analysed the data.
+
+`source` and `secondary` are lists, with one `- key:` item per reference:
+
+```
+source:
+  dataset:
+    key: Smith_2020
+    ...
+  source:
+  - key: Jones_1999
+    ...
+  - key: Brown_2005
+    ...
+  secondary:
+  - key: Smith_2021
+    ...
+```
+
+Files written for earlier versions of `traits.build` used `primary` for the dataset's own reference, `original` or `original_source` for the studies of a compilation, and a numbered entry for each further reference (`secondary_01`, `original_01`, ...). `traits.build` no longer reads those, and stops with a message naming the entry to change. `traits.build::metadata_convert_sources()` converts every dataset in `data/` to the current shape.
+
+You can manually enter citation details, but whenever possible, use one of the two functions developed to automatically propagate citation details, `metadata_add_source_doi()` and `metadata_add_source_bibtex()`.
 
 #### **Adding source from a doi**
 
@@ -314,22 +339,26 @@ Double check the information added to ensure:
 3.  Pages numbers are present and include `--` between page numbers (for example, `123 -- 134`).
 4.  If there is a colon (:) or apostrophe (') in a reference, the text for that line must be in quotes (").
 
-By default, details are added as the primary source. If multiple sources are linked to a single `dataset_id`, you can specify a source as `secondary`.
+By default, details are added as the `dataset` reference, and its `key` is set to the `dataset_id`. To add a later publication that re-used the same data, specify `type = "secondary"`:
 
 ```{r, eval=FALSE, echo=TRUE}
-traits.build::metadata_add_source_doi(dataset_id = current_study, doi = "doi", 
+traits.build::metadata_add_source_doi(dataset_id = current_study, doi = "doi",
                                       type = "secondary")
 ```
 
--   Attempting to add a second primary source will overwrite the information already input. Instead, if there is a third resource to add, use `type = "secondary_2"`
--   Always check the `key` field, as it can be incorrect for hyphenated last names.
--   If the dataset being entered is a compilation of many original sources, you should add all the original sources, specifying, `type = "original_01"`, `type = "original_02"` etc. See [Richards_2008](https://github.com/traitecoevo/austraits.build/blob/master/data/Richards_2008/metadata.yml) for an example of a complex source list.
+-   Adding a `dataset` reference again overwrites the one already there, since a dataset has only one.
+-   Each call with `type = "secondary"` or `type = "source"` adds one more item to that list; there is no need to number them. Adding a reference whose `key` is already in the list replaces that item.
+-   Always check the `key` field of `source` and `secondary` references, as it can be incorrect for hyphenated last names.
+-   If the dataset being entered is a compilation of many original sources, add each of them with `type = "source"`, and make sure each reference's `key` matches the values in the data's `source_id` column. See [Richards_2008](https://github.com/traitecoevo/austraits.build/blob/develop/data/Richards_2008/metadata.yml) for an example of a long `source` list.
+-   A long `source` or `secondary` list can instead be kept in its own file beside `metadata.yml`, either a `.yml` file holding the list or a `.bib` file, and named in its place, as in `source: sources.yml`.
 
 #### **Adding source from a bibtex file**
 
 ```{r, eval=FALSE, echo=TRUE}
-traits.build::metadata_add_source_doi(dataset_id, file = "myref.bib")
+traits.build::metadata_add_source_bibtex(dataset_id = current_study, file = "myref.bib")
 ```
+
+It takes the same `type` argument as `metadata_add_source_doi`.
 
 (These options require the packages [rcrossref](https://github.com/ropensci/rcrossref) and [RefManageR](https://github.com/ropensci/RefManageR/) to be installed.)
 
@@ -341,21 +370,21 @@ Different source types require different fields, formatting:
 
 ```         
 source:
-  primary:
-      key: Cooper_2013
-      bibtype: Book
-      year: 2013
-      author: Wendy Cooper and William T. Cooper
-      title: Australian rainforest fruits
-      publisher: CSIRO Publishing
-      pages: 272
+  dataset:
+    key: Cooper_2013
+    bibtype: Book
+    year: 2013
+    author: Wendy Cooper and William T. Cooper
+    title: Australian rainforest fruits
+    publisher: CSIRO Publishing
+    pages: 272
 ```
 
 **Online resource:**
 
 ```         
 source:
-  primary:
+  dataset:
     key: TMAG_2009
     bibtype: Online
     author: '{Tasmanian Herbarium}'
@@ -369,22 +398,22 @@ source:
 
 ```         
 source:
-  primary:
-      key: Kanowski_2000
-      bibtype: Thesis
-      year: 1999
-      author: John Kanowski
-      title: Ecological determinants of the distribution and abundance of the folivorous
-        marsupials endemic to the rainforests of the Atherton uplands, north Queensland.
-      type: PhD
-      institution: James Cook University, Townsville
+  dataset:
+    key: Kanowski_2000
+    bibtype: Thesis
+    year: 1999
+    author: John Kanowski
+    title: Ecological determinants of the distribution and abundance of the folivorous
+      marsupials endemic to the rainforests of the Atherton uplands, north Queensland.
+    type: PhD
+    institution: James Cook University, Townsville
 ```
 
 **Unpublished dataset:**
 
 ```         
 source:
-  primary:
+  dataset:
     key: Ooi_2018
     bibtype: Unpublished
     year: 2018

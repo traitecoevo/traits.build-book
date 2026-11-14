@@ -34,7 +34,7 @@ In the traits.build-template repository, there is a folder titled `tutorial_data
 
 -   The file `data.csv` exists within the `tutorial_dataset_7` folder. 
 
--   There is a folder `raw` nested within the `tutorial_dataset_7` folder, that contains two files, `locations.csv` and `tutorial_dataset_7_notes.txt`. 
+-   There is a folder `raw` nested within the `tutorial_dataset_7` folder, that contains `tutorial_dataset_7_notes.txt`, plus a completed `metadata.yml` you can check your own against once you have finished.
 
 ### source necessary functions
 

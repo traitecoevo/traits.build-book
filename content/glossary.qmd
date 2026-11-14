@@ -133,9 +133,7 @@ pivot check.
   `contexts` table.
 
 **Source vs dataset**
-: A **dataset** (`dataset_id`) is a unit of contribution — one folder, one metadata file. A **source**
-  is a citable reference. Usually they coincide, but one dataset can draw on several sources (each with
-  its own `source_id`), and a source can be `primary`, `secondary`, or `original`.
+: A **dataset** (`dataset_id`) is a unit of contribution — one folder, one metadata file. A **source** is a citable reference. Usually they coincide, but one dataset can draw on several sources. A dataset's `metadata.yml` lists its references as one `dataset` reference (the dataset itself, keyed by its `dataset_id`), `source` references (for a compilation, the studies observations were taken from, each named by its `key` in the data's `source_id`), and `secondary` references (later publications re-using the same data).
 
 **Substitution**
 : A mapping from the exact term used in a contributor's `data.csv` to an allowable value in the trait
