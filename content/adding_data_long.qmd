@@ -364,7 +364,7 @@ It takes the same `type` argument as `metadata_add_source_doi`.
 
 #### **Proper formatting of different source types**
 
-Different source types require different fields, formatting:
+Different source types require different fields, formatting. In each example below the `key` is that dataset's `dataset_id`, as a `dataset` reference's `key` must be:
 
 **Book:**
 

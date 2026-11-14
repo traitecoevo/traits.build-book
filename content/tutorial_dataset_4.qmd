@@ -132,7 +132,7 @@ Per the `traits.build` schema, a `source` reference is a study whose data were c
 
 Each call with `type = "source"` adds another item to the dataset's `source` list, so when you add `Benyon_1999` (doi - "10.1016/s0378-3774(98)00080-8") the `type` stays `source`. Each reference's `key` must match the value used for that study in the data's `source_id` column (here `Barrett_1996`, `Benyon_1999`, ...), so check the `key` after each call.
 
-Note that the dataset will build without all 11 `source` references, but `dataset_test()` will report each `source_id` value that does not name one; it is up to you how many you want to add as a test.
+Note that the dataset will build without all 11 `source` references, but `dataset_test()` will report each `source_id` value that does not name one (and, the other way round, any `source` reference that no `source_id` names); it is up to you how many you want to add as a test.
 
 ------------------------------------------------------------------------
 
