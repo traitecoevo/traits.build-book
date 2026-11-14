@@ -21,6 +21,7 @@ This manual is a step-by-step user guide to the `traits.build` standard, R packa
 
 - [installation instructions](http://traitecoevo.github.io/traits.build/index.html#installation) for the `traits.build` package
 - a [reference page with all user-side functions](http://traitecoevo.github.io/traits.build/reference/index.html) for the `traits.build` package. 
+- the [`traits.use`](https://traitecoevo.github.io/traits.use/) package, for loading, filtering, joining and plotting a database once it is built (and the [`austraits`](https://traitecoevo.github.io/austraits/) package, which adds AusTraits-specific functions on top of it)
 - links to [example projects](content/usage_examples.qmd#sec-usage_examples)
 
 ## A simple example
