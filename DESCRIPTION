@@ -15,6 +15,7 @@ License: MIT + file LICENSE
 Depends:
     R (>= 4.2.0),
     austraits,
+    traits.use,
     traits.build (>= 1.0.0),
     APCalign,
     readr,
@@ -29,7 +30,6 @@ Depends:
     sf,
     ozmaps,
     pilot,
-    ggbeeswarm (>= 0.7.1),
     gridExtra,
     ggpointdensity,
     scales,
@@ -44,6 +44,7 @@ Suggests:
 Remotes:
   traitecoevo/traits.build@develop,
   traitecoevo/austraits@master,
+  traitecoevo/traits.use,
   olihawkins/pilot,
   erocoar/gghalves
 Encoding: UTF-8
