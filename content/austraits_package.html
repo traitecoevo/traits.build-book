@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.19">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -75,14 +75,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../content/spatial_data_example.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-fd0503e23dce65854c81c5baaade3bdf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4f67ab1e4efc86feb5e21e0983fc9301.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -114,17 +115,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/austraits_database.html">Using outputs of <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="../content/austraits_package.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/austraits_database.html">Using outputs of <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="../content/austraits_package.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -135,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Site">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">The {traits.build} data model, R package, and workflow</a> 
@@ -153,13 +154,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Introduction</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Introduction</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
@@ -194,13 +192,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Data structure and standard</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Data structure and standard</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/long_wide.html" class="sidebar-item-text sidebar-link">
@@ -235,13 +230,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Creating with <code>traits.build</code></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Creating with <code>traits.build</code></span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/traits_build.html" class="sidebar-item-text sidebar-link">
@@ -282,13 +274,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Guide to adding data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Guide to adding data</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/tutorial_datasets.html" class="sidebar-item-text sidebar-link">
@@ -371,13 +360,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Using outputs of <code>traits.build</code></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Using outputs of <code>traits.build</code></span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/austraits_database.html" class="sidebar-item-text sidebar-link">
@@ -412,13 +398,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Getting help</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Getting help</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/help.html" class="sidebar-item-text sidebar-link">
@@ -429,13 +412,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-controls="quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-7-label">Appendices</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-7" aria-labelledby="quarto-sidebar-section-7-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../content/glossary.html" class="sidebar-item-text sidebar-link">
@@ -462,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
@@ -486,9 +466,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="toc-actions"><ul><li><a href="https://github.com/traitecoevo/traits.build-book/edit/master/content/austraits_package.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/traitecoevo/traits.build-book/blob/master/content/austraits_package.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content" tabindex="-1">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/austraits_database.html">Using outputs of <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="../content/austraits_package.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/austraits_database.html">Using outputs of <code>traits.build</code></a></li><li class="breadcrumb-item"><a href="../content/austraits_package.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-austraits_package" class="quarto-section-identifier"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">The <code>austraits</code> package</span></span></h1>
 </div>
@@ -508,9 +488,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>The <code>austraits</code> package was initially designed to aid users in accessing data from <a href="https://zenodo.org/record/5112001">AusTraits</a>, a curated plant trait database for the Australian flora. This package contains several core functions to explore, wrangle and visualise data.</p>
-<p>In 2024 the package was generalised to support all databases built using the <a href="https://github.com/traitecoevo/traits.build">traits.build workflow</a>, new functions were added, and existing functions were re-worked. The structure of AusTraits evolved from its release in 2021 until present and the version 3.0 of the austraits package only supports AusTraits versions from 5.0 onwards. If you are working with AusTraits version 4.2.0 or earlier, you need to install an <a href="">old version of austraits</a></p>
+<p>In 2024 the package was generalised to support all databases built using the <a href="https://github.com/traitecoevo/traits.build">traits.build workflow</a>, new functions were added, and existing functions were re-worked. The structure of AusTraits evolved from its release in 2021 until present and the since version 3.0 the austraits package only supports AusTraits versions from 5.0 onwards (from version 4.0.0 it is a thin layer over <a href="https://github.com/traitecoevo/traits.use">traits.use</a>, which holds the functions shown here). If you are working with AusTraits version 4.2.0 or earlier, you need to install an <a href="https://github.com/traitecoevo/austraits/tree/v2.2.2">old version of austraits</a></p>
 <p>Below, we include a tutorial to illustrate how to use these functions.</p>
-<p><strong>Note the examples shown us a subset of AusTraits release 5.0.0, but the code can be run using any traits.build database.</strong></p>
+<p><strong>Note the examples show a subset of AusTraits release 7.0.0 (<code>traits.use::austraits_lite</code>), but the code can be run using any traits.build database.</strong></p>
 <section id="getting-started" class="level2" data-number="34.1">
 <h2 data-number="34.1" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">34.1</span> Getting started</h2>
 <p><code>austraits</code> is still under development and not yet on Cran. To install the current version from GitHub:</p>
@@ -546,8 +526,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lookup_trait</span>(<span class="at">database =</span> austraits, <span class="at">term =</span> <span class="st">"leaf"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] "leaf_compoundness"                   "leaf_length"                        
-#&gt; [3] "leaf_phenology"                      "leaf_width"                         
+<pre><code>#&gt; [1] "leaf_compoundness"                   "leaf_phenology"                     
+#&gt; [3] "leaf_length"                         "leaf_width"                         
 #&gt; [5] "leaf_delta13C"                       "leaf_water_use_efficiency_intrinsic"</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lookup_location_property</span>(<span class="at">database =</span> austraits, <span class="at">term =</span> <span class="st">"temperature"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -568,36 +548,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>#&gt; # A tibble: 6 × 5
 #&gt;   trait_name                    n_records n_dataset n_taxa percent_total
 #&gt;   &lt;chr&gt;                             &lt;int&gt;     &lt;int&gt;  &lt;int&gt;         &lt;dbl&gt;
-#&gt; 1 atmospheric_CO2_concentration       217         1     17       0.00188
-#&gt; 2 bark_C_per_dry_mass                 159         1     17       0.00137
-#&gt; 3 bark_N_per_dry_mass                 159         1     17       0.00137
-#&gt; 4 bark_delta13C                       159         1     17       0.00137
-#&gt; 5 bark_delta15N                       159         1     17       0.00137
-#&gt; 6 bark_thickness                      198         2     17       0.00171</code></pre>
+#&gt; 1 atmospheric_CO2_concentration       217         1     17       0.0024 
+#&gt; 2 bark_C_per_dry_mass                 159         1     17       0.00176
+#&gt; 3 bark_N_per_dry_mass                 159         1     17       0.00176
+#&gt; 4 bark_delta13C                       159         1     17       0.00176
+#&gt; 5 bark_delta15N                       159         1     17       0.00176
+#&gt; 6 bark_thickness                      198         2     17       0.00219</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise_database</span>(<span class="at">database =</span> austraits, <span class="at">var =</span>  <span class="st">"family"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 5
 #&gt;   family        n_records n_dataset n_taxa percent_total
 #&gt;   &lt;chr&gt;             &lt;int&gt;     &lt;int&gt;  &lt;int&gt;         &lt;dbl&gt;
-#&gt; 1 Acanthaceae         177         1     14    0.00153   
-#&gt; 2 Achariaceae          38         2      2    0.000328  
-#&gt; 3 Actinidiaceae        13         1      1    0.000112  
-#&gt; 4 Agapanthaceae         9         1      1    0.0000778 
-#&gt; 5 Akaniaceae           18         2      1    0.000156  
-#&gt; 6 Alismataceae          1         1      1    0.00000864</code></pre>
+#&gt; 1 Acanthaceae         177         1     14     0.00195  
+#&gt; 2 Achariaceae          38         2      2     0.00042  
+#&gt; 3 Actinidiaceae        13         1      1     0.000144 
+#&gt; 4 Agapanthaceae         3         1      1     0.0000331
+#&gt; 5 Akaniaceae           11         1      1     0.000121 
+#&gt; 6 Alismataceae          1         1      1     0.000011</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise_database</span>(<span class="at">database =</span> austraits, <span class="at">var =</span>  <span class="st">"genus"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 5
 #&gt;   genus       n_records n_dataset n_taxa percent_total
 #&gt;   &lt;chr&gt;           &lt;int&gt;     &lt;int&gt;  &lt;int&gt;         &lt;dbl&gt;
-#&gt; 1 Abroma             13         1      1     0.000112 
-#&gt; 2 Abrophyllum        13         1      1     0.000112 
-#&gt; 3 Abrus               9         2      1     0.0000778
-#&gt; 4 Abutilon           91         1      7     0.000786 
-#&gt; 5 Acacia           4350        13    121     0.0376   
-#&gt; 6 Acalypha           65         1      5     0.000562</code></pre>
+#&gt; 1 Abroma             13         1      1     0.000144 
+#&gt; 2 Abrophyllum        13         1      1     0.000144 
+#&gt; 3 Abrus               9         2      1     0.0000994
+#&gt; 4 Abutilon           91         1      7     0.001    
+#&gt; 5 Acacia           5571        14    267     0.0615   
+#&gt; 6 Acalypha           65         1      5     0.000718</code></pre>
 </div>
 </div>
 <p>All traits.build databases include definitions for all traits. Check out the dictionary if you want to learn more about trait’s that have been output by a <code>lookup_</code> or <code>summarise_</code> query.</p>
@@ -605,6 +585,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>definitions <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; $accessory_cost_fraction
+#&gt; $accessory_cost_fraction$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0012221"
+#&gt; 
 #&gt; $accessory_cost_fraction$label
 #&gt; [1] "Seed accessory cost fraction"
 #&gt; 
@@ -623,16 +606,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt; $accessory_cost_fraction$allowed_values_max
 #&gt; [1] 1
 #&gt; 
-#&gt; $accessory_cost_fraction$entity_URI
-#&gt; [1] "https://w3id.org/APD/traits/trait_0012221"
+#&gt; $accessory_cost_fraction$structure_measured
+#&gt; [1] "reproductive shoot system; flower; fruit; seed"
+#&gt; 
+#&gt; $accessory_cost_fraction$keywords
+#&gt; [1] "biomass allocation; reproduction; accessory cost"
+#&gt; 
+#&gt; $accessory_cost_fraction$trait_group
+#&gt; [1] "reproductive shoot system morphology trait; plant morphology trait"
+#&gt; 
+#&gt; $accessory_cost_fraction$characteristic_measured
+#&gt; [1] "mass"
 #&gt; 
 #&gt; 
 #&gt; $accessory_cost_mass
+#&gt; $accessory_cost_mass$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0012222"
+#&gt; 
 #&gt; $accessory_cost_mass$label
 #&gt; [1] "Seed accessory cost mass"
 #&gt; 
 #&gt; $accessory_cost_mass$description
-#&gt; [1] "A reproductive shoot system [PO:0025082] biomass allocation [EnvThes:21360] trait which is the sum of the dry [PATO:0001824] mass [PATO:0000125] of all flower buds [PO:0000056], flowers [PO:0009046], fruits [PO:0009001], aborted seeds, and dispersal [EnvThes:21038] tissues produced during the developmental process involved in reproduction [GO:0003006], but excludes mature [PATO:0001701] seed [PO:0009010] dry mass.;The mass of seed accessory costs, which is the total biomass investment in all reproductive tissues, excluding biomass invested in successfully matured seeds; it includes all biomass invested in flower buds, flowers, fruits, dispersal tissues and aborted seeds."
+#&gt; [1] "A reproductive shoot system [PO:0025082] biomass allocation [EnvThes:21360] trait which is the sum of the dry [PATO:0001824] mass [PATO:0000125] of all flower buds [PO:0000055], flowers [PO:0009046], fruits [PO:0009001], aborted seeds, and dispersal [EnvThes:21038] tissues produced during the developmental process involved in reproduction [GO:0003006], but excludes mature [PATO:0001701] seed [PO:0009010] dry mass.;The mass of seed accessory costs, which is the total biomass investment in all reproductive tissues, excluding biomass invested in successfully matured seeds; it includes all biomass invested in flower buds, flowers, fruits, dispersal tissues and aborted seeds."
 #&gt; 
 #&gt; $accessory_cost_mass$type
 #&gt; [1] "numeric"
@@ -646,11 +641,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt; $accessory_cost_mass$allowed_values_max
 #&gt; [1] 10000
 #&gt; 
-#&gt; $accessory_cost_mass$entity_URI
-#&gt; [1] "https://w3id.org/APD/traits/trait_0012222"
+#&gt; $accessory_cost_mass$structure_measured
+#&gt; [1] "reproductive shoot system; flower; fruit; seed"
+#&gt; 
+#&gt; $accessory_cost_mass$keywords
+#&gt; [1] "biomass allocation; reproduction; accessory cost"
+#&gt; 
+#&gt; $accessory_cost_mass$trait_group
+#&gt; [1] "reproductive shoot system morphology trait; plant morphology trait"
+#&gt; 
+#&gt; $accessory_cost_mass$characteristic_measured
+#&gt; [1] "mass"
 #&gt; 
 #&gt; 
 #&gt; $atmospheric_CO2_concentration
+#&gt; $atmospheric_CO2_concentration$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0020315"
+#&gt; 
 #&gt; $atmospheric_CO2_concentration$label
 #&gt; [1] "Ambient CO2 concentration (ca)"
 #&gt; 
@@ -672,16 +679,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt; $atmospheric_CO2_concentration$allowed_values_max
 #&gt; [1] 2000
 #&gt; 
-#&gt; $atmospheric_CO2_concentration$entity_URI
-#&gt; [1] "https://w3id.org/APD/traits/trait_0020315"
+#&gt; $atmospheric_CO2_concentration$structure_measured
+#&gt; [1] "leaf"
+#&gt; 
+#&gt; $atmospheric_CO2_concentration$keywords
+#&gt; [1] "atmospheric carbon dioxide; carbon dioxide"
+#&gt; 
+#&gt; $atmospheric_CO2_concentration$trait_group
+#&gt; [1] "carbon dioxide concentration trait; gas exchange trait; biological process trait, physiological process trait"
+#&gt; 
+#&gt; $atmospheric_CO2_concentration$characteristic_measured
+#&gt; [1] "concentration; mass fraction; ratio; proportion"
 #&gt; 
 #&gt; 
 #&gt; $bark_Al_per_dry_mass
+#&gt; $bark_Al_per_dry_mass$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0000612"
+#&gt; 
 #&gt; $bark_Al_per_dry_mass$label
 #&gt; [1] "Bark aluminium (Al) content per unit bark dry mass"
 #&gt; 
 #&gt; $bark_Al_per_dry_mass$description
-#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of aluminium [CHEBI:28984] in bark [PO:0004518] to bark dry mass."
+#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of aluminium [CHEBI:28984] in bark [PO:0004518] to bark dry mass.;The ratio of the mass of aluminium in bark to bark dry mass."
 #&gt; 
 #&gt; $bark_Al_per_dry_mass$type
 #&gt; [1] "numeric"
@@ -695,16 +714,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt; $bark_Al_per_dry_mass$allowed_values_max
 #&gt; [1] 10
 #&gt; 
-#&gt; $bark_Al_per_dry_mass$entity_URI
-#&gt; [1] "https://w3id.org/APD/traits/trait_0000612"
+#&gt; $bark_Al_per_dry_mass$structure_measured
+#&gt; [1] "bark"
+#&gt; 
+#&gt; $bark_Al_per_dry_mass$keywords
+#&gt; [1] "aluminium atom"
+#&gt; 
+#&gt; $bark_Al_per_dry_mass$trait_group
+#&gt; [1] "stem mineral and ion content trait; mineral and ion content trait; biochemical trait"
+#&gt; 
+#&gt; $bark_Al_per_dry_mass$characteristic_measured
+#&gt; [1] "mass; mass fraction; ratio; proportion"
 #&gt; 
 #&gt; 
 #&gt; $bark_ash_per_dry_mass
+#&gt; $bark_ash_per_dry_mass$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0002824"
+#&gt; 
 #&gt; $bark_ash_per_dry_mass$label
 #&gt; [1] "Bark ash content per unit bark dry mass"
 #&gt; 
 #&gt; $bark_ash_per_dry_mass$description
-#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of bark [PO:0004518] ash [ENVO:02000090] remaining after a combustion process [ENVO:01000839] to the bark dry mass before the combustion process."
+#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of bark [PO:0004518] ash [ENVO:02000090] remaining after a combustion process [ENVO:01000839] to the bark dry mass before the combustion process.;The ratio of the mass of bark ash remaining after a combustion process to the bark dry mass before the combustion process."
 #&gt; 
 #&gt; $bark_ash_per_dry_mass$type
 #&gt; [1] "numeric"
@@ -718,16 +749,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt; $bark_ash_per_dry_mass$allowed_values_max
 #&gt; [1] 1
 #&gt; 
-#&gt; $bark_ash_per_dry_mass$entity_URI
-#&gt; [1] "https://w3id.org/APD/traits/trait_0002824"
+#&gt; $bark_ash_per_dry_mass$structure_measured
+#&gt; [1] "bark"
+#&gt; 
+#&gt; $bark_ash_per_dry_mass$keywords
+#&gt; [1] "ash; combustion process; fire"
+#&gt; 
+#&gt; $bark_ash_per_dry_mass$characteristic_measured
+#&gt; [1] "mass; mass fraction; ratio; proportion"
 #&gt; 
 #&gt; 
 #&gt; $bark_B_per_dry_mass
+#&gt; $bark_B_per_dry_mass$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0000614"
+#&gt; 
 #&gt; $bark_B_per_dry_mass$label
 #&gt; [1] "Bark boron (B) content per unit bark dry mass"
 #&gt; 
 #&gt; $bark_B_per_dry_mass$description
-#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of boron [CHEBI:27560] in bark [PO:0004518] to bark dry mass."
+#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of boron [CHEBI:27560] in bark [PO:0004518] to bark dry mass.;The ratio of the mass of boron in bark to bark dry mass."
 #&gt; 
 #&gt; $bark_B_per_dry_mass$type
 #&gt; [1] "numeric"
@@ -741,22 +781,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt; $bark_B_per_dry_mass$allowed_values_max
 #&gt; [1] 1
 #&gt; 
-#&gt; $bark_B_per_dry_mass$entity_URI
-#&gt; [1] "https://w3id.org/APD/traits/trait_0000614"</code></pre>
+#&gt; $bark_B_per_dry_mass$structure_measured
+#&gt; [1] "bark"
+#&gt; 
+#&gt; $bark_B_per_dry_mass$keywords
+#&gt; [1] "boron atom; micronutrient"
+#&gt; 
+#&gt; $bark_B_per_dry_mass$trait_group
+#&gt; [1] "stem mineral and ion content trait; mineral and ion content trait; biochemical trait"
+#&gt; 
+#&gt; $bark_B_per_dry_mass$characteristic_measured
+#&gt; [1] "mass; mass fraction; ratio; proportion"</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>definitions[[<span class="st">"leaf_area"</span>]] <span class="sc">%&gt;%</span> convert_list_to_df1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 8 × 2
-#&gt;   key                value                                                      
-#&gt;   &lt;chr&gt;              &lt;chr&gt;                                                      
-#&gt; 1 label              Leaf area                                                  
-#&gt; 2 description        A leaf area trait [TO:0000540] which is the 2-D [PATO:0001…
-#&gt; 3 comments           This trait includes measurements of leaves and leaf analog…
-#&gt; 4 type               numeric                                                    
-#&gt; 5 units              mm2                                                        
-#&gt; 6 allowed_values_min 0.1                                                        
-#&gt; 7 allowed_values_max 1e+07                                                      
-#&gt; 8 entity_URI         https://w3id.org/APD/traits/trait_0011211</code></pre>
+<pre><code>#&gt; # A tibble: 12 × 2
+#&gt;    key                     value                                                
+#&gt;    &lt;chr&gt;                   &lt;chr&gt;                                                
+#&gt;  1 entity_URI              https://w3id.org/APD/traits/trait_0011211            
+#&gt;  2 label                   Leaf area                                            
+#&gt;  3 description             A leaf area trait [TO:0000540] which is the 2-D [PAT…
+#&gt;  4 comments                This trait includes measurements of leaves and leaf …
+#&gt;  5 type                    numeric                                              
+#&gt;  6 units                   mm2                                                  
+#&gt;  7 allowed_values_min      0.1                                                  
+#&gt;  8 allowed_values_max      1e+07                                                
+#&gt;  9 structure_measured      leaf                                                 
+#&gt; 10 keywords                leaf lamina; petiole; leaflet; cladode; phyllode     
+#&gt; 11 trait_group             leaf size trait; leaf morphology trait; plant morpho…
+#&gt; 12 characteristic_measured area; 2-D extent; size</code></pre>
 </div>
 </div>
 </section>
@@ -873,8 +926,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data_leaf<span class="sc">$</span>traits<span class="sc">$</span>trait_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;  [1] "leaf_compoundness"                                                          
-#&gt;  [2] "leaf_length"                                                                
-#&gt;  [3] "leaf_phenology"                                                             
+#&gt;  [2] "leaf_phenology"                                                             
+#&gt;  [3] "leaf_length"                                                                
 #&gt;  [4] "leaf_width"                                                                 
 #&gt;  [5] "leaf_delta13C"                                                              
 #&gt;  [6] "leaf_water_use_efficiency_intrinsic"                                        
@@ -938,12 +991,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt; [64] "leaf_water_content_per_dry_mass"                                            
 #&gt; [65] "leaf_water_content_per_fresh_mass"                                          
 #&gt; [66] "leaf_lifespan"                                                              
-#&gt; [67] "leaf_specific_hydraulic_conductance"                                        
-#&gt; [68] "leaf_vessel_density"                                                        
-#&gt; [69] "leaf_vessel_diameter"                                                       
-#&gt; [70] "leaf_Mo_per_dry_mass"                                                       
-#&gt; [71] "leaf_Al_per_dry_mass"                                                       
-#&gt; [72] "leaf_mass_fraction"</code></pre>
+#&gt; [67] "leaf_type"                                                                  
+#&gt; [68] "leaf_water_potential_50percent_lost_conductivity"                           
+#&gt; [69] "leaf_water_potential_88percent_lost_conductivity"                           
+#&gt; [70] "leaf_vessel_density"                                                        
+#&gt; [71] "leaf_vessel_diameter"                                                       
+#&gt; [72] "leaf_Mo_per_dry_mass"                                                       
+#&gt; [73] "leaf_Al_per_dry_mass"                                                       
+#&gt; [74] "leaf_mass_fraction"</code></pre>
 </div>
 </div>
 <p>Using <code>extract_trait</code> to extract data for <strong>all traits with ‘leaf_N’ or ‘leaf_P’ in the trait name</strong> and assigning it to an object.</p>
@@ -981,11 +1036,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>#&gt;  [1] "dataset_id"                       "trait_name"                      
 #&gt;  [3] "methods"                          "method_id"                       
 #&gt;  [5] "description"                      "sampling_strategy"               
-#&gt;  [7] "source_primary_key"               "source_primary_citation"         
-#&gt;  [9] "source_secondary_key"             "source_secondary_citation"       
-#&gt; [11] "source_original_dataset_key"      "source_original_dataset_citation"
-#&gt; [13] "data_collectors"                  "assistants"                      
-#&gt; [15] "dataset_curators"</code></pre>
+#&gt;  [7] "source_primary_key"               "source_primary_type"             
+#&gt;  [9] "source_primary_citation"          "source_secondary_key"            
+#&gt; [11] "source_secondary_citation"        "source_original_dataset_key"     
+#&gt; [13] "source_original_dataset_citation" "data_collectors"                 
+#&gt; [15] "assistants"                       "dataset_curators"</code></pre>
 </div>
 </div>
 <p>Any of the extract functions can be linked together to output a more precise subset of data.</p>
@@ -1010,11 +1065,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
 #&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
 #&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
-#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
-#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
-#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
 #&gt; # ℹ 22 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
 #&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
 #&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
@@ -1030,11 +1085,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
 #&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
 #&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
-#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
-#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
-#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
 #&gt; # ℹ 21 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
 #&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
 #&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
@@ -1051,11 +1106,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
 #&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
 #&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
-#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
-#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
-#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
 #&gt; # ℹ 25 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
 #&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
 #&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
@@ -1071,11 +1126,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
 #&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
 #&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
-#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
-#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
-#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
 #&gt; # ℹ 24 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
 #&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
 #&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
@@ -1092,11 +1147,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
 #&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
 #&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
-#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
-#&gt; 4 ABRS_1981  Acanthocarpus ca… 0001           seed_heig… 3     mm    species    
-#&gt; 5 ABRS_1981  Acanthocarpus ca… 0001           seed_leng… 3     mm    species    
-#&gt; 6 ABRS_1981  Acanthocarpus ca… 0001           seed_width 3     mm    species    
+#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           seed_leng… 3     mm    species    
+#&gt; 3 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 4 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 6 ABRS_1981  Acanthocarpus pr… 0004           seed_leng… 4     mm    species    
 #&gt; # ℹ 20 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
 #&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
 #&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
@@ -1112,11 +1167,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
 #&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
 #&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
-#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
-#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
-#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
 #&gt; # ℹ 20 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
 #&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
 #&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
@@ -1132,11 +1187,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
 #&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
 #&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
-#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
-#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
-#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
 #&gt; # ℹ 23 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
 #&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
 #&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
@@ -1152,11 +1207,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
 #&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
 #&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
-#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
-#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
-#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
 #&gt; # ℹ 20 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
 #&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
 #&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
@@ -1172,11 +1227,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
 #&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
 #&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 3     mm    species    
-#&gt; 3 ABRS_1981  Acanthocarpus ca… 0001           leaf_leng… 15    mm    species    
-#&gt; 4 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 4     mm    species    
-#&gt; 6 ABRS_1981  Acanthocarpus hu… 0002           leaf_leng… 12    mm    species    
+#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
 #&gt; # ℹ 20 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
 #&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
 #&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
@@ -1204,21 +1259,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">methods =</span> <span class="fu">c</span>(<span class="st">"methods"</span>))</span>
 <span id="cb58-15"><a href="#cb58-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 70,471 × 39
+<pre><code>#&gt; # A tibble: 58,507 × 45
 #&gt;    dataset_id taxon_name       observation_id trait_name value unit  entity_type
 #&gt;    &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
 #&gt;  1 ABRS_1981  Acanthocarpus c… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt;  2 ABRS_1981  Acanthocarpus c… 0001           leaf_leng… 3     mm    species    
-#&gt;  3 ABRS_1981  Acanthocarpus c… 0001           leaf_leng… 15    mm    species    
-#&gt;  4 ABRS_1981  Acanthocarpus h… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt;  5 ABRS_1981  Acanthocarpus h… 0002           leaf_leng… 4     mm    species    
-#&gt;  6 ABRS_1981  Acanthocarpus h… 0002           leaf_leng… 12    mm    species    
-#&gt;  7 ABRS_1981  Acanthocarpus p… 0003           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt;  8 ABRS_1981  Acanthocarpus p… 0003           leaf_leng… 3     mm    species    
-#&gt;  9 ABRS_1981  Acanthocarpus p… 0004           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 10 ABRS_1981  Acanthocarpus p… 0004           leaf_leng… 20    mm    species    
-#&gt; # ℹ 70,461 more rows
-#&gt; # ℹ 32 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
+#&gt;  2 ABRS_1981  Acanthocarpus h… 0002           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt;  3 ABRS_1981  Acanthocarpus p… 0003           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt;  4 ABRS_1981  Acanthocarpus p… 0004           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt;  5 ABRS_1981  Acanthocarpus r… 0005           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt;  6 ABRS_1981  Acanthocarpus r… 0006           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt;  7 ABRS_1981  Acanthocarpus v… 0007           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt;  8 ABRS_1981  Acer pseudoplat… 0008           leaf_phen… deci… &lt;NA&gt;  species    
+#&gt;  9 ABRS_1981  Acidonia microc… 0009           leaf_comp… comp… &lt;NA&gt;  species    
+#&gt; 10 ABRS_1981  Callitris acumi… 0010           leaf_comp… simp… &lt;NA&gt;  species    
+#&gt; # ℹ 58,497 more rows
+#&gt; # ℹ 38 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
 #&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
 #&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
 #&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
@@ -1253,21 +1308,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="visualising-data-distribution-and-variance" class="level2" data-number="34.7">
 <h2 data-number="34.7" class="anchored" data-anchor-id="visualising-data-distribution-and-variance"><span class="header-section-number">34.7</span> Visualising data distribution and variance</h2>
-<p><code>plot_trait_distribution_beeswarm</code> creates histograms and <a href="https://github.com/eclarke/ggbeeswarm">beeswarm plots</a> for continuous traits to help users visualise the data. Users can specify whether to create separate beeswarm plots based on any column in the traits table (e.g.&nbsp;<code>dataset_id</code> or <code>life_stage</code>) or at the level of <code>genus</code> or <code>family</code>.</p>
+<p><code>plot_trait_distribution_jitter</code> plots the values of a numeric trait, one point per record (leaving out values recorded as a bin or range), to help users visualise the data. Users can group the values by any column in the traits table (e.g.&nbsp;<code>dataset_id</code> or <code>life_stage</code>) or by <code>genus</code> or <code>family</code>, and highlight groups with <code>highlight</code>. <code>plot_trait_distribution</code> picks this plot for a numeric trait and <code>plot_categorical_trait_distribution</code> for a categorical one.</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>austraits <span class="sc">%&gt;%</span> <span class="fu">plot_trait_distribution_beeswarm</span>(<span class="st">"wood_density"</span>, <span class="st">"family"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>austraits <span class="sc">%&gt;%</span> <span class="fu">plot_trait_distribution_jitter</span>(<span class="st">"wood_density"</span>, <span class="st">"family"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="austraits_package_files/figure-html/beeswarm-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
+<p><img src="austraits_package_files/figure-html/jitter-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>austraits <span class="sc">%&gt;%</span> <span class="fu">plot_trait_distribution_beeswarm</span>(<span class="st">"wood_density"</span>, <span class="st">"dataset_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>austraits <span class="sc">%&gt;%</span> <span class="fu">plot_trait_distribution_jitter</span>(<span class="st">"wood_density"</span>, <span class="st">"dataset_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="austraits_package_files/figure-html/beeswarm-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
+<p><img src="austraits_package_files/figure-html/jitter-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1298,20 +1353,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>bound_values2 <span class="sc">%&gt;%</span></span>
 <span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_trait_values</span>(., austraits<span class="sc">$</span>definitions)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 2,587 × 26
+<pre><code>#&gt; # A tibble: 1,651 × 26
 #&gt;    dataset_id taxon_name       observation_id trait_name value unit  entity_type
 #&gt;    &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt;  1 ABRS_1981  Acanthocarpus c… 0001           leaf_leng… 15    mm    species    
-#&gt;  2 ABRS_1981  Acanthocarpus c… 0001           leaf_leng… 3     mm    species    
-#&gt;  3 ABRS_1981  Acanthocarpus c… 0001           seed_heig… 3     mm    species    
-#&gt;  4 ABRS_1981  Acanthocarpus c… 0001           seed_leng… 3     mm    species    
-#&gt;  5 ABRS_1981  Acanthocarpus c… 0001           seed_width 3     mm    species    
-#&gt;  6 ABRS_1981  Acanthocarpus h… 0002           seed_leng… 4     mm    species    
-#&gt;  7 ABRS_1981  Acanthocarpus p… 0003           leaf_leng… 3     mm    species    
-#&gt;  8 ABRS_1981  Acanthocarpus r… 0006           seed_heig… 2.5   mm    species    
-#&gt;  9 ABRS_1981  Acanthocarpus r… 0006           seed_leng… 2.5   mm    species    
-#&gt; 10 ABRS_1981  Acanthocarpus r… 0006           seed_width 2.5   mm    species    
-#&gt; # ℹ 2,577 more rows
+#&gt;  1 ABRS_1981  Acanthocarpus c… 0001           seed_leng… 3     mm    species    
+#&gt;  2 ABRS_1981  Acanthocarpus p… 0004           seed_leng… 5     mm    species    
+#&gt;  3 ABRS_1981  Acanthocarpus p… 0004           seed_leng… 4     mm    species    
+#&gt;  4 ABRS_1981  Acanthocarpus r… 0006           seed_leng… 2.5   mm    species    
+#&gt;  5 ABRS_1981  Adenanthos apic… 0014           leaf_leng… 20    mm    species    
+#&gt;  6 ABRS_1981  Adenanthos apic… 0014           leaf_leng… 5     mm    species    
+#&gt;  7 ABRS_1981  Adenanthos apic… 0014           leaf_width 0.5   mm    species    
+#&gt;  8 ABRS_1981  Adenanthos apic… 0014           plant_hei… 0.5   m     species    
+#&gt;  9 ABRS_1981  Adenanthos dobs… 0025           leaf_leng… 10    mm    species    
+#&gt; 10 ABRS_1981  Adenanthos dobs… 0025           leaf_width 4     mm    species    
+#&gt; # ℹ 1,641 more rows
 #&gt; # ℹ 19 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
 #&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
 #&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
@@ -1403,7 +1458,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -1412,8 +1468,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -1427,6 +1544,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -1589,44 +1707,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -1725,7 +1853,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
-<nav class="page-navigation">
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
   <div class="nav-page nav-page-previous">
       <a href="../content/spatial_data_example.html" class="pagination-link" aria-label="Analysis example: Using AusTraits with spatial data">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Analysis example: Using AusTraits with spatial data</span></span>
