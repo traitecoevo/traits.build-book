@@ -14,7 +14,7 @@ library(austraits)
 austraits <- traits.use::austraits_lite
 ```
 
-The `austraits` package was initially designed to aid users in accessing data from [AusTraits](https://zenodo.org/record/5112001), a curated plant trait database for the Australian flora. This package contains several core functions to explore, wrangle and visualise data. 
+The `austraits` package was initially designed to aid users in accessing data from [AusTraits](https://doi.org/10.5281/zenodo.3568417), a curated plant trait database for the Australian flora. This package contains several core functions to explore, wrangle and visualise data. 
 
 In 2024 the package was generalised to support all databases built using the [traits.build workflow](https://github.com/traitecoevo/traits.build), new functions were added, and existing functions were re-worked. The structure of AusTraits evolved from its release in 2021 until present and the since version 3.0 the austraits package only supports AusTraits versions from 5.0 onwards (from version 4.0.0 it is a thin layer over [traits.use](https://github.com/traitecoevo/traits.use), which holds the functions shown here). If you are working with AusTraits version 4.2.0 or earlier, you need to install an [old version of austraits](https://github.com/traitecoevo/austraits/tree/v2.2.2) 
 
@@ -35,7 +35,7 @@ library(austraits)
 
 ### Loading AusTraits database
 
-`load_austraits` is the one `austraits` function that is specific to the AusTraits database. By default, `load_austraits` will download AusTraits to a specified path e.g. `data/austraits` and will reload it from this location in the future. You can set `update = TRUE` so the austrait versions are downloaded fresh from [Zenodo](https://zenodo.org/record/3568429). Note that `load_austraits` accepts a version number or the DOI of a particular version.
+`load_austraits`, with `get_versions()` and `get_version_latest()`, is what `austraits` adds for the AusTraits database, together with a map of Australia for `plot_locations()`; everything else comes from `traits.use`, whose `load_database()` loads any traits.build database from its DOI. By default, `load_austraits` will download AusTraits to a specified path e.g. `data/austraits` and will reload it from this location in the future. You can set `update = TRUE` so the austrait versions are downloaded fresh from [Zenodo](https://doi.org/10.5281/zenodo.3568417). Note that `load_austraits` accepts a version number or the DOI of a particular version.
 
 If you are new to using AusTraits we recommend you download the most recent release, while you may want to download an older version to reproduce a previous analysis.
 
