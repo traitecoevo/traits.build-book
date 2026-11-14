@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-93ea9577cdbf6ced302812e0f26facab.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4f67ab1e4efc86feb5e21e0983fc9301.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -487,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The <code>austraits</code> package was initially designed to aid users in accessing data from <a href="https://zenodo.org/record/5112001">AusTraits</a>, a curated plant trait database for the Australian flora. This package contains several core functions to explore, wrangle and visualise data.</p>
+<p>The <code>austraits</code> package was initially designed to aid users in accessing data from <a href="https://doi.org/10.5281/zenodo.3568417">AusTraits</a>, a curated plant trait database for the Australian flora. This package contains several core functions to explore, wrangle and visualise data.</p>
 <p>In 2024 the package was generalised to support all databases built using the <a href="https://github.com/traitecoevo/traits.build">traits.build workflow</a>, new functions were added, and existing functions were re-worked. The structure of AusTraits evolved from its release in 2021 until present and the since version 3.0 the austraits package only supports AusTraits versions from 5.0 onwards (from version 4.0.0 it is a thin layer over <a href="https://github.com/traitecoevo/traits.use">traits.use</a>, which holds the functions shown here). If you are working with AusTraits version 4.2.0 or earlier, you need to install an <a href="https://github.com/traitecoevo/austraits/tree/v2.2.2">old version of austraits</a></p>
 <p>Below, we include a tutorial to illustrate how to use these functions.</p>
 <p><strong>Note the examples show a subset of AusTraits release 7.0.0 (<code>traits.use::austraits_lite</code>), but the code can be run using any traits.build database.</strong></p>
@@ -503,7 +503,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="loading-austraits-database" class="level3">
 <h3 class="anchored" data-anchor-id="loading-austraits-database">Loading AusTraits database</h3>
-<p><code>load_austraits</code> is the one <code>austraits</code> function that is specific to the AusTraits database. By default, <code>load_austraits</code> will download AusTraits to a specified path e.g.&nbsp;<code>data/austraits</code> and will reload it from this location in the future. You can set <code>update = TRUE</code> so the austrait versions are downloaded fresh from <a href="https://zenodo.org/record/3568429">Zenodo</a>. Note that <code>load_austraits</code> accepts a version number or the DOI of a particular version.</p>
+<p><code>load_austraits</code>, with <code>get_versions()</code> and <code>get_version_latest()</code>, is what <code>austraits</code> adds for the AusTraits database, together with a map of Australia for <code>plot_locations()</code>; everything else comes from <code>traits.use</code>, whose <code>load_database()</code> loads any traits.build database from its DOI. By default, <code>load_austraits</code> will download AusTraits to a specified path e.g.&nbsp;<code>data/austraits</code> and will reload it from this location in the future. You can set <code>update = TRUE</code> so the austrait versions are downloaded fresh from <a href="https://doi.org/10.5281/zenodo.3568417">Zenodo</a>. Note that <code>load_austraits</code> accepts a version number or the DOI of a particular version.</p>
 <p>If you are new to using AusTraits we recommend you download the most recent release, while you may want to download an older version to reproduce a previous analysis.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>austraits <span class="ot">&lt;-</span> <span class="fu">load_austraits</span>(<span class="at">version =</span> <span class="st">"7.0.0"</span>, <span class="at">path =</span> <span class="st">"data/austraits"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
