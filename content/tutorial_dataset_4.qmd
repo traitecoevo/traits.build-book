@@ -45,7 +45,7 @@ In the traits.build-template repository, there is a folder titled `tutorial_data
 
 -   The file `data.csv` exists within the `tutorial_dataset_4` folder. 
 
--   There is a folder `raw` nested within the `tutorial_dataset_4` folder, that contains one file, `tutorial_dataset_4_notes.txt`. 
+-   There is a folder `raw` nested within the `tutorial_dataset_4` folder, that contains `tutorial_dataset_4_notes.txt`, plus a completed `metadata.yml` you can check your own against once you have finished.
 
 ### source necessary functions
 
@@ -121,18 +121,18 @@ References
 11 Drake et al. 2011
 ```
 
-You would now need to look up each of these references in the reference section of the manuscript and use Google Scholar (or another reference resource) to look up the doi for each reference. To add additional references, you need to add an argument to the `metadata_add_source_doi` function:\
+You would now need to look up each of these references in the reference section of the manuscript and use Google Scholar (or another reference resource) to look up the doi for each reference. To add these references, add the argument `type = "source"` to the `metadata_add_source_doi` function:\
 
 ```{r, eval=FALSE}
 metadata_add_source_doi(dataset_id = "tutorial_dataset_4", doi = "10.1071/bt9960249", 
-                        type = "original_01")
+                        type = "source")
 ```
 
-Per the `traits.build` schema, a secondary reference is when there have been two related publications out of a single dataset, while the term `original` is used if the data were collected as part of a previous dataset (generally by different authors) and added to `traits.build` as part of a compilation.\
+Per the `traits.build` schema, a `source` reference is a study whose data were collected as part of a previous dataset (generally by different authors) and added to `traits.build` as part of a compilation, while a `secondary` reference is a later publication that re-used the data of the dataset itself.\
 
-When you add `Benyon_1999` (doi - "10.1016/s0378-3774(98)00080-8"), you'll need to change the `type` field to `original_02`, etc.
+Each call with `type = "source"` adds another item to the dataset's `source` list, so when you add `Benyon_1999` (doi - "10.1016/s0378-3774(98)00080-8") the `type` stays `source`. Each reference's `key` must match the value used for that study in the data's `source_id` column (here `Barrett_1996`, `Benyon_1999`, ...), so check the `key` after each call.
 
-Note that AusTraits will build fine without adding all 11 original sources; it is up to you how many you want to add as a test.
+Note that the dataset will build without all 11 `source` references, but `dataset_test()` will report each `source_id` value that does not name one (and, the other way round, any `source` reference that no `source_id` names); it is up to you how many you want to add as a test.
 
 ------------------------------------------------------------------------
 

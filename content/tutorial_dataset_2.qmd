@@ -38,7 +38,7 @@ In the traits.build-template repository, there is a folder titled `tutorial_data
 
 -   The file `data.csv` exists within the `tutorial_dataset_2` folder. 
 
--   There is a folder `raw` nested within the `tutorial_dataset_2` folder, that contains two files, `locations.csv` and `notes.txt`. 
+-   There is a folder `raw` nested within the `tutorial_dataset_2` folder, that contains `location_data.csv` and `tutorial_dataset_2_notes.txt`, plus a completed `metadata.yml` you can check your own against once you have finished.
 
 ### source necessary functions
 
@@ -92,7 +92,7 @@ confirm:
 
 #### **Add location details** {#add_locations}
 
-For this dataset, location data is provided as a standalone spreadsheet, located in the raw data folder: `tutorial_dataset_2\raw\locations.csv`
+For this dataset, location data is provided as a standalone spreadsheet, located in the raw data folder: `tutorial_dataset_2/raw/location_data.csv`
 
 First read the location data provided into R:
 

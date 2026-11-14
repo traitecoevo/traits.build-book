@@ -329,7 +329,7 @@ elements <- schema$austraits$elements$contributors
 
 ## Sources
 
-For each dataset in the compilation there is the option to list primary and secondary citations. The primary citation is defined as, `r austraits$schema$metadata$elements$source$values$primary$description` The secondary citation is defined as, `r austraits$schema$metadata$elements$source$values$secondary$description`
+Each dataset in the compilation lists its references in three types. The `dataset` reference is defined as, `r schema$metadata$elements$source$values$dataset$description` A `source` reference is defined as, `r schema$metadata$elements$source$values$source$description` A `secondary` reference is defined as, `r schema$metadata$elements$source$values$secondary$description`
 
 The element `sources` includes bibtex versions of all sources which can be imported into your reference library:
 

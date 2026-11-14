@@ -18,8 +18,7 @@ the database is compiled (with the exception of `individual_id`, which can also 
 file).
 
 `dataset_id`
-: The study a record comes from. Corresponds to a folder under `data/` and, usually, to the primary
-  source's citation key (e.g. `Falster_2005_1`).
+: The study a record comes from. Corresponds to a folder under `data/`, and is the `key` of the dataset's own reference, its `dataset` reference (e.g. `Falster_2005_1`).
 
 `source_id`
 : Distinguishes sources *within* a single `dataset_id` — used when one dataset combines data from
@@ -133,9 +132,7 @@ pivot check.
   `contexts` table.
 
 **Source vs dataset**
-: A **dataset** (`dataset_id`) is a unit of contribution — one folder, one metadata file. A **source**
-  is a citable reference. Usually they coincide, but one dataset can draw on several sources (each with
-  its own `source_id`), and a source can be `primary`, `secondary`, or `original`.
+: A **dataset** (`dataset_id`) is a unit of contribution — one folder, one metadata file. A **source** is a citable reference. Usually they coincide, but one dataset can draw on several sources. A dataset's `metadata.yml` lists its references as one `dataset` reference (the dataset itself, keyed by its `dataset_id`), `source` references (for a compilation, the studies observations were taken from, each named by its `key` in the data's `source_id`), and `secondary` references (later publications re-using the same data).
 
 **Substitution**
 : A mapping from the exact term used in a contributor's `data.csv` to an allowable value in the trait
