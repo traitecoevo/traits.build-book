@@ -522,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Ensure that this folder exists on your computer.&nbsp;</p></li>
 <li><p>The file <code>data.csv</code> exists within the <code>tutorial_dataset_4</code> folder.&nbsp;</p></li>
-<li><p>There is a folder <code>raw</code> nested within the <code>tutorial_dataset_4</code> folder, that contains one file, <code>tutorial_dataset_4_notes.txt</code>.&nbsp;</p></li>
+<li><p>There is a folder <code>raw</code> nested within the <code>tutorial_dataset_4</code> folder, that contains <code>tutorial_dataset_4_notes.txt</code>, plus a completed <code>metadata.yml</code> you can check your own against once you have finished.</p></li>
 </ul>
 </section>
 <section id="source-necessary-functions" class="level3">
@@ -600,16 +600,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> Drake and Franks <span class="dv">2003</span></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span> Drake et al. <span class="dv">2011</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>You would now need to look up each of these references in the reference section of the manuscript and use Google Scholar (or another reference resource) to look up the doi for each reference. To add additional references, you need to add an argument to the <code>metadata_add_source_doi</code> function:<br>
+<p>You would now need to look up each of these references in the reference section of the manuscript and use Google Scholar (or another reference resource) to look up the doi for each reference. To add these references, add the argument <code>type = "source"</code> to the <code>metadata_add_source_doi</code> function:<br>
 </p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> <span class="st">"tutorial_dataset_4"</span>, <span class="at">doi =</span> <span class="st">"10.1071/bt9960249"</span>, </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">type =</span> <span class="st">"source"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Per the <code>traits.build</code> schema, a <code>secondary</code> reference is a later publication out of the same dataset, while a <code>source</code> reference is a study whose data were collected as part of a previous dataset (generally by different authors) and added to <code>traits.build</code> as part of a compilation. Each observation names its study in the <code>source_id</code> column (see below), which must match the <code>key</code> of one of these references.<br>
+<p>Per the <code>traits.build</code> schema, a <code>source</code> reference is a study whose data were collected as part of a previous dataset (generally by different authors) and added to <code>traits.build</code> as part of a compilation, while a <code>secondary</code> reference is a later publication that re-used the data of the dataset itself.<br>
 </p>
-<p>When you add <code>Benyon_1999</code> (doi - “10.1016/s0378-3774(98)00080-8”), use <code>type = "source"</code> again: each call adds the reference to the <code>source:</code> list.</p>
-<p>Note that the database will build without all 11 original sources, but <code>dataset_test()</code> fails on any <code>source_id</code> value that is neither the <code>dataset_id</code> nor the <code>key</code> of a <code>source</code> reference. To test with only a few, add those references and filter <code>data.csv</code> to their studies.</p>
+<p>Each call with <code>type = "source"</code> adds another item to the dataset’s <code>source</code> list, so when you add <code>Benyon_1999</code> (doi - “10.1016/s0378-3774(98)00080-8”) the <code>type</code> stays <code>source</code>. Each reference’s <code>key</code> must match the value used for that study in the data’s <code>source_id</code> column (here <code>Barrett_1996</code>, <code>Benyon_1999</code>, …), so check the <code>key</code> after each call.</p>
+<p>Note that the dataset will build without all 11 <code>source</code> references, but <code>dataset_test()</code> will report each <code>source_id</code> value that does not name one (and, the other way round, any <code>source</code> reference that no <code>source_id</code> names); it is up to you how many you want to add as a test.</p>
 <hr>
 </section>
 <section id="source_ID" class="level4">

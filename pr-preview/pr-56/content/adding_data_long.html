@@ -716,12 +716,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="source" class="level3">
 <h3 class="anchored" data-anchor-id="source">Adding a source</h3>
-<p>The skeletal <code>metadata.yml</code> file created by <code>metadata_create_template</code> included a <code>source:</code> section with a <code>dataset:</code> entry, the dataset’s own reference, with default fields for a journal article. Its <code>key</code> is the <code>dataset_id</code>.</p>
-<p>You can manually enter citation details, but whenever possible, use one of the three functions developed to automatically propagate citation details.</p>
+<p>The skeletal <code>metadata.yml</code> file created by <code>metadata_create_template</code> included a <code>source</code> section holding the dataset’s own reference, <code>dataset</code>, with default fields for a journal article and its <code>key</code> already set to the <code>dataset_id</code>.</p>
+<p>A <code>source</code> section can hold three types of reference:</p>
+<ul>
+<li><code>dataset</code>: the study the data were collected for (or, for a compilation, the publication or database the data were assembled for). There is exactly one, and its <code>key</code> must be the <code>dataset_id</code>.</li>
+<li><code>source</code>: for a compilation, each study observations were taken from. Each observation’s <code>source_id</code> holds the <code>key</code> of the reference it came from.</li>
+<li><code>secondary</code>: later publications from the same research group that re-used or re-analysed the data.</li>
+</ul>
+<p><code>source</code> and <code>secondary</code> are lists, with one <code>- key:</code> item per reference:</p>
+<pre><code>source:
+  dataset:
+    key: Smith_2020
+    ...
+  source:
+  - key: Jones_1999
+    ...
+  - key: Brown_2005
+    ...
+  secondary:
+  - key: Smith_2021
+    ...</code></pre>
+<p>Files written for earlier versions of <code>traits.build</code> used <code>primary</code> for the dataset’s own reference, <code>original</code> or <code>original_source</code> for the studies of a compilation, and a numbered entry for each further reference (<code>secondary_01</code>, <code>original_01</code>, …). <code>traits.build</code> no longer reads those, and stops with a message naming the entry to change. <code>traits.build::metadata_convert_sources()</code> converts every dataset in <code>data/</code> to the current shape.</p>
+<p>You can manually enter citation details, but whenever possible, use one of the two functions developed to automatically propagate citation details, <code>metadata_add_source_doi()</code> and <code>metadata_add_source_bibtex()</code>.</p>
 <section id="adding-source-from-a-doi" class="level4">
 <h4 class="anchored" data-anchor-id="adding-source-from-a-doi"><strong>Adding source from a doi</strong></h4>
 <p>If you have a <code>doi</code> for your study, use the function.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> current_study, <span class="at">doi =</span> <span class="st">"doi"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> current_study, <span class="at">doi =</span> <span class="st">"doi"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The different elements within the source will automatically be generated.</p>
 <p>Double check the information added to ensure:</p>
 <ol type="1">
@@ -731,54 +751,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Pages numbers are present and include <code>--</code> between page numbers (for example, <code>123 -- 134</code>).</li>
 <li>If there is a colon (:) or apostrophe (’) in a reference, the text for that line must be in quotes (“).</li>
 </ol>
-<p>By default, details are added as the dataset’s own reference (<code>type = "dataset"</code>). A dataset can also list two other kinds of reference, each as a list:</p>
+<p>By default, details are added as the <code>dataset</code> reference, and its <code>key</code> is set to the <code>dataset_id</code>. To add a later publication that re-used the same data, specify <code>type = "secondary"</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> current_study, <span class="at">doi =</span> <span class="st">"doi"</span>,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">type =</span> <span class="st">"secondary"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li><code>type = "secondary"</code>: a later publication that re-uses the same data.</li>
-<li><code>type = "source"</code>: for a compilation, a study the observations were taken from. Each observation names its study in the data’s <code>source_id</code> column, which must match one of these keys.</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">metadata_add_source_doi</span>(<span class="at">dataset_id =</span> current_study, <span class="at">doi =</span> <span class="st">"doi"</span>, </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">type =</span> <span class="st">"secondary"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>Adding a <code>dataset</code> reference again overwrites the one already there. A <code>secondary</code> or <code>source</code> reference is added to its list, or replaces the entry with the same <code>key</code>, so call the function once per reference with the same <code>type</code>.</li>
-<li>For <code>source</code> and <code>secondary</code> references, always check the <code>key</code> field, as it can be incorrect for hyphenated last names. The <code>dataset</code> reference’s <code>key</code> is always the <code>dataset_id</code>; <code>dataset_test()</code> fails if it is anything else.</li>
-<li>Older versions of <code>traits.build</code> wrote these as <code>primary:</code>, <code>secondary_01:</code>, <code>original_01:</code> and so on. The current version stops on that shape; <code>traits.build::metadata_convert_sources()</code> converts a database’s <code>metadata.yml</code> files.</li>
+<li>Adding a <code>dataset</code> reference again overwrites the one already there, since a dataset has only one.</li>
+<li>Each call with <code>type = "secondary"</code> or <code>type = "source"</code> adds one more item to that list; there is no need to number them. Adding a reference whose <code>key</code> is already in the list replaces that item.</li>
+<li>Always check the <code>key</code> field of <code>source</code> and <code>secondary</code> references, as it can be incorrect for hyphenated last names.</li>
+<li>If the dataset being entered is a compilation of many original sources, add each of them with <code>type = "source"</code>, and make sure each reference’s <code>key</code> matches the values in the data’s <code>source_id</code> column. See <a href="https://github.com/traitecoevo/austraits.build/blob/develop/data/Richards_2008/metadata.yml">Richards_2008</a> for an example of a long <code>source</code> list.</li>
+<li>A long <code>source</code> or <code>secondary</code> list can instead be kept in its own file beside <code>metadata.yml</code>, either a <code>.yml</code> file holding the list or a <code>.bib</code> file, and named in its place, as in <code>source: sources.yml</code>.</li>
 </ul>
 </section>
 <section id="adding-source-from-a-bibtex-file" class="level4">
 <h4 class="anchored" data-anchor-id="adding-source-from-a-bibtex-file"><strong>Adding source from a bibtex file</strong></h4>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">metadata_add_source_bibtex</span>(<span class="at">dataset_id =</span> current_study, <span class="at">file =</span> <span class="st">"myref.bib"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>traits.build<span class="sc">::</span><span class="fu">metadata_add_source_bibtex</span>(<span class="at">dataset_id =</span> current_study, <span class="at">file =</span> <span class="st">"myref.bib"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It takes the same <code>type</code> argument as <code>metadata_add_source_doi</code>.</p>
 <p>(These options require the packages <a href="https://github.com/ropensci/rcrossref">rcrossref</a> and <a href="https://github.com/ropensci/RefManageR/">RefManageR</a> to be installed.)</p>
-<p>Put together, the <code>source:</code> section of a compilation looks like this:</p>
-<pre><code>source:
-  dataset:
-    key: Smith_2020
-    bibtype: Article
-    ...
-  source:
-  - key: Jones_1999
-    bibtype: Thesis
-    ...
-  - key: Brown_2005
-    bibtype: Book
-    ...
-  secondary:
-  - key: Smith_2021
-    bibtype: Article
-    ...</code></pre>
 </section>
 <section id="proper-formatting-of-different-source-types" class="level4">
 <h4 class="anchored" data-anchor-id="proper-formatting-of-different-source-types"><strong>Proper formatting of different source types</strong></h4>
-<p>Different source types require different fields, formatting:</p>
+<p>Different source types require different fields, formatting. In each example below the <code>key</code> is that dataset’s <code>dataset_id</code>, as a <code>dataset</code> reference’s <code>key</code> must be:</p>
 <p><strong>Book:</strong></p>
 <pre><code>source:
   dataset:
-      key: Cooper_2013
-      bibtype: Book
-      year: 2013
-      author: Wendy Cooper and William T. Cooper
-      title: Australian rainforest fruits
-      publisher: CSIRO Publishing
-      pages: 272</code></pre>
+    key: Cooper_2013
+    bibtype: Book
+    year: 2013
+    author: Wendy Cooper and William T. Cooper
+    title: Australian rainforest fruits
+    publisher: CSIRO Publishing
+    pages: 272</code></pre>
 <p><strong>Online resource:</strong></p>
 <pre><code>source:
   dataset:
@@ -792,14 +794,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Thesis:</strong></p>
 <pre><code>source:
   dataset:
-      key: Kanowski_2000
-      bibtype: Thesis
-      year: 1999
-      author: John Kanowski
-      title: Ecological determinants of the distribution and abundance of the folivorous
-        marsupials endemic to the rainforests of the Atherton uplands, north Queensland.
-      type: PhD
-      institution: James Cook University, Townsville</code></pre>
+    key: Kanowski_2000
+    bibtype: Thesis
+    year: 1999
+    author: John Kanowski
+    title: Ecological determinants of the distribution and abundance of the folivorous
+      marsupials endemic to the rainforests of the Atherton uplands, north Queensland.
+    type: PhD
+    institution: James Cook University, Townsville</code></pre>
 <p><strong>Unpublished dataset:</strong></p>
 <pre><code>source:
   dataset:
@@ -810,7 +812,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     title: "Unpublished data: Herbivory survey within Royal National Park, University
       of New South Wales"</code></pre>
 <ul>
-<li>In each example the <code>key</code> is that dataset’s <code>dataset_id</code>.</li>
 <li>Note the title of an unpublished dataset must begin with the words “Unpublished data” and include the data collectors affiliation.</li>
 </ul>
 </section>

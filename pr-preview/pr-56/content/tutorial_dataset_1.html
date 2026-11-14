@@ -515,7 +515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Ensure that this folder exists on your computer.&nbsp;</p></li>
 <li><p>The file <code>data.csv</code> exists within the <code>tutorial_dataset_1</code> folder.&nbsp;</p></li>
-<li><p>There is a folder <code>raw</code> nested within the <code>tutorial_dataset_1</code> folder, that contains one file, <code>notes.txt</code>.&nbsp;</p></li>
+<li><p>There is a folder <code>raw</code> nested within the <code>tutorial_dataset_1</code> folder, that contains <code>tutorial_dataset_1_notes.txt</code>, plus a completed <code>metadata.yml</code> you can check your own against once you have finished.</p></li>
 </ul>
 </section>
 <section id="source-necessary-functions" class="level3">
@@ -619,7 +619,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">doi =</span> <span class="st">"10.1111/j.0022-0477.2005.00992.x"</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The following information is automatically propagated into the <code>source</code> field, as the dataset’s own reference (<code>dataset:</code>, keyed by the <code>dataset_id</code>):</p>
+<p>The following information is automatically propagated into the <code>source</code> section, as the dataset’s own reference, <code>dataset</code>, keyed by the <code>dataset_id</code>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>source<span class="sc">:</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  dataset<span class="sc">:</span></span>
@@ -930,7 +930,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td>methods</td>
-<td>See the study’s <a href="https://github.com/traitecoevo/traits.build-template/blob/master/data/tutorial_dataset_1/raw/test_dataset_1_notes.txt">test_dataset_1_notes.txt</a> file</td>
+<td>See the study’s <a href="https://github.com/traitecoevo/traits.build-template/blob/master/data/tutorial_dataset_1/raw/tutorial_dataset_1_notes.txt">tutorial_dataset_1_notes.txt</a> file</td>
 <td>A verbatim (free-form) text field documenting the methods used to collect the trait measurements. This is generally available from the reference or directly from the author.</td>
 </tr>
 </tbody>

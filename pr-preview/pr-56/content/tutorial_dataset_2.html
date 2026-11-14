@@ -516,7 +516,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Ensure that this folder exists on your computer.&nbsp;</p></li>
 <li><p>The file <code>data.csv</code> exists within the <code>tutorial_dataset_2</code> folder.&nbsp;</p></li>
-<li><p>There is a folder <code>raw</code> nested within the <code>tutorial_dataset_2</code> folder, that contains two files, <code>locations.csv</code> and <code>notes.txt</code>.&nbsp;</p></li>
+<li><p>There is a folder <code>raw</code> nested within the <code>tutorial_dataset_2</code> folder, that contains <code>location_data.csv</code> and <code>tutorial_dataset_2_notes.txt</code>, plus a completed <code>metadata.yml</code> you can check your own against once you have finished.</p></li>
 </ul>
 </section>
 <section id="source-necessary-functions" class="level3">
@@ -568,7 +568,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="add_locations" class="level4">
 <h4 class="anchored" data-anchor-id="add_locations"><strong>Add location details</strong></h4>
-<p>For this dataset, location data is provided as a standalone spreadsheet, located in the raw data folder: <code>tutorial_dataset_2\raw\locations.csv</code></p>
+<p>For this dataset, location data is provided as a standalone spreadsheet, located in the raw data folder: <code>tutorial_dataset_2/raw/location_data.csv</code></p>
 <p>First read the location data provided into R:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>locations <span class="ot">&lt;-</span></span>
