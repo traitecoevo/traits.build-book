@@ -84,7 +84,7 @@ If you're not familiar with AusTraits, you may want to begin by exploring the br
 *How are these data distributed across datasets?*
 
 ```{r, eval = TRUE}
-austraits::plot_trait_distribution_beeswarm(database = austraits, trait_name = "leaf_N_per_dry_mass", y_axis_category = "dataset_id")
+austraits::plot_trait_distribution_jitter(database = austraits, trait_name = "leaf_N_per_dry_mass", y_axis_category = "dataset_id")
 ```
 
 *How much data exist for other nitrogen traits?*
@@ -826,29 +826,29 @@ This function may be sufficient for exploratory purposes. Alternatively, you can
 
 Another way to summarise AusTraits data by trait, and determine whether AusTraits offers sufficient data coverage for a trait of choice, is to plot the distribution of trait values in AusTraits.
 
-As seen in [`A first look at data`](#exploring), the function `austraits::plot_trait_distribution_beeswarm()` plots trait data by `dataset_id`, `genus`, `family` or indeed any column in the traits table, such as `life_stage` or `basis_of_record`:
+As seen in [`A first look at data`](#exploring), the function `austraits::plot_trait_distribution_jitter()` plots the values of a numeric trait, one point per record, by `dataset_id`, `genus`, `family` or indeed any column in the traits table, such as `life_stage` or `basis_of_record`:
 
 ```{r, eval = TRUE}
 # How does leaf N vary by dataset?
-austraits::plot_trait_distribution_beeswarm(austraits, "leaf_N_per_dry_mass", 
-                                               y_axis_category = "dataset_id")
+austraits::plot_trait_distribution_jitter(austraits, "leaf_N_per_dry_mass", 
+                                            y_axis_category = "dataset_id")
 
 # How does leaf N vary across Banksia species?
 Banksia_data <- austraits %>% extract_taxa(genus = "Banksia")
 
-austraits::plot_trait_distribution_beeswarm(Banksia_data, "leaf_N_per_dry_mass",
-                                               y_axis_category = "taxon_name")
+austraits::plot_trait_distribution_jitter(Banksia_data, "leaf_N_per_dry_mass",
+                                            y_axis_category = "taxon_name")
 
 # Does leaf mass per area shift in Eucalyptus seedlings versus adults, which is captured in `life_stage`? What about amongst Eucalypts where information about the age of the leaves was recorded, captured as the context property "leaf age"?
 
 Euc_data <- austraits %>% extract_taxa(genus = "Eucalyptus") %>%
   austraits::join_context_properties(vars = "leaf age", format = "many_columns", include_description = FALSE)
 
-austraits::plot_trait_distribution_beeswarm(Euc_data, "leaf_mass_per_area", 
-                                               y_axis_category = "life_stage")
+austraits::plot_trait_distribution_jitter(Euc_data, "leaf_mass_per_area", 
+                                            y_axis_category = "life_stage")
 
-austraits::plot_trait_distribution_beeswarm(Euc_data, "leaf_mass_per_area", 
-                                               y_axis_category = "method_context: leaf age")
+austraits::plot_trait_distribution_jitter(Euc_data, "leaf_mass_per_area", 
+                                            y_axis_category = "method_context: leaf age")
 ```
 
 ### Plotting data distribution by location

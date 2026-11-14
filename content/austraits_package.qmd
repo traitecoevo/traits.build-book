@@ -11,7 +11,7 @@ library(dplyr)
 library(stringr)
 library(austraits)
 
-austraits <- austraits:::austraits_5.0.0_lite
+austraits <- traits.use::austraits_lite
 ```
 
 The `austraits` package was initially designed to aid users in accessing data from [AusTraits](https://zenodo.org/record/5112001), a curated plant trait database for the Australian flora. This package contains several core functions to explore, wrangle and visualise data. 
@@ -20,7 +20,7 @@ In 2024 the package was generalised to support all databases built using the [tr
 
 Below, we include a tutorial to illustrate how to use these functions.
 
-**Note the examples shown us a subset of AusTraits release 5.0.0, but the code can be run using any traits.build database.**
+**Note the examples show a subset of AusTraits release 7.0.0 (`traits.use::austraits_lite`), but the code can be run using any traits.build database.**
 
 ## Getting started
 `austraits` is still under development and not yet on Cran. To install the current version from GitHub: 
@@ -269,11 +269,11 @@ plot_locations(data_wood_dens$traits)
 
 ## Visualising data distribution and variance
 
-`plot_trait_distribution_beeswarm` creates histograms and [beeswarm plots](https://github.com/eclarke/ggbeeswarm) for continuous traits to help users visualise the data. Users can specify whether to create separate beeswarm plots based on any column in the traits table (e.g. `dataset_id` or `life_stage`) or at the level of `genus` or `family`.
+`plot_trait_distribution_jitter` plots the values of a numeric trait, one point per record (leaving out values recorded as a bin or range), to help users visualise the data. Users can group the values by any column in the traits table (e.g. `dataset_id` or `life_stage`) or by `genus` or `family`, and highlight groups with `highlight`. `plot_trait_distribution` picks this plot for a numeric trait and `plot_categorical_trait_distribution` for a categorical one.
 
-```{r, beeswarm, fig.align = "center", fig.width=6, fig.height=7}
-austraits %>% plot_trait_distribution_beeswarm("wood_density", "family")
-austraits %>% plot_trait_distribution_beeswarm("wood_density", "dataset_id")
+```{r, jitter, fig.align = "center", fig.width=6, fig.height=7}
+austraits %>% plot_trait_distribution_jitter("wood_density", "family")
+austraits %>% plot_trait_distribution_jitter("wood_density", "dataset_id")
 ```
 
 ## Pivotting from long to wide format 
