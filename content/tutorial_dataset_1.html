@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4f67ab1e4efc86feb5e21e0983fc9301.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-93ea9577cdbf6ced302812e0f26facab.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -515,7 +515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Ensure that this folder exists on your computer.&nbsp;</p></li>
 <li><p>The file <code>data.csv</code> exists within the <code>tutorial_dataset_1</code> folder.&nbsp;</p></li>
-<li><p>There is a folder <code>raw</code> nested within the <code>tutorial_dataset_1</code> folder, that contains one file, <code>notes.txt</code>.&nbsp;</p></li>
+<li><p>There is a folder <code>raw</code> nested within the <code>tutorial_dataset_1</code> folder, that contains <code>tutorial_dataset_1_notes.txt</code>, plus a completed <code>metadata.yml</code> you can check your own against once you have finished.</p></li>
 </ul>
 </section>
 <section id="source-necessary-functions" class="level3">
@@ -619,19 +619,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">doi =</span> <span class="st">"10.1111/j.0022-0477.2005.00992.x"</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The following information is automatically propagated into the source field:</p>
+<p>The following information is automatically propagated into the <code>source</code> section, as the dataset’s own reference, <code>dataset</code>, keyed by the <code>dataset_id</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>primary<span class="sc">:</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  key<span class="sc">:</span> Test_1</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  bibtype<span class="sc">:</span> Article</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  year<span class="sc">:</span> <span class="st">'2005'</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  author<span class="sc">:</span> Daniel S. Falster and Mark Westoby</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  journal<span class="sc">:</span> Journal of Ecology</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  title<span class="sc">:</span> Alternative height strategies among <span class="dv">45</span> dicot rain forest species from tropical Queensland, Australia</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  volume<span class="sc">:</span> <span class="st">'93'</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  number<span class="sc">:</span> <span class="st">'3'</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  pages<span class="sc">:</span> <span class="dv">521</span><span class="sc">--</span><span class="dv">535</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  doi<span class="sc">:</span> <span class="fl">10.1111</span><span class="sc">/</span>j<span class="fl">.0022</span><span class="dv">-0477</span>.<span class="dv">2005</span>.<span class="fl">00992.</span>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>source<span class="sc">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  dataset<span class="sc">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    key<span class="sc">:</span> tutorial_dataset_1</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    bibtype<span class="sc">:</span> Article</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    year<span class="sc">:</span> <span class="st">'2005'</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    author<span class="sc">:</span> Daniel S. Falster and Mark Westoby</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    journal<span class="sc">:</span> Journal of Ecology</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    title<span class="sc">:</span> Alternative height strategies among <span class="dv">45</span> dicot rain forest species from tropical Queensland, Australia</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    volume<span class="sc">:</span> <span class="st">'93'</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    number<span class="sc">:</span> <span class="st">'3'</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    pages<span class="sc">:</span> <span class="dv">521</span><span class="sc">--</span><span class="dv">535</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    doi<span class="sc">:</span> <span class="fl">10.1111</span><span class="sc">/</span>j<span class="fl">.0022</span><span class="dv">-0477</span>.<span class="dv">2005</span>.<span class="fl">00992.</span>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Once you’ve run this line of code, look at the metadata file to confirm:</p>
 <ol type="1">
@@ -929,7 +930,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td>methods</td>
-<td>See the study’s <a href="https://github.com/traitecoevo/traits.build-template/blob/master/data/tutorial_dataset_1/raw/test_dataset_1_notes.txt">test_dataset_1_notes.txt</a> file</td>
+<td>See the study’s <a href="https://github.com/traitecoevo/traits.build-template/blob/master/data/tutorial_dataset_1/raw/tutorial_dataset_1_notes.txt">tutorial_dataset_1_notes.txt</a> file</td>
 <td>A verbatim (free-form) text field documenting the methods used to collect the trait measurements. This is generally available from the reference or directly from the author.</td>
 </tr>
 </tbody>

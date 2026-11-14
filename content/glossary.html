@@ -48,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4f67ab1e4efc86feb5e21e0983fc9301.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-93ea9577cdbf6ced302812e0f26facab.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -447,7 +447,7 @@ ul.task-list li input[type="checkbox"] {
 <dl>
 <dt><code>dataset_id</code></dt>
 <dd>
-The study a record comes from. Corresponds to a folder under <code>data/</code> and, usually, to the primary source’s citation key (e.g.&nbsp;<code>Falster_2005_1</code>).
+The study a record comes from. Corresponds to a folder under <code>data/</code>, and is the <code>key</code> of the dataset’s own reference, its <code>dataset</code> reference (e.g.&nbsp;<code>Falster_2005_1</code>).
 </dd>
 <dt><code>source_id</code></dt>
 <dd>
@@ -543,7 +543,7 @@ Environmental or experimental conditions that give a measurement its meaning. <c
 </dd>
 <dt><strong>Source vs dataset</strong></dt>
 <dd>
-A <strong>dataset</strong> (<code>dataset_id</code>) is a unit of contribution — one folder, one metadata file. A <strong>source</strong> is a citable reference. Usually they coincide, but one dataset can draw on several sources (each with its own <code>source_id</code>), and a source can be <code>primary</code>, <code>secondary</code>, or <code>original</code>.
+A <strong>dataset</strong> (<code>dataset_id</code>) is a unit of contribution — one folder, one metadata file. A <strong>source</strong> is a citable reference. Usually they coincide, but one dataset can draw on several sources. A dataset’s <code>metadata.yml</code> lists its references as one <code>dataset</code> reference (the dataset itself, keyed by its <code>dataset_id</code>), <code>source</code> references (for a compilation, the studies observations were taken from, each named by its <code>key</code> in the data’s <code>source_id</code>), and <code>secondary</code> references (later publications re-using the same data).
 </dd>
 <dt><strong>Substitution</strong></dt>
 <dd>

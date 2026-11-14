@@ -48,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4f67ab1e4efc86feb5e21e0983fc9301.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-93ea9577cdbf6ced302812e0f26facab.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -1974,7 +1974,7 @@ Additional roles of data collector, mostly contact person.
 </section>
 <section id="sources" class="level2" data-number="8.11">
 <h2 data-number="8.11" class="anchored" data-anchor-id="sources"><span class="header-section-number">8.11</span> Sources</h2>
-<p>For each dataset in the compilation there is the option to list primary and secondary citations. The primary citation is defined as, The original study in which data were collected. The secondary citation is defined as, A subsequent study where data were compiled or re-analysed.</p>
+<p>Each dataset in the compilation lists its references in three types. The <code>dataset</code> reference is defined as, The study the data were collected for, or, for a compilation, a publication or database for which the data were assembled. A single reference, whose <code>key</code> is the <code>dataset_id</code>. A <code>source</code> reference is defined as, For a compilation, a study from which observations were taken. Each observation’s <code>source_id</code> holds the <code>key</code> of the entry it came from. A list of references, one <code>- key:</code> item per reference, or the name of a <code>.yml</code> or <code>.bib</code> file holding them. A <code>secondary</code> reference is defined as, An additional publication from the same research group that re-used or re-analysed data from the dataset. Attached to the whole dataset. A list of references, one <code>- key:</code> item per reference, or the name of a <code>.yml</code> or <code>.bib</code> file holding them.</p>
 <p>The element <code>sources</code> includes bibtex versions of all sources which can be imported into your reference library:</p>
 <p>Or individually viewed:</p>
 <p>A formatted version of the sources also exists within the table <a href="#methods">methods</a>.</p>
