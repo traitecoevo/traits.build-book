@@ -16,7 +16,7 @@ austraits <- traits.use::austraits_lite
 
 The `austraits` package was initially designed to aid users in accessing data from [AusTraits](https://zenodo.org/record/5112001), a curated plant trait database for the Australian flora. This package contains several core functions to explore, wrangle and visualise data. 
 
-In 2024 the package was generalised to support all databases built using the [traits.build workflow](https://github.com/traitecoevo/traits.build), new functions were added, and existing functions were re-worked. The structure of AusTraits evolved from its release in 2021 until present and the version 3.0 of the austraits package only supports AusTraits versions from 5.0 onwards. If you are working with AusTraits version 4.2.0 or earlier, you need to install an [old version of austraits]() 
+In 2024 the package was generalised to support all databases built using the [traits.build workflow](https://github.com/traitecoevo/traits.build), new functions were added, and existing functions were re-worked. The structure of AusTraits evolved from its release in 2021 until present and the since version 3.0 the austraits package only supports AusTraits versions from 5.0 onwards (from version 4.0.0 it is a thin layer over [traits.use](https://github.com/traitecoevo/traits.use), which holds the functions shown here). If you are working with AusTraits version 4.2.0 or earlier, you need to install an [old version of austraits](https://github.com/traitecoevo/austraits/tree/v2.2.2) 
 
 Below, we include a tutorial to illustrate how to use these functions.
 
