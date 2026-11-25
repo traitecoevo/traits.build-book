@@ -776,8 +776,17 @@ citations from its `methods` table or exported `.bib`.
 
 ## Summarising data: trait means, modes, etc.
 
-The function `summarise_trait_means` that was in older `{austraits}` versions was has been deprecated, as it is not appropriate for AusTraits versions > 5.0 -- that is all databases built using `{traits.build}`. A new version is in development and will be released in 2025. 
-In the meantime, if you've sourced the file `extra_functions.R`, there are a few functions that allow you to summarise trait values.
+The function `summarise_trait_means()` (from `{traits.use}`, and available through `{austraits}`) gives one row per taxon and trait, computed from the records. For a numeric trait it gives the observed mean (a geometric mean of the dataset × location means), with the range and the number of records behind it; for a categorical trait, the most frequent value and the count of each value; and for a trait recording months, such as `flowering_time`, the months at least half the records give.
+
+```{r, eval = TRUE, message = FALSE}
+means <- summarise_trait_means(austraits, traits = c("leaf_mass_per_area", "resprouting_capacity"))
+
+means
+```
+
+Each AusTraits release from 8.0.0 also publishes these observed means for every trait, which `load_austraits(version = "8.0.0", means = TRUE)` loads without downloading the whole database.
+
+If you've sourced the file `extra_functions.R`, there are also a few simpler functions that summarise trait values.
 
 ### Categorical traits
 
