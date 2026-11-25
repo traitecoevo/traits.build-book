@@ -441,6 +441,12 @@ locations3$traits %>% names()
 locations3$traits[1:10]
 ```
 
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(locations1, locations2, locations3)
+invisible(gc())
+```
+
 #### Joining contexts metadata
 
 The context table documents additional context properties/ancillary data which may be useful for interpreting trait values. Context properties are divided into 5 categories: `treatment context`, `plot context`, `entity context`, `temporal context`, and `method context`.
@@ -510,6 +516,12 @@ contexts3$traits %>% names()
 contexts3$traits[1:10]
 ```
 
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(contexts1, contexts2, contexts3)
+invisible(gc())
+```
+
 #### Joining methods columns
 
 The methods table documents a selection of metadata recorded about the entire dataset and methods used for individual trait measurements. There is a single row of data per `dataset_id` x `trait_name` x `method_id` combination. `Method_id` is used to distinguish between instances where a single trait is measured twice using two separate protocols and is separate to `method_context_id`, which documents specific components of a method that are modified between measurements.
@@ -547,6 +559,12 @@ traits_with_methods <-
 traits_with_methods$traits %>% names()
 ```
 
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(traits_with_methods)
+invisible(gc())
+```
+
 #### Joining taxa
 
 The `taxa` table documents a collection of names and identifiers for each taxon. Within AusTraits, `names` submitted as identifiers within a dataset might be resolved to a species, an infraspecific taxon, or sometimes just to a genus- or family-level name; the name's resolution is recorded as the `taxon_rank`. The `taxon_rank` determines which information is filled in in the taxa table.
@@ -578,6 +596,12 @@ traits_with_taxa <-
 traits_with_taxa$traits %>% names()
 ```
 
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(traits_with_taxa)
+invisible(gc())
+```
+
 #### Joining taxonomic updates
 
 The taxonomic updates table documents all taxonomic changes implemented in the construction of AusTraits, including both the correction of typos and the updating of outdated synonyms to the currently accepted name.
@@ -607,6 +631,12 @@ traits_with_taxonomic_updates <-
   austraits %>% austraits::join_taxonomic_updates(vars = "all")
 
 traits_with_taxonomic_updates$traits %>% names()
+```
+
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(traits_with_taxonomic_updates)
+invisible(gc())
 ```
 
 #### Joining contributors
@@ -649,6 +679,12 @@ traits_with_contributors$traits %>% names()
 traits_with_contributors$traits
 ```
 
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(traits_with_contributors)
+invisible(gc())
+```
+
 #### Joining all data
 
 If you want to join data from all ancillary tables onto the traits table, effectively "flattening" the relational table into a flat table, it is simplest to use the `{austraits}` function `flatten_database`.
@@ -689,6 +725,12 @@ flat_database <- austraits %>% flatten_database(
 )
 
 names(flat_database)
+```
+
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(flat_database)
+invisible(gc())
 ```
 
 ### Combining `extract_` and `join_` functions
