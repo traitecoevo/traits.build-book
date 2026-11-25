@@ -441,6 +441,12 @@ locations3$traits %>% names()
 locations3$traits[1:10]
 ```
 
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(locations1, locations2, locations3)
+invisible(gc())
+```
+
 #### Joining contexts metadata
 
 The context table documents additional context properties/ancillary data which may be useful for interpreting trait values. Context properties are divided into 5 categories: `treatment context`, `plot context`, `entity context`, `temporal context`, and `method context`.
@@ -510,6 +516,12 @@ contexts3$traits %>% names()
 contexts3$traits[1:10]
 ```
 
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(contexts1, contexts2, contexts3)
+invisible(gc())
+```
+
 #### Joining methods columns
 
 The methods table documents a selection of metadata recorded about the entire dataset and methods used for individual trait measurements. There is a single row of data per `dataset_id` x `trait_name` x `method_id` combination. `Method_id` is used to distinguish between instances where a single trait is measured twice using two separate protocols and is separate to `method_context_id`, which documents specific components of a method that are modified between measurements.
@@ -521,7 +533,7 @@ The austraits function `join_methods` joins columns from the methods table to th
 First, check the schema file embedded within AusTraits to see what information is documented in each column:  
 
 ```{r, eval = TRUE}
-austraits$schema$austraits$elements$methods$elements %>% 
+austraits$schema$database$elements$methods$elements %>% 
   austraits::convert_list_to_df1()
 ```
 
@@ -547,6 +559,12 @@ traits_with_methods <-
 traits_with_methods$traits %>% names()
 ```
 
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(traits_with_methods)
+invisible(gc())
+```
+
 #### Joining taxa
 
 The `taxa` table documents a collection of names and identifiers for each taxon. Within AusTraits, `names` submitted as identifiers within a dataset might be resolved to a species, an infraspecific taxon, or sometimes just to a genus- or family-level name; the name's resolution is recorded as the `taxon_rank`. The `taxon_rank` determines which information is filled in in the taxa table.
@@ -558,7 +576,7 @@ The `{austraits}` function `join_taxa` joins columns from the `taxa` table to th
 First, check the schema file embedded within AusTraits to see what information is documented in each column:  
 
 ```{r, eval = TRUE}
-austraits$schema$austraits$elements$taxa$elements %>% 
+austraits$schema$database$elements$taxa$elements %>% 
   austraits::convert_list_to_df1()
 ```
 
@@ -578,6 +596,12 @@ traits_with_taxa <-
 traits_with_taxa$traits %>% names()
 ```
 
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(traits_with_taxa)
+invisible(gc())
+```
+
 #### Joining taxonomic updates
 
 The taxonomic updates table documents all taxonomic changes implemented in the construction of AusTraits, including both the correction of typos and the updating of outdated synonyms to the currently accepted name.
@@ -589,7 +613,7 @@ The `{austraits}` function `join_taxonomic_updates` joins columns from the `taxo
 First, check the schema file embedded within AusTraits to see what information is documented in each column:  
 
 ```{r, eval = TRUE}
-austraits$schema$austraits$elements$taxonomic_updates$elements %>% 
+austraits$schema$database$elements$taxonomic_updates$elements %>% 
   austraits::convert_list_to_df1()
 ```
 
@@ -609,6 +633,12 @@ traits_with_taxonomic_updates <-
 traits_with_taxonomic_updates$traits %>% names()
 ```
 
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(traits_with_taxonomic_updates)
+invisible(gc())
+```
+
 #### Joining contributors
 
 The contributors table documents all basic metadata about all dataset contributors, including their name, ORCID, and role for various datasets.
@@ -625,7 +655,7 @@ The `{austraits}` function `join_contributors` joins columns from the `contribut
 First, check the schema file embedded within AusTraits to see what information is documented in each column:  
 
 ```{r, eval = TRUE}
-austraits$schema$austraits$elements$contributors$elements %>% 
+austraits$schema$database$elements$contributors$elements %>% 
   austraits::convert_list_to_df1()
 ```
 
@@ -647,6 +677,12 @@ traits_with_contributors <-
 traits_with_contributors$traits %>% names()
 
 traits_with_contributors$traits
+```
+
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(traits_with_contributors)
+invisible(gc())
 ```
 
 #### Joining all data
@@ -689,6 +725,12 @@ flat_database <- austraits %>% flatten_database(
 )
 
 names(flat_database)
+```
+
+```{r, include = FALSE}
+# Each example above holds a full copy of AusTraits; dropped so the book renders within a 16 GB runner
+rm(flat_database)
+invisible(gc())
 ```
 
 ### Combining `extract_` and `join_` functions
@@ -776,8 +818,17 @@ citations from its `methods` table or exported `.bib`.
 
 ## Summarising data: trait means, modes, etc.
 
-The function `summarise_trait_means` that was in older `{austraits}` versions was has been deprecated, as it is not appropriate for AusTraits versions > 5.0 -- that is all databases built using `{traits.build}`. A new version is in development and will be released in 2025. 
-In the meantime, if you've sourced the file `extra_functions.R`, there are a few functions that allow you to summarise trait values.
+The function `summarise_trait_means()` (from `{traits.use}`, and available through `{austraits}`) gives one row per taxon and trait, computed from the records. For a numeric trait it gives the observed mean (a geometric mean of the dataset × location means), with the range and the number of records behind it; for a categorical trait, the most frequent value and the count of each value; and for a trait recording months, such as `flowering_time`, the months at least half the records give.
+
+```{r, eval = TRUE, message = FALSE}
+means <- summarise_trait_means(austraits, traits = c("leaf_mass_per_area", "resprouting_capacity"))
+
+means
+```
+
+Each AusTraits release from 8.0.0 also publishes these observed means for every trait, which `load_austraits(version = "8.0.0", means = TRUE)` loads without downloading the whole database.
+
+If you've sourced the file `extra_functions.R`, there are also a few simpler functions that summarise trait values.
 
 ### Categorical traits
 
