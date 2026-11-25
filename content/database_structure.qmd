@@ -89,7 +89,7 @@ print_schema_element <- function(elements) {
 ## Traits {#traits}
 
 ```{r}
-elements <- schema$austraits$elements$traits
+elements <- schema$database$elements$traits
 
   sprintf("**Description:** %s.\n", elements$description) %>%
     stringr::str_replace_all("\\.\\.", "\\.") %>%
@@ -196,7 +196,7 @@ schema$basis_of_value$values %>%
 ## Locations
 
 ```{r}
-elements <- schema$austraits$elements$locations
+elements <- schema$database$elements$locations
 
   sprintf("**Description:** %s.\n", elements$description) %>%
     stringr::str_replace_all("\\.\\.", "\\.") %>%
@@ -211,7 +211,7 @@ elements <- schema$austraits$elements$locations
 ## Contexts {#contexts}
 
 ```{r}
-elements <- schema$austraits$elements$contexts
+elements <- schema$database$elements$contexts
 
   sprintf("**Description:** %s.\n", elements$description) %>%
     stringr::str_replace_all("\\.\\.", "\\.") %>%
@@ -226,7 +226,7 @@ elements <- schema$austraits$elements$contexts
 ## Methods {#methods}
 
 ```{r}
-elements <- schema$austraits$elements$methods
+elements <- schema$database$elements$methods
 
   sprintf("**Description:** %s.\n", elements$description) %>%
     stringr::str_replace_all("\\.\\.", "\\.") %>%
@@ -241,7 +241,7 @@ elements <- schema$austraits$elements$methods
 ## Excluded_data
 
 ```{r}
-elements <- schema$austraits$elements$excluded_data
+elements <- schema$database$elements$excluded_data
 
   sprintf("**Description:** %s.\n", elements$description) %>%
     stringr::str_replace_all("\\.\\.", "\\.") %>%
@@ -260,7 +260,7 @@ elements <- schema$austraits$elements$excluded_data
 Version `r desc::desc_get_field("Version")` of AusTraits contains records for `r austraits$traits$taxon_name %>% unique() %>% length()` different taxa.
 
 ```{r}
-elements <- schema$austraits$elements$taxa
+elements <- schema$database$elements$taxa
 
   elements %>%
     print_schema_element()
@@ -271,7 +271,7 @@ elements <- schema$austraits$elements$taxa
 ## Taxonomic_updates
 
 ```{r}
-elements <- schema$austraits$elements$taxonomic_updates
+elements <- schema$database$elements$taxonomic_updates
 
   sprintf("**Description:** %s.\n", elements$description) %>%
     stringr::str_replace_all("\\.\\.", "\\.") %>%
@@ -288,7 +288,7 @@ Both the original and the updated taxon names are included in the [`traits`](#tr
 ## Definitions
 
 ```{r}
-elements <- schema$austraits$elements$definitions
+elements <- schema$database$elements$definitions
 
   sprintf("**Description:** %s.\n", elements$description) %>%
     stringr::str_replace_all("\\.\\.", "\\.") %>%
@@ -315,7 +315,7 @@ for (trait in c("leaf_mass_per_area", "woodiness")) {
 ## Contributors {#contributors_table}
 
 ```{r}
-elements <- schema$austraits$elements$contributors
+elements <- schema$database$elements$contributors
 
   sprintf("**Description:** %s.\n", elements$description) %>%
     stringr::str_replace_all("\\.\\.", "\\.") %>%
@@ -351,7 +351,7 @@ A formatted version of the sources also exists within the table [methods](#metho
 ## Metadata
 
 ```{r}
-elements <- schema$austraits$elements$metadata
+elements <- schema$database$elements$metadata
 
   sprintf("**Description:** %s.\n", elements$description) %>%
     stringr::str_replace_all("\\.\\.", "\\.") %>%
@@ -363,7 +363,7 @@ elements <- schema$austraits$elements$metadata
 ## Build_info
 
 ```{r}
-elements <- schema$austraits$elements$build_info
+elements <- schema$database$elements$build_info
 
   sprintf("**Description:** %s.\n", elements$description) %>%
     stringr::str_replace_all("\\.\\.", "\\.") %>%

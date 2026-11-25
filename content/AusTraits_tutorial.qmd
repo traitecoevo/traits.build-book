@@ -521,7 +521,7 @@ The austraits function `join_methods` joins columns from the methods table to th
 First, check the schema file embedded within AusTraits to see what information is documented in each column:  
 
 ```{r, eval = TRUE}
-austraits$schema$austraits$elements$methods$elements %>% 
+austraits$schema$database$elements$methods$elements %>% 
   austraits::convert_list_to_df1()
 ```
 
@@ -558,7 +558,7 @@ The `{austraits}` function `join_taxa` joins columns from the `taxa` table to th
 First, check the schema file embedded within AusTraits to see what information is documented in each column:  
 
 ```{r, eval = TRUE}
-austraits$schema$austraits$elements$taxa$elements %>% 
+austraits$schema$database$elements$taxa$elements %>% 
   austraits::convert_list_to_df1()
 ```
 
@@ -589,7 +589,7 @@ The `{austraits}` function `join_taxonomic_updates` joins columns from the `taxo
 First, check the schema file embedded within AusTraits to see what information is documented in each column:  
 
 ```{r, eval = TRUE}
-austraits$schema$austraits$elements$taxonomic_updates$elements %>% 
+austraits$schema$database$elements$taxonomic_updates$elements %>% 
   austraits::convert_list_to_df1()
 ```
 
@@ -625,7 +625,7 @@ The `{austraits}` function `join_contributors` joins columns from the `contribut
 First, check the schema file embedded within AusTraits to see what information is documented in each column:  
 
 ```{r, eval = TRUE}
-austraits$schema$austraits$elements$contributors$elements %>% 
+austraits$schema$database$elements$contributors$elements %>% 
   austraits::convert_list_to_df1()
 ```
 
