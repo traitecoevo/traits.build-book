@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4f67ab1e4efc86feb5e21e0983fc9301.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-fd437c11ef914449285a5c26e0daa494.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -548,113 +548,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>#&gt; # A tibble: 6 × 5
 #&gt;   trait_name                    n_records n_dataset n_taxa percent_total
 #&gt;   &lt;chr&gt;                             &lt;int&gt;     &lt;int&gt;  &lt;int&gt;         &lt;dbl&gt;
-#&gt; 1 atmospheric_CO2_concentration       217         1     17       0.0024 
-#&gt; 2 bark_C_per_dry_mass                 159         1     17       0.00176
-#&gt; 3 bark_N_per_dry_mass                 159         1     17       0.00176
-#&gt; 4 bark_delta13C                       159         1     17       0.00176
-#&gt; 5 bark_delta15N                       159         1     17       0.00176
-#&gt; 6 bark_thickness                      198         2     17       0.00219</code></pre>
+#&gt; 1 atmospheric_CO2_concentration       217         1     17       0.00249
+#&gt; 2 bark_C_per_dry_mass                 159         1     17       0.00183
+#&gt; 3 bark_N_per_dry_mass                 159         1     17       0.00183
+#&gt; 4 bark_delta13C                       159         1     17       0.00183
+#&gt; 5 bark_delta15N                       159         1     17       0.00183
+#&gt; 6 bark_thickness                      198         2     17       0.00228</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise_database</span>(<span class="at">database =</span> austraits, <span class="at">var =</span>  <span class="st">"family"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 5
 #&gt;   family        n_records n_dataset n_taxa percent_total
 #&gt;   &lt;chr&gt;             &lt;int&gt;     &lt;int&gt;  &lt;int&gt;         &lt;dbl&gt;
-#&gt; 1 Acanthaceae         177         1     14     0.00195  
-#&gt; 2 Achariaceae          38         2      2     0.00042  
-#&gt; 3 Actinidiaceae        13         1      1     0.000144 
-#&gt; 4 Agapanthaceae         3         1      1     0.0000331
-#&gt; 5 Akaniaceae           11         1      1     0.000121 
-#&gt; 6 Alismataceae          1         1      1     0.000011</code></pre>
+#&gt; 1 Acanthaceae         148         1     14     0.0017   
+#&gt; 2 Achariaceae          32         2      2     0.000368 
+#&gt; 3 Actinidiaceae        10         1      1     0.000115 
+#&gt; 4 Agapanthaceae         3         1      1     0.0000345
+#&gt; 5 Akaniaceae           10         1      1     0.000115 
+#&gt; 6 Alismataceae          1         1      1     0.0000115</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise_database</span>(<span class="at">database =</span> austraits, <span class="at">var =</span>  <span class="st">"genus"</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 5
 #&gt;   genus       n_records n_dataset n_taxa percent_total
 #&gt;   &lt;chr&gt;           &lt;int&gt;     &lt;int&gt;  &lt;int&gt;         &lt;dbl&gt;
-#&gt; 1 Abroma             13         1      1     0.000144 
-#&gt; 2 Abrophyllum        13         1      1     0.000144 
-#&gt; 3 Abrus               9         2      1     0.0000994
-#&gt; 4 Abutilon           91         1      7     0.001    
-#&gt; 5 Acacia           5571        14    267     0.0615   
-#&gt; 6 Acalypha           65         1      5     0.000718</code></pre>
+#&gt; 1 Abroma             13         1      1      0.000149
+#&gt; 2 Abrophyllum        12         1      1      0.000138
+#&gt; 3 Abrus               8         2      1      0.000092
+#&gt; 4 Abutilon           79         1      7      0.000908
+#&gt; 5 Acacia           5520        14    267      0.0635  
+#&gt; 6 Acalypha           56         1      5      0.000644</code></pre>
 </div>
 </div>
 <p>All traits.build databases include definitions for all traits. Check out the dictionary if you want to learn more about trait’s that have been output by a <code>lookup_</code> or <code>summarise_</code> query.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>definitions <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; $accessory_cost_fraction
-#&gt; $accessory_cost_fraction$entity_URI
-#&gt; [1] "https://w3id.org/APD/traits/trait_0012221"
-#&gt; 
-#&gt; $accessory_cost_fraction$label
-#&gt; [1] "Seed accessory cost fraction"
-#&gt; 
-#&gt; $accessory_cost_fraction$description
-#&gt; [1] "A reproductive shoot system [PO:0025082] biomass allocation [EnvThes:21360] trait which is one minus the ratio [PATO:0001470] of total plant seed [PO:0009010] dry [PATO:0001824] mass [PATO:0000125] to total plant reproductive shoot system tissue dry mass where reproductive tissues include all flower buds [PO:0000056], flowers [PO:0009046], fruits [PO:0009001], dispersal [EnvThes:21038] tissues, and seeds produced during the developmental process involved in reproduction [GO:0003006].;The fraction of total reproductive investment required to mature a seed that is invested in non-seed tissues. It is calculated as one minus, the ratio of total biomass investment in seeds to total biomass investment in all reproductive tissues, including flower buds, flowers, fruits, dispersal tissues, aborted seeds, and successfully matured seeds."
-#&gt; 
-#&gt; $accessory_cost_fraction$type
-#&gt; [1] "numeric"
-#&gt; 
-#&gt; $accessory_cost_fraction$units
-#&gt; [1] "mg/mg"
-#&gt; 
-#&gt; $accessory_cost_fraction$allowed_values_min
-#&gt; [1] 0.01
-#&gt; 
-#&gt; $accessory_cost_fraction$allowed_values_max
-#&gt; [1] 1
-#&gt; 
-#&gt; $accessory_cost_fraction$structure_measured
-#&gt; [1] "reproductive shoot system; flower; fruit; seed"
-#&gt; 
-#&gt; $accessory_cost_fraction$keywords
-#&gt; [1] "biomass allocation; reproduction; accessory cost"
-#&gt; 
-#&gt; $accessory_cost_fraction$trait_group
-#&gt; [1] "reproductive shoot system morphology trait; plant morphology trait"
-#&gt; 
-#&gt; $accessory_cost_fraction$characteristic_measured
-#&gt; [1] "mass"
-#&gt; 
-#&gt; 
-#&gt; $accessory_cost_mass
-#&gt; $accessory_cost_mass$entity_URI
-#&gt; [1] "https://w3id.org/APD/traits/trait_0012222"
-#&gt; 
-#&gt; $accessory_cost_mass$label
-#&gt; [1] "Seed accessory cost mass"
-#&gt; 
-#&gt; $accessory_cost_mass$description
-#&gt; [1] "A reproductive shoot system [PO:0025082] biomass allocation [EnvThes:21360] trait which is the sum of the dry [PATO:0001824] mass [PATO:0000125] of all flower buds [PO:0000055], flowers [PO:0009046], fruits [PO:0009001], aborted seeds, and dispersal [EnvThes:21038] tissues produced during the developmental process involved in reproduction [GO:0003006], but excludes mature [PATO:0001701] seed [PO:0009010] dry mass.;The mass of seed accessory costs, which is the total biomass investment in all reproductive tissues, excluding biomass invested in successfully matured seeds; it includes all biomass invested in flower buds, flowers, fruits, dispersal tissues and aborted seeds."
-#&gt; 
-#&gt; $accessory_cost_mass$type
-#&gt; [1] "numeric"
-#&gt; 
-#&gt; $accessory_cost_mass$units
-#&gt; [1] "mg"
-#&gt; 
-#&gt; $accessory_cost_mass$allowed_values_min
-#&gt; [1] 0.01
-#&gt; 
-#&gt; $accessory_cost_mass$allowed_values_max
-#&gt; [1] 10000
-#&gt; 
-#&gt; $accessory_cost_mass$structure_measured
-#&gt; [1] "reproductive shoot system; flower; fruit; seed"
-#&gt; 
-#&gt; $accessory_cost_mass$keywords
-#&gt; [1] "biomass allocation; reproduction; accessory cost"
-#&gt; 
-#&gt; $accessory_cost_mass$trait_group
-#&gt; [1] "reproductive shoot system morphology trait; plant morphology trait"
-#&gt; 
-#&gt; $accessory_cost_mass$characteristic_measured
-#&gt; [1] "mass"
-#&gt; 
-#&gt; 
-#&gt; $atmospheric_CO2_concentration
+<pre><code>#&gt; $atmospheric_CO2_concentration
 #&gt; $atmospheric_CO2_concentration$entity_URI
 #&gt; [1] "https://w3id.org/APD/traits/trait_0020315"
 #&gt; 
@@ -686,112 +616,194 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt; [1] "atmospheric carbon dioxide; carbon dioxide"
 #&gt; 
 #&gt; $atmospheric_CO2_concentration$trait_group
-#&gt; [1] "carbon dioxide concentration trait; gas exchange trait; biological process trait, physiological process trait"
+#&gt; [1] "carbon dioxide concentration trait; gas exchange trait; photosynthetic trait; biological process trait, physiological process trait"
 #&gt; 
 #&gt; $atmospheric_CO2_concentration$characteristic_measured
 #&gt; [1] "concentration; mass fraction; ratio; proportion"
 #&gt; 
 #&gt; 
-#&gt; $bark_Al_per_dry_mass
-#&gt; $bark_Al_per_dry_mass$entity_URI
-#&gt; [1] "https://w3id.org/APD/traits/trait_0000612"
+#&gt; $bark_C_per_dry_mass
+#&gt; $bark_C_per_dry_mass$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0000616"
 #&gt; 
-#&gt; $bark_Al_per_dry_mass$label
-#&gt; [1] "Bark aluminium (Al) content per unit bark dry mass"
+#&gt; $bark_C_per_dry_mass$label
+#&gt; [1] "Bark carbon (C) content per unit bark dry mass"
 #&gt; 
-#&gt; $bark_Al_per_dry_mass$description
-#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of aluminium [CHEBI:28984] in bark [PO:0004518] to bark dry mass.;The ratio of the mass of aluminium in bark to bark dry mass."
+#&gt; $bark_C_per_dry_mass$description
+#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of carbon [CHEBI:27594] in bark [PO:0004518] to bark dry mass.;The ratio of the mass of carbon in bark to bark dry mass."
 #&gt; 
-#&gt; $bark_Al_per_dry_mass$type
+#&gt; $bark_C_per_dry_mass$type
 #&gt; [1] "numeric"
 #&gt; 
-#&gt; $bark_Al_per_dry_mass$units
+#&gt; $bark_C_per_dry_mass$units
 #&gt; [1] "mg/g"
 #&gt; 
-#&gt; $bark_Al_per_dry_mass$allowed_values_min
+#&gt; $bark_C_per_dry_mass$allowed_values_min
+#&gt; [1] 50
+#&gt; 
+#&gt; $bark_C_per_dry_mass$allowed_values_max
+#&gt; [1] 750
+#&gt; 
+#&gt; $bark_C_per_dry_mass$structure_measured
+#&gt; [1] "bark"
+#&gt; 
+#&gt; $bark_C_per_dry_mass$keywords
+#&gt; [1] "carbon atom"
+#&gt; 
+#&gt; $bark_C_per_dry_mass$trait_group
+#&gt; [1] "stem mineral and ion content trait; mineral and ion content trait; biochemical trait"
+#&gt; 
+#&gt; $bark_C_per_dry_mass$characteristic_measured
+#&gt; [1] "mass; mass fraction; ratio; proportion"
+#&gt; 
+#&gt; 
+#&gt; $bark_N_per_dry_mass
+#&gt; $bark_N_per_dry_mass$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0000638"
+#&gt; 
+#&gt; $bark_N_per_dry_mass$label
+#&gt; [1] "Bark nitrogen (N) content per unit bark dry mass"
+#&gt; 
+#&gt; $bark_N_per_dry_mass$description
+#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of nitrogen [CHEBI:25555] in bark [PO:0004518] to bark dry mass.;The ratio of the mass of nitrogen in bark to bark dry mass."
+#&gt; 
+#&gt; $bark_N_per_dry_mass$type
+#&gt; [1] "numeric"
+#&gt; 
+#&gt; $bark_N_per_dry_mass$units
+#&gt; [1] "mg/g"
+#&gt; 
+#&gt; $bark_N_per_dry_mass$allowed_values_min
+#&gt; [1] 0.1
+#&gt; 
+#&gt; $bark_N_per_dry_mass$allowed_values_max
+#&gt; [1] 100
+#&gt; 
+#&gt; $bark_N_per_dry_mass$structure_measured
+#&gt; [1] "bark"
+#&gt; 
+#&gt; $bark_N_per_dry_mass$keywords
+#&gt; [1] "nitrogen atom; macronutrient"
+#&gt; 
+#&gt; $bark_N_per_dry_mass$trait_group
+#&gt; [1] "stem mineral and ion content trait; mineral and ion content trait; biochemical trait"
+#&gt; 
+#&gt; $bark_N_per_dry_mass$characteristic_measured
+#&gt; [1] "mass; mass fraction; ratio; proportion"
+#&gt; 
+#&gt; 
+#&gt; $bark_delta13C
+#&gt; $bark_delta13C$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0003011"
+#&gt; 
+#&gt; $bark_delta13C$label
+#&gt; [1] "Bark stable carbon isotope composition (delta13C)"
+#&gt; 
+#&gt; $bark_delta13C$description
+#&gt; [1] "Carbon stable isotope ratio [ECSO:00001142], d13C [ECSO:00000669], of bark [PO:0004518].;Carbon stable isotope ratio, d13C, of bark."
+#&gt; 
+#&gt; $bark_delta13C$comments
+#&gt; [1] "delta13C is calculated as the ratio of, 13C/12C in a sample to 13C/12C in a standard, minus 1. The result is expressed in parts per thousand, commonly referred to as per mille. A more negative value for delta13C indicates the sample has a lower ratio of 13C/12C relative to the standard."
+#&gt; 
+#&gt; $bark_delta13C$type
+#&gt; [1] "numeric"
+#&gt; 
+#&gt; $bark_delta13C$units
+#&gt; [1] "{delta}[ppth]"
+#&gt; 
+#&gt; $bark_delta13C$allowed_values_min
+#&gt; [1] -50
+#&gt; 
+#&gt; $bark_delta13C$allowed_values_max
+#&gt; [1] 0
+#&gt; 
+#&gt; $bark_delta13C$structure_measured
+#&gt; [1] "bark"
+#&gt; 
+#&gt; $bark_delta13C$keywords
+#&gt; [1] "carbon stable isotope ratio; d13C; carbon-13 atom; isotope"
+#&gt; 
+#&gt; $bark_delta13C$trait_group
+#&gt; [1] "stable isotope ratio determination; biochemical trait"
+#&gt; 
+#&gt; $bark_delta13C$characteristic_measured
+#&gt; [1] "mass; mass fraction; ratio; proportion"
+#&gt; 
+#&gt; 
+#&gt; $bark_delta15N
+#&gt; $bark_delta15N$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0003031"
+#&gt; 
+#&gt; $bark_delta15N$label
+#&gt; [1] "Bark stable nitrogen isotope composition (delta15N)"
+#&gt; 
+#&gt; $bark_delta15N$description
+#&gt; [1] "Nitrogen stable isotope ratio [ECSO:00001737], d15N [ECSO:00001738], of bark [PO:0004518].;Nitrogen stable isotope ratio, d15N, of bark."
+#&gt; 
+#&gt; $bark_delta15N$comments
+#&gt; [1] "delta15N is calculated as the ratio of, 15N/14N in a sample to 15N/14N in a standard, minus 1. The result is expressed in parts per thousand, commonly referred to as per mille. A lower value for delta15N indicates the sample has a lower ratio of 15N/14N relative to the standard."
+#&gt; 
+#&gt; $bark_delta15N$type
+#&gt; [1] "numeric"
+#&gt; 
+#&gt; $bark_delta15N$units
+#&gt; [1] "{delta}[ppth]"
+#&gt; 
+#&gt; $bark_delta15N$allowed_values_min
+#&gt; [1] -25
+#&gt; 
+#&gt; $bark_delta15N$allowed_values_max
+#&gt; [1] 75
+#&gt; 
+#&gt; $bark_delta15N$structure_measured
+#&gt; [1] "bark"
+#&gt; 
+#&gt; $bark_delta15N$keywords
+#&gt; [1] "stable nitrogen isotope ratio; d15N; nitrogen-15 atom; isotope"
+#&gt; 
+#&gt; $bark_delta15N$trait_group
+#&gt; [1] "stable isotope ratio determination; biochemical trait"
+#&gt; 
+#&gt; $bark_delta15N$characteristic_measured
+#&gt; [1] "mass; mass fraction; ratio; proportion"
+#&gt; 
+#&gt; 
+#&gt; $bark_thickness
+#&gt; $bark_thickness$entity_URI
+#&gt; [1] "https://w3id.org/APD/traits/trait_0012011"
+#&gt; 
+#&gt; $bark_thickness$label
+#&gt; [1] "Bark thickness"
+#&gt; 
+#&gt; $bark_thickness$description
+#&gt; [1] "A bark morphology trait which is the thickness [PATO:0000915] of the bark [PO:0004518]. The corresponding stem [PO:0009047] diameter [PATO:0001334] should also be recorded so that a scaled measure, the bark thickness to stem diameter ratio, can also be calculated.;Thickness of the bark on the stem."
+#&gt; 
+#&gt; $bark_thickness$comments
+#&gt; [1] "The corresponding stem diameter should also be recorded so that a scaled measure, the bark thickness to stem diameter ratio, can also be calculated."
+#&gt; 
+#&gt; $bark_thickness$type
+#&gt; [1] "numeric"
+#&gt; 
+#&gt; $bark_thickness$units
+#&gt; [1] "mm"
+#&gt; 
+#&gt; $bark_thickness$allowed_values_min
 #&gt; [1] 0.01
 #&gt; 
-#&gt; $bark_Al_per_dry_mass$allowed_values_max
-#&gt; [1] 10
+#&gt; $bark_thickness$allowed_values_max
+#&gt; [1] 200
 #&gt; 
-#&gt; $bark_Al_per_dry_mass$structure_measured
+#&gt; $bark_thickness$structure_measured
 #&gt; [1] "bark"
 #&gt; 
-#&gt; $bark_Al_per_dry_mass$keywords
-#&gt; [1] "aluminium atom"
+#&gt; $bark_thickness$keywords
+#&gt; [1] "stem"
 #&gt; 
-#&gt; $bark_Al_per_dry_mass$trait_group
-#&gt; [1] "stem mineral and ion content trait; mineral and ion content trait; biochemical trait"
+#&gt; $bark_thickness$trait_group
+#&gt; [1] "bark morphology trait; plant structure morphology trait; plant morphology trait"
 #&gt; 
-#&gt; $bark_Al_per_dry_mass$characteristic_measured
-#&gt; [1] "mass; mass fraction; ratio; proportion"
-#&gt; 
-#&gt; 
-#&gt; $bark_ash_per_dry_mass
-#&gt; $bark_ash_per_dry_mass$entity_URI
-#&gt; [1] "https://w3id.org/APD/traits/trait_0002824"
-#&gt; 
-#&gt; $bark_ash_per_dry_mass$label
-#&gt; [1] "Bark ash content per unit bark dry mass"
-#&gt; 
-#&gt; $bark_ash_per_dry_mass$description
-#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of bark [PO:0004518] ash [ENVO:02000090] remaining after a combustion process [ENVO:01000839] to the bark dry mass before the combustion process.;The ratio of the mass of bark ash remaining after a combustion process to the bark dry mass before the combustion process."
-#&gt; 
-#&gt; $bark_ash_per_dry_mass$type
-#&gt; [1] "numeric"
-#&gt; 
-#&gt; $bark_ash_per_dry_mass$units
-#&gt; [1] "g/g"
-#&gt; 
-#&gt; $bark_ash_per_dry_mass$allowed_values_min
-#&gt; [1] 1e-04
-#&gt; 
-#&gt; $bark_ash_per_dry_mass$allowed_values_max
-#&gt; [1] 1
-#&gt; 
-#&gt; $bark_ash_per_dry_mass$structure_measured
-#&gt; [1] "bark"
-#&gt; 
-#&gt; $bark_ash_per_dry_mass$keywords
-#&gt; [1] "ash; combustion process; fire"
-#&gt; 
-#&gt; $bark_ash_per_dry_mass$characteristic_measured
-#&gt; [1] "mass; mass fraction; ratio; proportion"
-#&gt; 
-#&gt; 
-#&gt; $bark_B_per_dry_mass
-#&gt; $bark_B_per_dry_mass$entity_URI
-#&gt; [1] "https://w3id.org/APD/traits/trait_0000614"
-#&gt; 
-#&gt; $bark_B_per_dry_mass$label
-#&gt; [1] "Bark boron (B) content per unit bark dry mass"
-#&gt; 
-#&gt; $bark_B_per_dry_mass$description
-#&gt; [1] "The ratio [PATO:0001470] of the mass [PATO:0000125] of boron [CHEBI:27560] in bark [PO:0004518] to bark dry mass.;The ratio of the mass of boron in bark to bark dry mass."
-#&gt; 
-#&gt; $bark_B_per_dry_mass$type
-#&gt; [1] "numeric"
-#&gt; 
-#&gt; $bark_B_per_dry_mass$units
-#&gt; [1] "mg/g"
-#&gt; 
-#&gt; $bark_B_per_dry_mass$allowed_values_min
-#&gt; [1] 0.001
-#&gt; 
-#&gt; $bark_B_per_dry_mass$allowed_values_max
-#&gt; [1] 1
-#&gt; 
-#&gt; $bark_B_per_dry_mass$structure_measured
-#&gt; [1] "bark"
-#&gt; 
-#&gt; $bark_B_per_dry_mass$keywords
-#&gt; [1] "boron atom; micronutrient"
-#&gt; 
-#&gt; $bark_B_per_dry_mass$trait_group
-#&gt; [1] "stem mineral and ion content trait; mineral and ion content trait; biochemical trait"
-#&gt; 
-#&gt; $bark_B_per_dry_mass$characteristic_measured
-#&gt; [1] "mass; mass fraction; ratio; proportion"</code></pre>
+#&gt; $bark_thickness$characteristic_measured
+#&gt; [1] "thickness"</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>austraits<span class="sc">$</span>definitions[[<span class="st">"leaf_area"</span>]] <span class="sc">%&gt;%</span> convert_list_to_df1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -808,7 +820,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #&gt;  8 allowed_values_max      1e+07                                                
 #&gt;  9 structure_measured      leaf                                                 
 #&gt; 10 keywords                leaf lamina; petiole; leaflet; cladode; phyllode     
-#&gt; 11 trait_group             leaf size trait; leaf morphology trait; plant morpho…
+#&gt; 11 trait_group             leaf size trait; leaf morphology trait; plant struct…
 #&gt; 12 characteristic_measured area; 2-D extent; size</code></pre>
 </div>
 </div>
@@ -826,18 +838,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>subset_data<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 26
-#&gt;   dataset_id     taxon_name    observation_id trait_name value unit  entity_type
-#&gt;   &lt;chr&gt;          &lt;chr&gt;         &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt; 1 Falster_2005_2 Acacia longi… 01             huber_val… 0.00… mm2{… population 
-#&gt; 2 Falster_2005_2 Acacia longi… 01             huber_val… 0.00… mm2{… population 
-#&gt; 3 Falster_2005_2 Acacia longi… 01             huber_val… 0.00… mm2{… population 
-#&gt; 4 Falster_2005_2 Acacia longi… 01             huber_val… 0.00… mm2{… population 
-#&gt; 5 Falster_2005_2 Acacia longi… 01             leaf_N_pe… 23.2  mg/g  population 
-#&gt; 6 Falster_2005_2 Acacia longi… 01             leaf_area  1761  mm2   population 
-#&gt; # ℹ 19 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
-#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
-#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
-#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt;   dataset_id     source_id      taxon_name observation_id trait_name value unit 
+#&gt;   &lt;chr&gt;          &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+#&gt; 1 Falster_2005_2 Falster_2005_2 Acacia lo… 01             huber_val… 0.00… mm2{…
+#&gt; 2 Falster_2005_2 Falster_2005_2 Acacia lo… 01             huber_val… 0.00… mm2{…
+#&gt; 3 Falster_2005_2 Falster_2005_2 Acacia lo… 01             huber_val… 0.00… mm2{…
+#&gt; 4 Falster_2005_2 Falster_2005_2 Acacia lo… 01             huber_val… 0.00… mm2{…
+#&gt; 5 Falster_2005_2 Falster_2005_2 Acacia lo… 01             leaf_N_pe… 23.2  mg/g 
+#&gt; 6 Falster_2005_2 Falster_2005_2 Acacia lo… 01             leaf_area  1761  mm2  
+#&gt; # ℹ 19 more variables: entity_type &lt;chr&gt;, value_type &lt;chr&gt;,
+#&gt; #   basis_of_value &lt;chr&gt;, replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;,
+#&gt; #   life_stage &lt;chr&gt;, population_id &lt;chr&gt;, individual_id &lt;chr&gt;,
+#&gt; #   repeat_measurements_id &lt;chr&gt;, temporal_context_id &lt;chr&gt;, location_id &lt;chr&gt;,
 #&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
 #&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
 #&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;</code></pre>
@@ -902,18 +914,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_wood_dens<span class="sc">$</span>traits)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 26
-#&gt;   dataset_id  taxon_name       observation_id trait_name value unit  entity_type
-#&gt;   &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt; 1 Apgaua_2017 Aglaia meridion… 001            wood_dens… 0.64… mg/m… individual 
-#&gt; 2 Apgaua_2017 Aleurites rocki… 003            wood_dens… 0.50… mg/m… individual 
-#&gt; 3 Apgaua_2017 Alphitonia petr… 005            wood_dens… 0.62… mg/m… individual 
-#&gt; 4 Apgaua_2017 Alstonia schola… 007            wood_dens… 0.361 mg/m… individual 
-#&gt; 5 Apgaua_2017 Amaracarpus nem… 009            wood_dens… 0.59… mg/m… individual 
-#&gt; 6 Apgaua_2017 Antirhea tenuif… 013            wood_dens… 0.53… mg/m… individual 
-#&gt; # ℹ 19 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
-#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
-#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
-#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt;   dataset_id  source_id   taxon_name       observation_id trait_name value unit 
+#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+#&gt; 1 Apgaua_2017 Apgaua_2017 Aglaia meridion… 001            wood_dens… 0.64… mg/m…
+#&gt; 2 Apgaua_2017 Apgaua_2017 Aleurites rocki… 003            wood_dens… 0.50… mg/m…
+#&gt; 3 Apgaua_2017 Apgaua_2017 Alphitonia petr… 005            wood_dens… 0.62… mg/m…
+#&gt; 4 Apgaua_2017 Apgaua_2017 Alstonia schola… 007            wood_dens… 0.361 mg/m…
+#&gt; 5 Apgaua_2017 Apgaua_2017 Amaracarpus nem… 009            wood_dens… 0.59… mg/m…
+#&gt; 6 Apgaua_2017 Apgaua_2017 Antirhea tenuif… 013            wood_dens… 0.53… mg/m…
+#&gt; # ℹ 19 more variables: entity_type &lt;chr&gt;, value_type &lt;chr&gt;,
+#&gt; #   basis_of_value &lt;chr&gt;, replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;,
+#&gt; #   life_stage &lt;chr&gt;, population_id &lt;chr&gt;, individual_id &lt;chr&gt;,
+#&gt; #   repeat_measurements_id &lt;chr&gt;, temporal_context_id &lt;chr&gt;, location_id &lt;chr&gt;,
 #&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
 #&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
 #&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;</code></pre>
@@ -1033,14 +1045,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(austraits<span class="sc">$</span>methods)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;  [1] "dataset_id"                       "trait_name"                      
-#&gt;  [3] "methods"                          "method_id"                       
-#&gt;  [5] "description"                      "sampling_strategy"               
-#&gt;  [7] "source_primary_key"               "source_primary_type"             
-#&gt;  [9] "source_primary_citation"          "source_secondary_key"            
-#&gt; [11] "source_secondary_citation"        "source_original_dataset_key"     
-#&gt; [13] "source_original_dataset_citation" "data_collectors"                 
-#&gt; [15] "assistants"                       "dataset_curators"</code></pre>
+<pre><code>#&gt;  [1] "dataset_id"          "trait_name"          "methods"            
+#&gt;  [4] "method_id"           "description"         "sampling_strategy"  
+#&gt;  [7] "dataset_id_type"     "dataset_id_citation" "secondary_id"       
+#&gt; [10] "secondary_citation"  "data_collectors"     "assistants"         
+#&gt; [13] "dataset_curators"</code></pre>
 </div>
 </div>
 <p>Any of the extract functions can be linked together to output a more precise subset of data.</p>
@@ -1062,18 +1071,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_location_coordinates)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 29
-#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
-#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; # ℹ 22 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
-#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
-#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
-#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt;   dataset_id source_id taxon_name          observation_id trait_name value unit 
+#&gt;   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;               &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+#&gt; 1 ABRS_1981  ABRS_1981 Acanthocarpus cana… 0001           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 2 ABRS_1981  ABRS_1981 Acanthocarpus humi… 0002           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 3 ABRS_1981  ABRS_1981 Acanthocarpus parv… 0003           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 4 ABRS_1981  ABRS_1981 Acanthocarpus prei… 0004           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 5 ABRS_1981  ABRS_1981 Acanthocarpus robu… 0005           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 6 ABRS_1981  ABRS_1981 Acanthocarpus rupe… 0006           leaf_comp… simp… &lt;NA&gt; 
+#&gt; # ℹ 22 more variables: entity_type &lt;chr&gt;, value_type &lt;chr&gt;,
+#&gt; #   basis_of_value &lt;chr&gt;, replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;,
+#&gt; #   life_stage &lt;chr&gt;, population_id &lt;chr&gt;, individual_id &lt;chr&gt;,
+#&gt; #   repeat_measurements_id &lt;chr&gt;, temporal_context_id &lt;chr&gt;, location_id &lt;chr&gt;,
 #&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
 #&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
 #&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, location_name &lt;chr&gt;, …</code></pre>
@@ -1082,18 +1091,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_location_properties)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 28
-#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
-#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; # ℹ 21 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
-#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
-#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
-#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt;   dataset_id source_id taxon_name          observation_id trait_name value unit 
+#&gt;   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;               &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+#&gt; 1 ABRS_1981  ABRS_1981 Acanthocarpus cana… 0001           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 2 ABRS_1981  ABRS_1981 Acanthocarpus humi… 0002           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 3 ABRS_1981  ABRS_1981 Acanthocarpus parv… 0003           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 4 ABRS_1981  ABRS_1981 Acanthocarpus prei… 0004           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 5 ABRS_1981  ABRS_1981 Acanthocarpus robu… 0005           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 6 ABRS_1981  ABRS_1981 Acanthocarpus rupe… 0006           leaf_comp… simp… &lt;NA&gt; 
+#&gt; # ℹ 21 more variables: entity_type &lt;chr&gt;, value_type &lt;chr&gt;,
+#&gt; #   basis_of_value &lt;chr&gt;, replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;,
+#&gt; #   life_stage &lt;chr&gt;, population_id &lt;chr&gt;, individual_id &lt;chr&gt;,
+#&gt; #   repeat_measurements_id &lt;chr&gt;, temporal_context_id &lt;chr&gt;, location_id &lt;chr&gt;,
 #&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
 #&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
 #&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, location_name &lt;chr&gt;, …</code></pre>
@@ -1103,18 +1112,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> <span class="fu">join_location_properties</span>(<span class="at">format =</span> <span class="st">"many_columns"</span>, <span class="at">vars =</span> temperature_properties))<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 32
-#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
-#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; # ℹ 25 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
-#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
-#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
-#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt;   dataset_id source_id taxon_name          observation_id trait_name value unit 
+#&gt;   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;               &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+#&gt; 1 ABRS_1981  ABRS_1981 Acanthocarpus cana… 0001           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 2 ABRS_1981  ABRS_1981 Acanthocarpus humi… 0002           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 3 ABRS_1981  ABRS_1981 Acanthocarpus parv… 0003           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 4 ABRS_1981  ABRS_1981 Acanthocarpus prei… 0004           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 5 ABRS_1981  ABRS_1981 Acanthocarpus robu… 0005           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 6 ABRS_1981  ABRS_1981 Acanthocarpus rupe… 0006           leaf_comp… simp… &lt;NA&gt; 
+#&gt; # ℹ 25 more variables: entity_type &lt;chr&gt;, value_type &lt;chr&gt;,
+#&gt; #   basis_of_value &lt;chr&gt;, replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;,
+#&gt; #   life_stage &lt;chr&gt;, population_id &lt;chr&gt;, individual_id &lt;chr&gt;,
+#&gt; #   repeat_measurements_id &lt;chr&gt;, temporal_context_id &lt;chr&gt;, location_id &lt;chr&gt;,
 #&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
 #&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
 #&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, location_name &lt;chr&gt;, …</code></pre>
@@ -1123,18 +1132,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_context_properties)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 31
-#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
-#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; # ℹ 24 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
-#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
-#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
-#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt;   dataset_id source_id taxon_name          observation_id trait_name value unit 
+#&gt;   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;               &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+#&gt; 1 ABRS_1981  ABRS_1981 Acanthocarpus cana… 0001           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 2 ABRS_1981  ABRS_1981 Acanthocarpus humi… 0002           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 3 ABRS_1981  ABRS_1981 Acanthocarpus parv… 0003           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 4 ABRS_1981  ABRS_1981 Acanthocarpus prei… 0004           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 5 ABRS_1981  ABRS_1981 Acanthocarpus robu… 0005           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 6 ABRS_1981  ABRS_1981 Acanthocarpus rupe… 0006           leaf_comp… simp… &lt;NA&gt; 
+#&gt; # ℹ 24 more variables: entity_type &lt;chr&gt;, value_type &lt;chr&gt;,
+#&gt; #   basis_of_value &lt;chr&gt;, replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;,
+#&gt; #   life_stage &lt;chr&gt;, population_id &lt;chr&gt;, individual_id &lt;chr&gt;,
+#&gt; #   repeat_measurements_id &lt;chr&gt;, temporal_context_id &lt;chr&gt;, location_id &lt;chr&gt;,
 #&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
 #&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
 #&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, …</code></pre>
@@ -1144,18 +1153,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>(austraits <span class="sc">%&gt;%</span> <span class="fu">join_context_properties</span>(<span class="at">format =</span> <span class="st">"many_columns"</span>, <span class="at">vars =</span> fire_properties, <span class="at">include_description =</span> <span class="cn">TRUE</span>))<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 27
-#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
-#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus ca… 0001           seed_leng… 3     mm    species    
-#&gt; 3 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 4 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 6 ABRS_1981  Acanthocarpus pr… 0004           seed_leng… 4     mm    species    
-#&gt; # ℹ 20 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
-#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
-#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
-#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt;   dataset_id source_id taxon_name          observation_id trait_name value unit 
+#&gt;   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;               &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+#&gt; 1 ABRS_1981  ABRS_1981 Acanthocarpus cana… 0001           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 2 ABRS_1981  ABRS_1981 Acanthocarpus cana… 0001           seed_leng… 3     mm   
+#&gt; 3 ABRS_1981  ABRS_1981 Acanthocarpus humi… 0002           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 4 ABRS_1981  ABRS_1981 Acanthocarpus parv… 0003           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 5 ABRS_1981  ABRS_1981 Acanthocarpus prei… 0004           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 6 ABRS_1981  ABRS_1981 Acanthocarpus prei… 0004           seed_leng… 4     mm   
+#&gt; # ℹ 20 more variables: entity_type &lt;chr&gt;, value_type &lt;chr&gt;,
+#&gt; #   basis_of_value &lt;chr&gt;, replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;,
+#&gt; #   life_stage &lt;chr&gt;, population_id &lt;chr&gt;, individual_id &lt;chr&gt;,
+#&gt; #   repeat_measurements_id &lt;chr&gt;, temporal_context_id &lt;chr&gt;, location_id &lt;chr&gt;,
 #&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
 #&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
 #&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, …</code></pre>
@@ -1164,18 +1173,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_methods)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 27
-#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
-#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; # ℹ 20 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
-#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
-#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
-#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt;   dataset_id source_id taxon_name          observation_id trait_name value unit 
+#&gt;   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;               &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+#&gt; 1 ABRS_1981  ABRS_1981 Acanthocarpus cana… 0001           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 2 ABRS_1981  ABRS_1981 Acanthocarpus humi… 0002           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 3 ABRS_1981  ABRS_1981 Acanthocarpus parv… 0003           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 4 ABRS_1981  ABRS_1981 Acanthocarpus prei… 0004           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 5 ABRS_1981  ABRS_1981 Acanthocarpus robu… 0005           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 6 ABRS_1981  ABRS_1981 Acanthocarpus rupe… 0006           leaf_comp… simp… &lt;NA&gt; 
+#&gt; # ℹ 20 more variables: entity_type &lt;chr&gt;, value_type &lt;chr&gt;,
+#&gt; #   basis_of_value &lt;chr&gt;, replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;,
+#&gt; #   life_stage &lt;chr&gt;, population_id &lt;chr&gt;, individual_id &lt;chr&gt;,
+#&gt; #   repeat_measurements_id &lt;chr&gt;, temporal_context_id &lt;chr&gt;, location_id &lt;chr&gt;,
 #&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
 #&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
 #&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, methods &lt;chr&gt;</code></pre>
@@ -1184,18 +1193,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_taxa)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 30
-#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
-#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; # ℹ 23 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
-#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
-#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
-#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt;   dataset_id source_id taxon_name          observation_id trait_name value unit 
+#&gt;   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;               &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+#&gt; 1 ABRS_1981  ABRS_1981 Acanthocarpus cana… 0001           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 2 ABRS_1981  ABRS_1981 Acanthocarpus humi… 0002           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 3 ABRS_1981  ABRS_1981 Acanthocarpus parv… 0003           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 4 ABRS_1981  ABRS_1981 Acanthocarpus prei… 0004           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 5 ABRS_1981  ABRS_1981 Acanthocarpus robu… 0005           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 6 ABRS_1981  ABRS_1981 Acanthocarpus rupe… 0006           leaf_comp… simp… &lt;NA&gt; 
+#&gt; # ℹ 23 more variables: entity_type &lt;chr&gt;, value_type &lt;chr&gt;,
+#&gt; #   basis_of_value &lt;chr&gt;, replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;,
+#&gt; #   life_stage &lt;chr&gt;, population_id &lt;chr&gt;, individual_id &lt;chr&gt;,
+#&gt; #   repeat_measurements_id &lt;chr&gt;, temporal_context_id &lt;chr&gt;, location_id &lt;chr&gt;,
 #&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
 #&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
 #&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, …</code></pre>
@@ -1204,18 +1213,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_taxonomic_updates)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 27
-#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
-#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; # ℹ 20 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
-#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
-#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
-#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt;   dataset_id source_id taxon_name          observation_id trait_name value unit 
+#&gt;   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;               &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+#&gt; 1 ABRS_1981  ABRS_1981 Acanthocarpus cana… 0001           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 2 ABRS_1981  ABRS_1981 Acanthocarpus humi… 0002           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 3 ABRS_1981  ABRS_1981 Acanthocarpus parv… 0003           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 4 ABRS_1981  ABRS_1981 Acanthocarpus prei… 0004           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 5 ABRS_1981  ABRS_1981 Acanthocarpus robu… 0005           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 6 ABRS_1981  ABRS_1981 Acanthocarpus rupe… 0006           leaf_comp… simp… &lt;NA&gt; 
+#&gt; # ℹ 20 more variables: entity_type &lt;chr&gt;, value_type &lt;chr&gt;,
+#&gt; #   basis_of_value &lt;chr&gt;, replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;,
+#&gt; #   life_stage &lt;chr&gt;, population_id &lt;chr&gt;, individual_id &lt;chr&gt;,
+#&gt; #   repeat_measurements_id &lt;chr&gt;, temporal_context_id &lt;chr&gt;, location_id &lt;chr&gt;,
 #&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
 #&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
 #&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, aligned_name &lt;chr&gt;</code></pre>
@@ -1224,18 +1233,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>(data_leaf <span class="sc">%&gt;%</span> join_contributors)<span class="sc">$</span>traits <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 6 × 27
-#&gt;   dataset_id taxon_name        observation_id trait_name value unit  entity_type
-#&gt;   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt; 1 ABRS_1981  Acanthocarpus ca… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 2 ABRS_1981  Acanthocarpus hu… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 3 ABRS_1981  Acanthocarpus pa… 0003           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 4 ABRS_1981  Acanthocarpus pr… 0004           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 5 ABRS_1981  Acanthocarpus ro… 0005           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; 6 ABRS_1981  Acanthocarpus ru… 0006           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt; # ℹ 20 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
-#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
-#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
-#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt;   dataset_id source_id taxon_name          observation_id trait_name value unit 
+#&gt;   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;               &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+#&gt; 1 ABRS_1981  ABRS_1981 Acanthocarpus cana… 0001           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 2 ABRS_1981  ABRS_1981 Acanthocarpus humi… 0002           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 3 ABRS_1981  ABRS_1981 Acanthocarpus parv… 0003           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 4 ABRS_1981  ABRS_1981 Acanthocarpus prei… 0004           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 5 ABRS_1981  ABRS_1981 Acanthocarpus robu… 0005           leaf_comp… simp… &lt;NA&gt; 
+#&gt; 6 ABRS_1981  ABRS_1981 Acanthocarpus rupe… 0006           leaf_comp… simp… &lt;NA&gt; 
+#&gt; # ℹ 20 more variables: entity_type &lt;chr&gt;, value_type &lt;chr&gt;,
+#&gt; #   basis_of_value &lt;chr&gt;, replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;,
+#&gt; #   life_stage &lt;chr&gt;, population_id &lt;chr&gt;, individual_id &lt;chr&gt;,
+#&gt; #   repeat_measurements_id &lt;chr&gt;, temporal_context_id &lt;chr&gt;, location_id &lt;chr&gt;,
 #&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
 #&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;,
 #&gt; #   method_context_id &lt;chr&gt;, original_name &lt;chr&gt;, data_contributors &lt;chr&gt;</code></pre>
@@ -1259,24 +1268,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">methods =</span> <span class="fu">c</span>(<span class="st">"methods"</span>))</span>
 <span id="cb58-15"><a href="#cb58-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 58,507 × 45
-#&gt;    dataset_id taxon_name       observation_id trait_name value unit  entity_type
-#&gt;    &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt;  1 ABRS_1981  Acanthocarpus c… 0001           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt;  2 ABRS_1981  Acanthocarpus h… 0002           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt;  3 ABRS_1981  Acanthocarpus p… 0003           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt;  4 ABRS_1981  Acanthocarpus p… 0004           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt;  5 ABRS_1981  Acanthocarpus r… 0005           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt;  6 ABRS_1981  Acanthocarpus r… 0006           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt;  7 ABRS_1981  Acanthocarpus v… 0007           leaf_comp… simp… &lt;NA&gt;  species    
-#&gt;  8 ABRS_1981  Acer pseudoplat… 0008           leaf_phen… deci… &lt;NA&gt;  species    
-#&gt;  9 ABRS_1981  Acidonia microc… 0009           leaf_comp… comp… &lt;NA&gt;  species    
-#&gt; 10 ABRS_1981  Callitris acumi… 0010           leaf_comp… simp… &lt;NA&gt;  species    
+<pre><code>#&gt; # A traits.build_flat table: 58,507 × 45
+#&gt; # From:                      AusTraits: a curated plant trait database for the
+#&gt; #   Australian flora, version 7.0.0.9000, doi:10.5281/zenodo.3568417
+#&gt;    dataset_id source_id taxon_name         observation_id trait_name value unit 
+#&gt;    &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;              &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+#&gt;  1 ABRS_1981  ABRS_1981 Acanthocarpus can… 0001           leaf_comp… simp… &lt;NA&gt; 
+#&gt;  2 ABRS_1981  ABRS_1981 Acanthocarpus hum… 0002           leaf_comp… simp… &lt;NA&gt; 
+#&gt;  3 ABRS_1981  ABRS_1981 Acanthocarpus par… 0003           leaf_comp… simp… &lt;NA&gt; 
+#&gt;  4 ABRS_1981  ABRS_1981 Acanthocarpus pre… 0004           leaf_comp… simp… &lt;NA&gt; 
+#&gt;  5 ABRS_1981  ABRS_1981 Acanthocarpus rob… 0005           leaf_comp… simp… &lt;NA&gt; 
+#&gt;  6 ABRS_1981  ABRS_1981 Acanthocarpus rup… 0006           leaf_comp… simp… &lt;NA&gt; 
+#&gt;  7 ABRS_1981  ABRS_1981 Acanthocarpus ver… 0007           leaf_comp… simp… &lt;NA&gt; 
+#&gt;  8 ABRS_1981  ABRS_1981 Acer pseudoplatan… 0008           leaf_phen… deci… &lt;NA&gt; 
+#&gt;  9 ABRS_1981  ABRS_1981 Acidonia microcar… 0009           leaf_comp… comp… &lt;NA&gt; 
+#&gt; 10 ABRS_1981  ABRS_1981 Callitris acumina… 0010           leaf_comp… simp… &lt;NA&gt; 
 #&gt; # ℹ 58,497 more rows
-#&gt; # ℹ 38 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
-#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
-#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
-#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+#&gt; # ℹ 38 more variables: entity_type &lt;chr&gt;, value_type &lt;chr&gt;,
+#&gt; #   basis_of_value &lt;chr&gt;, replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;,
+#&gt; #   life_stage &lt;chr&gt;, population_id &lt;chr&gt;, individual_id &lt;chr&gt;,
+#&gt; #   repeat_measurements_id &lt;chr&gt;, temporal_context_id &lt;chr&gt;, location_id &lt;chr&gt;,
 #&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
 #&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;, …</code></pre>
 </div>
@@ -1353,24 +1364,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>bound_values2 <span class="sc">%&gt;%</span></span>
 <span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_trait_values</span>(., austraits<span class="sc">$</span>definitions)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; # A tibble: 1,651 × 26
-#&gt;    dataset_id taxon_name       observation_id trait_name value unit  entity_type
-#&gt;    &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-#&gt;  1 ABRS_1981  Acanthocarpus c… 0001           seed_leng… 3     mm    species    
-#&gt;  2 ABRS_1981  Acanthocarpus p… 0004           seed_leng… 5     mm    species    
-#&gt;  3 ABRS_1981  Acanthocarpus p… 0004           seed_leng… 4     mm    species    
-#&gt;  4 ABRS_1981  Acanthocarpus r… 0006           seed_leng… 2.5   mm    species    
-#&gt;  5 ABRS_1981  Adenanthos apic… 0014           leaf_leng… 20    mm    species    
-#&gt;  6 ABRS_1981  Adenanthos apic… 0014           leaf_leng… 5     mm    species    
-#&gt;  7 ABRS_1981  Adenanthos apic… 0014           leaf_width 0.5   mm    species    
-#&gt;  8 ABRS_1981  Adenanthos apic… 0014           plant_hei… 0.5   m     species    
-#&gt;  9 ABRS_1981  Adenanthos dobs… 0025           leaf_leng… 10    mm    species    
-#&gt; 10 ABRS_1981  Adenanthos dobs… 0025           leaf_width 4     mm    species    
-#&gt; # ℹ 1,641 more rows
-#&gt; # ℹ 19 more variables: value_type &lt;chr&gt;, basis_of_value &lt;chr&gt;,
-#&gt; #   replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;, life_stage &lt;chr&gt;,
-#&gt; #   population_id &lt;chr&gt;, individual_id &lt;chr&gt;, repeat_measurements_id &lt;chr&gt;,
-#&gt; #   temporal_context_id &lt;chr&gt;, source_id &lt;chr&gt;, location_id &lt;chr&gt;,
+<pre><code>#&gt; # A tibble: 1,647 × 26
+#&gt;    dataset_id source_id taxon_name         observation_id trait_name value unit 
+#&gt;    &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;              &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
+#&gt;  1 ABRS_1981  ABRS_1981 Acanthocarpus can… 0001           seed_leng… 3     mm   
+#&gt;  2 ABRS_1981  ABRS_1981 Acanthocarpus pre… 0004           seed_leng… 5     mm   
+#&gt;  3 ABRS_1981  ABRS_1981 Acanthocarpus pre… 0004           seed_leng… 4     mm   
+#&gt;  4 ABRS_1981  ABRS_1981 Acanthocarpus rup… 0006           seed_leng… 2.5   mm   
+#&gt;  5 ABRS_1981  ABRS_1981 Adenanthos apicul… 0014           leaf_leng… 20    mm   
+#&gt;  6 ABRS_1981  ABRS_1981 Adenanthos apicul… 0014           leaf_leng… 5     mm   
+#&gt;  7 ABRS_1981  ABRS_1981 Adenanthos apicul… 0014           leaf_width 0.5   mm   
+#&gt;  8 ABRS_1981  ABRS_1981 Adenanthos apicul… 0014           plant_hei… 0.5   m    
+#&gt;  9 ABRS_1981  ABRS_1981 Adenanthos dobson… 0025           leaf_leng… 10    mm   
+#&gt; 10 ABRS_1981  ABRS_1981 Adenanthos dobson… 0025           leaf_width 4     mm   
+#&gt; # ℹ 1,637 more rows
+#&gt; # ℹ 19 more variables: entity_type &lt;chr&gt;, value_type &lt;chr&gt;,
+#&gt; #   basis_of_value &lt;chr&gt;, replicates &lt;chr&gt;, basis_of_record &lt;chr&gt;,
+#&gt; #   life_stage &lt;chr&gt;, population_id &lt;chr&gt;, individual_id &lt;chr&gt;,
+#&gt; #   repeat_measurements_id &lt;chr&gt;, temporal_context_id &lt;chr&gt;, location_id &lt;chr&gt;,
 #&gt; #   entity_context_id &lt;chr&gt;, plot_context_id &lt;chr&gt;, treatment_context_id &lt;chr&gt;,
 #&gt; #   collection_date &lt;chr&gt;, measurement_remarks &lt;chr&gt;, method_id &lt;chr&gt;, …</code></pre>
 </div>
